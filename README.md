@@ -12,8 +12,3 @@ npm run docs:dev
 ```bash
 npm run docs:build
 ```
-
-## Deploy
-Host `docs/.vitepress/dist` on any static host (GitHub Pages, Netlify, S3, etc).
-
-*Generated 2025-08-19.*
