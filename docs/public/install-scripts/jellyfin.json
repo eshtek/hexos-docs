@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsCapacity)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Media)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Photos)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Music)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Movies)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Shows)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Videos)",
+      "network_share": true
+    },
+    "$LOCATION(ApplicationsPerformance)/jellyfin/config",
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/jellyfin/config/log",
+      "posix": true
+    },
+    "$LOCATION(ApplicationsCapacity)/jellyfin/cache",
+    "$LOCATION(ApplicationsPerformance)/jellyfin/transcodes"
+  ],
+  "app_values": {
+    "storage": {
+      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/jellyfin/config)",
+      "cache": "$HOST_PATH($LOCATION(ApplicationsCapacity)/jellyfin/cache)",
+      "transcodes": "$HOST_PATH($LOCATION(ApplicationsPerformance)/jellyfin/transcodes)",
+      "additional_storage": [
+        "$MOUNTED_HOST_PATH($LOCATION(Media), /media)",
+        "$MOUNTED_HOST_PATH($LOCATION(Photos), /photos)",
+        "$MOUNTED_HOST_PATH($LOCATION(Music), /music)",
+        "$MOUNTED_HOST_PATH($LOCATION(Movies), /movies)",
+        "$MOUNTED_HOST_PATH($LOCATION(Shows), /shows)",
+        "$MOUNTED_HOST_PATH($LOCATION(Videos), /videos)"
+      ]
+    }
+  }
+}

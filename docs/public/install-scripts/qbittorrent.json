@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Downloads)",
+      "network_share": true
+    },
+    "$LOCATION(ApplicationsPerformance)/qbittorrent/config"
+  ],
+  "app_values": {
+    "storage": {
+      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/qbittorrent/config)",
+      "downloads": "$HOST_PATH($LOCATION(Downloads))"
+    }
+  }
+}

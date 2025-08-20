@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsCapacity)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Photos)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Music)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Movies)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Shows)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Videos)",
+      "network_share": true
+    },
+    "$LOCATION(ApplicationsCapacity)/immich/data",
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/immich/postgres_data",
+      "posix": true
+    }
+  ],
+  "ensure_permissions_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/immich/postgres_data",
+      "username": "netdata",
+      "access": "read",
+      "posix": {
+        "groupname": "docker"
+      }
+    }
+  ],
+  "app_values": {
+    "release_name": "immich",
+    "immich": {
+      "enable_ml": true,
+      "ml_image_selector": "ml_image",
+      "db_password": "$RANDOM_STRING(7)",
+      "redis_password": "$RANDOM_STRING(7)",
+      "log_level": "log",
+      "hugging_face_endpoint": "",
+      "db_storage_type": "SSD",
+      "additional_envs": []
+    },
+    "network": {},
+    "storage": {
+      "use_old_storage_config": false,
+      "data": "$HOST_PATH($LOCATION(ApplicationsCapacity)/immich/data)",
+      "ml_cache": {
+        "type": "temporary"
+      },
+      "postgres_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/immich/postgres_data)",
+      "additional_storage": [
+        {
+          "type": "host_path",
+          "read_only": false,
+          "mount_path": "/photos",
+          "host_path_config": {
+            "acl_enable": true,
+            "acl": {
+              "path": "$LOCATION(Photos)",
+              "entries": [
+                {
+                  "id_type": "USER",
+                  "id": 568,
+                  "access": "FULL_CONTROL"
+                }
+              ],
+              "options": {
+                "force": true
+              }
+            }
+          }
+        }
+      ]
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": 4096
+      },
+      "gpus": {
+        "use_all_gpus": true
+      }
+    }
+  }
+}

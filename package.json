@@ -1,0 +1,17 @@
+{
+  "name": "hexos-docs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "gen:curated": "node scripts/generate-curated-index.mjs",
+    "docs:dev": "npm run gen:curated && vitepress dev docs",
+    "dev": "npm run docs:dev",
+    "docs:dev:here": "DOCS_DIR=. node scripts/generate-curated-index.mjs && vitepress dev .",
+    "docs:build": "npm run gen:curated && vitepress build docs",
+    "docs:serve": "vitepress serve docs"
+  },
+  "devDependencies": {
+    "vitepress": "^1.3.0"
+  }
+}

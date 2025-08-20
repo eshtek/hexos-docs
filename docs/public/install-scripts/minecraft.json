@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    "$LOCATION(ApplicationsPerformance)/minecraft"
+  ],
+  "app_values": {
+    "minecraft": {
+      "eula": true,
+      "rcon_password": "$RANDOM_STRING(7)",
+      "type": "VANILLA",
+      "version": "LATEST"
+    },
+    "storage": {
+      "data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/minecraft)"
+    }
+  }
+}

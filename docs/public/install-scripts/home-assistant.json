@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Media)",
+      "network_share": true
+    },
+    "$LOCATION(ApplicationsPerformance)/home-assistant",
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/home-assistant/postgres_data",
+      "posix": true
+    },
+    "$LOCATION(Media)/home-assistant"
+  ],
+  "ensure_permissions_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/home-assistant/postgres_data",
+      "username": "netdata",
+      "access": "read",
+      "posix": {
+        "groupname": "docker"
+      }
+    }
+  ],
+  "app_values": {
+    "home_assistant": {
+      "db_password": "$RANDOM_STRING(7)"
+    },
+    "storage": {
+      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/home-assistant)",
+      "media": "$HOST_PATH($LOCATION(Media)/home-assistant)",
+      "postgres_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/home-assistant/postgres_data)"
+    }
+  }
+}
