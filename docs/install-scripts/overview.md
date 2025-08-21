@@ -8,7 +8,7 @@ Install scripts let you describe storage, permissions, and app values in one JSO
 
 See:
 - [Quickstart](/install-scripts/quickstart)
-- [Authoring Guide](/install-scripts/authoring)
+- [Authoring Guide](/install-scripts/contributing)
 - [Reference: Schema](/install-scripts/reference/schema)
 - [Reference: Macros](/install-scripts/reference/macros)
 - [Reference: Validation Pipeline](/install-scripts/reference/validation)
