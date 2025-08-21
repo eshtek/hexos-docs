@@ -24,12 +24,13 @@ const sidebar: DefaultTheme.Sidebar = {
     {
       text: 'Install Scripts',
       items: [
-        { text: 'Introduction', link: '/install-scripts/intro' },
-        { text: 'Macros', link: '/install-scripts/macros' },
-        { text: 'Validation', link: '/install-scripts/validation' },
-        { text: 'Step-by-Step Guide', link: '/install-scripts/guide' },
-        { text: 'Apps (Curated Scripts)', link: '/install-scripts/apps' },
-        { text: 'Advanced Topics', link: '/install-scripts/advanced' }
+        { text: 'Overview', link: '/install-scripts/overview' },
+        { text: 'Apps (Curated Scripts)', link: '/install-scripts/curated/' },
+        { text: 'Contributors Guide', link: '/install-scripts/contributing' },
+        { text: 'Reference: Schema', link: '/install-scripts/reference/schema' },
+        { text: 'Reference: Macros', link: '/install-scripts/reference/macros' },
+        { text: 'Reference: Validation', link: '/install-scripts/reference/validation' },
+
       ]
     }
   ],
@@ -57,7 +58,7 @@ const sidebar: DefaultTheme.Sidebar = {
       text: 'Documentation',
       items: [
         { text: 'Home', link: '/' },
-        { text: 'Install Scripts', link: '/install-scripts/intro' }
+        { text: 'Install Scripts', link: '/install-scripts/overview' }
       ]
     }
   ]
