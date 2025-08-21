@@ -1,4 +1,6 @@
-# Validation Pipeline
+# Validation
+
+Pipeline:
 
 ```mermaid
 flowchart TD
@@ -8,9 +10,9 @@ flowchart TD
   D --> E[Install App]
 ```
 
-| Step | Typical errors | Example message | Fix |
-|---|---|---|---|
-| Parse JSON | Missing version | requires "version": 1 | Add version |
-| Replace Macros | Unquoted macro | expected JSON after replacement | Quote macro strings |
-| Prepare FS | Permission denied | failed to apply ACL | Use POSIX fallback or adjust pool ACL |
-| Install | Chart validation | invalid value for port | Match the UI field type |
+| Step           | Typical errors    | Example message                 | Fix                                   |
+| -------------- | ----------------- | ------------------------------- | ------------------------------------- |
+| Parse JSON     | Missing version   | requires "version": 1           | Add version                           |
+| Replace Macros | Unquoted macro    | expected JSON after replacement | Quote macro strings                   |
+| Prepare FS     | Permission denied | failed to apply ACL             | Use POSIX fallback or adjust pool ACL |
+| Install        | Chart validation  | invalid value for port          | Match the UI field type               |
