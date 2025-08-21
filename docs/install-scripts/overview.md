@@ -12,4 +12,4 @@ See:
 - [Reference: Schema](/install-scripts/reference/schema)
 - [Reference: Macros](/install-scripts/reference/macros)
 - [Reference: Validation Pipeline](/install-scripts/reference/validation)
-- [Curated Examples](/install-scripts/curated/)
+- [Apps (Curated Scripts)](/install-scripts/curated/)

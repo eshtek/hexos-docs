@@ -25,11 +25,12 @@ const sidebar: DefaultTheme.Sidebar = {
       text: 'Install Scripts',
       items: [
         { text: 'Overview', link: '/install-scripts/overview' },
-        { text: 'Apps (Curated Scripts)', link: '/install-scripts/curated/' },
         { text: 'Contributors Guide', link: '/install-scripts/contributing' },
         { text: 'Reference: Schema', link: '/install-scripts/reference/schema' },
         { text: 'Reference: Macros', link: '/install-scripts/reference/macros' },
         { text: 'Reference: Validation', link: '/install-scripts/reference/validation' },
+        { text: 'Apps (Curated Scripts)', link: '/install-scripts/curated/' },
+
 
       ]
     }
