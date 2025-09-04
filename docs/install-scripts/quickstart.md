@@ -1,11 +1,6 @@
 # Quickstart
 
-1. Copy the Jellyfin example from Curated Examples
-2. Paste it into the editor
-3. Validate, then run
-4. Verify in TrueNAS
-
-Common callouts during the flow:
-- Storage planning with `$LOCATION` and `$HOST_PATH`
-- Permissions hints for ACL vs POSIX
-- Mapping app_values to the TrueNAS UI
+1. Access your server from dev-deck (https://dev-deck.hexos.com)
+2. Enabled dev mode from the preferences section in settings. 
+3. You will see a custom script option now on the available apps.
+4. Modify existing curations or supply new ones
