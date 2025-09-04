@@ -1,3 +1,3 @@
-# Macros Catalog (canonical)
+# Macros
 
-coming soon
+*needs content explaining all of the possible macros that can be used

@@ -1,6 +1,6 @@
 # HexOS Documentation
 
-This repo contains a VitePress site for HexOS docs: Install Scripts, TrueNAS integration, platform internals, and curated JSON downloads.
+This repo contains the docs for guides, install scripts, and more. 
 
 ## Quick start
 ```bash
