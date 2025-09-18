@@ -2,6 +2,7 @@
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import { execSync } from 'child_process'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const DOCS_DIR = process.env.DOCS_DIR || 'docs'
@@ -21,6 +22,31 @@ function humanFileSize(bytes) {
   return bytes.toFixed(1) + ' ' + units[u]
 }
 
+function getGitLastModified(filePath) {
+  try {
+    // Get the last commit date for the specific file
+    const gitCommand = `git log -1 --format=%ci "${filePath}"`
+    const result = execSync(gitCommand, { 
+      cwd: path.dirname(filePath), 
+      encoding: 'utf8' 
+    }).trim()
+    
+    if (result) {
+      return new Date(result).toISOString().split('T')[0]
+    }
+  } catch (error) {
+    console.warn(`Could not get git date for ${filePath}, falling back to fs date`)
+  }
+  
+  // Fallback to filesystem date if git fails
+  try {
+    const stat = fs.statSync(filePath)
+    return new Date(stat.mtime).toISOString().split('T')[0]
+  } catch (error) {
+    return 'Unknown'
+  }
+}
+
 function buildTable(files) {
   const lines = []
   lines.push('| App | Download | Size | Last Modified |')
@@ -29,7 +55,7 @@ function buildTable(files) {
     const p = path.join(PUBLIC_DIR, file)
     const stat = fs.statSync(p)
     const size = humanFileSize(stat.size)
-    const mtime = new Date(stat.mtime).toISOString().split('T')[0]
+    const mtime = getGitLastModified(p)
     const app = path.basename(file, '.json')
     const href = `/install-scripts/${file}`
     lines.push(`| \`${app}\` | [${file}](${href}) | ${size} | ${mtime} |`)
