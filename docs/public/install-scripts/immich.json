@@ -6,30 +6,10 @@
       "network_share": true
     },
     {
-      "path": "$LOCATION(ApplicationsCapacity)",
-      "network_share": true
-    },
-    {
       "path": "$LOCATION(Photos)",
       "network_share": true
     },
-    {
-      "path": "$LOCATION(Music)",
-      "network_share": true
-    },
-    {
-      "path": "$LOCATION(Movies)",
-      "network_share": true
-    },
-    {
-      "path": "$LOCATION(Shows)",
-      "network_share": true
-    },
-    {
-      "path": "$LOCATION(Videos)",
-      "network_share": true
-    },
-    "$LOCATION(ApplicationsCapacity)/immich/data",
+    "$LOCATION(Photos)/immich",
     {
       "path": "$LOCATION(ApplicationsPerformance)/immich/postgres_data",
       "posix": true
@@ -57,42 +37,24 @@
       "db_storage_type": "SSD",
       "additional_envs": []
     },
-    "network": {},
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 2283
+      }
+    },
     "storage": {
       "use_old_storage_config": false,
-      "data": "$HOST_PATH($LOCATION(ApplicationsCapacity)/immich/data)",
+      "data": "$HOST_PATH($LOCATION(Photos)/immich)",
       "ml_cache": {
         "type": "temporary"
       },
-      "postgres_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/immich/postgres_data)",
-      "additional_storage": [
-        {
-          "type": "host_path",
-          "read_only": false,
-          "mount_path": "/photos",
-          "host_path_config": {
-            "acl_enable": true,
-            "acl": {
-              "path": "$LOCATION(Photos)",
-              "entries": [
-                {
-                  "id_type": "USER",
-                  "id": 568,
-                  "access": "FULL_CONTROL"
-                }
-              ],
-              "options": {
-                "force": true
-              }
-            }
-          }
-        }
-      ]
+      "postgres_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/immich/postgres_data)"
     },
     "resources": {
       "limits": {
         "cpus": 2,
-        "memory": 4096
+        "memory": "$MEMORY(10%, 4096)"
       },
       "gpus": {
         "use_all_gpus": true

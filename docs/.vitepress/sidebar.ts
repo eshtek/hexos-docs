@@ -6,13 +6,11 @@ const sidebar: DefaultTheme.Sidebar = {
       text: 'Install Scripts',
       items: [
         { text: 'Overview', link: '/install-scripts/overview' },
-        { text: 'Quickstart', link: '/install-scripts/quickstart' },
-        { text: 'Contributors Guide', link: '/install-scripts/contributing' },
-        { text: 'Reference: Schema', link: '/install-scripts/reference/schema' },
-        { text: 'Reference: Pipeline', link: '/install-scripts/reference/pipeline' },
         { text: 'Apps (Curated Scripts)', link: '/install-scripts/curated/' },
-
-
+        { text: 'Contributing', link: '/install-scripts/contributing' },
+        { text: 'Reference: Schema', link: '/install-scripts/reference/schema' },
+        { text: 'Reference: Macros', link: '/install-scripts/reference/macros' },
+        { text: 'Advanced: Debugging', link: '/install-scripts/advanced/debugging' },
       ]
     }
   ],
