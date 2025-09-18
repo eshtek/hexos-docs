@@ -34,6 +34,18 @@
       "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/home-assistant)",
       "media": "$HOST_PATH($LOCATION(Media)/home-assistant)",
       "postgres_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/home-assistant/postgres_data)"
+    },
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 8123
+      }
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 2048)"
+      }
     }
   }
 }

@@ -52,6 +52,15 @@
         "$MOUNTED_HOST_PATH($LOCATION(Shows), /shows)",
         "$MOUNTED_HOST_PATH($LOCATION(Videos), /videos)"
       ]
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 2048)"
+      },
+      "gpus": {
+        "use_all_gpus": true
+      }
     }
   }
 }

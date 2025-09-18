@@ -34,10 +34,6 @@
       "network_share": true
     },
     "$LOCATION(ApplicationsPerformance)/jellyfin/config",
-    {
-      "path": "$LOCATION(ApplicationsPerformance)/jellyfin/config/log",
-      "posix": true
-    },
     "$LOCATION(ApplicationsCapacity)/jellyfin/cache",
     "$LOCATION(ApplicationsPerformance)/jellyfin/transcodes"
   ],
@@ -54,6 +50,25 @@
         "$MOUNTED_HOST_PATH($LOCATION(Shows), /shows)",
         "$MOUNTED_HOST_PATH($LOCATION(Videos), /videos)"
       ]
+    },
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 8096
+      },
+      "https_port": {
+        "bind_mode": "published",
+        "port_number": 8920
+      }
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 4096)"
+      },
+      "gpus": {
+        "use_all_gpus": true
+      }
     }
   }
 }
