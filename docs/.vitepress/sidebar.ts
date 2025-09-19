@@ -14,12 +14,22 @@ const sidebar: DefaultTheme.Sidebar = {
       ]
     }
   ],
+  '/getting-started/': [
+    {
+      text: 'Getting Started',
+      items: [
+        { text: 'Overview', link: '/getting-started/overview' },
+        { text: 'Install HexOS', link: '/getting-started/installation/InstallGuide' },
+      ]
+    }
+  ],
   '/': [
     {
       text: 'Documentation',
       items: [
         { text: 'Home', link: '/' },
-        { text: 'Install Scripts', link: '/install-scripts/overview' }
+        { text: 'Install Scripts', link: '/install-scripts/overview' },
+        { text: 'Getting Started', link: '/getting-started/overview' }
       ]
     }
   ]
