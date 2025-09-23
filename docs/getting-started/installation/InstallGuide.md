@@ -45,7 +45,7 @@
     -   [![Capture5.PNG.f7af55f85dc45fff3932704006737410.PNG](https://hub.hexos.com/uploads/monthly_2024_11/Capture5.PNG.f7af55f85dc45fff3932704006737410.PNG)](https://hub.hexos.com/uploads/monthly_2024_11/Capture5.PNG.f7af55f85dc45fff3932704006737410.PNG "Enlarge image")
 
 -   Next we need to set the root password for the TrueNAS install that underpins HexOS.
-    -   Be sure not to loose this, you will need it later when adopting your server on Deck.HexOS.com
+    -   Be sure not to lose this, you will need it later when adopting your server on Deck.HexOS.com
     -   **\*NOTE\*: If you use a NON US KEYBOARD please be cautious about special characters, as the installer defaults to a US keyboard layout!**
         -   _[See this comment for details.](https://hub.hexos.com/topic/103-illustrated-installation-guide-start-here/page/2/#findComment-8073)_
     -   [![Capture6.PNG.2757a99cb3d6eff2456fae08f5d8af22.PNG](https://hub.hexos.com/uploads/monthly_2024_11/Capture6.PNG.2757a99cb3d6eff2456fae08f5d8af22.PNG)](https://hub.hexos.com/uploads/monthly_2024_11/Capture6.PNG.2757a99cb3d6eff2456fae08f5d8af22.PNG "Enlarge image")
