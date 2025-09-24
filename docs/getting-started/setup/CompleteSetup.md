@@ -1,3 +1,9 @@
+---
+next:
+  text: 'Features'
+  link: '/features/'
+---
+
 # Complete Server Setup
 
 Now that HexOS is installed, you’re almost ready to set up your server!  

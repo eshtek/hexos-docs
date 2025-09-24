@@ -11,7 +11,7 @@ Notifications can be both marked as read and dismissed, and previous notificatio
 
 Your drives collect health data that HexOS monitors for potential problems. When you see SMART errors, it means the system has detected something that warrants investigation. This could indicate a drive issue that needs attention, but doesn't necessarily mean immediate replacement is required.
 
-Learn more about [SMART](https://kb.synology.com/en-global/DSM/tutorial/What_is_SMART) technology.
+Learn more about [SMART](https://www.truenas.com/docs/core/13.0/coretutorials/tasks/runningsmarttests/) technology.
 
 ## System Health Notifications
 

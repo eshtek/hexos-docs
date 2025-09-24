@@ -18,7 +18,8 @@ const sidebar: DefaultTheme.Sidebar = {
         { text: 'Overview', link: '/features/' },
         { text: 'Storage', link: '/features/storage/storage' },
         { text: 'Folders', link: '/features/folders/' },
-        { text: 'Apps', link: '/features/apps/',
+        {
+          text: 'Apps', link: '/features/apps/',
           items: [
             { text: 'Install Scripts Overview', link: '/features/apps/install-scripts/overview' },
             { text: 'Curated Scripts', link: '/features/apps/install-scripts/curated/' },
@@ -29,7 +30,8 @@ const sidebar: DefaultTheme.Sidebar = {
           ]
         },
         { text: 'Notifications', link: '/features/notifications/' },
-        { text: 'Settings', link: '/features/settings/',
+        {
+          text: 'Settings', link: '/features/settings/',
           items: [
             { text: 'Experimental Features', link: '/features/settings/experimental-features/' },
           ]
@@ -41,7 +43,13 @@ const sidebar: DefaultTheme.Sidebar = {
     {
       text: 'Troubleshooting',
       items: [
-        { text: 'Common Issues', link: '/troubleshooting/' },
+        { text: 'Overview', link: '/troubleshooting/' },
+        { text: 'Common Issues', link: '/troubleshooting/common-issues/',
+          items: [
+            { text: 'Avoid USB Drives', link: '/troubleshooting/common-issues/AvoidUSBDrives' },
+            { text: 'Clear Browser Cache', link: '/troubleshooting/common-issues/ClearCache' },
+          ]
+        },
       ]
     }
   ],
@@ -50,17 +58,42 @@ const sidebar: DefaultTheme.Sidebar = {
       text: 'Community',
       items: [
         { text: 'How to Contribute', link: '/community/' },
+        {
+          text: 'Community Guides', link: '/community/community-guides/',
+          items: [
+            { text: 'Replicating Virtual Machines', link: '/community/community-guides/ReplicatingVirtualMachines' },
+            { text: 'Setting Up Tailscale', link: '/community/community-guides/SettingUpTailscale' },
+            { text: 'Time Machine Install', link: '/community/community-guides/TimeMachineInstall' },
+          ]
+        },
       ]
     }
   ],
-  '/licensing/': [
+  '/release-notes/': [
     {
-      text: 'Licensing',
+      text: 'Release Notes',
       items: [
-        { text: 'Usage Rights', link: '/licensing/' },
+        { text: 'Overview', link: '/release-notes/' },
+        { text: 'Command Deck', link: '/release-notes/command-deck/',
+          items: [
+            { text: 'February 7, 2025', link: '/release-notes/command-deck/2025-02-07' },
+            { text: 'January 8, 2025', link: '/release-notes/command-deck/2025-01-08' },
+            { text: 'July 24, 2024', link: '/release-notes/command-deck/2024-07-24' },
+            { text: 'July 4, 2024', link: '/release-notes/command-deck/2024-07-04' },
+            { text: 'June 27, 2024', link: '/release-notes/command-deck/2024-06-27' },
+          ]
+        },
       ]
     }
   ],
+  // '/licensing/': [
+  //   {
+  //     text: 'Licensing',
+  //     items: [
+  //       { text: 'Usage Rights', link: '/licensing/' },
+  //     ]
+  //   }
+  // ],
   '/': [
     {
       text: 'Documentation',
@@ -70,7 +103,8 @@ const sidebar: DefaultTheme.Sidebar = {
         { text: 'Features', link: '/features/' },
         { text: 'Troubleshooting', link: '/troubleshooting/' },
         { text: 'Community', link: '/community/' },
-        { text: 'Licensing', link: '/licensing/' },
+        { text: 'Release Notes', link: '/release-notes/' },
+        // { text: 'Licensing', link: '/licensing/' },
       ]
     }
   ]
