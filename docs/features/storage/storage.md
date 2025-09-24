@@ -22,9 +22,9 @@ storage.
 
 Drives fail. It's not a matter of if, but when. The storage interface will show you when there are problems relating to your pools and drives.
 
-When drives start having [SMART](https://kb.synology.com/en-global/DSM/tutorial/What_is_SMART) errors, I/O problems, or go missing entirely, you'll see visual indicators right in the interface. When a drive needs replacement, HexOS will look at your available unused drives and suggest suitable replacements.  
+When drives start having [SMART](https://www.truenas.com/docs/core/13.0/coretutorials/tasks/runningsmarttests/) errors, I/O problems, or go missing entirely, you'll see visual indicators right in the interface. When a drive needs replacement, HexOS will look at your available unused drives and suggest suitable replacements.  
 
-If you don't have a replacement drive on hand, check out our guide on [selecting drives](https://hexos.com/selecting-drives).
+If you don't have a replacement drive on hand, check out our guide on [selecting drives](/.vitepress/misc/articles/selectingDrives).
 
 ## Critical Errors
 
