@@ -1,5 +1,6 @@
 # Illustrated Installation Guide
 
+*by [@Mawson](https://hub.hexos.com/profile/14-mawson/?wr=eyJhcHAiOiJmb3J1bXMiLCJtb2R1bGUiOiJmb3J1bXMtY29tbWVudCIsImlkXzEiOjEwMywiaWRfMiI6NDY0fQ==)*
 ## Download the HexOS Installer
 
 -   Download the installer ISO from either link:

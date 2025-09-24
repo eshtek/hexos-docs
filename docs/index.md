@@ -6,5 +6,5 @@ The HexOS Docs site is designed to help users on their journey to self-hosting a
 
 - [**Common Issues**](/troubleshooting/common-issues/) - Solutions to frequently encountered problems
 - [**Community Guides**](/community/community-guides/) - User-contributed guides and tutorials
-- [**Release Notes**](/release-notes/) - Latest features and updates
+- [**Release Notes**](/release-notes/command-deck/) - Latest features and updates
 

@@ -6,7 +6,6 @@ Welcome to the HexOS community guides! These guides are created by community mem
 
 - [**Replicating Virtual Machines**](./ReplicatingVirtualMachines) - How to replicate and manage virtual machines
 - [**Setting Up Tailscale**](./SettingUpTailscale) - Configure Tailscale for secure remote access
-- [**Time Machine Install**](./TimeMachineInstall) - Set up Time Machine backups with HexOS
 
 ## Contributing
 

@@ -63,7 +63,6 @@ const sidebar: DefaultTheme.Sidebar = {
           items: [
             { text: 'Replicating Virtual Machines', link: '/community/community-guides/ReplicatingVirtualMachines' },
             { text: 'Setting Up Tailscale', link: '/community/community-guides/SettingUpTailscale' },
-            { text: 'Time Machine Install', link: '/community/community-guides/TimeMachineInstall' },
           ]
         },
       ]
@@ -73,7 +72,6 @@ const sidebar: DefaultTheme.Sidebar = {
     {
       text: 'Release Notes',
       items: [
-        { text: 'Overview', link: '/release-notes/' },
         { text: 'Command Deck', link: '/release-notes/command-deck/',
           items: [
             { text: 'February 7, 2025', link: '/release-notes/command-deck/2025-02-07' },
@@ -103,7 +101,7 @@ const sidebar: DefaultTheme.Sidebar = {
         { text: 'Features', link: '/features/' },
         { text: 'Troubleshooting', link: '/troubleshooting/' },
         { text: 'Community', link: '/community/' },
-        { text: 'Release Notes', link: '/release-notes/' },
+        { text: 'Release Notes', link: '/release-notes/command-deck/' },
         // { text: 'Licensing', link: '/licensing/' },
       ]
     }
