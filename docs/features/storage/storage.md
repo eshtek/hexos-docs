@@ -24,7 +24,7 @@ Drives fail. It's not a matter of if, but when. The storage interface will show 
 
 When drives start having [SMART](https://www.truenas.com/docs/core/13.0/coretutorials/tasks/runningsmarttests/) errors, I/O problems, or go missing entirely, you'll see visual indicators right in the interface. When a drive needs replacement, HexOS will look at your available unused drives and suggest suitable replacements.  
 
-If you don't have a replacement drive on hand, check out our guide on [selecting drives](/.vitepress/misc/articles/selectingDrives).
+If you don't have a replacement drive on hand, check out our guide on [selecting drives](/articles/selectingDrives).
 
 ## Critical Errors
 
