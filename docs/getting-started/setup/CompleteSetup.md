@@ -50,6 +50,7 @@ Finally, give your server a name and your server is good to go!
 
 ### What's Next?
 
-Your server will finish initializing momentarily and bring you to the dashboard.  
-From here you can explore all of HexOS's features, check out our [Features Guide] to learn more!
+Your server will finish initializing and bring you to the HexOS [dashboard](/features/). This is your control center where you can monitor your server, manage storage, install apps, and configure settings.
+
+Ready to explore? Check out our [Features Guide](/features/) to learn about everything HexOS can do!
 
