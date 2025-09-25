@@ -8,7 +8,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const DOCS_DIR = process.env.DOCS_DIR || 'docs'
 
 const PUBLIC_DIR = path.resolve(__dirname, '..', DOCS_DIR, 'public', 'install-scripts')
-const APPS_MD   = path.resolve(__dirname, '..', DOCS_DIR, 'install-scripts/curated', 'index.md')
+const APPS_MD   = path.resolve(__dirname, '..', DOCS_DIR, 'features/apps/install-scripts/curated', 'index.md')
 
 const START = '<!-- curated:index:start -->'
 const END   = '<!-- curated:index:end -->'

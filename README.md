@@ -1,74 +1,105 @@
 # HexOS Documentation
-This repo contains the docs for guides, install scripts, and more. 
 
-## Quick start
-```bash
-npm i
+This repository contains the official HexOS documentation including guides, install scripts, and more.
+
+## Table of Contents
+
+- [Quick Start](#quick-start)
+- [Contributing](#contributing)
+- [Documentation Structure](#documentation-structure)
+- [Get Help](#get-help)
+
+## Quick Start
+
+```js
+npm install
 npm run docs:dev
 ```
 
-## Build
-```bash
+## Build 
+
+```js
 npm run docs:build
 ```
 
 ## Contributing
 
+**Interested in contributing?**  
+We'd love your help improving the HexOS documentation!
+
+**[See our full Contributing Guide](#contributing-guide)** below for detailed instructions.
+
+### Contributing Guide
+
 We welcome contributions to the HexOS documentation!  
 Here's how to get started:
 
-### Setup
+#### Setup
 
 1. **Fork this repository** - Click the "Fork" button in the top right
 2. **Clone your fork locally**:
-
-    ```bash
+   ```bash
    git clone https://github.com/YOUR_USERNAME/hexos-docs.git
    cd hexos-docs
    ```
 
-4. **Install dependencies**:
-
+3. **Install dependencies**:
    ```bash
-   npm i
+   npm install
    ```
 
-5. **Create a new branch** from `dev`:
-
+4. **Create a new branch** from `dev`:
    ```bash
    git checkout dev
    git pull origin dev
    git checkout -b your-feature-name
    ```
 
-### Making Changes
+#### Making Changes
 
 1. Make your changes to the documentation
 2. Test locally with `npm run docs:dev`
-3. Commit your changes with a clear message:
- 
+3. Test your changes don't break the build with `npm run docs:build`
+4. Commit your changes with a clear message:
    ```bash
    git add .
-   git commit -m "Add guide for XYZ feature"
+   git commit -m "add detailed information for feature/bug fix"
    ```
 
-### Submitting Your Contribution
+#### Submitting Your Contribution
 
 1. **Push to your fork**:
-
-    ```bash
+   ```bash
    git push origin your-feature-name
    ```
 
-3. **Open a Pull Request** against the `dev` branch (not `main`)
-4. Fill out the PR template with details about your changes
-5. Wait for review and address any feedback
+2. **Open a Pull Request** against the `dev` branch (not `main`)
+3. Fill out the PR template with details about your changes
+4. Wait for review and address any feedback
 
-### Guidelines
+#### Project Structure
 
-- Keep documentation clear and beginner-friendly
+```
+docs/
+├── articles/                # Standalone articles
+├── community/               # Community guides and contribution info
+├── features/                # Feature documentation
+├── getting-started/         # Getting started guides
+├── release-notes/           # Release notes and changelogs
+├── troubleshooting/         # Troubleshooting guides
+└── index.md                 # Homepage
+```
+
+#### Guidelines
+
+- Keep documentation clear
 - Test all code examples before submitting
 - Follow the existing documentation structure and style
 - Create issues for major changes before starting work
 
-Questions? Open an issue or reach out to the [@cole](https://hub.hexos.com/profile/27801-csmanel/)!
+
+## Get Help
+
+- **Questions about contributing?** Open an issue or reach out to [@cole](https://hub.hexos.com/profile/27801-csmanel/)
+- **Found a bug in the docs?** [Open an issue](https://github.com/Eshtek/hexos-docs/issues)
+- **Need help with HexOS?** Visit the [HexOS Community](https://hub.hexos.com/)
