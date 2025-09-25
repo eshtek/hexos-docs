@@ -64,11 +64,4 @@ Here's how to get started:
 4. Fill out the PR template with details about your changes
 5. Wait for review and address any feedback
 
-### Guidelines
-
-- Keep documentation clear and beginner-friendly
-- Test all code examples before submitting
-- Follow the existing documentation structure and style
-- Create issues for major changes before starting work
-
 Questions? Open an issue or reach out to the [@cole](https://hub.hexos.com/profile/27801-csmanel/)!
