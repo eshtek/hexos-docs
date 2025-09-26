@@ -1,71 +1,178 @@
 # Troubleshooting
 
-## Cannot Image USB Stick with ISO
+This guide helps you resolve common issues with HexOS installation, setup, and operation. Issues are organized by category for quick reference.
 
-If you're having trouble creating a bootable USB drive from the HexOS ISO, try these steps:
+:::tip Quick Help
+Check our [Common Issues](./common-issues/) section or visit the [HexOS Community](https://hub.hexos.com/) for posts by other users.
+:::
 
-**Use a different imaging tool**: If Rufus isn't working, try balenaEtcher or the official tool recommended for your operating system.
+## Installation Issues
 
-**Try a different USB drive**: Some older or damaged USB drives can cause imaging problems.
+### Cannot Image USB Stick with ISO
 
-**Download the ISO again**: Sometimes download corruption can cause imaging issues.
+If you're having trouble creating a bootable USB drive from the HexOS ISO:
 
-## Failures During the Installation Process
+1. **Use a different imaging tool**
+   - Try [balenaEtcher](https://www.balena.io/etcher/) (recommended)
+   - On Windows: Use Rufus in DD mode
+   - On macOS: Use built-in Disk Utility or `dd` command
+   - On Linux: Use `dd` command or GNOME Disks
+
+2. **Try a different USB drive**
+   - Use a high-quality USB 3.0+ drive (minimum 8GB)
+   - Some older or damaged USB drives can cause imaging problems
+   - Avoid using cheap or no-name USB drives
+
+3. **Download the ISO again**
+   - Sometimes download corruption can cause imaging issues
+   - Verify the ISO checksum if provided
+
+### Installation Process Failures
 
 Installation problems can happen for various reasons:
 
-**Hardware compatibility**: Check that your hardware meets the minimum requirements and is supported.
+1. **Hardware compatibility**
+   - Check the [system requirements](/getting-started/requirements/)
+   - Ensure your hardware is on the supported hardware list
+   - Disable any hardware features that might interfere (virtualization, secure boot)
 
-**Corrupted installation media**: Re-create your USB installation drive with a fresh ISO download.
+2. **Corrupted installation media**
+   - Re-create your USB installation drive with a fresh ISO download
+   - Try a different USB port (preferably USB 2.0 for compatibility)
 
-**Memory issues**: Run a memory test if the installer crashes or behaves erratically.
+3. **Memory issues**
+   - Run a memory test (memtest86+) if the installer crashes
+   - Try installing with minimal RAM configuration
 
-## Server Fails to Get an IP Address on First Boot After Install
+## Network & Connectivity Issues
+
+### Server Fails to Get an IP Address
 
 Network connectivity problems after installation:
 
-**Check network cable**: Ensure your ethernet cable is properly connected and working.
+1. **Physical connection**
+   - Ensure ethernet cable is properly connected and working
+   - Try a different ethernet cable
+   - Check that network port LEDs are active
 
-**Router/switch issues**: Try connecting to a different network port or restarting your network equipment.
+2. **Network equipment issues**
+   - Try connecting to a different network port
+   - Restart your router/switch
+   - Check if other devices can get IP addresses
 
-**Network configuration**: Some networks require manual IP configuration rather than DHCP.
+3. **Network configuration**
+   - Some networks require manual IP configuration instead of DHCP
+   - Check if your network uses static IP assignments
+   - Verify network subnet and DHCP range
 
-## Problems Claiming Your Server
-
-If you can't claim your server on deck.hexos.com:
-
-**Network connectivity**: Ensure your server can reach the internet and deck.hexos.com is accessible.
-
-**Account issues**: Verify you're logged into the correct HexOS account.
-
-**Server already claimed**: Check if the server might already be claimed by another account.
-
-## Can't Login to deck.hexos.com
-
-Authentication problems with the HexOS management portal:
-
-**Password reset**: Use the forgot password feature if you can't remember your credentials.
-
-**Account verification**: Check if your account email needs to be verified.
-
-**Browser issues**: Try a different browser or clear your browser cache and cookies.
-
-## Server Not Discovered
+### Server Discovery Problems
 
 If deck.hexos.com can't find your server:
 
-**Network discovery**: Ensure your server and the device you're browsing from are on the same network.
+1. **Network discovery requirements**
+   - Server and browsing device must be on the same local network
+   - Some corporate/guest networks block device discovery
 
-**Firewall settings**: Check that your network firewall isn't blocking discovery.
+2. **Firewall settings**
+   - Check that your router/firewall isn't blocking mDNS discovery
+   - Ensure ports 80, 443, and 5353 are not blocked
 
-**Server status**: Verify the server has finished booting and is running properly.
+3. **Server status**
+   - Verify the server has finished booting (wait 2-3 minutes)
+   - Check server status lights/indicators
+   - Try refreshing the discovery page
 
-## Password Incorrect
+## Account & Authentication Issues
 
-When you can't authenticate to your server:
+### Problems Claiming Your Server
 
-**Default credentials**: Check if you're using the correct default username and password from the installation.
+If you can't claim your server on deck.hexos.com:
 
-**Caps lock**: Verify caps lock isn't affecting your password entry.
+1. **Network connectivity**
+   - Ensure your server can reach the internet
+   - Test that deck.hexos.com is accessible from your network
+   - Check for corporate firewall restrictions
 
-**Keyboard layout**: Ensure your keyboard layout matches what you used during setup.
+2. **Account issues**
+   - Verify you're logged into the correct HexOS account
+   - Ensure your account is verified and active
+
+3. **Server already claimed**
+   - Check if the server might already be claimed by another account
+   - Contact support if you need to transfer ownership
+
+### Login Issues with deck.hexos.com
+
+Authentication problems with the HexOS management portal:
+
+1. **Password problems**
+   - Use the "Forgot Password" feature to reset your credentials
+   - Ensure you're using the correct email address
+   - Check that Caps Lock isn't affecting password entry
+
+2. **Account verification**
+   - Check your email for account verification messages
+   - Look in spam/junk folders for verification emails
+
+3. **Browser issues**
+   - Try clearing your browser cache and cookies ([detailed instructions](./common-issues/ClearCache))
+   - Try a different browser or incognito/private mode
+   - Disable browser extensions that might interfere
+
+### Server Authentication Problems
+
+When you can't authenticate to your local server:
+
+1. **Credential verification**
+   - Use the default credentials from the installation process
+   - Check the server console for the correct username/password
+
+2. **Input issues**
+   - Verify Caps Lock isn't affecting your password entry
+   - Ensure your keyboard layout matches what you used during setup
+   - Try typing the password in a text editor first to verify
+
+## Storage & Drive Issues
+
+### Drive Not Recognized
+
+If your drives aren't showing up:
+
+1. **Physical connections**
+   - Ensure all SATA/power cables are properly connected
+   - Try different SATA ports or cables
+   - Check that drives spin up during boot
+
+2. **Drive compatibility**
+   - Verify drives are supported by your hardware
+   - Check for any drive-specific firmware requirements
+
+3. **Power supply**
+   - Ensure adequate power supply capacity for all drives
+   - Check that all power connectors are secure
+
+### Pool Creation Issues
+
+Problems creating storage pools:
+
+1. **Drive preparation**
+   - Drives must be unpartitioned for ZFS pool creation
+   - Use the HexOS interface to wipe drives if needed
+
+2. **Insufficient drives**
+   - Mirror pools require at least 2 drives
+   - RAIDZ1 requires at least 3 drives
+   - RAIDZ2 requires at least 4 drives
+
+## Getting Additional Help
+
+If your issue isn't covered here:
+
+- Check [Common Issues](./common-issues/) for community-reported problems
+- Visit the [HexOS Community](https://hub.hexos.com/) for user support
+- Review the [Getting Started Guide](/getting-started/) for setup help
+- Contact HexOS support through the official channels
+
+:::warning Important
+Always backup important data before making system changes or troubleshooting storage issues.
+:::
