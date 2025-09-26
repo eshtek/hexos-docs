@@ -32,7 +32,7 @@ If you're having trouble creating a bootable USB drive from the HexOS ISO:
 Installation problems can happen for various reasons:
 
 1. **Hardware compatibility**
-   - Check the [system requirements](/getting-started/requirements/)
+   - Check the [system requirements](/getting-started/overview#system-requirements)
    - Ensure your hardware is on the supported hardware list
    - Disable any hardware features that might interfere (virtualization, secure boot)
 
@@ -170,7 +170,7 @@ If your issue isn't covered here:
 
 - Check [Common Issues](./common-issues/) for community-reported problems
 - Visit the [HexOS Community](https://hub.hexos.com/) for user support
-- Review the [Getting Started Guide](/getting-started/) for setup help
+- Review the [Getting Started Guide](/getting-started/overview) for setup help
 - Contact HexOS support through the official channels
 
 :::warning Important
