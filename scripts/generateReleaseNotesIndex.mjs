@@ -55,7 +55,7 @@ function parseReleaseNote(filePath) {
         break
       }
       if (inKeyFeatures && line.startsWith('- ') || line.startsWith('### ')) {
-        const feature = line.replace(/^- \*\*|^### |\*\*.*?:\s*/g, '').split(' - ')[0].split(':')[0]
+        const feature = line.replace(/^- \*\*|\*\*|^### /g, '').split(' - ')[0].split(':')[0]
         if (feature && !features.includes(feature)) {
           features.push(feature)
         }
