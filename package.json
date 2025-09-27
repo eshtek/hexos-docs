@@ -4,11 +4,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "gen:curated": "node scripts/generate-curated-index.mjs",
-    "docs:dev": "npm run gen:curated && vitepress dev docs",
+    "gen:curated": "node scripts/generateCuratedIndex.mjs",
+    "gen:release-notes": "node scripts/generateReleaseNotesIndex.mjs",
+    "gen:all": "npm run gen:curated && npm run gen:release-notes",
+    "docs:dev": "npm run gen:all && vitepress dev docs",
     "dev": "npm run docs:dev",
-    "docs:dev:here": "DOCS_DIR=. node scripts/generate-curated-index.mjs && vitepress dev .",
-    "docs:build": "npm run gen:curated && vitepress build docs",
+    "docs:dev:here": "DOCS_DIR=. node scripts/generateCuratedIndex.mjs && node scripts/generateReleaseNotesIndex.mjs && vitepress dev .",
+    "docs:build": "npm run gen:all && vitepress build docs",
     "docs:serve": "vitepress serve docs"
   },
   "devDependencies": {

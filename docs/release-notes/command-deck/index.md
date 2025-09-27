@@ -8,17 +8,22 @@ Command Deck updates are automatically deployed by the HexOS development team. Y
 
 For users who are actively connected during an update, there may be a brief downtime of a minute or two as the new version is deployed.
 
+<!-- auto-generated-year-sections-start -->
 ## 2025 Releases
 
-- [**February 7, 2025**](./2025-02-07) - Setup wizard improvements, data detection, UI enhancements
-- [**January 8, 2025**](./2025-01-08) - Manual WAN IP specification, UI improvements, bug fixes
+- [**September 29, 2025**](./2025-09-29) - Updates and improvements
+- [**July 28, 2025**](./2025-07-28) - Updates and improvements
+- [**July 7, 2025**](./2025-07-07) - Updates and improvements
+- [**June 27, 2025**](./2025-06-27) - Updates and improvements
+- [**February 7, 2025**](./2025-02-07) - Improved Setup Wizard Functionality, Existing Data Detection, Minor UI Improvements
+- [**January 8, 2025**](./2025-01-08) - Updates and improvements
 
 ## 2024 Releases
 
-- [**July 24, 2024**](./2024-07-24) - Networking fixes, performance improvements, folder loading optimization
-- [**July 4, 2024**](./2024-07-04) - Performance monitoring improvements
-- [**June 27, 2024**](./2024-06-27) - Manual pool configuration, Activity Center, TrueNAS SCALE 24.10.2.2 update
-
+- [**July 24, 2024**](./2024-07-24) - Networking Fixes, Performance Improvements, Folder Loading Optimization
+- [**July 4, 2024**](./2024-07-04) - Updates and improvements
+- [**June 27, 2024**](./2024-06-27) - Updates and improvements
+<!-- auto-generated-year-sections-end -->
 
 ## Need Help?
 
