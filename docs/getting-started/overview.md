@@ -1,6 +1,6 @@
 # Getting Started
 
-If you're ready to get started with HexOS then congratulations! This article will guide you through choosing hardware, and getting HexOS installed and set up. If you want to know more about HexOS first then you can [read about it here](/getting-started/about-hexos/).
+If you're ready to get started with HexOS then congratulations! This article will guide you through choosing hardware, and getting HexOS installed and set up. If you want to know more about HexOS first then you can [read about it here](/about-hexos/).
 
 ## System Requirements
 
