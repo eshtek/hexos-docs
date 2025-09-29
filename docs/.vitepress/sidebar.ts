@@ -75,15 +75,15 @@ const sidebar: DefaultTheme.Sidebar = {
         { text: 'Command Deck', link: '/release-notes/command-deck/',
           items: [
             // auto-generated-release-notes-start
-            { text: 'September 29, 2025', link: '/release-notes/command-deck/2025-09-29' },
-            { text: 'July 28, 2025', link: '/release-notes/command-deck/2025-07-28' },
-            { text: 'July 7, 2025', link: '/release-notes/command-deck/2025-07-07' },
-            { text: 'June 27, 2025', link: '/release-notes/command-deck/2025-06-27' },
-            { text: 'February 7, 2025', link: '/release-notes/command-deck/2025-02-07' },
-            { text: 'January 8, 2025', link: '/release-notes/command-deck/2025-01-08' },
-            { text: 'July 24, 2024', link: '/release-notes/command-deck/2024-07-24' },
-            { text: 'July 4, 2024', link: '/release-notes/command-deck/2024-07-04' },
-            { text: 'June 27, 2024', link: '/release-notes/command-deck/2024-06-27' },
+            { text: '2025-09-29', link: '/release-notes/command-deck/2025-09-29' },
+            { text: '2025-07-28', link: '/release-notes/command-deck/2025-07-28' },
+            { text: '2025-07-07', link: '/release-notes/command-deck/2025-07-07' },
+            { text: '2025-06-27', link: '/release-notes/command-deck/2025-06-27' },
+            { text: '2025-02-07', link: '/release-notes/command-deck/2025-02-07' },
+            { text: '2025-01-08', link: '/release-notes/command-deck/2025-01-08' },
+            { text: '2024-11-29', link: '/release-notes/command-deck/2024-11-29' },
+            { text: '2024-07-24', link: '/release-notes/command-deck/2024-07-24' },
+            { text: '2024-07-04', link: '/release-notes/command-deck/2024-07-04' },
             // auto-generated-release-notes-end
           ]
         },
