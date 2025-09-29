@@ -23,7 +23,7 @@ However, the apps you install on your NAS can significantly increase these requi
 
 When it comes to the physical hardware of the NAS you have two choices: bring your own hardware or buy something pre-built (OEM).
 
-### Bring-Your-Own-Hardware (BYOH)
+### Bring Your Own Hardware (BYOH)
 
 Do you have an old PC or gaming rig laying around? Can you get your hands on a decommissioned or refurbished server? Or do you want to build something new? One of the best things about HexOS is the ability to take almost any hardware that meets the system requirements and turn it into a home server.  
 

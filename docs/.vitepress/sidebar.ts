@@ -6,6 +6,7 @@ const sidebar: DefaultTheme.Sidebar = {
       text: 'Getting Started',
       items: [
         { text: 'Overview', link: '/getting-started/overview' },
+        { text: 'About HexOS', link: '/getting-started/about-hexos' },
         { text: 'Install HexOS', link: '/getting-started/installation/InstallGuide' },
         { text: 'Complete Setup', link: '/getting-started/setup/CompleteSetup' },
       ]
