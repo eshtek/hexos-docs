@@ -6,7 +6,7 @@ const sidebar: DefaultTheme.Sidebar = {
       text: 'Getting Started',
       items: [
         { text: 'Overview', link: '/getting-started/overview' },
-        { text: 'About HexOS', link: '/getting-started/about-hexos' },
+        { text: 'About HexOS', link: '/getting-started/about-hexos/' },
         { text: 'Install HexOS', link: '/getting-started/installation/InstallGuide' },
         { text: 'Complete Setup', link: '/getting-started/setup/CompleteSetup' },
       ]
@@ -45,7 +45,8 @@ const sidebar: DefaultTheme.Sidebar = {
       text: 'Troubleshooting',
       items: [
         { text: 'Overview', link: '/troubleshooting/' },
-        { text: 'Common Issues', link: '/troubleshooting/common-issues/',
+        {
+          text: 'Common Issues', link: '/troubleshooting/common-issues/',
           items: [
             { text: 'Avoid USB Drives', link: '/troubleshooting/common-issues/AvoidUSBDrives' },
             { text: 'Clear Browser Cache', link: '/troubleshooting/common-issues/ClearCache' },
@@ -73,7 +74,8 @@ const sidebar: DefaultTheme.Sidebar = {
     {
       text: 'Release Notes',
       items: [
-        { text: 'Command Deck', link: '/release-notes/command-deck/',
+        {
+          text: 'Command Deck', link: '/release-notes/command-deck/',
           items: [
             // auto-generated-release-notes-start
             { text: '2025-09-29', link: '/release-notes/command-deck/2025-09-29' },
