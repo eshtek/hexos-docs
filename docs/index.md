@@ -4,7 +4,7 @@ The HexOS Docs site will guide you through setting up and running a HexOS home s
 
 ## Quick Links
 
-- [**About HexOS**](/getting-started/about-hexos/) - Learn about HexOS
+- [**About HexOS**](/about-hexos/) - Learn about HexOS
 - [**Common Issues**](/troubleshooting/common-issues/) - Solutions to frequently encountered problems
 - [**Community Guides**](/community/community-guides/) - User-contributed guides and tutorials
 - [**Release Notes**](/release-notes/command-deck/) - Latest features and updates

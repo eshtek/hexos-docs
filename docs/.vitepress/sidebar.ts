@@ -1,12 +1,20 @@
 import type { DefaultTheme } from 'vitepress'
 
 const sidebar: DefaultTheme.Sidebar = {
+  '/about-hexos/': [
+    {
+      text: 'About HexOS',
+      items: [
+        { text: 'Home', link: '/' },
+      ]
+    }
+  ],
   '/getting-started/': [
     {
       text: 'Getting Started',
       items: [
+        { text: 'About HexOS', link: '/about-hexos/' },
         { text: 'Overview', link: '/getting-started/overview' },
-        { text: 'About HexOS', link: '/getting-started/about-hexos/' },
         { text: 'Install HexOS', link: '/getting-started/installation/InstallGuide' },
         { text: 'Complete Setup', link: '/getting-started/setup/CompleteSetup' },
       ]
@@ -106,6 +114,7 @@ const sidebar: DefaultTheme.Sidebar = {
       text: 'Documentation',
       items: [
         { text: 'Home', link: '/' },
+        { text: 'About HexOS', link: '/about-hexos/' },
         { text: 'Getting Started', link: '/getting-started/overview' },
         { text: 'Features', link: '/features/' },
         { text: 'Troubleshooting', link: '/troubleshooting/' },
