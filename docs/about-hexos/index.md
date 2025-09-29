@@ -24,7 +24,7 @@ Simply install the apps of your choice from the Apps screen. Using apps you can 
 - run games and virtual machines 
 - and so much more. 
 
-##Bring your own hardware
+## Bring your own hardware
 Other NAS solutions often limit you to their own expensive hardware which can't be updated easily or at all. HexOS gives you the freedom to choose and change hardware on your own, re-using older components or buying something new, the choice is yours. You can also easily add more storage one drive at a time.
 
 ## How to get HexOS
