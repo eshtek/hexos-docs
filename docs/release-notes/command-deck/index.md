@@ -11,18 +11,18 @@ For users who are actively connected during an update, there may be a brief down
 <!-- auto-generated-year-sections-start -->
 ## 2025 Releases
 
-- [**September 29, 2025**](./2025-09-29) - Updates and improvements
-- [**July 28, 2025**](./2025-07-28) - Updates and improvements
-- [**July 7, 2025**](./2025-07-07) - Updates and improvements
-- [**June 27, 2025**](./2025-06-27) - Updates and improvements
-- [**February 7, 2025**](./2025-02-07) - Improved Setup Wizard Functionality, Existing Data Detection, Minor UI Improvements
-- [**January 8, 2025**](./2025-01-08) - Updates and improvements
+- [**2025-09-29**](./2025-09-29) - New Apps Curation Process, Jellyfin/Home Assistant/qBittorrent Apps, Folder Wizard
+- [**2025-07-28**](./2025-07-28) - Networking Fixes, Performance Improvements, Folder Loading Optimization
+- [**2025-07-07**](./2025-07-07) - Observability Improvements, Request Timing Instrumentation
+- [**2025-06-27**](./2025-06-27) - Manual Pool Configuration, Activity Center, TrueNAS SCALE 24.10.2.2 Update
+- [**2025-02-07**](./2025-02-07) - Improved Setup Wizard Functionality, Existing Data Detection, Minor UI Improvements
+- [**2025-01-08**](./2025-01-08) - Manual WAN IP Specification, Additional Confirmations for Destructive Actions
 
 ## 2024 Releases
 
-- [**July 24, 2024**](./2024-07-24) - Networking Fixes, Performance Improvements, Folder Loading Optimization
-- [**July 4, 2024**](./2024-07-04) - Updates and improvements
-- [**June 27, 2024**](./2024-06-27) - Updates and improvements
+- [**2024-11-29**](./2024-11-29) - Beta Release - Road to 1.0
+- [**2024-07-24**](./2024-07-24) - Networking Fixes, Performance Improvements, Folder Loading Optimization
+- [**2024-07-04**](./2024-07-04) - Observability Improvements, Request Timing Instrumentation
 <!-- auto-generated-year-sections-end -->
 
 ## Need Help?
