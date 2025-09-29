@@ -164,6 +164,12 @@ Problems creating storage pools:
    - RAIDZ1 requires at least 3 drives
    - RAIDZ2 requires at least 4 drives
 
+## Task & Operation Issues
+
+### Dismissing Stale Tasks
+
+If a task is taking too long or appears stuck in the Activities panel, you can manually dismiss it by enabling [Experimental Features](/features/settings/experimental-features/) and clicking the X icon next to the task.
+
 ## Getting Additional Help
 
 If your issue isn't covered here:
