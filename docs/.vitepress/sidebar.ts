@@ -107,7 +107,11 @@ const sidebar: DefaultTheme.Sidebar = {
       link: '/blog/',
       items: [
         { text: 'Q3 2025', link: '/blog/2025-09-30' },
+        { text: 'Introducing ZFS AnyRaid', link: '/blog/2025-05-22' },
+        { text: 'Status Update & ZFS Leadership Call', link: '/blog/2025-05-20' },
         { text: 'Q1 2025', link: '/blog/2025-03-07' },
+        { text: 'The Road to 1.0', link: '/blog/2024-11-28' },
+        { text: 'The Magic Behind HexOS', link: '/blog/2024-07-30' },
       ]
     }
   ],
