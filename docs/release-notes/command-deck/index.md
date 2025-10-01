@@ -21,8 +21,6 @@ For users who are actively connected during an update, there may be a brief down
 ## 2024 Releases
 
 - [**2024-11-29**](./2024-11-29) - Beta Release - Road to 1.0
-- [**2024-07-24**](./2024-07-24) - Networking Fixes, Performance Improvements, Folder Loading Optimization
-- [**2024-07-04**](./2024-07-04) - Observability Improvements, Request Timing Instrumentation
 <!-- auto-generated-year-sections-end -->
 
 ## Need Help?
