@@ -48,7 +48,7 @@ Your NAS hardware might be trying to BOOT from a different drive, for example an
 To fix this first enter the BIOS -  usually this is done by pressing F10, F2, F12, F1, or DEL while the machine is turning on.
 Then in the BIOS change the order of boot drives so your USB ISO is at the top. Then save/restart.
 
-#### Disabling Secure Boothttps://docs.hexos.com/getting-started/overview.html#getting-started
+#### Disabling Secure Boot
 If you see an error message about a “security policy violation” after booting, this is caused by [Secure Boot](https://en.wikipedia.org/wiki/UEFI#Secure_Boot)
 
 For instructions on how to disable secure boot search '[your motherboard model here] disable secure boot'. You can also search for the motherboard user manual, and search within that for 'secure boot'".
