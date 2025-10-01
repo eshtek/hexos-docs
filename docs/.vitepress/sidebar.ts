@@ -101,6 +101,16 @@ const sidebar: DefaultTheme.Sidebar = {
       ]
     }
   ],
+  '/blog/': [
+    {
+      text: 'Blog',
+      link: '/blog/',
+      items: [
+        { text: 'Q3 2025', link: '/blog/2025-09-30' },
+        { text: 'Q1 2025', link: '/blog/2025-03-07' },
+      ]
+    }
+  ],
   // '/licensing/': [
   //   {
   //     text: 'Licensing',
@@ -119,6 +129,7 @@ const sidebar: DefaultTheme.Sidebar = {
         { text: 'Features', link: '/features/' },
         { text: 'Troubleshooting', link: '/troubleshooting/' },
         { text: 'Community', link: '/community/' },
+        { text: 'Blog', link: '/blog/' },
         { text: 'Release Notes', link: '/release-notes/command-deck/' },
         // { text: 'Licensing', link: '/licensing/' },
       ]

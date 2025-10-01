@@ -6,6 +6,7 @@ const nav: DefaultTheme.NavItem[] = [
   { text: 'Features', link: '/features/' },
   { text: 'Troubleshooting', link: '/troubleshooting/' },
   { text: 'Community', link: '/community/' },
+  { text: 'Blog', link: '/blog/' },
   // { text: 'Licensing', link: '/licensing/' },
 ]
 
