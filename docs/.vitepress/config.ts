@@ -17,7 +17,7 @@ export default withMermaid(
         { icon: 'github', link: 'https://github.com/eshtek/hexos-docs' }
       ],
       editLink: {
-        pattern: 'https://github.com/eshtek/hexos-docs/edit/main/docs/:path',
+        pattern: 'https://github.com/eshtek/hexos-docs/edit/dev/docs/:path',
         text: 'Edit this page on GitHub'
       },
       footer: {
