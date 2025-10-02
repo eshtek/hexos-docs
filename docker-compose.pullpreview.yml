@@ -1,0 +1,29 @@
+services:
+  # easily set up SSL termination
+  proxy:
+    image: caddy:2
+    restart: unless-stopped
+    command: "caddy reverse-proxy --from '${PULLPREVIEW_PUBLIC_DNS}' --to webapp:4173"
+    depends_on:
+      - webapp
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - "/data"
+
+  webapp:
+    build:
+      context: .
+      dockerfile_inline: |
+        FROM node:20
+        EXPOSE 4173
+    restart: unless-stopped
+    working_dir: /app
+    volumes:
+      - ./:/app
+    ports:
+      - "4173:4173"
+    environment:
+      NODE_ENV: production
+    command: bash -c "npm run docs:serve"

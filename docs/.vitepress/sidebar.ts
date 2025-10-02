@@ -93,11 +93,24 @@ const sidebar: DefaultTheme.Sidebar = {
             { text: '2025-02-07', link: '/release-notes/command-deck/2025-02-07' },
             { text: '2025-01-08', link: '/release-notes/command-deck/2025-01-08' },
             { text: '2024-11-29', link: '/release-notes/command-deck/2024-11-29' },
-            { text: '2024-07-24', link: '/release-notes/command-deck/2024-07-24' },
-            { text: '2024-07-04', link: '/release-notes/command-deck/2024-07-04' },
             // auto-generated-release-notes-end
           ]
         },
+      ]
+    }
+  ],
+  '/blog/': [
+    {
+      text: 'Blog',
+      link: '/blog/',
+      items: [
+        { text: 'Q3 2025', link: '/blog/2025-10-01' },
+        { text: 'Q2 2025', link: '/blog/2025-09-30' },
+        { text: 'Introducing ZFS AnyRaid', link: '/blog/2025-05-22' },
+        { text: 'Status Update & ZFS Leadership Call', link: '/blog/2025-05-20' },
+        { text: 'Q1 2025', link: '/blog/2025-03-07' },
+        { text: 'The Road to 1.0', link: '/blog/2024-11-28' },
+        { text: 'The Magic Behind HexOS', link: '/blog/2024-07-30' },
       ]
     }
   ],
@@ -119,6 +132,7 @@ const sidebar: DefaultTheme.Sidebar = {
         { text: 'Features', link: '/features/' },
         { text: 'Troubleshooting', link: '/troubleshooting/' },
         { text: 'Community', link: '/community/' },
+        { text: 'Blog', link: '/blog/' },
         { text: 'Release Notes', link: '/release-notes/command-deck/' },
         // { text: 'Licensing', link: '/licensing/' },
       ]
