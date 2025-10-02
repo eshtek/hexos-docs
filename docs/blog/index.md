@@ -4,7 +4,8 @@ Stay up to date with the latest news and updates from the HexOS team.
 
 ## 2025
 
-- [Q3 2025: Opening Up, Scaling Up - September 30, 2025](/blog/2025-09-30)
+- [Q3 Status Update - October 1, 2025](/blog/2025-10-01)
+- [Q2 Status Update - September 30, 2025](/blog/2025-09-30)
 - [Introducing ZFS AnyRaid, Sponsored by Eshtek - May 22, 2025](/blog/2025-05-22)
 - [Status Update & ZFS Leadership Call Tonight - May 20, 2025](/blog/2025-05-20)
 - [Q1 Status Update - March 7, 2025](/blog/2025-03-07)
