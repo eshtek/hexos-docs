@@ -1,105 +1,129 @@
 import type { DefaultTheme } from 'vitepress'
 
 const sidebar: DefaultTheme.Sidebar = {
+  // About section
   '/about-hexos/': [
+    { text: '← Back to Home', link: '/' },
     {
       text: 'About HexOS',
-      items: [
-        { text: 'Home', link: '/' },
-      ]
+      link: '/about-hexos/',
+      items: []
     }
   ],
+
+  // Getting Started section
   '/getting-started/': [
+    { text: '← Back to Home', link: '/' },
     {
       text: 'Getting Started',
+      link: '/getting-started/overview',
       items: [
-        { text: 'About HexOS', link: '/about-hexos/' },
-        { text: 'Overview', link: '/getting-started/overview' },
         { text: 'Install HexOS', link: '/getting-started/installation/InstallGuide' },
         { text: 'Complete Setup', link: '/getting-started/setup/CompleteSetup' },
       ]
     }
   ],
+
+  // Apps subsections - Install Scripts
+  '/features/apps/install-scripts/': [
+    { text: '← Back to Apps', link: '/features/apps/' },
+    {
+      text: 'Install Scripts',
+      link: '/features/apps/install-scripts/overview',
+      items: [
+        { text: 'Curated Scripts', link: '/features/apps/install-scripts/curated/' },
+        { text: 'Contributing', link: '/features/apps/install-scripts/contributing' },
+        { text: 'Schema Reference', link: '/features/apps/install-scripts/reference/schema' },
+        { text: 'Macros Reference', link: '/features/apps/install-scripts/reference/macros' },
+        { text: 'Debugging', link: '/features/apps/install-scripts/advanced/debugging' },
+      ]
+    }
+  ],
+
+  // Apps subsections - Curated App Guides
+  '/features/apps/articles/': [
+    { text: '← Back to Apps', link: '/features/apps/' },
+    {
+      text: 'Curated App Guides',
+      link: '/features/apps/articles/',
+      items: [
+        { text: 'Immich', link: '/features/apps/articles/immich/' },
+      ]
+    }
+  ],
+
+  // Features section
   '/features/': [
+    { text: '← Back to Home', link: '/' },
     {
       text: 'Features',
+      link: '/features/',
       items: [
-        { text: 'Overview', link: '/features/' },
         { text: 'Storage', link: '/features/storage/storage' },
         { text: 'Folders', link: '/features/folders/' },
-        {
-          text: 'Apps', link: '/features/apps/',
-          items: [
-            { text: 'Install Scripts Overview', link: '/features/apps/install-scripts/overview' },
-            { text: 'Curated Scripts', link: '/features/apps/install-scripts/curated/' },
-            { text: 'Contributing', link: '/features/apps/install-scripts/contributing' },
-            { text: 'Schema Reference', link: '/features/apps/install-scripts/reference/schema' },
-            { text: 'Macros Reference', link: '/features/apps/install-scripts/reference/macros' },
-            { text: 'Debugging', link: '/features/apps/install-scripts/advanced/debugging' },
-          ]
-        },
         { text: 'Notifications', link: '/features/notifications/' },
-        {
-          text: 'Settings', link: '/features/settings/',
-          items: [
-            { text: 'Experimental Features', link: '/features/settings/experimental-features/' },
-          ]
-        },
-      ],
+        { text: 'Settings', link: '/features/settings/' },
+      ]
+    },
+    {
+      text: 'Apps',
+      link: '/features/apps/',
+      items: [
+        { text: 'Curated App Guides', link: '/features/apps/articles/' },
+        { text: 'Install Scripts', link: '/features/apps/install-scripts/overview' },
+      ]
     }
   ],
+
+  // Troubleshooting section
   '/troubleshooting/': [
+    { text: '← Back to Home', link: '/' },
     {
       text: 'Troubleshooting',
+      link: '/troubleshooting/',
       items: [
-        { text: 'Overview', link: '/troubleshooting/' },
-        {
-          text: 'Common Issues', link: '/troubleshooting/common-issues/',
-          items: [
-            { text: 'Avoid USB Drives', link: '/troubleshooting/common-issues/AvoidUSBDrives' },
-            { text: 'Clear Browser Cache', link: '/troubleshooting/common-issues/ClearCache' },
-          ]
-        },
+        { text: 'Avoid USB Drives', link: '/troubleshooting/common-issues/AvoidUSBDrives' },
+        { text: 'Clear Browser Cache', link: '/troubleshooting/common-issues/ClearCache' },
       ]
     }
   ],
+
+  // Community section
   '/community/': [
+    { text: '← Back to Home', link: '/' },
     {
       text: 'Community',
+      link: '/community/',
       items: [
-        { text: 'How to Contribute', link: '/community/' },
-        {
-          text: 'Community Guides', link: '/community/community-guides/',
-          items: [
-            { text: 'Replicating Virtual Machines', link: '/community/community-guides/ReplicatingVirtualMachines' },
-            { text: 'Setting Up Tailscale', link: '/community/community-guides/SettingUpTailscale' },
-          ]
-        },
+        { text: 'Replicating Virtual Machines', link: '/community/community-guides/ReplicatingVirtualMachines' },
+        { text: 'Setting Up Tailscale', link: '/community/community-guides/SettingUpTailscale' },
       ]
     }
   ],
+
+  // Release Notes section
   '/release-notes/': [
+    { text: '← Back to Home', link: '/' },
     {
       text: 'Release Notes',
+      link: '/release-notes/command-deck/',
       items: [
-        {
-          text: 'Command Deck', link: '/release-notes/command-deck/',
-          items: [
-            // auto-generated-release-notes-start
-            { text: '2025-09-29', link: '/release-notes/command-deck/2025-09-29' },
-            { text: '2025-07-28', link: '/release-notes/command-deck/2025-07-28' },
-            { text: '2025-07-07', link: '/release-notes/command-deck/2025-07-07' },
-            { text: '2025-06-27', link: '/release-notes/command-deck/2025-06-27' },
-            { text: '2025-02-07', link: '/release-notes/command-deck/2025-02-07' },
-            { text: '2025-01-08', link: '/release-notes/command-deck/2025-01-08' },
-            { text: '2024-11-29', link: '/release-notes/command-deck/2024-11-29' },
-            // auto-generated-release-notes-end
-          ]
-        },
+        // auto-generated-release-notes-start
+        { text: '2025-09-29', link: '/release-notes/command-deck/2025-09-29' },
+        { text: '2025-07-28', link: '/release-notes/command-deck/2025-07-28' },
+        { text: '2025-07-07', link: '/release-notes/command-deck/2025-07-07' },
+        { text: '2025-06-27', link: '/release-notes/command-deck/2025-06-27' },
+        { text: '2025-02-07', link: '/release-notes/command-deck/2025-02-07' },
+        { text: '2025-01-08', link: '/release-notes/command-deck/2025-01-08' },
+        { text: '2024-11-29', link: '/release-notes/command-deck/2024-11-29' },
+        // auto-generated-release-notes-end
       ]
     }
   ],
+
+  // Blog section
   '/blog/': [
+    { text: '← Back to Home', link: '/' },
     {
       text: 'Blog',
       link: '/blog/',
@@ -114,27 +138,29 @@ const sidebar: DefaultTheme.Sidebar = {
       ]
     }
   ],
-  // '/licensing/': [
-  //   {
-  //     text: 'Licensing',
-  //     items: [
-  //       { text: 'Usage Rights', link: '/licensing/' },
-  //     ]
-  //   }
-  // ],
+
+  // Home/root section
   '/': [
+    {
+      text: 'Getting Started',
+      items: [
+        { text: 'About HexOS', link: '/about-hexos/' },
+        { text: 'Installation & Setup', link: '/getting-started/overview' },
+      ]
+    },
     {
       text: 'Documentation',
       items: [
-        { text: 'Home', link: '/' },
-        { text: 'About HexOS', link: '/about-hexos/' },
-        { text: 'Getting Started', link: '/getting-started/overview' },
         { text: 'Features', link: '/features/' },
         { text: 'Troubleshooting', link: '/troubleshooting/' },
+      ]
+    },
+    {
+      text: 'Resources',
+      items: [
         { text: 'Community', link: '/community/' },
         { text: 'Blog', link: '/blog/' },
         { text: 'Release Notes', link: '/release-notes/command-deck/' },
-        // { text: 'Licensing', link: '/licensing/' },
       ]
     }
   ]
