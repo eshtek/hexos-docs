@@ -23,7 +23,7 @@ If you don't yet have a replacement drive, check out our guide before buying [se
 ### How to replace a drive
 
 - First install the drive in the machine
-- Next go to [deck.hexos.com](deck.hexos.com) and click to the Storage screen
+- Next go to [deck.hexos.com](https://deck.hexos.com) and click to the Storage screen
 - Then click on your storage pool
 <img width="826" height="417" alt="Screenshot From 2025-10-01 11-26-58" src="https://github.com/user-attachments/assets/756974b0-e517-4fcb-a9dc-2a1c56b357ad" />
 
@@ -47,7 +47,7 @@ This is how you can add more drives to your existing pool for more storage space
 To add another drive to your pool:
 
 - First install the drive in the machine 
-- Then go to [deck.hexos.com](deck.hexos.com) and click to the Storage screen.
+- Then go to [deck.hexos.com](https://deck.hexos.com) and click to the Storage screen.
 -   You should see the drive appear under Unused Drives
 - Click on the pool
 <img width="826" height="417" alt="Screenshot From 2025-10-01 11-26-58" src="https://github.com/user-attachments/assets/7287e9a1-0112-4ad6-8210-6be6c35e5448" />
