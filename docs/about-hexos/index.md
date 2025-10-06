@@ -29,4 +29,8 @@ Other NAS solutions often limit you to their own expensive hardware which can't 
 
 ## How to get HexOS
 
-HexOS is currently in early beta: you can buy early access with [hexos lifetime here](https://hexos.com/#earlyaccess). 
+HexOS is currently in early beta: you can buy early access with [hexos lifetime here](https://hexos.com/#earlyaccess).
+
+## We are hiring
+
+We are looking for talented people to join our team. Check our open roles [here](../community/join-the-team.md). 
