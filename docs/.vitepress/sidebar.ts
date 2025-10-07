@@ -86,6 +86,7 @@ const sidebar: DefaultTheme.Sidebar = {
           text: 'Command Deck', link: '/release-notes/command-deck/',
           items: [
             // auto-generated-release-notes-start
+            { text: '2025-10-07', link: '/release-notes/command-deck/2025-10-07' },
             { text: '2025-09-29', link: '/release-notes/command-deck/2025-09-29' },
             { text: '2025-07-28', link: '/release-notes/command-deck/2025-07-28' },
             { text: '2025-07-07', link: '/release-notes/command-deck/2025-07-07' },
