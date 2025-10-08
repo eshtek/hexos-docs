@@ -10,7 +10,7 @@ Now that HexOS is installed, it’s time to log in and set up your server!
 
 ### You Will Need
 
-- HexOS.com username and password
+- HexOS username and password
 - Root password for your server from the install process
 - Be ready to choose a name for your NAS
 - The server should be connected to your wifi router using a network cable
@@ -18,7 +18,8 @@ Now that HexOS is installed, it’s time to log in and set up your server!
 
 ### Login to HexOS
 
-First, go to [deck.hexos.com](https://deck.hexos.com) and log in. This is the username as password you created when buying HexOS, it's not the root password you used when installing HexOS.
+First, go to [deck.hexos.com](https://deck.hexos.com) and log in.   
+This is the username as password you created when buying HexOS, it's not the root password you used when installing HexOS.
 
 <img width="2256" height="1504" alt="Screenshot From 2025-09-30 11-20-17" src="https://github.com/user-attachments/assets/bad810b2-5525-4eed-b029-99ea7467ba4e" />
 
@@ -62,7 +63,8 @@ You will now see a suggested arrangement of your drives into storage pools. "Poo
 
 HexOS will suggest a storage pool layout based on your hardware. 
 
-Ideally you will have at least 3 drives in your pool, this means you can add more later. [Read more about storage pool layouts here](https://docs.hexos.com/getting-started/overview.html#recommended-layouts).
+Ideally you will have at least 3 drives in your pool, this means you can add more later.  
+[Read more about storage pool layouts here](https://docs.hexos.com/getting-started/overview.html#recommended-layouts).
 
 For most people, the recommended configuration is the best path forward. To use the default suggested layout click the Continue button again. Name your server.
 
@@ -90,7 +92,7 @@ This is a good point to check that the install has worked well and that your sys
 
 Whenever you go to [deck.hexos.com](deck.hexos.com) you will see your HexOS [dashboard](/features/). This is your control center where you can monitor your server, manage storage, install apps, and configure settings. 
 
-Try clicking on each item on the Dash now and check the details as they pop out from the right hand side of the screen. There should be no warnings or errors and the pool should match what you chose during setup. If you have any problems [try the forums](https://hub.hexos.com/)
+Try clicking on each item on the Dash now and check the details as they pop out from the right hand side of the screen. There should be no warnings or errors and the pool should match what you chose during setup. If you have any problems [try the forums](https://hub.hexos.com/).
 
 Ready to explore? Check out our [Features Guide](/features/) to learn about everything HexOS can do!
 
