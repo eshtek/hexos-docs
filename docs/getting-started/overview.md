@@ -37,9 +37,15 @@ There are many OEM NAS appliances available for purchase in the hardware market.
 
 ## Get Yourself Some Storage
 
-Selecting storage devices for your home server comes down to how much storage capacity you need, how fast you want the storage to be and  what you have room and power for in your system. HDDs should be used for user data, and SSDs can offer faster speeds for running HexOS and more high-performance applications and use-cases.  
+Selecting storage drives for your home server comes down to how much storage capacity you need, how fast you want the storage to be and  what you have room and power for in your system. 
 
-### Recommended Layouts
+HDDs should be used for user data, and SSDs can offer faster speeds for running HexOS and more high-performance applications and use-cases.
+
+Drives will be arranged into storage pools. "Pools" are groups of drives that will work together as one, allowing a larger amount of storage space than a single drive and also giving additional “redundancy” in case one or more drives fail.
+
+[Read more about what kind of hard drives to use here](/articles/selectingDrives.html)
+
+### Recommended Pool Layouts
 
 While you can ultimately create as many pools in whatever configurations you want using HexOS, most users will benefit from one of three primary configurations.
 
