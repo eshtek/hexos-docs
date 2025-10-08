@@ -66,7 +66,7 @@ HexOS will suggest a storage pool layout based on your hardware.
 Ideally you will have at least 3 drives in your pool, this means you can add more later.  
 [Read more about storage pool layouts here](https://docs.hexos.com/getting-started/overview.html#recommended-layouts).
 
-For most people, the recommended configuration is the best path forward. To use the default suggested layout click the Continue button again. Name your server.
+For most people, the recommended configuration is the best path forward. To use the default suggested layout click the Continue button again.
 
 You will now see the setup process running
 
@@ -79,6 +79,11 @@ If you are more of a tinkerer you can remove drives from default pools or skip p
 - removing drives can reduce redundancy 
 - this affects how safely your pools handle failures
 - if you have fewer than 3 drives in a pool you can’t add more drives to the pool later on
+
+#### Almost Done!
+
+You are just about done setting up your server.  
+All thats left is to give your server a name and then the initialization process will begin. 
 
 ### Step 3: Welcome to your HexOS NAS
 
