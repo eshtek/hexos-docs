@@ -27,8 +27,6 @@ npm run docs:build
 **Interested in contributing?**  
 We'd love your help improving the HexOS documentation!
 
-**[See our full Contributing Guide](#contributing-guide)** below for detailed instructions.
-
 ### Contributing Guide
 
 We welcome contributions to the HexOS documentation!  
