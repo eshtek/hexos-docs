@@ -20,7 +20,7 @@ Help keep our docs accurate and helpful:
 - Clarify confusing sections
 - Share real-world use cases
 
-Learn more about how to contribute to the docs repository [here](/community/how-to-contribute)
+Learn more about how to contribute to the docs repository [here](/community/how-to-contribute/)
 
 ## Support Other Users
 

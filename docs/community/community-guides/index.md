@@ -9,4 +9,4 @@ Welcome to the HexOS community guides! These guides are created by community mem
 
 ## Contributing
 
-Have a guide you'd like to share? Check out our [contribution guide](/community/how-to-contribute) to learn how to add your own community guide.
+Have a guide you'd like to share? Check out our [contribution guide](/community/how-to-contribute/) to learn how to add your own community guide.

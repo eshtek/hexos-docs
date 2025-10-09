@@ -95,7 +95,7 @@ const sidebar: DefaultTheme.Sidebar = {
       text: 'Community',
       link: '/community/',
       items: [
-        { text: 'How to Contribute', link: '/community/how-to-contribute' },
+        { text: 'How to Contribute', link: '/community/how-to-contribute/' },
         {
           text: 'Guides',
           link: '/community/community-guides/',

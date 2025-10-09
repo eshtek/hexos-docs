@@ -22,7 +22,7 @@ const nav: DefaultTheme.NavItem[] = [
       {
         text: 'Community',
         items: [
-          { text: 'How to Contribute', link: '/community/how-to-contribute' },
+          { text: 'How to Contribute', link: '/community/how-to-contribute/' },
           { text: 'Guides', link: '/community/community-guides/' },
         ]
       },
