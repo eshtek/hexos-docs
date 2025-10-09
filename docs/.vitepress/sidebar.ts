@@ -95,8 +95,15 @@ const sidebar: DefaultTheme.Sidebar = {
       text: 'Community',
       link: '/community/',
       items: [
-        { text: 'Replicating Virtual Machines', link: '/community/community-guides/ReplicatingVirtualMachines' },
-        { text: 'Setting Up Tailscale', link: '/community/community-guides/SettingUpTailscale' },
+        { text: 'How to Contribute', link: '/community/how-to-contribute' },
+        {
+          text: 'Guides',
+          link: '/community/community-guides/',
+          items: [
+            { text: 'Replicating Virtual Machines', link: '/community/community-guides/ReplicatingVirtualMachines' },
+            { text: 'Setting Up Tailscale', link: '/community/community-guides/SettingUpTailscale' },
+          ]
+        }
       ]
     }
   ],
@@ -109,14 +116,15 @@ const sidebar: DefaultTheme.Sidebar = {
       link: '/release-notes/command-deck/',
       items: [
         // auto-generated-release-notes-start
-        { text: '2025-09-29', link: '/release-notes/command-deck/2025-09-29' },
-        { text: '2025-07-28', link: '/release-notes/command-deck/2025-07-28' },
-        { text: '2025-07-07', link: '/release-notes/command-deck/2025-07-07' },
-        { text: '2025-06-27', link: '/release-notes/command-deck/2025-06-27' },
-        { text: '2025-02-07', link: '/release-notes/command-deck/2025-02-07' },
-        { text: '2025-01-08', link: '/release-notes/command-deck/2025-01-08' },
-        { text: '2024-11-29', link: '/release-notes/command-deck/2024-11-29' },
-        // auto-generated-release-notes-end
+            { text: '2025-10-07', link: '/release-notes/command-deck/2025-10-07' },
+            { text: '2025-09-29', link: '/release-notes/command-deck/2025-09-29' },
+            { text: '2025-07-28', link: '/release-notes/command-deck/2025-07-28' },
+            { text: '2025-07-07', link: '/release-notes/command-deck/2025-07-07' },
+            { text: '2025-06-27', link: '/release-notes/command-deck/2025-06-27' },
+            { text: '2025-02-07', link: '/release-notes/command-deck/2025-02-07' },
+            { text: '2025-01-08', link: '/release-notes/command-deck/2025-01-08' },
+            { text: '2024-11-29', link: '/release-notes/command-deck/2024-11-29' },
+            // auto-generated-release-notes-end
       ]
     }
   ],

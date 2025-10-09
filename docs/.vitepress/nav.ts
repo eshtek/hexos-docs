@@ -19,7 +19,13 @@ const nav: DefaultTheme.NavItem[] = [
   {
     text: 'Resources',
     items: [
-      { text: 'Community', link: '/community/' },
+      {
+        text: 'Community',
+        items: [
+          { text: 'How to Contribute', link: '/community/how-to-contribute' },
+          { text: 'Guides', link: '/community/community-guides/' },
+        ]
+      },
       { text: 'Blog', link: '/blog/' },
       { text: 'Release Notes', link: '/release-notes/command-deck/' },
     ]
