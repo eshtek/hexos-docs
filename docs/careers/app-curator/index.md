@@ -13,7 +13,7 @@ HexOS is looking for a detail-oriented, technically capable **App Support & Cura
 
 ### What We Are Looking For
 - Experience with TrueNAS, home server apps, and container environments.
-- Existing **homelaber / home lab user**; familiarity with HexOS is a strong plus.
+- Existing **homelabber / self-hosting user**; familiarity with HexOS is a strong plus.
 - Solid troubleshooting skills with Linux, containers, and networking.
 - Excellent communication, able to explain issues clearly to users and collaborate with developers.
 - Self-managing and reliable: you can work remote, set your own tasks, and follow through.
