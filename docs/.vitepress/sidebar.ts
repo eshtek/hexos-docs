@@ -147,11 +147,22 @@ const sidebar: DefaultTheme.Sidebar = {
     }
   ],
 
+  // Careers subsections
+  '/careers/app-curator/': [
+    { text: '← Back to Careers', link: '/careers/' },
+    {
+      text: 'App Curator',
+      link: '/careers/app-curator/',
+      items: []
+    }
+  ],
+
   // Careers section
   '/careers/': [
     { text: '← Back to Home', link: '/' },
     {
       text: 'Careers',
+      link: '/careers/',
       items: [
         { text: 'App Curator', link: '/careers/app-curator/' },
       ]
@@ -180,6 +191,7 @@ const sidebar: DefaultTheme.Sidebar = {
         { text: 'Community', link: '/community/' },
         { text: 'Blog', link: '/blog/' },
         { text: 'Release Notes', link: '/release-notes/command-deck/' },
+        { text: 'Careers', link: '/careers/' },
       ]
     }
   ]

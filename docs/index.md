@@ -14,5 +14,5 @@ Want to get involved? Check out our [contribution guide](/community/how-to-contr
 <br>
 
 :::tip We're Hiring!
-We currently have an open position, head to our [careers](/careers/app-curator/) page to see if it's for you!
+We currently have an open position, head to our [careers](/careers/) page to see if it's for you!
 :::
