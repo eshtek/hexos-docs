@@ -1,0 +1,4 @@
+/* Reduce spacing before h2 headings */
+.vp-doc h2 {
+  margin-top: 24px;
+}
