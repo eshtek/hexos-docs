@@ -139,6 +139,17 @@ const sidebar: DefaultTheme.Sidebar = {
     }
   ],
 
+  // Careers section
+  '/careers/': [
+    { text: '← Back to Home', link: '/' },
+    {
+      text: 'Careers',
+      items: [
+        { text: 'App Curator', link: '/careers/app-curator/' },
+      ]
+    }
+  ],
+
   // Home/root section
   '/': [
     {

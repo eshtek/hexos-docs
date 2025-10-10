@@ -24,6 +24,13 @@ const nav: DefaultTheme.NavItem[] = [
       { text: 'Release Notes', link: '/release-notes/command-deck/' },
     ]
   },
+  {
+    text: 'Careers',
+    link: '/careers/app-curator/',
+    items: [
+      { text: 'App Curator', link: '/careers/app-curator/' },
+    ]
+  },
 ]
 
 export default nav

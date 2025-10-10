@@ -9,3 +9,6 @@ The HexOS Docs site will guide you through setting up and running a HexOS home s
 - [**Community Guides**](/community/community-guides/) - User-contributed guides and tutorials
 - [**Release Notes**](/release-notes/command-deck/) - Latest features and updates
 
+:::tip We're Hiring!
+We currently have an open position, head to our [careers](/careers/app-curator/) page to see if it's for you!
+:::
