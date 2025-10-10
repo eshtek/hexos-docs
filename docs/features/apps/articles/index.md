@@ -4,7 +4,7 @@ This section contains guides and troubleshooting information for apps officially
 
 ## Available App Guides
 
-- [Immich](/features/apps/articles/immich/) - Photo and video management troubleshooting
+Guides will be added soon, check back for updates! 
 
 ## About Curated Apps
 
