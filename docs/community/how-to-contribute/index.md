@@ -59,6 +59,60 @@ Whether you have a new guide, found an error you want to correct, here's how to 
 
    > **Note:** It may take time for our team to review contributions, so don't worry if your pull request isn't immediately accepted. We appreciate your patience!
 
+## Using GitHub in the Browser
+
+If you prefer to make contributions directly in your browser without cloning the repository, here are some helpful tips:
+
+### Switch to the Dev Branch
+
+Before making any changes, make sure you're working on the `dev` branch:
+
+<img src="/assets/screenshots/branch-select-dev.png" alt="Branch selection dropdown" width="300">
+
+Click the branch selector and choose `dev` before creating or editing files.
+
+### Preview Your Changes with PullPreview
+
+When you open a pull request, our repository automatically generates a live preview of your changes using PullPreview. This lets you see exactly how your changes will look on the live site before they're merged.
+
+#### How to Access Your Preview
+
+1. After opening your pull request, scroll down to the checks section at the bottom
+2. Look for the **PullPreview** check in the list
+3. Click on **Details** next to the PullPreview check
+
+   <img src="/assets/screenshots/pullpreview-select.png" alt="PullPreview check in PR" width="300">
+
+4. Once the preview is ready, you'll see a success message with a link to your preview site
+
+   <img src="/assets/screenshots/pullpreview-success.png" alt="PullPreview success with link" width="800">
+
+5. Click the **preview link** to open your live preview in a new tab
+
+   <img src="/assets/screenshots/pullpreview-link.png" alt="Click the preview link" width="800">
+
+#### If the Preview Build Fails
+
+Sometimes the preview build might fail. This is usually due to broken links or build errors. Here's how to troubleshoot:
+
+1. Click **Details** on the failed PullPreview check
+
+   <img src="/assets/screenshots/failed-pullpreview-click.png" alt="Failed PullPreview check" width="800">
+
+2. Review the error logs to identify the issue. Common problems include:
+   - **Broken links**: Links pointing to pages that don't exist
+   - **Dead links**: External URLs that are no longer valid
+   - **Build errors**: Syntax errors in markdown or configuration
+
+   <img src="/assets/screenshots/failed-build-dead-links.png" alt="Build failure showing dead links" width="800">
+
+3. Fix the issues in your pull request by making additional commits
+4. The preview will automatically rebuild once you push new changes
+
+::: tip
+PullPreview can take a minute or two to build. Be patient! If it's taking longer than expected, check the logs by clicking **Details** on the check.
+:::
+
 ## Need Help?
 
 If you have any questions or need assistance, be sure to check out the [HexOS Community forums](https://hub.hexos.com/) where you can get help from other contributors and the HexOS team.
