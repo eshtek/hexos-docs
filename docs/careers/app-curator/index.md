@@ -1,4 +1,4 @@
-# Open Role: App Support & Curation Specialist (Remote)
+# Open Role: App Support & Curation Specialist (Full-time, Remote)
 
 HexOS is looking for a detail-oriented, technically capable **App Support & Curation Specialist** to help manage app support and improve our curated app ecosystem. This is a remote role where you will work independently, set clear deliverables, and execute without heavy oversight.
 
