@@ -32,7 +32,6 @@ const nav: DefaultTheme.NavItem[] = [
   },
   {
     text: 'Careers',
-    link: '/careers/app-curator/',
     items: [
       { text: 'App Curator', link: '/careers/app-curator/' },
     ]

@@ -1,9 +1,4 @@
-# Join the Team
-
-HexOS is growing, and we are looking for the right people to join us.
-Below you will find our current open role, plus shareable versions you can use in community spaces.
-
-## Open Role: App Support & Curation Specialist (Remote)
+# Open Role: App Support & Curation Specialist (Remote)
 
 HexOS is looking for a detail-oriented, technically capable **App Support & Curation Specialist** to help manage app support and improve our curated app ecosystem. This is a remote role where you will work independently, set clear deliverables, and execute without heavy oversight.
 
