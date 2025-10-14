@@ -6,7 +6,7 @@ next:
 
 # Complete Server Setup
 
-Now that HexOS is installed, it's time to log in and set up your server!
+Now that HexOS is installed, it’s time to log in and set up your server!
 
 ### You Will Need
 
@@ -14,18 +14,18 @@ Now that HexOS is installed, it's time to log in and set up your server!
 - Root password for your server from the install process
 - Be ready to choose a name for your NAS
 - The server should be connected to your wifi router using a network cable
-- The computer you're using for setup should also be on the same wifi network
+- The computer you’re using for setup should also be on the same wifi network
 
 ## Login to HexOS
 
-First, go to [deck.hexos.com](https://deck.hexos.com) and log in.
-:::tip Note
-*This is the username and password you created when buying HexOS, it's not the root password you used when installing HexOS.*
-:::
+First, go to [deck.hexos.com](https://deck.hexos.com) and log in.   
+If you have not already signed up you can [sign up](https://hub.hexos.com/register/) here.
 
 <img width="2256" height="1504" alt="Screenshot From 2025-09-30 11-20-17" src="https://github.com/user-attachments/assets/bad810b2-5525-4eed-b029-99ea7467ba4e" />
 
-If you have not already signed up you can [sign up](https://hub.hexos.com/register/) here.
+:::tip Note 
+*This is the username and password you created when buying HexOS, it's not the root password you used when installing HexOS.*
+:::
 
 ## Claiming Your Server
 
@@ -39,8 +39,8 @@ Your server should appear in the panel where it says "Looking for servers..." on
 
 First check that the server is connected to your wifi network, check that the cables are fully plugged in. Then refresh the page.
 
-If this does not let the server be detected you may need to connect manually.
-- Click the "Having Problems" link at the bottom of the "Lets get started!" section
+If this does not let the server be detected you may need to connect manually.  
+- Click the "Having Problems" link at the bottom of the “Lets get started!” section
 - Then click "enter your ip manually".
 - Enter your WAN IP address (if you are unsure what that is you can find yours [here](https://whatismyipaddress.com/)).
 
@@ -48,7 +48,7 @@ Once entered, your server should appear and can be claimed.
 
 ## Server Setup Process
 
-### Step 1: Health and Capabilities
+### Step 1: Health and Capabilities 
 
 After claiming your server, you'll be brought to a display containing all of your server's hardware.
 
@@ -59,13 +59,13 @@ If you see green checks/ticks on everything then you're good to go. Click the `C
 
 ### Step 2: Storage Pools
 
-You will now see a suggested arrangement of your drives into storage pools. "Pools" are groups of drives that will work together as one, allowing a larger amount of storage space than a single drive and also giving additional "redundancy" in case one or more drives fail.
+You will now see a suggested arrangement of your drives into storage pools. "Pools" are groups of drives that will work together as one, allowing a larger amount of storage space than a single drive and also giving additional “redundancy” in case one or more drives fail.
 
 <img width="1425" height="722" alt="Screenshot-from-2025-01-28-11-38-03-1536x864" src="https://github.com/user-attachments/assets/9a82426a-c98f-4648-b3bb-7598a3d15a42" />
 
-HexOS will suggest a storage pool layout based on your hardware.
+HexOS will suggest a storage pool layout based on your hardware. 
 
-Ideally you will have at least 3 drives in your pool, this means you can add more later.
+Ideally you will have at least 3 drives in your pool, this means you can add more later.  
 [Read more about storage pool layouts here](https://docs.hexos.com/getting-started/overview.html#recommended-layouts).
 
 For most people, the recommended configuration is the best path forward. To use the default suggested layout click the `Continue` button again.
@@ -95,9 +95,9 @@ Now your setup is complete and it's time to take a look at your HexOS NAS for th
 
 ## What's Next?
 
-This is a good point to check that the install has worked well and that your system is running smoothly.
+This is a good point to check that the install has worked well and that your system is running smoothly. 
 
-Whenever you go to [deck.hexos.com](https://deck.hexos.com) you will see your HexOS [dashboard](/features/). This is your control center where you can monitor your server, manage storage, install apps, and configure settings.
+Whenever you go to [deck.hexos.com](https://deck.hexos.com) you will see your HexOS [dashboard](/features/). This is your control center where you can monitor your server, manage storage, install apps, and configure settings. 
 
 Try clicking on each item on the Dash now and check the details as they pop out from the right hand side of the screen. There should be no warnings or errors and the pool should match what you chose during setup. If you have any problems [try the forums](https://hub.hexos.com/).
 
