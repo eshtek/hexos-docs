@@ -8,13 +8,13 @@ next:
 
 Now that HexOS is installed, it’s time to log in and set up your server!
 
-### You Will Need
+## Before You Start
 
-- HexOS username and password
-- Root password for your server from the install process
-- Be ready to choose a name for your NAS
-- The server should be connected to your wifi router using a network cable
-- The computer you’re using for setup should also be on the same wifi network
+You'll need:
+- Your **HexOS username and password**  
+- The **root password** from installation  
+- Your **server connected to your Wi-Fi router** with a network cable  
+- A **computer on the same network** as your server
 
 ## Login to HexOS
 
