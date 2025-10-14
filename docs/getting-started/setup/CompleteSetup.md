@@ -8,7 +8,7 @@ next:
 
 Now that HexOS is installed, it’s time to log in and set up your server!
 
-## Before You Start
+### Before You Start
 
 You'll need:
 - Your **HexOS username and password**  
