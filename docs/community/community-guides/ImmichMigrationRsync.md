@@ -2,145 +2,62 @@
 
 *by [@forsaken](https://hub.hexos.com/profile/17319-forsaken/)*
 
-This guide explains how to migrate Immich from the deprecated storage configuration to the new unified storage structure using rsync.
+I fixed it! :classic_biggrin:, but it was a pain to do it because rsync and truenas dataset that have ACL don't like each other.
 
-:::warning Advanced Guide
-This guide requires SSH access and command-line operations in TrueNAS. Only follow if you're comfortable with terminal commands. Type carefully - mistakes could cause data loss.
-:::
+I made a small guide, but it requires to enter to Truenas and run commands, so don't even try to follow it if it you are not comfortable with getting your hands dirty, do it at your own risk since if you type something wrong you could make a mess.
 
-## Overview
+I'm just a guy that wanted to have this fixed soon, I know enough to fix things, but also little enough to make big mistakes and break them. Maybe this fix that I came with is really a bad idea, I don't know. So, follow at your own risk!
 
-This method creates a new unified `data` dataset and uses rsync to copy all Immich data into it. Rsync is used because TrueNAS datasets with ACL don't work well with regular copy operations.
+## Guide (read it complete first, maybe there is a step that you don't want to do)
 
-## Prerequisites
+### Stop Immich
 
-- Active Immich installation with old storage configuration
-- SSH access enabled on TrueNAS
-- Enough storage space to temporarily hold duplicate data
-- Recent backup of your photos and Immich data
+- Go to Truenas
+- Go to "Apps" and stop "immich"
 
-## Migration Steps
+### Create Data Dataset
 
-### Step 1: Stop Immich
+- Go to "Datasets" create a dataset inside of the "immich" dataset (that is inside "Applications"), Name it `data`, don't worry about the dataset preset, choose "Generic".
 
-1. Go to TrueNAS
-2. Navigate to **Apps**
-3. Stop the **Immich** app
+### Strip ACL Permissions
 
-### Step 2: Create New Data Dataset
+- Click the `data` dataset that you just created click "Edit" on the "Permissions" section (it is located on the right)
+- Click "Strip ACL" (because Truenas don't like rsync touching datasets that use ACL)
 
-1. Go to **Datasets**
-2. Find the `immich` dataset (inside `Applications`)
-3. Create a new dataset inside it:
-   - Name: `data`
-   - Dataset Preset: `Generic`
+- After that, when you click on the `data` dataset the permissions section should look like this:
 
-### Step 3: Strip ACL from Data Dataset
+### Enable SSH and Copy Data
 
-:::tip Why Strip ACL?
-TrueNAS datasets with ACL (Access Control Lists) conflict with rsync. Stripping ACL allows proper file copying.
-:::
-
-1. Click on the `data` dataset you just created
-2. Click **Edit** in the **Permissions** section (right side)
-3. Click **Strip ACL**
-
-After stripping, the permissions section should show Unix-style permissions (like `rwxr-xr-x`) instead of ACL entries.
-
-### Step 4: Enable SSH Access
-
-1. Go to **System** > **Services**
-2. Start the **SSH** service
-
-:::tip Why SSH?
-The TrueNAS web shell times out during long operations. SSH provides a stable connection for the time-consuming copy process.
-:::
-
-### Step 5: Copy Data Using Rsync
-
-1. Connect to TrueNAS using SSH
-2. Run the following commands **one by one**
-3. Each command will take time depending on your data size and disk speed
+- On "System" > "Services" I started the SSH service (this is because the web shell times out and disconnects me, so I opted to connect remotely using SSH)
+- Connected to Truenas using SSH (if you don't know what SSH is, maybe you should not be doing this manual fix)
+- Run the following commands (one by one to check that everything copied fine, also, this will take a lot of time depending on the amount of photos and videos and the speed of your disks, for me it took hours):
 
 ```bash
-sudo rsync -avh --stats --progress /mnt/.ix-apps/app_mounts/immich/backups/ /mnt/HDDs/Applications/immich/data/backups/
-
-sudo rsync -avh --stats --progress /mnt/HDDs/Applications/immich/profile/ /mnt/HDDs/Applications/immich/data/profile/
-
-sudo rsync -avh --stats --progress /mnt/HDDs/Applications/immich/thumbs/ /mnt/HDDs/Applications/immich/data/thumbs/
-
-sudo rsync -avh --stats --progress /mnt/HDDs/Applications/immich/encoded_videos/ /mnt/HDDs/Applications/immich/data/encoded-video/
-
-sudo rsync -avh --stats --progress /mnt/HDDs/Applications/immich/uploads/ /mnt/HDDs/Applications/immich/data/upload/
-
-sudo rsync -avh --stats --progress /mnt/HDDs/Photos/ /mnt/HDDs/Applications/immich/data/library/
+sudo rsync -avh --stats --progress /mnt/.ix-apps/app_mounts/immich/backups/       /mnt/HDDs/Applications/immich/data/backups/
+sudo rsync -avh --stats --progress /mnt/HDDs/Applications/immich/profile/         /mnt/HDDs/Applications/immich/data/profile/
+sudo rsync -avh --stats --progress /mnt/HDDs/Applications/immich/thumbs/          /mnt/HDDs/Applications/immich/data/thumbs/
+sudo rsync -avh --stats --progress /mnt/HDDs/Applications/immich/encoded_videos/  /mnt/HDDs/Applications/immich/data/encoded-video/
+sudo rsync -avh --stats --progress /mnt/HDDs/Applications/immich/uploads/         /mnt/HDDs/Applications/immich/data/upload/
+sudo rsync -avh --stats --progress /mnt/HDDs/Photos/                              /mnt/HDDs/Applications/immich/data/library/
 ```
 
-:::warning Replace Pool Name
-Replace `HDDs` with your actual pool name. Check your dataset paths in the TrueNAS UI if unsure.
+### Update Immich Configuration
+
+- In Truenas, Go to "Apps", select Immich and click "Edit", scroll down and uncheck "Use Old Storage Configuration (Deprecated)"
+- In "Data Storage (aka Upload Location) select "Host Path (Path that already exists on the system)" and input `/mnt/HDDs/Applications/immich/data` in "Host Path"
+- Scroll down and click "Update"
+
+### Start and Verify
+
+- Start immich and wait for it to change from "Deploying" to "Running"
+- Enter to immich and check that everything is working, that your photos and videos are there
+- Go back to Truenas, Apps, and then update immich (I did it from Truenas, but I guess you could do it from hexos? not sure)
+
+:::warning CHECK THAT EVERYTHING IS WORKING FINE!
+AUTOMATIC BACKUPS, UPLOADS, DOWNLOADS, SEARCH, EVERYTHING!
 :::
 
-### Step 6: Update Immich Configuration
+### Cleanup
 
-1. In TrueNAS, go to **Apps**
-2. Select **Immich** and click **Edit**
-3. Scroll down and **uncheck** "Use Old Storage Configuration (Deprecated)"
-4. In **Data Storage (aka Upload Location)**:
-   - Select: `Host Path (Path that already exists on the system)`
-   - Enter Host Path: `/mnt/HDDs/Applications/immich/data`
-5. Scroll down and click **Update**
-
-### Step 7: Start and Verify
-
-1. Wait for Immich to change from "Deploying" to "Running"
-2. Open Immich and verify:
-   - All photos and videos are present
-   - Thumbnails load correctly
-   - Search works
-   - Upload works
-   - Download works
-   - Automatic backups work
-
-### Step 8: Update Immich
-
-1. From TrueNAS **Apps**, update Immich to the latest version
-2. Verify everything still works after the update
-
-### Step 9: Cleanup
-
-:::danger Verify First
-Only perform cleanup after thoroughly testing that all data copied correctly and Immich works perfectly.
-:::
-
-1. Go to **System** > **Services** and stop the **SSH** service
-2. Delete the old datasets:
-   - `/mnt/HDDs/Applications/immich/backups`
-   - `/mnt/HDDs/Applications/immich/profile`
-   - `/mnt/HDDs/Applications/immich/thumbs`
-   - `/mnt/HDDs/Applications/immich/encoded_videos`
-   - `/mnt/HDDs/Applications/immich/uploads`
-
-## Troubleshooting
-
-### Rsync Shows Permission Errors
-
-- Ensure you used `sudo` with the rsync commands
-- Verify you stripped ACL from the data dataset
-- Check that your user has admin privileges
-
-### Immich Won't Start After Migration
-
-- Check that the host path is correct
-- Verify all folders exist in the new data directory
-- Check TrueNAS logs for specific error messages
-
-### Missing Photos After Migration
-
-- Don't delete old datasets until you've verified everything copied
-- Use `ls -la` to check folder contents
-- Compare file counts between old and new locations
-
-## Related Resources
-
-- [Immich Documentation](https://immich.app/docs)
-- [TrueNAS Scale Documentation](https://www.truenas.com/docs/scale/)
+- Go back to Services and stop the SSH service
+- Delete the old datasets (be 100% sure that everything copied fine and all your files are copied to the new `data` dataset before doing this)

@@ -136,6 +136,7 @@ const sidebar: DefaultTheme.Sidebar = {
       text: 'Blog',
       link: '/blog/',
       items: [
+        { text: 'E2E Testing Suite', link: '/blog/2025-10-17' },
         { text: 'Q3 2025', link: '/blog/2025-10-01' },
         { text: 'Q2 2025', link: '/blog/2025-09-30' },
         { text: 'Introducing ZFS AnyRaid', link: '/blog/2025-05-22' },
