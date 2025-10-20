@@ -6,6 +6,10 @@ Just adding what I did to get it working for me. However, I received numerous pe
 
 My overall plan was to migrate from the old to the new, where the new is how I approximated a new install of Immich would look like.
 
+:::info Permission Errors During Migration : *edit by [csmanel](https://hub.hexos.com/profile/27801-csmanel/)*
+You may see multiple permission denial errors per dataset during the move operations. They occur because ZFS dataset metadata and snapshot attributes cannot be moved with standard `mv` commands. As long as your actual data (photos, videos, etc.) moves successfully, these errors are harmless. The empty datasets can be cleaned up in step 7 after verifying everything works.  
+:::
+
 ## Storage Layout
 
 ### Postgres Data Storage
@@ -75,7 +79,8 @@ mv /mnt/<pool>/Applications/immich/uploads /mnt/<pool>/Photos/immich/upload
 
 ```bash
 mkdir /mnt/<pool>/Photos/immich/library
-mv /mnt/<pool>/Photos/.immich /mnt/<pool>/Photos/immich/library/.immich
+mv /mnt/<pool>/Photos/.immich /mnt/<pool>/Photos/immich/library/.immich  
+# Note: .immich is a file, not a folder
 mv /mnt/<pool>/Photos/<user1> /mnt/<pool>/Photos/immich/library/<user1>
 mv /mnt/<pool>/Photos/<user2> /mnt/<pool>/Photos/immich/library/<user2>
 ```
