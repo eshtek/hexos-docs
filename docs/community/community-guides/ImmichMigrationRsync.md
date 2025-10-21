@@ -2,7 +2,7 @@
 
 *by [@forsaken](https://hub.hexos.com/profile/17319-forsaken/)*
 
-I fixed it! :classic_biggrin:, but it was a pain to do it because rsync and truenas dataset that have ACL don't like each other.
+I fixed it! 😁, but it was a pain to do it because rsync and truenas dataset that have ACL don't like each other.
 
 I made a small guide, but it requires to enter to Truenas and run commands, so don't even try to follow it if it you are not comfortable with getting your hands dirty, do it at your own risk since if you type something wrong you could make a mess.
 
