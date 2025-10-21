@@ -4,7 +4,7 @@ Stay up to date with the latest news and updates from the HexOS team.
 
 ## 2025
 
-- [Introducing Our Testing Suite - October 17, 2025](/blog/2025-10-17)
+- [Introducing Our New End-to-End Testing Suite - October 21, 2025](/blog/2025-10-21)
 - [Q3 Status Update - October 1, 2025](/blog/2025-10-01)
 - [Q2 Status Update - September 30, 2025](/blog/2025-09-30)
 - [Introducing ZFS AnyRaid, Sponsored by Eshtek - May 22, 2025](/blog/2025-05-22)
