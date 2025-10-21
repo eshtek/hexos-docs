@@ -6,6 +6,9 @@ Welcome to the HexOS community guides! These guides are created by community mem
 
 - [**Replicating Virtual Machines**](./ReplicatingVirtualMachines) - How to replicate and manage virtual machines
 - [**Setting Up Tailscale**](./SettingUpTailscale) - Configure Tailscale for secure remote access
+- [**Migrating Immich Storage (Rsync Method)**](./ImmichMigrationRsync) - Migrate Immich to new storage configuration using rsync
+- [**Migrating Immich Storage (Move Method)**](./ImmichMigrationMove) - Migrate Immich to new storage configuration by moving files
+- [**Setting Up Time Machine**](./TimeMachineInstall) - Configure Mac Time Machine backups with HexOS
 
 ## Contributing
 
