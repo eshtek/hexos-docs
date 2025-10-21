@@ -58,16 +58,25 @@ const sidebar: DefaultTheme.Sidebar = {
     {
       text: 'Features',
       link: '/features/',
+      // collapsed: true,
       items: [
         { text: 'Storage', link: '/features/storage/storage' },
         { text: 'Folders', link: '/features/folders/' },
         { text: 'Notifications', link: '/features/notifications/' },
-        { text: 'Settings', link: '/features/settings/' },
+        {
+          text: 'Settings',
+          link: '/features/settings/',
+          // collapsed: true,
+          items: [
+            { text: 'Experimental Features', link: '/features/settings/experimental-features/' },
+          ]
+        },
       ]
     },
     {
       text: 'Apps',
       link: '/features/apps/',
+      collapsed: true,
       items: [
         { text: 'Curated App Guides', link: '/features/apps/articles/' },
         { text: 'Install Scripts', link: '/features/apps/install-scripts/overview' },
@@ -81,6 +90,7 @@ const sidebar: DefaultTheme.Sidebar = {
     {
       text: 'Troubleshooting',
       link: '/troubleshooting/',
+      collapsed: true,
       items: [
         { text: 'Avoid USB Drives', link: '/troubleshooting/common-issues/AvoidUSBDrives' },
         { text: 'Clear Browser Cache', link: '/troubleshooting/common-issues/ClearCache' },
@@ -199,8 +209,27 @@ const sidebar: DefaultTheme.Sidebar = {
     {
       text: 'Documentation',
       items: [
-        { text: 'Features', link: '/features/' },
-        { text: 'Troubleshooting', link: '/troubleshooting/' },
+        {
+          text: 'Features',
+          link: '/features/',
+          collapsed: true,
+          items: [
+            { text: 'Storage', link: '/features/storage/storage' },
+            { text: 'Folders', link: '/features/folders/' },
+            { text: 'Notifications', link: '/features/notifications/' },
+            { text: 'Settings', link: '/features/settings/' },
+            { text: 'Apps', link: '/features/apps/' },
+          ]
+        },
+        {
+          text: 'Troubleshooting',
+          link: '/troubleshooting/',
+          collapsed: true,
+          items: [
+            { text: 'Avoid USB Drives', link: '/troubleshooting/common-issues/AvoidUSBDrives' },
+            { text: 'Clear Browser Cache', link: '/troubleshooting/common-issues/ClearCache' },
+          ]
+        },
       ]
     },
     {
