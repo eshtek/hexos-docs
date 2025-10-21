@@ -58,16 +58,25 @@ const sidebar: DefaultTheme.Sidebar = {
     {
       text: 'Features',
       link: '/features/',
+      // collapsed: true,
       items: [
         { text: 'Storage', link: '/features/storage/storage' },
         { text: 'Folders', link: '/features/folders/' },
         { text: 'Notifications', link: '/features/notifications/' },
-        { text: 'Settings', link: '/features/settings/' },
+        {
+          text: 'Settings',
+          link: '/features/settings/',
+          // collapsed: true,
+          items: [
+            { text: 'Experimental Features', link: '/features/settings/experimental-features/' },
+          ]
+        },
       ]
     },
     {
       text: 'Apps',
       link: '/features/apps/',
+      collapsed: true,
       items: [
         { text: 'Curated App Guides', link: '/features/apps/articles/' },
         { text: 'Install Scripts', link: '/features/apps/install-scripts/overview' },
@@ -81,6 +90,7 @@ const sidebar: DefaultTheme.Sidebar = {
     {
       text: 'Troubleshooting',
       link: '/troubleshooting/',
+      collapsed: true,
       items: [
         { text: 'Avoid USB Drives', link: '/troubleshooting/common-issues/AvoidUSBDrives' },
         { text: 'Clear Browser Cache', link: '/troubleshooting/common-issues/ClearCache' },
@@ -100,8 +110,35 @@ const sidebar: DefaultTheme.Sidebar = {
           text: 'Guides',
           link: '/community/community-guides/',
           items: [
-            { text: 'Replicating Virtual Machines', link: '/community/community-guides/ReplicatingVirtualMachines' },
-            { text: 'Setting Up Tailscale', link: '/community/community-guides/SettingUpTailscale' },
+            {
+              text: 'Apps',
+              collapsed: true,
+              items: [
+                { text: 'Immich Migration (Move Method)', link: '/community/community-guides/ImmichMigrationMove' },
+                { text: 'Immich Migration (Rsync Method)', link: '/community/community-guides/ImmichMigrationRsync' },
+              ]
+            },
+            {
+              text: 'Backup & Storage',
+              collapsed: true,
+              items: [
+                { text: 'Time Machine Install', link: '/community/community-guides/TimeMachineInstall' },
+              ]
+            },
+            {
+              text: 'Networking',
+              collapsed: true,
+              items: [
+                { text: 'Setting Up Tailscale', link: '/community/community-guides/SettingUpTailscale' },
+              ]
+            },
+            {
+              text: 'Virtual Machines',
+              collapsed: true,
+              items: [
+                { text: 'Replicating Virtual Machines', link: '/community/community-guides/ReplicatingVirtualMachines' },
+              ]
+            },
           ]
         }
       ]
@@ -116,15 +153,15 @@ const sidebar: DefaultTheme.Sidebar = {
       link: '/release-notes/command-deck/',
       items: [
         // auto-generated-release-notes-start
-            { text: '2025-10-07', link: '/release-notes/command-deck/2025-10-07' },
-            { text: '2025-09-29', link: '/release-notes/command-deck/2025-09-29' },
-            { text: '2025-07-28', link: '/release-notes/command-deck/2025-07-28' },
-            { text: '2025-07-07', link: '/release-notes/command-deck/2025-07-07' },
-            { text: '2025-06-27', link: '/release-notes/command-deck/2025-06-27' },
-            { text: '2025-02-07', link: '/release-notes/command-deck/2025-02-07' },
-            { text: '2025-01-08', link: '/release-notes/command-deck/2025-01-08' },
-            { text: '2024-11-29', link: '/release-notes/command-deck/2024-11-29' },
-            // auto-generated-release-notes-end
+        { text: '2025-10-07', link: '/release-notes/command-deck/2025-10-07' },
+        { text: '2025-09-29', link: '/release-notes/command-deck/2025-09-29' },
+        { text: '2025-07-28', link: '/release-notes/command-deck/2025-07-28' },
+        { text: '2025-07-07', link: '/release-notes/command-deck/2025-07-07' },
+        { text: '2025-06-27', link: '/release-notes/command-deck/2025-06-27' },
+        { text: '2025-02-07', link: '/release-notes/command-deck/2025-02-07' },
+        { text: '2025-01-08', link: '/release-notes/command-deck/2025-01-08' },
+        { text: '2024-11-29', link: '/release-notes/command-deck/2024-11-29' },
+        // auto-generated-release-notes-end
       ]
     }
   ],
@@ -136,6 +173,7 @@ const sidebar: DefaultTheme.Sidebar = {
       text: 'Blog',
       link: '/blog/',
       items: [
+        { text: 'E2E Testing Suite', link: '/blog/2025-10-17' },
         { text: 'Q3 2025', link: '/blog/2025-10-01' },
         { text: 'Q2 2025', link: '/blog/2025-09-30' },
         { text: 'Introducing ZFS AnyRaid', link: '/blog/2025-05-22' },
@@ -171,8 +209,27 @@ const sidebar: DefaultTheme.Sidebar = {
     {
       text: 'Documentation',
       items: [
-        { text: 'Features', link: '/features/' },
-        { text: 'Troubleshooting', link: '/troubleshooting/' },
+        {
+          text: 'Features',
+          link: '/features/',
+          collapsed: true,
+          items: [
+            { text: 'Storage', link: '/features/storage/storage' },
+            { text: 'Folders', link: '/features/folders/' },
+            { text: 'Notifications', link: '/features/notifications/' },
+            { text: 'Settings', link: '/features/settings/' },
+            { text: 'Apps', link: '/features/apps/' },
+          ]
+        },
+        {
+          text: 'Troubleshooting',
+          link: '/troubleshooting/',
+          collapsed: true,
+          items: [
+            { text: 'Avoid USB Drives', link: '/troubleshooting/common-issues/AvoidUSBDrives' },
+            { text: 'Clear Browser Cache', link: '/troubleshooting/common-issues/ClearCache' },
+          ]
+        },
       ]
     },
     {
