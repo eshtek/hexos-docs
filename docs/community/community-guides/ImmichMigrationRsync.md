@@ -19,12 +19,18 @@ I'm just a guy that wanted to have this fixed soon, I know enough to fix things,
 
 - Go to "Datasets" create a dataset inside of the "immich" dataset (that is inside "Applications"), Name it `data`, don't worry about the dataset preset, choose "Generic".
 
+![Creating the data dataset](/assets/screenshots/immich-create-data-dataset.png)
+
 ### Strip ACL Permissions
 
 - Click the `data` dataset that you just created click "Edit" on the "Permissions" section (it is located on the right)
 - Click "Strip ACL" (because Truenas don't like rsync touching datasets that use ACL)
 
+![Strip ACL permissions button](/assets/screenshots/immich-strip-acl-permissions.png)
+
 - After that, when you click on the `data` dataset the permissions section should look like this:
+
+![Permissions after stripping ACL](/assets/screenshots/immich-stripped-permissions.png)
 
 ### Enable SSH and Copy Data
 
