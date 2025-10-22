@@ -12,7 +12,7 @@ In your [Deck](https://deck.hexos.com) click Folders on the sidebar menu. On thi
 
 <img width="2248" height="1211" alt="folders-screen-hexos" src="https://github.com/user-attachments/assets/eda14325-2d91-497c-9362-5784bce8bc87" />
 
-You can’t go into the folders and browse the files from here: this screen only shows the folders and not the contents. [Read about how to access the folder contents here](/folders/how-to-access-files-and-folders-over-the-network)
+You can’t go into the folders and browse the files from here: this screen only shows the folders and not the contents. [Read about how to access the folder contents here](/features/folders/how-to-access-folder-contents)
 
 ## Folder Permissions
 
