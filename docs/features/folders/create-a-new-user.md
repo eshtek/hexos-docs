@@ -42,9 +42,9 @@ You then see a dialogue where you can change the username and set a new password
 
 ## How can a user access folders
 
-When you [create](/folders/create-a-new-folder) or [edit](/folders/create-a-new-folder/#editing-folder-settings) a folder you can choose which users may access the contents and what permissions they have. 
+When you [create](/features/folders/create-a-new-folder) or [edit](/features/folders/create-a-new-folder/#editing-folder-settings) a folder you can choose which users may access the contents and what permissions they have. 
 
-You can read about the **Access** settings on the [create a new folder](/folders/create-a-new-folder/#access) page here.
+You can read about the **Access** settings on the [create a new folder](/features/folders/create-a-new-folder/#access) page here.
 
 The user will need to ser up access to the folders on their computer or phone as described in the [how to access folders guide](/folders/how-to-access-folder-contents). 
 
