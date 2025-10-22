@@ -8,17 +8,17 @@ This introduction will briefly describe the main screens within HexOS. There are
 
 ### Dashboard
 
-The Dash  is where you arrive after completing the setup wizard and when you log in via [deck.hexos.com](deck.hexos.com)
+The Dash  is where you arrive after completing the setup wizard and when you log in via [deck.hexos.com](https://deck.hexos.com)
 
 From the dashboard you can review system activities, apply OS updates, monitor resource usage, and control your installed applications/virtual machines. Anything that requires your attention will show an alert icon or error message.
 
-By default you will see system information, storage, and apps on your dashboard. However this display is configurable in [settings preferences](/features/settings/#preferences).
+By default you will see system information, storage, and apps on your dashboard. However this display is configurable in [settings preferences](features/settings/index/#preferences).
 
 ### Storage
 
 This is where you'll find all your pools and drives, and handle anything related to storage. Whether it's creating new pools, adding more space, swapping drives, or fixing any issues that pop up. 
 
-[Read more about the storage screen.](/features/storage)
+[Read more about the storage screen.](/features/storage/storage)
 
 ### Folders
 
@@ -36,7 +36,7 @@ You can also create additional users and choose what each user may access with t
 
 HexOS uses apps to add additional features. The easiest apps to try are curated apps, these can be installed and configured with a single click. There are other ways to install apps also.
 
-[Read more about apps.](/features/apps)
+[Read more about apps.](/features/apps/index)
 
 ### Settings
 
@@ -48,7 +48,7 @@ If you need to tweak how your server behaves, then the Settings page is the plac
 
 HexOS will notify you of disk failures, issues with system functioning, updates and more. 
 
-[Read all about how notifications are sent and where to see them.](features/notifications)
+[Read all about how notifications are sent and where to see them.](/features/notifications/index)
 
 ### Profile
 
