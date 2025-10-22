@@ -1,6 +1,6 @@
 # How to Access Files and Folders Over the Network
 
-In HexOS, you [create folders](/folders/create-a-new-folder) through the deck - but you can’t add contents to the folders via the deck. 
+In HexOS, you [create folders](/features/folders/create-a-new-folder) through the deck - but you can’t add contents to the folders via the deck. 
 
 The folder contents are added, viewed and edited from another device *over the network*. This means folders are accessed using a computer, laptop or phone connected to the same wifi network. 
 
@@ -33,7 +33,7 @@ Here are some examples of how to access the file from various devices. The speci
 Open Finder, click "Go" in the menu bar, select "Connect to Server". Paste the SMB link into the "Server Address" field and click "Connect".
 
 ### On Windows
-Open File Explorer. In the hand side there is a list of folders and drives: click on **This PC**
+Open File Explorer. In the hand side there is a list of  and drives: click on **This PC**
 
 <img width="1070" height="664" alt="this-pc" src="https://github.com/user-attachments/assets/2674928c-adac-4972-ab11-e831c6df0ac9" />
 
