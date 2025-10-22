@@ -58,7 +58,7 @@ const sidebar: DefaultTheme.Sidebar = {
     {
       text: 'Features',
       link: '/features/',
-      // collapsed: true,
+      // collapsed: false,
       items: [
         { text: 'Storage', link: '/features/storage/storage' },
         { text: 'Folders', link: '/features/folders/' },
@@ -66,7 +66,7 @@ const sidebar: DefaultTheme.Sidebar = {
         {
           text: 'Settings',
           link: '/features/settings/',
-          // collapsed: true,
+          // collapsed: false,
           items: [
             { text: 'Experimental Features', link: '/features/settings/experimental-features/' },
           ]
@@ -76,7 +76,7 @@ const sidebar: DefaultTheme.Sidebar = {
     {
       text: 'Apps',
       link: '/features/apps/',
-      collapsed: true,
+      collapsed: false,
       items: [
         { text: 'Curated App Guides', link: '/features/apps/articles/' },
         { text: 'Install Scripts', link: '/features/apps/install-scripts/overview' },
@@ -90,10 +90,23 @@ const sidebar: DefaultTheme.Sidebar = {
     {
       text: 'Troubleshooting',
       link: '/troubleshooting/',
-      collapsed: true,
+      collapsed: false,
       items: [
         { text: 'Avoid USB Drives', link: '/troubleshooting/common-issues/AvoidUSBDrives' },
         { text: 'Clear Browser Cache', link: '/troubleshooting/common-issues/ClearCache' },
+      ]
+    }
+  ],
+
+  // Guides section
+  '/guides/': [
+    { text: '← Back to Home', link: '/' },
+    {
+      text: 'Guides',
+      link: '/guides/',
+      collapsed: false,
+      items: [
+        { text: 'Updating Location Paths', link: '/guides/updating-location-paths' },
       ]
     }
   ],
@@ -112,7 +125,7 @@ const sidebar: DefaultTheme.Sidebar = {
           items: [
             {
               text: 'Apps',
-              collapsed: true,
+              collapsed: false,
               items: [
                 { text: 'Immich Migration (Move Method)', link: '/community/community-guides/ImmichMigrationMove' },
                 { text: 'Immich Migration (Rsync Method)', link: '/community/community-guides/ImmichMigrationRsync' },
@@ -120,21 +133,21 @@ const sidebar: DefaultTheme.Sidebar = {
             },
             {
               text: 'Backup & Storage',
-              collapsed: true,
+              collapsed: false,
               items: [
                 { text: 'Time Machine Install', link: '/community/community-guides/TimeMachineInstall' },
               ]
             },
             {
               text: 'Networking',
-              collapsed: true,
+              collapsed: false,
               items: [
                 { text: 'Setting Up Tailscale', link: '/community/community-guides/SettingUpTailscale' },
               ]
             },
             {
               text: 'Virtual Machines',
-              collapsed: true,
+              collapsed: false,
               items: [
                 { text: 'Replicating Virtual Machines', link: '/community/community-guides/ReplicatingVirtualMachines' },
               ]
@@ -153,15 +166,15 @@ const sidebar: DefaultTheme.Sidebar = {
       link: '/release-notes/command-deck/',
       items: [
         // auto-generated-release-notes-start
-        { text: '2025-10-07', link: '/release-notes/command-deck/2025-10-07' },
-        { text: '2025-09-29', link: '/release-notes/command-deck/2025-09-29' },
-        { text: '2025-07-28', link: '/release-notes/command-deck/2025-07-28' },
-        { text: '2025-07-07', link: '/release-notes/command-deck/2025-07-07' },
-        { text: '2025-06-27', link: '/release-notes/command-deck/2025-06-27' },
-        { text: '2025-02-07', link: '/release-notes/command-deck/2025-02-07' },
-        { text: '2025-01-08', link: '/release-notes/command-deck/2025-01-08' },
-        { text: '2024-11-29', link: '/release-notes/command-deck/2024-11-29' },
-        // auto-generated-release-notes-end
+            { text: '2025-10-07', link: '/release-notes/command-deck/2025-10-07' },
+            { text: '2025-09-29', link: '/release-notes/command-deck/2025-09-29' },
+            { text: '2025-07-28', link: '/release-notes/command-deck/2025-07-28' },
+            { text: '2025-07-07', link: '/release-notes/command-deck/2025-07-07' },
+            { text: '2025-06-27', link: '/release-notes/command-deck/2025-06-27' },
+            { text: '2025-02-07', link: '/release-notes/command-deck/2025-02-07' },
+            { text: '2025-01-08', link: '/release-notes/command-deck/2025-01-08' },
+            { text: '2024-11-29', link: '/release-notes/command-deck/2024-11-29' },
+            // auto-generated-release-notes-end
       ]
     }
   ],
@@ -212,7 +225,7 @@ const sidebar: DefaultTheme.Sidebar = {
         {
           text: 'Features',
           link: '/features/',
-          collapsed: true,
+          collapsed: false,
           items: [
             { text: 'Storage', link: '/features/storage/storage' },
             { text: 'Folders', link: '/features/folders/' },
@@ -224,10 +237,18 @@ const sidebar: DefaultTheme.Sidebar = {
         {
           text: 'Troubleshooting',
           link: '/troubleshooting/',
-          collapsed: true,
+          collapsed: false,
           items: [
             { text: 'Avoid USB Drives', link: '/troubleshooting/common-issues/AvoidUSBDrives' },
             { text: 'Clear Browser Cache', link: '/troubleshooting/common-issues/ClearCache' },
+          ]
+        },
+        {
+          text: 'Guides',
+          link: '/guides/',
+          collapsed: false,
+          items: [
+            { text: 'Updating Location Paths', link: '/guides/updating-location-paths' },
           ]
         },
       ]
