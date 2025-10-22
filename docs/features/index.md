@@ -12,7 +12,7 @@ The Dash  is where you arrive after completing the setup wizard and when you log
 
 From the dashboard you can review system activities, apply OS updates, monitor resource usage, and control your installed applications/virtual machines. Anything that requires your attention will show an alert icon or error message.
 
-By default you will see system information, storage, and apps on your dashboard. However this display is configurable in [settings preferences](features/settings/index/#preferences).
+By default you will see system information, storage, and apps on your dashboard. However this display is configurable in [settings preferences](/features/settings/index/#preferences).
 
 ### Storage
 
@@ -42,7 +42,7 @@ HexOS uses apps to add additional features. The easiest apps to try are curated 
 
 If you need to tweak how your server behaves, then the Settings page is the place to go. This is where you'll find all the configuration options, from network setup to customizing your dashboard to choosing where different types of files get stored. This is also where you can enter the TrueNAS interface, the underlying software HexOS is built on.
 
-[Read about settings here.](features/settings)
+[Read about settings here.](/features/settings)
 
 ### Notifications
 
