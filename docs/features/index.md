@@ -30,7 +30,7 @@ You can also create folders yourself, these will show under My Folders. These ca
 
 You can also create additional users and choose what each user may access with the permissions settings.
 
-[Learn more about folders and users.](/features/folders/)
+[Learn more about folders and users.](/features/folders)
 
 ### Apps
 
@@ -42,13 +42,13 @@ HexOS uses apps to add additional features. The easiest apps to try are curated 
 
 If you need to tweak how your server behaves, then the Settings page is the place to go. This is where you'll find all the configuration options, from network setup to customizing your dashboard to choosing where different types of files get stored. This is also where you can enter the TrueNAS interface, the underlying software HexOS is built on.
 
-[Read about settings here.](/features/settings/)
+[Read about settings here.](/features/settings)
 
 ### Notifications
 
 HexOS will notify you of disk failures, issues with system functioning, updates and more. 
 
-[Read all about how notifications are sent and where to see them.](/features/notifications/index/)
+[Read all about how notifications are sent and where to see them.](/features/notifications/index)
 
 ### Profile
 
