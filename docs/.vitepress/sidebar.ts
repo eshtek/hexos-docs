@@ -107,6 +107,7 @@ const sidebar: DefaultTheme.Sidebar = {
       collapsed: false,
       items: [
         { text: 'Updating Location Paths', link: '/guides/updating-location-paths' },
+        { text: 'Manual Data Migration', link: '/guides/manual-data-migration' },
       ]
     }
   ],
@@ -249,6 +250,7 @@ const sidebar: DefaultTheme.Sidebar = {
           collapsed: false,
           items: [
             { text: 'Updating Location Paths', link: '/guides/updating-location-paths' },
+            { text: 'Manual Data Migration', link: '/guides/manual-data-migration' },
           ]
         },
       ]
