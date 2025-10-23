@@ -4,8 +4,7 @@ Welcome to the HexOS Guides section. Here you'll find step-by-step guides and wa
 
 ## Official Guides
 
-- [Updating Location Paths](./updating-location-paths) - Learn how to reorganize your storage without interrupting your apps
-- [Manual Data Migration](./manual-data-migration) - Step-by-step guide for safely moving data between storage locations
+- [Manual Data Migration](./manual-data-migration) - Complete guide for reorganizing storage with HexOS location paths and moving your data
 
 ## Community Guides
 

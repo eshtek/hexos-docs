@@ -106,7 +106,6 @@ const sidebar: DefaultTheme.Sidebar = {
       link: '/guides/',
       collapsed: false,
       items: [
-        { text: 'Updating Location Paths', link: '/guides/updating-location-paths' },
         { text: 'Manual Data Migration', link: '/guides/manual-data-migration' },
       ]
     }
@@ -167,6 +166,7 @@ const sidebar: DefaultTheme.Sidebar = {
       link: '/release-notes/command-deck/',
       items: [
         // auto-generated-release-notes-start
+            { text: '2025-10-27', link: '/release-notes/command-deck/2025-10-27' },
             { text: '2025-10-07', link: '/release-notes/command-deck/2025-10-07' },
             { text: '2025-09-29', link: '/release-notes/command-deck/2025-09-29' },
             { text: '2025-07-28', link: '/release-notes/command-deck/2025-07-28' },
@@ -249,7 +249,6 @@ const sidebar: DefaultTheme.Sidebar = {
           link: '/guides/',
           collapsed: false,
           items: [
-            { text: 'Updating Location Paths', link: '/guides/updating-location-paths' },
             { text: 'Manual Data Migration', link: '/guides/manual-data-migration' },
           ]
         },

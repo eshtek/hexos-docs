@@ -1,134 +1,173 @@
 # Manual Data Migration
 
-This guide will walk through manually migrating your data while automatic data transfer is being developed. 
+With October 27th's [command deck update](/release-notes/command-deck/2025-10-27) users can now automatically update app paths. However, as we continue to work on automatic data migration, we wanted to provide a guide that will help you move your data in the interim.
 
-## Before You Begin
+## What You'll Need
 
-### What You'll Need
-
-- **TrueNAS access** - Your login credentials (typically `truenas_admin` and the password you set during setup)
-- **Your HexOS IP address** - Use this as the URL to access TrueNAS
-- **Time** - Data migration can take from minutes to hours depending on your data size
-
-### When to Use This Guide
-
-- Moving app data to a new location
-- Reorganizing storage between folders or datasets
-- Migrating to faster storage (HDD to SSD)
-- Consolidating multiple datasets
+- **HexOS experimental features enabled** - For accessing location path updates
+- **TrueNAS access** - Your login credentials (username is typically `truenas_admin` and the password you set during initial HexOS setup)
+- **Time** - Depending on how large your data size is, this could take a while
+- **Backups** - Always have recent backups before moving data
 
 :::warning Important
 Always have backups before moving data. While this process is safe, having a backup ensures you can recover if something unexpected happens.
 :::
 
-## Step 1: Find Your Current Location
+## Preparation
 
-First, identify where your data currently lives.
+### Stop Your App
 
-In TrueNAS, go to **Apps** > Find your app > Click **Edit** > Look for **Host Path** in the storage configuration.
+Before moving data, stop any apps that are using it.
 
-![Finding the current host path](/assets/screenshots/migration-check-host-path.png)
+In HexOS, go to **Apps** > Find your app > Click **Stop**.
 
-In this example, Immich is using `/mnt/HDDs/Photos/immich`.
-
-## Step 2: Stop Your App
-
-If you're migrating data from an app, you must stop that app first.
-
-In TrueNAS, go to **Apps** > Find your app > Click **Stop**.
-
-![Confirming app is stopped](/assets/screenshots/migration-app-stopped.png)
+<img src="/assets/screenshots/migration-hexos-app-stop.png" alt="Confirming app is stopped" width="400">
 
 Wait until the app shows as **Stopped** before continuing.
 
-## Step 3: Create Your New Dataset
+## Update Location Path in HexOS
 
-You'll need a destination for your data. While you can create folders in HexOS, this guide shows the TrueNAS method for complete control.
+In order to use the new update location path we will need to enable experimental features.
 
-### Navigate to Datasets
+Go to `Settings` > `Preferences` and enable **Experimental Features** under `Miscellaneous`.
 
-In the left sidebar, click **Datasets**.
-
-![Datasets in sidebar](/assets/screenshots/migration-datasets-sidebar.png)
-
-### Select Your Pool
-
-Find the pool where you want to create the new dataset. In this example, we're using the `HDDs` pool.
-
-![Selecting the pool](/assets/screenshots/migration-pool-selection.png)
-
-### Add New Dataset
-
-Click **Add Dataset** button.
-
-![Add dataset button](/assets/screenshots/migration-add-dataset-button.png)
-
-### Configure the Dataset
-
-- **Name**: Enter your dataset name (e.g., `PhotosNew`)
-- **Dataset Preset**: Select **Generic**
-
-![Dataset creation form](/assets/screenshots/migration-dataset-creation.png)
-
-Click **Save** to create the dataset.
-
-:::tip Why Generic?
-The Generic preset uses simple permissions that work well for data migration. You can always adjust permissions later if needed.
+:::tip
+Learn more about experimental features in the [Experimental Features documentation](/features/settings/experimental-features/).
 :::
 
-## Step 4: Access TrueNAS Shell
+### Navigate to Your Location
 
-Now we'll use the command line to migrate your data.
+Go to `Settings` > `Locations` and select the location you want to move.
 
-In the left sidebar, click **System** > **Shell**.
+<img src="/assets/screenshots/location-path-current-location.png" alt="Current location showing path and apps" width="300">
 
-![Accessing TrueNAS shell](/assets/screenshots/migration-shell-access.png)
+You'll see the current path and which apps are using it.
 
-## Step 5: Verify Your Source Data
+### Update the Path
 
-Before migrating, confirm you're looking at the right data.
+Click the edit button (pencil icon) and choose your new path.  
+*HexOS shows which apps will be affected.*
 
-Run this command (replace the path with your source location):
+<table><tr>
 
+<td><img src="/assets/screenshots/location-path-update-dialog.png" alt="Update location path dialog"></td>
+
+<td><img src="/assets/screenshots/location-path-migration-warning.png" alt="Migration warning dialog"></td>
+
+</tr></table>
+
+
+HexOS will then:
+- Update each app's configuration to point to the new path
+- Set proper permissions
+- Record all changes in Activity History
+
+<table><tr>
+<td><img src="/assets/screenshots/location-path-updating-progress.png" alt="Update in progress" width="300"></td>
+
+<td><img src="/assets/screenshots/location-path-update-success.png" alt="Location successfully updated" width="300"></td>
+</tr></table>
+
+:::info Important!
+Take note of the new path, in my case its `HDDs/Photos New`.  
+This is the path you will need when transferring data.
+:::
+
+## Migration
+
+### Access TrueNAS Shell
+
+Next, we are going to log into TrueNAS so we can open the command shell and start migrating your data.
+
+1. Open your web browser and enter your server’s IP address in the address bar.  
+2. Log in using your TrueNAS username and password. (**<small>In case you forgot, username: truenas_admin</small>**)
+3. Once you’re in, look at the left sidebar and click **System** > **Shell**.  
+
+<img src="/assets/screenshots/migration-shell-access.png" alt="Accessing TrueNAS shell" width="300">
+
+### Verify Your Source Data
+
+Before we migrate, lets make sure we are looking at the data we actually want to affect.
+
+**Replace the path below with your old location path:**
+
+```bash
+ls -lah /mnt/<pool>/<old-location>
+```
+
+**Example:** If your old location was `HDDs/Photos`:
 ```bash
 ls -lah /mnt/HDDs/Photos
 ```
 
-![Verifying source location](/assets/screenshots/migration-verify-source.png)
+**Output:**
+```bash
+truenas_admin@cole-home[~]$ ls -lah /mnt/HDDs/Photos
+total 39K
+drwxrwx---  3 root    root      4 Sep 17 05:21 .
+drwxr-xr-x 15 root    root     15 Oct 23 09:07 ..
+-rwxrwx---  1 nobody  root   8.1K Oct 23 08:49 .DS_Store
+drwxrwx---  8 root    root      9 Oct 23 08:49 immich
+```
 
-You should see your expected folders. In this example, there's an `immich` folder containing the data to migrate.
+You should see your expected folders.  
+In this example, there's an `immich` folder containing the data to migrate.
+
+This means when I am ready to move data I am going to be targeting `HDDs/Photos/immich`
 
 :::info Note on App Data vs. Files
 When migrating app data (like Immich), you're moving the entire data structure, not just individual files. The app needs all its folders (library, upload, thumbs, backups, etc.) together to function properly.
-
-If you're just moving files between folders, the same process works - you're simply moving whatever folders/files you need.
 :::
 
-## Step 6: Migrate Data with Rsync
+### Copy Data with Rsync
 
-Now we'll copy the data using `rsync`, which safely copies everything while preserving permissions and timestamps.
+Now we'll use `rsync` to copy the data from our old path to the new one.
 
-Run this command (adjust paths for your situation):
+**Replace the paths below with your old and new location paths:**
 
+```bash
+sudo rsync -avh --stats --progress /mnt/<pool>/<old-location>/ /mnt/<pool>/<new-location>/
+```
+
+**Example:** Moving from `HDDs/Photos/immich` to `HDDs/PhotosNew/immich`:
 ```bash
 sudo rsync -avh --stats --progress /mnt/HDDs/Photos/immich/ /mnt/HDDs/PhotosNew/immich/
 ```
 
-You'll be prompted for your `truenas_admin` password.
 
-### What This Command Does
-
+:::tip **What This Command Does:**
 - `-a` = Archive mode (preserves permissions, timestamps, ownership)
 - `-v` = Verbose (shows what's being copied)
 - `-h` = Human-readable sizes
 - `--stats` = Shows summary when complete
 - `--progress` = Shows progress for each file
+::: 
 
-### What You'll See
+You will likely be prompted for your `truenas_admin` password (the root password you set during HexOS setup).  
 
-Files will scroll by as they copy. When complete, you'll see a summary:
+When typing your password, it won’t appear on the screen, that’s normal! Just type it carefully and press Enter when you’re done.
 
-![Rsync completion summary](/assets/screenshots/migration-rsync-complete.png)
+Once the transfer begins, you'll see files scrolling by as they copy. When it’s finished, `rsync` will display a summary of the transfer.
+
+**Output:**
+```bash
+Number of files: 60 (reg: 27, dir: 33)
+Number of created files: 60 (reg: 27, dir: 33)
+Number of deleted files: 0
+Number of regular files transferred: 27
+Total file size: 863.51K bytes
+Total transferred file size: 863.51K bytes
+Literal data: 863.51K bytes
+Matched data: 0 bytes
+File list size: 0
+File list generation time: 0.001 seconds
+File list transfer time: 0.000 seconds
+Total bytes sent: 867.18K
+Total bytes received: 769
+
+sent 867.18K bytes  received 769 bytes  1.74M bytes/sec
+total size is 863.51K  speedup is 0.99
+```
 
 Key things to check in the summary:
 - `Number of files` - How many files were copied
@@ -143,270 +182,111 @@ Large data migrations can take hours. The time depends on:
 - Whether you're copying within the same pool or between pools
 :::
 
-## Step 7: Verify the Migration
+### Verify the Migration
 
-Now confirm the data copied correctly.
+Now that we have copied the data to the new location, we are going to want to check that it actually exists.
 
-### Check the New Location
+**Check the New Location**
 
-First, verify the folder structure exists:
+**Replace with your new location path:**
+```bash
+ls -lah /mnt/<pool>/<new-location>/
+```
 
+**Example:**
 ```bash
 ls -lah /mnt/HDDs/PhotosNew/
 ```
 
-![Verifying destination has data](/assets/screenshots/migration-verify-destination.png)
+Output:
+```
+total 9
+drwxr-xr-x  3 root root    3 Oct 23 09:20 .
+drwxr-xr-x 15 root root   15 Oct 23 09:07 ..
+drwxrwx---  8 apps apps    9 Oct 23 08:49 immich
+```
 
-You should see the same folder structure as your source.
+Here I can see that immich and its contents have been moved to PhotosNew from Photos.
+
+However, I do want to verify that everything is actually there, so lets check the actual size of the folder.
 
 ### Compare Sizes
 
-Check that the data sizes match:
+**Replace with your old and new paths:**
+```bash
+du -sh /mnt/<pool>/<old-location>
+du -sh /mnt/<pool>/<new-location>
+```
 
+**Example:**
 ```bash
 du -sh /mnt/HDDs/Photos/immich
 du -sh /mnt/HDDs/PhotosNew/immich
 ```
 
-![Comparing folder sizes](/assets/screenshots/migration-size-difference.png)
+Output:
+```
+1.2M    /mnt/HDDs/Photos/immich
+1.1M    /mnt/HDDs/PhotosNew/immich
+```
 
-You might see a small difference like `1.2M` vs `1.1M`. This is usually due to rounding.
+You might see a small difference like `1.2M` vs `1.1M`. This is usually due to rounding, and we can actually check their actual sizes. 
 
-### Check Exact Sizes
+**Replace with your old and new paths:**
+```bash
+du -sb /mnt/<pool>/<old-location>
+du -sb /mnt/<pool>/<new-location>
+```
 
-For precision, check the exact byte count:
-
+**Example:**
 ```bash
 du -sb /mnt/HDDs/Photos/immich
 du -sb /mnt/HDDs/PhotosNew/immich
 ```
 
-![Exact size comparison](/assets/screenshots/migration-exact-size.png)
+Output:
+```
+1214669    /mnt/HDDs/Photos/immich
+1214669    /mnt/HDDs/PhotosNew/immich
+```
 
 The sizes should match exactly.
 
-## Step 8: Update App Configuration
+## Verification
 
-Now point your app to the new location.
+Now that the data is moved, we can start the app up again to verify everything is working.
 
-In TrueNAS, go to **Apps** > Your app > **Edit**.
+Go to **Apps** and click **Launch**.
 
-Scroll to **Storage Configuration** (or use the right-side navigation), then update the **Host Path** to your new location.
-
-![Updating host path to new location](/assets/screenshots/migration-update-path.png)
-
-Click **Update** to save.
-
-## Step 9: Fix Permissions
-
-This is a critical step! When rsync copies files, they may be owned by `root` instead of the user your app needs.
-
-### Start Your App First
-
-Try starting your app. If it fails to start or shows errors, you need to fix permissions.
-
-### Check for Permission Errors
-
-In TrueNAS, go to your app > **Workloads** section on the right.
-
-![Workloads showing errors](/assets/screenshots/migration-workloads-error.png)
-
-If you see containers showing "Exited" (like `server` or `permissions`), click **View Logs**.
-
-![Permission denied errors in logs](/assets/screenshots/migration-permission-error-logs.png)
-*Here, the permission error is showing inside of `server` **View Logs***
-
-If you see `EACCES: permission denied` errors, there is an issue with your permissions
-
-### Check Current Ownership
-
-In the shell, check who owns the files:
-
-```bash
-ls -la /mnt/HDDs/PhotosNew/immich/
-```
-
-![Checking file ownership](/assets/screenshots/migration-check-ownership.png)
-
-### Understanding the Output
-
-```
-drwxrwx--- 2 apps root 3 Oct 23 08:42 backups
-```
-
-Breaking this down:
-- `drwxrwx---` = permissions
-- `2` = number of links
-- **`apps`** = **owner** (this is what matters!)
-- `root` = group
-- `backups` = folder name
-
-### The Problem
-
-Look at the first two lines:
-- `.` (current directory = immich folder) = owned by `root:root` 
-- `..` (parent directory) = owned by `root:root`
-- Subfolders (backups, library, etc.) = owned by `apps:root` 
-
-The parent `immich` folder itself is owned by `root`, which prevents the app from accessing it.
-
-### Fix Ownership
-
-Change ownership of everything to the app user (typically UID `568`, which shows as `apps`):
-
-```bash
-sudo chown -R 568:568 /mnt/HDDs/PhotosNew/immich/
-```
-
-### Verify the Fix
-
-Check ownership again:
-
-```bash
-ls -la /mnt/HDDs/PhotosNew/immich/
-```
-
-![Ownership fixed to apps user](/assets/screenshots/migration-ownership-fixed.png)
-
-Now everything should be owned by `apps:apps`.
-
-## Step 10: Start and Verify Your App
-
-Start your app again. It should now work correctly!
-
-### Check Workloads
-
-In TrueNAS, check your app's workloads:
-
-![Workloads showing success](/assets/screenshots/migration-workloads-success.png)
-
-You should see:
-- ✅ `server` = Running
-- ✅ `redis` = Running (if applicable)
-- ✅ `machine-learning` = Running (if applicable)
-- ✅ Other containers = Running
-- ✅ `permissions` = Exited (this is normal!)
-
-:::info The Permissions Container
-The `permissions` container is designed to run once at startup, check/fix permissions, then exit. "Exited" status for this container is expected and correct - it's not an error.
-:::
-
-### Test Your App
-
-Open your app and verify:
+Open your app and check that:
 - Your data is visible
 - Everything functions as expected
 - You can upload/download (if applicable)
 - All features work normally
 
-## Step 11: Cleanup (Wait First!)
+Earlier we moved the location path, so all the permissions have been adjusted for us.
 
-:::danger Don't Delete Old Data Yet!
-Wait at least a few days (or longer for critical data) to confirm everything works perfectly before deleting the old data.
-:::
+### Remove Old Data
 
-Once you're confident everything works:
+You've triple checked that all the data is functional right?  
+Then we can safely remove the data from the old path.
 
-### Delete Old Data
+If the old folder is one you don't plan on using anymore you can simply delete the whole folder inside of HexOS.
 
+Otherwise, let's go back to the shell inside of TrueNAS and use this command to delete your data from the old folder.
+
+**Replace with your old location path:**
+```bash
+sudo rm -rf /mnt/<pool>/<old-location>
+```
+
+**Example:**
 ```bash
 sudo rm -rf /mnt/HDDs/Photos/immich
 ```
 
-### Delete Empty Datasets (Optional)
-
-If you want to remove the old dataset entirely:
-1. Go to **Datasets** in TrueNAS
-2. Select the old dataset
-3. Click **Delete**
-
-## Understanding Permissions
-
-When you create a new dataset in TrueNAS, it may have different permissions than your source. Here's what you might see:
-
-```bash
-drwxrwx---  3 root root  4 Sep 17 05:21 Photos
-drwxr-xr-x  3 root root  3 Oct 23 09:20 PhotosNew
-```
-
-### Breaking Down Permissions
-
-**Photos: `drwxrwx---`**
-- Owner (root): `rwx` = read, write, execute ✓
-- Group (root): `rwx` = read, write, execute ✓
-- Others: `---` = no access
-
-**PhotosNew: `drwxr-xr-x`**
-- Owner (root): `rwx` = read, write, execute ✓
-- Group (root): `r-x` = read, execute (no write)
-- Others: `r-x` = read, execute (no write)
-
-This difference is why you might encounter "Permission denied" errors when accessing the new location.
-
-### Fixing Permission Issues
-
-If you get "Permission denied" in the shell:
-
-1. Switch to root user:
-   ```bash
-   sudo -s
-   ```
-2. Enter your password (it won't show as you type - this is normal)
-3. Continue with your commands
-
-The permission fix in Step 9 (`chown -R 568:568`) ensures your app can access the data.
-
-## Troubleshooting
-
-### App Won't Start
-
-**Problem**: App shows errors or won't start after migration
-
-**Solutions**:
-1. Check app logs for specific errors
-2. Verify the path is correct in app configuration
-3. Confirm all data copied successfully
-4. Fix ownership with `chown -R 568:568 /path/to/data`
-5. Restart the app
-
-### Sizes Don't Match
-
-**Problem**: Source and destination show different sizes
-
-**Solutions**:
-1. Use `du -sb` to check exact byte counts
-2. Small differences (KB) are usually rounding or hidden files
-3. Large differences mean something didn't copy - run rsync again
-4. Check for error messages in rsync output
-
-### Permission Denied Errors
-
-**Problem**: Can't access files or folders in shell
-
-**Solutions**:
-1. Use `sudo` before commands
-2. Switch to root with `sudo -s`
-3. Check dataset permissions in TrueNAS UI
-4. Fix ownership to match app requirements
-
-### Very Slow Transfer
-
-**Problem**: Rsync taking much longer than expected
-
-**Possible Causes**:
-1. Many small files (slower than few large files)
-2. Slow disk speed (HDDs vs SSDs)
-3. Copying between different pools
-4. System under heavy load
-
-**Tips**:
-- Be patient - this is normal for large datasets
-- Monitor with `watch df -h` to see progress
-- Avoid running other intensive tasks during migration
-
 ## Related Resources
 
-- [Updating Location Paths](/guides/updating-location-paths) - HexOS automatic path updates
 - [Community Guides](/community/community-guides/) - App-specific migration guides
 - [Immich Migration (Rsync Method)](/community/community-guides/ImmichMigrationRsync) - Detailed Immich example
 - [Immich Migration (Move Method)](/community/community-guides/ImmichMigrationMove) - Alternative Immich approach
