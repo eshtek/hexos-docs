@@ -1,6 +1,5 @@
 import { defineConfig } from 'vitepress'
-import sidebar from './sidebar'
-import nav from './nav'
+import sidebar, { nav } from './sidebar'
 import { withMermaid } from 'vitepress-plugin-mermaid'
 
 export default withMermaid(
@@ -13,6 +12,10 @@ export default withMermaid(
       logo: '/logo.svg',
       nav,
       sidebar,
+      outline: {
+        level: [2, 3],
+        label: 'On this page'
+      },
       socialLinks: [
         { icon: 'github', link: 'https://github.com/eshtek/hexos-docs' }
       ],
