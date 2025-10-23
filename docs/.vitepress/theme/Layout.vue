@@ -9,6 +9,9 @@ const route = useRoute()
 watch(
   () => route.path,
   () => {
+    // Only run in browser, not during SSR
+    if (typeof window === 'undefined') return
+
     // Small delay to let VitePress update the DOM
     setTimeout(() => {
       const sidebar = document.querySelector('.VPSidebar')
