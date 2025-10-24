@@ -1,4 +1,9 @@
 docs/.vitepress/cache
 docs/.vitepress/dist
+docs/.vitepress/.temp
 node_modules
 .DS_Store
+
+# Generated files
+docs/features/apps/install-scripts/curated/index.md
+docs/release-notes/command-deck/index.md
