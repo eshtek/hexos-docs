@@ -62,6 +62,14 @@ const sidebar: DefaultTheme.SidebarItem[] = [
     ]
   },
   {
+    text: 'Guides',
+    link: '/guides/',
+    collapsed: true,
+    items: [
+      { text: 'Manual Data Migration', link: '/guides/manual-data-migration' },
+    ]
+  },
+  {
     text: 'Community',
     link: '/community/',
     collapsed: true,
@@ -128,15 +136,16 @@ const sidebar: DefaultTheme.SidebarItem[] = [
     collapsed: true,
     items: [
       // auto-generated-release-notes-start
-      { text: '2025-10-07', link: '/release-notes/command-deck/2025-10-07' },
-      { text: '2025-09-29', link: '/release-notes/command-deck/2025-09-29' },
-      { text: '2025-07-28', link: '/release-notes/command-deck/2025-07-28' },
-      { text: '2025-07-07', link: '/release-notes/command-deck/2025-07-07' },
-      { text: '2025-06-27', link: '/release-notes/command-deck/2025-06-27' },
-      { text: '2025-02-07', link: '/release-notes/command-deck/2025-02-07' },
-      { text: '2025-01-08', link: '/release-notes/command-deck/2025-01-08' },
-      { text: '2024-11-29', link: '/release-notes/command-deck/2024-11-29' },
-      // auto-generated-release-notes-end
+            { text: '2025-10-27', link: '/release-notes/command-deck/2025-10-27' },
+            { text: '2025-10-07', link: '/release-notes/command-deck/2025-10-07' },
+            { text: '2025-09-29', link: '/release-notes/command-deck/2025-09-29' },
+            { text: '2025-07-28', link: '/release-notes/command-deck/2025-07-28' },
+            { text: '2025-07-07', link: '/release-notes/command-deck/2025-07-07' },
+            { text: '2025-06-27', link: '/release-notes/command-deck/2025-06-27' },
+            { text: '2025-02-07', link: '/release-notes/command-deck/2025-02-07' },
+            { text: '2025-01-08', link: '/release-notes/command-deck/2025-01-08' },
+            { text: '2024-11-29', link: '/release-notes/command-deck/2024-11-29' },
+            // auto-generated-release-notes-end
     ]
   },
   {
@@ -152,7 +161,7 @@ const sidebar: DefaultTheme.SidebarItem[] = [
 
 // Generate nav from top-level sidebar items
 export const nav: DefaultTheme.NavItem[] = sidebar.map(item => ({
-  text: item.text,
+  text: item.text || '',
   link: item.link || (item.items?.[0] as DefaultTheme.SidebarItem)?.link || '/',
   activeMatch: item.link ? `^${item.link.split('/').slice(0, 2).join('/')}` : undefined
 }))
