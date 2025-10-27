@@ -24,5 +24,5 @@ Sometimes you need a fresh start, or want to hand your server off to someon eels
 
 ### Locations
 
-A comprehensive location editor where you can customize paths for applications and folders. Set where applications install, choose storage locations for downloads, documents, media files, virtual machines, and more across your different storage pools.
+A comprehensive location editor where you can customize paths for applications and folders. Set where applications install, choose storage locations for downloads, documents, media files, and more across your different storage pools.
 
