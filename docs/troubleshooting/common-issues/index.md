@@ -4,6 +4,7 @@ Having trouble with your HexOS setup? Check out these common issues and solution
 
 - [**Avoid USB Drives**](./AvoidUSBDrives) - Why USB drives can cause issues and what to use instead
 - [**Clear Browser Cache**](./ClearCache) - Fix login issues and UI problems by clearing your browser cache
+- [**Jellyfin Installation Fails**](./JellyfinInstallFails) - Fix Jellyfin installation stuck at 80% progress
 
 :::tip Contribute to Documentation
 Found a solution that worked? [Learn how to contribute](/community/how-to-contribute/) to improve these docs for everyone, submit corrections through the documentation repository, or share your solutions on the [HexOS Community forum](https://hub.hexos.com/).
