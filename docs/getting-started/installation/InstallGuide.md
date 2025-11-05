@@ -6,12 +6,12 @@
 
 You will need:
 
-- To [buy HexOS](https://hub.hexos.com/store/product/1-lifetime/)
-- [NAS hardware and drives](https://docs.hexos.com/getting-started/overview.html#getting-started)
-- A USB drive that you are happy to wipe
-- To connect your server to the Wifi router with a cable
-- A screen, keyboard and possibly mouse connected to your NAS
-- A seperate computer to make an install disk and set up your server after install
+- [To purchase a HexOS license](https://hub.hexos.com/store/product/1-lifetime/)
+- [Server hardware](https://docs.hexos.com/getting-started/overview.html#getting-started)
+- An 8 GB or larger USB drive that can be safely erased
+- An ethernet cable to connect your server to your router or network switch
+- A display, keyboard and optionally a mouse to connect to your server
+- A seperate computer to create a bootable USB installer and set up your server after installation
 
 ## Download the HexOS Installer
 
