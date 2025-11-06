@@ -1,25 +1,5 @@
 {
   "version": 2,
-  "installation_questions": [
-    {
-      "question": "Enable GPU acceleration for machine learning?",
-      "description": "GPU acceleration significantly improves photo recognition speed but requires compatible hardware.",
-      "type": "select",
-      "key": "gpu_passthrough",
-      "required": true,
-      "options": [
-        {
-          "text": "Yes - Use GPU for faster photo recognition",
-          "value": true
-        },
-        {
-          "text": "No - Use CPU only",
-          "value": false
-        }
-      ],
-      "default": false
-    }
-  ],
   "ensure_directories_exists": [
     {
       "path": "$LOCATION(ApplicationsPerformance)",
@@ -76,7 +56,7 @@
         "memory": "$MEMORY(10%, 4096)"
       },
       "gpus": {
-        "use_all_gpus": "$QUESTION(gpu_passthrough)"
+        "use_all_gpus": true
       }
     }
   }

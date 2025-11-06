@@ -7,24 +7,6 @@
       "type": "text",
       "key": "plex_claim_token",
       "required": false
-    },
-    {
-      "question": "Enable GPU acceleration for transcoding?",
-      "description": "GPU acceleration significantly improves transcoding speed but requires compatible hardware.",
-      "type": "select",
-      "key": "gpu_passthrough",
-      "required": true,
-      "options": [
-        {
-          "text": "Yes - Use GPU for faster transcoding",
-          "value": true
-        },
-        {
-          "text": "No - Use CPU only",
-          "value": false
-        }
-      ],
-      "default": false
     }
   ],
   "ensure_directories_exists": [
@@ -93,7 +75,7 @@
         "memory": "$MEMORY(10%, 2048)"
       },
       "gpus": {
-        "use_all_gpus": "$QUESTION(gpu_passthrough)"
+        "use_all_gpus": true
       }
     }
   }
