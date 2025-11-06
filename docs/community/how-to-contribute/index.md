@@ -61,15 +61,45 @@ Whether you have a new guide, found an error you want to correct, here's how to 
 
 ## Using GitHub in the Browser
 
-If you prefer to make contributions directly in your browser without cloning the repository, here are some helpful tips:
+If you prefer to make contributions directly in your browser without cloning the repository, this is the method to contribute. You will need an account on Github and to be logged in.
 
-### Switch to the Dev Branch
+Click the edit link at the bottom of the docs page
 
-Before making any changes, make sure you're working on the `dev` branch:
+<img src="/assets/screenshots/contribute-edit-link.png" alt="Edit link at bottom of docs page" width="800">
+
+### Edit on the Dev Branch
+
+Before making any changes, make sure you're working on the `dev` branch. This sould be automatic if you have clicked the edit link as described above.
+
+<img src="/assets/screenshots/contribute-branch-dev.png" alt="Branch selector showing dev branch" width="600">
+
+If not, Click the branch selector and choose `dev` before creating or editing files.
 
 <img src="/assets/screenshots/branch-select-dev.png" alt="Branch selection dropdown" width="300">
 
-Click the branch selector and choose `dev` before creating or editing files.
+### Make your edit
+
+Edits are done in [markdown](https://www.markdownguide.org/cheat-sheet/) which is a simple way to format text with things like headings and links. When you have made your changes, you can preview using the preview button.
+
+<img src="/assets/screenshots/contribute-preview-button.png" alt="Preview button in GitHub editor" width="400">
+
+This will show you roughly what the edit will look like when published, but not everything will be exactly the same, for example some links won't work and image alignment might be different.
+
+<img src="/assets/screenshots/contribute-preview-changes.png" alt="Preview of changes in GitHub" width="800">
+
+### Make a pull request
+
+Click make a pull request. This will create a new branch (a version) of the docs on your github.
+
+<img src="/assets/screenshots/contribute-propose-changes.png" alt="Propose changes button" width="400">
+
+After proposing changes, GitHub will show you the pull request form. Fill out a description of what you have changed and click "Create pull request" to submit it to the HexOS team.
+
+<img src="/assets/screenshots/contribute-create-pr.png" alt="Create pull request form" width="800">
+
+
+
+
 
 ### Preview Your Changes with PullPreview
 
