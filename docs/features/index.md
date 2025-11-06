@@ -2,54 +2,98 @@
 
 Once your server is up and running, you'll have access to everything you need to manage your data, run applications, share files across your network, and keep your system running smoothly.
 
-This introduction will briefly describe the main screens within HexOS. There are more detailed chapters on each screen in the links below or in the docs menu.
+This document will will briefly introduce each screen within HexOS.
 
-## HexOS Screens
+## Dashboard
 
-### Dashboard
+The Dashboard is the first screen you see after logging into the [web interface](https://deck.hexos.com/) after installing HexOS.
 
-The Dash  is where you arrive after completing the setup wizard and when you log in via [deck.hexos.com](https://deck.hexos.com)
+From the dashboard you can 
+- Review system activities
+- Apply OS updates
+- Monitor resource usage
+- Control your installed applications & virtual machines
+- Review alerts and errors
 
-From the dashboard you can review system activities, apply OS updates, monitor resource usage, and control your installed applications/virtual machines. Anything that requires your attention will show an alert icon or error message.
+By default you will see system information, storage, and apps on your dashboard. However this display is configurable in [preferences](/features/settings/index/#preferences) which can be found in the [settings](/features/settings) tab.
 
-By default you will see system information, storage, and apps on your dashboard. However this display is configurable in [settings preferences](/features/settings/index/#preferences).
+## Storage
 
-### Storage
+The Storage screen allows users to configure and manage storage resources such as pools and disks.
 
-This is where you'll find all your pools and drives, and handle anything related to storage. Whether it's creating new pools, adding more space, swapping drives, or fixing any issues that pop up. 
+From the Storage screen you can
+- Create new pools
+- Delete pools
+- Expand existing pools
+- View the status of pools
+- View the health of pools & drives
 
-[Read more about the storage screen.](/features/storage/storage)
+[Read more about the Storage screen here.](/features/storage/storage)
 
-### Folders
 
-In HexOS you can organise your files and backups into folders. 
+## Folders
 
-Some folders are automatically created when applications are installed, these are called System Folders.
+The Folders screen allows us to configure and manage folders and user accounts.
 
-You can also create folders yourself, these will show under My Folders. These can be used for sharing files over your network or backing up other devices (Apple Time Machine, Windows Backup, etc) or simply for keeping your data organised.
+From the Folders screen you can
+- Create folders
+- Manage folders
+- Share folders over the network
+- Setup backup with Apple Time Machine or Windows Backup
+- Create user accounts
+- Manage user accounts
 
-You can also create additional users and choose what each user may access with the permissions settings.
+[Learn more about the Folders screen here.](/features/folders)
 
-[Learn more about folders and users.](/features/folders)
+## Apps
 
-### Apps
+The Apps screen allows us to install and manage apps.
 
-HexOS uses apps to add additional features. The easiest apps to try are curated apps, these can be installed and configured with a single click. There are other ways to install apps also.
+From the apps screen you can
+- Intall apps
+- Modify apps
+- Open the WebUI for apps
+- View status of apps
+- Update apps
+- View apps catalog
 
-[Read more about apps.](/features/apps/index)
+[Read more about the Apps screen here.](/features/apps/index)
 
-### Settings
+## Settings
 
-If you need to tweak how your server behaves, then the Settings page is the place to go. This is where you'll find all the configuration options, from network setup to customizing your dashboard to choosing where different types of files get stored. This is also where you can enter the TrueNAS interface, the underlying software HexOS is built on.
+The Settings screen allows us to modify our server prefrences.
 
-[Read about settings here.](/features/settings)
+From the Settings screen you can
+- Manage network prefrences
+- Change server name
+- Unclaim server
+- Reset Server
+- View notification logs
+- Modify the Dashboard
+- Manage location prefrences
+- Open the Truenas UI
 
-### Notifications
+[Read more about the Settings screen here.](/features/settings)
 
-HexOS will notify you of disk failures, issues with system functioning, updates and more. 
+## Notifications
 
-[Read all about how notifications are sent and where to see them.](/features/notifications/index)
+The Notifications screen shows alerts and updates on our servers
 
-### Profile
+From the notification screen you can view
+- Server updates
+- Application updates
+- Server warnings
+- Disk failure warnings
 
-Your profile menu lives in the top-right corner of every page. From there you can switch to dark mode, change languages, jump to our Community Hub, send us feedback or sign out.
+[Read more about notifications here.](/features/notifications/index)
+
+## Profile
+
+Your profile menu lives in the top-right corner of the HexOS deck. 
+
+From the profile menu you can
+- Switch to dark mode
+- Change languages
+- Jump to our Community Hub
+- Send feedback
+- Sign out.
