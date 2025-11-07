@@ -13,7 +13,9 @@ HexOS is software used to run a private home server also known as NAS (Network A
 
 ## Simplified Setup
 
-Until now, the largest barrier to running a home server was how complicated the software has been to use. This is where HexOS truly shines, with simplicity at its core. The setup wizard automatically validates your hardware, partitions your system as needed and guides you through the setup process in minutes. 
+Until now, the largest barrier to running a home server was how complicated the software has been to use. This is where HexOS truly shines, with simplicity at its core. 
+
+The setup wizard automatically validates your hardware, partitions your system as needed and guides you through the setup process in minutes. 
 
 ## Features
 
@@ -26,17 +28,16 @@ Simply install the apps of your choice from the Apps screen. Using apps you can 
 
 ## Bring Your Own Hardware
 
-Part of what makes HexOS special is the ability to runs on a wide array of hardware, from repurposed systems to highly custom builds. This allows you to upgrade your servers at will and even pick your favorite brand of storage.
+Part of what makes HexOS special is the ability to runs on a wide array of hardware, from repurposed systems to highly custom builds.<br> This allows you to upgrade your servers at will and even pick your favorite brand of storage.
 
 The choice is yours.
 
-## Built On TrueNAS.
+## Partnering with TrueNAS
 
-HexOS runs on top of TrueNAS Scale: this means that the underlying software is already fully featured and extensively tested. TrueNAS has many Open Source elements and a community of developers and companies contributing to its functionality, security and longevity.
+We have partnered with TrueNAS to provide a simpler server solution, HexOS.<br> 
+TrueNAS scale is a fully featured and extensively tested enterprise data platform. 
 
-This allows HexOS to really focus on being easy to use and accessible, without having to design every aspect of the software.
-
-This also means that HexOS users have access to a large library of apps that run on TrueNAS, making HexOS feature packed from the start. Users can take a look at the TrueNAS part of their server if they like, or just stick within HexOS.
+Running HexOS on top of TrueNAS Scale allows us to focus completely on improving the user experience without compromising on functionality or security.
 
 ## How To Get HexOS
 
