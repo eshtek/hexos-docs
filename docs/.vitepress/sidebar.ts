@@ -147,7 +147,6 @@ const sidebar: DefaultTheme.SidebarItem[] = [
     collapsed: true,
     items: [
       { text: 'Overview', link: '/careers/' },
-      { text: 'App Curator', link: '/careers/app-curator/' },
     ]
   }
 ]
