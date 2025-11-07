@@ -11,21 +11,24 @@ next:
 
 HexOS is software used to run a private home server also known as NAS (Network Attached Storage). A NAS keeps your content secure and private on your own computer, it's like "the cloud" but in your own home.
 
-## Simple Setup
+## Simplified Setup
 
-Until now, the biggest barrier to having a NAS has been how complicated the software is to set up. HexOS is designed with simplicity in mind, however. The setup wizard automatically validates your hardware, partitions your system as needed and guides you through the setup process in minutes. You can go "under the hood" and tinker with things too - but it's not necessary.
+Until now, the largest barrier to running a home server was how complicated the software has been to use. This is where HexOS truly shines, with simplicity at its core. The setup wizard automatically validates your hardware, partitions your system as needed and guides you through the setup process in minutes. 
 
 ## Features
 
 Simply install the apps of your choice from the Apps screen. Using apps you can quickly configure your home server to:
 - store data and backups
-- organise photos
+- organize photos
 - stream content
 - run games and virtual machines 
 - and so much more. 
 
 ## Bring Your Own Hardware
-Other NAS solutions often limit you to their own expensive hardware which can't be updated easily or at all. HexOS gives you the freedom to choose and change hardware on your own, re-using older components or buying something new, the choice is yours. You can also easily add more storage one drive at a time.
+
+Part of what makes HexOS special is the ability to runs on a wide array of hardware, from repurposed systems to highly custom builds. This allows you to upgrade your servers at will and even pick your favorite brand of storage.
+
+The choice is yours.
 
 ## Built On TrueNAS.
 
@@ -37,4 +40,6 @@ This also means that HexOS users have access to a large library of apps that run
 
 ## How To Get HexOS
 
-HexOS is currently in early beta: you can buy early access with [hexos lifetime here](https://hexos.com/#earlyaccess). 
+HexOS is currently in its beta phase.
+
+You can get early access by purchasing a [**HexOS lifetime license here**](https://hexos.com/#earlyaccess). 
