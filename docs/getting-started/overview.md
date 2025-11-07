@@ -1,29 +1,32 @@
 # Getting Started
 
-If you're ready to get started with HexOS then congratulations! This article will guide you through choosing hardware, and getting HexOS installed and set up. If you want to know more about HexOS first then you can [read about it here](/about-hexos/).
+Congratulations for getting started with HexOS and self-hosting! This article will guide you through choosing hardware, and getting HexOS installed and set up. If you want to know more about HexOS first then you can [read about it here](/about-hexos/).
 
 ## System Requirements
 
 For basic storage and folder capabilities, HexOS has the same underlying system requirements as TrueNAS SCALE:
 
 - Processor:    2-Core Intel 64-Bit or AMD x86_64 processor
-- Memory:      8 GB memory
-- Boot Device:      16 GB SSD boot device
+- Memory:       8 GB memory
+- Boot Drive:   16 GB SSD boot device
 - Storage:  
-  - One storage device for testing purposes*
-  - Two storage devices for a mirrored pool**
-  - Three storage devices for an expandable pool
+  - One storage drive for testing purposes*
+  - Two storage drives for a mirrored pool**
+  - Three storage drives for an expandable pool
 
-<small>\* *single device configurations offer no redundancy and should only be used for test/dev purposes*  
+<small>\* *single drive configurations offer no redundancy and should only be used for testing purposes only*  
 ** *mirrored pools cannot be expanded by adding additional storage devices*</small>
 
-However, the apps you install on your NAS can significantly increase these requirements. [Read more about apps on HexOS here](/features/apps/). To be sure about your NAS system requirements, consult the documentation of each app you might want to install too.
+However, the apps you install on your server can significantly increase these requirements. [Read more about apps on HexOS here](/features/apps/). Consult the documentation of the apps you are interested in to see their recommended specifications.
 
-## Get Yourself a Server
+## How to get a Server
 
-When it comes to the physical hardware of the NAS you have two choices: bring your own hardware or buy something pre-built (OEM).
+When it comes to the physical hardware of the NAS you have two choices
 
-### Bring Your Own Hardware (BYOH)
+1. Bring your own hardware
+2. Buy something pre-built
+
+### Bring Your Own Hardware
 
 Do you have an old PC or gaming rig laying around? Can you get your hands on a decommissioned or refurbished server? Or do you want to build something new? One of the best things about HexOS is the ability to take almost any hardware that meets the system requirements and turn it into a home server.  
 
@@ -31,7 +34,7 @@ This said, to build an energy efficient and responsive NAS may require more thou
 
 You can also introduce yourself to the HexOS community in [the forum](https://hub.hexos.com/) for further guidance and support on your hardware choices.
 
-### Buy Pre-Built (OEM)
+### Buy Pre-Built
 
 There are many OEM NAS appliances available for purchase in the hardware market.  However, for the best support, TrueNAS servers including their [Mini-R series](https://www.truenas.com/truenas-mini/) are tested to ensure smooth running of HexOS.  For non-TrueNAS based systems, make sure to seek community guidance. Avoid proprietary hardware vendors like Synology/QNAP: this is because the hardware is usually locked down and unable to run other software such as HexOS.
 
