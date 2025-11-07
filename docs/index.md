@@ -12,7 +12,3 @@ Want to get involved? Check out our [contribution guide](/community/how-to-contr
 - [**Release Notes**](/release-notes/command-deck/) - Latest features and updates
 
 <br>
-
-:::tip We're Hiring!
-We currently have an open position, head to our [careers](/careers/) page to see if it's for you!
-:::
