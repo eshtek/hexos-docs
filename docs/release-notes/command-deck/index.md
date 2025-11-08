@@ -11,9 +11,10 @@ For users who are actively connected during an update, there may be a brief down
 <!-- auto-generated-year-sections-start -->
 ## 2025 Releases
 
-- [**2025-11-07**](./2025-11-07) - Hotfix: Upgrade timeout improvements
+- [**2025-11-08**](./2025-11-08) - Server monitoring scalability improvements
+- [**2025-11-07**](./2025-11-07) - Upgrade timeout improvements
 - [**2025-11-06**](./2025-11-06) - Install Script v2, Fangtooth Support, Enhanced User Management
-- [**2025-10-07**](./2025-10-07) - Hotfix: App Installation
+- [**2025-10-07**](./2025-10-07) - App Installation
 - [**2025-09-29**](./2025-09-29) - New Apps Curation Process, Jellyfin/Home Assistant/qBittorrent Apps, Folder Wizard
 - [**2025-07-28**](./2025-07-28) - Networking Fixes, Performance Improvements, Folder Loading Optimization
 - [**2025-07-07**](./2025-07-07) - Observability Improvements, Request Timing Instrumentation
