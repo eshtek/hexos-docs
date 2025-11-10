@@ -6,20 +6,19 @@ Congratulations for getting started with HexOS and self-hosting! This article wi
 
 For basic storage and folder capabilities, HexOS has the same underlying system requirements as TrueNAS SCALE:
 
-- Processor:    2-Core Intel 64-Bit or AMD x86_64 processor
-- Memory:       8 GB memory
-- Boot Drive:   16 GB SSD boot device
-- Storage:  
-  - One storage drive for testing purposes*
-  - Two storage drives for a mirrored pool**
-  - Three storage drives for an expandable pool
+| Component | Minimum requirements | 
+|---|---|
+| Processor | 2-Core Intel 64-Bit or AMD x86_64 processor |
+| Memory | 8 GB memory |
+| Boot Drive | 16 GB SSD boot device |
+| Storage |  - One storage drive for testing purposes*<br> - Two storage drives for a mirrored pool**<br> - Three storage drives for an expandable pool |
 
 <small>\* *single drive configurations offer no redundancy and should only be used for testing purposes only*  
 ** *mirrored pools cannot be expanded by adding additional storage devices*</small>
 
 However, the apps you install on your server can significantly increase these requirements. [Read more about apps on HexOS here](/features/apps/). Consult the documentation of the apps you are interested in to see their recommended specifications.
 
-## How to get a Server
+## Preparing Server Hardware
 
 When it comes to the physical hardware of the NAS you have two choices
 
@@ -30,37 +29,43 @@ When it comes to the physical hardware of the NAS you have two choices
 
 Do you have an old PC or gaming rig laying around? Can you get your hands on a decommissioned or refurbished server? Or do you want to build something new? One of the best things about HexOS is the ability to take almost any hardware that meets the system requirements and turn it into a home server.  
 
-This said, to build an energy efficient and responsive NAS may require more thought and reading. Thankfully, TrueNAS provides a [comprehensive hardware guide](https://www.truenas.com/docs/scale/gettingstarted/scalehardwareguide/) that covers all aspects of selecting hardware including minimum system requirements, storage devices/controllers, etc.  
+TrueNAS provides a [comprehensive hardware guide](https://www.truenas.com/docs/scale/gettingstarted/scalehardwareguide/) that covers all aspects of selecting hardware including minimum system requirements, storage devices/controllers, etc.  However, to build an energy efficient server additional research may be required. 
 
-You can also introduce yourself to the HexOS community in [the forum](https://hub.hexos.com/) for further guidance and support on your hardware choices.
+You are welcome to introduce yourself to the HexOS community in [the forum](https://hub.hexos.com/), where you can get further guidance and support on your hardware choices.
 
 ### Buy Pre-Built
 
-There are many OEM NAS appliances available for purchase in the hardware market.  However, for the best support, TrueNAS servers including their [Mini-R series](https://www.truenas.com/truenas-mini/) are tested to ensure smooth running of HexOS.  For non-TrueNAS based systems, make sure to seek community guidance. Avoid proprietary hardware vendors like Synology/QNAP: this is because the hardware is usually locked down and unable to run other software such as HexOS.
+There are many pre-built NAS devices available for purchase in the hardware market. For the best support, TrueNAS servers including their [Mini-R series](https://www.truenas.com/truenas-mini/) are tested to ensure smooth running of HexOS.  For non-TrueNAS based systems, make sure to seek community guidance and avoid proprietary hardware vendors like Synology or QNAP. Proprietary NAS hardware can be locked down and may be unable to run other operating systems such as HexOS.
 
-## Get Yourself Some Storage
+## Storage considerations
+  
+There are various factors to consider when selecting storage for for a server. The table below will give a quick overview on the basic differences between Hard Disc Drive (HDD) and Solid State Drive (SSD).
 
-Selecting storage devices for your home server comes down to how much storage capacity you need, how fast you want the storage to be and  what you have room and power for in your system. HDDs should be used for user data, and SSDs can offer faster speeds for running HexOS and more high-performance applications and use-cases.  
+| Factors | HDD | SSD |
+|---|---|---|
+| Budget | Lower cost per Terabyte (TB) | Higher cost per Terabyte (TB) |
+| Storage Capacity | Readily available drives in sizes up to 30 TB| Readily available drives in sizes up to 8 TB |
+| Storage Speed* | ~80 - 300 MB/s | ~500-8000 MB/s |
+| Port Availability <br> (Per drive) | - Sata or SAS data port <br> - Sata power | Sata data and power port<br> or M.2 port |
+| Recommended<br> Use-case | Large data storage | High performance applications |
+| Other Factors | - CMR HDDs are recommended <br> - [SMR HDDs aren't recommended](https://www.xda-developers.com/smr-hdds-are-fine-for-your-nas-until-you-try-to-resilver/)<br> - Can make audible noise | - SLC, MLC, TLC SSDs are recommended**<br> - QLC SSDs are not recommended<br> - silent operation | 
 
-### Recommended Layouts
+<small>\* *Storage speeds vary based on drive model and technology.*  
+** *SLC abd MLC SSDs are uncommon and may be difficult to procure*</small>
 
-While you can ultimately create as many pools in whatever configurations you want using HexOS, most users will benefit from one of three primary configurations.
+### Recommended Storage Templates
+
+While you can create as many pools in whatever configurations you want using HexOS, most users will benefit from one of the following templates.
 
 #### The Minimalist
 
-- 3 or more HDDs
+- 3 or more HDDs of the same capacity
 
-Technically all features of HexOS can be achieved with a single pool.  Both data you and your apps create will live in the same pool of storage. If users, applications, and performance expectations are all low, HDDs are fine. Otherwise, SSDs may be preferred, though the price per TB is higher. Just remember to start with a minimum of 3 devices so that you can expand as you grow.   If you want the best of both worlds and better scalability, see the next layout.
+A pool consisting of 3 HDDs is the most cost efficient method to create a pool that can later be expanded with additional storage drives. In this configuration your data and applications will stay on the same storage pool. This is sufficient if high speed performance is unnecessary.
 
 #### The Enthusiast
 
-- 3 HDDs
-- 2+SSDs
+- 3 or more HDDs of the same capacity
+- 2 or more SSDs of the same capacity
 
-If both HDD and SSD pools are available, HexOS will automatically optimize their usage with folders, applications, and in the future, virtual machines.  This will result in improved application performance and storage efficiency.  While we highly recommend a minimum of three storage devices for the HDD pool, a two-device SSD pool can be acceptable.  Consider your total expandability (storage ports) in your system when deciding on pool widths.
-
-#### The Professional
-
-- Multiple pools managed in TrueNAS
-
-For the tech savvy IT admin or developer who wants more granular control over their storage configuration, HexOS also supports the use of TrueNAS-managed pools.  Simply create your storage pool via TrueNAS and it will appear as an option when configuring HexOS features like folders and apps.  HexOS will generate relevant alerts/notifications for pool issues including device failures and aggressive SMART errors.  However, all storage management operations (expansion, disk replacement, etc.) will need to be performed through the TrueNAS UI.
+If both HDD and SSD pools are available, HexOS will automatically optimize their usage. Functionality that may benefit from higher performance storage will be installed to the SSD pool. While having 3 or more drives are recommend for HDDs for the option to expand the HDD pool in the future, a pool of 2 SSDs can be acceptable. If you would like to keep the option SSD pool expansion available then make sure to use 3 or more SSDs when creating the pool.
