@@ -1,0 +1,20 @@
+/* Reduce spacing before h2 headings */
+.vp-doc h2 {
+  margin-top: 24px;
+}
+
+/* Make sidebar group titles clickable - navigate instead of just toggling */
+.VPSidebarItem.level-0.has-active > .item > .link > .text,
+.VPSidebarItem.level-0 > .item > .link > .text {
+  cursor: pointer;
+}
+
+/* Ensure the entire link area is clickable, not just the caret */
+.VPSidebarItem.level-0 > .item > .link {
+  display: flex;
+  align-items: center;
+}
+
+.VPSidebarItem.level-0 > .item > .link .text {
+  flex: 1;
+}

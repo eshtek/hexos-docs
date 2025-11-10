@@ -1,4 +1,4 @@
-# How to Contribute
+# Different ways to contribute
 
 Help make HexOS better for everyone! Here are the ways you can contribute:
 
@@ -20,7 +20,7 @@ Help keep our docs accurate and helpful:
 - Clarify confusing sections
 - Share real-world use cases
 
-To contribute documentation, submit changes through the [HexOS Documentation repository](https://github.com/Eshtek/hexos-docs).
+Learn more about how to contribute to the docs repository [here](/community/how-to-contribute/)
 
 ## Support Other Users
 
