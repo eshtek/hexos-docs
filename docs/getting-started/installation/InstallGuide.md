@@ -1,6 +1,6 @@
 # Illustrated Installation Guide
 
-*by [@Mawson](https://hub.hexos.com/profile/14-mawson/?wr=eyJhcHAiOiJmb3J1bXMiLCJtb2R1bGUiOiJmb3J1bXMtY29tbWVudCIsImlkXzEiOjEwMywiaWRfMiI6NDY0fQ==)* with edits by [@gingerling](https://hub.hexos.com/profile/19534-gingerling/)
+*by [@Mawson](https://hub.hexos.com/profile/14-mawson/)* with edits by [@gingerling](https://hub.hexos.com/profile/19534-gingerling/)
 
 ## Before you Begin
 
@@ -11,11 +11,11 @@ You will need:
 - An 8 GB or larger USB drive that can be safely erased
 - An ethernet cable to connect your server to your router or network switch
 - A display, keyboard and optionally a mouse to connect to your server
-- A seperate computer to create a bootable USB installer and set up your server after installation
+- A separate computer to create a bootable USB installer and set up your server after installation
 
 ## Download the HexOS Installer
 
-The first step is to download the ISO (disk image) to install HexOS from. You can download the installer ISO from either link below.
+Start by downloading the HexOS installer. You can download the installer from either link below.
 
 - [downloads.hexos.com](https://downloads.hexos.com/TrueNAS-SCALE-24.10.2.2-HexOS.iso)
 - [hexos download on digitaloceanspaces.com](https://hexos-downloads.sfo3.cdn.digitaloceanspaces.com/TrueNAS-SCALE-24.10.2.2-HexOS.iso)
@@ -24,7 +24,7 @@ The first step is to download the ISO (disk image) to install HexOS from. You ca
 
 ## Create Installation USB
 
-The next step is to put the ISO onto a usb stick, then this is used to install HexOS. The USB will be completely wiped while making the ISO so check that it’s not got anything important on it before starting. To make the ISO use Balena Etcher.
+The next step is to put the .iso file onto a USB stick with Balena Etcher. The USB will be **erased** during this process.
 
 -   [Download Balena Etcher](https://etcher.balena.io/#download-etcher) onto your computer
     -   Install and open Etcher
@@ -32,7 +32,7 @@ The next step is to put the ISO onto a usb stick, then this is used to install H
     -   Select your target USB drive
     -   Click 'Flash!'
 
-**Important**: Do not use Rufus to make the ISO - it causes issues for many users. Stick with Balena Etcher.
+**Important**: Do not use Rufus to create the installation USB - Stick with Balena Etcher.
 
 ## Installation Process
 
@@ -44,8 +44,8 @@ If you do not see the boot screen (shown in the next section) right away the fol
 
 #### Boot device order 
 
-Your NAS hardware might be trying to BOOT from a different drive, for example an old windows install on one of the hard drives.
-To fix this first enter the BIOS -  usually this is done by pressing F10, F2, F12, F1, or DEL while the machine is turning on.
+Your server might be trying to boot from a different drive, for example an old windows install on one of the hard drives.
+To fix this first enter the BIOS -  usually this is done by pressing F1, F2, F10, F12 or DEL while the machine is turning on.
 Then in the BIOS change the order of boot drives so your USB ISO is at the top. Then save/restart.
 
 #### Disabling Secure Boot
@@ -64,7 +64,7 @@ Once you see this screen, you are ready to boot into HexOS and install it:
 
 ### Installation Menu
 
--   After the system loads, choose option 1: "Install/Upgrade"
+-   Once the system loads, select option 1: "Install/Upgrade"
 
 [![Installation Menu](https://hub.hexos.com/uploads/monthly_2024_11/Capture2.PNG.0632104eaf1d3158bd759f4a8b595244.PNG)](https://hub.hexos.com/uploads/monthly_2024_11/Capture2.PNG.0632104eaf1d3158bd759f4a8b595244.PNG "Enlarge image")
 
@@ -72,7 +72,7 @@ Once you see this screen, you are ready to boot into HexOS and install it:
 
 What you see now will depend on how many drives you have in your server. The drive or drives you choose to install HexOS on will not be available to store data on. 
 
--   **Use arrow keys to navigate, spacebar to select your installation drive or drives**
+-   **Use arrow keys to navigate, space-bar to select your installation drive or drives**
 -   "**[*]**" in the first column indicates the device is selected
 
 [![Drive Selection](https://hub.hexos.com/uploads/monthly_2024_11/Capture3.PNG.8efa34d929a7a8dd6e148ebc17172509.PNG)](https://hub.hexos.com/uploads/monthly_2024_11/Capture3.PNG.8efa34d929a7a8dd6e148ebc17172509.PNG "Enlarge image")
@@ -92,7 +92,7 @@ What you see now will depend on how many drives you have in your server. The dri
 
 ### Set Root Password
 
--   Set the root password - **save this password, you'll need it later**
+-   Set the root password - <span style="color: red;">**Save this password, you'll need it later**</span>
 -   **Non-US keyboard users**: Be careful with special characters in the password. The installer uses a [US keyboard layout](https://en.wikipedia.org/wiki/British_and_American_keyboards#/media/File:KB_United_States-NoAltGr.svg). [See details here](https://hub.hexos.com/topic/103-illustrated-installation-guide-start-here/page/2/#findComment-8073) 
 
 [![Root Password Setup](https://hub.hexos.com/uploads/monthly_2024_11/Capture6.PNG.2757a99cb3d6eff2456fae08f5d8af22.PNG)](https://hub.hexos.com/uploads/monthly_2024_11/Capture6.PNG.2757a99cb3d6eff2456fae08f5d8af22.PNG "Enlarge image")
