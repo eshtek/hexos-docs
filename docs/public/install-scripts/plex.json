@@ -27,7 +27,6 @@
       ],
       "default": "image"
     }
-
   ],
   "ensure_directories_exists": [
     {
