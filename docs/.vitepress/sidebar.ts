@@ -128,15 +128,18 @@ const sidebar: DefaultTheme.SidebarItem[] = [
     collapsed: true,
     items: [
       // auto-generated-release-notes-start
-      { text: '2025-10-07', link: '/release-notes/command-deck/2025-10-07' },
-      { text: '2025-09-29', link: '/release-notes/command-deck/2025-09-29' },
-      { text: '2025-07-28', link: '/release-notes/command-deck/2025-07-28' },
-      { text: '2025-07-07', link: '/release-notes/command-deck/2025-07-07' },
-      { text: '2025-06-27', link: '/release-notes/command-deck/2025-06-27' },
-      { text: '2025-02-07', link: '/release-notes/command-deck/2025-02-07' },
-      { text: '2025-01-08', link: '/release-notes/command-deck/2025-01-08' },
-      { text: '2024-11-29', link: '/release-notes/command-deck/2024-11-29' },
-      // auto-generated-release-notes-end
+            { text: '2025-11-08', link: '/release-notes/command-deck/2025-11-08' },
+            { text: '2025-11-07', link: '/release-notes/command-deck/2025-11-07' },
+            { text: '2025-11-06', link: '/release-notes/command-deck/2025-11-06' },
+            { text: '2025-10-07', link: '/release-notes/command-deck/2025-10-07' },
+            { text: '2025-09-29', link: '/release-notes/command-deck/2025-09-29' },
+            { text: '2025-07-28', link: '/release-notes/command-deck/2025-07-28' },
+            { text: '2025-07-07', link: '/release-notes/command-deck/2025-07-07' },
+            { text: '2025-06-27', link: '/release-notes/command-deck/2025-06-27' },
+            { text: '2025-02-07', link: '/release-notes/command-deck/2025-02-07' },
+            { text: '2025-01-08', link: '/release-notes/command-deck/2025-01-08' },
+            { text: '2024-11-29', link: '/release-notes/command-deck/2024-11-29' },
+            // auto-generated-release-notes-end
     ]
   },
   {
@@ -145,7 +148,6 @@ const sidebar: DefaultTheme.SidebarItem[] = [
     collapsed: true,
     items: [
       { text: 'Overview', link: '/careers/' },
-      { text: 'App Curator', link: '/careers/app-curator/' },
     ]
   }
 ]

@@ -1,5 +1,15 @@
 {
-  "version": 1,
+  "version": 2,
+  "installation_questions": [
+    {
+      "question": "Claim token",
+      "description": "The claim token for the server to obtain a real server token. If not provided, server is will not be automatically logged in. If server is already logged in, this parameter is ignored. You can obtain a claim token to login your server to your plex account by visiting https://www.plex.tv/claim.",
+      "type": "text",
+      "key": "plex_claim_token",
+      "required": false,
+      "default": ""
+    }
+  ],
   "ensure_directories_exists": [
     {
       "path": "$LOCATION(ApplicationsPerformance)",
@@ -39,6 +49,13 @@
     "$LOCATION(ApplicationsPerformance)/plex/transcode"
   ],
   "app_values": {
+    "plex": {
+      "claim_token": "$QUESTION(plex_claim_token)"
+    },
+    "run_as": {
+      "user": 568,
+      "group": 568
+    },
     "storage": {
       "data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/plex/data)",
       "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/plex/config)",
