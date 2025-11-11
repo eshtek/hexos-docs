@@ -1,18 +1,18 @@
 # Storage
 
-This is where you'll find all your pools and drives, and handle anything related to storage. From this screen you can create new pools, add more space, swap drives, or fix issues with your storage.
+This is where you'll find all your pools and drives, and handle anything related to storage. From this screen you can create new pools, swap drives, or fix issues with your storage.
 
 ## Creating Storage Pools
 
-When you first set up your server, you likely created at least one storage pool. "Pools" are groups of drives that will work together as one, allowing a larger amount of storage space than a single drive and also giving additional “redundancy” in case one or more drives fail.
+When you first set up your server, you likely created at least one storage pool. Pools are groups of drives that will work together as one, allowing a larger amount of storage space than a single drive and may also giving additional “redundancy” in case of drive failure.
 
-If you have unused drives, you can create a new pool by selecting which drives to group together.
+If you have unused drives, you can create a new pool by selecting the create pool button.
 
-It’s important to use the right number of drives in a pool. If you have less than three drives you can’t add more later, for example. [Read more about drives and pools here](https://docs.hexos.com/getting-started/overview.html#get-yourself-some-storage)
+It’s important to create pools with an appropriate amount of drives. Any pools with less than three drives cannot be expanded with additional drives.<br> [Read more about drives and pools here](https://docs.hexos.com/getting-started/overview.html#get-yourself-some-storage)
 
 ## Replacing Drives
 
-Even if they work for many years, eventually every drive will fail. This is why we use storage pools, to give redundancy so when a drive fails it can be replaced. 
+Eventually every drive will fail. Storage pools with [parity](https://en.wikipedia.org/wiki/Parity_drive), like the ones that HexOS suggests, allow for failing drives to be replaced without losing the data.
 
 The storage interface will show and alert when there are problems relating to your pools and drives. When drives start showing errors on  [SMART](https://www.truenas.com/docs/core/13.0/coretutorials/tasks/runningsmarttests/) tests, having I/O problems, or go missing entirely, you'll see visual indicators right in the interface. 
 
@@ -61,13 +61,13 @@ This is how you can upgrade individual drives one at a time. The process for thi
 
 ## Critical Errors
 
-Sometimes storage issues are more serious than a single drive failure. Before assuming the world is falling apart, try restarting your server and seeing if some of the errors go away. If the errors persist, here's a quick overview of what you may see.
+Sometimes storage issues are more serious than a single drive failure. Before assuming the world is falling apart, try restarting your server and checking if any of the errors go away.<br> If the errors persist, here's a quick overview of what you may see.
 
-**Pool degradation**: Your pool is running but weakened. Check that all drives are properly connected and look for drive errors. Usually this means a drive needs replacement, but your data is still safe.
+**Pool degradation**: Your pool is running weakened. Check if all drives are properly connected and look for drive errors. Usually this means a drive needs replacement, but your data is still safe.
 
 **Pool offline**: Your pool isn't accessible right now. This often happens when too many drives fail at once or there's a connection issue. Check drive connections first, then look for multiple drive failures.
 
-**Multiple drive problems**: If you lose more drives than your redundancy can handle, you're in data loss territory. Stop using the system immediately and consider professional data recovery if the data is critical.
+**Multiple drive problems**: If you lose more drives than your redundancy can handle, by default 1 drive, you're in data loss territory. <span style="color: red;">**Stop using the system immediately**</span> and consider professional data recovery if the data is critical.
 
 The key is acting quickly when you see alerts. Most pool problems start small and get worse if ignored.
 
