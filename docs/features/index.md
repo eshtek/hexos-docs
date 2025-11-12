@@ -15,7 +15,7 @@ From the dashboard you can
 - Control your installed applications & virtual machines
 - Review alerts and errors
 
-By default you will see system information, storage, and apps on your dashboard. However this display is configurable in [preferences](/features/settings/index/#preferences) which can be found in the [settings](/features/settings) tab.
+By default you will see system information, storage, and apps on your dashboard. However this display is configurable in [preferences](/features/settings/#preferences) which can be found in the [settings](/features/settings/) tab.
 
 ## Storage
 
@@ -43,7 +43,7 @@ From the Folders screen you can
 - Create user accounts
 - Manage user accounts
 
-[Learn more about the Folders screen here.](/features/folders)
+[Learn more about the Folders screen here.](/features/folders/)
 
 ## Apps
 
@@ -57,7 +57,7 @@ From the apps screen you can
 - Update apps
 - View apps catalog
 
-[Read more about the Apps screen here.](/features/apps/index)
+[Read more about the Apps screen here.](/features/apps/)
 
 ## Settings
 
@@ -73,7 +73,7 @@ From the Settings screen you can
 - Manage location prefrences
 - Open the Truenas UI
 
-[Read more about the Settings screen here.](/features/settings)
+[Read more about the Settings screen here.](/features/settings/)
 
 ## Notifications
 
@@ -85,7 +85,7 @@ From the notification screen you can view
 - Server warnings
 - Disk failure warnings
 
-[Read more about notifications here.](/features/notifications/index)
+[Read more about notifications here.](/features/notifications/)
 
 ## Profile
 
