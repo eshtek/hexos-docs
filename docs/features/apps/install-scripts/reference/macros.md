@@ -34,6 +34,22 @@ Generates a random alphanumeric string of specified length. Useful for passwords
 "password": "$RANDOM_STRING(12)"
 ```
 
+#### `$SERVER_LAN_IP`
+Resolves to the server's LAN IP address. Useful for constructing URLs that point to services running on the TrueNAS server.
+
+**Example:**
+```json
+"ip": "$SERVER_LAN_IP"
+```
+
+#### `$CONCAT(...)`
+Concatenates multiple strings together. Arguments can be literal strings (with quotes) or other macros.
+
+**Example:**
+```json
+"ADVERTISE_IP": "$CONCAT('http://', $SERVER_LAN_IP, ':32400')"
+```
+
 #### `$MEMORY(percentage, minimum_mb)`
 Dynamically allocates memory based on system resources. Takes the higher value between the percentage of system memory and the minimum specified in MB.
 
