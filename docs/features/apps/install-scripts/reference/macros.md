@@ -39,15 +39,12 @@ Resolves to the server's LAN IP address. Useful for constructing URLs that point
 
 **Example:**
 ```json
-"ip": "$SERVER_LAN_IP"
-```
-
-#### `$CONCAT(...)`
-Concatenates multiple strings together. Arguments can be literal strings (with quotes) or other macros.
-
-**Example:**
-```json
-"ADVERTISE_IP": "$CONCAT('http://', $SERVER_LAN_IP, ':32400')"
+"additional_envs": [
+  {
+    "name": "ADVERTISE_IP",
+    "value": "http://$SERVER_LAN_IP:32400"
+  }
+]
 ```
 
 #### `$MEMORY(percentage, minimum_mb)`
