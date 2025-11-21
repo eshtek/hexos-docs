@@ -125,9 +125,6 @@
       "limits": {
         "cpus": 2,
         "memory": "$MEMORY(10%, 4096)"
-      },
-      "gpus": {
-        "use_all_gpus": false
       }
     }
   }
