@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    "$LOCATION(ApplicationsPerformance)/wg-easy"
+  ],
+  "app_values": {
+    "storage": {
+      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/wg-easy)"
+    }
+  }
+}

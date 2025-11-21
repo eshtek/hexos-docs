@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "requirements": {
+    "requirements": {
     "locations": ["ApplicationsPerformance", "ApplicationsCapacity", "Downloads"],
     "specifications": ["2CORE", "200MB"],
     "permissions": ["READ_WRITE_LOCATIONS"],
@@ -19,13 +19,14 @@
       "path": "$LOCATION(Downloads)",
       "network_share": true
     },
+    "$LOCATION(Downloads)/qbittorrent",
     "$LOCATION(ApplicationsPerformance)/qbittorrent/config"
   ],
   "app_values": {
     "storage": {
       "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/qbittorrent/config)",
       "additional_storage": [
-        "$MOUNTED_HOST_PATH($LOCATION(Downloads), /config/Downloads)"
+        "$MOUNTED_HOST_PATH($LOCATION(Downloads)/qbittorrent, /config/Downloads)"
       ]
     }
   }
