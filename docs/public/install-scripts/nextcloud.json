@@ -58,6 +58,13 @@
       "key": "cron_schedule",
       "default": "*/5 * * * *",
       "required": false
+    },
+    {
+      "question": "Web Port",
+      "type": "number",
+      "key": "web_port",
+      "default": 30027,
+      "required": true
     }
   ],
   "ensure_directories_exists": [
@@ -113,7 +120,7 @@
     "network": {
       "web_port": {
         "bind_mode": "published",
-        "port_number": 30027
+        "port_number": "$QUESTION(web_port)"
       }
     },
     "storage": {
