@@ -8,8 +8,9 @@
   },
   "installation_questions": [
     {
-      "question": "Claim token",
-      "description": "The claim token for the server to obtain a real server token. If not provided, server is will not be automatically logged in. If server is already logged in, this parameter is ignored. You can obtain a claim token to login your server to your plex account by visiting https://www.plex.tv/claim.",
+      "question": "Claim Token (Optional)",
+      "description": "The claim token is used to automatically login to Plex. You can obtain a claim token to login your server to your Plex account by visiting https://www.plex.tv/claim.",
+      "placeholder": "claim-xxxxxxxxxxxxxxxxxxxxx",
       "type": "text",
       "key": "plex_claim_token",
       "required": false,
