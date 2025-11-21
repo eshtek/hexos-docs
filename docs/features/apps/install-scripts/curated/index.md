@@ -8,4 +8,5 @@
 | `jellyfin` | [jellyfin.json](/install-scripts/jellyfin.json) | 2.1 KB | 2025-11-17 |
 | `plex` | [plex.json](/install-scripts/plex.json) | 3.2 KB | 2025-11-17 |
 | `qbittorrent` | [qbittorrent.json](/install-scripts/qbittorrent.json) | 828 B | 2025-11-17 |
+| `sonarr` | [sonarr.json](/install-scripts/sonarr.json) | 901 B | 2025-11-21 |
 <!-- curated:index:end -->
