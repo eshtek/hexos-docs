@@ -1,5 +1,34 @@
 {
-  "version": 1,
+  "version": 2,
+  "installation_questions": [
+    {
+      "question": "Claim Token (Optional)",
+      "description": "The claim token is used to automatically login to Plex. You can obtain a claim token to login your server to your Plex account by visiting https://www.plex.tv/claim.",
+      "placeholder": "claim-xxxxxxxxxxxxxxxxxxxxx",
+      "type": "text",
+      "key": "plex_claim_token",
+      "required": false,
+      "default": ""
+    },
+    {
+      "question": "Do you have Plex Pass?",
+      "description": "Plex Pass is required to unlock certain features.",
+      "type": "select",
+      "key": "image_selector",
+      "required": true,
+      "options": [
+        {
+          "text": "No, I don't have Plex Pass",
+          "value": "image"
+        },
+        {
+          "text": "Yes, I have Plex Pass",
+          "value": "plex_pass_image"
+        }
+      ],
+      "default": "image"
+    }
+  ],
   "ensure_directories_exists": [
     {
       "path": "$LOCATION(ApplicationsPerformance)",
@@ -34,11 +63,28 @@
       "network_share": true
     },
     "$LOCATION(ApplicationsPerformance)/plex/data",
-    "$LOCATION(ApplicationsPerformance)/plex/config",
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/plex/config",
+      "posix": true
+    },
     "$LOCATION(ApplicationsCapacity)/plex/logs",
     "$LOCATION(ApplicationsPerformance)/plex/transcode"
   ],
   "app_values": {
+    "plex": {
+      "claim_token": "$QUESTION(plex_claim_token)",
+      "image_selector": "$QUESTION(image_selector)",
+      "additional_envs": [
+        {
+          "name": "ADVERTISE_IP",
+          "value": "http://$SERVER_LAN_IP:32400"
+        }
+      ]
+    },
+    "run_as": {
+      "user": 568,
+      "group": 568
+    },
     "storage": {
       "data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/plex/data)",
       "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/plex/config)",

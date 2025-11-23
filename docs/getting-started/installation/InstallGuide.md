@@ -17,10 +17,10 @@ You will need:
 
 Start by downloading the HexOS installer. You can download the installer from either link below.
 
-- [downloads.hexos.com](https://downloads.hexos.com/TrueNAS-SCALE-24.10.2.2-HexOS.iso)
-- [hexos download on digitaloceanspaces.com](https://hexos-downloads.sfo3.cdn.digitaloceanspaces.com/TrueNAS-SCALE-24.10.2.2-HexOS.iso)
--   Checksum: `0d3ee32e5ecf011da78ddcb49d0866478fb6a1ddfeddd563f458a23641c8d1c5`
-- _(current as of 6/26/25)_
+    -   [https://downloads.hexos.com/TrueNAS-SCALE-25.04.2.6-HexOS.iso](https://downloads.hexos.com/TrueNAS-SCALE-25.04.2.6-HexOS.iso)
+    -   [https://hexos-downloads.sfo3.cdn.digitaloceanspaces.com/TrueNAS-SCALE-25.04.2.6-HexOS.iso](https://hexos-downloads.sfo3.cdn.digitaloceanspaces.com/TrueNAS-SCALE-25.04.2.6-HexOS.iso)
+        -   SHA256 Checksum: `e8ed99a322affe0969b82b866161a9f6acbc1561e3cc7b2efb2bf120ffe2e856`
+-   _(current as of 11/08/25)_
 
 ## Create Installation USB
 

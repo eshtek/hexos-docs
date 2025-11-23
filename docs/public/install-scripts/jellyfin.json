@@ -1,5 +1,11 @@
 {
   "version": 1,
+  "requirements": {
+    "locations": ["ApplicationsPerformance", "ApplicationsCapacity", "Media", "Photos", "Music", "Movies", "Shows", "Videos"],
+    "specifications": ["2CORE", "200MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": []
+  },
   "ensure_directories_exists": [
     {
       "path": "$LOCATION(ApplicationsPerformance)",

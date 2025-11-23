@@ -35,34 +35,37 @@ function parseReleaseNote(filePath) {
 
     const [, year, month, day] = dateMatch
     const date = new Date(year, month - 1, day)
-    const formattedDate = date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    })
+    const formattedDate = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
 
-    // Generate description from content (look for key features or main points)
+    // Try to extract description from title first (after the third " - ")
     let description = ''
-    let inKeyFeatures = false
-    let features = []
+    const titleParts = title.split(' - ')
+    if (titleParts.length > 2) {
+      // Take everything after the second " - " (date part)
+      description = titleParts.slice(2).join(' - ')
+    } else {
+      // Fallback: Generate description from content (look for key features or main points)
+      let inKeyFeatures = false
+      let features = []
 
-    for (const line of lines) {
-      if (line.startsWith('## Key Features') || line.startsWith('## Additional Apps')) {
-        inKeyFeatures = true
-        continue
-      }
-      if (line.startsWith('##') && inKeyFeatures) {
-        break
-      }
-      if (inKeyFeatures && line.startsWith('- ') || line.startsWith('### ')) {
-        const feature = line.replace(/^- \*\*|\*\*|^### /g, '').split(' - ')[0].split(':')[0]
-        if (feature && !features.includes(feature)) {
-          features.push(feature)
+      for (const line of lines) {
+        if (line.startsWith('## Key Features') || line.startsWith('## Additional Apps')) {
+          inKeyFeatures = true
+          continue
+        }
+        if (line.startsWith('##') && inKeyFeatures) {
+          break
+        }
+        if (inKeyFeatures && line.startsWith('- ') || line.startsWith('### ')) {
+          const feature = line.replace(/^- \*\*|\*\*|^### /g, '').split(' - ')[0].split(':')[0]
+          if (feature && !features.includes(feature)) {
+            features.push(feature)
+          }
         }
       }
-    }
 
-    description = features.length > 0 ? features.slice(0, 3).join(', ') : 'Updates and improvements'
+      description = features.length > 0 ? features.slice(0, 3).join(', ') : 'Updates and improvements'
+    }
 
     return {
       filename,

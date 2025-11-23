@@ -1,5 +1,11 @@
 {
   "version": 1,
+  "requirements": {
+    "locations": ["ApplicationsPerformance", "Photos"],
+    "specifications": ["2CORE", "200MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": []
+  },
   "ensure_directories_exists": [
     {
       "path": "$LOCATION(ApplicationsPerformance)",
@@ -44,7 +50,6 @@
       }
     },
     "storage": {
-      "use_old_storage_config": false,
       "data": "$HOST_PATH($LOCATION(Photos)/immich)",
       "ml_cache": {
         "type": "temporary"
