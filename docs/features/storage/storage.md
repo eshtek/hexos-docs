@@ -1,10 +1,14 @@
 # Storage
 
-This is where you'll find all your pools and drives, and handle anything related to storage. From this screen you can create new pools, swap drives, or fix issues with your storage.
+This is where you'll find your pools, drives and handle storage related tasks.
+This screen allows you to
+- Create new pools.
+- Swap drives.
+- Fix problems related to storage.
 
 ## Creating Storage Pools
 
-When you first set up your server, you likely created at least one storage pool. Pools are groups of drives that will work together as one, allowing a larger amount of storage space than a single drive and may also giving additional “redundancy” in case of drive failure.
+When first setting up your server, you likely created at least one storage pool. Pools are groups of drives that will work together as one, allowing a larger amount of storage space than a single drive and may also giving additional “redundancy” in case of drive failure.
 
 If you have unused drives, you can create a new pool by selecting the create pool button.
 
