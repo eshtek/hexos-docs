@@ -19,13 +19,14 @@
       "path": "$LOCATION(Downloads)",
       "network_share": true
     },
+    "$LOCATION(Downloads)/qbittorrent",
     "$LOCATION(ApplicationsPerformance)/qbittorrent/config"
   ],
   "app_values": {
     "storage": {
       "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/qbittorrent/config)",
       "additional_storage": [
-        "$MOUNTED_HOST_PATH($LOCATION(Downloads), /config/Downloads)"
+        "$MOUNTED_HOST_PATH($LOCATION(Downloads)/qbittorrent, /config/Downloads)"
       ]
     }
   }
