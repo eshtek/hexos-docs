@@ -73,11 +73,33 @@
       "path": "$LOCATION(ApplicationsPerformance)/nextcloud/postgres_data",
       "posix": true
     },
-    "$LOCATION(ApplicationsPerformance)/nextcloud/html",
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/nextcloud/html",
+      "posix": true
+    },
     "$LOCATION(ApplicationsCapacity)",
-    "$LOCATION(ApplicationsCapacity)/nextcloud/data"
+    {
+      "path": "$LOCATION(ApplicationsCapacity)/nextcloud/data",
+      "posix": true
+    }
   ],
   "ensure_permissions_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/nextcloud/html",
+      "username": "www-data",
+      "access": "write",
+      "posix": {
+        "groupname": "www-data"
+      }
+    },
+    {
+      "path": "$LOCATION(ApplicationsCapacity)/nextcloud/data",
+      "username": "www-data",
+      "access": "write",
+      "posix": {
+        "groupname": "www-data"
+      }
+    },
     {
       "path": "$LOCATION(ApplicationsPerformance)/nextcloud/postgres_data",
       "username": "netdata",
