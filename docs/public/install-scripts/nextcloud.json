@@ -5,7 +5,8 @@
       "question": "Nextcloud admin user",
       "description": "The admin user for Nextcloud.",
       "type": "text",
-      "key": "admin_user"
+      "key": "admin_user",
+      "required": true
     },
     {
       "question": "Nextcloud admin password",
