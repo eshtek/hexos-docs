@@ -10,4 +10,5 @@
 | `prowlarr` | [prowlarr.json](/install-scripts/prowlarr.json) | 443 B | 2025-11-21 |
 | `qbittorrent` | [qbittorrent.json](/install-scripts/qbittorrent.json) | 828 B | 2025-11-21 |
 | `radarr` | [radarr.json](/install-scripts/radarr.json) | 904 B | 2025-11-21 |
+| `sonarr` | [sonarr.json](/install-scripts/sonarr.json) | 901 B | 2025-11-21 |
 <!-- curated:index:end -->
