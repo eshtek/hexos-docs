@@ -2,7 +2,7 @@
 
 HexOS provides notifications to users in two primary ways:
 
-- All notifications are delivered to the HexOS "Bell" icon, visible on all pages.  
+- All notifications are delivered to the HexOS Bell icon, visible on all pages.  
 - Critical notifications (e.g. disk failures) are also delivered automatically to you via email.
 
 ## Notification bell
@@ -21,28 +21,35 @@ Notifications can be both marked as read and dismissed, and previous notificatio
 
 ### Task Notifications
 
-When you start operations that take time to complete, HexOS
-shows you a task with a buffering notification symbol. This shows you know something is happening in the background. Examples include installing apps, managing storage, or system updates, 
+Certain tasks will let you know if they are still in progress with the rotating in progress symbol shown below. <br>
+<small>Examples: installing apps, managing storage or system updates.</small>
 
 <img width="985" height="883" alt="Screenshot From 2025-10-20 12-29-00" src="https://github.com/user-attachments/assets/eb65ef63-c80a-452b-b87d-1448163029ee" />
 
 ### Updates
 
-HexOS will notify you when there are software updates available, and when you have completed an update. There are also notifications avilable here when there is an update to a curated app.
+HexOS will send notifications for
+- New software updates
+- Software updates completed
+- Application updates available
 
 <img width="1271" height="920" alt="Screenshot From 2025-10-20 12-35-33" src="https://github.com/user-attachments/assets/5a4342cf-653f-48bd-90ce-0c85e5711764" />
 
-For apps that have been installed via a custom script or the TrueNAS interface the notification may not show here.
-
 ### Operations and Achievements
 
-HexOS will notify you when an action such as creating or deleting a user or folder has completed. You will also get notifications of "Achievements" as you progress through trying the features of your HexOS NAS.
+HexOS will send notifications for
+- New user creation or deletion is completed
+- New folder creation or deletion is completed
+- Achievements for trying HexOS features
 
 <img width="1217" height="639" alt="Screenshot From 2025-10-20 12-34-36" src="https://github.com/user-attachments/assets/dc3a9ebc-3bab-45c5-8873-2155965f5424" />
 
 ### System Health Notifications
 
-HexOS monitors your server's hardware and storage systems. You'll get alerts for things like overheating, storage pool problems, or missing drives that need your attention.
+Hexos will send health related notifications for
+- Overheating alerts
+- Storage pool warnings
+- Storage drive errors
 
 ### SMART Errors
 
