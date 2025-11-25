@@ -1,28 +1,37 @@
 # Settings
 
-Need to tweak how your server behaves? This is where you'll find all the configuration options, from network setup to customizing your dashboard to choosing where different types of files get stored.
+This is where you can adjust your server behavior and configuration.
 
 ## System
 
 ### Network
 
-Configure your server's network connection and how devices reach it. Set up network interfaces with static IPs if needed, change your server's hostname, and handle advanced networking like VLANs for complex setups.
+Configure your server's network connection and how devices reach it. 
+- Set up network interfaces with static IPs.
+- Change your server's hostname.
+- Advanced networking configuration options such as VLANs.
 
 ### Preferences
 
 Fine tune your HexOS experience with dashboard controls.  
-Toggle entire dashboard sections (storage, apps, system) or drill down to individual items - hide specific storage pools, system health metrics, processor info, memory usage, or individual network interfaces. Change your language, switch to dark mode, and enable [experimental features](/features/settings/experimental-features/).
+- Toggle dashboard items or sections.
+- Switch to dark mode.
+- Enable [experimental features](/features/settings/experimental-features/).
 
-## Reset Options
+## Reset
 
-Sometimes you need a fresh start, or want to hand your server off to someon eelse. Currently you have two options. 
+The reset settings allows for rolling back your server to a different state.  
 
 - **Unclaim Server** will remove your server from our database. Nothing happens to the physical server. You will no longer be able to access it through HexOS, but it can be reclaimed.
 - **Wipe everything** will delete all data on all drives and reset your server to defaults.
+- **Restore previous** will let you choose to go back to a previous point in time to undo any recent changes. (Pool data will not be affected)
 
 ## Applications
 
 ### Locations
 
-A comprehensive location editor where you can customize paths for applications and folders. Set where applications install, choose storage locations for downloads, documents, media files, and more across your different storage pools.
+A location editor which allows for customizations of system folder paths. 
+- Select where applications install. 
+- Choose the locations for downloads, documents, media, and other system folders across your storage pools.
+>System folder locations can only be modified if no installed are are using it.
 

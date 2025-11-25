@@ -2,7 +2,7 @@
 
 Install scripts support several template variables that are dynamically replaced during processing:
 
-#### `$LOCATION(LocationId)`
+## `$LOCATION(LocationId)`
 Resolves to user-configured or default paths for common directories.
 
 **Available Location IDs:**
@@ -34,6 +34,19 @@ Generates a random alphanumeric string of specified length. Useful for passwords
 "password": "$RANDOM_STRING(12)"
 ```
 
+## `$SERVER_LAN_IP`
+Resolves to the server's LAN IP address. Useful for constructing URLs that point to services running on the TrueNAS server.
+
+**Example:**
+```json
+"additional_envs": [
+  {
+    "name": "ADVERTISE_IP",
+    "value": "http://$SERVER_LAN_IP:32400"
+  }
+]
+```
+
 #### `$MEMORY(percentage, minimum_mb)`
 Dynamically allocates memory based on system resources. Takes the higher value between the percentage of system memory and the minimum specified in MB.
 
@@ -43,7 +56,7 @@ Dynamically allocates memory based on system resources. Takes the higher value b
 ```
 *This allocates either 10% of system memory or 2048MB, whichever is higher*
 
-#### `$HOST_PATH(path)`
+## `$HOST_PATH(path)`
 Creates a TrueNAS host path configuration object for predefined storage options.
 
 **Example:**
@@ -66,7 +79,7 @@ Creates a TrueNAS host path configuration object for predefined storage options.
 }
 ```
 
-#### `$MOUNTED_HOST_PATH(host_path, container_path)`
+## `$MOUNTED_HOST_PATH(host_path, container_path)`
 Creates a TrueNAS host path configuration for additional storage mounts, mapping a host directory to a container path.
 
 **Example:**

@@ -5,6 +5,7 @@ Install scripts are JSON objects with the following structure:
 ## Root Properties
 
 - **`version`** (required): Schema version. Must be `1` or `2`.
+- **`requirements`** (optional): System requirements that are validated before installation
 - **`installation_questions`** (optional, introduced in version 2): Array of questions to ask the user during installation
 - **`ensure_directories_exists`** (optional): Array of directories to create before installation
 - **`ensure_permissions_exists`** (optional): Array of permission modifications for specific paths
@@ -14,6 +15,12 @@ Install scripts are JSON objects with the following structure:
 ```json
 {
   "version": 2,
+  "requirements": {
+    "locations": ["ApplicationsPerformance", "Photos"],
+    "specifications": ["2CORE", "200MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": []
+  },
   "installation_questions": [
     {
       "question": "Database Password",
@@ -82,6 +89,144 @@ Install scripts are JSON objects with the following structure:
   }
 }
 ```
+
+## Requirements
+
+The `requirements` object defines system requirements that HexOS validates before allowing app installation. This ensures users have properly configured their system with the necessary locations, resources, and permissions.
+
+**Requirements Object Properties:**
+- **`locations`** (array): Required folder locations that must be configured in HexOS Settings
+- **`specifications`** (array): Minimum hardware/resource specifications needed
+- **`permissions`** (array): Special permissions the app needs
+- **`ports`** (array): Network ports that must be available
+
+### Locations
+
+Locations are folder paths configured in HexOS Settings → Locations. Each location maps to a specific use case:
+
+**Available Locations:**
+- `ApplicationsPerformance`: High-performance storage for app data (typically SSD)
+- `ApplicationsCapacity`: High-capacity storage for app data (typically HDD)
+- `Media`: General media files
+- `Photos`: Photo library storage
+- `Music`: Music library storage
+- `Movies`: Movie library storage
+- `Shows`: TV show library storage
+- `Videos`: Video library storage
+- `Downloads`: Download directory
+- `Documents`: Document storage
+- `Backups`: Backup storage
+
+**Important:** Every `$LOCATION()` macro used anywhere in your install script (in `ensure_directories_exists`, `app_values`, etc.) must be listed in the `locations` requirements array.
+
+**Example:**
+```json
+{
+  "requirements": {
+    "locations": ["ApplicationsPerformance", "Photos", "Media"]
+  },
+  "ensure_directories_exists": [
+    "$LOCATION(ApplicationsPerformance)/immich/config",
+    "$LOCATION(Photos)/immich"
+  ],
+  "app_values": {
+    "storage": {
+      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/immich/config)",
+      "photos": "$HOST_PATH($LOCATION(Photos)/immich)",
+      "additional_storage": [
+        "$MOUNTED_HOST_PATH($LOCATION(Media), /media)"
+      ]
+    }
+  }
+}
+```
+
+### Specifications
+
+Hardware and resource specifications ensure the system meets minimum requirements:
+
+**Available Specifications:**
+- `100MB`, `200MB`, `500MB`, `1GB`, `2GB`: Minimum storage space needed
+- `1CORE`, `2CORE`, `4CORE`, `8CORE`: Minimum CPU cores required
+- `GPU`: Requires GPU hardware (for transcoding, ML, etc.)
+
+**Example:**
+```json
+{
+  "requirements": {
+    "specifications": ["2CORE", "200MB", "GPU"]
+  }
+}
+```
+
+### Permissions
+
+Special permissions that the app requires to function:
+
+**Available Permissions:**
+- `READ_WRITE_LOCATIONS`: App needs read/write access to configured locations
+
+**Example:**
+```json
+{
+  "requirements": {
+    "permissions": ["READ_WRITE_LOCATIONS"]
+  }
+}
+```
+
+### Ports
+
+Network ports that the application will use. HexOS can validate port availability before installation.
+
+**Example:**
+```json
+{
+  "requirements": {
+    "ports": [8080, 8443]
+  }
+}
+```
+
+### Complete Requirements Example
+
+```json
+{
+  "version": 2,
+  "requirements": {
+    "locations": [
+      "ApplicationsPerformance",
+      "ApplicationsCapacity",
+      "Media",
+      "Photos",
+      "Music",
+      "Movies",
+      "Shows",
+      "Videos"
+    ],
+    "specifications": ["2CORE", "200MB", "GPU"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [32400]
+  }
+}
+```
+
+### Requirements Validation
+
+When users attempt to install an app, HexOS performs the following checks:
+
+1. **Location Validation**: Verifies that all required locations are configured in Settings → Locations
+   - If a location is not configured, it will be marked as "unmet"
+   - Users must configure missing locations before installation can proceed
+   - The install script's `ensure_directories_exists` will create subdirectories within configured locations
+
+2. **Specifications Check**: Validates system meets minimum hardware requirements (coming soon)
+
+3. **Permissions Check**: Confirms the app has necessary permissions (coming soon)
+
+4. **Port Availability**: Validates required ports are available (coming soon)
+
+**Important**: The `ensure_directories_exists` section of your install script will only create subdirectories and files. It does **not** create the base location paths themselves. Users must configure these locations in HexOS Settings first, and your requirements validation ensures this happens before installation begins.
 
 ## Installation Questions
 
