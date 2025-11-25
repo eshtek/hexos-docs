@@ -1,6 +1,6 @@
 # How to Create a New Folder
 
-1. Log into [HexOS deck](deck.hexos.com) 
+1. Log into [HexOS deck](https://deck.hexos.com) 
 2. Move to the Folders section in the side menu 
 3. Select the **New Folder** button
 
@@ -24,7 +24,7 @@ This will bring up the **Create Folder** dialogue
 <img width="1246" height="396" alt="location" src="https://github.com/user-attachments/assets/75ce2a6e-2977-4ac5-b9bd-1012e3dbcb8d" />
 
 ## Access <small>(optional)</small>
-In the **Access** section you can select which users have access to this folder and which permissions they are granted. This is covered in more detail in the [Folder Permissions section](/folders/##folder-permissions). 
+In the **Access** section you can select which users have access to this folder and which permissions they are granted. This is covered in more detail in the [Folder Permissions section](/features/folders/#folder-permissions). 
 
 <img width="1279" height="661" alt="access" src="https://github.com/user-attachments/assets/f9a764c2-d0d0-4ad4-ad69-896838cb1492" />
 
@@ -43,7 +43,7 @@ You can Enable Time Machine by selecting the checkbox. Enabling this feature set
 <img width="1714" height="614" alt="options" src="https://github.com/user-attachments/assets/5c8d86a1-8b0f-4771-8815-172660938b74" />
 
 ## Encryption  <small>(optional)</small>
-You can optionally enable encryption on folders you create. [Read about encrypted folders here.](/features/folders/index.md#encrypted-folders) 
+You can optionally enable encryption on folders you create. [Read about encrypted folders here.](/features/folders/#encrypted-folders) 
 - The passphrase must be at least 8 characters long. 
 - Encryption is required for backing up a folder to another server. 
 - <span style="color: red;">Data from encrypted folders cannot be recovered if the passphrase is lost.</span>

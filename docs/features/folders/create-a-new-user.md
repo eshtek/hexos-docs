@@ -49,11 +49,11 @@ Select the **Edit** button
 
 ## How can a user access folders
 
-When you [create](/features/folders/create-a-new-folder) or [edit](/features/folders/create-a-new-folder/#editing-folder-settings) a folder you can choose which users may access the contents and what permissions they have. 
+When you [create](/features/folders/create-a-new-folder) or [edit](/features/folders/create-a-new-folder#editing-folder-settings) a folder you can choose which users may access the contents and what permissions they have.
 
-You can read about the **Access** settings on the [create a new folder page here.](/features/folders/create-a-new-folder/#access)
+You can read about the **Access** settings on the [create a new folder page here.](/features/folders/create-a-new-folder#access)
 
-The user will need to setup access to the folders on their computer or phone as described in the [how to access folders guide](/folders/how-to-access-folder-contents). 
+The user will need to setup access to the folders on their computer or phone as described in the [how to access folders guide](/features/folders/how-to-access-folder-contents). 
 
 Their device will prompt them for the username and password when they try to access a private folder. They will be able to see other folders and the folder names but the user will only be able to access the folders they have been granted permission to access.
 
