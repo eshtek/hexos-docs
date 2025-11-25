@@ -4,7 +4,6 @@ Stay up to date with the latest news and updates from the HexOS team.
 
 ## 2025
 
-- [Introducing Sonarr, Radarr and Prowlarr - November 25, 2025](/blog/2025-11-25-2.md)
 - [Introducing HexOS Local - November 25, 2025](/blog/2025-11-25)
 - [Introducing Our New End-to-End Testing Suite - October 21, 2025](/blog/2025-10-21)
 - [Q3 Status Update - October 1, 2025](/blog/2025-10-01)
