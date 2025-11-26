@@ -23,6 +23,3 @@ jobs:
         submodules: 'recursive'
     - run: npm ci
     - run: npm run docs:build
-    - run: pm2 stop docs || true
-    - run: pm2 serve docs/.vitepress/dist 4173 --name "docs" --spa
-
