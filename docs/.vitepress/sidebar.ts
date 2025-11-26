@@ -112,6 +112,7 @@ const sidebar: DefaultTheme.SidebarItem[] = [
     collapsed: true,
     items: [
       { text: 'All Posts', link: '/blog/' },
+      { text: 'HexOS Roadmap Update', link: '/blog/2025-11-26' },
       { text: 'Introducing HexOS Local', link: '/blog/2025-11-25' },
       { text: 'E2E Testing Suite', link: '/blog/2025-10-21' },
       { text: 'Q3 2025', link: '/blog/2025-10-01' },
