@@ -1,10 +1,14 @@
 {
-  "version": 1,
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Upgraded Immich install script to be compatible with latest HexOS script changes"
+  },
   "requirements": {
     "locations": ["ApplicationsPerformance", "Photos"],
     "specifications": ["2CORE", "200MB"],
     "permissions": ["READ_WRITE_LOCATIONS"],
-    "ports": []
+    "ports": [2283]
   },
   "ensure_directories_exists": [
     {
