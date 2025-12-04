@@ -1,0 +1,38 @@
+name: Generated Scripts Check
+
+on:
+  pull_request:
+    branches:
+      - dev
+      - main
+
+jobs:
+  check-schema:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Run generation scripts
+        run: npm run gen:all
+
+      - name: Fail if diff is present
+        run: |
+          if [ -n "$(git diff --exit-code)" ]; then
+            echo "Generated files have changed. Please regenerate the files and commit the changes using the following command:"
+            echo "npm run gen:all"
+            exit 1
+          else
+            echo "No changes detected in generated files."
+          fi
