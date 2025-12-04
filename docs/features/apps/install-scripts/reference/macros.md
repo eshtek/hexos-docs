@@ -47,6 +47,65 @@ Resolves to the server's LAN IP address. Useful for constructing URLs that point
 ]
 ```
 
+## `$SERVER_HOST_ID`
+Resolves to the server's unique host ID. This is particularly useful for constructing HexOS Tunnels (e.g., `https://<host-id>.direct.hexos.com`) for remote tunneled access to your apps and services.
+
+**Example:**
+```json
+{
+  "value": "https://$SERVER_HOST_ID.direct.hexos.com"
+}
+```
+
+## `$APP_INSTALLED(appName)`
+Checks if a specific app is installed on the TrueNAS system. Returns `true` if installed, `false` otherwise. The check is case-insensitive.
+
+**Example:**
+```json
+"$APP_INSTALLED(qbittorrent)"  // Returns "true" or "false"
+```
+
+## `$QUESTION(key)`
+Accesses user responses from installation questions. The value is replaced with the user's response, which can be a boolean, string, number, or empty. When used in conditional expressions, values are converted appropriately:
+- Boolean values become `"true"` or `"false"`
+- Empty/null values become `"false"`
+- String values are quoted unless they're "true" or "false"
+- Numbers are converted to strings
+
+**Examples:**
+```json
+"enabled": "$QUESTION(enable_feature)"  // Direct value replacement
+"$IF($QUESTION(use_ssl), \"https\", \"http\")"  // Boolean check
+"$IF($QUESTION(port) != \"\", $QUESTION(port), \"8080\")"  // Default value
+```
+
+## `$IF(condition, trueValue, [falseValue])`
+Provides conditional logic in install scripts. Evaluates a condition and returns different values based on the result.
+
+**Syntax Variations:**
+1. **Basic if/else**: `$IF(condition, trueValue, falseValue)`
+2. **If only**: `$IF(condition, trueValue)` - Returns empty string if false
+3. **Multiple conditions with AND**: `$IF(['condition1', 'condition2'], trueValue, falseValue, 'AND')`
+4. **Multiple conditions with OR**: `$IF(['condition1', 'condition2'], trueValue, falseValue, 'OR')`
+
+**Supported Conditions:**
+- Boolean literals: `true`, `false`
+- Negation: `!condition`
+- App installation checks: `$APP_INSTALLED(appName)`
+- Question responses: `$QUESTION(key)`
+- Equality comparison: `value1 == value2`
+- Inequality comparison: `value1 != value2`
+
+**Example:**
+```json
+"additional_storage": [
+  "$IF($APP_INSTALLED(qbittorrent), '$MOUNTED_HOST_PATH($LOCATION(Downloads)/qbittorrent, /downloads)')",
+  "$IF($QUESTION(use_qbittorent), '$MOUNTED_HOST_PATH($LOCATION(Downloads)/qbittorent, /downloads/transmission)')",
+  ...
+]
+```
+*Conditionally mounts download folders based on installed apps and user preferences*
+
 #### `$MEMORY(percentage, minimum_mb)`
 Dynamically allocates memory based on system resources. Takes the higher value between the percentage of system memory and the minimum specified in MB.
 
