@@ -79,6 +79,37 @@ Accesses user responses from installation questions. The value is replaced with 
 "$IF($QUESTION(port) != \"\", $QUESTION(port), \"8080\")"  // Default value
 ```
 
+## `$GPU_CONFIG()`
+Automatically configures GPU resources for applications. Detects Intel, AMD, and NVIDIA GPUs and generates the appropriate TrueNAS GPU configuration.
+
+**Behavior:**
+- **No GPUs**: Returns `{"use_all_gpus": false}`
+- **Intel/AMD**: Returns `{"use_all_gpus": true}`
+- **NVIDIA**: Configures individual GPUs with UUIDs (requires drivers)
+
+**Example:**
+```json
+"resources": {
+  "gpus": "$GPU_CONFIG()"
+}
+```
+
+**With conditional:**
+```json
+"gpus": "$IF($QUESTION(enable_gpu), '$GPU_CONFIG()', {'use_all_gpus': false})"
+```
+
+**Use Cases:** Media transcoding (Plex, Jellyfin), AI/ML apps (Ollama, Immich), video processing etc.
+
+**NVIDIA Driver Update Steps:**
+NVIDIA drivers were installed already if this was a fresh install, however if this system was adopted or for whatever reason they require manual updating of the drivers from within the TrueNAS ui they can perform the following:
+
+1. Apps → Settings (gear icon) → Advanced Settings
+2. Toggle "Enable GPU Support" or "NVIDIA Runtime" OFF → Save
+3. Wait 10-30 seconds
+4. Toggle back ON → Save
+5. This triggers a `docker.update` with latest compatible NVIDIA drivers
+
 ## `$IF(condition, trueValue, [falseValue])`
 Provides conditional logic in install scripts. Evaluates a condition and returns different values based on the result.
 

@@ -7,7 +7,7 @@ Install scripts are JSON objects with the following structure. Scripts can use v
 - **`version`** (required): Schema version. Must be `3` or higher (currently latest supported version).
 - **`script`** (required): Metadata about the install script itself
   - **`version`** (required): Semantic version of this install script (e.g., "1.0.0", "2.1.3")
-  - **`updateCompatibility`** (optional): Minimum script version this can update from (e.g., "1.0.0" means it can update any script version 1.0.0 or higher)
+  - **`updateCompatibility`** (optional): Semver range expression defining which script versions can update to this version (e.g., ">=1.0.0" allows updates from any version 1.0.0 or higher, "^2.0.0" allows updates from 2.x.x versions). Supports all [semver range syntax](https://www.npmjs.com/package/semver#ranges) including `>=`, `>`, `<`, `<=`, `^`, `~`, and complex ranges like `">=1.0.0 <3.0.0"`
   - **`changeLog`** (optional): Description of changes in this version of the script
 - **`requirements`** (required): System requirements that are validated before installation
 - **`installation_questions`** (optional): Array of questions to ask the user during installation
