@@ -1,5 +1,15 @@
 {
-  "version": 1,
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Upgraded Radarr install script to be compatible with latest HexOS script changes"
+  },
+  "requirements": {
+    "locations": ["ApplicationsPerformance", "ApplicationsCapacity", "Downloads", "Movies"],
+    "specifications": ["2CORE", "200MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [7878]
+  },
   "ensure_directories_exists": [
     {
       "path": "$LOCATION(ApplicationsPerformance)",

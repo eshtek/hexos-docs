@@ -1,5 +1,15 @@
 {
-  "version": 1,
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Upgraded Sonarr install script to be compatible with latest HexOS script changes"
+  },
+  "requirements": {
+    "locations": ["ApplicationsPerformance", "ApplicationsCapacity", "Downloads", "Shows"],
+    "specifications": ["2CORE", "200MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [8989]
+  },
   "ensure_directories_exists": [
     {
       "path": "$LOCATION(ApplicationsPerformance)",
