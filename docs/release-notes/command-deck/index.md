@@ -11,6 +11,7 @@ For users who are actively connected during an update, there may be a brief down
 <!-- auto-generated-year-sections-start -->
 ## 2025 Releases
 
+- [**2025-12-26**](./2025-12-26) - Apps Platform Overhaul
 - [**2025-11-25**](./2025-11-25) - New Apps Sonarr, Radarr and Prowlarr
 - [**2025-11-12**](./2025-11-12) - Server Actions and Folder Unlock on Fangtooth
 - [**2025-11-08**](./2025-11-08) - Server monitoring scalability improvements
