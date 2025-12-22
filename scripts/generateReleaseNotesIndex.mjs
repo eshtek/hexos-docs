@@ -37,12 +37,12 @@ function parseReleaseNote(filePath) {
     const date = new Date(year, month - 1, day)
     const formattedDate = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
 
-    // Try to extract description from title first (after the third " - ")
+    // Try to extract description from title first (after the first " - ")
     let description = ''
     const titleParts = title.split(' - ')
-    if (titleParts.length > 2) {
-      // Take everything after the second " - " (date part)
-      description = titleParts.slice(2).join(' - ')
+    if (titleParts.length > 1) {
+      // Take everything after the first " - " (after the date part)
+      description = titleParts.slice(1).join(' - ').trim()
     } else {
       // Fallback: Generate description from content (look for key features or main points)
       let inKeyFeatures = false

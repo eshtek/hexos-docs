@@ -1,4 +1,4 @@
-### Template Variables (Macros)
+# Template Variables (Macros)
 
 Install scripts support several template variables that are dynamically replaced during processing:
 
