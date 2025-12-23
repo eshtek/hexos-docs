@@ -1,0 +1,48 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial Script"
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Downloads)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Movies)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Shows)",
+      "network_share": true
+    },
+    "$LOCATION(ApplicationsPerformance)/bazarr/config"
+  ],
+  "app_values": {
+    "storage": {
+      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/bazarr/config)",
+      "additional_storage": [
+        "$MOUNTED_HOST_PATH($LOCATION(Downloads), /downloads)",
+        "$MOUNTED_HOST_PATH($LOCATION(Movies), /movies)",
+        "$MOUNTED_HOST_PATH($LOCATION(Shows), /tv)"
+      ]
+    },
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 30046
+      }
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(5%, 1024)"
+      }
+    }
+  }
+}

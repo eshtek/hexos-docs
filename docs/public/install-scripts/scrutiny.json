@@ -1,0 +1,46 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial Script"
+  },
+  "ensure_directories_exists": [
+    "$LOCATION(ApplicationsPerformance)/scrutiny/config",
+    "$LOCATION(ApplicationsPerformance)/scrutiny/influxdb"
+  ],
+  "app_values": {
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 31054
+      },
+      "influxdb_port": {
+        "bind_mode": "published",
+        "port_number": 31055
+      },
+      "host_network": false
+    },
+    "storage": {
+      "config": {
+        "type": "host_path",
+        "host_path_config": {
+          "acl_enable": false,
+          "path": "$LOCATION(ApplicationsPerformance)/scrutiny/config"
+        }
+      },
+      "influxdb": {
+        "type": "host_path",
+        "host_path_config": {
+          "acl_enable": false,
+          "path": "$LOCATION(ApplicationsPerformance)/scrutiny/influxdb"
+        }
+      }
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": 2048
+      }
+    }
+  }
+}
