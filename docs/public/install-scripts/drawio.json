@@ -1,0 +1,13 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0"
+  },
+    "ensure_directories_exists": [
+        {
+            "path": "$LOCATION(ApplicationsPerformance)",
+            "network_share": true
+        }
+    ],
+    "app_values": {}
+}
