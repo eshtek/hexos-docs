@@ -9,5 +9,12 @@
             "network_share": true
         }
     ],
-    "app_values": {}
+    "app_values": {
+      "resources": {
+        "limits": {
+          "cpus": 2,
+          "memory": "$MEMORY(10%, 1024)"
+        }
+      }
+    }
 }
