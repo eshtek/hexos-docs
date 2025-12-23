@@ -1,0 +1,93 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial Script"
+  },
+  "installation_questions": [
+    {
+      "question": "Watch Folder Conversion Preset",
+      "description": "You can manually add files for conversion through Handbrake's UI, or use HandBrake's 'watch folder' (located at Media/HandBrake/Watch Folder). When HandBrake is running, any video placed in this folder will be converted automatically. Select a quality preset to use for these conversions.",
+      "type": "select",
+      "key": "watch_preset",
+      "required": true,
+      "options": [
+        {
+          "text": "1080p",
+          "value": "General/Fast 1080p30"
+        },
+        {
+          "text": "1080p High Quality",
+          "value": "General/Super HQ 1080p30 Surround"
+        },
+        {
+          "text": "720p",
+          "value": "General/Fast 720p30"
+        },
+        {
+          "text": "720p High Quality",
+          "value": "General/HQ 720p30 Surround"
+        },
+        {
+          "text": "480p",
+          "value": "General/Fast 480p30"
+        },
+        {
+          "text": "480p High Quality",
+          "value": "General/HQ 480p30"
+        }
+      ],
+      "default": "General/Fast 1080p30"
+    }
+  ],
+  "ensure_directories_exists": [
+    "$LOCATION(ApplicationsPerformance)/handbrake/config",
+    "$LOCATION(Media)/HandBrake/Watch Folder",
+    "$LOCATION(Media)/HandBrake/Conversions",
+    "$LOCATION(Media)/HandBrake/Trash"
+  ],
+  "app_values": {
+    "handbrake": {
+      "additional_envs": [
+        {
+          "name": "AUTOMATED_CONVERSION_PRESET",
+          "value": "$QUESTION(watch_preset)"
+        },
+        {
+          "name": "AUTOMATED_CONVERSION_KEEP_SOURCE",
+          "value": "0"
+        }
+      ]
+    },
+    "storage": {
+      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/handbrake/config)",
+      "storage": "$HOST_PATH($LOCATION(Media)/HandBrake/Conversions)",
+      "watch": "$HOST_PATH($LOCATION(Media)/HandBrake/Watch Folder)",
+      "output": "$HOST_PATH($LOCATION(Media)/HandBrake/Conversions)",
+      "additional_storage": [
+        "$MOUNTED_HOST_PATH($LOCATION(Media)/HandBrake/Trash, /trash)",
+        "$MOUNTED_HOST_PATH($LOCATION(Movies), /movies)",
+        "$MOUNTED_HOST_PATH($LOCATION(Shows), /shows)",
+        "$MOUNTED_HOST_PATH($LOCATION(Media), /media)",
+        "$MOUNTED_HOST_PATH($LOCATION(Downloads), /downloads)"
+      ]
+    },
+    "network": {
+      "web_port": {
+        "port_number": 30089
+      },
+      "vnc_port": {
+        "port_number": 30044
+      }
+    },
+    "resources": {
+      "limits": {
+        "cpus": 4,
+        "memory": 4096
+      },
+      "gpus": {
+        "use_all_gpus": true
+      }
+    }
+  }
+}
