@@ -4,7 +4,7 @@
 | App | Download | Size | Last Modified |
 |---|---|---:|---|
 | `bazarr` | [bazarr.json](/install-scripts/bazarr.json) | 1.0 KB | 2025-12-23 |
-| `drawio` | [drawio.json](/install-scripts/drawio.json) | 236 B | 2025-12-23 |
+| `drawio` | [drawio.json](/install-scripts/drawio.json) | 362 B | 2025-12-23 |
 | `emby` | [emby.json](/install-scripts/emby.json) | 2.2 KB | 2025-12-23 |
 | `handbrake` | [handbrake.json](/install-scripts/handbrake.json) | 2.6 KB | 2025-12-23 |
 | `home-assistant` | [home-assistant.json](/install-scripts/home-assistant.json) | 1.6 KB | 2025-12-04 |
