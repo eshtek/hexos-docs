@@ -1,0 +1,82 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial Script"
+  },
+  "requirements": {
+    "locations": ["ApplicationsPerformance", "ApplicationsCapacity", "Media", "Photos", "Music", "Movies", "Shows", "Videos"],
+    "specifications": ["2CORE", "200MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": []
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsCapacity)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Media)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Photos)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Music)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Movies)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Shows)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Videos)",
+      "network_share": true
+    },
+    "$LOCATION(ApplicationsPerformance)/emby/config",
+    "$LOCATION(ApplicationsPerformance)/emby/cache",
+    "$LOCATION(ApplicationsPerformance)/emby/transcode"
+  ],
+  "app_values": {
+    "storage": {
+      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/emby/config)",
+      "additional_storage": [
+        "$MOUNTED_HOST_PATH($LOCATION(Media), /media)",
+        "$MOUNTED_HOST_PATH($LOCATION(Photos), /photos)",
+        "$MOUNTED_HOST_PATH($LOCATION(Music), /music)",
+        "$MOUNTED_HOST_PATH($LOCATION(Movies), /movies)",
+        "$MOUNTED_HOST_PATH($LOCATION(Shows), /shows)",
+        "$MOUNTED_HOST_PATH($LOCATION(Videos), /videos)",
+        "$MOUNTED_HOST_PATH($LOCATION(ApplicationsPerformance)/emby/transcode, /transcode)",
+        "$MOUNTED_HOST_PATH($LOCATION(ApplicationsPerformance)/emby/cache, /cache)"
+      ]
+    },
+    "network": {
+      "http_port": {
+        "bind_mode": "published",
+        "port_number": 9096
+      },
+      "https_port": {
+        "bind_mode": "published",
+        "port_number": 8920
+      }
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 4096)"
+      },
+      "gpus": "$GPU_CONFIG()"
+    }
+  }
+}
