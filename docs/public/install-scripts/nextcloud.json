@@ -115,7 +115,8 @@
       "limits": {
         "cpus": 2,
         "memory": "$MEMORY(10%, 2048)"
-      }
+      },
+      "gpus": "$GPU_CONFIG()"
     }
   }
 }
