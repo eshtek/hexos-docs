@@ -4,6 +4,25 @@
     "version": "1.0.0",
     "changeLog": "Initial Script"
   },
+  "requirements": {
+    "locations": [
+      "ApplicationsPerformance",
+      "ApplicationsCapacity",
+      "Documents",
+      "Downloads",
+      "Photos",
+      "Music",
+      "Videos"
+    ],
+    "specifications": [
+      "2CORE",
+      "512MB"
+    ],
+    "permissions": [
+      "READ_WRITE_LOCATIONS"
+    ],
+    "ports": []
+  },
   "ensure_directories_exists": [
     {
       "path": "$LOCATION(ApplicationsPerformance)",
