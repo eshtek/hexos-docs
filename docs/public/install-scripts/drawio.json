@@ -1,20 +1,32 @@
 {
-  "version": 3,
-  "script": {
-    "version": "1.0.0"
-  },
-    "ensure_directories_exists": [
-        {
-            "path": "$LOCATION(ApplicationsPerformance)",
-            "network_share": true
-        }
-    ],
+    "version": 3,
+    "script": {
+        "version": "1.0.0",
+        "changeLog": "Initial Script"
+    },
+    "requirements": {
+        "locations": [],
+        "specifications": ["2CORE", "1024MB"],
+        "permissions": [],
+        "ports": []
+    },
+    "ensure_directories_exists": [],
     "app_values": {
-      "resources": {
-        "limits": {
-          "cpus": 2,
-          "memory": "$MEMORY(10%, 1024)"
+        "network": {
+            "http_port": {
+                "bind_mode": "published",
+                "port_number": 30090
+            },
+            "https_port": {
+                "bind_mode": "published",
+                "port_number": 30091
+            }
+        },
+        "resources": {
+            "limits": {
+                "cpus": 2,
+                "memory": "$MEMORY(5%, 1024)"
+            }
         }
-      }
     }
 }

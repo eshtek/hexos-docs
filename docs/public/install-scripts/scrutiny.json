@@ -4,6 +4,19 @@
     "version": "1.0.0",
     "changeLog": "Initial Script"
   },
+  "requirements": {
+    "locations": [
+      "ApplicationsPerformance"
+    ],
+    "specifications": [
+      "2CORE",
+      "1024MB"
+    ],
+    "permissions": [
+      "READ_WRITE_LOCATIONS"
+    ],
+    "ports": []
+  },
   "ensure_directories_exists": [
     "$LOCATION(ApplicationsPerformance)/scrutiny/config",
     "$LOCATION(ApplicationsPerformance)/scrutiny/influxdb"

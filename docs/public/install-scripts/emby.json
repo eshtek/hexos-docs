@@ -6,7 +6,7 @@
   },
   "requirements": {
     "locations": ["ApplicationsPerformance", "ApplicationsCapacity", "Media", "Photos", "Music", "Movies", "Shows", "Videos"],
-    "specifications": ["2CORE", "200MB"],
+    "specifications": ["2CORE", "512MB"],
     "permissions": ["READ_WRITE_LOCATIONS"],
     "ports": []
   },
