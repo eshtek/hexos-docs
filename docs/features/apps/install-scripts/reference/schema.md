@@ -1,4 +1,4 @@
-### Install Script Schema
+# Install Script Schema
 
 Install scripts are JSON objects with the following structure. Scripts can use various macros (template variables) that are dynamically replaced during processing.
 
