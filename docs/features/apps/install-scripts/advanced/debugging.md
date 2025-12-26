@@ -3,7 +3,7 @@
 If an install scripts fails, this will help:
 
 ### 1. Check HexOS Task Failure
-1. In the HexOS UI, check your notificaitons for an app install failure
+1. In the HexOS UI, check your notifications for an app install failure
 2. Click the notification to view the error message
 
 ### 2. Check TrueNAS Job Failure
