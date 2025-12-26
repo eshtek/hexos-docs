@@ -69,7 +69,7 @@ Click the edit link at the bottom of the docs page
 
 ### Edit on the Dev Branch
 
-Before making any changes, make sure you're working on the `dev` branch. This sould be automatic if you have clicked the edit link as described above.
+Before making any changes, make sure you're working on the `dev` branch. This should be automatic if you have clicked the edit link as described above.
 
 <img src="/assets/screenshots/contribute-branch-dev.png" alt="Branch selector showing dev branch" width="600">
 
