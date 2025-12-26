@@ -1,6 +1,6 @@
 # Illustrated Installation Guide
 
-*by [@Mawson](https://hub.hexos.com/profile/14-mawson/)* with edits by [@gingerling](https://hub.hexos.com/profile/19534-gingerling/)
+*by [@Mawson](https://hub.hexos.com/profile/14-mawson/)* with edits by [@gingerling](https://hub.hexos.com/profile/19534-gingerling/) 
 
 ## Before you Begin
 
@@ -17,10 +17,10 @@ You will need:
 
 Start by downloading the HexOS installer. You can download the installer from either link below.
 
-    -   [https://downloads.hexos.com/TrueNAS-SCALE-25.04.2.6-HexOS.iso](https://downloads.hexos.com/TrueNAS-SCALE-25.04.2.6-HexOS.iso)
-    -   [https://hexos-downloads.sfo3.cdn.digitaloceanspaces.com/TrueNAS-SCALE-25.04.2.6-HexOS.iso](https://hexos-downloads.sfo3.cdn.digitaloceanspaces.com/TrueNAS-SCALE-25.04.2.6-HexOS.iso)
-        -   SHA256 Checksum: `e8ed99a322affe0969b82b866161a9f6acbc1561e3cc7b2efb2bf120ffe2e856`
--   _(current as of 11/08/25)_
+-   [Official Download Link TrueNAS 25.04.2.6](https://downloads.hexos.com/TrueNAS-SCALE-25.04.2.6-HexOS.iso)
+-   [Backup Download Link TrueNAS 25.04.2.6](https://hexos-downloads.sfo3.cdn.digitaloceanspaces.com/TrueNAS-SCALE-25.04.2.6-HexOS.iso)
+    -   SHA256 Checksum: ```e8ed99a322affe0969b82b866161a9f6acbc1561e3cc7b2efb2bf120ffe2e856```
+-   _(current as of 12/03/25)_
 
 ## Create Installation USB
 

@@ -46,7 +46,7 @@ HexOS will send notifications for
 
 ### System Health Notifications
 
-Hexos will send health related notifications for
+HexOS will send health related notifications for
 - Overheating alerts
 - Storage pool warnings
 - Storage drive errors

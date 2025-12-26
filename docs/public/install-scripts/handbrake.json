@@ -1,0 +1,82 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial Script"
+  },
+  "requirements": {
+    "locations": [
+      "ApplicationsPerformance",
+      "Media",
+      "Movies",
+      "Shows",
+      "Videos"
+    ],
+    "specifications": [
+      "2CORE",
+      "2048"
+    ],
+    "permissions": [
+      "READ_WRITE_LOCATIONS"
+    ],
+    "ports": []
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Media)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Movies)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Shows)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Downloads)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Videos)",
+      "network_share": true
+    },
+    "$LOCATION(ApplicationsPerformance)/handbrake/config",
+    "$LOCATION(Media)/HandBrake/Output"
+  ],
+  "app_values": {
+    "storage": {
+      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/handbrake/config)",
+      "storage": "$HOST_PATH($LOCATION(Media)/HandBrake)",
+      "output": "$HOST_PATH($LOCATION(Media)/HandBrake/Output)",
+      "additional_storage": [
+        "$MOUNTED_HOST_PATH($LOCATION(Movies), /movies)",
+        "$MOUNTED_HOST_PATH($LOCATION(Shows), /shows)",
+        "$MOUNTED_HOST_PATH($LOCATION(Downloads), /downloads)",
+        "$MOUNTED_HOST_PATH($LOCATION(Videos), /videos)"
+      ]
+    },
+    "network": {
+      "web_port": {
+        "port_number": 30089
+      },
+      "vnc_port": {
+        "port_number": 30044
+      }
+    },
+    "resources": {
+      "limits": {
+        "cpus": 4,
+        "memory": 4096
+      },
+      "gpus": {
+        "use_all_gpus": true
+      }
+    }
+  }
+}

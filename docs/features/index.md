@@ -50,7 +50,7 @@ From the Folders screen you can
 The Apps screen allows us to install and manage apps.
 
 From the apps screen you can
-- Intall apps
+- Install apps
 - Modify apps
 - Open the WebUI for apps
 - View status of apps
@@ -61,17 +61,17 @@ From the apps screen you can
 
 ## Settings
 
-The Settings screen allows us to modify our server prefrences.
+The Settings screen allows us to modify our server preferences.
 
 From the Settings screen you can
-- Manage network prefrences
+- Manage network preferences
 - Change server name
 - Unclaim server
 - Reset Server
 - View notification logs
 - Modify the Dashboard
-- Manage location prefrences
-- Open the Truenas UI
+- Manage location preferences
+- Open the TrueNAS UI
 
 [Read more about the Settings screen here.](/features/settings/)
 
@@ -96,4 +96,4 @@ From the profile menu you can
 - Change languages
 - Jump to our Community Hub
 - Send feedback
-- Sign out.
+- Sign out

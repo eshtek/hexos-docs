@@ -2,13 +2,23 @@
   "version": 3,
   "script": {
     "version": "1.0.0",
-    "changeLog": "Upgraded Sonarr install script to be compatible with latest HexOS script changes"
+    "changeLog": "Initial Script"
   },
   "requirements": {
-    "locations": ["ApplicationsPerformance", "ApplicationsCapacity", "Downloads", "Shows"],
-    "specifications": ["2CORE", "200MB"],
-    "permissions": ["READ_WRITE_LOCATIONS"],
-    "ports": [8989]
+    "locations": [
+      "ApplicationsPerformance",
+      "ApplicationsCapacity",
+      "Downloads",
+      "Music"
+    ],
+    "specifications": [
+      "2CORE",
+      "512MB"
+    ],
+    "permissions": [
+      "READ_WRITE_LOCATIONS"
+    ],
+    "ports": []
   },
   "ensure_directories_exists": [
     {
@@ -24,19 +34,25 @@
       "network_share": true
     },
     {
-      "path": "$LOCATION(Shows)",
+      "path": "$LOCATION(Music)",
       "network_share": true
     },
     "$LOCATION(Downloads)/qbittorrent",
-    "$LOCATION(ApplicationsPerformance)/sonarr/config"
+    "$LOCATION(ApplicationsPerformance)/lidarr/config"
   ],
   "app_values": {
     "storage": {
-      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/sonarr/config)",
+      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/lidarr/config)",
       "additional_storage": [
         "$MOUNTED_HOST_PATH($LOCATION(Downloads)/qbittorrent, /config/Downloads)",
-        "$MOUNTED_HOST_PATH($LOCATION(Shows), /shows)"
+        "$MOUNTED_HOST_PATH($LOCATION(Music), /music)"
       ]
+    },
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 30071
+      }
     },
     "resources": {
       "limits": {

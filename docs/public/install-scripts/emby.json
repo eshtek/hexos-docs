@@ -2,13 +2,13 @@
   "version": 3,
   "script": {
     "version": "1.0.0",
-    "changeLog": "Upgraded Jellyfin install script to be compatible with latest HexOS script changes"
+    "changeLog": "Initial Script"
   },
   "requirements": {
     "locations": ["ApplicationsPerformance", "ApplicationsCapacity", "Media", "Photos", "Music", "Movies", "Shows", "Videos"],
-    "specifications": ["2CORE", "200MB"],
+    "specifications": ["2CORE", "512MB"],
     "permissions": ["READ_WRITE_LOCATIONS"],
-    "ports": [8096, 8920]
+    "ports": []
   },
   "ensure_directories_exists": [
     {
@@ -43,28 +43,28 @@
       "path": "$LOCATION(Videos)",
       "network_share": true
     },
-    "$LOCATION(ApplicationsPerformance)/jellyfin/config",
-    "$LOCATION(ApplicationsCapacity)/jellyfin/cache",
-    "$LOCATION(ApplicationsPerformance)/jellyfin/transcodes"
+    "$LOCATION(ApplicationsPerformance)/emby/config",
+    "$LOCATION(ApplicationsPerformance)/emby/cache",
+    "$LOCATION(ApplicationsPerformance)/emby/transcode"
   ],
   "app_values": {
     "storage": {
-      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/jellyfin/config)",
-      "cache": "$HOST_PATH($LOCATION(ApplicationsCapacity)/jellyfin/cache)",
-      "transcodes": "$HOST_PATH($LOCATION(ApplicationsPerformance)/jellyfin/transcodes)",
+      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/emby/config)",
       "additional_storage": [
         "$MOUNTED_HOST_PATH($LOCATION(Media), /media)",
         "$MOUNTED_HOST_PATH($LOCATION(Photos), /photos)",
         "$MOUNTED_HOST_PATH($LOCATION(Music), /music)",
         "$MOUNTED_HOST_PATH($LOCATION(Movies), /movies)",
         "$MOUNTED_HOST_PATH($LOCATION(Shows), /shows)",
-        "$MOUNTED_HOST_PATH($LOCATION(Videos), /videos)"
+        "$MOUNTED_HOST_PATH($LOCATION(Videos), /videos)",
+        "$MOUNTED_HOST_PATH($LOCATION(ApplicationsPerformance)/emby/transcode, /transcode)",
+        "$MOUNTED_HOST_PATH($LOCATION(ApplicationsPerformance)/emby/cache, /cache)"
       ]
     },
     "network": {
-      "web_port": {
+      "http_port": {
         "bind_mode": "published",
-        "port_number": 8096
+        "port_number": 9096
       },
       "https_port": {
         "bind_mode": "published",

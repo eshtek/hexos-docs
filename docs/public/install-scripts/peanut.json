@@ -1,0 +1,44 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial Script"
+  },
+  "requirements": {
+    "locations": [
+      "ApplicationsPerformance"
+    ],
+    "specifications": [
+      "2CORE",
+      "1024MB"
+    ],
+    "permissions": [
+      "READ_WRITE_LOCATIONS"
+    ],
+    "ports": []
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    "$LOCATION(ApplicationsPerformance)/peanut/config"
+  ],
+  "app_values": {
+    "storage": {
+      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/peanut/config)"
+    }
+  },
+  "network": {
+    "web_port": {
+      "bind_mode": "published",
+      "port_number": 30224
+    }
+  },
+  "resources": {
+    "limits": {
+      "cpus": 2,
+      "memory": "$MEMORY(5%, 1024)"
+    }
+  }
+}
