@@ -5,9 +5,17 @@
     "changeLog": "Initial Script"
   },
   "requirements": {
-    "locations": ["ApplicationsPerformance", "ApplicationsCapacity"],
-    "specifications": ["2CORE", "2048MB"],
-    "permissions": ["READ_WRITE_LOCATIONS"],
+    "locations": [
+      "ApplicationsPerformance",
+      "ApplicationsCapacity"
+    ],
+    "specifications": [
+      "2CORE",
+      "2048MB"
+    ],
+    "permissions": [
+      "READ_WRITE_LOCATIONS"
+    ],
     "ports": []
   },
   "installation_questions": [
