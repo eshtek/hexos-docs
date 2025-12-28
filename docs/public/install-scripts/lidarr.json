@@ -1,0 +1,64 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial Script"
+  },
+  "requirements": {
+    "locations": [
+      "ApplicationsPerformance",
+      "ApplicationsCapacity",
+      "Downloads",
+      "Music"
+    ],
+    "specifications": [
+      "2CORE",
+      "512MB"
+    ],
+    "permissions": [
+      "READ_WRITE_LOCATIONS"
+    ],
+    "ports": []
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsCapacity)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Downloads)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Music)",
+      "network_share": true
+    },
+    "$LOCATION(Downloads)/qbittorrent",
+    "$LOCATION(ApplicationsPerformance)/lidarr/config"
+  ],
+  "app_values": {
+    "storage": {
+      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/lidarr/config)",
+      "additional_storage": [
+        "$MOUNTED_HOST_PATH($LOCATION(Downloads)/qbittorrent, /config/Downloads)",
+        "$MOUNTED_HOST_PATH($LOCATION(Music), /music)"
+      ]
+    },
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 30071
+      }
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 2048)"
+      }
+    }
+  }
+}

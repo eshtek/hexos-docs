@@ -1,9 +1,13 @@
 {
-  "version": 2,
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Upgraded Plex install script to be compatible with latest HexOS script changes"
+  },
   "installation_questions": [
     {
-      "question": "Claim token",
-      "description": "The claim token for the server to obtain a real server token. If not provided, server is will not be automatically logged in. If server is already logged in, this parameter is ignored. You can obtain a claim token to login your server to your plex account by visiting https://www.plex.tv/claim.",
+      "question": "Claim Token (Optional)",
+      "description": "The claim token is used to automatically login to Plex. You can obtain a claim token to login your server to your Plex account by visiting https://www.plex.tv/claim.",
       "placeholder": "claim-xxxxxxxxxxxxxxxxxxxxx",
       "type": "text",
       "key": "plex_claim_token",
@@ -29,6 +33,12 @@
       "default": "image"
     }
   ],
+  "requirements": {
+    "locations": ["ApplicationsPerformance", "ApplicationsCapacity", "Media", "Photos", "Music", "Movies", "Shows", "Videos"],
+    "specifications": ["2CORE", "200MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [32400]
+  },
   "ensure_directories_exists": [
     {
       "path": "$LOCATION(ApplicationsPerformance)",
@@ -104,9 +114,7 @@
         "cpus": 2,
         "memory": "$MEMORY(10%, 2048)"
       },
-      "gpus": {
-        "use_all_gpus": true
-      }
+      "gpus": "$GPU_CONFIG()"
     }
   }
 }

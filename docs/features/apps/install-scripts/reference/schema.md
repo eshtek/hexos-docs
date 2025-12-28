@@ -1,94 +1,51 @@
-### Install Script Schema
+# Install Script Schema
 
-Install scripts are JSON objects with the following structure:
+Install scripts are JSON objects with the following structure. Scripts can use various macros (template variables) that are dynamically replaced during processing.
 
 ## Root Properties
 
-- **`version`** (required): Schema version. Must be `1` or `2`.
-- **`requirements`** (optional): System requirements that are validated before installation
-- **`installation_questions`** (optional, introduced in version 2): Array of questions to ask the user during installation
+- **`version`** (required): Schema version. Must be `3` or higher (currently latest supported version).
+- **`script`** (required): Metadata about the install script itself
+  - **`version`** (required): Semantic version of this install script (e.g., "1.0.0", "2.1.3")
+  - **`updateCompatibility`** (optional): Semver range expression defining which script versions can update to this version (e.g., ">=1.0.0" allows updates from any version 1.0.0 or higher, "^2.0.0" allows updates from 2.x.x versions). Supports all [semver range syntax](https://www.npmjs.com/package/semver#ranges) including `>=`, `>`, `<`, `<=`, `^`, `~`, and complex ranges like `">=1.0.0 <3.0.0"`
+  - **`changeLog`** (optional): Description of changes in this version of the script
+- **`requirements`** (required): System requirements that are validated before installation
+- **`installation_questions`** (optional): Array of questions to ask the user during installation
 - **`ensure_directories_exists`** (optional): Array of directories to create before installation
 - **`ensure_permissions_exists`** (optional): Array of permission modifications for specific paths
 - **`app_values`** (required): Configuration object passed directly to TrueNAS API
 
+## Available Macros
+
+Install scripts support various macros that are replaced dynamically during script processing:
+
+### Basic Macros
+- **`$SERVER_LAN_IP`**: Server's LAN IP address
+- **`$SERVER_HOST_ID`**: Server's unique host ID
+- **`$LOCATION(locationId)`**: Resolves to configured location path
+- **`$RANDOM_STRING(length)`**: Generates random alphanumeric string
+- **`$MEMORY(percentage, minimum_mb)`**: Calculates memory allocation
+- **`$HOST_PATH(path)`**: Creates host path configuration object
+- **`$MOUNTED_HOST_PATH(path, mount_point)`**: Creates mounted host path configuration
+
+### Conditional Macros
+- **`$APP_INSTALLED(appName)`**: Returns "true" or "false" if app is installed
+- **`$QUESTION(key)`**: References user's response to installation question
+- **`$IF(condition, trueValue, [falseValue])`**: Conditional logic with support for:
+  - Boolean literals: `true`, `false`
+  - Negation: `!condition`
+  - App checks: `$APP_INSTALLED(appName)`
+  - Question values: `$QUESTION(key)`
+  - Equality: `value1 == value2`
+  - Inequality: `value1 != value2`
+  - AND logic: `$IF(["condition1", "condition2"], trueValue, falseValue, "AND")`
+  - OR logic: `$IF(["condition1", "condition2"], trueValue, falseValue, "OR")`
+
+For detailed macro documentation and examples, see the [Macros Reference](/features/apps/install-scripts/reference/macros).
+
 ## Example Structure
-```json
-{
-  "version": 2,
-  "requirements": {
-    "locations": ["ApplicationsPerformance", "Photos"],
-    "specifications": ["2CORE", "200MB"],
-    "permissions": ["READ_WRITE_LOCATIONS"],
-    "ports": []
-  },
-  "installation_questions": [
-    {
-      "question": "Database Password",
-      "description": "A secure password for the PostgreSQL database.",
-      "type": "text",
-      "key": "db_password",
-      "required": true,
-      "default": "$RANDOM_STRING(16)"
-    },
-    {
-      "question": "Enable GPU acceleration for machine learning?",
-      "description": "GPU acceleration significantly improves photo recognition speed but requires compatible hardware.",
-      "type": "select",
-      "key": "gpu_passthrough",
-      "required": true,
-      "options": [
-        {
-          "text": "Yes - Use GPU for faster photo recognition",
-          "value": true
-        },
-        {
-          "text": "No - Use CPU only",
-          "value": false
-        }
-      ],
-      "default": false
-    },
-    {
-      "question": "Web Port",
-      "description": "The port number where the web interface will be accessible.",
-      "placeholder": "2283",
-      "type": "number",
-      "key": "web_port",
-      "required": false,
-      "default": 2283
-    }
-  ],
-  "ensure_directories_exists": [
-    "/path/to/directory",
-    {
-      "path": "/path/with/options",
-      "network_share": true,
-      "posix": true
-    }
-  ],
-  "ensure_permissions_exists": [
-    {
-      "path": "/path/to/set/permissions",
-      "username": "netdata",
-      "access": "read",
-      "posix": { "groupname": "docker" }
-    }
-  ],
-  "app_values": {
-    "network": {
-      "web_port": {
-        "bind_mode": "published",
-        "port_number": "$QUESTION(web_port)"
-      }
-    },
-    "resources": {
-      "gpus": {
-        "use_all_gpus": "$QUESTION(gpu_passthrough)"
-      }
-    }
-  }
-}
-```
+
+For complete, working examples of install scripts, please refer to the [curated install scripts](/features/apps/install-scripts/curated/). These production-ready scripts demonstrate best practices and real-world usage patterns for popular applications like Plex, Jellyfin, Immich, and more.
 
 ## Requirements
 
@@ -273,6 +230,10 @@ Reference question responses in your `app_values` using the `$QUESTION(key)` syn
 }
 ```
 
+**Using Questions in Conditionals:**
+
+Question responses can be used in conditional logic with the `$IF` macro. See the [$IF macro documentation](/features/apps/install-scripts/reference/macros#if-condition-truevalue-falsevalue) for examples of using questions in conditional expressions.
+
 ## Directory Creation
 - **String format**: Simple path string
 - **Object format**: 
@@ -289,3 +250,10 @@ Required for apps that need specific user/group permissions (like PostgreSQL).
 
 ## App Values
 This object is passed directly to TrueNAS's app installation API. The structure varies by application and corresponds to the app's configuration schema in the [TrueNAS apps repository](https://github.com/truenas/apps). For example, you can see Plex's schema for the `storage` property [here](https://github.com/truenas/apps/blob/1d2a6e9811f9af2ceae6529cc094a432a7da4e96/trains/stable/plex/app_versions.json#L422).
+
+### Conditional Configuration
+
+Install scripts support conditional logic to customize app configuration based on:
+- Other installed apps using [`$APP_INSTALLED(appName)`](/features/apps/install-scripts/reference/macros#app_installedappname)
+- User responses to installation questions using [`$QUESTION(key)`](/features/apps/install-scripts/reference/macros#questionkey)
+- Complex conditions using the [`$IF`](/features/apps/install-scripts/reference/macros#if-condition-truevalue-falsevalue) macro

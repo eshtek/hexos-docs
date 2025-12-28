@@ -1,0 +1,48 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Upgraded Radarr install script to be compatible with latest HexOS script changes"
+  },
+  "requirements": {
+    "locations": ["ApplicationsPerformance", "ApplicationsCapacity", "Downloads", "Movies"],
+    "specifications": ["2CORE", "200MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [7878]
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsCapacity)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Downloads)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Movies)",
+      "network_share": true
+    },
+    "$LOCATION(Downloads)/qbittorrent",
+    "$LOCATION(ApplicationsPerformance)/radarr/config"
+  ],
+  "app_values": {
+    "storage": {
+      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/radarr/config)",
+      "additional_storage": [
+        "$MOUNTED_HOST_PATH($LOCATION(Downloads)/qbittorrent, /config/Downloads)",
+        "$MOUNTED_HOST_PATH($LOCATION(Movies), /movies)"
+      ]
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 2048)"
+      }
+    }
+  }
+}

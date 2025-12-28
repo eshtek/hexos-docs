@@ -5,7 +5,7 @@
 1.  Create a Folder & name it time machine (or a custom name)  
     [![Screenshot2024-12-13at15_46_41.thumb.png.1917b054bc6437c5946ee2766fb02d4f.png](https://hub.hexos.com/uploads/monthly_2024_12/Screenshot2024-12-13at15_46_41.thumb.png.1917b054bc6437c5946ee2766fb02d4f.png)](https://hub.hexos.com/uploads/monthly_2024_12/Screenshot2024-12-13at15_46_41.png.9386bb6e03781d49b57ce13ca55b3a76.png)
 2.  Set the Folder permissions (I left mine open, add user permissions here to restricted access)
-3.  Navigate to the TrueNas UI (Server IP > Username: truenas\_admin Pasword: server password from install)
+3.  Navigate to the TrueNas UI (Server IP > Username: truenas\_admin Password: server password from install)
 4.  Navigate to the Shares tab, you should see your newly created share. Click on edit (pencil)  
     [![Screenshot2024-12-13at15_47_45.thumb.png.513d6547fcee38836a81c7cab233887b.png](https://hub.hexos.com/uploads/monthly_2024_12/Screenshot2024-12-13at15_47_45.thumb.png.513d6547fcee38836a81c7cab233887b.png)](https://hub.hexos.com/uploads/monthly_2024_12/Screenshot2024-12-13at15_47_45.png.ff190422d78a3976bb6cda71258d71a1.png "Fetching info...")
 5.  On the Purpose drop down change to > Basic or multi user time machine.  

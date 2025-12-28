@@ -4,6 +4,9 @@ Stay up to date with the latest news and updates from the HexOS team.
 
 ## 2025
 
+- [The Apps Platform Revolution - December 26, 2025](/blog/2025-12-26)
+- [HexOS Roadmap Update - November 26, 2025](/blog/2025-11-26)
+- [Introducing HexOS Local - November 25, 2025](/blog/2025-11-25)
 - [Introducing Our New End-to-End Testing Suite - October 21, 2025](/blog/2025-10-21)
 - [Q3 Status Update - October 1, 2025](/blog/2025-10-01)
 - [Q2 Status Update - September 30, 2025](/blog/2025-09-30)
