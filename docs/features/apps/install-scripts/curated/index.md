@@ -11,7 +11,7 @@
 | `immich` | [immich.json](/install-scripts/immich.json) | 1.7 KB | 2025-12-12 |
 | `jellyfin` | [jellyfin.json](/install-scripts/jellyfin.json) | 2.2 KB | 2025-12-12 |
 | `lidarr` | [lidarr.json](/install-scripts/lidarr.json) | 1.3 KB | 2025-12-25 |
-| `nextcloud` | [nextcloud.json](/install-scripts/nextcloud.json) | 3.4 KB | 2025-12-25 |
+| `nextcloud` | [nextcloud.json](/install-scripts/nextcloud.json) | 3.4 KB | 2025-12-28 |
 | `peanut` | [peanut.json](/install-scripts/peanut.json) | 823 B | 2025-12-25 |
 | `plex` | [plex.json](/install-scripts/plex.json) | 3.4 KB | 2025-12-12 |
 | `prowlarr` | [prowlarr.json](/install-scripts/prowlarr.json) | 766 B | 2025-12-04 |

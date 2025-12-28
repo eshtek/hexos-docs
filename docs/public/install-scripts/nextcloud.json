@@ -2,32 +2,65 @@
   "version": 3,
   "script": {
     "version": "1.0.0",
-    "changeLog": "Upgraded Immich install script to be compatible with latest HexOS script changes"
+    "changeLog": "Initial Script"
   },
   "requirements": {
-    "locations": ["ApplicationsPerformance", "Photos"],
-    "specifications": ["2CORE", "200MB"],
-    "permissions": ["READ_WRITE_LOCATIONS"],
-    "ports": [2283]
+    "locations": [
+      "ApplicationsPerformance",
+      "ApplicationsCapacity"
+    ],
+    "specifications": [
+      "2CORE",
+      "2048MB"
+    ],
+    "permissions": [
+      "READ_WRITE_LOCATIONS"
+    ],
+    "ports": []
   },
+  "installation_questions": [
+    {
+      "question": "Nextcloud Username",
+      "description": "Create a username for the admin account. You'll use this to log in via web and mobile apps.",
+      "type": "text",
+      "key": "admin_user",
+      "required": true
+    },
+    {
+      "question": "Nextcloud Password",
+      "description": "Create a password for the admin account. You'll need this to log in via web browser and mobile apps. Choose something secure but memorable!",
+      "type": "text",
+      "key": "admin_password",
+      "required": true
+    },
+    {
+      "question": "Default Phone Region",
+      "description": "Two-letter country code (US, CA, GB, DE, FR, AU, etc.). This helps format phone numbers correctly. Common codes: US (United States), CA (Canada), GB (United Kingdom), DE (Germany), FR (France), AU (Australia). Leave blank if unsure.",
+      "type": "text",
+      "key": "phone_region",
+      "required": false,
+      "default": "US"
+    }
+  ],
   "ensure_directories_exists": [
     {
       "path": "$LOCATION(ApplicationsPerformance)",
       "network_share": true
     },
+    "$LOCATION(ApplicationsPerformance)/nextcloud/html",
     {
-      "path": "$LOCATION(Photos)",
+      "path": "$LOCATION(ApplicationsPerformance)/nextcloud/postgres_data",
+      "posix": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsCapacity)",
       "network_share": true
     },
-    "$LOCATION(Photos)/immich",
-    {
-      "path": "$LOCATION(ApplicationsPerformance)/immich/postgres_data",
-      "posix": true
-    }
+    "$LOCATION(ApplicationsCapacity)/nextcloud/data"
   ],
   "ensure_permissions_exists": [
     {
-      "path": "$LOCATION(ApplicationsPerformance)/immich/postgres_data",
+      "path": "$LOCATION(ApplicationsPerformance)/nextcloud/postgres_data",
       "username": "netdata",
       "access": "read",
       "posix": {
@@ -36,36 +69,67 @@
     }
   ],
   "app_values": {
-    "release_name": "immich",
-    "immich": {
-      "enable_ml": true,
-      "ml_image_selector": "ml_image",
-      "db_password": "$RANDOM_STRING(7)",
-      "redis_password": "$RANDOM_STRING(7)",
-      "log_level": "log",
-      "hugging_face_endpoint": "",
-      "db_storage_type": "SSD",
-      "additional_envs": []
+    "nextcloud": {
+      "admin_user": "$QUESTION(admin_user)",
+      "admin_password": "$QUESTION(admin_password)",
+      "redis_password": "$RANDOM_STRING(16)",
+      "db_password": "$RANDOM_STRING(16)",
+      "host": "$SERVER_LAN_IP",
+      "postgres_image_selector": "postgres_17_image",
+      "apt_packages": [
+        "ffmpeg",
+        "smbclient",
+        "ocrmypdf",
+        "libreoffice"
+      ],
+      "tesseract_languages": [
+        "eng",
+        "spa",
+        "fra",
+        "deu",
+        "por",
+        "ita",
+        "nld",
+        "pol",
+        "rus",
+        "jpn",
+        "chi_sim",
+        "ara"
+      ],
+      "imaginary": {
+        "enabled": true
+      },
+      "cron": {
+        "enabled": true,
+        "schedule": "*/5 * * * *"
+      },
+      "additional_envs": [
+        {
+          "name": "NC_default_phone_region",
+          "value": "$QUESTION(phone_region)"
+        },
+        {
+          "name": "NC_maintenance_window_start",
+          "value": "1"
+        }
+      ]
+    },
+    "storage": {
+      "html": "$HOST_PATH($LOCATION(ApplicationsPerformance)/nextcloud/html)",
+      "data": "$HOST_PATH($LOCATION(ApplicationsCapacity)/nextcloud/data)",
+      "postgres_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/nextcloud/postgres_data)"
     },
     "network": {
       "web_port": {
         "bind_mode": "published",
-        "port_number": 2283
+        "port_number": 30027
       }
-    },
-    "storage": {
-      "data": "$HOST_PATH($LOCATION(Photos)/immich)",
-      "ml_cache": {
-        "type": "temporary"
-      },
-      "postgres_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/immich/postgres_data)"
     },
     "resources": {
       "limits": {
         "cpus": 2,
-        "memory": "$MEMORY(10%, 4096)"
-      },
-      "gpus": "$GPU_CONFIG()"
+        "memory": "$MEMORY(10%, 2048)"
+      }
     }
   }
 }
