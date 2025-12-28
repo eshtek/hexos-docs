@@ -1,108 +1,43 @@
 {
-  "version": 2,
-  "installation_questions": [
-    {
-      "question": "Nextcloud admin user",
-      "description": "The admin user for Nextcloud.",
-      "type": "text",
-      "key": "admin_user",
-      "required": true
-    },
-    {
-      "question": "Nextcloud admin password",
-      "description": "The admin password for Nextcloud.",
-      "type": "text",
-      "key": "admin_password",
-      "default": "$RANDOM_STRING(10)"
-    },
-    {
-      "question": "Enable Imaginary",
-      "description": "Imaginary can help improve performance for generating image previews.",
-      "type": "boolean",
-      "key": "imaginary_enabled",
-      "default": false,
-      "required": false
-    },
-    {
-      "question": "Host",
-      "description": "Nextcloud host to create application URLs. Examples: cloud.domain.com:443, cloud.domain.com:30001, 192.168.1.100:9001 (replace ip and port with your own).",
-      "type": "text",
-      "key": "host",
-      "required": false
-    },
-    {
-      "question": "Redis password",
-      "description": "The password for Redis.",
-      "type": "text",
-      "key": "redis_password",
-      "default": "$RANDOM_STRING(10)"
-    },
-    {
-      "question": "Database password",
-      "description": "The password for the database.",
-      "type": "text",
-      "key": "db_password",
-      "default": "$RANDOM_STRING(10)"
-    },
-    {
-      "question": "Cron",
-      "description": "Enable cron.",
-      "type": "boolean",
-      "key": "cron_enabled",
-      "default": false,
-      "required": false
-    },
-    {
-      "question": "Cron Schedule",
-      "description": "The cron schedule, if enabled.",
-      "type": "text",
-      "key": "cron_schedule",
-      "default": "*/5 * * * *",
-      "required": false
-    },
-    {
-      "question": "Web Port",
-      "type": "number",
-      "key": "web_port",
-      "default": 30027,
-      "required": true
-    }
-  ],
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Upgraded Immich install script to be compatible with latest HexOS script changes"
+  },
+  "requirements": {
+    "locations": [
+      "ApplicationsPerformance",
+      "Photos"
+    ],
+    "specifications": [
+      "2CORE",
+      "200MB"
+    ],
+    "permissions": [
+      "READ_WRITE_LOCATIONS"
+    ],
+    "ports": [
+      2283
+    ]
+  },
   "ensure_directories_exists": [
-    "$LOCATION(ApplicationsPerformance)",
     {
-      "path": "$LOCATION(ApplicationsPerformance)/nextcloud/postgres_data",
-      "posix": true
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
     },
     {
-      "path": "$LOCATION(ApplicationsPerformance)/nextcloud/html",
-      "posix": true
+      "path": "$LOCATION(Photos)",
+      "network_share": true
     },
-    "$LOCATION(ApplicationsCapacity)",
+    "$LOCATION(Photos)/immich",
     {
-      "path": "$LOCATION(ApplicationsCapacity)/nextcloud/data",
+      "path": "$LOCATION(ApplicationsPerformance)/immich/postgres_data",
       "posix": true
     }
   ],
   "ensure_permissions_exists": [
     {
-      "path": "$LOCATION(ApplicationsPerformance)/nextcloud/html",
-      "username": "www-data",
-      "access": "write",
-      "posix": {
-        "groupname": "www-data"
-      }
-    },
-    {
-      "path": "$LOCATION(ApplicationsCapacity)/nextcloud/data",
-      "username": "www-data",
-      "access": "write",
-      "posix": {
-        "groupname": "www-data"
-      }
-    },
-    {
-      "path": "$LOCATION(ApplicationsPerformance)/nextcloud/postgres_data",
+      "path": "$LOCATION(ApplicationsPerformance)/immich/postgres_data",
       "username": "netdata",
       "access": "read",
       "posix": {
@@ -111,45 +46,36 @@
     }
   ],
   "app_values": {
-    "nextcloud": {
-      "admin_user": "$QUESTION(admin_user)",
-      "admin_password": "$QUESTION(admin_password)",
-      "apt_packages": [
-        "ffmpeg",
-        "smbclient",
-        "ocrmypdf",
-        "libreoffice"
-      ],
-      "tesseract_languages": [
-        "eng"
-      ],
-      "imaginary": {
-        "enabled": "$QUESTION(imaginary_enabled)"
-      },
-      "host": "$QUESTION(host)",
-      "redis_password": "$QUESTION(redis_password)",
-      "db_password": "$QUESTION(db_password)",
-      "cron": {
-        "enabled": "$QUESTION(cron_enabled)",
-        "schedule": "$QUESTION(cron_schedule)"
-      }
+    "release_name": "immich",
+    "immich": {
+      "enable_ml": true,
+      "ml_image_selector": "ml_image",
+      "db_password": "$RANDOM_STRING(7)",
+      "redis_password": "$RANDOM_STRING(7)",
+      "log_level": "log",
+      "hugging_face_endpoint": "",
+      "db_storage_type": "SSD",
+      "additional_envs": []
     },
     "network": {
       "web_port": {
         "bind_mode": "published",
-        "port_number": "$QUESTION(web_port)"
+        "port_number": 2283
       }
     },
     "storage": {
-      "html": "$HOST_PATH($LOCATION(ApplicationsPerformance)/nextcloud/html)",
-      "data": "$HOST_PATH($LOCATION(ApplicationsCapacity)/nextcloud/data)",
-      "postgres_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/nextcloud/postgres_data)"
+      "data": "$HOST_PATH($LOCATION(Photos)/immich)",
+      "ml_cache": {
+        "type": "temporary"
+      },
+      "postgres_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/immich/postgres_data)"
     },
     "resources": {
       "limits": {
         "cpus": 2,
         "memory": "$MEMORY(10%, 4096)"
-      }
+      },
+      "gpus": "$GPU_CONFIG()"
     }
   }
 }
