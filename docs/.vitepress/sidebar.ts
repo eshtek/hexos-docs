@@ -19,7 +19,15 @@ const sidebar: DefaultTheme.SidebarItem[] = [
     items: [
       { text: 'Overview', link: '/features/' },
       { text: 'Storage', link: '/features/storage/storage' },
-      { text: 'Folders', link: '/features/folders/' },
+      {         text: 'Folders', 
+        link: '/features/folders/', 
+      collapsed: true,
+        items: [
+          { text: 'Accessing Folders', link: '/features/folders/how-to-access-folder-contents' },
+          { text: 'Folder Creation', link: '/features/folders/create-a-new-folder' },
+          { text: 'User Creation', link: '/features/folders/create-a-new-user' },
+          ]
+     },
       { text: 'Notifications', link: '/features/notifications/' },
       {
         text: 'Apps',
