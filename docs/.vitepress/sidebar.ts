@@ -19,7 +19,15 @@ const sidebar: DefaultTheme.SidebarItem[] = [
     items: [
       { text: 'Overview', link: '/features/' },
       { text: 'Storage', link: '/features/storage/storage' },
-      { text: 'Folders', link: '/features/folders/' },
+      {         text: 'Folders', 
+        link: '/features/folders/', 
+      collapsed: true,
+        items: [
+          { text: 'Accessing Folders', link: '/features/folders/how-to-access-folder-contents' },
+          { text: 'Folder Creation', link: '/features/folders/create-a-new-folder' },
+          { text: 'User Creation', link: '/features/folders/create-a-new-user' },
+          ]
+     },
       { text: 'Notifications', link: '/features/notifications/' },
       {
         text: 'Apps',
@@ -131,6 +139,7 @@ const sidebar: DefaultTheme.SidebarItem[] = [
     collapsed: true,
     items: [
       // auto-generated-release-notes-start
+            { text: '2025-12-30', link: '/release-notes/command-deck/2025-12-30' },
             { text: '2025-12-28', link: '/release-notes/command-deck/2025-12-28' },
             { text: '2025-12-26', link: '/release-notes/command-deck/2025-12-26' },
             { text: '2025-11-25', link: '/release-notes/command-deck/2025-11-25' },
