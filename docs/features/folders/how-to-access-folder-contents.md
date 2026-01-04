@@ -134,7 +134,7 @@ Sometimes the folder may show under **Other locations**
 5. If your server appears select it, if not select `add manually`
 ![](../../public/assets/screenshots/folder-access-guide/g5.png)
 6. Fill this out with your information and press `add`<br>
-- The `Address` can be found at the folders screen of [HexOS deck](deck.hexos.com/folders) <br>
+- The `Address` can be found at the folders screen of [HexOS deck](https://deck.hexos.com/folders) <br>
           1. Select any folder <br>
           2. Select the `Browse` button
           ![](../../public/assets/screenshots/folder-access-guide/ip1.png)
@@ -158,7 +158,7 @@ SMB network shares can still be accessed by installing 3rd party applications.
 3. Select `Connect to Server`
 ![](../../public/assets/screenshots/folder-access-guide/i3.png)
 4. Type your server ip address in the `Server` textbox 
-    - The `Address` can be found at the folders screen of [HexOS deck](deck.hexos.com/folders)
+    - The `Address` can be found at the folders screen of [HexOS deck](https://deck.hexos.com/folders)
         1. Select any folder
         2. Select the `Browse` button
         ![](../../public/assets/screenshots/folder-access-guide/ip1.png)
