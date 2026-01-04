@@ -8,7 +8,7 @@ This guide will explain how to access a folder on your HexOS server from a varie
 
 ## Copying the Address of a Folder
 
-1. In the folders screen of your HexOS [deck](https://deck.hexos.com), select on the folder you want to access
+1. In the folders screen of your [HexOS deck](https://deck.hexos.com), select on the folder you want to access
 2. Select the **Browse** button
 
 <img width="1484" height="1099" alt="browse-button" src="https://github.com/user-attachments/assets/4bc786e3-e672-41b6-9235-fb94c80d6e18" />
@@ -134,7 +134,7 @@ Sometimes the folder may show under **Other locations**
 5. If your server appears select it, if not select `add manually`
 ![](../../public/assets/screenshots/SMB-galaxy-5.png)
 6. Fill this out with your information and press `add`<br>
-- The `Address` can be found at deck.hexos.com/folders <br>
+- The `Address` can be found at the folders screen of [HexOS deck](deck.hexos.com/folders) <br>
           1. Select any folder <br>
           2. Select the `Browse` button
           ![](../../public/assets/screenshots/SMB-IP-1.png)
@@ -158,7 +158,7 @@ SMB network shares can still be accessed by installing 3rd party applications.
 3. Select `Connect to Server`
 ![](../../public/assets/screenshots/SMB-iOS-3.PNG)
 4. Type your server ip address in the `Server` textbox 
-    - The `Address` can be found at deck.hexos.com/folders
+    - The `Address` can be found at the folders screen of [HexOS deck](deck.hexos.com/folders)
         1. Select any folder
         2. Select the `Browse` button
         ![](../../public/assets/screenshots/SMB-IP-1.png)
