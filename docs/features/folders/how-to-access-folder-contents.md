@@ -122,27 +122,27 @@ Sometimes the folder may show under **Other locations**
 ### Samsung Galaxy
 
 1. Open `My Files` app
-![](../../public/assets/screenshots/folder-access-guide/1.png)
+![](../../public/assets/screenshots/SMB-galaxy-1.png)
 2. Select network storage
     - You may be prompted to update the app
 
-![](../../public/assets/screenshots/folder-access-guide/2.png)
+![](../../public/assets/screenshots/SMB-galaxy-2.png)
 3. Select the + button at the top right corner
-![](../../public/assets/screenshots/folder-access-guide/3.png)
+![](../../public/assets/screenshots/SMB-galaxy-3.png)
 4. Select Network Drive (SMBv2/SMBv3)
-![](../../public/assets/screenshots/folder-access-guide/4.png)
+![](../../public/assets/screenshots/SMB-galaxy-4.png)
 5. If your server appears select it, if not select `add manually`
-![](../../public/assets/screenshots/folder-access-guide/5.png)
+![](../../public/assets/screenshots/SMB-galaxy-5.png)
 6. Fill this out with your information and press `add`<br>
 - The `Address` can be found at the folders screen of [HexOS deck](deck.hexos.com/folders) <br>
           1. Select any folder <br>
           2. Select the `Browse` button
-          ![](../../public/assets/screenshots/folder-access-guide/ip1.png)
+          ![](../../public/assets/screenshots/SMB-IP-1.png)
           3. The address will be just the numbers shown (highlighted in this example)
-          ![](../../public/assets/screenshots/folder-access-guide/ip2.png)
+          ![](../../public/assets/screenshots/SMB-IP-2.png)
      - You can leave the port alone
      - Username and password are optional but if you would like to use them then uncheck `Sign in anonymously`
-![](../../public/assets/screenshots/folder-access-guide/6.png)
+![](../../public/assets/screenshots/SMB-galaxy-6.png)
 
 ### Google Pixel
 
@@ -152,23 +152,23 @@ SMB network shares can still be accessed by installing 3rd party applications.
 ## iOS
 
 1. Open the `Files` app
-![](../../public/assets/screenshots/folder-access-guide/7.jpg)
+![](../../public/assets/screenshots/SMB-iOS-1.jpg)
 2. Press the 3 horizontal dots button on the top right corner
-![](../../public/assets/screenshots/folder-access-guide/8.PNG)
+![](../../public/assets/screenshots/SMB-iOS-2.PNG)
 3. Select `Connect to Server`
-![](../../public/assets/screenshots/folder-access-guide/9.PNG)
+![](../../public/assets/screenshots/SMB-iOS-3.PNG)
 4. Type your server ip address in the `Server` textbox 
     - The `Address` can be found at the folders screen of [HexOS deck](deck.hexos.com/folders)
         1. Select any folder
         2. Select the `Browse` button
-        ![](../../public/assets/screenshots/folder-access-guide/ip1.png)
+        ![](../../public/assets/screenshots/SMB-IP-1.png)
         3. The address will be just the numbers shown (highlighted in this example)
-        ![](../../public/assets/screenshots/folder-access-guide/ip2.png)
+        ![](../../public/assets/screenshots/SMB-IP-2.png)
         
-![](../../public/assets/screenshots/folder-access-guide/10.PNG)
+![](../../public/assets/screenshots/SMB-iOS-4.PNG)
 5. Select `Guest` or `Registered User`
     - Input your username and password if you would like to log in as a registered user
 
-![](../../public/assets/screenshots/folder-access-guide/11.PNG)
+![](../../public/assets/screenshots/SMB-iOS-5.PNG)
 6. You can find your server under the Shared section. 
-![](../../public/assets/screenshots/folder-access-guide/12.PNG)
+![](../../public/assets/screenshots/SMB-iOS-6.PNG)
