@@ -1,8 +1,8 @@
 {
   "version": 3,
   "script": {
-    "version": "1.0.0",
-    "changeLog": "Initial Script"
+    "version": "1.0.1",
+    "changeLog": "Emby port change"
   },
   "requirements": {
     "locations": ["ApplicationsPerformance", "ApplicationsCapacity", "Media", "Photos", "Music", "Movies", "Shows", "Videos"],
@@ -68,7 +68,7 @@
       },
       "https_port": {
         "bind_mode": "published",
-        "port_number": 8920
+        "port_number": 9920
       }
     },
     "resources": {
