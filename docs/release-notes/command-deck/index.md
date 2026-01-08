@@ -11,7 +11,7 @@ For users who are actively connected during an update, there may be a brief down
 <!-- auto-generated-year-sections-start -->
 ## 2026 Releases
 
-- [**2026-01-08**](./2026-01-08) - Enhanced Diagnostics
+- [**2026-01-08**](./2026-01-08) - HexOS Curated Apps & Enhanced Diagnostics
 
 ## 2025 Releases
 
