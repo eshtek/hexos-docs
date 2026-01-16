@@ -67,6 +67,7 @@ const sidebar: DefaultTheme.SidebarItem[] = [
       { text: 'Overview', link: '/troubleshooting/' },
       { text: 'Avoid USB Drives', link: '/troubleshooting/common-issues/AvoidUSBDrives' },
       { text: 'Clear Browser Cache', link: '/troubleshooting/common-issues/ClearCache' },
+      { text: 'Immich Migration', link: '/troubleshooting/common-issues/ImmichMigration' },
     ]
   },
   {
