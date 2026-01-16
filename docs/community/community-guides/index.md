@@ -9,6 +9,7 @@ Welcome to the HexOS community guides! These guides are created by community mem
 - [**Migrating Immich Storage (Rsync Method)**](./ImmichMigrationRsync) - Migrate Immich to new storage configuration using rsync
 - [**Migrating Immich Storage (Move Method)**](./ImmichMigrationMove) - Migrate Immich to new storage configuration by moving files
 - [**Setting Up Time Machine**](./TimeMachineInstall) - Configure Mac Time Machine backups with HexOS
+- [**Fix For Missing UUID ERROR When Using Nvidia Gpus**](./NvidiaMissingUUID.md) - Fix for Nvidia Gpus not being recognized correctly.
 
 ## Contributing
 

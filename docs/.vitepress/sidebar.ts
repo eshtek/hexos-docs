@@ -104,6 +104,13 @@ const sidebar: DefaultTheme.SidebarItem[] = [
             ]
           },
           {
+            text: 'Troubleshooting',
+            collapsed: true,
+            items: [
+              { text: 'Nvidia Gpu Missing UUID', link: '/community/community-guides/NvidiaMissingUUID' },
+            ]
+          },
+          {
             text: 'Virtual Machines',
             collapsed: true,
             items: [
