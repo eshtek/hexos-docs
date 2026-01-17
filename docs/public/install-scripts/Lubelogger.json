@@ -1,0 +1,44 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Adding Lubelogger to Hexos"
+  },
+  "requirements": {
+    "locations": ["Data", "keys"],
+    "specifications": ["2CORE", "200MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [8080]
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(data)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(keys)",
+      "network_share": true
+    },
+    "$LOCATION(data)/LubeLogger/data",
+    "$LOCATION(keys)/LubeLobgger/Keys"
+  ],
+  "app_values": {
+    "storage": {
+      "data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/App/data)",
+      "keys": "$HOST_PATH($LOCATION(ApplicationsCapacity)/root/.aspnet/DataProtection-Keys)",
+    },
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 8080
+      },
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 4096)"
+      },
+      "gpus": "$GPU_CONFIG()"
+    }
+  }
+}
