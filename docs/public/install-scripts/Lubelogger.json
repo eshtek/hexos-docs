@@ -5,7 +5,7 @@
     "changeLog": "Adding Lubelogger to Hexos"
   },
   "requirements": {
-    "locations": ["Data", "keys"],
+    "locations": ["data", "keys"],
     "specifications": ["2CORE", "200MB"],
     "permissions": ["READ_WRITE_LOCATIONS"],
     "ports": [8080]
@@ -24,8 +24,8 @@
   ],
   "app_values": {
     "storage": {
-      "data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/App/data)",
-      "keys": "$HOST_PATH($LOCATION(ApplicationsCapacity)/root/.aspnet/DataProtection-Keys)",
+      "data": "$HOST_PATH($LOCATION(data)/App/data)",
+      "keys": "$HOST_PATH($LOCATION(keys)/root/.aspnet/DataProtection-Keys)",
     },
     "network": {
       "web_port": {
