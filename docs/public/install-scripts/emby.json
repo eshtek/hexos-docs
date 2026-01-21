@@ -68,7 +68,7 @@
       },
       "https_port": {
         "bind_mode": "published",
-        "port_number": 9920
+        "port_number": 8920
       }
     },
     "resources": {
