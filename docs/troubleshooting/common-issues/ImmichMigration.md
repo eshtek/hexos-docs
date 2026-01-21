@@ -15,7 +15,7 @@
 ## Preparation
 - Note the contents of the `Photos` folder
    - This can be done by viewing the `Photos` folder via SMB shares.
-   - [Instructions for how to access folder contents can be found here](docs/features/folders/how-to-access-folder-contents.md)
+   - [Instructions for how to access folder contents can be found here](/features/folders/how-to-access-folder-contents.html)
 - Stop the `immich` application
 - Log into TrueNAS UI
    1) Navigate to [HexOS Deck](https://deck.hexos.com)
