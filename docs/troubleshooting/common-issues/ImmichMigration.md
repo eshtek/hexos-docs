@@ -6,7 +6,7 @@
 - This guide only applies to 
    - curated immich installations that have not been customized
    - users that can still access the immich web-ui
-   - users with immich Version `v1.132.0` and higher
+   - users with immich Version `v1.135.0` and higher
      1) Select `Apps` on the left side bar
      2) Click on the `immich` app on the list (Not the Checkbox)
      3) View the `Application Version` in the Application info card
