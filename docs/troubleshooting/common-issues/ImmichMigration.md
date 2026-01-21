@@ -18,7 +18,7 @@
    - [Instructions for how to access folder contents can be found here](docs/features/folders/how-to-access-folder-contents.md)
 - Stop the `immich` application
 - Log into TrueNAS UI
-   1) Navigate to [HexOS Deck](deck.hexos.com)
+   1) Navigate to [HexOS Deck](https://deck.hexos.com)
    2) Navigate to the settings panel by selecting it on the left sidebar
    3) Select the TrueNAS button
    4) Login
@@ -92,7 +92,7 @@ Once in the TrueNAS interface we will
 ![](../../public/assets/screenshots/Immich-migration-tmux-9.png)
 9) Scroll down to the bottom and select the update button
 10) Verify if the immich web-ui is working
-11) If immich Web-UI is working as expected, update the immich app in [HexOS Deck](deck.hexos.com)
+11) If immich Web-UI is working as expected, update the immich app in [HexOS Deck](https://deck.hexos.com)
 12) Verify if the immich web-ui is working and shows the most up to date version of immich
 
 ## Cleaning up
