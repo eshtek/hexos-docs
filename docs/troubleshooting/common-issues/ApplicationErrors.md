@@ -78,8 +78,6 @@ GPU changed: Try disabling GPU pass-through and disable using a gpu in the appli
 If you uninstalled Immich and it is no longer re-installing 
 consider deleting the the old datasets and start over fresh
 > <span style="color: red;">Warning: Deleting the old data sets will also delete the copy of your media on the server</span> 
-::: details How to delete the old datasets
-
 
 ### Updating Immich
 
