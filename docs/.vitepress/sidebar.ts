@@ -65,9 +65,17 @@ const sidebar: DefaultTheme.SidebarItem[] = [
     collapsed: true,
     items: [
       { text: 'Overview', link: '/troubleshooting/' },
-      { text: 'Avoid USB Drives', link: '/troubleshooting/common-issues/AvoidUSBDrives' },
-      { text: 'Clear Browser Cache', link: '/troubleshooting/common-issues/ClearCache' },
-      { text: 'Immich Migration', link: '/troubleshooting/common-issues/ImmichMigration' },
+      {
+        text: 'Common Issues',
+        link: '/troubleshooting/common-issues/',
+        collapsed: true,
+        items: [
+          { text: 'Application Errors', link: '/troubleshooting/common-issues/ApplicationErrors' },
+          { text: 'Avoid USB Drives', link: '/troubleshooting/common-issues/AvoidUSBDrives' },
+          { text: 'Clear Browser Cache', link: '/troubleshooting/common-issues/ClearCache' },
+          { text: 'Immich Migration', link: '/troubleshooting/common-issues/ImmichMigration' },
+        ]
+      },
     ]
   },
   {

@@ -3,7 +3,13 @@
 This guide helps you resolve common issues with HexOS installation, setup, and operation. Issues are organized by category for quick reference.
 
 :::tip Quick Help
-Check our [Common Issues](./common-issues/) section or visit the [HexOS Community](https://hub.hexos.com/) for posts by other users.
+Check our [Common Issues](./common-issues/) section for frequently encountered problems:
+- [Application Errors](./common-issues/ApplicationErrors) - App installation, updates, and startup issues
+- [Immich Migration Guide](./common-issues/ImmichMigration) - Migrating existing Immich installations
+- [Clear Browser Cache](./common-issues/ClearCache) - Fixing login and UI issues
+- [Avoid USB Drives](./common-issues/AvoidUSBDrives) - Why USB drives cause problems
+
+Visit the [HexOS Community](https://hub.hexos.com/) for additional support from other users.
 :::
 
 ## Installation Issues

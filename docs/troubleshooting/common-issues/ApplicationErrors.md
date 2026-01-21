@@ -122,7 +122,7 @@ Uploads: (HDDs/SSDs)/Photos/immich <br>
 Postgres: (HDDs/SSDs)/Applications/immich/postgres_data <br>
 
 
-If your storage locations do not match and you installed Immich via HexOS, are on Immich version 2.0.0+ and have not modified Immich in TrueNAS then you can `Reset App Curation`
+If your storage locations do not match and you installed Immich via HexOS, are on Immich version 2.0.0+ and have not modified Immich in TrueNAS then you can [`Reset App Curation`](/troubleshooting/common-issues/ApplicationErrors.html#resetting-app-curation)
 
 :::
 # What to do if you need more help with apps
