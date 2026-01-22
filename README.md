@@ -4,10 +4,18 @@ This repository contains the official HexOS documentation including guides, inst
 
 ## Table of Contents
 
-- [Quick Start](#quick-start)
-- [Contributing](#contributing)
-- [Documentation Structure](#documentation-structure)
-- [Get Help](#get-help)
+- [HexOS Documentation](#hexos-documentation)
+  - [Table of Contents](#table-of-contents)
+  - [Quick Start](#quick-start)
+  - [Build](#build)
+  - [Contributing](#contributing)
+    - [Contributing Guide](#contributing-guide)
+      - [Setup](#setup)
+      - [Making Changes](#making-changes)
+      - [Submitting Your Contribution](#submitting-your-contribution)
+      - [Project Structure](#project-structure)
+      - [Guidelines](#guidelines)
+  - [Get Help](#get-help)
 
 ## Quick Start
 
@@ -99,6 +107,5 @@ docs/
 
 ## Get Help
 
-- **Questions about contributing?** Open an issue or reach out to [@cole](https://hub.hexos.com/profile/27801-csmanel/)
 - **Found a bug in the docs?** [Open an issue](https://github.com/Eshtek/hexos-docs/issues)
-- **Need help with HexOS?** Visit the [HexOS Community](https://hub.hexos.com/)
+- **Need help with HexOS?** Visit the [HexOS Community](https://hub.hexos.com/) or contact support directly at support@hexos.com
