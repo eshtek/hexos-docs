@@ -8,7 +8,7 @@ This guide will explain how to access a folder on your HexOS server from a varie
 
 ## Copying the Address of a Folder
 
-1. In the folders screen of your HexOS [deck](https://deck.hexos.com), select on the folder you want to access
+1. In the folders screen of your [HexOS deck](https://deck.hexos.com), select on the folder you want to access
 2. Select the **Browse** button
 
 <img width="1484" height="1099" alt="browse-button" src="https://github.com/user-attachments/assets/4bc786e3-e672-41b6-9235-fb94c80d6e18" />
@@ -122,27 +122,27 @@ Sometimes the folder may show under **Other locations**
 ### Samsung Galaxy
 
 1. Open `My Files` app
-![](../../public/assets/screenshots/SMB-galaxy-1.png)
+![](../../public/assets/screenshots/folder-access-guide/g1.png)
 2. Select network storage
     - You may be prompted to update the app
 
-![](../../public/assets/screenshots/SMB-galaxy-2.png)
+![](../../public/assets/screenshots/folder-access-guide/g2.png)
 3. Select the + button at the top right corner
-![](../../public/assets/screenshots/SMB-galaxy-3.png)
+![](../../public/assets/screenshots/folder-access-guide/g3.png)
 4. Select Network Drive (SMBv2/SMBv3)
-![](../../public/assets/screenshots/SMB-galaxy-4.png)
+![](../../public/assets/screenshots/folder-access-guide/g4.png)
 5. If your server appears select it, if not select `add manually`
-![](../../public/assets/screenshots/SMB-galaxy-5.png)
+![](../../public/assets/screenshots/folder-access-guide/g5.png)
 6. Fill this out with your information and press `add`<br>
-- The `Address` can be found at deck.hexos.com/folders <br>
+- The `Address` can be found at the folders screen of [HexOS deck](https://deck.hexos.com/folders) <br>
           1. Select any folder <br>
           2. Select the `Browse` button
-          ![](../../public/assets/screenshots/SMB-IP-1.png)
+          ![](../../public/assets/screenshots/folder-access-guide/ip1.png)
           3. The address will be just the numbers shown (highlighted in this example)
-          ![](../../public/assets/screenshots/SMB-IP-2.png)
+          ![](../../public/assets/screenshots/folder-access-guide/ip2.png)
      - You can leave the port alone
      - Username and password are optional but if you would like to use them then uncheck `Sign in anonymously`
-![](../../public/assets/screenshots/SMB-galaxy-6.png)
+![](../../public/assets/screenshots/folder-access-guide/g6.png)
 
 ### Google Pixel
 
@@ -152,23 +152,23 @@ SMB network shares can still be accessed by installing 3rd party applications.
 ## iOS
 
 1. Open the `Files` app
-![](../../public/assets/screenshots/SMB-iOS-1.jpg)
+![](../../public/assets/screenshots/folder-access-guide/i1.jpg)
 2. Press the 3 horizontal dots button on the top right corner
-![](../../public/assets/screenshots/SMB-iOS-2.PNG)
+![](../../public/assets/screenshots/folder-access-guide/i2.png)
 3. Select `Connect to Server`
-![](../../public/assets/screenshots/SMB-iOS-3.PNG)
+![](../../public/assets/screenshots/folder-access-guide/i3.png)
 4. Type your server ip address in the `Server` textbox 
-    - The `Address` can be found at deck.hexos.com/folders
+    - The `Address` can be found at the folders screen of [HexOS deck](https://deck.hexos.com/folders)
         1. Select any folder
         2. Select the `Browse` button
-        ![](../../public/assets/screenshots/SMB-IP-1.png)
+        ![](../../public/assets/screenshots/folder-access-guide/ip1.png)
         3. The address will be just the numbers shown (highlighted in this example)
-        ![](../../public/assets/screenshots/SMB-IP-2.png)
+        ![](../../public/assets/screenshots/folder-access-guide/ip2.png)
         
-![](../../public/assets/screenshots/SMB-iOS-4.PNG)
+![](../../public/assets/screenshots/folder-access-guide/i4.png)
 5. Select `Guest` or `Registered User`
     - Input your username and password if you would like to log in as a registered user
 
-![](../../public/assets/screenshots/SMB-iOS-5.PNG)
+![](../../public/assets/screenshots/folder-access-guide/i5.png)
 6. You can find your server under the Shared section. 
-![](../../public/assets/screenshots/SMB-iOS-6.PNG)
+![](../../public/assets/screenshots/folder-access-guide/i6.png)

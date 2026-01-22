@@ -64,11 +64,11 @@
     "network": {
       "web_port": {
         "bind_mode": "published",
-        "port_number": 8096
+        "port_number": 30013
       },
       "https_port": {
         "bind_mode": "published",
-        "port_number": 8920
+        "port_number": 30014
       }
     },
     "resources": {

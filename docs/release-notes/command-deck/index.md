@@ -9,6 +9,12 @@ Command Deck updates are automatically deployed by the HexOS development team. Y
 For users who are actively connected during an update, there may be a brief downtime of a minute or two as the new version is deployed.
 
 <!-- auto-generated-year-sections-start -->
+## 2026 Releases
+
+- [**2026-01-21**](./2026-01-21) - Mobile Dialogs, App Lifecycle, Polish, HexOS Local Prep
+- [**2026-01-13**](./2026-01-13) - UI Improvements & Goldeye System Updates
+- [**2026-01-08**](./2026-01-08) - HexOS Curated Apps & Enhanced Diagnostics
+
 ## 2025 Releases
 
 - [**2025-12-30**](./2025-12-30) - Hotfix : App Configuration Updates
