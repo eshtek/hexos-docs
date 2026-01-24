@@ -29,8 +29,8 @@ For users who are actively connected during an update, there may be a brief down
 - [**2025-09-29**](./2025-09-29) - New Apps Curation Process, Jellyfin/Home Assistant/qBittorrent Apps, Folder Wizard
 - [**2025-07-28**](./2025-07-28) - Networking Fixes, Performance Improvements, Folder Loading Optimization
 - [**2025-07-07**](./2025-07-07) - Observability Improvements, Request Timing Instrumentation
-- [**2025-06-27**](./2025-06-27) - Updates and improvements
-- [**2025-02-07**](./2025-02-07) - Imrpvoed Setup wizard w/ existing data detection
+- [**2025-06-27**](./2025-06-27) - Q2 Command Deck Update - Manual Pool Configuration, Activity Center, TrueNAS SCALE 24.10.2.2 Update
+- [**2025-02-07**](./2025-02-07) - Improved Setup wizard w/ existing data detection
 - [**2025-01-08**](./2025-01-08) - Manual WAN IP Specification, Additional Confirmations for Destructive Actions
 
 ## 2024 Releases
