@@ -1,0 +1,110 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial Script"
+  },
+  "requirements": {
+    "locations": ["ApplicationsPerformance", "ApplicationsCapacity"],
+    "specifications": ["2CORE", "4096MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [30061]
+  },
+  "installation_questions": [
+    {
+      "question": "Input your IGDB Client ID",
+      "description": "Instructions for how to create an ID can be found here: https://api-docs.igdb.com/#account-creation",
+      "placeholder": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "type": "text",
+      "key": "igdb_client_id",
+      "required": false,
+      "default": ""
+    },
+    {
+      "question": "Input your IGDB Client Secret",
+      "description": "Instructions for how to find your client secret can be found here: https://api-docs.igdb.com/#account-creation",
+      "placeholder": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "type": "text",
+      "key": "igdb_client_secret",
+      "required": false,
+      "default": ""
+    },
+    {
+      "question": "Input your MobyGames API Key",
+      "description": "Instructions for how to generate an API key for MobyGames can be found here: https://www.mobygames.com/info/api",
+      "placeholder": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "type": "text",
+      "key": "mobygames_api_key",
+      "required": false,
+      "default": ""
+    },
+    {
+      "question": "Input your SteamGridDB API Key",
+      "description": "Instructions for how to generate an API key for SteamGridDB can be found here: https://docs.romm.app/latest/Getting-Started/Metadata-Providers/#steamgriddb",
+      "placeholder": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "type": "text",
+      "key": "steamgriddb_api_key",
+      "required": false,
+      "default": ""
+    }
+  ],
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsCapacity)",
+      "network_share": true
+    },
+    "$LOCATION(ApplicationsPerformance)/romm",
+    "$LOCATION(ApplicationsPerformance)/romm/config",
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/romm/postgres",
+      "posix": true
+    },
+    "$LOCATION(ApplicationsPerformance)/romm/resources",
+    "$LOCATION(ApplicationsPerformance)/romm/assets",
+    "$LOCATION(ApplicationsCapacity)/romm/library"
+  ],
+  "ensure_permissions_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/romm/postgres",
+      "username": "netdata",
+      "access": "write",
+      "posix": {
+        "groupname": "docker"
+      }
+    }
+  ],
+  "app_values": {
+    "romm": {
+      "db_password": "$RANDOM_STRING(16)",
+      "redis_password": "$RANDOM_STRING(16)",
+      "auth_secret_key": "$RANDOM_STRING(32)",
+      "igdb_client_id": "$QUESTION(igdb_client_id)",
+      "igdb_client_secret": "$QUESTION(igdb_client_secret)",
+      "mobygames_api_key": "$QUESTION(mobygames_api_key)",
+      "steamgriddb_api_key": "$QUESTION(steamgriddb_api_key)"
+    },
+    "storage": {
+      "library": "$HOST_PATH($LOCATION(ApplicationsCapacity)/romm/library)",
+      "resources": "$HOST_PATH($LOCATION(ApplicationsPerformance)/romm/resources)",
+      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/romm/config)",
+      "assets": "$HOST_PATH($LOCATION(ApplicationsPerformance)/romm/assets)",
+      "postgres_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/romm/postgres)"
+    }
+    },
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 30061
+      }
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 4096)"
+    }
+  }
+}
