@@ -1,0 +1,97 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial script"
+  },
+  "requirements": {
+    "locations": [
+      "ApplicationsPerformance",
+      "ApplicationsCapacity",
+      "Media",
+      "Movies",
+      "Music",
+      "Photos",
+      "Shows",
+      "Documents"
+    ],
+    "specifications": ["2CORE", "500MB", "GPU"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [19200]
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsCapacity)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Media)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Movies)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Music)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Photos)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Shows)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Documents)",
+      "network_share": true
+    },
+    "$LOCATION(ApplicationsPerformance)/fileflows/data",
+    "$LOCATION(ApplicationsCapacity)/fileflows/logs",
+    "$LOCATION(ApplicationsCapacity)/fileflows/temp"
+  ],
+  "app_values": {
+    "TZ": "Etc/UTC",
+    "fileflows": {
+      "additional_envs": []
+    },
+    "run_as": {
+      "user": 568,
+      "group": 568
+    },
+    "network": {
+      "server_port": {
+        "bind_mode": "published",
+        "port_number": 19200
+      },
+      "host_network": false
+    },
+    "storage": {
+      "data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/fileflows/data)",
+      "logs": "$HOST_PATH($LOCATION(ApplicationsCapacity)/fileflows/logs)",
+      "temp": "$HOST_PATH($LOCATION(ApplicationsCapacity)/fileflows/temp)",
+      "additional_storage": [
+        "$MOUNTED_HOST_PATH($LOCATION(Media), /media/media)",
+        "$MOUNTED_HOST_PATH($LOCATION(Movies), /media/movies)",
+        "$MOUNTED_HOST_PATH($LOCATION(Music), /media/music)",
+        "$MOUNTED_HOST_PATH($LOCATION(Photos), /media/photos)",
+        "$MOUNTED_HOST_PATH($LOCATION(Shows), /media/shows)",
+        "$MOUNTED_HOST_PATH($LOCATION(Documents), /media/documents)"
+      ]
+    },
+    "labels": [],
+    "resources": {
+      "limits": {
+        "cpus": 4,
+        "memory": "$MEMORY(10%, 4096)"
+      },
+      "gpus": "$GPU_CONFIG()"
+    }
+  }
+}
