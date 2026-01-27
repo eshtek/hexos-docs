@@ -19,5 +19,6 @@
 | `radarr` | [radarr.json](/install-scripts/radarr.json) | 1.2 KB | 2025-12-04 |
 | `scrutiny` | [scrutiny.json](/install-scripts/scrutiny.json) | 1.2 KB | 2025-12-25 |
 | `sonarr` | [sonarr.json](/install-scripts/sonarr.json) | 1.2 KB | 2025-12-04 |
+| `steam-headless` | [steam-headless.json](/install-scripts/steam-headless.json) | 4.5 KB | 2026-01-27 |
 | `syncthing` | [syncthing.json](/install-scripts/syncthing.json) | 2.0 KB | 2025-12-25 |
 <!-- curated:index:end -->
