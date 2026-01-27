@@ -1,0 +1,52 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial Script"
+  },
+  "requirements": {
+    "locations": ["ApplicationsPerformance", "ApplicationsCapacity"],
+    "specifications": ["2CORE", "2048MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [30099]
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsCapacity)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    "$LOCATION(ApplicationsPerformance)/pigallery2/config",
+    "$LOCATION(ApplicationsPerformance)/pigallery2/db",
+    "$LOCATION(ApplicationsCapacity)/pigallery2/media",
+    "$LOCATION(ApplicationsPerformance)/pigallery2/thumbnails"
+  ],
+  "app_values": {
+    "run_as": {
+      "user": 568,
+      "group": 568
+    },
+    "storage": {
+      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/pigallery2/config)",
+      "db": "$HOST_PATH($LOCATION(ApplicationsPerformance)/pigallery2/db)",
+      "media": "$HOST_PATH($LOCATION(ApplicationsCapacity)/pigallery2/media)",
+      "thumbnails": "$HOST_PATH($LOCATION(ApplicationsPerformance)/pigallery2/thumbnails)"
+    },
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 30099
+      },
+      "host_network": false
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 2048)"
+      }
+    }
+  }
+}
