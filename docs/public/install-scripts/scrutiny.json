@@ -18,6 +18,10 @@
     "ports": []
   },
   "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
     "$LOCATION(ApplicationsPerformance)/scrutiny/config",
     "$LOCATION(ApplicationsPerformance)/scrutiny/influxdb"
   ],
