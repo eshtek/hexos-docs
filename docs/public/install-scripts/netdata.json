@@ -1,0 +1,81 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial HexOS install script for Netdata real-time monitoring"
+  },
+  "requirements": {
+    "locations": [
+      "ApplicationsPerformance"
+    ],
+    "specifications": [
+      "2CORE",
+      "512MB"
+    ],
+    "permissions": [
+      "READ_WRITE_LOCATIONS"
+    ],
+    "ports": [
+      20489
+    ]
+  },
+  "installation_questions": [],
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/netdata",
+      "posix": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/netdata/config",
+      "posix": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/netdata/lib",
+      "posix": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/netdata/cache",
+      "posix": true
+    }
+  ],
+  "ensure_permissions_exists": [],
+  "app_values": {
+    "release_name": "netdata",
+    "netdata": {
+      "enable_smart": false,
+      "enable_intel_gpu": false,
+      "devices": [],
+      "additional_debs": [],
+      "additional_envs": []
+    },
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 20489,
+        "host_ips": []
+      },
+      "host_network": false,
+      "dns_opts": []
+    },
+    "storage": {
+      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/netdata/config)",
+      "lib": "$HOST_PATH($LOCATION(ApplicationsPerformance)/netdata/lib)",
+      "cache": "$HOST_PATH($LOCATION(ApplicationsPerformance)/netdata/cache)",
+      "additional_storage": []
+    },
+    "labels": [],
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": 2048
+      },
+      "gpus": {
+        "use_all_gpus": false
+      }
+    }
+  }
+}
