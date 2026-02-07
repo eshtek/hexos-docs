@@ -1,0 +1,71 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial Script"
+  },
+  "requirements": {
+    "locations": [
+      "ApplicationsPerformance"
+    ],
+    "specifications": [
+      "2CORE",
+      "200MB"
+    ],
+    "permissions": [
+      "READ_WRITE_LOCATIONS"
+    ]
+  },
+  "installation_questions": [
+    {
+      "question": "Hostname",
+      "description": "The hostname for Tailscale Node.\nOnly lowercase letters, numbers, and hyphens are allowed.\nSame as `--hostname` flag.",
+      "placeholder": "$SERVER_HOST_NAME",
+      "type": "text",
+      "key": "tailscale_hostname",
+      "required": true
+    },
+    {
+      "question": "Auth Key",
+      "description": "The auth key for Tailscale Node.\nSame as `--authkey` flag.\nTo generate one: https://login.tailscale.com/admin/settings/keys",
+      "placeholder": "tskey-auth-xxxxxx",
+      "type": "text",
+      "key": "tailscale_auth_key",
+      "required": true
+    }
+  ],
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/tailscale/state",
+      "posix": true
+    }
+  ],
+  "app_values": {
+    "tailscale": {
+      "hostname": "$QUESTION(tailscale_hostname)",
+      "auth_key": "$QUESTION(tailscale_auth_key)",
+      "auth_once": true,
+      "reset": false,
+      "accept_dns": false,
+      "userspace": true,
+      "accept_routes": false,
+      "advertise_exit_node": false
+    },
+    "network": {
+      "host_network": true
+    },
+    "storage": {
+      "state": "$HOST_PATH($LOCATION(ApplicationsPerformance)/tailscale/state)"
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(5%, 1024)"
+      }
+    }
+  }
+}
