@@ -5,20 +5,10 @@
     "changeLog": "Initial Script"
   },
   "requirements": {
-    "locations": [
-      "ApplicationsPerformance",
-      "ApplicationsCapacity"
-    ],
-    "specifications": [
-      "2CORE",
-      "1GB"
-    ],
-    "permissions": [
-      "READ_WRITE_LOCATIONS"
-    ],
-    "ports": [
-      31014
-    ]
+    "locations": ["ApplicationsPerformance", "ApplicationsCapacity"],
+    "specifications": ["2CORE", "1GB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [31014]
   },
   "ensure_directories_exists": [
     {
