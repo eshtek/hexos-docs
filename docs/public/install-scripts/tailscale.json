@@ -5,16 +5,9 @@
     "changeLog": "Initial Script"
   },
   "requirements": {
-    "locations": [
-      "ApplicationsPerformance"
-    ],
-    "specifications": [
-      "2CORE",
-      "200MB"
-    ],
-    "permissions": [
-      "READ_WRITE_LOCATIONS"
-    ]
+    "locations": ["ApplicationsPerformance"],
+    "specifications": ["2CORE", "200MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"]
   },
   "installation_questions": [
     {
@@ -42,7 +35,8 @@
     {
       "path": "$LOCATION(ApplicationsPerformance)/tailscale/state",
       "posix": true
-    }
+    },
+    "$LOCATION(ApplicationsPerformance)/tailscale/config"
   ],
   "app_values": {
     "tailscale": {
@@ -53,13 +47,22 @@
       "accept_dns": false,
       "userspace": true,
       "accept_routes": false,
-      "advertise_exit_node": false
+      "advertise_exit_node": false,
+      "additional_envs": [
+        {
+          "name": "TS_SERVE_CONFIG",
+          "value": "/config/serve.conf"
+        }
+      ]
     },
     "network": {
       "host_network": true
     },
     "storage": {
-      "state": "$HOST_PATH($LOCATION(ApplicationsPerformance)/tailscale/state)"
+      "state": "$HOST_PATH($LOCATION(ApplicationsPerformance)/tailscale/state)",
+      "additional_storage": [
+        "$MOUNTED_HOST_PATH($LOCATION(ApplicationsPerformance)/tailscale/config, /config)"
+      ]
     },
     "resources": {
       "limits": {
