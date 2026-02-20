@@ -1,0 +1,77 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial Script"
+  },
+  "requirements": {
+    "locations": [
+      "ApplicationsPerformance"
+    ],
+    "specifications": [
+      "2CORE",
+      "4096MB"
+    ],
+    "permissions": [
+      "READ_WRITE_LOCATIONS"
+    ],
+    "ports": []
+  },
+  "installation_questions": [
+    {
+      "question": "TMDB API Key",
+      "type": "text",
+      "key": "tmdb_api_key",
+      "required": false
+    },
+    {
+      "question": "Enable DHT Crawler",
+      "type": "boolean",
+      "key": "enable_dht_crawler",
+      "required": false,
+      "default": true
+    }
+  ],
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    "$LOCATION(ApplicationsPerformance)/bitmagnet/config",
+    "$LOCATION(ApplicationsPerformance)/bitmagnet/postgres_data"
+  ],
+  "ensure_permissions_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/bitmagnet/postgres_data",
+      "username": "netdata",
+      "access": "read",
+      "posix": {
+        "groupname": "docker"
+      }
+    }
+  ],
+  "app_values": {
+    "bitmagnet": {
+      "postgres_image_selector": "postgres_18_image",
+      "db_password": "$RANDOM_STRING(16)",
+      "tmdb_api_key": "$QUESTION(tmdb_api_key)",
+      "enable_dht_crawler": "$QUESTION(enable_dht_crawler)"
+    },
+    "storage": {
+      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/bitmagnet/config)",
+      "postgres_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/bitmagnet/postgres_data)"
+    },
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 30177
+      }
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 4096)"
+      }
+    }
+  }
+}
