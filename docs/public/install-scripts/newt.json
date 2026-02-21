@@ -1,0 +1,63 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial Script"
+  },
+  "requirements": {
+    "locations": [],
+    "specifications": [
+      "2CORE",
+      "4096MB"
+    ],
+    "permissions": [],
+    "ports": []
+  },
+  "installation_questions": [
+    {
+      "question": "Pangolin Endpoint",
+      "description": "The endpoint for the Pangolin service.",
+      "type": "text",
+      "key": "pangolin_endpoint",
+      "required": true
+    },
+    {
+      "question": "Newt ID",
+      "description": "The ID for the newt connection.",
+      "type": "text",
+      "key": "newt_id",
+      "required": true
+    },
+    {
+      "question": "Newt Secret",
+      "description": "The secret for the newt connection.",
+      "type": "text",
+      "key": "newt_secret",
+      "required": true
+    },
+    {
+      "question": "Host Network",
+      "description": "Bind to the host network. It's recommended to keep this disabled.",
+      "type": "boolean",
+      "key": "host_network",
+      "required": false
+    }
+  ],
+  "ensure_directories_exists": [],
+  "app_values": {
+    "newt": {
+      "pangolin_endpoint": "$QUESTION(pangolin_endpoint)",
+      "newt_id": "$QUESTION(newt_id)",
+      "newt_secret": "$QUESTION(newt_secret)"
+    },
+    "network": {
+      "host_network": "$QUESTION(host_network)"
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 4096)"
+      }
+    }
+  }
+}
