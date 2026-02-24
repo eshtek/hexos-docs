@@ -4,6 +4,7 @@
 | App | Download | Size | Last Modified |
 |---|---|---:|---|
 | `bazarr` | [bazarr.json](/install-scripts/bazarr.json) | 1.3 KB | 2025-12-25 |
+| `bitmagnet` | [bitmagnet.json](/install-scripts/bitmagnet.json) | 1.8 KB | 2026-02-20 |
 | `drawio` | [drawio.json](/install-scripts/drawio.json) | 739 B | 2025-12-25 |
 | `emby` | [emby.json](/install-scripts/emby.json) | 2.2 KB | 2026-01-21 |
 | `handbrake` | [handbrake.json](/install-scripts/handbrake.json) | 1.8 KB | 2025-12-25 |
