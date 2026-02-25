@@ -40,7 +40,8 @@
       "description": "Bind to the host network. It's recommended to keep this disabled.",
       "type": "boolean",
       "key": "host_network",
-      "required": false
+      "required": false,
+      "default": false
     }
   ],
   "ensure_directories_exists": [],
