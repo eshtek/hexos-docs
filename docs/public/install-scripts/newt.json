@@ -36,6 +36,14 @@
       "required": true
     },
     {
+      "question": "Docker Socket",
+      "description": "Newt can integrate with the Docker socket to provide remote inspection of Docker containers.",
+      "type": "boolean",
+      "key": "docker_socket",
+      "required": false,
+      "default": true
+    },
+    {
       "question": "Host Network",
       "description": "Bind to the host network. It's recommended to keep this disabled.",
       "type": "boolean",
