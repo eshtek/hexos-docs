@@ -1,0 +1,50 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial Script"
+  },
+  "requirements": {
+    "locations": ["ApplicationsPerformance", "ApplicationsCapacity"],
+    "specifications": ["2CORE", "2048MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [30145]
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsCapacity)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    "$LOCATION(ApplicationsPerformance)/codeserver/config",
+    "$LOCATION(ApplicationsCapacity)/codeserver/local",
+    "$LOCATION(ApplicationsCapacity)/codeserver/project"
+  ],
+  "app_values": {
+    "run_as": {
+      "user": 568,
+      "group": 568
+    },
+    "storage": {
+      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/codeserver/config)",
+      "local": "$HOST_PATH($LOCATION(ApplicationsCapacity)/codeserver/local)",
+      "project": "$HOST_PATH($LOCATION(ApplicationsCapacity)/codeserver/project)"
+    },
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 30145
+      },
+      "host_network": false
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 2048)"
+      }
+    }
+  }
+}
