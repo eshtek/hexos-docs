@@ -1,0 +1,185 @@
+{
+    "version": 3,
+    "script": {
+        "version": "1.0.0",
+        "changeLog": "Initial curated script for OpenCloud with collaboration support"
+    },
+    "requirements": {
+        "locations": [
+            "ApplicationsPerformance"
+        ],
+        "specifications": [
+            "2CORE",
+            "2GB"
+        ],
+        "permissions": [
+            "READ_WRITE_LOCATIONS"
+        ],
+        "ports": [
+            30259
+        ]
+    },
+    "installation_questions": [
+        {
+            "question": "Application URL",
+            "description": "The full HTTPS URL to access OpenCloud (e.g., cloud.example.com).",
+            "type": "text",
+            "key": "app_url",
+            "required": true
+        },
+        {
+            "question": "JWT Secret",
+            "description": "Shared secret used for OpenCloud internal auth and OnlyOffice WOPI authentication. This MUST match the JWT secret in your OnlyOffice installation. If installing OpenCloud first, leave the default to auto-generate one, then paste it into OnlyOffice's JWT Secret field later. If OnlyOffice is already installed, paste its JWT secret here.",
+            "type": "text",
+            "key": "jwt_secret",
+            "default": "$RANDOM_STRING(32)",
+            "required": false
+        },
+        {
+            "question": "Enable Collaboration",
+            "description": "Enable document collaboration via WOPI (Collabora or OnlyOffice). Requires a separate Collabora or OnlyOffice server.",
+            "type": "boolean",
+            "key": "enable_collaboration",
+            "default": false,
+            "required": false
+        },
+        {
+            "question": "Collaboration Type",
+            "description": "Choose your collaboration server type. Only used if collaboration is enabled.",
+            "type": "select",
+            "key": "collaboration_type",
+            "default": "collabora",
+            "required": false,
+            "options": [
+                {
+                    "text": "Collabora Online",
+                    "value": "collabora"
+                },
+                {
+                    "text": "OnlyOffice",
+                    "value": "onlyoffice"
+                }
+            ]
+        },
+        {
+            "question": "Collaboration Server URL",
+            "description": "The HTTPS URL of your Collabora or OnlyOffice server (e.g., office.example.com). Only required if collaboration is enabled.",
+            "type": "text",
+            "key": "collaboration_url",
+            "default": "",
+            "required": false
+        }
+    ],
+    "ensure_directories_exists": [
+        {
+            "path": "$LOCATION(ApplicationsPerformance)",
+            "network_share": true
+        },
+        {
+            "path": "$LOCATION(ApplicationsPerformance)/opencloud/config",
+            "posix": true
+        },
+        {
+            "path": "$LOCATION(ApplicationsPerformance)/opencloud/data",
+            "posix": true
+        },
+        {
+            "path": "$LOCATION(ApplicationsPerformance)/opencloud/radicale_data",
+            "posix": true
+        }
+    ],
+    "ensure_permissions_exists": [
+        {
+            "path": "$LOCATION(ApplicationsPerformance)/opencloud/config",
+            "username": "apps",
+            "access": "write",
+            "posix": {
+                "groupname": "apps"
+            }
+        },
+        {
+            "path": "$LOCATION(ApplicationsPerformance)/opencloud/data",
+            "username": "apps",
+            "access": "write",
+            "posix": {
+                "groupname": "apps"
+            }
+        },
+        {
+            "path": "$LOCATION(ApplicationsPerformance)/opencloud/radicale_data",
+            "username": "apps",
+            "access": "write",
+            "posix": {
+                "groupname": "apps"
+            }
+        }
+    ],
+    "app_values": {
+        "TZ": "Etc/UTC",
+        "opencloud": {
+            "app_url": "$QUESTION(app_url)",
+            "insecure": true,
+            "jwt_secret": "$QUESTION(jwt_secret)",
+            "full_text_search": {
+                "enabled": true
+            },
+            "radicale": {
+                "enabled": true
+            },
+            "collaboration": {
+                "enabled": "$QUESTION(enable_collaboration)",
+                "proof_disable": true,
+                "type": "$QUESTION(collaboration_type)",
+                "url": "$QUESTION(collaboration_url)",
+                "insecure": false,
+                "jwt_secret": "$QUESTION(jwt_secret)"
+            },
+            "extra_services": [],
+            "smtp": {
+                "enabled": false
+            },
+            "apps": {
+                "drawio": true,
+                "progress_bars": true,
+                "json_viewer": true,
+                "external_sites": true,
+                "unzip": true,
+                "cast": true,
+                "arcade": true,
+                "maps": true,
+                "importer": true
+            },
+            "additional_csp": [],
+            "additional_oidc_role_config": {
+                "enabled": false
+            },
+            "additional_envs": []
+        },
+        "run_as": {
+            "user": 568,
+            "group": 568
+        },
+        "network": {
+            "web_port": {
+                "bind_mode": "published",
+                "port_number": 30259
+            },
+            "metrics_port": {
+                "bind_mode": ""
+            }
+        },
+        "storage": {
+            "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/opencloud/config)",
+            "data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/opencloud/data)",
+            "radicale_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/opencloud/radicale_data)",
+            "additional_storage": []
+        },
+        "labels": [],
+        "resources": {
+            "limits": {
+                "cpus": 2,
+                "memory": "$MEMORY(10%, 4096)"
+            }
+        }
+    }
+}
