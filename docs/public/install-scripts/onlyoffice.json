@@ -12,7 +12,9 @@
             "2CORE",
             "2GB"
         ],
-        "permissions": [],
+        "permissions": [
+            "READ_WRITE_LOCATIONS"
+        ],
         "ports": [
             30134
         ]
