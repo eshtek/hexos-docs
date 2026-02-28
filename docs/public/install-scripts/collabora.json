@@ -1,0 +1,115 @@
+{
+    "version": 3,
+    "script": {
+        "version": "1.0.0",
+        "changeLog": "Initial curated script for Collabora Online"
+    },
+    "requirements": {
+        "locations": [
+            "ApplicationsPerformance"
+        ],
+        "specifications": [
+            "2CORE",
+            "2GB"
+        ],
+        "permissions": [],
+        "ports": [
+            9980
+        ]
+    },
+    "installation_questions": [
+        {
+            "question": "Server Name",
+            "description": "The hostname where Collabora will be accessible. Only host:port, no protocol prefix (e.g., collabora.example.com or 192.168.1.100:9980).",
+            "type": "text",
+            "key": "server_name",
+            "required": true
+        },
+        {
+            "question": "Allowed Domains",
+            "description": "Comma-separated list of domains allowed to connect (e.g., cloud.example.com). These should be the domains of your cloud platform.",
+            "type": "text",
+            "key": "aliasgroup",
+            "required": true
+        },
+        {
+            "question": "Admin Username",
+            "description": "Username for the Collabora admin console (WebUI).",
+            "type": "text",
+            "key": "admin_user",
+            "default": "admin",
+            "required": false
+        },
+        {
+            "question": "Admin Password",
+            "description": "Password for the Collabora admin console. Minimum 8 characters, only letters, numbers, and !@#%^&*? allowed.",
+            "type": "text",
+            "key": "admin_password",
+            "required": true
+        },
+        {
+            "question": "Web Port",
+            "description": "The port to access Collabora.",
+            "type": "number",
+            "key": "web_port",
+            "default": 9980,
+            "required": false
+        }
+    ],
+    "ensure_directories_exists": [
+        {
+            "path": "$LOCATION(ApplicationsPerformance)",
+            "network_share": true
+        }
+    ],
+    "app_values": {
+        "TZ": "Etc/UTC",
+        "collabora": {
+            "server_name": "$QUESTION(server_name)",
+            "enable_webui": true,
+            "username": "$QUESTION(admin_user)",
+            "password": "$QUESTION(admin_password)",
+            "aliasgroup1": [
+                "$QUESTION(aliasgroup)"
+            ],
+            "dictionaries": [
+                "de_DE",
+                "en_GB",
+                "en_US",
+                "es_ES",
+                "fr_FR",
+                "it",
+                "nl",
+                "pt_BR",
+                "pt_PT",
+                "ru"
+            ],
+            "extra_params": [
+                "--o:welcome.enable=false",
+                "--o:user_interface.mode=notebookbar",
+                "--o:ssl.termination=true",
+                "--o:ssl.enable=false",
+                "--o:net.proto=IPv4",
+                "--o:logging.level=warning",
+                "--o:logging.level_startup=warning"
+            ],
+            "additional_envs": []
+        },
+        "network": {
+            "web_port": {
+                "bind_mode": "published",
+                "port_number": "$QUESTION(web_port)"
+            }
+        },
+        "storage": {
+            "additional_storage": []
+        },
+        "labels": [],
+        "resources": {
+            "limits": {
+                "cpus": 2,
+                "memory": "$MEMORY(10%, 4096)"
+            }
+        }
+    }
+}
