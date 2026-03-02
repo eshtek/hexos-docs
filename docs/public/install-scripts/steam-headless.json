@@ -1,0 +1,144 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial Script"
+  },
+  "requirements": {
+    "locations": ["ApplicationsPerformance", "ApplicationsCapacity"],
+    "specifications": ["4CORE", "8192MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [8192,
+  31100]
+  },
+  "installation_questions": [
+    {
+      "question": "CPU Cores",
+      "description": "Number of CPU threads to allocate (not physical cores - a 6-core CPU with hyperthreading has 12 threads). Recommended: 4-8 threads. Warning: Allocating too many threads will cause system sluggishness. Always leave 2-4 threads for TrueNAS and other services.",
+      "type": "number",
+      "key": "cpu_cores",
+      "required": false,
+      "default": 4
+    },
+    {
+      "question": "Memory (MB)",
+      "description": "Amount of RAM in megabytes. Gaming typically requires 8-16GB (8192-16384 MB). Warning: Allocating too much RAM can cause system instability, sluggishness, and crashes. Always leave at least 4-8GB for TrueNAS and other services. If exceeded, the container may be killed (OOM - Out of Memory).",
+      "placeholder": "8192",
+      "type": "number",
+      "key": "memory_mb",
+      "required": false,
+      "default": 8192
+    },
+    {
+      "question": "VNC Port",
+      "description": "Port number for VNC access to the desktop. This is the port that will let you see and interact with steam headless. Recommended to leave as default unless you have port conflicts.",
+      "type": "number",
+      "key": "vnc_port",
+      "required": false,
+      "default": 31100
+    },
+    {
+      "question": "Enable GPU acceleration?",
+      "description": "GPU acceleration significantly improves gaming and streaming performance but requires compatible hardware (NVIDIA, AMD, or Intel).",
+      "type": "select",
+      "key": "enable_gpu",
+      "required": true,
+      "options": [
+        {
+          "text": "Yes - Use GPU for gaming and streaming. Highly Recommended",
+          "value": true
+        },
+        {
+          "text": "No - Use CPU only",
+          "value": false
+        }
+      ],
+      "default": true
+    },
+    {
+      "question": "Sunshine Username",
+      "description": "Username for Sunshine streaming interface. This can be changed later within Sunnshine.",
+      "type": "text",
+      "key": "sunshine_username",
+      "required": false,
+      "default": "admin"
+    },
+    {
+      "question": "Sunshine Password",
+      "description": "Password for Sunshine streaming interface. You can use the auto-generated one or provide your own.",
+      "type": "text",
+      "key": "sunshine_password",
+      "required": true,
+      "default": "admin"
+    }
+  ],
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/steam-headless/home",
+      "posix": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/steam-headless/x11_socket",
+      "posix": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/steam-headless/pulse_socket",
+      "posix": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/steam-headless/games",
+      "posix": true
+    }
+  ],
+  "app_values": {
+    "TZ": "America/New_York",
+    "steam_headless": {
+      "name": "steam-headless",
+      "user_password": "$RANDOM_STRING(16)",
+      "enable_ev_dev_inputs": true,
+      "shm_size_mb": 4096,
+      "mode": "primary",
+      "force_x11_dummy_config": true,
+      "display": ":55",
+      "steam": {
+        "enable": true,
+        "args": ["-silent"]
+      },
+      "sunshine": {
+        "enable": true,
+        "username": "$QUESTION(sunshine_username)",
+        "password": "$QUESTION(sunshine_password)"
+      }
+    },
+    "run_as": {
+      "user": 568,
+      "group": 568
+    },
+    "network": {
+      "vnc_port": {
+        "bind_mode": "published",
+        "port_number": "$QUESTION(vnc_port)"
+      },
+      "host_network": true
+    },
+    "storage": {
+      "home": "$HOST_PATH($LOCATION(ApplicationsPerformance)/steam-headless/home)",
+      "games": "$HOST_PATH($LOCATION(ApplicationsPerformance)/steam-headless/games)",
+      "x11_socket": "$HOST_PATH($LOCATION(ApplicationsPerformance)/steam-headless/x11_socket)",
+      "pulse_socket": "$HOST_PATH($LOCATION(ApplicationsPerformance)/steam-headless/pulse_socket)"
+    },
+    "resources": {
+      "limits": {
+        "cpus": "$QUESTION(cpu_cores)",
+        "memory": "$QUESTION(memory_mb)"
+      },
+      "gpus": {
+        "use_all_gpus": "$QUESTION(enable_gpu)"
+      }
+    }
+  }
+}
