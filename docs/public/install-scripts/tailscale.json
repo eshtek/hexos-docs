@@ -13,10 +13,10 @@
     {
       "question": "Hostname",
       "description": "The hostname for Tailscale Node.\nOnly lowercase letters, numbers, and hyphens are allowed.\nSame as `--hostname` flag.",
-      "placeholder": "$SERVER_HOST_NAME",
       "type": "text",
       "key": "tailscale_hostname",
-      "required": true
+      "required": true,
+      "default": "hexos"
     },
     {
       "question": "Auth Key",
@@ -25,6 +25,14 @@
       "type": "text",
       "key": "tailscale_auth_key",
       "required": true
+    },
+    {
+      "question": "Advertise Exit Node",
+      "description": "Advertise exit node\nSame as `--advertise-exit-node` flag.\nNeeds enabled IP forwarding on the host via System > Advanced Settings > Sysctls.\nPlease make sure you read and understand the warnings displayed when adding Sysctls\nSee also https://tailscale.com/kb/1019/subnets?tab=linux#enable-ip-forwarding\n",
+      "type": "boolean",
+      "key": "tailscale_advertise_exit_node",
+      "required": true,
+      "default": false
     }
   ],
   "ensure_directories_exists": [
@@ -47,7 +55,7 @@
       "accept_dns": false,
       "userspace": true,
       "accept_routes": false,
-      "advertise_exit_node": false,
+      "advertise_exit_node": "$QUESTION(tailscale_advertise_exit_node)",
       "additional_envs": [
         {
           "name": "TS_SERVE_CONFIG",
