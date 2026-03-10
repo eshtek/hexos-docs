@@ -20,4 +20,5 @@
 | `scrutiny` | [scrutiny.json](/install-scripts/scrutiny.json) | 1.3 KB | 2026-01-31 |
 | `sonarr` | [sonarr.json](/install-scripts/sonarr.json) | 1.2 KB | 2025-12-04 |
 | `syncthing` | [syncthing.json](/install-scripts/syncthing.json) | 2.0 KB | 2025-12-25 |
+| `tailscale` | [tailscale.json](/install-scripts/tailscale.json) | 1.8 KB | 2026-02-07 |
 <!-- curated:index:end -->
