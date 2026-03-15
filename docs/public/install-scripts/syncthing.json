@@ -1,8 +1,8 @@
 {
   "version": 3,
   "script": {
-    "version": "1.0.0",
-    "changeLog": "Initial Script"
+    "version": "1.0.1",
+    "changeLog": "Updated requirements"
   },
   "requirements": {
     "locations": [
@@ -21,7 +21,7 @@
     "permissions": [
       "READ_WRITE_LOCATIONS"
     ],
-    "ports": []
+    "ports": [20910, 20978, 20970]
   },
   "ensure_directories_exists": [
     {

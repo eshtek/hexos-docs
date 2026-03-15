@@ -1,14 +1,14 @@
 {
   "version": 3,
   "script": {
-    "version": "1.0.0",
-    "changeLog": "Upgraded Jellyfin install script to be compatible with latest HexOS script changes"
+    "version": "1.0.1",
+    "changeLog": "Updated requirements"
   },
   "requirements": {
     "locations": ["ApplicationsPerformance", "ApplicationsCapacity", "Media", "Photos", "Music", "Movies", "Shows", "Videos"],
-    "specifications": ["2CORE", "200MB"],
+    "specifications": ["2CORE", "256MB"],
     "permissions": ["READ_WRITE_LOCATIONS"],
-    "ports": [8096, 8920]
+    "ports": [30013, 30014]
   },
   "ensure_directories_exists": [
     {
