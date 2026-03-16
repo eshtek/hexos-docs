@@ -1,0 +1,129 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial Frigate NVR installation script for HexOS"
+  },
+  "requirements": {
+    "locations": [
+      "ApplicationsPerformance",
+      "Media"
+    ],
+    "specifications": [
+      "2CORE",
+      "2GB",
+      "GPU"
+    ],
+    "permissions": [
+      "READ_WRITE_LOCATIONS"
+    ],
+    "ports": [
+      30193,
+      30194,
+      30195,
+      30196,
+      30197
+    ]
+  },
+  "installation_questions": [
+    {
+      "question": "Hardware Acceleration",
+      "description": "Select based on your hardware. Use CPU/iGPU for most systems including AMD and Intel integrated graphics. Only select a discrete GPU option if you have a dedicated graphics card.",
+      "type": "select",
+      "key": "image_selector",
+      "options": [
+        {
+          "text": "CPU / Integrated GPU (AMD, Intel, or Coral TPU)",
+          "value": "image"
+        },
+        {
+          "text": "Discrete NVIDIA GPU",
+          "value": "tensorrt_image"
+        },
+        {
+          "text": "Discrete AMD GPU (RX 6000 series or newer)",
+          "value": "rocm_image"
+        }
+      ],
+      "default": "image"
+    }
+  ],
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/frigate/config",
+      "posix": true
+    },
+    "$LOCATION(Media)/frigate"
+  ],
+  "ensure_permissions_exists": [],
+  "app_values": {
+    "release_name": "frigate",
+    "TZ": "Etc/UTC",
+    "frigate": {
+      "image_selector": "$QUESTION(image_selector)",
+      "shm_size_mb": 512,
+      "mount_usb_bus": true,
+      "devices": [],
+      "additional_envs": []
+    },
+    "network": {
+      "host_network": false,
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 30193,
+        "host_ips": []
+      },
+      "no_auth_port": {
+        "bind_mode": "published",
+        "port_number": 30194,
+        "host_ips": []
+      },
+      "rtsp_port": {
+        "bind_mode": "published",
+        "port_number": 30195,
+        "host_ips": []
+      },
+      "webrtc_port": {
+        "bind_mode": "published",
+        "port_number": 30196,
+        "host_ips": []
+      },
+      "go2rtc_port": {
+        "bind_mode": "published",
+        "port_number": 30197,
+        "host_ips": []
+      }
+    },
+    "storage": {
+      "config": {
+        "type": "host_path",
+        "host_path_config": {
+          "acl_enable": false,
+          "path": "$LOCATION(ApplicationsPerformance)/frigate/config"
+        }
+      },
+      "media": {
+        "type": "host_path",
+        "host_path_config": {
+          "acl_enable": false,
+          "path": "$LOCATION(Media)/frigate"
+        }
+      },
+      "cache": {
+        "type": "tmpfs",
+        "tmpfs_config": {
+          "size": 1000
+        }
+      },
+      "additional_storage": []
+    },
+    "labels": [],
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 4096)"
+      },
+      "gpus": "$GPU_CONFIG()"
+    }
+  }
+}
