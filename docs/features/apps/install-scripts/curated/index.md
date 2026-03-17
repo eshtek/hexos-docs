@@ -4,6 +4,7 @@
 | App | Download | Size | Last Modified |
 |---|---|---:|---|
 | `bazarr` | [bazarr.json](/install-scripts/bazarr.json) | 1.3 KB | 2025-12-25 |
+| `collabora` | [collabora.json](/install-scripts/collabora.json) | 3.4 KB | 2026-02-28 |
 | `drawio` | [drawio.json](/install-scripts/drawio.json) | 739 B | 2025-12-25 |
 | `emby` | [emby.json](/install-scripts/emby.json) | 2.2 KB | 2026-01-06 |
 | `handbrake` | [handbrake.json](/install-scripts/handbrake.json) | 1.8 KB | 2025-12-25 |
@@ -12,6 +13,8 @@
 | `jellyfin` | [jellyfin.json](/install-scripts/jellyfin.json) | 2.2 KB | 2025-12-12 |
 | `lidarr` | [lidarr.json](/install-scripts/lidarr.json) | 1.3 KB | 2025-12-25 |
 | `nextcloud` | [nextcloud.json](/install-scripts/nextcloud.json) | 3.4 KB | 2025-12-28 |
+| `onlyoffice` | [onlyoffice.json](/install-scripts/onlyoffice.json) | 2.7 KB | 2026-02-28 |
+| `opencloud` | [opencloud.json](/install-scripts/opencloud.json) | 5.9 KB | 2026-02-28 |
 | `peanut` | [peanut.json](/install-scripts/peanut.json) | 823 B | 2025-12-25 |
 | `plex` | [plex.json](/install-scripts/plex.json) | 3.4 KB | 2025-12-12 |
 | `prowlarr` | [prowlarr.json](/install-scripts/prowlarr.json) | 766 B | 2025-12-04 |

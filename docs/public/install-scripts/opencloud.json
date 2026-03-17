@@ -22,7 +22,7 @@
     "installation_questions": [
         {
             "question": "Application URL",
-            "description": "The full HTTPS URL to access OpenCloud (e.g., cloud.example.com).",
+            "description": "The full HTTPS URL to access OpenCloud (e.g., https://cloud.example.com).",
             "type": "text",
             "key": "app_url",
             "required": true
@@ -63,7 +63,7 @@
         },
         {
             "question": "Collaboration Server URL",
-            "description": "The HTTPS URL of your Collabora or OnlyOffice server (e.g., office.example.com). Only required if collaboration is enabled.",
+            "description": "The HTTPS URL of your Collabora or OnlyOffice server (e.g., https://office.example.com). Only required if collaboration is enabled.",
             "type": "text",
             "key": "collaboration_url",
             "default": "",

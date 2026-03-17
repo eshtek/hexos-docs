@@ -27,14 +27,6 @@
             "key": "jwt_secret",
             "default": "$RANDOM_STRING(32)",
             "required": false
-        },
-        {
-            "question": "Web Port",
-            "description": "The port to access OnlyOffice Document Server.",
-            "type": "number",
-            "key": "web_port",
-            "default": 30134,
-            "required": false
         }
     ],
     "ensure_directories_exists": [
@@ -51,7 +43,7 @@
         {
             "path": "$LOCATION(ApplicationsPerformance)/onlyoffice/postgres_data",
             "username": "netdata",
-            "access": "write",
+            "access": "read",
             "posix": {
                 "groupname": "docker"
             }
@@ -69,7 +61,7 @@
         "network": {
             "web_port": {
                 "bind_mode": "published",
-                "port_number": "$QUESTION(web_port)"
+                "port_number": 30134
             }
         },
         "storage": {

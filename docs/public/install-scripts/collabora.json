@@ -28,10 +28,10 @@
             "required": true
         },
         {
-            "question": "Allowed Domains",
-            "description": "Comma-separated list of domains allowed to connect (e.g., cloud.example.com). These should be the domains of your cloud platform.",
+            "question": "Allowed Domain",
+            "description": "Single domain allowed to connect (e.g., cloud.example.com). This should be the domain of your cloud platform.",
             "type": "text",
-            "key": "aliasgroup",
+            "key": "allowed_domain",
             "required": true
         },
         {
@@ -48,14 +48,6 @@
             "type": "text",
             "key": "admin_password",
             "required": true
-        },
-        {
-            "question": "Web Port",
-            "description": "The port to access Collabora.",
-            "type": "number",
-            "key": "web_port",
-            "default": 9980,
-            "required": false
         }
     ],
     "ensure_directories_exists": [
@@ -72,7 +64,7 @@
             "username": "$QUESTION(admin_user)",
             "password": "$QUESTION(admin_password)",
             "aliasgroup1": [
-                "$QUESTION(aliasgroup)"
+                "$QUESTION(allowed_domain)"
             ],
             "dictionaries": [
                 "de_DE",
@@ -100,7 +92,7 @@
         "network": {
             "web_port": {
                 "bind_mode": "published",
-                "port_number": "$QUESTION(web_port)"
+                "port_number": 9980
             }
         },
         "storage": {
