@@ -1,0 +1,79 @@
+{
+    "version": 3,
+    "script": {
+        "version": "1.0.0",
+        "changeLog": "Initial curated script for OnlyOffice Document Server"
+    },
+    "requirements": {
+        "locations": [
+            "ApplicationsPerformance"
+        ],
+        "specifications": [
+            "2CORE",
+            "2GB"
+        ],
+        "permissions": [
+            "READ_WRITE_LOCATIONS"
+        ],
+        "ports": [
+            30134
+        ]
+    },
+    "installation_questions": [
+        {
+            "question": "JWT Secret",
+            "description": "The shared JWT secret for WOPI authentication. This MUST match the JWT secret configured in your cloud platform (e.g., OpenCloud, Nextcloud). If installing OnlyOffice first, leave the default to auto-generate one, then paste it into your cloud platform's JWT secret field later. If the cloud platform is already installed, paste its JWT secret here.",
+            "type": "text",
+            "key": "jwt_secret",
+            "default": "$RANDOM_STRING(32)",
+            "required": false
+        }
+    ],
+    "ensure_directories_exists": [
+        {
+            "path": "$LOCATION(ApplicationsPerformance)",
+            "network_share": true
+        },
+        {
+            "path": "$LOCATION(ApplicationsPerformance)/onlyoffice/postgres_data",
+            "posix": true
+        }
+    ],
+    "ensure_permissions_exists": [
+        {
+            "path": "$LOCATION(ApplicationsPerformance)/onlyoffice/postgres_data",
+            "username": "netdata",
+            "access": "read",
+            "posix": {
+                "groupname": "docker"
+            }
+        }
+    ],
+    "app_values": {
+        "TZ": "Etc/UTC",
+        "onlyoffice": {
+            "postgres_image_selector": "postgres_18_image",
+            "db_password": "$RANDOM_STRING(16)",
+            "redis_password": "$RANDOM_STRING(16)",
+            "jwt_secret": "$QUESTION(jwt_secret)",
+            "additional_envs": []
+        },
+        "network": {
+            "web_port": {
+                "bind_mode": "published",
+                "port_number": 30134
+            }
+        },
+        "storage": {
+            "postgres_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/onlyoffice/postgres_data)",
+            "additional_storage": []
+        },
+        "labels": [],
+        "resources": {
+            "limits": {
+                "cpus": 2,
+                "memory": "$MEMORY(10%, 4096)"
+            }
+        }
+    }
+}
