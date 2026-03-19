@@ -1,0 +1,66 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial Script"
+  },
+  "requirements": {
+    "locations": ["ApplicationsPerformance", "ApplicationsCapacity"],
+    "specifications": ["2CORE", "4096MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": []
+  },
+  "installation_questions": [
+    {
+      "question": "Disable Anonymous Telemetry",
+      "description": "Disable anonymous telemetry for Gramps Web. This will prevent Gramps Web from sending anonymous statistics data to the Gramps project.",
+      "type": "boolean",
+      "key": "disable_telemetry",
+      "required": false,
+      "default": false
+    }
+  ],
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    "$LOCATION(ApplicationsPerformance)/gramps/users",
+    "$LOCATION(ApplicationsPerformance)/gramps/index",
+    "$LOCATION(ApplicationsPerformance)/gramps/thumbnail_cache",
+    "$LOCATION(ApplicationsPerformance)/gramps/cache",
+    "$LOCATION(ApplicationsPerformance)/gramps/grampsdb",
+    {
+      "path": "$LOCATION(ApplicationsCapacity)",
+      "network_share": true
+    },
+    "$LOCATION(ApplicationsCapacity)/gramps/media"
+  ],
+  "app_values": {
+    "gramps": {
+      "redis_password": "$RANDOM_STRING(16)",
+      "disable_telemetry": "$QUESTION(disable_telemetry)",
+      "app_key": "$RANDOM_STRING(32)"
+    },
+    "storage": {
+      "users": "$HOST_PATH($LOCATION(ApplicationsPerformance)/gramps/users)",
+      "index": "$HOST_PATH($LOCATION(ApplicationsPerformance)/gramps/index)",
+      "thumbnail_cache": "$HOST_PATH($LOCATION(ApplicationsPerformance)/gramps/thumbnail_cache)",
+      "cache": "$HOST_PATH($LOCATION(ApplicationsPerformance)/gramps/cache)",
+      "grampsdb": "$HOST_PATH($LOCATION(ApplicationsPerformance)/gramps/grampsdb)",
+      "media": "$HOST_PATH($LOCATION(ApplicationsCapacity)/gramps/media)"
+    },
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 30179
+      }
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 4096)"
+      }
+    }
+  }
+}
