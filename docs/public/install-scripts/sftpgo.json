@@ -1,0 +1,128 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial Script"
+  },
+  "requirements": {
+    "locations": [
+      "ApplicationsPerformance",
+      "ApplicationsCapacity",
+      "Documents",
+      "Downloads",
+      "Media",
+      "Movies",
+      "Music",
+      "Photos",
+      "Shows",
+      "Videos"
+    ],
+    "specifications": [
+      "2CORE",
+      "4096MB"
+    ],
+    "permissions": [
+      "READ_WRITE_LOCATIONS"
+    ],
+    "ports": []
+  },
+  "installation_questions": [
+    {
+      "question": "Image",
+      "description": "The image to use for SFTPGo.",
+      "type": "select",
+      "key": "image_selector",
+      "required": true,
+      "options": [
+        {
+          "text": "Normal Image",
+          "value": "image"
+        },
+        {
+          "text": "Plugins Image",
+          "value": "plugins_image"
+        }
+      ],
+      "default": "image"
+
+    }
+  ],
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsCapacity)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Documents)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Downloads)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Media)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Movies)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Music)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Photos)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Shows)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Videos)",
+      "network_share": true
+    },
+    "$LOCATION(ApplicationsPerformance)/sftpgo/config",
+    "$LOCATION(ApplicationsCapacity)/sftpgo/data",
+    "$LOCATION(ApplicationsCapacity)/sftpgo/backups"
+  ],
+  "app_values": {
+    "sftpgo": {
+      "image_selector": "$QUESTION(image_selector)"
+    },
+    "storage": {
+      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/sftpgo/config)",
+      "data": "$HOST_PATH($LOCATION(ApplicationsCapacity)/sftpgo/data)",
+      "backups": "$HOST_PATH($LOCATION(ApplicationsCapacity)/sftpgo/backups)",
+      "additional_storage": [
+        "$MOUNTED_HOST_PATH($LOCATION(Documents), /srv/sftpgo/data/Documents)",
+        "$MOUNTED_HOST_PATH($LOCATION(Downloads), /srv/sftpgo/data/Downloads)",
+        "$MOUNTED_HOST_PATH($LOCATION(Media), /srv/sftpgo/data/Media)",
+        "$MOUNTED_HOST_PATH($LOCATION(Movies), /srv/sftpgo/data/Movies)",
+        "$MOUNTED_HOST_PATH($LOCATION(Music), /srv/sftpgo/data/Music)",
+        "$MOUNTED_HOST_PATH($LOCATION(Photos), /srv/sftpgo/data/Photos)",
+        "$MOUNTED_HOST_PATH($LOCATION(Shows), /srv/sftpgo/data/Shows)",
+        "$MOUNTED_HOST_PATH($LOCATION(Videos), /srv/sftpgo/data/Videos)"
+      ]
+    },
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 30112
+      },
+      "host_network": false
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 4096)"
+      }
+    }
+  }
+}
