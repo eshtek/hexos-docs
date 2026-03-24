@@ -1,14 +1,14 @@
 {
   "version": 3,
   "script": {
-    "version": "1.0.1",
-    "changeLog": "Emby port change"
+    "version": "1.0.2",
+    "changeLog": "Updated requirements"
   },
   "requirements": {
     "locations": ["ApplicationsPerformance", "ApplicationsCapacity", "Media", "Photos", "Music", "Movies", "Shows", "Videos"],
     "specifications": ["2CORE", "512MB"],
     "permissions": ["READ_WRITE_LOCATIONS"],
-    "ports": []
+    "ports": [9096, 8920]
   },
   "ensure_directories_exists": [
     {
