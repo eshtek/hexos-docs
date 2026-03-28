@@ -16,6 +16,7 @@
 | `plex` | [plex.json](/install-scripts/plex.json) | 3.4 KB | 2025-12-12 |
 | `prowlarr` | [prowlarr.json](/install-scripts/prowlarr.json) | 766 B | 2025-12-04 |
 | `qbittorrent` | [qbittorrent.json](/install-scripts/qbittorrent.json) | 1.0 KB | 2025-12-04 |
+| `qui` | [qui.json](/install-scripts/qui.json) | 821 B | 2026-03-28 |
 | `radarr` | [radarr.json](/install-scripts/radarr.json) | 1.2 KB | 2025-12-04 |
 | `scrutiny` | [scrutiny.json](/install-scripts/scrutiny.json) | 1.3 KB | 2026-03-15 |
 | `sonarr` | [sonarr.json](/install-scripts/sonarr.json) | 1.2 KB | 2025-12-04 |
