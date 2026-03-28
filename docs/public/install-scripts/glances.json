@@ -1,0 +1,53 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial Script"
+  },
+  "installation_questions": [
+    {
+      "question": "Would you like a light weight installation",
+      "description": "The light weight installation only has the required dependencies.",
+      "type": "select",
+      "key": "image_selector",
+      "required": true,
+      "options": [
+        {
+          "text": "Yes, I want the light weight version",
+          "value": "image"
+        },
+        {
+          "text": "No, I want the full version",
+          "value": "full_image"
+        }
+      ],
+      "default": "image"
+    }
+  ],
+  "requirements": {
+    "locations": [],
+    "specifications": ["2CORE", "256MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [30015]
+  },
+  "ensure_directories_exists": [],
+  "app_values": {
+    "glances": {
+      "docker_enable": "true",
+      "image_selector": "$QUESTION(image_selector)"
+    },
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 30015
+      }
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(5%, 1024)"
+      },
+      "gpus": "$GPU_CONFIG()"
+    }
+  }
+}
