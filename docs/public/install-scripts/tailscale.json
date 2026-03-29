@@ -27,6 +27,30 @@
       "required": true
     },
     {
+      "question": "Run in Userspace",
+      "description": "Run Tailscale in userspace\nSame as `--userspace` flag.\n",
+      "type": "boolean",
+      "key": "tailscale_userspace",
+      "required": true,
+      "default": false
+    },
+    {
+      "question": "Accept DNS",
+      "description": "Accept DNS\nSame as `--accept-dns` flag.\n",
+      "type": "boolean",
+      "key": "tailscale_accept_dns",
+      "required": true,
+      "default": false
+    },
+    {
+      "question": "Accept Routes",
+      "description": "Accept routes\nSame as `--accept-routes` flag.\nAccept subnet routes that other nodes advertise.\n",
+      "type": "boolean",
+      "key": "tailscale_accept_routes",
+      "required": true,
+      "default": false
+    },
+    {
       "question": "Advertise Exit Node",
       "description": "Advertise exit node\nSame as `--advertise-exit-node` flag.\nNeeds enabled IP forwarding on the host via System > Advanced Settings > Sysctls.\nPlease make sure you read and understand the warnings displayed when adding Sysctls\nSee also https://tailscale.com/kb/1019/subnets?tab=linux#enable-ip-forwarding\n",
       "type": "boolean",
@@ -52,9 +76,9 @@
       "auth_key": "$QUESTION(tailscale_auth_key)",
       "auth_once": true,
       "reset": false,
-      "accept_dns": false,
-      "userspace": true,
-      "accept_routes": false,
+      "accept_dns": "$QUESTION(tailscale_accept_dns)",
+      "userspace": "$QUESTION(tailscale_userspace)",
+      "accept_routes": "$QUESTION(tailscale_accept_routes)",
       "advertise_exit_node": "$QUESTION(tailscale_advertise_exit_node)",
       "additional_envs": [
         {
