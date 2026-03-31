@@ -1,0 +1,57 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial Script"
+  },
+  "requirements": {
+    "locations": [],
+    "specifications": ["2CORE", "256MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [30278, 30279]
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Music)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Media)",
+      "network_share": true
+    },
+    "$LOCATION(ApplicationsPerformance)/music-assistant/data"
+  ],
+  "app_values": {
+    "music_assistant": {
+      "base_url": "http://$SERVER_LAN_IP:30278"
+    },
+    "storage": {
+      "data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/music-assistant/data)",
+      "additional_storage": [
+        "$MOUNTED_HOST_PATH($LOCATION(Media), /media)",
+        "$MOUNTED_HOST_PATH($LOCATION(Music), /music)"
+      ]
+    },
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 30278
+      },
+      "stream_port": {
+        "bind_mode": "published",
+        "port_number": 30279
+      }
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 4096)"
+      },
+      "gpus": "$GPU_CONFIG()"
+    }
+  }
+}
