@@ -1,13 +1,14 @@
 {
   "version": 3,
   "script": {
-    "version": "1.0.0",
-    "changeLog": "Initial Script"
+    "version": "1.0.1",
+    "changeLog": "Updated requirements"
   },
   "requirements": {
     "locations": ["ApplicationsPerformance"],
     "specifications": ["2CORE", "200MB"],
-    "permissions": ["READ_WRITE_LOCATIONS"]
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": []
   },
   "installation_questions": [
     {
