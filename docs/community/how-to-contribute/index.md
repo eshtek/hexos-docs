@@ -145,4 +145,4 @@ PullPreview can take a minute or two to build. Be patient! If it's taking longer
 
 ## Need Help?
 
-If you have any questions or need assistance, be sure to check out the [HexOS Community forums](https://hub.hexos.com/) where you can get help from other contributors and the HexOS team.
+If you have any questions or need assistance, be sure to check out the [HexOS Community Discord](https://discord.gg/fCW2htvYdz) where you can get help from other contributors and the HexOS team.

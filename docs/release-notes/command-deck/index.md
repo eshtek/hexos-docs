@@ -45,4 +45,4 @@ For users who are actively connected during an update, there may be a brief down
 If you encounter any issues after an update:
 - Try [clearing your browser cache](/troubleshooting/common-issues/ClearCache) first
 - Check the [troubleshooting guide](/troubleshooting/) for common solutions
-- Visit the [HexOS Community](https://hub.hexos.com/) for additional support
+- Visit the [HexOS Community](https://discord.gg/fCW2htvYdz) for additional support

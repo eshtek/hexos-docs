@@ -1,6 +1,6 @@
 # Illustrated Installation Guide
 
-*by [@Mawson](https://hub.hexos.com/profile/14-mawson/)* with edits by [@gingerling](https://hub.hexos.com/profile/19534-gingerling/) 
+*by @Mawson with edits by @gingerling*
 
 ## Before you Begin
 
@@ -86,14 +86,14 @@ What you see now will depend on how many drives you have in your server. The dri
 ### User Account Setup
 
 -   **Important**: Choose the first option: "Administrative user (truenas_admin)"
--   If you accidentally select the wrong option, [see this solution](https://hub.hexos.com/topic/103-illustrated-installation-guide-start-here/#findComment-1958) or restart the installation
+-   If you accidentally select the wrong option, [see this solution](https://hub.hexos.com/topic/103-illustrated-installation-guide-start-here/#findComment-1958) or restart the installation <!-- TODO: migrate this hub forum link -->
 
 [![User Account Setup](https://hub.hexos.com/uploads/monthly_2024_11/Capture5.PNG.f7af55f85dc45fff3932704006737410.PNG)](https://hub.hexos.com/uploads/monthly_2024_11/Capture5.PNG.f7af55f85dc45fff3932704006737410.PNG "Enlarge image")
 
 ### Set Root Password
 
 -   Set the root password - <span style="color: red;">**Save this password, you'll need it later**</span>
--   **Non-US keyboard users**: Be careful with special characters in the password. The installer uses a [US keyboard layout](https://en.wikipedia.org/wiki/British_and_American_keyboards#/media/File:KB_United_States-NoAltGr.svg). [See details here](https://hub.hexos.com/topic/103-illustrated-installation-guide-start-here/page/2/#findComment-8073) 
+-   **Non-US keyboard users**: Be careful with special characters in the password. The installer uses a [US keyboard layout](https://en.wikipedia.org/wiki/British_and_American_keyboards#/media/File:KB_United_States-NoAltGr.svg). [See details here](https://hub.hexos.com/topic/103-illustrated-installation-guide-start-here/page/2/#findComment-8073) <!-- TODO: migrate this hub forum link -->
 
 [![Root Password Setup](https://hub.hexos.com/uploads/monthly_2024_11/Capture6.PNG.2757a99cb3d6eff2456fae08f5d8af22.PNG)](https://hub.hexos.com/uploads/monthly_2024_11/Capture6.PNG.2757a99cb3d6eff2456fae08f5d8af22.PNG "Enlarge image")
 

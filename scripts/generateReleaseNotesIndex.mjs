@@ -114,7 +114,7 @@ ${YEAR_SECTIONS_END}
 If you encounter any issues after an update:
 - Try [clearing your browser cache](/troubleshooting/common-issues/ClearCache) first
 - Check the [troubleshooting guide](/troubleshooting/) for common solutions
-- Visit the [HexOS Community](https://hub.hexos.com/) for additional support
+- Visit the [HexOS Community](https://discord.gg/fCW2htvYdz) for additional support
 `
     fs.writeFileSync(INDEX_MD, boilerplate)
   }
