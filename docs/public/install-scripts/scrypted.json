@@ -1,0 +1,75 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial Script"
+  },
+  "installation_questions": [
+    {
+      "question": "What kind of installation would you like?",
+      "description": "Select the nvidia optimized image if you have an nvidia GPU installed.",
+      "type": "select",
+      "key": "image_selector",
+      "required": true,
+      "options": [
+        {
+          "text": "Yes, I want the light weight version",
+          "value": "lite_image"
+        },
+        {
+          "text": "No, I want the full version",
+          "value": "image"
+        },
+        {
+          "text": "I would like the nvidia optimized image",
+          "value": "nvidia_image"
+        }
+      ],
+      "default": "image"
+    }
+  ],
+  "requirements": {
+    "locations": [],
+    "specifications": ["2CORE", "256MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [30130, 30131]
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Documents)",
+      "network_share": true
+    },
+    "$LOCATION(Documents)/scrypted",
+    "$LOCATION(ApplicationsPerformance)/scrypted/server"
+  ],
+  "app_values": {
+    "scrypted": {
+      "image_selector": "$QUESTION(image_selector)"
+    },
+    "storage": {
+      "nvr": "$HOST_PATH($LOCATION(Documents)/scrypted)",
+      "server": "$HOST_PATH($LOCATION(ApplicationsPerformance)/scrypted/server)"
+    },
+    "network": {
+      "insecure_port": {
+        "bind_mode": "published",
+        "port_number": 30130
+      },
+      "secure_port": {
+        "bind_mode": "published",
+        "port_number": 30131
+      }
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 2048)"
+      },
+      "gpus": "$GPU_CONFIG()"
+    }
+  }
+}
