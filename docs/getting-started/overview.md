@@ -31,7 +31,7 @@ Do you have an old PC or gaming rig laying around? Can you get your hands on a d
 
 TrueNAS provides a [comprehensive hardware guide](https://www.truenas.com/docs/scale/gettingstarted/scalehardwareguide/) that covers all aspects of selecting hardware including minimum system requirements, storage devices/controllers, etc.  However, to build an energy efficient server additional research may be required. 
 
-You are welcome to introduce yourself to the HexOS community in [the forum](https://hub.hexos.com/), where you can get further guidance and support on your hardware choices.
+You are welcome to introduce yourself to the HexOS community in [Discord](https://discord.gg/fCW2htvYdz), where you can get further guidance and support on your hardware choices.
 
 ### Buy Pre-Built
 

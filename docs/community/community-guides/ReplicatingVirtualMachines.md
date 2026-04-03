@@ -1,6 +1,6 @@
 # Replicating Virtual Machines from one TrueNAS Server to Another
 
-*by [@ShinobiRen](https://hub.hexos.com/profile/27485-shinobiren/?wr=eyJhcHAiOiJmb3J1bXMiLCJtb2R1bGUiOiJmb3J1bXMtY29tbWVudCIsImlkXzEiOjMwNjMsImlkXzIiOjE4MTk2fQ==)*
+*by @ShinobiRen*
 
 Hello everyone!
 

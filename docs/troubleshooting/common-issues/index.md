@@ -8,5 +8,5 @@ Having trouble with your HexOS setup? Check out these common issues and solution
 - [**Immich Migration**](./ImmichMigration) - Guide for migrating existing Immich installations to HexOS
 
 :::tip Contribute to Documentation
-Found a solution that worked? [Learn how to contribute](/community/how-to-contribute/) to improve these docs for everyone, submit corrections through the documentation repository, or share your solutions on the [HexOS Community forum](https://hub.hexos.com/).
+Found a solution that worked? [Learn how to contribute](/community/how-to-contribute/) to improve these docs for everyone, submit corrections through the documentation repository, or share your solutions on the [HexOS Community Discord](https://discord.gg/fCW2htvYdz).
 :::

@@ -99,6 +99,6 @@ This is a good point to check that the install has worked well and that your sys
 
 Whenever you go to [deck.hexos.com](https://deck.hexos.com) you will see your HexOS [dashboard](/features/). This is your control center where you can monitor your server, manage storage, install apps, and configure settings. 
 
-Try clicking on each item on the Dash now and check the details as they pop out from the right hand side of the screen. There should be no warnings or errors and the pool should match what you chose during setup. If you have any problems [try the forums](https://hub.hexos.com/).
+Try clicking on each item on the Dash now and check the details as they pop out from the right hand side of the screen. There should be no warnings or errors and the pool should match what you chose during setup. If you have any problems [try our Discord](https://discord.gg/fCW2htvYdz).
 
 Ready to explore? Check out our [Features Guide](/features/) to learn about everything HexOS can do!

@@ -48,4 +48,4 @@ If you start with HDDs and add SSDs later, there will be a migration process to 
 
 ## Need More Help?
 
-If you have more questions regarding storage and drives, please consider [posting in our forums!](https://hub.hexos.com/)
+If you have more questions regarding storage and drives, please consider [posting in our Discord!](https://discord.gg/fCW2htvYdz)

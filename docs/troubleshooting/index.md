@@ -9,7 +9,7 @@ Check our [Common Issues](./common-issues/) section for frequently encountered p
 - [Clear Browser Cache](./common-issues/ClearCache) - Fixing login and UI issues
 - [Avoid USB Drives](./common-issues/AvoidUSBDrives) - Why USB drives cause problems
 
-Visit the [HexOS Community](https://hub.hexos.com/) for additional support from other users.
+Visit the [HexOS Community](https://discord.gg/fCW2htvYdz) for additional support from other users.
 :::
 
 ## Installation Issues
@@ -181,7 +181,7 @@ If a task is taking too long or appears stuck in the Activities panel, you can m
 If your issue isn't covered here:
 
 - Check [Common Issues](./common-issues/) for community-reported problems
-- Visit the [HexOS Community](https://hub.hexos.com/) for user support
+- Visit the [HexOS Community](https://discord.gg/fCW2htvYdz) for user support
 - Review the [Getting Started Guide](/getting-started/overview) for setup help
 - Contact HexOS support through the official channels
 
