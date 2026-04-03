@@ -8,6 +8,7 @@ const DOCS_DIR = process.env.DOCS_DIR || 'docs'
 
 const RELEASE_NOTES_DIR = path.resolve(__dirname, '..', DOCS_DIR, 'release-notes/command-deck')
 const INDEX_MD = path.resolve(RELEASE_NOTES_DIR, 'index.md')
+const RELEASE_NOTES_LANDING = path.resolve(__dirname, '..', DOCS_DIR, 'release-notes/index.md')
 const SIDEBAR_TS = path.resolve(__dirname, '..', DOCS_DIR, '.vitepress/sidebar.ts')
 
 // Sidebar automation markers
@@ -113,7 +114,7 @@ ${YEAR_SECTIONS_END}
 If you encounter any issues after an update:
 - Try [clearing your browser cache](/troubleshooting/common-issues/ClearCache) first
 - Check the [troubleshooting guide](/troubleshooting/) for common solutions
-- Visit the [HexOS Community](https://hub.hexos.com/) for additional support
+- Visit the [HexOS Community](https://discord.gg/fCW2htvYdz) for additional support
 `
     fs.writeFileSync(INDEX_MD, boilerplate)
   }
@@ -229,5 +230,52 @@ function updateSidebar() {
   }
 }
 
+function updateLandingPage(releases) {
+  // Sort descending, pick the latest
+  releases.sort((a, b) => b.sortDate - a.sortDate)
+  const latest = releases[0]
+
+  const latestLine = latest
+    ? `**Latest:** [${latest.formattedDate} — ${latest.description}](/release-notes/command-deck/${latest.filename})`
+    : ''
+
+  const content = `# Release Notes
+
+Stay up to date with the latest changes to HexOS and the underlying TrueNAS platform.
+
+## HexOS Command Deck
+
+The Command Deck is the HexOS web interface. Updates are automatically deployed — no action needed on your part.
+
+**[View Command Deck Release Notes →](/release-notes/command-deck/)**
+
+${latestLine}
+
+## TrueNAS
+
+HexOS is built on TrueNAS. You will be prompted to update as future compatibility with TrueNAS becomes available.
+
+**[View TrueNAS Version Notes →](https://www.truenas.com/docs/scale/25.10/gettingstarted/versionnotes/)**
+
+| Train | Version | TrueNAS Docs |
+|-------|---------|-------------|
+| Goldeye | 25.10 | [Version Notes](https://www.truenas.com/docs/scale/25.10/gettingstarted/versionnotes/) |
+| Fangtooth | 25.04 | [Version Notes](https://www.truenas.com/docs/scale/25.04/gettingstarted/versionnotes/) |
+| Electric Eel | 24.10 | [Version Notes](https://www.truenas.com/docs/scale/24.10/gettingstarted/versionnotes/) |
+`
+
+  fs.writeFileSync(RELEASE_NOTES_LANDING, content)
+  console.log('Wrote', RELEASE_NOTES_LANDING)
+}
+
+// Get all releases once, share across functions
+const allFiles = fs.readdirSync(RELEASE_NOTES_DIR)
+  .filter(f => f.endsWith('.md') && f !== 'index.md' && f.match(/^\d{4}-\d{2}-\d{2}\.md$/))
+
+const allReleases = allFiles
+  .map(f => parseReleaseNote(path.join(RELEASE_NOTES_DIR, f)))
+  .filter(r => r !== null)
+
 updateIndexPage()
 updateSidebar()
+updateLandingPage(allReleases)

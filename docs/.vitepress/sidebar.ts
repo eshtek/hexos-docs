@@ -145,9 +145,14 @@ const sidebar: DefaultTheme.SidebarItem[] = [
   },
   {
     text: 'Release Notes',
-    link: '/release-notes/command-deck/',
+    link: '/release-notes/',
     collapsed: true,
     items: [
+      {
+        text: 'Command Deck',
+        link: '/release-notes/command-deck/',
+        collapsed: true,
+        items: [
       // auto-generated-release-notes-start
             { text: '2026-03-27', link: '/release-notes/command-deck/2026-03-27' },
             { text: '2026-03-24', link: '/release-notes/command-deck/2026-03-24' },
@@ -171,6 +176,8 @@ const sidebar: DefaultTheme.SidebarItem[] = [
             { text: '2025-01-08', link: '/release-notes/command-deck/2025-01-08' },
             { text: '2024-11-29', link: '/release-notes/command-deck/2024-11-29' },
             // auto-generated-release-notes-end
+        ]
+      },
     ]
   },
   {

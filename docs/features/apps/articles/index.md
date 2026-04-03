@@ -17,7 +17,7 @@ For information about creating your own install scripts or contributing to the c
 If you're experiencing issues with a curated app:
 
 1. Check if there's a guide for your app above
-2. Visit the [HexOS Hub](https://hub.hexos.com/) for community discussions
+2. Visit the [HexOS Discord](https://discord.gg/fCW2htvYdz) for community discussions
 3. Review the app's official documentation
 
 For general app installation and management, see the [Apps overview](/features/apps/).

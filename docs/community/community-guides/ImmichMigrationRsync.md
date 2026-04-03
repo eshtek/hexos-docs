@@ -1,6 +1,6 @@
 # Migrating Immich to New Storage Configuration (Rsync Method)
 
-*by [@forsaken](https://hub.hexos.com/profile/17319-forsaken/)*
+*by @forsaken*
 
 I fixed it! 😁, but it was a pain to do it because rsync and TrueNAS dataset that have ACL don't like each other.
 

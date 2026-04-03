@@ -1,6 +1,6 @@
 # Migrating Immich to New Storage Configuration (Move Method)
 
-*by [@G-M0N3Y-2503](https://hub.hexos.com/profile/29328-g-m0n3y-2503/)*
+*by @G-M0N3Y-2503*
 
 Just adding what I did to get it working for me. However, I received numerous permission warnings for the moves, but they didn't seem to have any ill effect.
 
@@ -8,7 +8,7 @@ My overall plan was to migrate from the old to the new, where the new is how I a
 
 :::info Permission Errors During Migration
 You may see multiple permission denial errors per dataset during the move operations. They occur because ZFS dataset metadata and snapshot attributes cannot be moved with standard `mv` commands. As long as your actual data (photos, videos, etc.) moves successfully, these errors are harmless. The empty datasets can be cleaned up in step 7 after verifying everything works.  
-*edit by [csmanel](https://hub.hexos.com/profile/27801-csmanel/)*  
+*edit by csmanel*  
 :::
 
 ## Storage Layout

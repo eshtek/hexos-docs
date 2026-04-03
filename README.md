@@ -108,4 +108,4 @@ docs/
 ## Get Help
 
 - **Found a bug in the docs?** [Open an issue](https://github.com/Eshtek/hexos-docs/issues)
-- **Need help with HexOS?** Visit the [HexOS Community](https://hub.hexos.com/) or contact support directly at support@hexos.com
+- **Need help with HexOS?** Visit the [HexOS Community](https://discord.gg/fCW2htvYdz) or contact support directly at support@hexos.com
