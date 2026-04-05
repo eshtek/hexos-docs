@@ -29,7 +29,7 @@ When it comes to the physical hardware of the NAS you have two choices
 
 Do you have an old PC or gaming rig laying around? Can you get your hands on a decommissioned or refurbished server? Or do you want to build something new? One of the best things about HexOS is the ability to take almost any hardware that meets the system requirements and turn it into a home server.  
 
-TrueNAS provides a [comprehensive hardware guide](https://www.truenas.com/docs/scale/gettingstarted/scalehardwareguide/) that covers all aspects of selecting hardware including minimum system requirements, storage devices/controllers, etc.  However, to build an energy efficient server additional research may be required. 
+TrueNAS provides a [comprehensive hardware guide](https://www.truenas.com/docs/scale/gettingstarted/tnhardwareguide/) that covers all aspects of selecting hardware including minimum system requirements, storage devices/controllers, etc.  However, to build an energy efficient server additional research may be required. 
 
 You are welcome to introduce yourself to the HexOS community in [Discord](https://discord.gg/fCW2htvYdz), where you can get further guidance and support on your hardware choices.
 
