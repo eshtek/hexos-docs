@@ -44,3 +44,7 @@ With the HexOS update to 1.0 with Local UI any system still running older versio
 ![](../../public/assets/screenshots/Hexos24to25/7.png)
 6) Select `Apply updates and reboot system after downloading` and the click `Download`
 ![](../../public/assets/screenshots/Hexos24to25/8.png)
+
+## If you still can't connect to HexOS deck
+
+If you are still having trouble claiming your server or connecting to HexOS deck please reach out to `support@hexos.com`
