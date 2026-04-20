@@ -18,6 +18,24 @@
 ![](../../public/assets/screenshots/app-troubleshooting-guide/3.png)
 :::
 
+### Custom Application Name Conflicts
+
+When installing a custom application through TrueNAS, the name you assign must be unique across your system. If a custom application shares the exact name of an application available in the HexOS catalog, the installation will fail and the catalog application will not be installable until the conflict is resolved. This commonly occurs when setting up multiple instances of the same application configured for different purposes, such as:
+
+- A separate Jellyfin instance for a kids-only media library
+- An additional Minecraft server running a different modpack or world
+- A dedicated Home Assistant instance used as a staging environment
+- A second Vaultwarden instance reserved for family members
+- An extra PostgreSQL instance isolated to a specific application's data
+
+HexOS will display a warning banner on the catalog application's details page when a name conflict is detected. To avoid this issue, choose a distinct name for your custom application by appending a descriptor or suffix. For example, if the catalog application is named `sonarr`, consider naming your custom application one of the following instead:
+
+- `sonarr-2`
+- `sonarr-anime`
+- `sonarr-4k`
+
+If you have already installed a custom application whose name matches a catalog application, uninstall or rename the custom application before installing the catalog version.
+
 ## Updating
 
 An App has to be running for it to updated. <br>
