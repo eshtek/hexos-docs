@@ -8,7 +8,8 @@ Check our [Common Issues](./common-issues/) section for frequently encountered p
 - [Immich Migration Guide](./common-issues/ImmichMigration) - Migrating existing Immich installations
 - [Clear Browser Cache](./common-issues/ClearCache) - Fixing login and UI issues
 - [Avoid USB Drives](./common-issues/AvoidUSBDrives) - Why USB drives cause problems
-- [**Updating HexOS 24.10**](./common-issues/UpgradingHexOS24.md) - Guide for updating HexOS 24.10 to HexOS 25.10
+- [Updating HexOS 24.10](./common-issues/UpgradingHexOS24.md) - Guide for updating HexOS 24.10 to HexOS 25.10
+- [Updating Immich to Postgres 18](./common-issues/ImmichPG18.md) - Guide for updating Immich to Postgres 18
 
 Visit the [HexOS Community](https://discord.gg/fCW2htvYdz) for additional support from other users.
 :::
