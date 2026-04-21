@@ -129,6 +129,7 @@ const sidebar: DefaultTheme.SidebarItem[] = [
     collapsed: true,
     items: [
       { text: 'All Posts', link: '/blog/' },
+      { text: '1.0 Local Rollout Complete', link: '/blog/2026-04-21' },
       { text: 'HexOS 1.0 Has Arrived', link: '/blog/2026-04-02' },
       { text: 'Apps Overhaul', link: '/blog/2025-12-26' },
       { text: 'HexOS Roadmap Update', link: '/blog/2025-11-26' },
@@ -154,6 +155,7 @@ const sidebar: DefaultTheme.SidebarItem[] = [
         collapsed: true,
         items: [
       // auto-generated-release-notes-start
+            { text: '2026-04-21', link: '/release-notes/command-deck/2026-04-21' },
             { text: '2026-03-27', link: '/release-notes/command-deck/2026-03-27' },
             { text: '2026-03-24', link: '/release-notes/command-deck/2026-03-24' },
             { text: '2026-01-21', link: '/release-notes/command-deck/2026-01-21' },
