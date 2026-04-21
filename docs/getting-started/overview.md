@@ -33,7 +33,7 @@ There are many OEM NAS appliance vendors available for purchase in the hardware 
 
 ## Get Yourself Some Storage
 
-Selecting storage devices for your home server comes down to your capacity requirements, performance expectations, and hardware capabilities.  HDDs should be used for user data and SSDs can offer faster speeds for high-performance applications and use-cases.  
+Selecting storage devices for your home server comes down to your capacity requirements, performance expectations, and hardware capabilities.  HDDs should be used for user data and SSDs can offer faster speeds for high-performance applications and use-cases. USB drives are not recommended for use.
 
 ### Recommended Layouts
 
