@@ -4,6 +4,7 @@ Stay up to date with the latest news and updates from the HexOS team.
 
 ## 2026
 
+- [HexOS 1.0 Local Rollout Complete - April 21, 2026](/blog/2026-04-21)
 - [HexOS 1.0 Has Arrived - April 2, 2026](/blog/2026-04-02)
 
 ## 2025
