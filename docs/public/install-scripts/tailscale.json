@@ -1,0 +1,107 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.1",
+    "changeLog": "Updated requirements"
+  },
+  "requirements": {
+    "locations": ["ApplicationsPerformance"],
+    "specifications": ["2CORE", "200MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": []
+  },
+  "installation_questions": [
+    {
+      "question": "Hostname",
+      "description": "The hostname for Tailscale Node.\nOnly lowercase letters, numbers, and hyphens are allowed.\nSame as `--hostname` flag.",
+      "type": "text",
+      "key": "tailscale_hostname",
+      "required": true,
+      "default": "hexos"
+    },
+    {
+      "question": "Auth Key",
+      "description": "The auth key for Tailscale Node.\nSame as `--authkey` flag.\nTo generate one: https://login.tailscale.com/admin/settings/keys",
+      "placeholder": "tskey-auth-xxxxxx",
+      "type": "text",
+      "key": "tailscale_auth_key",
+      "required": true
+    },
+    {
+      "question": "Run in Userspace",
+      "description": "Run Tailscale in userspace\nSame as `--userspace` flag.\n",
+      "type": "boolean",
+      "key": "tailscale_userspace",
+      "required": true,
+      "default": false
+    },
+    {
+      "question": "Accept DNS",
+      "description": "Accept DNS\nSame as `--accept-dns` flag.\n",
+      "type": "boolean",
+      "key": "tailscale_accept_dns",
+      "required": true,
+      "default": false
+    },
+    {
+      "question": "Accept Routes",
+      "description": "Accept routes\nSame as `--accept-routes` flag.\nAccept subnet routes that other nodes advertise.\n",
+      "type": "boolean",
+      "key": "tailscale_accept_routes",
+      "required": true,
+      "default": false
+    },
+    {
+      "question": "Advertise Exit Node",
+      "description": "Advertise exit node\nSame as `--advertise-exit-node` flag.\nNeeds enabled IP forwarding on the host via System > Advanced Settings > Sysctls.\nPlease make sure you read and understand the warnings displayed when adding Sysctls\nSee also https://tailscale.com/kb/1019/subnets?tab=linux#enable-ip-forwarding\n",
+      "type": "boolean",
+      "key": "tailscale_advertise_exit_node",
+      "required": true,
+      "default": false
+    }
+  ],
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/tailscale/state",
+      "posix": true
+    },
+    "$LOCATION(ApplicationsPerformance)/tailscale/config"
+  ],
+  "app_values": {
+    "tailscale": {
+      "hostname": "$QUESTION(tailscale_hostname)",
+      "auth_key": "$QUESTION(tailscale_auth_key)",
+      "auth_once": true,
+      "reset": false,
+      "accept_dns": "$QUESTION(tailscale_accept_dns)",
+      "userspace": "$QUESTION(tailscale_userspace)",
+      "accept_routes": "$QUESTION(tailscale_accept_routes)",
+      "advertise_exit_node": "$QUESTION(tailscale_advertise_exit_node)",
+      "additional_envs": [
+        {
+          "name": "TS_SERVE_CONFIG",
+          "value": "/config/serve.conf"
+        }
+      ]
+    },
+    "network": {
+      "host_network": true
+    },
+    "storage": {
+      "state": "$HOST_PATH($LOCATION(ApplicationsPerformance)/tailscale/state)",
+      "additional_storage": [
+        "$MOUNTED_HOST_PATH($LOCATION(ApplicationsPerformance)/tailscale/config, /config)"
+      ]
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(5%, 1024)"
+      }
+    }
+  }
+}
