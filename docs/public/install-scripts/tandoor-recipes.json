@@ -1,0 +1,65 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial install script"
+  },
+  "requirements": {
+    "locations": ["ApplicationsPerformance, ApplicationsCapacity"],
+    "specifications": ["2CORE", "256MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [30290]
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsCapacity)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/tandoor_recipes/postgres",
+      "posix": true
+    },
+    {
+      "path":  "$LOCATION(ApplicationsPerformance)/tandoor_recipes/static",
+      "passthrough": true
+    },
+    "$LOCATION(ApplicationsCapacity)/tandoor_recipes/media"
+  ],
+  "ensure_permissions_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/tandoor_recipes/postgres",
+      "username": "netdata",
+      "access": "read",
+      "posix": {
+        "groupname": "docker"
+      }
+    }
+  ],
+  "app_values": {
+    "recipes": {
+      "db_password": "$RANDOM_STRING(7)",
+      "secret_key": "$RANDOM_STRING(7)"
+    },
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 30290
+      }
+    },
+    "storage": {
+      "staticfiles": "$HOST_PATH($LOCATION(ApplicationsPerformance)/tandoor_recipes/static)",
+      "mediafiles": "$HOST_PATH($LOCATION(ApplicationsCapacity)/tandoor_recipes/media)",
+      "postgres_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/tandoor_recipes/postgres)"
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 2048)"
+      }
+    }
+  }
+}
