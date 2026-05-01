@@ -1,0 +1,61 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial Script"
+  },
+  "requirements": {
+    "locations": ["ApplicationsPerformance", "ApplicationsCapacity"],
+    "specifications": ["2CORE", "256MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [30350]
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsCapacity)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/lubelogger/postgres",
+      "posix": true
+    },
+    "$LOCATION(ApplicationsCapacity)/lubelogger/data",
+    "$LOCATION(ApplicationsPerformance)/lubelogger/keys"
+  ],
+  "ensure_permissions_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/lubelogger/postgres",
+      "username": "netdata",
+      "access": "read",
+      "posix": {
+        "groupname": "docker"
+      }
+    }
+  ],
+  "app_values": {
+    "lubelogger": {
+      "db_password": "$RANDOM_STRING(7)"
+    },
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 30350
+      }
+    },
+    "storage": {
+      "data": "$HOST_PATH($LOCATION(ApplicationsCapacity)/lubelogger/data)",
+      "protection_keys": "$HOST_PATH($LOCATION(ApplicationsPerformance)/lubelogger/keys)",
+      "postgres_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/lubelogger/postgres)"
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(5%, 1024)"
+      }
+    }
+  }
+}
