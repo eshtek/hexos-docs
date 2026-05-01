@@ -1,0 +1,59 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "initial install script"
+  },
+  "requirements": {
+    "locations": ["ApplicationsPerformance", "documents"],
+    "specifications": ["2CORE", "256MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [30148]
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Documents)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/warracker/postgres_data",
+      "posix": true
+    },
+    "$LOCATION(Documents)/warracker"
+  ],
+  "ensure_permissions_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/warracker/postgres_data",
+      "username": "netdata",
+      "access": "read",
+      "posix": {
+        "groupname": "docker"
+      }
+    }
+  ],
+  "app_values": {
+    "warracker": {
+      "db_password": "$RANDOM_STRING(7)"
+    },
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 30148
+      }
+    },
+    "storage": {
+      "uploads": "$HOST_PATH($LOCATION(Documents)/warracker)",
+      "postgres_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/warracker/postgres_data)"
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 4096)"
+      }
+    }
+  }
+}
