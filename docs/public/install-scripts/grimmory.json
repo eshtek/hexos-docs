@@ -1,0 +1,51 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "initial install script"
+  },
+  "requirements": {
+    "locations": ["ApplicationsPerformance", "Media"],
+    "specifications": ["2CORE", "256MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [30396]
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Media)",
+      "network_share": true
+    },
+    "$LOCATION(Media)/Books",
+    "$LOCATION(Media)/grimmory_bookdrop",
+    "$LOCATION(ApplicationsPerformance)/grimmory/data",
+    "$LOCATION(ApplicationsPerformance)/grimmory/database"
+  ],
+  "app_values": {
+    "grimmory": {
+      "db_password": "$RANDOM_STRING(7)",
+      "db_root_password": "$RANDOM_STRING(7)"
+    },
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 30396
+      }
+    },
+    "storage": {
+      "data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/grimmory/data)",
+      "books": "$HOST_PATH($LOCATION(Media)/Books)",
+      "bookdrop": "$HOST_PATH($LOCATION(Media)/grimmory_bookdrop)",
+      "mariadb_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/grimmory/database)"
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 4096)"
+      }
+    }
+  }
+}
