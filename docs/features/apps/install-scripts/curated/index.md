@@ -19,5 +19,6 @@
 | `radarr` | [radarr.json](/install-scripts/radarr.json) | 1.2 KB | 2025-12-04 |
 | `scrutiny` | [scrutiny.json](/install-scripts/scrutiny.json) | 1.3 KB | 2026-03-15 |
 | `sonarr` | [sonarr.json](/install-scripts/sonarr.json) | 1.2 KB | 2025-12-04 |
+| `stirling-pdf` | [stirling-pdf.json](/install-scripts/stirling-pdf.json) | 1.8 KB | 2026-05-01 |
 | `syncthing` | [syncthing.json](/install-scripts/syncthing.json) | 2.1 KB | 2026-03-15 |
 <!-- curated:index:end -->
