@@ -1,8 +1,8 @@
 {
   "version": 3,
   "script": {
-    "version": "1.0.1",
-    "changeLog": "Updated requirements"
+    "version": "1.0.2",
+    "changeLog": "add access to media, movies, shows"
   },
   "requirements": {
     "locations": [
@@ -12,7 +12,10 @@
       "Downloads",
       "Photos",
       "Music",
-      "Videos"
+      "Videos",
+      "Media",
+      "Movies",
+      "Shows"
     ],
     "specifications": [
       "2CORE",
@@ -52,6 +55,18 @@
       "path": "$LOCATION(Music)",
       "network_share": true
     },
+    {
+      "path": "$LOCATION(Media)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Movies)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Shows)",
+      "network_share": true
+    },
     "$LOCATION(ApplicationsPerformance)/syncthing/config"
   ],
   "app_values": {
@@ -66,7 +81,10 @@
         "$MOUNTED_HOST_PATH($LOCATION(Downloads), /sync/Downloads)",
         "$MOUNTED_HOST_PATH($LOCATION(Photos), /sync/Photos)",
         "$MOUNTED_HOST_PATH($LOCATION(Videos), /sync/Videos)",
-        "$MOUNTED_HOST_PATH($LOCATION(Music), /sync/Music)"
+        "$MOUNTED_HOST_PATH($LOCATION(Music), /sync/Music)",
+        "$MOUNTED_HOST_PATH($LOCATION(Photos), /sync/Media)",
+        "$MOUNTED_HOST_PATH($LOCATION(Videos), /sync/Movies)",
+        "$MOUNTED_HOST_PATH($LOCATION(Music), /sync/Shows)"
       ]
     },
     "network": {
