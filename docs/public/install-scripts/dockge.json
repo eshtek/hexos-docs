@@ -1,0 +1,44 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial Script"
+  },
+  "requirements": {
+    "locations": ["ApplicationsPerformance", "ApplicationsCapacity"],
+    "specifications": ["2CORE", "1GB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [31014]
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsCapacity)",
+      "network_share": true
+    },
+    "$LOCATION(ApplicationsPerformance)/dockge/stacks",
+    "$LOCATION(ApplicationsPerformance)/dockge/data"
+  ],
+  "app_values": {
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 31014
+      },
+      "host_network": false
+    },
+    "storage": {
+      "stacks": "$HOST_PATH($LOCATION(ApplicationsPerformance)/dockge/stacks)",
+      "data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/dockge/data)"
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 1024)"
+      }
+    }
+  }
+}
