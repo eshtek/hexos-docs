@@ -11,6 +11,7 @@
 | `immich` | [immich.json](/install-scripts/immich.json) | 1.7 KB | 2026-03-15 |
 | `jellyfin` | [jellyfin.json](/install-scripts/jellyfin.json) | 2.2 KB | 2026-03-15 |
 | `lidarr` | [lidarr.json](/install-scripts/lidarr.json) | 1.4 KB | 2026-03-15 |
+| `metube` | [metube.json](/install-scripts/metube.json) | 857 B | 2026-03-28 |
 | `nextcloud` | [nextcloud.json](/install-scripts/nextcloud.json) | 3.5 KB | 2026-03-15 |
 | `peanut` | [peanut.json](/install-scripts/peanut.json) | 834 B | 2026-03-15 |
 | `plex` | [plex.json](/install-scripts/plex.json) | 3.4 KB | 2025-12-12 |
