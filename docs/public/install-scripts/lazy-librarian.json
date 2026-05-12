@@ -1,0 +1,49 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial Script"
+  },
+  "requirements": {
+    "locations": ["ApplicationsPerformance", "Downloads", "Media"],
+    "specifications": ["2CORE", "256MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [31089]
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Downloads)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Media)",
+      "network_share": true
+    },
+    "$LOCATION(ApplicationsPerformance)/lazylibrarian/config",
+    "$LOCATION(Downloads)/lazylibrarian",
+    "$LOCATION(Media)/Books"
+  ],
+  "app_values": {
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 31089
+      }
+    },
+    "storage": {
+      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/lazylibrarian/config)",
+      "downloads": "$HOST_PATH($LOCATION(Downloads)/lazylibrarian)",
+      "books": "$HOST_PATH($LOCATION(Media)/Books)"
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(5%, 1024)"
+      }
+    }
+  }
+}
