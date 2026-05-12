@@ -1,0 +1,100 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial Install script"
+  },
+  "installation_questions": [
+    {
+      "question": "Enable Dark mode",
+      "type": "select",
+      "key": "DARK_MODE",
+      "required": true,
+      "options": [
+        {
+          "text": "Yes",
+          "value": "1"
+        },
+        {
+          "text": "No",
+          "value": "0"
+        }
+      ]
+    }
+  ],
+  "requirements": {
+    "locations": [
+      "ApplicationsPerformance",
+      "Videos",
+      "Documents",
+      "Media",
+      "Shows",
+      "Movies"
+    ],
+    "specifications": [
+      "2CORE", "1024MB"],
+    "permissions": [
+      "READ_WRITE_LOCATIONS"
+    ],
+    "ports": [30309]
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Media)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Shows)",
+      "network_share": true
+    },
+        {
+      "path": "$LOCATION(Movies)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Documents)",
+      "network_share": true
+    },
+        {
+      "path": "$LOCATION(Videos)",
+      "network_share": true
+    },
+    "$LOCATION(ApplicationsPerformance)/mkvtoolnix/config",
+    "$LOCATION(Documents)/mkvtoolnix-storage"
+  ],
+  "app_values": {
+    "mkvtoolnix": {
+      "additional_envs": [
+        {
+          "name": "DARK_MODE",
+          "value": "$QUESTION(DARK_MODE)"
+        }
+      ]
+    },
+    "storage": {
+      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/mkvtoolnix/config)",
+      "storage": "$HOST_PATH($LOCATION(Documents)/mkvtoolnix-storage)",
+      "additional_storage": [
+        "$MOUNTED_HOST_PATH($LOCATION(Media), /Media)",
+        "$MOUNTED_HOST_PATH($LOCATION(Videos), /Videos)",
+        "$MOUNTED_HOST_PATH($LOCATION(Shows), /Shows)",
+        "$MOUNTED_HOST_PATH($LOCATION(Movies), /Movies)"
+      ]
+    },
+    "network": {
+      "web_port": {
+        "port_number": 30309
+      }
+    },
+    "resources": {
+      "limits": {
+        "cpus": 4,
+        "memory": "$MEMORY(10%, 4096)"
+      }
+    }
+  }
+}
