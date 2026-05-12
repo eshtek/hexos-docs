@@ -4,6 +4,7 @@
 | App | Download | Size | Last Modified |
 |---|---|---:|---|
 | `bazarr` | [bazarr.json](/install-scripts/bazarr.json) | 1.3 KB | 2026-03-15 |
+| `bento-pdf` | [bento-pdf.json](/install-scripts/bento-pdf.json) | 941 B | 2026-05-01 |
 | `drawio` | [drawio.json](/install-scripts/drawio.json) | 757 B | 2026-03-15 |
 | `emby` | [emby.json](/install-scripts/emby.json) | 2.2 KB | 2026-03-15 |
 | `handbrake` | [handbrake.json](/install-scripts/handbrake.json) | 1.8 KB | 2026-03-15 |
