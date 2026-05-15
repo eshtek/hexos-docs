@@ -72,8 +72,8 @@
       "path": "$LOCATION(Videos)",
       "network_share": true
     },
-    { "path": "$LOCATION(ApplicationsPerformance)/plex/data", "owner": "apps", "snapshot": { "id": "data" } },
-    { "path": "$LOCATION(ApplicationsPerformance)/plex/config", "owner": "apps", "snapshot": { "id": "config" } },
+    { "path": "$LOCATION(ApplicationsPerformance)/plex/data", "owner": { "user": "apps" }, "snapshot": { "id": "data" } },
+    { "path": "$LOCATION(ApplicationsPerformance)/plex/config", "owner": { "user": "apps" }, "snapshot": { "id": "config" } },
     { "path": "$LOCATION(ApplicationsCapacity)/plex/logs" },
     { "path": "$LOCATION(ApplicationsPerformance)/plex/transcode" }
   ],

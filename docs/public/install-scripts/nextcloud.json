@@ -47,8 +47,8 @@
       "path": "$LOCATION(ApplicationsPerformance)",
       "network_share": true
     },
-    { "path": "$LOCATION(ApplicationsPerformance)/nextcloud/html", "owner": "apps", "snapshot": { "id": "html" } },
-    { "path": "$LOCATION(ApplicationsPerformance)/nextcloud/postgres_data", "owner": "postgres", "snapshot": { "id": "pgdata" } },
+    { "path": "$LOCATION(ApplicationsPerformance)/nextcloud/html", "owner": { "user": "apps" }, "snapshot": { "id": "html" } },
+    { "path": "$LOCATION(ApplicationsPerformance)/nextcloud/postgres_data", "owner": { "user": "netdata", "group": "docker" }, "snapshot": { "id": "pgdata" } },
     {
       "path": "$LOCATION(ApplicationsCapacity)",
       "network_share": true

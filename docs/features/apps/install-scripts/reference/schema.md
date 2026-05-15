@@ -82,8 +82,8 @@ Locations are folder paths configured in HexOS Settings → Locations. Each loca
     "locations": ["ApplicationsPerformance", "Photos", "Media"]
   },
   "ensure_directories_exists": [
-    { "path": "$LOCATION(ApplicationsPerformance)/immich/config", "owner": "apps" },
-    { "path": "$LOCATION(Photos)/immich", "owner": "apps" }
+    { "path": "$LOCATION(ApplicationsPerformance)/immich/config", "owner": { "user": "apps" } },
+    { "path": "$LOCATION(Photos)/immich", "owner": { "user": "apps" } }
   ],
   "app_values": {
     "storage": {
@@ -239,7 +239,9 @@ Each entry in `ensure_directories_exists` is an object with the following proper
 
 - `path` (required): Directory path, typically using `$LOCATION()` macros
 - `network_share` (optional): Boolean, whether to expose as a network share
-- `owner` (optional): TrueNAS username that should own this directory (e.g., `"apps"`, `"postgres"`). When specified, HexOS resolves the username to its uid/gid at runtime and ensures correct ownership on install and after updates
+- `owner` (optional): Object specifying the TrueNAS user and group that should own this directory
+  - `user` (required): TrueNAS username (e.g., `"apps"`, `"netdata"`)
+  - `group` (optional): TrueNAS group name (e.g., `"docker"`). If omitted, uses the user's default group
 - `snapshot` (optional): Object with an `id` field. When present, HexOS snapshots this dataset before app updates so support can assist with restoring your application and data if something goes wrong
   - `id` (required): Identifier included in the snapshot name and metadata (e.g., `"pgdata"`, `"config"`)
 
@@ -249,15 +251,15 @@ Each entry in `ensure_directories_exists` is an object with the following proper
   "ensure_directories_exists": [
     { "path": "$LOCATION(Photos)", "network_share": true },
     { "path": "$LOCATION(ApplicationsPerformance)", "network_share": true },
-    { "path": "$LOCATION(Photos)/immich", "owner": "apps", "snapshot": { "id": "data" } },
-    { "path": "$LOCATION(ApplicationsPerformance)/immich/postgres_data", "owner": "postgres", "snapshot": { "id": "pgdata" } },
-    { "path": "$LOCATION(ApplicationsPerformance)/immich/config", "owner": "apps", "snapshot": { "id": "config" } }
+    { "path": "$LOCATION(Photos)/immich", "owner": { "user": "apps" }, "snapshot": { "id": "data" } },
+    { "path": "$LOCATION(ApplicationsPerformance)/immich/postgres_data", "owner": { "user": "netdata", "group": "docker" }, "snapshot": { "id": "pgdata" } },
+    { "path": "$LOCATION(ApplicationsPerformance)/immich/config", "owner": { "user": "apps" }, "snapshot": { "id": "config" } }
   ]
 }
 ```
 
 **How `owner` works:**
-- HexOS calls `user.get_user_obj` on the TrueNAS system to resolve the username to a numeric uid/gid
+- HexOS calls `user.get_user_obj` and optionally `group.get_group_obj` on the TrueNAS system to resolve usernames and group names to numeric uid/gid
 - After `app.update` completes, HexOS verifies and repairs ownership on declared paths if TrueNAS changed it
 - If a path has a POSIX1E ACL (legacy), HexOS automatically migrates it to NFS4 with `aclmode: PASSTHROUGH`, snapshots the dataset first as a rollback point, then applies the canonical ACL with the declared uid/gid
 - Only applies to app-specific paths (4+ path segments, e.g., `/mnt/pool/location/app/data`) — location roots are never modified

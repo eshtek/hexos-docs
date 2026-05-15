@@ -19,8 +19,8 @@
       "path": "$LOCATION(Photos)",
       "network_share": true
     },
-    { "path": "$LOCATION(Photos)/immich", "owner": "apps", "snapshot": { "id": "data" } },
-    { "path": "$LOCATION(ApplicationsPerformance)/immich/postgres_data", "owner": "postgres", "snapshot": { "id": "pgdata" } }
+    { "path": "$LOCATION(Photos)/immich", "owner": { "user": "apps" }, "snapshot": { "id": "data" } },
+    { "path": "$LOCATION(ApplicationsPerformance)/immich/postgres_data", "owner": { "user": "netdata", "group": "docker" }, "snapshot": { "id": "pgdata" } }
   ],
   "app_values": {
     "release_name": "immich",
