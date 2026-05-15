@@ -20,7 +20,7 @@
       "network_share": true
     },
     { "path": "$LOCATION(ApplicationsPerformance)/home-assistant/config", "owner": { "user": "apps" }, "snapshot": { "id": "config" } },
-    { "path": "$LOCATION(ApplicationsPerformance)/home-assistant/postgres_data", "owner": { "user": "netdata", "group": "docker" }, "snapshot": { "id": "pgdata" } },
+    { "path": "$LOCATION(ApplicationsPerformance)/home-assistant/postgres_data", "owner": { "user": "netdata", "group": "docker" }, "snapshot": { "id": "db" } },
     { "path": "$LOCATION(Media)/home-assistant" }
   ],
   "app_values": {

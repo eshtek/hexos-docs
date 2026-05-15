@@ -243,7 +243,7 @@ Each entry in `ensure_directories_exists` is an object with the following proper
   - `user` (required): TrueNAS username (e.g., `"apps"`, `"netdata"`)
   - `group` (optional): TrueNAS group name (e.g., `"docker"`). If omitted, uses the user's default group
 - `snapshot` (optional): Object with an `id` field. When present, HexOS snapshots this dataset before app updates so support can assist with restoring your application and data if something goes wrong
-  - `id` (required): Identifier included in the snapshot name and metadata (e.g., `"pgdata"`, `"config"`)
+  - `id` (required): Identifier included in the snapshot name and metadata (e.g., `"db"`, `"config"`)
 
 **Example:**
 ```json
@@ -252,7 +252,7 @@ Each entry in `ensure_directories_exists` is an object with the following proper
     { "path": "$LOCATION(Photos)", "network_share": true },
     { "path": "$LOCATION(ApplicationsPerformance)", "network_share": true },
     { "path": "$LOCATION(Photos)/immich", "owner": { "user": "apps" }, "snapshot": { "id": "data" } },
-    { "path": "$LOCATION(ApplicationsPerformance)/immich/postgres_data", "owner": { "user": "netdata", "group": "docker" }, "snapshot": { "id": "pgdata" } },
+    { "path": "$LOCATION(ApplicationsPerformance)/immich/postgres_data", "owner": { "user": "netdata", "group": "docker" }, "snapshot": { "id": "db" } },
     { "path": "$LOCATION(ApplicationsPerformance)/immich/config", "owner": { "user": "apps" }, "snapshot": { "id": "config" } }
   ]
 }
