@@ -27,8 +27,8 @@ If an install scripts fails, this will help:
 
 #### Permission Errors
 - **Symptom**: App fails to start, logs show permission denied errors
-- **Solution**: Add appropriate entries to `ensure_permissions_exists` in your install script
-- **Example**: PostgreSQL requires specific user/group permissions
+- **Solution**: Add the `owner` field to the relevant entry in `ensure_directories_exists` with the correct TrueNAS username (e.g., `"postgres"`, `"apps"`)
+- **Example**: PostgreSQL requires `"owner": "postgres"` on its data directory
 
 #### Missing Directories
 - **Symptom**: App fails during installation, "directory not found" errors

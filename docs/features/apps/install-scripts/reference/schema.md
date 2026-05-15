@@ -4,15 +4,14 @@ Install scripts are JSON objects with the following structure. Scripts can use v
 
 ## Root Properties
 
-- **`version`** (required): Schema version. Must be `3` or higher (currently latest supported version).
+- **`version`** (required): Schema version. Must be `4` (current required version). Versions 1-3 are deprecated.
 - **`script`** (required): Metadata about the install script itself
   - **`version`** (required): Semantic version of this install script (e.g., "1.0.0", "2.1.3")
   - **`updateCompatibility`** (optional): Semver range expression defining which script versions can update to this version (e.g., ">=1.0.0" allows updates from any version 1.0.0 or higher, "^2.0.0" allows updates from 2.x.x versions). Supports all [semver range syntax](https://www.npmjs.com/package/semver#ranges) including `>=`, `>`, `<`, `<=`, `^`, `~`, and complex ranges like `">=1.0.0 <3.0.0"`
   - **`changeLog`** (optional): Description of changes in this version of the script
 - **`requirements`** (required): System requirements that are validated before installation
 - **`installation_questions`** (optional): Array of questions to ask the user during installation
-- **`ensure_directories_exists`** (optional): Array of directories to create before installation
-- **`ensure_permissions_exists`** (optional): Array of permission modifications for specific paths
+- **`ensure_directories_exists`** (optional): Array of directory entry objects to create before installation, with optional ownership and snapshot declarations
 - **`app_values`** (required): Configuration object passed directly to TrueNAS API
 
 ## Available Macros
@@ -83,8 +82,8 @@ Locations are folder paths configured in HexOS Settings → Locations. Each loca
     "locations": ["ApplicationsPerformance", "Photos", "Media"]
   },
   "ensure_directories_exists": [
-    "$LOCATION(ApplicationsPerformance)/immich/config",
-    "$LOCATION(Photos)/immich"
+    { "path": "$LOCATION(ApplicationsPerformance)/immich/config", "owner": "apps" },
+    { "path": "$LOCATION(Photos)/immich", "owner": "apps" }
   ],
   "app_values": {
     "storage": {
@@ -149,7 +148,7 @@ Network ports that the application will use. HexOS can validate port availabilit
 
 ```json
 {
-  "version": 2,
+  "version": 4,
   "requirements": {
     "locations": [
       "ApplicationsPerformance",
@@ -234,19 +233,41 @@ Reference question responses in your `app_values` using the `$QUESTION(key)` syn
 
 Question responses can be used in conditional logic with the `$IF` macro. See the [$IF macro documentation](/features/apps/install-scripts/reference/macros#if-condition-truevalue-falsevalue) for examples of using questions in conditional expressions.
 
-## Directory Creation
-- **String format**: Simple path string
-- **Object format**: 
-  - `path`: Directory path (required)
-  - `network_share`: Boolean, whether to expose as network share
-  - `posix`: Boolean, whether to use POSIX permissions
+## Directory Creation, Ownership, and Snapshots
 
-## Permission Management
-Required for apps that need specific user/group permissions (like PostgreSQL).
-- `path`: Directory path to modify
-- `username`: User to grant access to
-- `access`: Access level ("read", "write", etc.)
-- `posix`: Object with additional POSIX settings (e.g., `groupname`)
+Each entry in `ensure_directories_exists` is an object with the following properties:
+
+- `path` (required): Directory path, typically using `$LOCATION()` macros
+- `network_share` (optional): Boolean, whether to expose as a network share
+- `owner` (optional): TrueNAS username that should own this directory (e.g., `"apps"`, `"postgres"`). When specified, HexOS resolves the username to its uid/gid at runtime and ensures correct ownership on install and after updates
+- `snapshot` (optional): Object with an `id` field. When present, HexOS snapshots this dataset before app updates so support can assist with restoring your application and data if something goes wrong
+  - `id` (required): Identifier included in the snapshot name and metadata (e.g., `"pgdata"`, `"config"`)
+
+**Example:**
+```json
+{
+  "ensure_directories_exists": [
+    { "path": "$LOCATION(Photos)", "network_share": true },
+    { "path": "$LOCATION(ApplicationsPerformance)", "network_share": true },
+    { "path": "$LOCATION(Photos)/immich", "owner": "apps", "snapshot": { "id": "data" } },
+    { "path": "$LOCATION(ApplicationsPerformance)/immich/postgres_data", "owner": "postgres", "snapshot": { "id": "pgdata" } },
+    { "path": "$LOCATION(ApplicationsPerformance)/immich/config", "owner": "apps", "snapshot": { "id": "config" } }
+  ]
+}
+```
+
+**How `owner` works:**
+- HexOS calls `user.get_user_obj` on the TrueNAS system to resolve the username to a numeric uid/gid
+- After `app.update` completes, HexOS verifies and repairs ownership on declared paths if TrueNAS changed it
+- If a path has a POSIX1E ACL (legacy), HexOS automatically migrates it to NFS4 with `aclmode: PASSTHROUGH`, snapshots the dataset first as a rollback point, then applies the canonical ACL with the declared uid/gid
+- Only applies to app-specific paths (4+ path segments, e.g., `/mnt/pool/location/app/data`) — location roots are never modified
+- Paths without `owner` are created with default permissions and not tracked for repair
+
+**How `snapshot` works:**
+- Before any app update, HexOS snapshots each dataset with a `snapshot` config so support can assist with restoring your application and data if something goes wrong
+- Snapshots are named `hexos-app-{appId}-{id}-{timestamp}` and stamped with metadata: `hexos:purpose`, `hexos:app`, `hexos:snapshot_id`, `hexos:path`
+- Only the latest 3 snapshots per app per dataset are kept — older snapshots are automatically pruned after each new snapshot
+- Only applies to app-specific paths (4+ path segments) — location roots are never snapshotted
 
 ## App Values
 This object is passed directly to TrueNAS's app installation API. The structure varies by application and corresponds to the app's configuration schema in the [TrueNAS apps repository](https://github.com/truenas/apps). For example, you can see Plex's schema for the `storage` property [here](https://github.com/truenas/apps/blob/1d2a6e9811f9af2ceae6529cc094a432a7da4e96/trains/stable/plex/app_versions.json#L422).

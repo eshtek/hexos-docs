@@ -1,8 +1,8 @@
 {
-  "version": 3,
+  "version": 4,
   "script": {
-    "version": "1.0.1",
-    "changeLog": "Updated dataset locations and set config to posix"
+    "version": "1.1.0",
+    "changeLog": "Upgraded to V4 install script format"
   },
   "requirements": {
     "locations": ["ApplicationsPerformance", "Media"],
@@ -19,25 +19,9 @@
       "path": "$LOCATION(Media)",
       "network_share": true
     },
-    {
-      "path": "$LOCATION(ApplicationsPerformance)/home-assistant/config",
-      "posix": true
-    },
-    {
-      "path": "$LOCATION(ApplicationsPerformance)/home-assistant/postgres_data",
-      "posix": true
-    },
-    "$LOCATION(Media)/home-assistant"
-  ],
-  "ensure_permissions_exists": [
-    {
-      "path": "$LOCATION(ApplicationsPerformance)/home-assistant/postgres_data",
-      "username": "netdata",
-      "access": "read",
-      "posix": {
-        "groupname": "docker"
-      }
-    }
+    { "path": "$LOCATION(ApplicationsPerformance)/home-assistant/config", "owner": "apps", "snapshot": { "id": "config" } },
+    { "path": "$LOCATION(ApplicationsPerformance)/home-assistant/postgres_data", "owner": "postgres", "snapshot": { "id": "pgdata" } },
+    { "path": "$LOCATION(Media)/home-assistant" }
   ],
   "app_values": {
     "home_assistant": {
