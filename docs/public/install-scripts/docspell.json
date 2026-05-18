@@ -1,0 +1,53 @@
+{
+  "version": 4,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial"
+  },
+  "requirements": {
+    "locations": ["ApplicationsPerformance", "Documents"],
+    "specifications": ["2CORE", "256MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [30261]
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Documents)",
+      "network_share": true
+    },
+    { "path": "$LOCATION(Documents)/docspell" },
+    { "path": "$LOCATION(ApplicationsPerformance)/docspell/solr_data", "owner": { "user": "apps" }, "snapshot": { "id": "data" } },
+    { "path": "$LOCATION(ApplicationsPerformance)/docspell/postgres_data", "owner": { "user": "netdata", "group": "docker" }, "snapshot": { "id": "db" } }
+  ],
+  "app_values": {
+    "docspell": {
+      "db_password": "$RANDOM_STRING(7)",
+      "server_secret": "$RANDOM_STRING(7)",
+      "joex_docker_runner": "true",
+      "additional_envs": []
+    },
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 30261
+      }
+    },
+    "storage": {
+      "solr_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/docspell/solr_data)",
+      "postgres_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/docspell/postgres_data)",
+      "additional_storage": [
+        "$MOUNTED_HOST_PATH($LOCATION(Documents), /documents)"
+      ]
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 4096)"
+      }
+    }
+  }
+}

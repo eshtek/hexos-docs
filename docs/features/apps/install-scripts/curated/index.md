@@ -4,6 +4,7 @@
 | App | Download | Size | Last Modified |
 |---|---|---:|---|
 | `bazarr` | [bazarr.json](/install-scripts/bazarr.json) | 1.4 KB | 2026-05-15 |
+| `docspell` | [docspell.json](/install-scripts/docspell.json) | 1.5 KB | 2026-05-18 |
 | `drawio` | [drawio.json](/install-scripts/drawio.json) | 634 B | 2026-05-15 |
 | `emby` | [emby.json](/install-scripts/emby.json) | 2.3 KB | 2026-05-15 |
 | `handbrake` | [handbrake.json](/install-scripts/handbrake.json) | 1.9 KB | 2026-05-15 |
