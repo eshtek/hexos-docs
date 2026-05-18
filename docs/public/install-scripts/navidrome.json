@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "script": {
     "version": "1.0.0",
     "changeLog": "Initial Install Script"
@@ -194,7 +194,7 @@
       "path": "$LOCATION(Music)",
       "network_share": true
     },
-    "$LOCATION(ApplicationsPerformance)/navidrome/data"
+    { "path": "$LOCATION(ApplicationsPerformance)/navidrome/data", "owner": { "user": "apps" }, "snapshot": { "id": "config" } }
   ],
   "app_values": {
     "navidrome": {
