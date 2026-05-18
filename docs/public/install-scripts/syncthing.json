@@ -1,8 +1,8 @@
 {
-  "version": 3,
+  "version": 4,
   "script": {
-    "version": "1.0.1",
-    "changeLog": "Updated requirements"
+    "version": "1.1.0",
+    "changeLog": "Upgraded to V4 install script format"
   },
   "requirements": {
     "locations": [
@@ -12,7 +12,10 @@
       "Downloads",
       "Photos",
       "Music",
-      "Videos"
+      "Videos",
+      "Media",
+      "Movies",
+      "Shows"
     ],
     "specifications": [
       "2CORE",
@@ -52,7 +55,19 @@
       "path": "$LOCATION(Music)",
       "network_share": true
     },
-    "$LOCATION(ApplicationsPerformance)/syncthing/config"
+    {
+      "path": "$LOCATION(Media)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Movies)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Shows)",
+      "network_share": true
+    },
+    { "path": "$LOCATION(ApplicationsPerformance)/syncthing/config", "snapshot": { "id": "config" } }
   ],
   "app_values": {
     "run_as": {
@@ -66,7 +81,10 @@
         "$MOUNTED_HOST_PATH($LOCATION(Downloads), /sync/Downloads)",
         "$MOUNTED_HOST_PATH($LOCATION(Photos), /sync/Photos)",
         "$MOUNTED_HOST_PATH($LOCATION(Videos), /sync/Videos)",
-        "$MOUNTED_HOST_PATH($LOCATION(Music), /sync/Music)"
+        "$MOUNTED_HOST_PATH($LOCATION(Music), /sync/Music)",
+        "$MOUNTED_HOST_PATH($LOCATION(Photos), /sync/Media)",
+        "$MOUNTED_HOST_PATH($LOCATION(Videos), /sync/Movies)",
+        "$MOUNTED_HOST_PATH($LOCATION(Music), /sync/Shows)"
       ]
     },
     "network": {

@@ -1,8 +1,8 @@
 {
-  "version": 3,
+  "version": 4,
   "script": {
-    "version": "1.0.1",
-    "changeLog": "Updated requirements"
+    "version": "1.1.0",
+    "changeLog": "Upgraded to V4 install script format"
   },
   "requirements": {
     "locations": [
@@ -37,7 +37,10 @@
       "path": "$LOCATION(Shows)",
       "network_share": true
     },
-    "$LOCATION(ApplicationsPerformance)/bazarr/config"
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/bazarr/config",
+      "snapshot": { "id": "config" }
+    }
   ],
   "app_values": {
     "storage": {

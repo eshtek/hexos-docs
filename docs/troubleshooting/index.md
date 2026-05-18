@@ -8,8 +8,10 @@ Check our [Common Issues](./common-issues/) section for frequently encountered p
 - [Immich Migration Guide](./common-issues/ImmichMigration) - Migrating existing Immich installations
 - [Clear Browser Cache](./common-issues/ClearCache) - Fixing login and UI issues
 - [Avoid USB Drives](./common-issues/AvoidUSBDrives) - Why USB drives cause problems
+- [Updating HexOS 24.10](./common-issues/UpgradingHexOS24.md) - Guide for updating HexOS 24.10 to HexOS 25.10
+- [Updating Immich to Postgres 18](./common-issues/ImmichPG18.md) - Guide for updating Immich to Postgres 18
 
-Visit the [HexOS Community](https://hub.hexos.com/) for additional support from other users.
+Visit the [HexOS Community](https://discord.gg/fCW2htvYdz) for additional support from other users.
 :::
 
 ## Installation Issues
@@ -181,7 +183,7 @@ If a task is taking too long or appears stuck in the Activities panel, you can m
 If your issue isn't covered here:
 
 - Check [Common Issues](./common-issues/) for community-reported problems
-- Visit the [HexOS Community](https://hub.hexos.com/) for user support
+- Visit the [HexOS Community](https://discord.gg/fCW2htvYdz) for user support
 - Review the [Getting Started Guide](/getting-started/overview) for setup help
 - Contact HexOS support through the official channels
 

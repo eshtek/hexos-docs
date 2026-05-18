@@ -33,4 +33,4 @@ If you're having trouble logging into the HexOS Deck UI or experiencing session 
 If clearing your cache doesn't resolve the problem:
 - Try using an incognito/private browsing window
 - Restart your browser completely
-- Check the [HexOS Community](https://hub.hexos.com/) for additional support
+- Check the [HexOS Community](https://discord.gg/fCW2htvYdz) for additional support

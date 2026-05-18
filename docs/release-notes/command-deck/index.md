@@ -11,6 +11,8 @@ For users who are actively connected during an update, there may be a brief down
 <!-- auto-generated-year-sections-start -->
 ## 2026 Releases
 
+- [**2026-05-13**](./2026-05-13) - TrueNAS Compatibility, App Install Improvements & Buddy Backup Foundations
+- [**2026-04-21**](./2026-04-21) - HexOS 1.0 Local Rollout Complete
 - [**2026-03-27**](./2026-03-27) - Hotfix : Apps Newly Curated
 - [**2026-03-24**](./2026-03-24) - Local Foundations & UI Polish
 - [**2026-01-21**](./2026-01-21) - Mobile Dialogs, App Lifecycle, Polish, HexOS Local Prep
@@ -45,4 +47,4 @@ For users who are actively connected during an update, there may be a brief down
 If you encounter any issues after an update:
 - Try [clearing your browser cache](/troubleshooting/common-issues/ClearCache) first
 - Check the [troubleshooting guide](/troubleshooting/) for common solutions
-- Visit the [HexOS Community](https://hub.hexos.com/) for additional support
+- Visit the [HexOS Community](https://discord.gg/fCW2htvYdz) for additional support
