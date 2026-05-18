@@ -6,6 +6,7 @@
 | `bazarr` | [bazarr.json](/install-scripts/bazarr.json) | 1.4 KB | 2026-05-15 |
 | `drawio` | [drawio.json](/install-scripts/drawio.json) | 634 B | 2026-05-15 |
 | `emby` | [emby.json](/install-scripts/emby.json) | 2.3 KB | 2026-05-15 |
+| `game-vault` | [game-vault.json](/install-scripts/game-vault.json) | 2.0 KB | 2026-05-18 |
 | `handbrake` | [handbrake.json](/install-scripts/handbrake.json) | 1.9 KB | 2026-05-15 |
 | `home-assistant` | [home-assistant.json](/install-scripts/home-assistant.json) | 1.4 KB | 2026-05-15 |
 | `immich` | [immich.json](/install-scripts/immich.json) | 1.6 KB | 2026-05-15 |

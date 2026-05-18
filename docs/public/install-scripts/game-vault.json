@@ -1,0 +1,64 @@
+{
+  "version": 4,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial"
+  },
+  "requirements": {
+    "locations": ["ApplicationsPerformance", "Media"],
+    "specifications": ["2CORE", "256MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [30419, 30420]
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsCapacity)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Media)",
+      "network_share": true
+    },
+    { "path": "$LOCATION(ApplicationsPerformance)/gamevault/config", "owner": { "user": "apps" }, "snapshot": { "id": "config" } },
+    { "path": "$LOCATION(Media)/gamevault/media" },
+    { "path": "$LOCATION(Media)/gamevault/saves" },
+    { "path": "$LOCATION(Media)/gamevault/plugins" },
+    { "path": "$LOCATION(Media)/gamevault/files" },
+    { "path": "$LOCATION(ApplicationsPerformance)/gamevault/postgres_data", "owner": { "user": "netdata", "group": "docker" }, "snapshot": { "id": "db" } }
+  ],
+  "app_values": {
+    "gamevault": {
+      "db_password": "$RANDOM_STRING(7)",
+      "additional_envs": []
+    },
+    "network": {
+      "certificate_id": 1,
+      "http_port": {
+        "bind_mode": "published",
+        "port_number": 30419
+      },
+      "https_port": {
+        "bind_mode": "published",
+        "port_number": 30420
+      }
+    },
+    "storage": {
+      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/gamevault/config)",
+      "media": "$HOST_PATH($LOCATION(Media)/gamevault/media)",
+      "savefiles": "$HOST_PATH($LOCATION(Media)/gamevault/saves)",
+      "files": "$HOST_PATH($LOCATION(Media)/gamevault/files)",
+      "plugins": "$HOST_PATH($LOCATION(Media)/gamevault/plugins)",
+      "postgres_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/gamevault/postgres_data)"
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 4096)"
+      }
+    }
+  }
+}
