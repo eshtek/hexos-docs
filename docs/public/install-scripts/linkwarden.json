@@ -1,0 +1,46 @@
+{
+  "version": 4,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial script"
+  },
+  "requirements": {
+    "locations": ["ApplicationsPerformance"],
+    "specifications": ["2CORE", "200MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [30243]
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    { "path": "$LOCATION(ApplicationsPerformance)/linkwarden/data", "owner": { "user": "apps" }, "snapshot": { "id": "data" } },
+    { "path":"$LOCATION(ApplicationsPerformance)/linkwarden/meili_data", "owner": { "user": "apps", "group": "apps" }, "snapshot": { "id": "db" } },
+    { "path":"$LOCATION(ApplicationsPerformance)/linkwarden/postgres_data", "owner": { "user": "netdata", "group": "docker" }, "snapshot": { "id": "db" } }
+  ],
+  "app_values": {
+    "linkwarden": {
+      "db_password": "$RANDOM_STRING(7)",
+      "nextauth_secret": "$RANDOM_STRING(7)",
+      "meilisearch_master_key": "$RANDOM_STRING(7)"
+    },
+    "storage": {
+      "data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/linkwarden/data)",
+      "meili_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/linkwarden/meili_data)",
+      "postgres_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/linkwarden/postgres_data)"
+    },
+  "network": {
+    "web_port": {
+      "bind_mode": "published",
+      "port_number": 30243
+    }
+  },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 2048)"
+      }
+    }
+  }
+}
