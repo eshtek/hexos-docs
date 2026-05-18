@@ -1,0 +1,71 @@
+{
+  "version": 4,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial"
+  },
+  "installation_questions": [
+    {
+      "question": "What is the email address for the admin user?",
+      "description": "Only takes effect if the admin user is not yet created.",
+      "type": "text",
+      "key": "admin_mail",
+      "required": true,
+      "default": ""
+    },
+    {
+      "question": "Create a password for the admin user",
+      "description": "Only takes effect if the admin user is not yet created. Minimum length of 8 characters.",
+      "type": "text",
+      "key": "admin_password",
+      "required": true,
+      "default": ""
+    }
+  ],
+  "requirements": {
+    "locations": ["ApplicationsPerformance"],
+    "specifications": ["2CORE", "256MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [30237]
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Documents)",
+      "network_share": true
+    },
+    { "path": "$LOCATION(ApplicationsPerformance)/kimai/plugins", "owner": { "user": "apps" }, "snapshot": { "id": "data" } },
+    { "path": "$LOCATION(ApplicationsPerformance)/kimai/data", "owner": { "user": "apps" }, "snapshot": { "id": "data" } },
+    { "path": "$LOCATION(ApplicationsPerformance)/kimai/database", "owner": { "user": "apps" }, "snapshot": { "id": "db" } }
+  ],
+  "app_values": {
+    "kimai": {
+      "db_password": "$RANDOM_STRING(7)",
+      "db_root_password": "$RANDOM_STRING(7)",
+      "admin_mail": "$QUESTION(admin_mail)",
+      "admin_password": "$QUESTION(admin_password)",
+      "app_secret": "$RANDOM_STRING(32)",
+      "additional_envs": []
+    },
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 30237
+      }
+    },
+    "storage": {
+      "data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/kimai/data)",
+      "plugins": "$HOST_PATH($LOCATION(ApplicationsPerformance)/kimai/plugins)",
+      "mariadb_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/kimai/database)"
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 4096)"
+      }
+    }
+  }
+}
