@@ -1,8 +1,8 @@
 {
-  "version": 3,
+  "version": 4,
   "script": {
-    "version": "1.0.0",
-    "changeLog": "Upgraded Radarr install script to be compatible with latest HexOS script changes"
+    "version": "1.1.0",
+    "changeLog": "Upgraded to V4 install script format"
   },
   "requirements": {
     "locations": ["ApplicationsPerformance", "ApplicationsCapacity", "Downloads", "Movies"],
@@ -27,8 +27,13 @@
       "path": "$LOCATION(Movies)",
       "network_share": true
     },
-    "$LOCATION(Downloads)/qbittorrent",
-    "$LOCATION(ApplicationsPerformance)/radarr/config"
+    {
+      "path": "$LOCATION(Downloads)/qbittorrent"
+    },
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/radarr/config",
+      "snapshot": { "id": "config" }
+    }
   ],
   "app_values": {
     "storage": {
