@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "script": {
     "version": "1.0.0",
     "changeLog": "Initial Script"
@@ -19,22 +19,9 @@
       "path": "$LOCATION(ApplicationsCapacity)",
       "network_share": true
     },
-    {
-      "path": "$LOCATION(ApplicationsPerformance)/lubelogger/postgres",
-      "posix": true
-    },
-    "$LOCATION(ApplicationsCapacity)/lubelogger/data",
-    "$LOCATION(ApplicationsPerformance)/lubelogger/keys"
-  ],
-  "ensure_permissions_exists": [
-    {
-      "path": "$LOCATION(ApplicationsPerformance)/lubelogger/postgres",
-      "username": "netdata",
-      "access": "read",
-      "posix": {
-        "groupname": "docker"
-      }
-    }
+    { "path": "$LOCATION(ApplicationsPerformance)/lubelogger/postgres", "owner": { "user": "netdata", "group": "docker" }, "snapshot": { "id": "db" } },
+    { "path": "$LOCATION(ApplicationsCapacity)/lubelogger/data", "owner": { "user": "apps" }, "snapshot": { "id": "data" } },
+    { "path": "$LOCATION(ApplicationsPerformance)/lubelogger/keys", "owner": { "user": "apps" }, "snapshot": { "id": "keys" } }
   ],
   "app_values": {
     "lubelogger": {
