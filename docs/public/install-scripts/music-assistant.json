@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "script": {
     "version": "1.0.0",
     "changeLog": "Initial Script"
@@ -23,7 +23,7 @@
       "path": "$LOCATION(Media)",
       "network_share": true
     },
-    "$LOCATION(ApplicationsPerformance)/music-assistant/data"
+    { "path": "$LOCATION(ApplicationsPerformance)/music-assistant/data", "owner": { "user": "apps" }, "snapshot": { "id": "data" } }
   ],
   "app_values": {
     "music_assistant": {
