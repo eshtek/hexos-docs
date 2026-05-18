@@ -10,6 +10,7 @@
 | `home-assistant` | [home-assistant.json](/install-scripts/home-assistant.json) | 1.4 KB | 2026-05-15 |
 | `immich` | [immich.json](/install-scripts/immich.json) | 1.6 KB | 2026-05-15 |
 | `jellyfin` | [jellyfin.json](/install-scripts/jellyfin.json) | 2.3 KB | 2026-05-15 |
+| `kitchenowl` | [kitchenowl.json](/install-scripts/kitchenowl.json) | 1.2 KB | 2026-05-18 |
 | `lidarr` | [lidarr.json](/install-scripts/lidarr.json) | 1.4 KB | 2026-05-15 |
 | `nextcloud` | [nextcloud.json](/install-scripts/nextcloud.json) | 3.4 KB | 2026-05-15 |
 | `peanut` | [peanut.json](/install-scripts/peanut.json) | 911 B | 2026-05-15 |
