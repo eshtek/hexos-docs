@@ -5,6 +5,7 @@
 |---|---|---:|---|
 | `bazarr` | [bazarr.json](/install-scripts/bazarr.json) | 1.4 KB | 2026-05-15 |
 | `blinko` | [blinko.json](/install-scripts/blinko.json) | 1.3 KB | 2026-05-18 |
+| `dozzle` | [dozzle.json](/install-scripts/dozzle.json) | 614 B | 2026-05-18 |
 | `drawio` | [drawio.json](/install-scripts/drawio.json) | 634 B | 2026-05-15 |
 | `emby` | [emby.json](/install-scripts/emby.json) | 2.3 KB | 2026-05-15 |
 | `handbrake` | [handbrake.json](/install-scripts/handbrake.json) | 1.9 KB | 2026-05-15 |
