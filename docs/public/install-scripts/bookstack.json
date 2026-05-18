@@ -1,0 +1,56 @@
+{
+  "version": 4,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial"
+  },
+  "requirements": {
+    "locations": ["ApplicationsPerformance", "Media", "ApplicationsCapacity"],
+    "specifications": ["2CORE", "256MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [30214]
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(ApplicationsCapacity)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Media)",
+      "network_share": true
+    },
+    { "path": "$LOCATION(Media)/bookstack_uploads" },
+    { "path": "$LOCATION(ApplicationsCapacity)/bookstack/uploads" },
+    { "path": "$LOCATION(ApplicationsPerformance)/bookstack/database", "owner": { "user": "apps" }, "snapshot": { "id": "db" } }
+  ],
+  "app_values": {
+    "bookstack": {
+      "db_password": "$RANDOM_STRING(7)",
+      "db_root_password": "$RANDOM_STRING(7)",
+      "app_url": "$SERVER_LAN_IP:30214",
+      "app_key": "$RANDOM_STRING(32)",
+      "additional_envs": []
+    },
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 30214
+      }
+    },
+    "storage": {
+      "uploads": "$HOST_PATH($LOCATION(Media)/bookstack_uploads)",
+      "storage_uploads": "$HOST_PATH($LOCATION(ApplicationsCapacity)/bookstack/uploads)",
+      "mariadb_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/bookstack/database)"
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 4096)"
+      }
+    }
+  }
+}
