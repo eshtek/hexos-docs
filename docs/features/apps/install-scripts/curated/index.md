@@ -3,6 +3,7 @@
 <!-- curated:index:start -->
 | App | Download | Size | Last Modified |
 |---|---|---:|---|
+| `affine` | [affine.json](/install-scripts/affine.json) | 1.5 KB | 2026-05-18 |
 | `bazarr` | [bazarr.json](/install-scripts/bazarr.json) | 1.4 KB | 2026-05-15 |
 | `drawio` | [drawio.json](/install-scripts/drawio.json) | 634 B | 2026-05-15 |
 | `emby` | [emby.json](/install-scripts/emby.json) | 2.3 KB | 2026-05-15 |
