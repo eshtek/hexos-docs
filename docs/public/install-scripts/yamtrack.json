@@ -1,0 +1,151 @@
+{
+  "version": 4,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial script"
+  },
+  "installation_questions": [
+    {
+      "question": "TMDB API key",
+      "description": "The Movie Database API key for movies and TV shows. A default key is provided.",
+      "type": "text",
+      "key": "TMDB_API",
+      "required": false,
+      "default": ""
+    },
+    {
+      "question": "MAL API key",
+      "description": "MyAnimeList API key for anime and manga. A default key is provided.",
+      "type": "text",
+      "key": "MAL_API",
+      "required": false,
+      "default": ""
+    },
+    {
+      "question": "IGDB ID",
+      "description": "IGDB API key for games. A default key is provided, but it's recommended to get your own as it has a low rate limit.",
+      "type": "text",
+      "key": "IGDB_ID",
+      "required": false,
+      "default": ""
+    },
+    {
+      "question": "IGDB SECRET",
+      "description": "IGDB API secret for games. A default value is provided, but it's recommended to get your own as it has a low rate limit.",
+      "type": "text",
+      "key": "IGDB_SECRETn",
+      "required": false,
+      "default": ""
+    },
+    {
+      "question": "HARDCOVER API Key",
+      "description": "Hardcover API key for books. A default key is provided, but it's recommended to get your own as it has a low rate limit.",
+      "type": "text",
+      "key": "HARDCOVER_API",
+      "required": false,
+      "default": ""
+    },
+    {
+      "question": "COMICVINE API Key",
+      "description": "ComicVine API key for comics. A default key is provided, but it's recommended to get your own as it has a low rate limit.",
+      "type": "text",
+      "key": "COMICVINE_API",
+      "required": false,
+      "default": ""
+    },
+    {
+      "question": "Would you like to include adult content?",
+      "type": "select",
+      "key": "nsfw",
+      "required": true,
+      "options": [
+        {
+          "text": "No",
+          "value": "False"
+        },
+        {
+          "text": "Yes",
+          "value": "True"
+        }
+      ],
+      "default": "False"
+    }
+  ],
+  "requirements": {
+    "locations": ["ApplicationsPerformance"],
+    "specifications": ["2CORE", "200MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [30282]
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    { "path": "$LOCATION(ApplicationsPerformance)/yamtrack/postgres_data", "owner": { "user": "netdata", "group": "docker" }, "snapshot": { "id": "db" } }
+  ],
+  "app_values": {
+    "yamtrack": {
+      "db_password": "$RANDOM_STRING(7)",
+      "redis_password": "$RANDOM_STRING(7)",
+      "secret": "$RANDOM_STRING(7)",
+      "additional_envs": [
+        {
+          "name": "TMDB_API",
+          "value": "$QUESTION(TMDB_API)"
+        },
+        {
+          "name": "MAL_API",
+          "value": "$QUESTION(MAL_API)"
+        },
+        {
+          "name": "IGDB_ID",
+          "value": "$QUESTION(IGDB_ID)"
+        },
+        {
+          "name": "IGDB_SECRET",
+          "value": "$QUESTION(IGDB_SECRET)"
+        },
+        {
+          "name": "HARDCOVER_API",
+          "value": "$QUESTION(HARDCOVER_API)"
+        },
+        {
+          "name": "COMICVINE_API",
+          "value": "$QUESTION(COMICVINE_API)"
+        },
+        {
+          "name": "TMDB_NSFW",
+          "value": "$QUESTION(nsfw)"
+        },
+        {
+          "name": "MAL_NSFW",
+          "value": "$QUESTION(nsfw)"
+        },
+        {
+          "name": "MU_NSFW",
+          "value": "$QUESTION(nsfw)"
+        },
+        {
+          "name": "IGDB_NSFW",
+          "value": "$QUESTION(nsfw)"
+        }
+      ]
+    },
+    "storage": {
+      "postgres_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/yamtrack/postgres_data)"
+    },
+  "network": {
+    "web_port": {
+      "bind_mode": "published",
+      "port_number": 30282
+    }
+  },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 2048)"
+      }
+    }
+  }
+}
