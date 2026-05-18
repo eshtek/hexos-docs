@@ -1,0 +1,48 @@
+{
+  "version": 4,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial"
+  },
+  "requirements": {
+    "locations": ["ApplicationsPerformance", "Documents"],
+    "specifications": ["2CORE", "256MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [30412]
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Documents)",
+      "network_share": true
+    },
+    { "path": "$LOCATION(Documents)/blinko", "owner": { "user": "apps" }, "snapshot": { "id": "data" } },
+    { "path": "$LOCATION(ApplicationsPerformance)/blinko/postgres_data", "owner": { "user": "netdata", "group": "docker" }, "snapshot": { "id": "db" } }
+  ],
+  "app_values": {
+    "blinko": {
+      "db_password": "$RANDOM_STRING(7)",
+      "nextauth_secret": "$RANDOM_STRING(7)",
+      "additional_envs": []
+    },
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 30412
+      }
+    },
+    "storage": {
+      "data": "$HOST_PATH($LOCATION(Documents)/blinko)",
+      "postgres_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/affine/postgres_data)"
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 4096)"
+      }
+    }
+  }
+}
