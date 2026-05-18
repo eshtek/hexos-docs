@@ -1,0 +1,50 @@
+{
+  "version": 4,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial"
+  },
+  "requirements": {
+    "locations": [
+      "ApplicationsPerformance", "Media"
+    ],
+    "specifications": [
+      "2CORE",
+      "1024MB"
+    ],
+    "permissions": [
+      "READ_WRITE_LOCATIONS"
+    ],
+    "ports": [30260]
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Media)",
+      "network_share": true
+    },
+    { "path": "$LOCATION(ApplicationsPerformance)/shelfmark/config", "owner": { "user": "apps" }, "snapshot": { "id": "config" } },
+    { "path": "$LOCATION(Media)/books" }
+  ],
+  "app_values": {
+    "storage": {
+      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/shelfmark/config)",
+      "books": "$HOST_PATH($LOCATION(Media)/books)"
+    }
+  },
+  "network": {
+    "web_port": {
+      "bind_mode": "published",
+      "port_number": 30260
+    }
+  },
+  "resources": {
+    "limits": {
+      "cpus": 2,
+      "memory": "$MEMORY(5%, 1024)"
+    }
+  }
+}
