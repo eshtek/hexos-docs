@@ -15,6 +15,7 @@
 | `jellyfin` | [jellyfin.json](/install-scripts/jellyfin.json) | 2.3 KB | 2026-05-15 |
 | `lidarr` | [lidarr.json](/install-scripts/lidarr.json) | 1.4 KB | 2026-05-15 |
 | `lubelogger` | [lubelogger.json](/install-scripts/lubelogger.json) | 1.5 KB | 2026-05-01 |
+| `navidrome` | [navidrome.json](/install-scripts/navidrome.json) | 5.1 KB | 2026-05-01 |
 | `nextcloud` | [nextcloud.json](/install-scripts/nextcloud.json) | 3.4 KB | 2026-05-15 |
 | `peanut` | [peanut.json](/install-scripts/peanut.json) | 911 B | 2026-05-15 |
 | `plex` | [plex.json](/install-scripts/plex.json) | 3.4 KB | 2026-05-15 |
