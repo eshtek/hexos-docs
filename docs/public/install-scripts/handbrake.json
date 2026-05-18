@@ -1,8 +1,8 @@
 {
-  "version": 3,
+  "version": 4,
   "script": {
-    "version": "1.0.1",
-    "changeLog": "Updated requirements"
+    "version": "1.1.0",
+    "changeLog": "Upgraded to V4 install script format"
   },
   "requirements": {
     "locations": [
@@ -44,8 +44,13 @@
       "path": "$LOCATION(Videos)",
       "network_share": true
     },
-    "$LOCATION(ApplicationsPerformance)/handbrake/config",
-    "$LOCATION(Media)/HandBrake/Output"
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/handbrake/config",
+      "snapshot": { "id": "config" }
+    },
+    {
+      "path": "$LOCATION(Media)/HandBrake/Output"
+    }
   ],
   "app_values": {
     "storage": {
