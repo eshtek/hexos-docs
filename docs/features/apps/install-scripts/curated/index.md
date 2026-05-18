@@ -9,6 +9,7 @@
 | `handbrake` | [handbrake.json](/install-scripts/handbrake.json) | 1.9 KB | 2026-05-15 |
 | `home-assistant` | [home-assistant.json](/install-scripts/home-assistant.json) | 1.4 KB | 2026-05-15 |
 | `immich` | [immich.json](/install-scripts/immich.json) | 1.6 KB | 2026-05-15 |
+| `invidious` | [invidious.json](/install-scripts/invidious.json) | 1.4 KB | 2026-05-18 |
 | `jellyfin` | [jellyfin.json](/install-scripts/jellyfin.json) | 2.3 KB | 2026-05-15 |
 | `lidarr` | [lidarr.json](/install-scripts/lidarr.json) | 1.4 KB | 2026-05-15 |
 | `nextcloud` | [nextcloud.json](/install-scripts/nextcloud.json) | 3.4 KB | 2026-05-15 |
