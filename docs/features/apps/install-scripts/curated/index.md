@@ -19,6 +19,7 @@
 | `nextcloud` | [nextcloud.json](/install-scripts/nextcloud.json) | 3.4 KB | 2026-05-15 |
 | `peanut` | [peanut.json](/install-scripts/peanut.json) | 911 B | 2026-05-15 |
 | `plex` | [plex.json](/install-scripts/plex.json) | 3.4 KB | 2026-05-15 |
+| `portracker` | [portracker.json](/install-scripts/portracker.json) | 894 B | 2026-05-18 |
 | `prowlarr` | [prowlarr.json](/install-scripts/prowlarr.json) | 781 B | 2026-05-15 |
 | `qbittorrent` | [qbittorrent.json](/install-scripts/qbittorrent.json) | 1.0 KB | 2026-05-15 |
 | `radarr` | [radarr.json](/install-scripts/radarr.json) | 1.3 KB | 2026-05-15 |
