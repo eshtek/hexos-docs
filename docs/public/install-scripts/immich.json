@@ -19,7 +19,7 @@
       "path": "$LOCATION(Photos)",
       "network_share": true
     },
-    { "path": "$LOCATION(Photos)/immich", "owner": { "user": "apps" }, "snapshot": { "id": "data" } },
+    { "path": "$LOCATION(Photos)/immich" },
     { "path": "$LOCATION(ApplicationsPerformance)/immich/postgres_data", "owner": { "user": "netdata", "group": "docker" }, "snapshot": { "id": "db" } }
   ],
   "app_values": {

@@ -53,7 +53,7 @@
       "path": "$LOCATION(ApplicationsCapacity)",
       "network_share": true
     },
-    { "path": "$LOCATION(ApplicationsCapacity)/nextcloud/data", "snapshot": { "id": "data" } }
+    { "path": "$LOCATION(ApplicationsCapacity)/nextcloud/data" }
   ],
   "app_values": {
     "nextcloud": {

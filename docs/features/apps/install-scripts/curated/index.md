@@ -11,12 +11,12 @@
 | `excalidraw` | [excalidraw.json](/install-scripts/excalidraw.json) | 614 B | 2026-05-18 |
 | `handbrake` | [handbrake.json](/install-scripts/handbrake.json) | 1.9 KB | 2026-05-15 |
 | `home-assistant` | [home-assistant.json](/install-scripts/home-assistant.json) | 1.4 KB | 2026-05-15 |
-| `immich` | [immich.json](/install-scripts/immich.json) | 1.6 KB | 2026-05-15 |
+| `immich` | [immich.json](/install-scripts/immich.json) | 1.5 KB | 2026-05-19 |
 | `jellyfin` | [jellyfin.json](/install-scripts/jellyfin.json) | 2.3 KB | 2026-05-15 |
 | `lidarr` | [lidarr.json](/install-scripts/lidarr.json) | 1.4 KB | 2026-05-15 |
-| `lubelogger` | [lubelogger.json](/install-scripts/lubelogger.json) | 1.5 KB | 2026-05-01 |
-| `navidrome` | [navidrome.json](/install-scripts/navidrome.json) | 5.1 KB | 2026-05-01 |
-| `nextcloud` | [nextcloud.json](/install-scripts/nextcloud.json) | 3.4 KB | 2026-05-15 |
+| `lubelogger` | [lubelogger.json](/install-scripts/lubelogger.json) | 1.5 KB | 2026-05-18 |
+| `navidrome` | [navidrome.json](/install-scripts/navidrome.json) | 5.1 KB | 2026-05-18 |
+| `nextcloud` | [nextcloud.json](/install-scripts/nextcloud.json) | 3.4 KB | 2026-05-19 |
 | `peanut` | [peanut.json](/install-scripts/peanut.json) | 911 B | 2026-05-15 |
 | `plex` | [plex.json](/install-scripts/plex.json) | 3.4 KB | 2026-05-15 |
 | `portracker` | [portracker.json](/install-scripts/portracker.json) | 894 B | 2026-05-18 |
