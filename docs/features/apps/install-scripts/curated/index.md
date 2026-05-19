@@ -13,6 +13,7 @@
 | `home-assistant` | [home-assistant.json](/install-scripts/home-assistant.json) | 1.4 KB | 2026-05-15 |
 | `immich` | [immich.json](/install-scripts/immich.json) | 1.6 KB | 2026-05-15 |
 | `jellyfin` | [jellyfin.json](/install-scripts/jellyfin.json) | 2.3 KB | 2026-05-15 |
+| `joplin` | [joplin.json](/install-scripts/joplin.json) | 1.0 KB | 2026-05-18 |
 | `lidarr` | [lidarr.json](/install-scripts/lidarr.json) | 1.4 KB | 2026-05-15 |
 | `lubelogger` | [lubelogger.json](/install-scripts/lubelogger.json) | 1.5 KB | 2026-05-01 |
 | `navidrome` | [navidrome.json](/install-scripts/navidrome.json) | 5.1 KB | 2026-05-01 |
