@@ -1,0 +1,44 @@
+{
+  "version": 4,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial"
+  },
+  "requirements": {
+    "locations": [
+      "ApplicationsPerformance"
+    ],
+    "specifications": [
+      "2CORE",
+      "1024MB"
+    ],
+    "permissions": [
+      "READ_WRITE_LOCATIONS"
+    ],
+    "ports": [30149]
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    { "path": "$LOCATION(ApplicationsPerformance)/homebox/data", "owner": { "user": "apps" }, "snapshot": { "id": "data" } }
+  ],
+  "app_values": {
+    "storage": {
+      "data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/homebox/data)"
+    }
+  },
+  "network": {
+    "web_port": {
+      "bind_mode": "published",
+      "port_number": 30149
+    }
+  },
+  "resources": {
+    "limits": {
+      "cpus": 2,
+      "memory": "$MEMORY(5%, 1024)"
+    }
+  }
+}
