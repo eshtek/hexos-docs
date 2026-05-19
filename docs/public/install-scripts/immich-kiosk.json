@@ -1,0 +1,58 @@
+{
+  "version": 4,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial"
+  },
+  "installation_questions": [
+    {
+      "question": "Immich Api key",
+      "description": "An api key is used to give Immich Kiosk access to your Immich media. You can find instructions to get your api key at https://docs.immich.app/features/command-line-interface#obtain-the-api-key",
+      "type": "text",
+      "key": "immich_api_key",
+      "required": true,
+      "default": ""
+    }
+  ],
+  "requirements": {
+    "locations": [
+      "ApplicationsPerformance"
+    ],
+    "specifications": [
+      "2CORE",
+      "1024MB"
+    ],
+    "permissions": [
+      "READ_WRITE_LOCATIONS"
+    ],
+    "ports": [30408]
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    { "path": "$LOCATION(ApplicationsPerformance)/immich-kiosk/config", "owner": { "user": "apps" }, "snapshot": { "id": "config" } }
+  ],
+  "app_values": {
+    "kiosk": {
+      "immich_api_key": "$QUESTION(immich_api_key)",
+      "immich_url": "http://$SERVER_LAN_IP:2283"
+    },
+    "storage": {
+      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/immich-kiosk/config)"
+    }
+  },
+  "network": {
+    "web_port": {
+      "bind_mode": "published",
+      "port_number": 30408
+    }
+  },
+  "resources": {
+    "limits": {
+      "cpus": 2,
+      "memory": "$MEMORY(5%, 1024)"
+    }
+  }
+}
