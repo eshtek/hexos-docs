@@ -3,6 +3,7 @@
 <!-- curated:index:start -->
 | App | Download | Size | Last Modified |
 |---|---|---:|---|
+| `affine` | [affine.json](/install-scripts/affine.json) | 1.5 KB | 2026-05-18 |
 | `bazarr` | [bazarr.json](/install-scripts/bazarr.json) | 1.4 KB | 2026-05-15 |
 | `blinko` | [blinko.json](/install-scripts/blinko.json) | 1.3 KB | 2026-05-18 |
 | `dozzle` | [dozzle.json](/install-scripts/dozzle.json) | 614 B | 2026-05-18 |
