@@ -1,0 +1,47 @@
+{
+  "version": 4,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial"
+  },
+  "requirements": {
+    "locations": ["ApplicationsPerformance"],
+    "specifications": ["2CORE", "256MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [31008]
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    { "path": "$LOCATION(ApplicationsPerformance)/invidious/config", "owner": { "user": "apps" }, "snapshot": { "id": "config" } },
+    { "path": "$LOCATION(ApplicationsPerformance)/invidious/cache" },
+    { "path": "$LOCATION(ApplicationsPerformance)/invidious/postgres_data", "owner": { "user": "netdata", "group": "docker" }, "snapshot": { "id": "db" } }
+  ],
+  "app_values": {
+    "invidious": {
+      "db_password": "$RANDOM_STRING(7)",
+      "hmac_secret": "$RANDOM_STRING(7)",
+      "companion_key": "$RANDOM_STRING(16)",
+      "additional_envs": []
+    },
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 31008
+      }
+    },
+    "storage": {
+      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/invidious/config)",
+      "companion_cache": "$HOST_PATH($LOCATION(ApplicationsPerformance)/invidious/cache)",
+      "postgres_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/invidious/postgres_data)"
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 4096)"
+      }
+    }
+  }
+}
