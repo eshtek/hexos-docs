@@ -1,8 +1,8 @@
 {
-  "version": 3,
+  "version": 4,
   "script": {
-    "version": "1.0.1",
-    "changeLog": "Updated requirements"
+    "version": "1.1.0",
+    "changeLog": "Upgraded to V4 install script format"
   },
   "requirements": {
     "locations": [
@@ -47,26 +47,13 @@
       "path": "$LOCATION(ApplicationsPerformance)",
       "network_share": true
     },
-    "$LOCATION(ApplicationsPerformance)/nextcloud/html",
-    {
-      "path": "$LOCATION(ApplicationsPerformance)/nextcloud/postgres_data",
-      "posix": true
-    },
+    { "path": "$LOCATION(ApplicationsPerformance)/nextcloud/html", "owner": { "user": "www-data" }, "snapshot": { "id": "html" } },
+    { "path": "$LOCATION(ApplicationsPerformance)/nextcloud/postgres_data", "owner": { "user": "netdata", "group": "docker" }, "snapshot": { "id": "db" } },
     {
       "path": "$LOCATION(ApplicationsCapacity)",
       "network_share": true
     },
-    "$LOCATION(ApplicationsCapacity)/nextcloud/data"
-  ],
-  "ensure_permissions_exists": [
-    {
-      "path": "$LOCATION(ApplicationsPerformance)/nextcloud/postgres_data",
-      "username": "netdata",
-      "access": "read",
-      "posix": {
-        "groupname": "docker"
-      }
-    }
+    { "path": "$LOCATION(ApplicationsCapacity)/nextcloud/data", "snapshot": { "id": "data" } }
   ],
   "app_values": {
     "nextcloud": {

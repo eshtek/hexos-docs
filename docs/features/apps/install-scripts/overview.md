@@ -49,10 +49,12 @@ For apps not yet curated or when you need to customize the configuration:
 ### Best Practices and Common Pitfalls
 
 #### Best Practices
+- **Use V4 format** — all new install scripts must use `"version": 4`
 - **Always use `$LOCATION()` macros** for paths instead of hardcoded paths
 - **Use `$HOST_PATH()` and `$MOUNTED_HOST_PATH()`** for storage configuration instead of manual object creation
-- **Include necessary directories** in `ensure_directories_exists` - assume no directories exist
-- **Set proper permissions** with `ensure_permissions_exists` for apps that require specific user/group access
+- **All directory entries must be objects** — bare strings in `ensure_directories_exists` are no longer supported in V4
+- **Declare ownership** with the `owner` field for apps that require specific user/group ownership (e.g., `"postgres"`, `"apps"`)
+- **Add `snapshot` config** on data and config directories to enable automatic pre-update ZFS snapshots
 - **Use `$MEMORY()` for dynamic memory allocation** to ensure apps work across different system configurations
 - **Reference TrueNAS app schemas** from the [official apps repository](https://github.com/truenas/apps) for `app_values` structure
 

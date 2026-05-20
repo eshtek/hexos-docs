@@ -1,8 +1,8 @@
 {
   "version": 4,
   "script": {
-    "version": "1.1.0",
-    "changeLog": "Upgraded to V4 install script format"
+    "version": "1.0.0",
+    "changeLog": "Initial"
   },
   "requirements": {
     "locations": [
@@ -15,27 +15,24 @@
     "permissions": [
       "READ_WRITE_LOCATIONS"
     ],
-    "ports": [30224]
+    "ports": [30233]
   },
   "ensure_directories_exists": [
     {
       "path": "$LOCATION(ApplicationsPerformance)",
       "network_share": true
     },
-    {
-      "path": "$LOCATION(ApplicationsPerformance)/peanut/config",
-      "snapshot": { "id": "config" }
-    }
+    { "path": "$LOCATION(ApplicationsPerformance)/portracker/data", "owner": { "user": "apps" }, "snapshot": { "id": "data" } }
   ],
   "app_values": {
     "storage": {
-      "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/peanut/config)"
+      "data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/portracker/data)"
     }
   },
   "network": {
     "web_port": {
       "bind_mode": "published",
-      "port_number": 30224
+      "port_number": 30233
     }
   },
   "resources": {
