@@ -5,7 +5,7 @@
     "changeLog": "Initial"
   },
   "requirements": {
-    "locations": ["ApplicationsPerformance", "Documents"],
+    "locations": ["ApplicationsPerformance", "ApplicationsCapacity"],
     "specifications": ["2CORE", "256MB"],
     "permissions": ["READ_WRITE_LOCATIONS"],
     "ports": [30412]
@@ -16,10 +16,10 @@
       "network_share": true
     },
     {
-      "path": "$LOCATION(Documents)",
+      "path": "$LOCATION(ApplicationsCapacity)",
       "network_share": true
     },
-    { "path": "$LOCATION(Documents)/blinko", "owner": { "user": "apps" }, "snapshot": { "id": "data" } },
+    { "path": "$LOCATION(ApplicationsCapacity)/blinko/data", "owner": { "user": "apps" }, "snapshot": { "id": "data" } },
     { "path": "$LOCATION(ApplicationsPerformance)/blinko/postgres_data", "owner": { "user": "netdata", "group": "docker" }, "snapshot": { "id": "db" } }
   ],
   "app_values": {
@@ -35,8 +35,8 @@
       }
     },
     "storage": {
-      "data": "$HOST_PATH($LOCATION(Documents)/blinko)",
-      "postgres_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/affine/postgres_data)"
+      "data": "$HOST_PATH($LOCATION(ApplicationsCapacity)/blinko/data)",
+      "postgres_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/blinko/postgres_data)"
     },
     "resources": {
       "limits": {
