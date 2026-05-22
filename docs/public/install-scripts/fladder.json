@@ -12,7 +12,7 @@
   },
   "app_values": {
     "fladder": {
-      "jellyfin_base_url": "http://$SERVER_LAN_IP:30014",
+      "jellyfin_base_url": "http://$SERVER_LAN_IP:30013",
       "seer_base_url": "http://$SERVER_LAN_IP:30042"      
     },
   "network": {
