@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "script": {
     "version": "1.0.0",
     "changeLog": "Initial Script"
@@ -22,7 +22,7 @@
       "path": "$LOCATION(ApplicationsPerformance)",
       "network_share": true
     },
-    "$LOCATION(ApplicationsPerformance)/seerr/config"
+    { "path": "$LOCATION(ApplicationsPerformance)/seerr/config", "owner": { "user": "apps" }, "snapshot": { "id": "config" } }
   ],
   "app_values": {
     "storage": {
