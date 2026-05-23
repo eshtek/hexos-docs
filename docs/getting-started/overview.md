@@ -8,9 +8,9 @@ For basic storage and folder capabilities, HexOS has the same underlying system 
 
 | Component | Minimum requirements | 
 |---|---|
-| Processor | 2-Core Intel 64-Bit or AMD x86_64 processor |
+| Processor | 2-Core Intel 64-Bit or AMD x86_64 processor <br><small>**HexOS** requires CPU support for: SSSE3, SSE4.1, SSE4.2, POPCNT, AVX</small> |
 | Memory | 8 GB memory |
-| Boot Drive | 16 GB SSD boot device |
+| Boot Drive | 20 GB SSD boot device |
 | Storage |  - One storage drive for testing purposes*<br> - Two storage drives for a mirrored pool**<br> - Three storage drives for an expandable pool |
 
 <small>\* *single drive configurations offer no redundancy and should only be used for testing purposes only*  
