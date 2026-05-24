@@ -22,6 +22,7 @@
 | `portracker` | [portracker.json](/install-scripts/portracker.json) | 894 B | 2026-05-18 |
 | `prowlarr` | [prowlarr.json](/install-scripts/prowlarr.json) | 781 B | 2026-05-15 |
 | `qbittorrent` | [qbittorrent.json](/install-scripts/qbittorrent.json) | 1.0 KB | 2026-05-15 |
+| `rackula` | [rackula.json](/install-scripts/rackula.json) | 940 B | 2026-05-18 |
 | `radarr` | [radarr.json](/install-scripts/radarr.json) | 1.3 KB | 2026-05-15 |
 | `scrutiny` | [scrutiny.json](/install-scripts/scrutiny.json) | 1.4 KB | 2026-05-15 |
 | `sonarr` | [sonarr.json](/install-scripts/sonarr.json) | 1.3 KB | 2026-05-15 |
