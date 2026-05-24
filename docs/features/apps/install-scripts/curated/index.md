@@ -24,6 +24,7 @@
 | `qbittorrent` | [qbittorrent.json](/install-scripts/qbittorrent.json) | 1.0 KB | 2026-05-15 |
 | `radarr` | [radarr.json](/install-scripts/radarr.json) | 1.3 KB | 2026-05-15 |
 | `scrutiny` | [scrutiny.json](/install-scripts/scrutiny.json) | 1.4 KB | 2026-05-15 |
+| `shelfmark` | [shelfmark.json](/install-scripts/shelfmark.json) | 1.1 KB | 2026-05-18 |
 | `sonarr` | [sonarr.json](/install-scripts/sonarr.json) | 1.3 KB | 2026-05-15 |
 | `syncthing` | [syncthing.json](/install-scripts/syncthing.json) | 2.6 KB | 2026-05-15 |
 <!-- curated:index:end -->
