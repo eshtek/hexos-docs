@@ -1,0 +1,70 @@
+{
+  "version": 4,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial script"
+  },
+  "installation_questions": [
+    {
+      "question": "Username",
+      "description": "Choose an initial username",
+      "type": "text",
+      "key": "username",
+      "required": true,
+      "default": ""
+    },
+    {
+      "question": "Password",
+      "description": "Choose an initial password",
+      "type": "text",
+      "key": "password",
+      "required": true,
+      "default": ""
+    }
+  ],
+  "requirements": {
+    "locations": ["ApplicationsPerformance", "Videos"],
+    "specifications": ["2CORE", "200MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [30247]
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    {
+      "path": "$LOCATION(Videos)",
+      "network_share": true
+    },
+    { "path": "$LOCATION(ApplicationsPerformance)/tube_archivist/cache" },
+    { "path": "$LOCATION(ApplicationsPerformance)/tube_archivist/es_data" },
+    { "path": "$LOCATION(Videos)/tube_archivist" }
+  ],
+  "app_values": {
+    "tube": {
+      "elastic_password": "$RANDOM_STRING(7)",
+      "redis_password": "$RANDOM_STRING(7)",
+      "app_urls": [ "http://$SERVER_LAN_IP:30247" ],
+      "username": "$QUESTION(username)",
+      "password": "$QUESTION(password)"
+    },
+    "storage": {
+      "youtube": "$HOST_PATH($LOCATION(Videos)/tube_archivist)",
+      "cache": "$HOST_PATH($LOCATION(ApplicationsPerformance)/tube_archivist/cache)",
+      "es_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/tube_archivist/es_data)"
+    },
+  "network": {
+    "web_port": {
+      "bind_mode": "published",
+      "port_number": 30247
+    }
+  },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 2048)"
+      }
+    }
+  }
+}
