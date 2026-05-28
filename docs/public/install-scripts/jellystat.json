@@ -34,7 +34,7 @@
       "path": "$LOCATION(ApplicationsPerformance)",
       "network_share": true
     },
-    { "path": "$LOCATION(ApplicationsPerformance)/jellystat/backup", "owner": { "user": "apps" }, "snapshot": { "id": "backup" } },
+    { "path": "$LOCATION(ApplicationsPerformance)/jellystat/backup", "snapshot": { "id": "backup" } },
     { "path": "$LOCATION(ApplicationsPerformance)/jellystat/postgres_data", "owner": { "user": "netdata", "group": "docker" }, "snapshot": { "id": "db" } }
   ],
 
