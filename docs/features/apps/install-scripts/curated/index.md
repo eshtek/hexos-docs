@@ -25,6 +25,7 @@
 | `prowlarr` | [prowlarr.json](/install-scripts/prowlarr.json) | 781 B | 2026-05-15 |
 | `qbittorrent` | [qbittorrent.json](/install-scripts/qbittorrent.json) | 1.0 KB | 2026-05-15 |
 | `radarr` | [radarr.json](/install-scripts/radarr.json) | 1.3 KB | 2026-05-15 |
+| `seerr` | [seerr.json](/install-scripts/seerr.json) | 924 B | 2026-03-09 |
 | `scrutiny` | [scrutiny.json](/install-scripts/scrutiny.json) | 1.4 KB | 2026-05-15 |
 | `sonarr` | [sonarr.json](/install-scripts/sonarr.json) | 1.3 KB | 2026-05-15 |
 | `syncthing` | [syncthing.json](/install-scripts/syncthing.json) | 2.6 KB | 2026-05-15 |
