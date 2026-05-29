@@ -1,0 +1,30 @@
+{
+  "version": 4,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial script"
+  },
+  "requirements": {
+    "locations": [],
+    "specifications": ["2CORE", "200MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [30387]
+  },
+  "app_values": {
+    "fladder": {
+      "jellyfin_base_url": "http://$SERVER_LAN_IP:30013" 
+    },
+  "network": {
+    "web_port": {
+      "bind_mode": "published",
+      "port_number": 30387
+    }
+  },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 2048)"
+      }
+    }
+  }
+}

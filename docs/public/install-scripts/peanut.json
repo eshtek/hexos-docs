@@ -1,8 +1,8 @@
 {
-  "version": 3,
+  "version": 4,
   "script": {
-    "version": "1.0.0",
-    "changeLog": "Initial Script"
+    "version": "1.1.0",
+    "changeLog": "Upgraded to V4 install script format"
   },
   "requirements": {
     "locations": [
@@ -15,14 +15,17 @@
     "permissions": [
       "READ_WRITE_LOCATIONS"
     ],
-    "ports": []
+    "ports": [30224]
   },
   "ensure_directories_exists": [
     {
       "path": "$LOCATION(ApplicationsPerformance)",
       "network_share": true
     },
-    "$LOCATION(ApplicationsPerformance)/peanut/config"
+    {
+      "path": "$LOCATION(ApplicationsPerformance)/peanut/config",
+      "snapshot": { "id": "config" }
+    }
   ],
   "app_values": {
     "storage": {
