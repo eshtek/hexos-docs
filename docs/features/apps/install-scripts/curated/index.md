@@ -9,12 +9,12 @@
 | `drawio` | [drawio.json](/install-scripts/drawio.json) | 634 B | 2026-05-15 |
 | `emby` | [emby.json](/install-scripts/emby.json) | 2.3 KB | 2026-05-15 |
 | `excalidraw` | [excalidraw.json](/install-scripts/excalidraw.json) | 614 B | 2026-05-18 |
-| `fladder` | [fladder.json](/install-scripts/fladder.json) | 566 B | 2026-05-22 |
+| `fladder` | [fladder.json](/install-scripts/fladder.json) | 566 B | 2026-05-24 |
 | `handbrake` | [handbrake.json](/install-scripts/handbrake.json) | 1.9 KB | 2026-05-15 |
 | `home-assistant` | [home-assistant.json](/install-scripts/home-assistant.json) | 1.4 KB | 2026-05-15 |
 | `immich` | [immich.json](/install-scripts/immich.json) | 1.6 KB | 2026-05-15 |
 | `jellyfin` | [jellyfin.json](/install-scripts/jellyfin.json) | 2.3 KB | 2026-05-15 |
-| `jellystat` | [jellystat.json](/install-scripts/jellystat.json) | 1.6 KB | 2026-05-18 |
+| `jellystat` | [jellystat.json](/install-scripts/jellystat.json) | 1.6 KB | 2026-05-28 |
 | `lidarr` | [lidarr.json](/install-scripts/lidarr.json) | 1.4 KB | 2026-05-15 |
 | `lubelogger` | [lubelogger.json](/install-scripts/lubelogger.json) | 1.5 KB | 2026-05-18 |
 | `navidrome` | [navidrome.json](/install-scripts/navidrome.json) | 5.1 KB | 2026-05-18 |
@@ -25,8 +25,8 @@
 | `prowlarr` | [prowlarr.json](/install-scripts/prowlarr.json) | 781 B | 2026-05-15 |
 | `qbittorrent` | [qbittorrent.json](/install-scripts/qbittorrent.json) | 1.0 KB | 2026-05-15 |
 | `radarr` | [radarr.json](/install-scripts/radarr.json) | 1.3 KB | 2026-05-15 |
-| `seerr` | [seerr.json](/install-scripts/seerr.json) | 924 B | 2026-03-09 |
 | `scrutiny` | [scrutiny.json](/install-scripts/scrutiny.json) | 1.4 KB | 2026-05-15 |
+| `seerr` | [seerr.json](/install-scripts/seerr.json) | 924 B | 2026-05-22 |
 | `sonarr` | [sonarr.json](/install-scripts/sonarr.json) | 1.3 KB | 2026-05-15 |
 | `syncthing` | [syncthing.json](/install-scripts/syncthing.json) | 2.6 KB | 2026-05-15 |
 <!-- curated:index:end -->
