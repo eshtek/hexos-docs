@@ -47,7 +47,7 @@
       "path": "$LOCATION(ApplicationsPerformance)",
       "network_share": true
     },
-    { "path": "$LOCATION(ApplicationsPerformance)/nextcloud/html", "owner": { "user": "apps" }, "snapshot": { "id": "html" } },
+    { "path": "$LOCATION(ApplicationsPerformance)/nextcloud/html", "owner": { "user": "www-data" }, "snapshot": { "id": "html" } },
     { "path": "$LOCATION(ApplicationsPerformance)/nextcloud/postgres_data", "owner": { "user": "netdata", "group": "docker" }, "snapshot": { "id": "db" } },
     {
       "path": "$LOCATION(ApplicationsCapacity)",
