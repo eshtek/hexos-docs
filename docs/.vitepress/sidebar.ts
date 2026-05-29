@@ -155,7 +155,7 @@ const sidebar: DefaultTheme.SidebarItem[] = [
         collapsed: true,
         items: [
       // auto-generated-release-notes-start
-            { text: '2026-05-28', link: '/release-notes/command-deck/2026-05-28' },
+            { text: '2026-05-29', link: '/release-notes/command-deck/2026-05-29' },
             { text: '2026-05-20', link: '/release-notes/command-deck/2026-05-20' },
             { text: '2026-05-13', link: '/release-notes/command-deck/2026-05-13' },
             { text: '2026-04-21', link: '/release-notes/command-deck/2026-04-21' },
