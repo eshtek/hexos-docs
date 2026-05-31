@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "script": {
     "version": "1.0.0",
     "changeLog": "Initial Install script"
@@ -63,8 +63,8 @@
       "path": "$LOCATION(Videos)",
       "network_share": true
     },
-    "$LOCATION(ApplicationsPerformance)/mkvtoolnix/config",
-    "$LOCATION(Documents)/mkvtoolnix-storage"
+    { "path": "$LOCATION(ApplicationsPerformance)/mkvtoolnix/config", "owner": { "user": "apps" }, "snapshot": { "id": "data" } },
+    { "path": "$LOCATION(Documents)/mkvtoolnix-storage", "owner": { "user": "apps" } }
   ],
   "app_values": {
     "mkvtoolnix": {
