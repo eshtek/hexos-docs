@@ -29,4 +29,5 @@
 | `seerr` | [seerr.json](/install-scripts/seerr.json) | 924 B | 2026-05-22 |
 | `sonarr` | [sonarr.json](/install-scripts/sonarr.json) | 1.3 KB | 2026-05-15 |
 | `syncthing` | [syncthing.json](/install-scripts/syncthing.json) | 2.6 KB | 2026-05-15 |
+| `tubearchivist` | [tubearchivist.json](/install-scripts/tubearchivist.json) | 1.8 KB | 2026-05-18 |
 <!-- curated:index:end -->
