@@ -43,6 +43,7 @@ const sidebar: DefaultTheme.SidebarItem[] = [
               { text: 'Curated Scripts', link: '/features/apps/install-scripts/curated/' },
               { text: 'Contributing', link: '/features/apps/install-scripts/contributing' },
               { text: 'Schema Reference', link: '/features/apps/install-scripts/reference/schema' },
+              { text: 'Hooks Reference', link: '/features/apps/install-scripts/reference/hooks' },
               { text: 'Macros Reference', link: '/features/apps/install-scripts/reference/macros' },
               { text: 'Debugging', link: '/features/apps/install-scripts/advanced/debugging' },
             ]
