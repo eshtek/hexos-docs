@@ -266,7 +266,7 @@ const libraryName = ctx.getInput<string>("library_name");
 
 ## User Optional Hooks
 
-Hooks with `userOptional` show a checkbox in the install dialog, letting the user decide whether to run the hook:
+Hooks with `userOptional` show a toggle switch in the install dialog, letting the user decide whether to run the hook:
 
 ```json
 {
@@ -279,6 +279,46 @@ Hooks with `userOptional` show a checkbox in the install dialog, letting the use
   }
 }
 ```
+
+### userOptional Properties
+
+| Property | Type | Required | Description |
+|---|---|---|---|
+| `label` | string | Yes | Short label displayed next to the toggle switch |
+| `description` | string | No | Explanatory text shown below the toggle |
+| `default` | boolean | No | Whether the toggle is on by default (default: `true`) |
+| `link` | object | No | A link rendered inline at the end of the description (see below) |
+
+### Adding a Link
+
+Use the `link` property to display a clickable link after the description text. This is useful when your hook performs an action that requires the user to acknowledge external terms of service or documentation.
+
+```json
+{
+  "id": "configure-plex",
+  "event": "onAfterInstall",
+  "userOptional": {
+    "label": "Pre-configure Plex",
+    "description": "Sign in to your Plex account to automatically claim your server, set preferences, and create media libraries. By enabling this, you agree that HexOS will accept the Plex Terms of Service on your behalf.",
+    "default": true,
+    "link": {
+      "url": "https://www.plex.tv/about/privacy-legal/plex-terms-of-service/",
+      "label": "Plex Terms of Service"
+    }
+  }
+}
+```
+
+| Property | Type | Required | Description |
+|---|---|---|---|
+| `link.url` | string | Yes | Fully qualified URL (must pass URL validation) |
+| `link.label` | string | Yes | Clickable text displayed as the link |
+
+The link opens in a new tab. It renders inline at the end of the description paragraph, styled as a branded underlined link.
+
+::: tip When to use a link
+If your hook accepts terms, agrees to a EULA, or performs an action governed by a third-party service's policies on behalf of the user, include a `link` to the relevant terms so the user can review them before opting in.
+:::
 
 During upgrades, `userOptional` hooks are automatically excluded — only non-optional hooks run.
 
