@@ -1,0 +1,93 @@
+{
+    "version": 4,
+    "script": {
+        "version": "1.0.1",
+        "changeLog": "Paperless-ngx configuration"
+    },
+    "requirements": {
+        "locations": [
+            "ApplicationsPerformance",
+            "ApplicationsCapacity",
+            "Documents"
+        ],
+        "permissions": [
+            "READ_WRITE_LOCATIONS"
+        ],
+        "ports": [
+            30070
+        ]
+    },
+    "ensure_directories_exists": [
+        {
+            "path": "$LOCATION(ApplicationsPerformance)",
+            "network_share": true
+        },
+        {
+            "path": "$LOCATION(ApplicationsCapacity)",
+            "network_share": true
+        },
+        {
+            "path": "$LOCATION(Documents)",
+            "network_share": true
+        },
+        {
+            "path": "$LOCATION(ApplicationsPerformance)/paperless",
+            "owner": { "user": "apps", "group": "docker" }
+        },
+        { "path": "$LOCATION(ApplicationsPerformance)/paperless/postgres", "owner": { "user": "apps", "group": "docker" }, "snapshot": { "id": "db" } },
+        { "path": "$LOCATION(ApplicationsPerformance)/paperless/data", "owner": { "user": "apps", "group": "docker" }, "snapshot": { "id": "data" } },
+        { "path": "$LOCATION(Documents)/paperless/media", "owner": { "user": "apps", "group": "docker" } ,  "snapshot": { "id": "media" }  },
+        { "path": "$LOCATION(Documents)/paperless/consume", "owner": { "user": "apps", "group": "docker" } },
+        { "path": "$LOCATION(Documents)/paperless/export", "owner": { "user": "apps", "group": "docker" } },
+        { "path": "$LOCATION(Documents)/paperless/trash", "owner": { "user": "apps", "group": "docker" } }
+    ],
+    "installation_questions": [
+      {
+        "question": "Do you want to enable the trash feature in Paperless-ngx?",
+        "type": "boolean",
+        "key": "enable_trash",
+        "default": false
+      },
+      {
+          "question": "Admin user name",
+          "type": "text",
+          "key": "admin_user",
+          "required": true,
+          "default": "admin"
+      },
+      {
+        "question": "Admin user password",
+        "type": "text",
+        "key": "admin_password",
+        "required": true,
+        "default": "$RANDOM_STRING(64)"
+        }
+    ],
+    "app_values": {
+        "paperless" : {
+          "db_password": "$RANDOM_STRING(64)",
+          "redis_password": "$RANDOM_STRING(64)",
+          "secret_key": "$RANDOM_STRING(64)",
+          "admin_user": "$QUESTION(admin_user)",
+          "admin_email": "$RANDOM_STRING(20)@example.com",
+          "admin_password": "$QUESTION(admin_password)",
+          "enable_trash": "$QUESTION(enable_trash)"
+        },
+          
+        "storage": {
+            "data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/paperless/data)",
+            "media": "$HOST_PATH($LOCATION(Documents)/paperless/media)",
+            "consume": "$HOST_PATH($LOCATION(Documents)/paperless/consume)",
+            "export": "$HOST_PATH($LOCATION(Documents)/paperless/export)",
+            "postgres_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/paperless/postgres)",
+            "trash": "$HOST_PATH($LOCATION(Documents)/paperless/trash)"
+        },
+        "network": {
+            "web_port": {
+                "bind_mode": "published",
+                "port_number": 30070
+            }
+        }
+    }
+}
+
