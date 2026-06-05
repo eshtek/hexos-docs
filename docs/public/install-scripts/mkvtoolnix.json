@@ -64,7 +64,7 @@
       "network_share": true
     },
     { "path": "$LOCATION(ApplicationsPerformance)/mkvtoolnix/config", "owner": { "user": "apps" }, "snapshot": { "id": "data" } },
-    { "path": "$LOCATION(Documents)/mkvtoolnix-storage", "owner": { "user": "apps" } }
+    { "path": "$LOCATION(Documents)/mkvtoolnix"}
   ],
   "app_values": {
     "mkvtoolnix": {
@@ -77,7 +77,7 @@
     },
     "storage": {
       "config": "$HOST_PATH($LOCATION(ApplicationsPerformance)/mkvtoolnix/config)",
-      "storage": "$HOST_PATH($LOCATION(Documents)/mkvtoolnix-storage)",
+      "storage": "$HOST_PATH($LOCATION(Documents)/mkvtoolnix)",
       "additional_storage": [
         "$MOUNTED_HOST_PATH($LOCATION(Media), /Media)",
         "$MOUNTED_HOST_PATH($LOCATION(Videos), /Videos)",
