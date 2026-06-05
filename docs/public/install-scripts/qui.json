@@ -22,7 +22,7 @@
       "path": "$LOCATION(ApplicationsPerformance)",
       "network_share": true
     },
-    { "path": "$LOCATION(ApplicationsPerformance)/qui/config", "owner": { "user": "apps" },  "snapshot": { "id": "config" } }
+    { "path": "$LOCATION(ApplicationsPerformance)/qui/config", "snapshot": { "id": "config" } }
   ],
   "app_values": {
     "storage": {
