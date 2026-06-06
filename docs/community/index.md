@@ -26,7 +26,7 @@ Learn more about how to contribute to the docs repository [here](/community/how-
 
 Build our community by helping others:
 
-- Answer questions on the [HexOS Community](https://hub.hexos.com/)
+- Answer questions on the [HexOS Community](https://discord.gg/fCW2htvYdz)
 - Share working configurations
 - Help debug issues
 - Welcome newcomers
@@ -34,7 +34,7 @@ Build our community by helping others:
 ## Getting Started
 
 New to contributing? Start small:
-1. Join the [HexOS Community](https://hub.hexos.com/)
+1. Join the [HexOS Community](https://discord.gg/fCW2htvYdz)
 2. Look for simple documentation fixes
 3. Test existing app scripts and report feedback
 4. Share your own setup guides

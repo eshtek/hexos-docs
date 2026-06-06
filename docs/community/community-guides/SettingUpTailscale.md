@@ -1,6 +1,6 @@
 # Setting Up Tailscale
 
-*by [@speedking456](https://hub.hexos.com/profile/7605-speedking456/?wr=eyJhcHAiOiJmb3J1bXMiLCJtb2R1bGUiOiJmb3J1bXMtY29tbWVudCIsImlkXzEiOjU1MCwiaWRfMiI6Mjk2NX0=)*
+*by @speedking456*
 
 As a fellow Tailscale enjoyer, this was my first thought when I heard about HexOS, "But does it support Tailscale?" and I can confirm it does!
 

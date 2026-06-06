@@ -129,6 +129,8 @@ const sidebar: DefaultTheme.SidebarItem[] = [
     collapsed: true,
     items: [
       { text: 'All Posts', link: '/blog/' },
+      { text: '1.0 Local Rollout Complete', link: '/blog/2026-04-21' },
+      { text: 'HexOS 1.0 Has Arrived', link: '/blog/2026-04-02' },
       { text: 'Apps Overhaul', link: '/blog/2025-12-26' },
       { text: 'HexOS Roadmap Update', link: '/blog/2025-11-26' },
       { text: 'Introducing HexOS Local', link: '/blog/2025-11-25' },
@@ -144,10 +146,19 @@ const sidebar: DefaultTheme.SidebarItem[] = [
   },
   {
     text: 'Release Notes',
-    link: '/release-notes/command-deck/',
+    link: '/release-notes/',
     collapsed: true,
     items: [
+      {
+        text: 'Command Deck',
+        link: '/release-notes/command-deck/',
+        collapsed: true,
+        items: [
       // auto-generated-release-notes-start
+            { text: '2026-05-29', link: '/release-notes/command-deck/2026-05-29' },
+            { text: '2026-05-20', link: '/release-notes/command-deck/2026-05-20' },
+            { text: '2026-05-13', link: '/release-notes/command-deck/2026-05-13' },
+            { text: '2026-04-21', link: '/release-notes/command-deck/2026-04-21' },
             { text: '2026-03-27', link: '/release-notes/command-deck/2026-03-27' },
             { text: '2026-03-24', link: '/release-notes/command-deck/2026-03-24' },
             { text: '2026-01-21', link: '/release-notes/command-deck/2026-01-21' },
@@ -170,6 +181,8 @@ const sidebar: DefaultTheme.SidebarItem[] = [
             { text: '2025-01-08', link: '/release-notes/command-deck/2025-01-08' },
             { text: '2024-11-29', link: '/release-notes/command-deck/2024-11-29' },
             // auto-generated-release-notes-end
+        ]
+      },
     ]
   },
   {

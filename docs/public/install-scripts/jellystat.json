@@ -1,0 +1,65 @@
+{
+  "version": 4,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial"
+  },
+  "installation_questions": [
+    {
+      "question": "Are you using Jellyfin or Emby?",
+      "type": "select",
+      "key": "is_emby_api",
+      "required": true,
+      "options": [
+        {
+          "text": "Jellyfin",
+          "value": "false"
+        },
+        {
+          "text": "Emby",
+          "value": "true"
+        }
+      ],
+      "default": "false"
+    }
+  ],
+  "requirements": {
+    "locations": ["ApplicationsPerformance"],
+    "specifications": ["2CORE", "256MB"],
+    "permissions": ["READ_WRITE_LOCATIONS"],
+    "ports": [30176]
+  },
+  "ensure_directories_exists": [
+    {
+      "path": "$LOCATION(ApplicationsPerformance)",
+      "network_share": true
+    },
+    { "path": "$LOCATION(ApplicationsPerformance)/jellystat/backup", "snapshot": { "id": "backup" } },
+    { "path": "$LOCATION(ApplicationsPerformance)/jellystat/postgres_data", "owner": { "user": "netdata", "group": "docker" }, "snapshot": { "id": "db" } }
+  ],
+
+  "app_values": {
+    "jellystat": {
+      "db_password": "$RANDOM_STRING(7)",
+      "jwt_secret": "$RANDOM_STRING(7)",
+      "is_emby_api": "$QUESTION(is_emby_api)",
+      "additional_envs": []
+    },
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 30176
+      }
+    },
+    "storage": {
+      "backup": "$HOST_PATH($LOCATION(ApplicationsPerformance)/jellystat/backup)",
+      "postgres_data": "$HOST_PATH($LOCATION(ApplicationsPerformance)/jellystat/postgres_data)"
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 4096)"
+      }
+    }
+  }
+}
