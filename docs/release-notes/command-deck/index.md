@@ -11,6 +11,7 @@ For users who are actively connected during an update, there may be a brief down
 <!-- auto-generated-year-sections-start -->
 ## 2026 Releases
 
+- [**2026-06-06**](./2026-06-06) - New curated applications
 - [**2026-05-29**](./2026-05-29) - New curated applications
 - [**2026-05-20**](./2026-05-20) - App install script v4, New app curations, Curation beta program
 - [**2026-05-13**](./2026-05-13) - TrueNAS Compatibility, App Install Improvements & Buddy Backup Foundations
