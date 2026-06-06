@@ -17,7 +17,7 @@
 | `jellystat` | [jellystat.json](/install-scripts/jellystat.json) | 1.6 KB | 2026-05-28 |
 | `lidarr` | [lidarr.json](/install-scripts/lidarr.json) | 1.4 KB | 2026-05-15 |
 | `lubelogger` | [lubelogger.json](/install-scripts/lubelogger.json) | 1.5 KB | 2026-05-18 |
-| `mkvtoolnix` | [mkvtoolnix.json](/install-scripts/mkvtoolnix.json) | 2.2 KB | 2026-05-31 |
+| `mkvtoolnix` | [mkvtoolnix.json](/install-scripts/mkvtoolnix.json) | 2.2 KB | 2026-06-05 |
 | `navidrome` | [navidrome.json](/install-scripts/navidrome.json) | 5.1 KB | 2026-05-18 |
 | `nextcloud` | [nextcloud.json](/install-scripts/nextcloud.json) | 3.4 KB | 2026-05-20 |
 | `peanut` | [peanut.json](/install-scripts/peanut.json) | 911 B | 2026-05-15 |
@@ -25,7 +25,7 @@
 | `portracker` | [portracker.json](/install-scripts/portracker.json) | 894 B | 2026-05-18 |
 | `prowlarr` | [prowlarr.json](/install-scripts/prowlarr.json) | 781 B | 2026-05-15 |
 | `qbittorrent` | [qbittorrent.json](/install-scripts/qbittorrent.json) | 1.0 KB | 2026-05-15 |
-| `qui` | [qui.json](/install-scripts/qui.json) | 865 B | 2026-05-31 |
+| `qui` | [qui.json](/install-scripts/qui.json) | 865 B | 2026-06-05 |
 | `radarr` | [radarr.json](/install-scripts/radarr.json) | 1.3 KB | 2026-05-15 |
 | `scrutiny` | [scrutiny.json](/install-scripts/scrutiny.json) | 1.4 KB | 2026-05-15 |
 | `seerr` | [seerr.json](/install-scripts/seerr.json) | 924 B | 2026-05-22 |
