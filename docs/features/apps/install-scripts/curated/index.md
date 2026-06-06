@@ -17,6 +17,7 @@
 | `jellystat` | [jellystat.json](/install-scripts/jellystat.json) | 1.6 KB | 2026-05-28 |
 | `lidarr` | [lidarr.json](/install-scripts/lidarr.json) | 1.4 KB | 2026-05-15 |
 | `lubelogger` | [lubelogger.json](/install-scripts/lubelogger.json) | 1.5 KB | 2026-05-18 |
+| `mkvtoolnix` | [mkvtoolnix.json](/install-scripts/mkvtoolnix.json) | 2.2 KB | 2026-05-31 |
 | `navidrome` | [navidrome.json](/install-scripts/navidrome.json) | 5.1 KB | 2026-05-18 |
 | `nextcloud` | [nextcloud.json](/install-scripts/nextcloud.json) | 3.4 KB | 2026-05-20 |
 | `peanut` | [peanut.json](/install-scripts/peanut.json) | 911 B | 2026-05-15 |
