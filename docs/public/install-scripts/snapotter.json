@@ -1,0 +1,88 @@
+{
+  "version": 4,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial Script"
+  },
+  "installation_questions": [
+    {
+      "question": "Choose the Admin Username",
+      "description": "Only used on installation",
+      "placeholder": "",
+      "type": "text",
+      "key": "DEFAULT_USERNAME",
+      "required": true,
+      "default": ""
+    },
+    {
+      "question": "Choose the Admin Password",
+      "description": "",
+      "placeholder": "",
+      "type": "text",
+      "key": "DEFAULT_PASSWORD",
+      "required": true,
+      "default": ""
+    }
+  ],
+  "requirements": {
+    "locations": [
+      "Documents"
+    ],
+    "specifications": [
+      "2CORE",
+      "1024MB"
+    ],
+    "permissions": [
+      "READ_WRITE_LOCATIONS"
+    ],
+    "ports": [30428]
+  },
+  "ensure_directories_exists": [
+    { "path": "$LOCATION(Documents)/snapotter", "owner": { "user": "apps" } }
+  ],
+  "app_values": {
+    "storage": {
+      "additional_storage": [
+        {
+          "ix_volume_config": {
+            "acl_enable": false,
+            "dataset_name": "storage_entry"
+          },
+          "mount_path": "/tmp/workspace",
+          "read_only": false,
+          "type": "ix_volume"
+        }
+      ],
+      "data": "$HOST_PATH($LOCATION(Documents)/snapotter)"
+    },
+    "snapotter": {
+      "additional_envs": [
+        {
+          "name": "DEFAULT_USERNAME",
+          "value": "$QUESTION(DEFAULT_USERNAME)"
+        },
+        {
+          "name": "DEFAULT_PASSWORD",
+          "value": "$QUESTION(DEFAULT_PASSWORD)"
+        },
+        {
+          "name": "SKIP_MUST_CHANGE_PASSWORD",
+          "value": "true"
+        }
+      ],
+    "network": {
+      "web_port": {
+        "bind_mode": "published",
+        "port_number": 30428
+      }
+    },
+    "resources": {
+      "gpus": "$GPU_CONFIG()",
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 2048)"
+      }
+    }
+  }
+}
+}
