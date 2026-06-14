@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "script": {
     "version": "1.0.0",
     "changeLog": "Initial install script"
@@ -19,30 +19,20 @@
       "path": "$LOCATION(ApplicationsCapacity)",
       "network_share": true
     },
-    {
-      "path": "$LOCATION(ApplicationsPerformance)/tandoor_recipes/postgres",
-      "posix": true
-    },
-    {
-      "path":  "$LOCATION(ApplicationsPerformance)/tandoor_recipes/static",
-      "passthrough": true
-    },
-    "$LOCATION(ApplicationsCapacity)/tandoor_recipes/media"
-  ],
-  "ensure_permissions_exists": [
-    {
-      "path": "$LOCATION(ApplicationsPerformance)/tandoor_recipes/postgres",
-      "username": "netdata",
-      "access": "read",
-      "posix": {
-        "groupname": "docker"
-      }
-    }
+    { "path": "$LOCATION(ApplicationsPerformance)/tandoor_recipes/postgres", "owner": { "user": "netdata", "group": "docker" }, "snapshot": { "id": "db" } },
+    { "path":  "$LOCATION(ApplicationsPerformance)/tandoor_recipes/static", "snapshot": { "id": "data" } },
+    { "path":  "$LOCATION(ApplicationsCapacity)/tandoor_recipes/media", "snapshot": { "id": "data" } }
   ],
   "app_values": {
     "recipes": {
       "db_password": "$RANDOM_STRING(7)",
-      "secret_key": "$RANDOM_STRING(7)"
+      "secret_key": "$RANDOM_STRING(7)",
+      "additional_envs": [
+        {
+          "name": "GUNICORN_MEDIA",
+          "value": "1"
+        }
+      ]
     },
     "network": {
       "web_port": {
