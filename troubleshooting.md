@@ -2,7 +2,7 @@
 title: Troubleshooting
 description: 
 published: true
-date: 2026-06-09T20:05:51.640Z
+date: 2026-06-16T03:02:01.019Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:44:02.077Z
@@ -20,6 +20,7 @@ This guide helps you resolve common issues with HexOS installation, setup, and o
 > - [Avoid USB Drives](./common-issues/AvoidUSBDrives) - Why USB drives cause problems
 > - [Updating HexOS 24.10](./common-issues/UpgradingHexOS24.md) - Guide for updating HexOS 24.10 to HexOS 25.10
 > - [Updating Immich to Postgres 18](./common-issues/ImmichPG18.md) - Guide for updating Immich to Postgres 18
+> - [Drive Failure Guide ](./common-issues/ImmichPG18.md) - Guide for replacing a failed drive
 >
 > Visit the [HexOS Community](https://discord.gg/fCW2htvYdz) for additional support from other users.
 
