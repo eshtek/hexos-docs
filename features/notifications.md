@@ -2,7 +2,7 @@
 title: Notifications
 description: 
 published: true
-date: 2026-06-09T20:03:30.322Z
+date: 2026-06-18T23:10:10.781Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:40:43.471Z
@@ -65,7 +65,7 @@ HexOS will send health related notifications for
 
 Your drives collect health data that HexOS monitors for potential problems. When you see SMART errors, it means the system has detected something that warrants investigation. This could indicate a drive issue that needs attention, but doesn't necessarily mean immediate replacement is required.
 
-Learn more about [SMART](https://www.truenas.com/docs/core/13.0/coretutorials/tasks/runningsmarttests/) technology.
+Learn more about [SMART](https://www.truenas.com/docs/scale/25.10/scaletutorials/storage/disks/drivehealthmanagement/index.html#smart-tests-options-for-community-edition) technology.
 
 ## Managing Notifications
 
