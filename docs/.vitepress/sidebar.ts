@@ -130,6 +130,7 @@ const sidebar: DefaultTheme.SidebarItem[] = [
     collapsed: true,
     items: [
       { text: 'All Posts', link: '/blog/' },
+      { text: 'App Preconfiguration', link: '/blog/2026-06-18' },
       { text: '1.0 Local Rollout Complete', link: '/blog/2026-04-21' },
       { text: 'HexOS 1.0 Has Arrived', link: '/blog/2026-04-02' },
       { text: 'Apps Overhaul', link: '/blog/2025-12-26' },
