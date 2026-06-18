@@ -1,0 +1,49 @@
+<!--
+title: Windows 11 Samba Share Public Folder How to
+description: Windows 11 requires special signing for public shares. This is how to turn that feature off.
+published: true
+date: 2026-06-18T22:20:59.343Z
+tags: troubleshoot, smb, samba, network
+editor: ckeditor
+dateCreated: 2026-06-18T22:20:59.343Z
+-->
+
+<h2>Windows 11 Samba Share Fix for Public Folders from HexOS</h2>
+<p>&nbsp;</p>
+<h2>Method 1: The Automated <code>.reg</code> File (Fastest for Customers)</h2>
+<p>This method allows customers to double-click a single file to apply the fix safely.</p>
+<h3>Instructions for the Customer:</h3>
+<p>Open <strong>Notepad</strong> on your computer.</p>
+<p>Copy and paste the exact text block below into the blank document:</p>
+<p>Plaintext</p>
+<p>&nbsp;</p>
+<pre><code class="language-plaintext">Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters]
+"RequireSecuritySignature"=dword:00000000
+</code></pre>
+<p>Click <strong>File &gt; Save As...</strong></p>
+<p>Change the "Save as type" dropdown to <strong>All Files (</strong><i><strong>.</strong></i><strong>)</strong>.</p>
+<p>Name the file <code><strong>Fix-TrueNAS-Sharing.reg</strong></code> (the <code>.reg</code> extension is critical).</p>
+<p>Save it to your Desktop, then <strong>double-click</strong> it.</p>
+<p>Accept the Windows UAC security prompts to apply the change, then <strong>reboot your PC</strong>.</p>
+<h2>Method 2: The PowerShell Manual Steps</h2>
+<p>If customers prefer a quick terminal command (exactly what is shown in your screenshot), provide these steps:</p>
+<p>Right-click the Windows Start Menu button and select <strong>Terminal (Admin)</strong> or <strong>PowerShell (Admin)</strong>.</p>
+<p>Paste the following command and press <strong>Enter</strong>:</p>
+<p><i>(Note: Adding the </i><code><i>-Force</i></code><i> flag bypasses the </i><code><i>[Y/N]</i></code><i> confirmation prompt shown in your image, making it cleaner for automated scripts).</i></p>
+<p>Close the window and restart the computer.</p>
+<h2>Method 3: The Graphical UI (Group Policy)</h2>
+<p>For enterprise customers or those running Windows 11 Pro/Enterprise who prefer using standard administrative tools:</p>
+<p>Press <strong>Win + R</strong>, type <code><strong>gpedit.msc</strong></code>, and hit Enter to open the Local Group Policy Editor.</p>
+<p>Navigate down the tree layout:</p>
+<blockquote>
+  <p><strong>Computer Configuration</strong> $\rightarrow$ <strong>Windows Settings</strong> $\rightarrow$ <strong>Security Settings</strong> $\rightarrow$ <strong>Local Policies</strong> $\rightarrow$ <strong>Security Options</strong></p>
+</blockquote>
+<p>Locate the policy named:</p>
+<p><code>Microsoft network client: Digitally sign communications (always)</code></p>
+<p>Double-click it, set it to <strong>Disabled</strong>, click Apply, and reboot.</p>
+<p>PowerShell</p>
+<p>&nbsp;</p>
+<pre><code class="language-plaintext">Set-SmbClientConfiguration -RequireSecuritySignature $false -Force
+</code></pre>
