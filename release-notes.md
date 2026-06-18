@@ -2,7 +2,7 @@
 title: Release Notes
 description: 
 published: true
-date: 2026-06-09T20:05:25.066Z
+date: 2026-06-18T23:49:43.939Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:43:24.662Z
@@ -29,5 +29,5 @@ HexOS is built on TrueNAS. You will be prompted to update as future compatibilit
 | Train | Version | TrueNAS Docs |
 |-------|---------|-------------|
 | Goldeye | 25.10 | [Version Notes](https://www.truenas.com/docs/scale/25.10/gettingstarted/versionnotes/) |
-| Fangtooth | 25.04 | [Version Notes](https://www.truenas.com/docs/scale/25.04/gettingstarted/versionnotes/) |
-| Electric Eel | 24.10 | [Version Notes](https://www.truenas.com/docs/scale/24.10/gettingstarted/versionnotes/) |
+| Fangtooth | 25.04 | [Version Notes](https://www.truenas.com/docs/scale/25.04/gettingstarted/scalereleasenotes/) |
+| Electric Eel | 24.10 | [Version Notes](https://www.truenas.com/docs/scale/24.10/gettingstarted/scalereleasenotes/) |
