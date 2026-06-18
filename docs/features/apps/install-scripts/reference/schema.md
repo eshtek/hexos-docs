@@ -2,9 +2,16 @@
 
 Install scripts are JSON objects with the following structure. Scripts can use various macros (template variables) that are dynamically replaced during processing.
 
+::: tip Source of Truth
+Install scripts live in the [hexos-app-catalog](https://github.com/eshtek/hexos-app-catalog) repository. See [Contributing](/features/apps/install-scripts/contributing) for how to submit new scripts.
+:::
+
 ## Root Properties
 
-- **`version`** (required): Schema version. Must be `4` (current required version). Versions 1-3 are deprecated.
+- **`version`** (required): Schema version. Must be `4` or `5`. Versions 1-3 are deprecated. Use `5` if your script includes lifecycle hooks; otherwise `4` is fine.
+- **`custom`** (optional): Set to `true` for community/custom apps that aren't in the default TrueNAS catalog
+- **`internal`** (optional): Set to `true` for dev/test apps — hidden in production
+- **`metadata`** (required if `custom: true`): Custom app metadata (see [Custom App Metadata](#custom-app-metadata))
 - **`script`** (required): Metadata about the install script itself
   - **`version`** (required): Semantic version of this install script (e.g., "1.0.0", "2.1.3")
   - **`updateCompatibility`** (optional): Semver range expression defining which script versions can update to this version (e.g., ">=1.0.0" allows updates from any version 1.0.0 or higher, "^2.0.0" allows updates from 2.x.x versions). Supports all [semver range syntax](https://www.npmjs.com/package/semver#ranges) including `>=`, `>`, `<`, `<=`, `^`, `~`, and complex ranges like `">=1.0.0 <3.0.0"`
@@ -13,6 +20,7 @@ Install scripts are JSON objects with the following structure. Scripts can use v
 - **`installation_questions`** (optional): Array of questions to ask the user during installation
 - **`ensure_directories_exists`** (optional): Array of directory entry objects to create before installation, with optional ownership and snapshot declarations
 - **`app_values`** (required): Configuration object passed directly to TrueNAS API
+- **`hooks`** (optional, V5 only): Array of lifecycle hook declarations. See [Hooks Reference](/features/apps/install-scripts/reference/hooks)
 
 ## Available Macros
 
@@ -42,9 +50,20 @@ Install scripts support various macros that are replaced dynamically during scri
 
 For detailed macro documentation and examples, see the [Macros Reference](/features/apps/install-scripts/reference/macros).
 
+## Custom App Metadata
+
+When `custom: true`, the `metadata` object is required:
+
+| Property | Type | Required | Description |
+|---|---|---|---|
+| `name` | string | Yes | Display name in the HexOS app store |
+| `description` | string | Yes | Brief description of what the app does |
+| `icon` | string | Yes | URL to the app's icon (SVG or PNG) |
+| `version` | string | Yes | Semantic version of the custom app |
+
 ## Example Structure
 
-For complete, working examples of install scripts, please refer to the [curated install scripts](/features/apps/install-scripts/curated/). These production-ready scripts demonstrate best practices and real-world usage patterns for popular applications like Plex, Jellyfin, Immich, and more.
+For complete, working examples of install scripts, browse the [hexos-app-catalog](https://github.com/eshtek/hexos-app-catalog) repository. These production-ready scripts demonstrate best practices and real-world usage patterns for popular applications like Plex, Jellyfin, Immich, and more.
 
 ## Requirements
 

@@ -43,6 +43,7 @@ const sidebar: DefaultTheme.SidebarItem[] = [
               { text: 'Curated Scripts', link: '/features/apps/install-scripts/curated/' },
               { text: 'Contributing', link: '/features/apps/install-scripts/contributing' },
               { text: 'Schema Reference', link: '/features/apps/install-scripts/reference/schema' },
+              { text: 'Hooks Reference', link: '/features/apps/install-scripts/reference/hooks' },
               { text: 'Macros Reference', link: '/features/apps/install-scripts/reference/macros' },
               { text: 'Debugging', link: '/features/apps/install-scripts/advanced/debugging' },
             ]
@@ -129,6 +130,7 @@ const sidebar: DefaultTheme.SidebarItem[] = [
     collapsed: true,
     items: [
       { text: 'All Posts', link: '/blog/' },
+      { text: 'App Preconfiguration', link: '/blog/2026-06-18' },
       { text: '1.0 Local Rollout Complete', link: '/blog/2026-04-21' },
       { text: 'HexOS 1.0 Has Arrived', link: '/blog/2026-04-02' },
       { text: 'Apps Overhaul', link: '/blog/2025-12-26' },
