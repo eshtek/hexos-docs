@@ -2,7 +2,7 @@
 title: Storage
 description: 
 published: true
-date: 2026-06-09T20:03:39.680Z
+date: 2026-06-18T23:01:58.430Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:40:57.001Z
@@ -28,7 +28,7 @@ It’s important to create pools with an appropriate amount of drives. Any pools
 
 Eventually every drive will fail. Storage pools with [parity](https://en.wikipedia.org/wiki/Parity_drive), like the ones that HexOS suggests, allow for failing drives to be replaced without losing the data.
 
-The storage interface will show and alert when there are problems relating to your pools and drives. When drives start showing errors on  [SMART](https://www.truenas.com/docs/core/13.0/coretutorials/tasks/runningsmarttests/) tests, having I/O problems, or go missing entirely, you'll see visual indicators right in the interface. 
+The storage interface will show and alert when there are problems relating to your pools and drives. When drives start showing errors on  [SMART](https://www.truenas.com/docs/scale/25.10/scaletutorials/storage/disks/drivehealthmanagement/index.html#smart-tests-options-for-community-edition) tests, having I/O problems, or go missing entirely, you'll see visual indicators right in the interface. 
 
 When a drive needs replacement, HexOS will look at your available unused drives and suggest suitable replacements.  
 
