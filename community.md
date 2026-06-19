@@ -2,7 +2,7 @@
 title: Different ways to contribute
 description: 
 published: true
-date: 2026-06-09T20:02:41.122Z
+date: 2026-06-19T00:46:59.091Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:39:39.407Z
@@ -36,7 +36,7 @@ Learn more about how to contribute to the docs repository [here](/community/how-
 
 Build our community by helping others:
 
-- Answer questions on the [HexOS Community](https://discord.gg/fCW2htvYdz)
+- Answer questions on the [HexOS Discord Community](https://discord.gg/fCW2htvYdz)
 - Share working configurations
 - Help debug issues
 - Welcome newcomers
@@ -44,7 +44,7 @@ Build our community by helping others:
 ## Getting Started
 
 New to contributing? Start small:
-1. Join the [HexOS Community](https://discord.gg/fCW2htvYdz)
+1. Join the [HexOS Discord Community](https://discord.gg/fCW2htvYdz)
 2. Look for simple documentation fixes
 3. Test existing app scripts and report feedback
 4. Share your own setup guides
