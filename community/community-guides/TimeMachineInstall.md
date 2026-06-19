@@ -1,8 +1,8 @@
 ---
-title: Untitled
+title: Time Machine Install Guide
 description: 
 published: true
-date: 2026-06-09T20:02:31.819Z
+date: 2026-06-19T00:50:48.560Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:39:25.033Z
