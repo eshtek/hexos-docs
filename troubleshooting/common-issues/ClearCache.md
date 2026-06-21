@@ -2,7 +2,7 @@
 title: Clear Browser Cache
 description: 
 published: true
-date: 2026-06-09T20:05:35.135Z
+date: 2026-06-21T23:48:30.521Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:43:38.260Z
@@ -43,4 +43,4 @@ If you're having trouble logging into the HexOS Deck UI or experiencing session 
 If clearing your cache doesn't resolve the problem:
 - Try using an incognito/private browsing window
 - Restart your browser completely
-- Check the [HexOS Community](https://discord.gg/fCW2htvYdz) for additional support
+- Check the [HexOS Discord Community](https://discord.gg/fCW2htvYdz) for additional support
