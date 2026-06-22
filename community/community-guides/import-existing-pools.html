@@ -2,13 +2,14 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-06-22T12:46:47.046Z
+date: 2026-06-22T13:30:14.625Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-06-22T12:46:47.046Z
 -->
 
-<h3>Log into TrueNAS web interface</h3>
+<h2>Exporting TrueNAS configuration&nbsp;</h2>
+<h3>Log into TrueNAS Web Interface</h3>
 <h4>From HexOS</h4>
 <p>If you are starting in HexOS, go to <a href="https://deck.hexos.com/"><u>https://deck.hexos.com/</u></a> &gt; <strong>Settings</strong> &gt; <strong>TrueNAS</strong></p>
 <figure class="image"><img src="/open-truenas.png"></figure>
@@ -18,5 +19,19 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>The username is <strong>truenas_admin</strong> and the password is the one chosen when you installed HexOS.</p>
 <h4>From TrueNAS</h4>
 <p>If you are not yet using HexOS, enter TrueNAS by going to the login screen at your server IP address. For example https://192.168.1.142/ui/signin.</p>
-<p>Your username as password were set when you installed TrueNAS</p>
+<p>Your username as password were set during TrueNAS installation.</p>
+<figure class="image"><img src="/truenas-login-pre-hexos-install.png"></figure>
+<h3>Turn off 2FA</h3>
+<p>If 2FA is enabled you will not be able to claim your server when installing HexOS. Check that 2FA is disabled. Go to <strong>System</strong> &gt; <strong>Advanced Settings</strong> then scroll down to <strong>Global Two Factor Authentication </strong>and check that 2FA is showing as disabled.</p>
+<figure class="image"><img src="/2fa-disabled.png"></figure>
+<p>&nbsp;If it is showing as enabled, click <strong>Configure, </strong>un-check the <strong>Enable Two Factor Authentication Globally</strong> box and click<strong> Save</strong></p>
+<h3>Download TrueNAS Configuration&nbsp;</h3>
+<p>Go to <strong>System</strong> &gt; <strong>Advanced Settings</strong> &gt; <strong>Manage Configuration</strong> &gt; <strong>Download File</strong></p>
+<p>You may need to scroll down to see the <strong>System</strong> menu item</p>
+<figure class="image"><img src="/truenas-system-advanced-menu.png"></figure>
+<p>The<strong> Manage configuration</strong> dropdown is on the top right of the screen.</p>
+<figure class="image"><img src="/truenas-manage-config-menu.png"></figure>
+<p>Check that the file has downloaded and back it up to another secure place, however, it contains your passwords so don't upload it to the internet.&nbsp;</p>
+<h3>Download Keys for Encrypted Datasets</h3>
+<p>todo (can't find how to download, asked nick [TODO]</p>
 <p>&nbsp;</p>
