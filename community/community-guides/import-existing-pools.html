@@ -2,7 +2,7 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-06-22T13:30:14.625Z
+date: 2026-06-23T12:21:39.347Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-06-22T12:46:47.046Z
@@ -31,7 +31,24 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <figure class="image"><img src="/truenas-system-advanced-menu.png"></figure>
 <p>The<strong> Manage configuration</strong> dropdown is on the top right of the screen.</p>
 <figure class="image"><img src="/truenas-manage-config-menu.png"></figure>
-<p>Check that the file has downloaded and back it up to another secure place, however, it contains your passwords so don't upload it to the internet.&nbsp;</p>
+<p>Check that the file has downloaded. Make a note of the TrueNAS version number included in the file name (in this case 25.10.4) - you will need this later.</p>
+<figure class="image"><img src="/config-download-sucsessfull-truenas.png"></figure>
+<p>Back up this file to a secure local place, such as a usb drive.</p>
 <h3>Download Keys for Encrypted Datasets</h3>
-<p>todo (can't find how to download, asked nick [TODO]</p>
+<p>If you have data encrypted with a key in your pool, the keys must be downloaded.<strong> If this step is skipped you will lose your data.</strong></p>
+<p>To see if you have encrypted data go to <strong>Datasets</strong> from the main menu in TrueNAS. In the <strong>Encryption</strong> column, datasets that are encrypted are marked as <strong>Locked</strong> or <strong>Unlocked</strong>. The rest are marked <strong>Unencrypted</strong>.</p>
+<figure class="image"><img src="/find-encrypted-dataset-truenas.png"></figure>
+<p>To find out if a dataset is key encrypted, click on the entry then scroll down to <strong>Encryption</strong>. If there is a button for <strong>Export Key</strong>, then the data is encrypted with a key. <strong>You need this key be able to access the data again later: without the key the data is unreadable.&nbsp;</strong></p>
+<p>Click the <strong>Export Key</strong> button. You will be reminded that each encrypted dataset has it's own key, and you must download each key separately.</p>
+<figure class="image"><img src="/download-key-encrypted-dataset-2-truenas.png"></figure>
+<p>When you have downloaded they key, check that it looks similar to the example key below:</p>
+<figure class="image"><img src="/example-of-a-key-truenas.png"></figure>
+<p>Then back up the key to a safe local place, such as a USB drive.</p>
+<p>If there is no <strong>Export Key</strong> button showing, this means the data is protected with a passphrase and not a key and so this backup step is not needed.</p>
+<p>To confirm this click <strong>Edit</strong> (you may need to unlock first) and check that the <strong>Encryption Type* </strong>dropdown is showing <strong>Passphrase</strong>. Encrypted folders set up in HexOS always use a passphrase..&nbsp;</p>
+<p>f you have any doubts or questions, please contact HexOS support, this step is critical to get right.</p>
+<figure class="image"><img src="/download-key-encrypted-dataset-truenas.png"></figure>
+<p>&nbsp;</p>
+<p>next</p>
+<p>&nbsp;</p>
 <p>&nbsp;</p>
