@@ -2,13 +2,23 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-06-23T12:21:39.347Z
+date: 2026-06-23T12:25:42.557Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-06-22T12:46:47.046Z
 -->
 
+<h2>&nbsp;</h2>
+<h2>&nbsp;</h2>
 <h2>Exporting TrueNAS configuration&nbsp;</h2>
+<p>In this section of the guide we will complete the following tasks:</p>
+<ul>
+  <li>Log in to TrueNAS</li>
+  <li>Turn off 2FA</li>
+  <li>Download TrueNAS config file and back it up</li>
+  <li>Download any encryption keys and back them up</li>
+  <li>Check we are ready to install HexOS</li>
+</ul>
 <h3>Log into TrueNAS Web Interface</h3>
 <h4>From HexOS</h4>
 <p>If you are starting in HexOS, go to <a href="https://deck.hexos.com/"><u>https://deck.hexos.com/</u></a> &gt; <strong>Settings</strong> &gt; <strong>TrueNAS</strong></p>
@@ -48,7 +58,12 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>To confirm this click <strong>Edit</strong> (you may need to unlock first) and check that the <strong>Encryption Type* </strong>dropdown is showing <strong>Passphrase</strong>. Encrypted folders set up in HexOS always use a passphrase..&nbsp;</p>
 <p>f you have any doubts or questions, please contact HexOS support, this step is critical to get right.</p>
 <figure class="image"><img src="/download-key-encrypted-dataset-truenas.png"></figure>
-<p>&nbsp;</p>
-<p>next</p>
-<p>&nbsp;</p>
+<h3>Final Checks</h3>
+<p>You should now have</p>
+<ul>
+  <li>A copy of the config file any encryption keys</li>
+  <li>A backup of these</li>
+  <li>A fully backup of the data on your pools which you have verified is working</li>
+</ul>
+<h3>Installing HexOS</h3>
 <p>&nbsp;</p>
