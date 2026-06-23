@@ -2,15 +2,41 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-06-23T12:25:42.557Z
+date: 2026-06-23T12:33:30.835Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-06-22T12:46:47.046Z
 -->
 
-<h2>&nbsp;</h2>
-<h2>&nbsp;</h2>
-<h2>Exporting TrueNAS configuration&nbsp;</h2>
+<h2>What this guide is for</h2>
+<p>This guide will help you:&nbsp;</p>
+<ul>
+  <li>Migrate from TrueNAS to HexOS&nbsp;</li>
+  <li>Move HexOS to new hardware when a reinstall is required</li>
+  <li>Reinstall HexOS on the same hardware</li>
+</ul>
+<p><i>specially</i> when you do not want to wipe your storage pools as part of the process.</p>
+<p><strong>Best practice would be a fresh install of HexOS and with new storage pools</strong>, with data added to the new pools from backup afterwards. However, if you are in a hurry or perhaps have:</p>
+<ul>
+  <li>a large amount of data in your pools</li>
+  <li>a large number of drives in the pools</li>
+  <li>complex app configurations&nbsp;</li>
+</ul>
+<p>then this guide will show you how to keep your existing pools and import them to a new HexOS install</p>
+<h2>Warning</h2>
+<p>You <i>must</i> have backups of your data before you attempt this process: without adequate backups you can lose your data during this process.</p>
+<ol>
+  <li>Have backups of everything</li>
+  <li>Verify they still work</li>
+  <li>Try to copy a small set of files to prove out this isn’t a new problem that you’re not aware of</li>
+</ol>
+<p>For example</p>
+<p>[add screen shots] [TODO]</p>
+<h2>Process</h2>
+<ol>
+  <li>Export TrueNAS cofniguration and keys</li>
+</ol>
+<h2>Exporting TrueNAS configuration and keys</h2>
 <p>In this section of the guide we will complete the following tasks:</p>
 <ul>
   <li>Log in to TrueNAS</li>
@@ -18,6 +44,12 @@ dateCreated: 2026-06-22T12:46:47.046Z
   <li>Download TrueNAS config file and back it up</li>
   <li>Download any encryption keys and back them up</li>
   <li>Check we are ready to install HexOS</li>
+</ul>
+<p>By exporting the TrueNAS configuration you are backing up&nbsp;</p>
+<ul>
+  <li>Settings of your apps</li>
+  <li>Folders</li>
+  <li>[TODO, more]</li>
 </ul>
 <h3>Log into TrueNAS Web Interface</h3>
 <h4>From HexOS</h4>
