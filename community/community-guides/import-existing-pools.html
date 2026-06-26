@@ -2,7 +2,7 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-06-26T11:10:53.695Z
+date: 2026-06-26T12:14:57.261Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-06-22T12:46:47.046Z
@@ -142,11 +142,16 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>Follow the <a href="https://docs.hexos.com/getting-started/installation/InstallGuide.html">HexOS installation guide here.</a></p>
 <p>When you get to the step Select Installation Drive there should only be one drive listed. &nbsp;Check that this matches the description of the drive you want to install HexOS on.</p>
 <figure class="image"><img src="/choose-boot-pool-drive.jpg"></figure>
-<p>Prepare HexOS installation drive and use it to boot</p>
-<p>Set up HexOS/TrueNAS SCALE, I left everything on default</p>
-<p>Go into TrueNAS SCALE web interface, log in</p>
-<p>Upgrade your version of TrueNAS. At the time of writing this post, the HexOS installation image is behind of what's was being supported/recommend by the HexOS web interface.</p>
+<p>At the end of the install process, you will see the following<strong> Console setup </strong>screen.&nbsp;</p>
+<figure class="image"><img src="/truenas_ip_address.jpg"></figure>
+<p>Do not continue following the docs to complete the HexOS complete setup. First, log into TueNAS by going to the IP address shown on the <strong>Console setup </strong>screen.</p>
+<p><strong>Log in</strong> to TrueNAS.</p>
+<figure class="image"><img src="/log-in-to-truenas-after-reinstall.png"></figure>
+<h3>Upgrade TrueNAS</h3>
+<p>First naviagte to&nbsp;</p>
+<p>&nbsp;At the time of writing this post, the HexOS installation image is behind of what's was being supported/recommend by the HexOS web interface.</p>
 <p>Check the filename of the .tar that was created when you exported the configuration. It should have the version of TrueNAS that was used in it (i.e. 25.04.2.6).</p>
 <p>Select the same version from the upgrade screen and confirm that you want to switch upgrade train.</p>
 <p>Apply pending updates and the system will reboot.</p>
+<p>Next follow the <a href="https://docs.hexos.com/getting-started/setup/CompleteSetup.html">Complete Server Setup</a> guide,</p>
 <p>&nbsp;</p>
