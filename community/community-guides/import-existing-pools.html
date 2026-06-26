@@ -2,7 +2,7 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-06-26T20:43:20.170Z
+date: 2026-06-26T21:19:59.038Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-06-22T12:46:47.046Z
@@ -162,15 +162,29 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <figure class="image"><img src="/screenshot_from_2026-06-26_13-41-16.png"></figure>
 <p>The system will run the update and reboot</p>
 <figure class="image"><img src="/truenas-updating.png"></figure>
-<p>When the reboot has finished and the Console Setup screen is showing on the monitor again, the next step is to upload the old config.</p>
-<p>Plug drives back in and reboot</p>
-<p>&nbsp;</p>
-<h3>Import your pool config</h3>
+<p>When the reboot has finished and the Console Setup screen is showing on the monitor again, boot down the machine. Plug all the remaining drives back in and boot it back up again.</p>
+<h3>Import your storage pool config</h3>
+<p>Go to <strong>Storage</strong> &gt; <strong>Import Pool&nbsp;</strong></p>
+<figure class="image"><img src="/import-pool-truens-1.png"></figure>
+<p>Find your pool in the list, in this case there is only one pool. Click <strong>Import</strong>.</p>
+<figure class="image"><img src="/import-pool-truenas-2.png"></figure>
+<p>The pool should then import.</p>
+<figure class="image"><img src="/import-pool-truenas-3.png"></figure>
+<p>One the pool is imported the<strong> Storage Dashboard </strong>should be populated.</p>
+<figure class="image"><img src="/screenshot_from_2026-06-26_21-49-47.png"></figure>
+<h3>Upload your config</h3>
+<p>Go into <strong>System</strong> &gt; <strong>Advanced Settings</strong></p>
+<figure class="image"><img src="/import-config-truenas-1.png"></figure>
+<p>then click <strong>Manage Configuration </strong>&gt;<strong> Upload File</strong></p>
+<figure class="image"><img src="/import-truenas-config-2.png"></figure>
+<p>Navigate to and select your config file, and upload it</p>
+<figure class="image"><img src="/screenshot_from_2026-06-26_22-04-42.png"></figure>
+<p>Click <strong>Upload</strong></p>
+<figure class="image"><img src="/screenshot_from_2026-06-26_22-04-52.png"></figure>
+<p>The import will run and the system will reboot.</p>
+<figure class="image"><img src="/screenshot_from_2026-06-26_22-04-56.png"></figure>
+<p>After reboot, go to Apps &gt; Configuration &gt; Unset Pool</p>
 <ul>
-  <li>Go to Storage &gt; Import Pool &gt; find your zpool</li>
-  <li>Got an error? Check step 9 again. Make sure you are using the same version of TrueNAS as your old boot drive.&nbsp;</li>
-  <li>Go into System &gt; General Settings &gt; Manage Configuration &gt; Upload File</li>
-  <li>After reboot, go to Apps &gt; Configuration &gt; Unset Pool</li>
   <li>Restart TrueNAS</li>
   <li>Go back into the web interface, go to Apps &gt; Configuration &gt; Choose Pool</li>
   <li>Your apps should show back up and you should be able to start them.</li>
