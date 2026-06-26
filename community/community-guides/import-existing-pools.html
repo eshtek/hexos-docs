@@ -2,7 +2,7 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-06-26T09:46:12.462Z
+date: 2026-06-26T10:22:05.496Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-06-22T12:46:47.046Z
@@ -102,13 +102,13 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>When we boot down the server, all the storage pool drives will be unplugged.</p>
 <figure class="image"><img src="/drive-serial-numbers-note.jpg"></figure>
 <h3>Final Checks</h3>
-<p>You should now have</p>
+<p>You should now have a</p>
 <ul>
-  <li>A copy of the config file any encryption keys</li>
-  <li>A backup of these</li>
-  <li>A fully backup of the data on your pools which you have verified is working</li>
-  <li>A note of your TrueNAS version number</li>
-  <li>A sheet of paper with the drive serial numbers on</li>
+  <li>Copy of the config file any encryption keys</li>
+  <li>Backup of these</li>
+  <li>Fully backup of the data on your pools which you have verified is working</li>
+  <li>Note of your TrueNAS version number</li>
+  <li>Sheet of paper with the drive serial numbers on</li>
 </ul>
 <h2>Preparing to Install HexOS</h2>
 <p>In this section we will:</p>
@@ -131,13 +131,17 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>When the browser starts to show a connection error, the server has shut down.</p>
 <figure class="image"><img src="/shutdown-error-hexos.png"></figure>
 <h3>Unplug your storage pool drives</h3>
-<p>At this stage, unplug all the hard drives except your boot drive - all the drives housing your storage pools. &nbsp;It is <strong>essential</strong> to do this, to prevent accidental <strong>data loss</strong> during HexOS install.</p>
+<p>At this stage, unplug all the drives that make up the storage pools. It is <strong>essential</strong> to do this, to prevent accidental <strong>data loss</strong> during HexOS install.</p>
+<p>These drives can be identified by the serial number (or model number) that was noted down earlier.</p>
+<figure class="image"><img src="/unplug-storage-drives.jpg"></figure>
 <h3>Make any hardware changes</h3>
-<p>Make any other planned hardware changes to your system now also.</p>
+<p>Make any other planned hardware changes to your system now also.&nbsp;</p>
+<p>In this case, the same boot drive is used, so this remains plugged in. The serial number matches the boot-pool drive in TrueNAS.</p>
+<figure class="image"><img src="/boot-drive-serial-number-check.jpg"></figure>
 <h2>Install HexOS</h2>
 <p>Follow the <a href="https://docs.hexos.com/getting-started/installation/InstallGuide.html">HexOS installation guide here.</a></p>
 <p>When you get to the step Select Installation Drive there should only be one drive listed. &nbsp;Check that this matches the description of the drive you want to install HexOS on.</p>
-<p>&nbsp;</p>
+<figure class="image"><img src="/choose-boot-pool-drive.jpg"></figure>
 <p>Prepare HexOS installation drive and use it to boot</p>
 <p>Set up HexOS/TrueNAS SCALE, I left everything on default</p>
 <p>Go into TrueNAS SCALE web interface, log in</p>
