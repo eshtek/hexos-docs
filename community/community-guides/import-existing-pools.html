@@ -2,7 +2,7 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-06-26T12:47:58.839Z
+date: 2026-06-26T20:43:20.170Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-06-22T12:46:47.046Z
@@ -148,18 +148,34 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p><strong>Log in</strong> to TrueNAS.</p>
 <figure class="image"><img src="/log-in-to-truenas-after-reinstall.png"></figure>
 <h3>Upgrade TrueNAS</h3>
-<p>The next step is to update TrueNAS to the same version as our previous instance. You can find this from the config file name, or in your notes from earlier steps.</p>
+<p>The next step is to update TrueNAS to the same version as our previous instance. You can find this from the config file name, or in your notes from earlier steps. [notes on updating truenas while using hexos genrally?)[[TODO]</p>
 <figure class="image"><img src="/truenas-version-number-fileame.png"></figure>
 <p>After loging in, TrueNAS should open on the dashboard.&nbsp;</p>
 <p>Click the <strong>Updates Available</strong> button.</p>
 <figure class="image"><img src="/update-truenas-1.png"></figure>
-<p>&nbsp;In this instance there is only one update to make our TrueNAS version numbers match. Click <strong>Install Update</strong>.</p>
+<p>&nbsp;In this instance there is only one update to make our TrueNAS version numbers match. If the options available do not allow you to update to the correct version, please contact support [TODO] or something.</p>
+<p>Click <strong>Install Update</strong>.</p>
 <figure class="image"><img src="/update-trunenas-2.png"></figure>
-<p>In other scenarios you may some something like this [TODO] Screenshot of multiple versions to choose from</p>
-<p>[downlaod config or not [TODO]</p>
+<p>Download the config and settings and password as suggested by clicking<strong> Save Configuration.</strong></p>
+<figure class="image"><img src="/truenas-update-3.png"></figure>
+<p>Then click <strong>Install</strong>.</p>
 <figure class="image"><img src="/screenshot_from_2026-06-26_13-41-16.png"></figure>
-<p>[notes on updating truenas while using hexos genrally?)[[TODO]</p>
+<p>The system will run the update and reboot</p>
+<figure class="image"><img src="/truenas-updating.png"></figure>
+<p>When the reboot has finished and the Console Setup screen is showing on the monitor again, the next step is to upload the old config.</p>
+<p>Plug drives back in and reboot</p>
 <p>&nbsp;</p>
-<p>Apply pending updates and the system will reboot.</p>
-<p>Next follow the <a href="https://docs.hexos.com/getting-started/setup/CompleteSetup.html">Complete Server Setup</a> guide,</p>
-<p>&nbsp;</p>
+<h3>Import your pool config</h3>
+<ul>
+  <li>Go to Storage &gt; Import Pool &gt; find your zpool</li>
+  <li>Got an error? Check step 9 again. Make sure you are using the same version of TrueNAS as your old boot drive.&nbsp;</li>
+  <li>Go into System &gt; General Settings &gt; Manage Configuration &gt; Upload File</li>
+  <li>After reboot, go to Apps &gt; Configuration &gt; Unset Pool</li>
+  <li>Restart TrueNAS</li>
+  <li>Go back into the web interface, go to Apps &gt; Configuration &gt; Choose Pool</li>
+  <li>Your apps should show back up and you should be able to start them.</li>
+  <li>Go to the HexOS web interface.&nbsp;</li>
+  <li>If you haven't already, unclaim your old server and claim the new one</li>
+  <li>The hardware check screen should give you a warning about an existing pool. This is good, go onto the next screen and skip creating pool.&nbsp;</li>
+  <li>Give your server a name and you should be good to go!</li>
+</ul>
