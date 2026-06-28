@@ -2,7 +2,7 @@
 title: How to Contribute
 description: 
 published: true
-date: 2026-06-28T21:05:54.078Z
+date: 2026-06-28T21:07:54.078Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:39:34.804Z
@@ -17,7 +17,7 @@ Whether you have a new guide, found an error you want to correct, here's how to 
 
 1. **Fork this repository** - Click the "Fork" button in the top right
 
-[nav-fork.png](/nav-fork.png)
+![nav-fork.png](/nav-fork.png){.align-center}
 
 2. **Clone your fork locally**:
 
