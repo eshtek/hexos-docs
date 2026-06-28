@@ -2,7 +2,7 @@
 title: Illustrated Installation Guide
 description: 
 published: true
-date: 2026-06-09T20:03:43.037Z
+date: 2026-06-28T21:17:40.031Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:41:01.586Z
@@ -17,7 +17,7 @@ dateCreated: 2026-06-08T15:41:01.586Z
 You will need:
 
 - [To purchase a HexOS license](https://hub.hexos.com/store/product/1-lifetime/)
-- [Server hardware](https://docs.hexos.com/getting-started/overview.html#getting-started)
+- [Server hardware](https://docs-new.hexos.com/getting-started/overview.html#getting-started)
 - An 8 GB or larger USB drive that can be safely erased
 - An ethernet cable to connect your server to your router or network switch
 - A display, keyboard and optionally a mouse to connect to your server
