@@ -2,7 +2,7 @@
 title: Storage
 description: 
 published: true
-date: 2026-06-28T21:42:17.505Z
+date: 2026-06-28T21:43:53.616Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:40:57.001Z
@@ -71,7 +71,7 @@ To add another drive to your pool:
 
 ### Expanding drives 
 
-This is how you can upgrade individual drives one at a time. The process for this is the same as [replacing individual drives that have failed.](/###how-to-replace-a-drive)
+This is how you can upgrade individual drives one at a time. The process for this is the same as replacing individual drives that have failed as seen above.
 
 ## Critical Errors
 
