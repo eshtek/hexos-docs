@@ -2,7 +2,7 @@
 title: Illustrated Installation Guide
 description: 
 published: true
-date: 2026-06-28T21:17:40.031Z
+date: 2026-06-28T21:18:30.689Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:41:01.586Z
