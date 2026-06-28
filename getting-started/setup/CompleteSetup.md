@@ -2,7 +2,7 @@
 title: Complete Server Setup
 description: 
 published: true
-date: 2026-06-28T21:30:23.660Z
+date: 2026-06-28T21:30:51.605Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:41:10.493Z
