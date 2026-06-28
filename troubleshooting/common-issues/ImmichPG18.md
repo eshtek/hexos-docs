@@ -2,7 +2,7 @@
 title: Updating Immich to use Postgres 18
 description: 
 published: true
-date: 2026-06-09T20:05:41.751Z
+date: 2026-06-28T23:35:15.242Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:43:47.690Z
@@ -22,45 +22,55 @@ dateCreated: 2026-06-08T15:43:47.690Z
 - Log into TrueNAS UI
    1) Navigate to [HexOS Deck](https://deck.hexos.com)
    2) Navigate to the `settings` panel by selecting it on the left sidebar
-   ::: details Image
+<details>
+  <summary> Image </summary>
    ![](../../public/assets/screenshots/immichpg18/1.png)
-   :::
+</details>
    3) Select the `TrueNAS` button
-   ::: details Image
+<details>
+  <summary> Image </summary>
    ![](../../public/assets/screenshots/immichpg18/2.png)
-   :::
+    </details>
    3) Select the new `TrueNAS` button
-   ::: details Image
+<details>
+  <summary> Image </summary>
    ![](../../public/assets/screenshots/immichpg18/3.png)
-   :::
+</details>
    4) Login
        - The username will be `truenas_admin`
        - The password will be what you selected when first installing HexOS
-       ::: details Image
+<details>
+  <summary> Image </summary>
        ![](../../public/assets/screenshots/immichpg18/4.png)
-       :::
+</details>
 
 ## Updating Process
 
 1) Navigate to the `Apps` tab
-::: details Image
+<details>
+  <summary> Image </summary>
 ![](../../public/assets/screenshots/immichpg18/5.png)
-:::
+</details>
 2) Click on the Immich line
-::: details Image
+<details>
+  <summary> Image </summary>
 ![](../../public/assets/screenshots/immichpg18/6.png)
-:::
+    </details>
 3) Stop Immich
-::: details Image
+<details>
+  <summary> Image </summary>
 ![](../../public/assets/screenshots/immichpg18/7.png)
-:::
+</details>
 
 4) Determine Immich `version` on the `Application Info` card
 > **Note:** Not to be confused with `App Version`
-::: details Image
+
+<details>
+  <summary> Image </summary>
 ![](../../public/assets/screenshots/immichpg18/8.png)
-:::
+</details>
 5) Modify the following command to include your Immich `Version`
+
 ```
 sudo nano /mnt/.ix-apps/app_configs/immich/versions/<insert_your_immich_version>/ix_values.yaml
 ```
@@ -69,65 +79,83 @@ In this example the command would be
 sudo nano /mnt/.ix-apps/app_configs/immich/versions/1.14.13/ix_values.yaml
 ```
 6) Navigate to the `System` tab and then select `shell`
-::: details Image
+<details>
+  <summary> Image </summary>
 ![](../../public/assets/screenshots/immichpg18/9.png)
-:::
+</details>
 7) Paste the command created in step 4 and press enter
 > **Note:** To paste things in shell you need to press `Shift + Enter`
+
 8) You will be asked to enter your password.
      - This is the same password used to login into TrueNAS
      - There will be no input shown on screen as a security feature
      - When you finish entering your password you can press enter
-::: details Image
+<details>
+  <summary> Image </summary>
 ![](../../public/assets/screenshots/immichpg18/10.png)
-:::
+</details>
 9) Use your arrow keys to scroll down to the `postgres_update_image` section
-::: details Image
+<details>
+  <summary> Image </summary>
 ![](../../public/assets/screenshots/immichpg18/11.png)
-:::
+</details>
 10) Change the `tag` to `1.1.11`
-::: details Image
+<details>
+  <summary> Image </summary>
 ![](../../public/assets/screenshots/immichpg18/12.png)
-:::
+</details>
 11) Save the changes
+
      1) Press `Control + X` to exit
-     ::: details Image
+     
+<details>
+  <summary> Image </summary>
      ![](../../public/assets/screenshots/immichpg18/13.png)
-     :::
+</details>
      2) Press `Y` to save
-     ::: details Image
+<details>
+  <summary> Image </summary>
      ![](../../public/assets/screenshots/immichpg18/14.png)
-     :::
+</details>
      3) Press `Enter` to save the file name
-     ::: details Image
+<details>
+  <summary> Image </summary>
      ![](../../public/assets/screenshots/immichpg18/15.png)
-     :::
+</details>
 12) Return to the `Apps` tab
-::: details Image
+<details>
+  <summary>  Image </summary>
 ![](../../public/assets/screenshots/immichpg18/5.png)
-:::
+</details>
 13) Click on the Immich line
-::: details Image
+<details>
+  <summary> Image </summary>
 ![](../../public/assets/screenshots/immichpg18/16.png)
-:::
+</details>
 14) On the `Application Info` card press `edit`
-::: details Image
+<details>
+  <summary> Image </summary>
 ![](../../public/assets/screenshots/immichpg18/17.png)
-:::
+</details>
 15) Edit the `Postgres Image (CAUTION)` line to `Postgres 18`
-::: details Image
+<details>
+  <summary> Image </summary>
 ![](../../public/assets/screenshots/immichpg18/18.png)
-:::
+</details>
 16) Scroll all the way down and press the `Update button`
 17) Start the Immich app
-::: details Image
+<details>
+  <summary> Image </summary>
 ![](../../public/assets/screenshots/immichpg18/19.png)
-:::
+</details>
+
 > **Note:** Starting Immich will take longer than usual this time.
+
 18) Once Immich has the `Running` status open the WebUI and make sure Immich is functioning normally
-::: details Image
+<details>
+  <summary> Image </summary>
 ![](../../public/assets/screenshots/immichpg18/20.png)
-:::
+</details>
 19) Update the Immich app in HexOS
 
  
