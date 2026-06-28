@@ -2,7 +2,7 @@
 title: Application Troubleshooting Guide
 description: 
 published: true
-date: 2026-06-28T23:09:15.388Z
+date: 2026-06-28T23:12:10.164Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:43:29.316Z
@@ -18,7 +18,7 @@ dateCreated: 2026-06-08T15:43:29.316Z
     - If HexOS shows an unknown error you can find more details by entering TrueNAS and selecting the clipboard icon
 <details> 
 <summary> How to view the error in TrueNAS </summary>
-1. Login to [HexOS Deck Settings](https://deck.hexos.com/settings)
+1. Login to HexOS deck and go to Settings
  
 2. Select the TrueNAS Button
 ![](../../public/assets/screenshots/app-troubleshooting-guide/1.png)
@@ -56,7 +56,7 @@ It is good practice to update apps regularly.
 <details> 
   <summary> How to update </summary>
 
-1) Open the [HexOS Deck applications](Https://deck.hexos.com/applications) section
+1) Login into HexOS deck and go to the apps section
 2) Select your app
 3) Select the Update button on the Application info card
 ![](../../public/assets/screenshots/app-troubleshooting-guide/4.png)
@@ -69,7 +69,7 @@ If your app stopped working immediately after an update you can go into TrueNAS 
 <details> 
   <summary> Instructions for rolling back an application </summary>
 
-1) Login to [HexOS Deck Settings](https://deck.hexos.com/settings)
+1) Login to HexOS deck and go to settings
 ![](../../public/assets/screenshots/app-troubleshooting-guide/1.png)
 2) Select the TrueNAS Button
 3) Login to TrueNAS
@@ -197,7 +197,7 @@ TrueNAS Version can be found by
   <summary> Application Version </summary>
 
 The application Version can be found by
-1) Login to [HexOS Deck Settings](https://deck.hexos.com/settings)
+1) Login to HexOS deck and go to `Settings`
 2) Select the TrueNAS Button
 ![](../../public/assets/screenshots/app-troubleshooting-guide/1.png)
 3) Login to TrueNAS
@@ -226,7 +226,7 @@ The model of the CPU in your server can be found by
 
 <details> 
   <summary> Model of GPU </summary>
-1. Login to HexOS Deck and go to Settings 
+1. Login to HexOS Deck and go to `Settings` 
   
 2) Select the TrueNAS Button
 ![](../../public/assets/screenshots/app-troubleshooting-guide/1.png)
