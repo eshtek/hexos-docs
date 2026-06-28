@@ -2,7 +2,7 @@
 title: Illustrated Installation Guide
 description: 
 published: true
-date: 2026-06-28T21:18:30.689Z
+date: 2026-06-28T21:22:41.191Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:41:01.586Z
@@ -129,7 +129,7 @@ What you see now will depend on how many drives you have in your server. The dri
 ### System Startup
 
 -   The console will display startup information
--   **Tip**: If boot fails, check that HexOS is at the top in your BIOS boot device order. The instructions are [at the top of this guide here](####boot-device-order).
+-   **Tip**: If boot fails, check that HexOS is at the top in your BIOS boot device order. The instructions are at the top of this guide.
 
 ![System Startup](../../public/assets/screenshots/Installation-guide/11.png "Enlarge image")
 
