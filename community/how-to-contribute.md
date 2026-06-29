@@ -2,7 +2,7 @@
 title: How to Contribute
 description: 
 published: true
-date: 2026-06-29T20:00:29.860Z
+date: 2026-06-29T20:09:01.676Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:39:34.804Z
@@ -74,37 +74,37 @@ Whether you have a new guide, found an error you want to correct, here's how to 
 If you prefer to make contributions directly in your browser without cloning the repository, this is the method to contribute. You will need an account on Github and to be logged in.
 
 Click the edit link at the bottom of the docs page
-![0.png](/how to contribute/0.png)
+![0.png](/how-to-contribute/0.png)
 
 ### Edit on the Dev Branch
 
 Before making any changes, make sure you're working on the `dev` branch. This should be automatic if you have clicked the edit link as described above.
 
-![1.png](/how to contribute/1.png)
+![1.png](/how-to-contribute/1.png)
 
 If not, Click the branch selector and choose `dev` before creating or editing files.
 
-![2.png](/how to contribute/2.png)
+![2.png](/how-to-contribute/2.png)
 
 ### Make your edit
 
 Edits are done in [markdown](https://www.markdownguide.org/cheat-sheet/) which is a simple way to format text with things like headings and links. When you have made your changes, you can preview using the preview button.
 
-![3.png](/how to contribute/3.png)
+![3.png](/how-to-contribute/3.png)
 
 This will show you roughly what the edit will look like when published, but not everything will be exactly the same, for example some links won't work and image alignment might be different.
 
-![4.png](/how to contribute/4.png)
+![4.png](/how-to-contribute/4.png)
 
 ### Make a pull request
 
 Click make a pull request. This will create a new branch (a version) of the docs on your github.
 
-![5.png](/how to contribute/5.png)
+![5.png](/how-to-contribute/5.png)
 
 After proposing changes, GitHub will show you the pull request form. Fill out a description of what you have changed and click "Create pull request" to submit it to the HexOS team.
 
-![6.png](/how to contribute/6.png)
+![6.png](/how-to-contribute/6.png)
 
 
 
@@ -120,15 +120,15 @@ When you open a pull request, our repository automatically generates a live prev
 2. Look for the **PullPreview** check in the list
 3. Click on **Details** next to the PullPreview check
 
-![7.png](/how to contribute/7.png)
+![7.png](/how-to-contribute/7.png)
 
 4. Once the preview is ready, you'll see a success message with a link to your preview site
 
-![8.png](/how to contribute/8.png)
+![8.png](/how-to-contribute/8.png)
 
 5. Click the **preview link** to open your live preview in a new tab
 
-![9.png](/how to contribute/9.png)
+![9.png](/how-to-contribute/9.png)
 
 #### If the Preview Build Fails
 
@@ -136,14 +136,14 @@ Sometimes the preview build might fail. This is usually due to broken links or b
 
 1. Click **Details** on the failed PullPreview check
 
-![10.png](/how to contribute/10.png)
+![10.png](/how-to-contribute/10.png)
 
 2. Review the error logs to identify the issue. Common problems include:
    - **Broken links**: Links pointing to pages that don't exist
    - **Dead links**: External URLs that are no longer valid
    - **Build errors**: Syntax errors in markdown or configuration
 
-![11.png](/how to contribute/11.png)
+![11.png](/how-to-contribute/11.png)
 
 3. Fix the issues in your pull request by making additional commits
 4. The preview will automatically rebuild once you push new changes
