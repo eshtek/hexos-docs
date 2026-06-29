@@ -2,7 +2,7 @@
 title: Illustrated Installation Guide
 description: 
 published: true
-date: 2026-06-29T02:48:48.713Z
+date: 2026-06-29T20:15:48.288Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:41:01.586Z
@@ -70,13 +70,13 @@ Once you see this screen, you are ready to boot into HexOS and install it:
 -   Select "Start HexOS Installation" (default)
 -   This screen will pass automatically after a moment
 
-![1.b12kztyz.png](/illustrated installation guide/1.b12kztyz.png)
+![1.png](/installation-guide/1.png)
 
 ### Installation Menu
 
 -   Once the system loads, select option 1: "Install/Upgrade"
 
-![2.06eiru8g.png](/illustrated installation guide/2.06eiru8g.png)
+![2.png](/installation-guide/2.png)
 
 ### Select Installation Drive
 
@@ -85,13 +85,13 @@ What you see now will depend on how many drives you have in your server. The dri
 -   **Use arrow keys to navigate, space-bar to select your installation drive or drives**
 -   "**[*]**" in the first column indicates the device is selected
 
-![3.etf_enlp.png](/illustrated installation guide/3.etf_enlp.png)
+![3.png](/installation-guide/3.png)
 
 ### Confirm Drive Erasure
 
 -   Confirm you understand the selected drive(s) will be **FULLY ERASED**
 
-![4.b92oxm8d.png](/illustrated installation guide/4.b92oxm8d.png)
+![4.png](/installation-guide/4.png)
 
 ### User Account Setup
 
@@ -99,23 +99,23 @@ What you see now will depend on how many drives you have in your server. The dri
 - <span style="color: red;">**Save this password, you'll need it later**</span>
 -   **Non-US keyboard users**: Be careful with special characters in the password. The installer uses a [US keyboard layout](https://en.wikipedia.org/wiki/British_and_American_keyboards#/media/File:KB_United_States-NoAltGr.svg). [See details here](https://hub.hexos.com/topic/103-illustrated-installation-guide-start-here/page/2/#findComment-8073) <!-- TODO: migrate this hub forum link -->
 
-![6.dgdaquin.png](/illustrated installation guide/6.dgdaquin.png)
+![5.png](/installation-guide/5.png)
 
 ### Installation Progress
 
 -   The installer will run for a few minutes...
 
-![7.c6snmk_z.png](/illustrated installation guide/7.c6snmk_z.png)
+![6.png](/installation-guide/6.png)
 
 ### Installation Complete
 
 -   Remove the install USB
 
-![8.djxb-ned.png](/illustrated installation guide/8.djxb-ned.png)
+![7.png](/installation-guide/7.png)
 
 -   Restart your Machine
 
-![9.cr5dj1bu.png](/illustrated installation guide/9.cr5dj1bu.png)
+![8.png](/installation-guide/8.png)
 
 ## First Boot
 
@@ -124,20 +124,20 @@ What you see now will depend on how many drives you have in your server. The dri
 -   The boot select screen will appear again - ignore it
 -   The default option is correct and will auto-select
 
-![10.d4u-xguy.png](/illustrated installation guide/10.d4u-xguy.png)
+![9.png](/installation-guide/9.png)
 
 ### System Startup
 
 -   The console will display startup information
 -   **Tip**: If boot fails, check that HexOS is at the top in your BIOS boot device order. The instructions are at the top of this guide.
 
-![11.c-vpj-vr.png](/illustrated installation guide/11.c-vpj-vr.png)
+![10.png](/installation-guide/10.png)
 
 ### Success!
 
 -  The "Console Setup" screen shows when your server has fully booted
 
-![12.btff0ova.png](/illustrated installation guide/12.btff0ova.png)
+![11.png](/installation-guide/11.png)
 
 **Installation complete!**
 
