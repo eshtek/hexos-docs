@@ -2,13 +2,13 @@
 title: How to Contribute
 description: 
 published: true
-date: 2026-06-29T02:42:52.052Z
+date: 2026-06-29T03:27:40.307Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:39:34.804Z
 ---
 
-![image.png](/how to contribute/image.png)# How to Contribute
+# How to Contribute
 
 We welcome contributions to the HexOS documentation!  
 Whether you have a new guide, found an error you want to correct, here's how to get started:
@@ -17,7 +17,7 @@ Whether you have a new guide, found an error you want to correct, here's how to 
 
 1. **Fork this repository** - Click the "Fork" button in the top right
 
-![nav-fork.png](/nav-fork.png){.align-center}
+![nav-fork.png](/nav-fork.png)
 
 2. **Clone your fork locally**:
 
@@ -75,6 +75,7 @@ If you prefer to make contributions directly in your browser without cloning the
 
 Click the edit link at the bottom of the docs page
 ![0.png](/how to contribute/0.png)
+
 ### Edit on the Dev Branch
 
 Before making any changes, make sure you're working on the `dev` branch. This should be automatic if you have clicked the edit link as described above.
