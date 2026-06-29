@@ -2,7 +2,7 @@
 title: How to Contribute
 description: 
 published: true
-date: 2026-06-29T03:27:40.307Z
+date: 2026-06-29T20:00:29.860Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:39:34.804Z
@@ -148,9 +148,11 @@ Sometimes the preview build might fail. This is usually due to broken links or b
 3. Fix the issues in your pull request by making additional commits
 4. The preview will automatically rebuild once you push new changes
 
-::: tip
-PullPreview can take a minute or two to build. Be patient! If it's taking longer than expected, check the logs by clicking **Details** on the check.
-:::
+
+> PullPreview can take a minute or two to build. Be patient! If it's taking longer than expected, check the logs by clicking **Details** on the check.
+{.is-info}
+
+
 
 ## Need Help?
 
