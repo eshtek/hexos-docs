@@ -2,13 +2,13 @@
 title: How to Contribute
 description: 
 published: true
-date: 2026-06-28T21:07:54.078Z
+date: 2026-06-29T02:37:12.146Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:39:34.804Z
 ---
 
-# How to Contribute
+![image.png](/how to contribute/image.png)# How to Contribute
 
 We welcome contributions to the HexOS documentation!  
 Whether you have a new guide, found an error you want to correct, here's how to get started:
@@ -74,9 +74,7 @@ Whether you have a new guide, found an error you want to correct, here's how to 
 If you prefer to make contributions directly in your browser without cloning the repository, this is the method to contribute. You will need an account on Github and to be logged in.
 
 Click the edit link at the bottom of the docs page
-
-<img src="/assets/screenshots/contribute-edit-link.png" alt="Edit link at bottom of docs page">
-
+![image.png](/how to contribute/image.png)
 ### Edit on the Dev Branch
 
 Before making any changes, make sure you're working on the `dev` branch. This should be automatic if you have clicked the edit link as described above.
