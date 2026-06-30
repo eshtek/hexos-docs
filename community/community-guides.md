@@ -2,7 +2,7 @@
 title: Community Guides
 description: 
 published: true
-date: 2026-06-28T22:11:07.593Z
+date: 2026-06-30T19:38:13.332Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:39:30.276Z
@@ -15,7 +15,6 @@ Welcome to the HexOS community guides! These guides are created by community mem
 ## Available Guides
 
 - [**Replicating Virtual Machines**](https://docs-new.hexos.com/en/community/community-guides/ReplicatingVirtualMachines) - How to replicate and manage virtual machines
-- [**Setting Up Tailscale**](https://docs-new.hexos.com/en/community/community-guides/SettingUpTailscale) - Configure Tailscale for secure remote access
 - [**Migrating Immich Storage (Rsync Method)**](https://docs-new.hexos.com/en/community/community-guides/ImmichMigrationRsync) - Migrate Immich to new storage configuration using rsync
 - [**Migrating Immich Storage (Move Method)**](https://docs-new.hexos.com/en/community/community-guides/ImmichMigrationMove) - Migrate Immich to new storage configuration by moving files
 - [**Setting Up Time Machine**](https://docs-new.hexos.com/en/community/community-guides/TimeMachineInstall) - Configure Mac Time Machine backups with HexOS
