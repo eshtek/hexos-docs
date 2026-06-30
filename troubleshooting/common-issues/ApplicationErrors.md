@@ -2,7 +2,7 @@
 title: Application Troubleshooting Guide
 description: 
 published: true
-date: 2026-06-28T23:12:10.164Z
+date: 2026-06-30T17:42:39.589Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:43:29.316Z
@@ -21,13 +21,13 @@ dateCreated: 2026-06-08T15:43:29.316Z
 1. Login to HexOS deck and go to Settings
  
 2. Select the TrueNAS Button
-![](../../public/assets/screenshots/app-troubleshooting-guide/1.png)
+![1.png](/app-troubleshooting-guide/1.png =600x){.align-center}
 3) Login to TrueNAS
     - Username: truenas_admin
     - Password: What was selected when installing HexOS
-![](../../public/assets/screenshots/app-troubleshooting-guide/2.png)
+![2.png](/app-troubleshooting-guide/2.png =400x){.align-center}
 4) Click on the clipboard icon at the top of the screen
-![](../../public/assets/screenshots/app-troubleshooting-guide/3.png)
+![3.png](/app-troubleshooting-guide/3.png =600x){.align-center}
 </details> 
 
 ### Custom Application Name Conflicts
@@ -59,7 +59,7 @@ It is good practice to update apps regularly.
 1) Login into HexOS deck and go to the apps section
 2) Select your app
 3) Select the Update button on the Application info card
-![](../../public/assets/screenshots/app-troubleshooting-guide/4.png)
+![4.png](/app-troubleshooting-guide/4.png =400x){.align-center}
 </details>
 
 ### If an app is not working after an application update
@@ -70,19 +70,19 @@ If your app stopped working immediately after an update you can go into TrueNAS 
   <summary> Instructions for rolling back an application </summary>
 
 1) Login to HexOS deck and go to settings
-![](../../public/assets/screenshots/app-troubleshooting-guide/1.png)
+![1.png](/app-troubleshooting-guide/1.png =600x){.align-center}
 2) Select the TrueNAS Button
 3) Login to TrueNAS
     - Username: truenas_admin
     - Password: What was selected when installing HexOS
-![](../../public/assets/screenshots/app-troubleshooting-guide/2.png)
+![2.png](/app-troubleshooting-guide/2.png =400x){.align-center}
 4) Navigate to the `Apps` tab on the left sidebar menu
-![](../../public/assets/screenshots/app-troubleshooting-guide/5.png)
+![5.png](/app-troubleshooting-guide/5.png =300x){.align-center}
 5) Click on your application
 6) Select the `Rollback` option on the `Application Info` card 
-![](../../public/assets/screenshots/app-troubleshooting-guide/6.png)
+![6.png](/app-troubleshooting-guide/6.png =400x){.align-center}
 7) Select the most recent version of the app that worked and rollback
-![](../../public/assets/screenshots/app-troubleshooting-guide/7.png)
+![7.png](/app-troubleshooting-guide/7.png =400x){.align-center}
 </details>
 
 ## Resetting App Curation
@@ -96,9 +96,9 @@ If the settings on an app were changed in TrueNAS you can use `Reset App Curatio
 
 2) Select the app
 3) Select the `options` button on the application info card
-![](../../public/assets/screenshots/app-troubleshooting-guide/8.png)
+![8.png](/app-troubleshooting-guide/8.png =400x){.align-center}
 4) Select `Reset App Curation`
-![](../../public/assets/screenshots/app-troubleshooting-guide/9.png)
+![9.png](/app-troubleshooting-guide/9.png =600x){.align-center}
 </details>
 
 
@@ -117,13 +117,13 @@ GPU changed: Try disabling GPU pass-through and disable using a gpu in the appli
  1. Select the app in HexOS deck
   
 2) Press the `options` button on the applications info card
-![](../../public/assets/screenshots/app-troubleshooting-guide/20.png)
+![10.png](/app-troubleshooting-guide/10.png =400x){.align-center}
 3) Press `Configure in TrueNAS`
-![](../../public/assets/screenshots/app-troubleshooting-guide/11.png)
+![11.png](/app-troubleshooting-guide/11.png =400x){.align-center}
 4) Scroll all the way to the bottom and uncheck GPU related options
-![](../../public/assets/screenshots/app-troubleshooting-guide/12.png)
+![12.png](/app-troubleshooting-guide/12.png =400x){.align-center}
 5) Press the Update button
-![](../../public/assets/screenshots/app-troubleshooting-guide/13.png)
+![13.png](/app-troubleshooting-guide/13.png =400x){.align-center}
 </details>
 
 # App Specific Troubleshooting
@@ -184,13 +184,13 @@ Troubleshooting steps attempted: <br>
 TrueNAS Version can be found by
 1) Login to [HexOS Deck Settings](https://deck.hexos.com/settings)
 2) Select the TrueNAS Button
-![](../../public/assets/screenshots/app-troubleshooting-guide/1.png)
+![1.png](/app-troubleshooting-guide/1.png =600x){.align-center}
 3) Login to TrueNAS
     - Username: truenas_admin
     - Password: What was selected when installing HexOS
-![](../../public/assets/screenshots/app-troubleshooting-guide/2.png)
+![2.png](/app-troubleshooting-guide/2.png =400x){.align-center}
 4) On the system information card you will see your TrueNAS Version
-![](../../public/assets/screenshots/app-troubleshooting-guide/19.png)
+![14.png](/app-troubleshooting-guide/14.png =400x){.align-center}
 
 </details>
 <details> 
@@ -199,15 +199,15 @@ TrueNAS Version can be found by
 The application Version can be found by
 1) Login to HexOS deck and go to `Settings`
 2) Select the TrueNAS Button
-![](../../public/assets/screenshots/app-troubleshooting-guide/1.png)
+![1.png](/app-troubleshooting-guide/1.png =600x){.align-center}
 3) Login to TrueNAS
     - Username: truenas_admin
     - Password: What was selected when installing HexOS
-![](../../public/assets/screenshots/app-troubleshooting-guide/2.png)
+![2.png](/app-troubleshooting-guide/2.png =400x){.align-center}
 4) Navigate to the `Apps` tab on the left sidebar menu
 5) Click on your application
 6) On the `Application Info` card you will see an `App Version`
-![](../../public/assets/screenshots/app-troubleshooting-guide/15.png)
+![15.png](/app-troubleshooting-guide/15.png =400x){.align-center}
 </details>
 
 <details> 
@@ -216,11 +216,11 @@ The application Version can be found by
 The model of the CPU in your server can be found by
 1) Login to [HexOS Deck Settings](https://deck.hexos.com/settings)
 2) Select the TrueNAS Button
-![](../../public/assets/screenshots/app-troubleshooting-guide/1.png)
+![1.png](/app-troubleshooting-guide/1.png =600x){.align-center}
 3) Login to TrueNAS
     - Username: truenas_admin
     - Password: What was selected when installing HexOS
-![](../../public/assets/screenshots/app-troubleshooting-guide/2.png)
+![2.png](/app-troubleshooting-guide/2.png =400x){.align-center}
 4) On the `CPU Model` card you will see your CPU Model
 </details>
 
@@ -229,18 +229,17 @@ The model of the CPU in your server can be found by
 1. Login to HexOS Deck and go to `Settings` 
   
 2) Select the TrueNAS Button
-![](../../public/assets/screenshots/app-troubleshooting-guide/1.png)
+![1.png](/app-troubleshooting-guide/1.png =600x){.align-center}
 3) Login to TrueNAS
     - Username: truenas_admin
     - Password: What was selected when installing HexOS
-![](../../public/assets/screenshots/app-troubleshooting-guide/2.png)
+![2.png](/app-troubleshooting-guide/2.png =400x){.align-center}
 4) Navigate to the `System` tab on the left sidebar menu
-![](../../public/assets/screenshots/app-troubleshooting-guide/16.png)
+![16.png](/app-troubleshooting-guide/16.png =300x){.align-center}
 5) Select `Shell`
-![](../../public/assets/screenshots/app-troubleshooting-guide/17.png)
+![17.png](/app-troubleshooting-guide/17.png =400x){.align-center}
 6) Type `lspci | egrep -i 'vga|3d|display'`
-![](../../public/assets/screenshots/app-troubleshooting-guide/18.png)
-</details>
+![18.png](/app-troubleshooting-guide/18.png =600x){.align-center}</details>
 
 <details> 
   <summary> Modifications made in TrueNAS </summary>
