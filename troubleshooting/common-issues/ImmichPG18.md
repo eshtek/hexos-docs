@@ -2,7 +2,7 @@
 title: Updating Immich to use Postgres 18
 description: 
 published: true
-date: 2026-06-30T18:32:42.112Z
+date: 2026-06-30T18:35:24.847Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:43:47.690Z
@@ -27,18 +27,22 @@ dateCreated: 2026-06-08T15:43:47.690Z
   
 ![1.png](/immich-pg18-guide/1.png){.align-center}
 </details>
+
    3) Select the `TrueNAS` button
+   
 <details>
   <summary> Image </summary>
   
 ![2.png](/immich-pg18-guide/2.png){.align-center}
     </details>
    3) Select the new `TrueNAS` button
+   
 <details>
   <summary> Image </summary>
   
 ![3.png](/immich-pg18-guide/3.png){.align-center}
 </details>
+
    4) Login
        - The username will be `truenas_admin`
        - The password will be what you selected when first installing HexOS
@@ -77,6 +81,7 @@ dateCreated: 2026-06-08T15:43:47.690Z
   
 ![8.png](/immich-pg18-guide/8.png){.align-center}
 </details>
+
 5) Modify the following command to include your Immich `Version`
 
 ```
@@ -92,6 +97,7 @@ sudo nano /mnt/.ix-apps/app_configs/immich/versions/1.14.13/ix_values.yaml
   
 ![9.png](/immich-pg18-guide/9.png){.align-center}
 </details>
+
 7) Paste the command created in step 4 and press enter
 > **Note:** To paste things in shell you need to press `Shift + Enter`
 
@@ -110,12 +116,14 @@ sudo nano /mnt/.ix-apps/app_configs/immich/versions/1.14.13/ix_values.yaml
   
 ![11.png](/immich-pg18-guide/11.png){.align-center}
 </details>
+
 10) Change the `tag` to `1.1.11`
 <details>
   <summary> Image </summary>
   
 ![12.png](/immich-pg18-guide/12.png){.align-center}
 </details>
+
 11) Save the changes
 
      1) Press `Control + X` to exit
@@ -125,42 +133,49 @@ sudo nano /mnt/.ix-apps/app_configs/immich/versions/1.14.13/ix_values.yaml
   
 ![13.png](/immich-pg18-guide/13.png){.align-center}
 </details>
+
      2) Press `Y` to save
 <details>
   <summary> Image </summary>
   
 ![14.png](/immich-pg18-guide/14.png){.align-center}
 </details>
+
      3) Press `Enter` to save the file name
 <details>
   <summary> Image </summary>
   
 ![15.png](/immich-pg18-guide/15.png){.align-center}
 </details>
+
 12) Return to the `Apps` tab
 <details>
   <summary>  Image </summary>
   
 ![5.png](/immich-pg18-guide/5.png){.align-center}
 </details>
+
 13) Click on the Immich line
 <details>
   <summary> Image </summary>
   
 ![16.png](/immich-pg18-guide/16.png){.align-center}
 </details>
+
 14) On the `Application Info` card press `edit`
 <details>
   <summary> Image </summary>
   
 ![17.png](/immich-pg18-guide/17.png){.align-center}
 </details>
+
 15) Edit the `Postgres Image (CAUTION)` line to `Postgres 18`
 <details>
   <summary> Image </summary>
   
 ![18.png](/immich-pg18-guide/18.png){.align-center}
 </details>
+
 16) Scroll all the way down and press the `Update button`
 17) Start the Immich app
 <details>
