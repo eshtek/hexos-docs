@@ -2,7 +2,7 @@
 title: Updating Immich to use Postgres 18
 description: 
 published: true
-date: 2026-06-30T18:35:24.847Z
+date: 2026-06-30T18:36:50.664Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:43:47.690Z
@@ -35,6 +35,7 @@ dateCreated: 2026-06-08T15:43:47.690Z
   
 ![2.png](/immich-pg18-guide/2.png){.align-center}
     </details>
+    
    3) Select the new `TrueNAS` button
    
 <details>
@@ -60,12 +61,14 @@ dateCreated: 2026-06-08T15:43:47.690Z
   
 ![5.png](/immich-pg18-guide/5.png){.align-center}
 </details>
+
 2) Click on the Immich line
 <details>
   <summary> Image </summary>
   
 ![6.png](/immich-pg18-guide/6.png){.align-center}
     </details>
+    
 3) Stop Immich
 <details>
   <summary> Image </summary>
@@ -110,6 +113,7 @@ sudo nano /mnt/.ix-apps/app_configs/immich/versions/1.14.13/ix_values.yaml
   
 ![10.png](/immich-pg18-guide/10.png){.align-center}
 </details>
+
 9) Use your arrow keys to scroll down to the `postgres_update_image` section
 <details>
   <summary> Image </summary>
