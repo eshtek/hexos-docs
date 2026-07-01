@@ -2,7 +2,7 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-07-01T10:52:24.308Z
+date: 2026-07-01T10:58:02.878Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-06-22T12:46:47.046Z
@@ -204,9 +204,13 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>Restart TrueNAS by clicking <strong>power icon</strong> &gt; <strong>Restart</strong></p>
 <figure class="image"><img src="/restart-truenas.png"></figure>
 <p>Go back into the web interface, go to <strong>Apps</strong> &gt; <strong>Configuration</strong> &gt; <strong>Choose Pool</strong></p>
-<p>&nbsp;</p>
+<figure class="image"><img src="/apps-after-reinstall-truenas-6.png"></figure>
+<p>Select your pool from the dropdown and click <strong>Choose. </strong>If you have multiple pools choose the one xyz [TODO] how do you know which is apps pool?</p>
+<figure class="image"><img src="/apps-after-reinstall-truenas-7.png"></figure>
+<p>Your apps should show back up. Start them by clicking the triangular play symbol under <strong>Controls</strong></p>
+<figure class="image"><img src="/screenshot_from_2026-07-01_11-50-55.png"></figure>
+<figure class="image"><img src="/screenshot_from_2026-07-01_11-52-09.png"></figure>
 <ul>
-  <li>Your apps should show back up and you should be able to start them.</li>
   <li>Go to the HexOS web interface.</li>
   <li>If you haven't already, unclaim your old server and claim the new one</li>
   <li>The hardware check screen should give you a warning about an existing pool. This is good, go onto the next screen and skip creating pool.</li>
