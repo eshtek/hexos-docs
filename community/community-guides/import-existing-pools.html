@@ -2,7 +2,7 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-07-01T12:30:23.963Z
+date: 2026-07-01T13:18:16.212Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-06-22T12:46:47.046Z
@@ -15,8 +15,8 @@ dateCreated: 2026-06-22T12:46:47.046Z
   <li>Move HexOS to new hardware when a reinstall is required</li>
   <li>Reinstall HexOS on the same hardware</li>
 </ul>
-<p><i>specially</i> when you do not want to wipe your storage pools as part of the process.</p>
-<p><strong>Best practice would be a fresh install of HexOS and with new storage pools</strong>, with data added to the new storage pools from backup afterwards. However, if you are in a hurry or perhaps have:</p>
+<p><i><strong>specially</strong></i> if you do not want to wipe your storage pools as part of the process.</p>
+<p><strong>Best practice would be a fresh install of HexOS and with </strong><i><strong>new</strong></i><strong> storage pools</strong>, with data added to the new storage pools from backup afterwards. However, if you are in a hurry or perhaps have:</p>
 <ul>
   <li>a large amount of data in your storage pools</li>
   <li>a large number of drives in the storage pools</li>
@@ -210,9 +210,19 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>Your apps should show back up. Start them by clicking the triangular play symbol under <strong>Controls</strong></p>
 <figure class="image"><img src="/screenshot_from_2026-07-01_11-50-55.png"></figure>
 <figure class="image"><img src="/screenshot_from_2026-07-01_11-52-09.png"></figure>
-<ul>
-  <li>Go to the HexOS web interface.</li>
-  <li>If you haven't already, unclaim your old server and claim the new one</li>
-  <li>The hardware check screen should give you a warning about an existing pool. This is good, go onto the next screen and skip creating pool.</li>
-  <li>Give your server a name and you should be good to go!</li>
-</ul>
+<h3>Claim the server</h3>
+<p>If you haven't already, un-claim your old server and claim the new one</p>
+<figure class="image"><img src="/screenshot_from_2026-07-01_11-50-55.png"></figure>
+<h3>Claim the new server on HexOS deck</h3>
+<p>You will need to claim the new server and will probably need to “unclaim" the old server first</p>
+<p><a href="/getting-started/setup/CompleteSetup">Follow the guide to claim the new server</a></p>
+<h4><strong>IMPORTANT: data at risk</strong></h4>
+<p>The following is ESSENTIAL to avoid data loss. Notice that your storage drives are shown to have data on: this is your pool data. From this step click <strong>Continue</strong>.</p>
+<figure class="image"><img src="/screenshot_from_2026-07-01_13-42-36.png"></figure>
+<p>Next, when you reach the<strong> Storage pools</strong> screen you <i><strong>MUST</strong></i><strong> </strong>click <strong>Skip.</strong></p>
+<figure class="image"><img src="/screenshot_from_2026-07-01_13-43-04.png"></figure>
+<p><strong>Check the box</strong> and click <strong>Confirm</strong></p>
+<figure class="image"><img src="/skip-pool-creation-3.png"></figure>
+<p>The finish any remaining steps and your server should now be as it was before.&nbsp;</p>
+<p>[todo] file permissions / users</p>
+<p>Checklist?</p>
