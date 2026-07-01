@@ -2,7 +2,7 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-07-01T10:29:26.344Z
+date: 2026-07-01T10:52:24.308Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-06-22T12:46:47.046Z
@@ -193,10 +193,19 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <figure class="image"><img src="/screenshot_from_2026-06-26_22-04-56.png"></figure>
 <p>When you log back in, you will need to use the original password which was noted at the start of the process. The temporary password is no longer used.</p>
 <h2>Import apps config</h2>
-<p>After reboot, go to Apps &gt; Configuration &gt; Unset Pool</p>
+<p>Reboot the NAS then go to <strong>Apps</strong> &gt; <strong>Configuration</strong> &gt; <strong>Unset Pool</strong></p>
+<figure class="image"><img src="/apps-after-reinstall-truenas-1.png"></figure>
+<p>Click <strong>Unset</strong></p>
+<figure class="image"><img src="/apps-after-reinstall-truenas-2.png"></figure>
+<p>The process will run</p>
+<figure class="image"><img src="/apps-after-reinstall-truenas-3.png"></figure>
+<p>You will now see <strong>No applications installed&nbsp;</strong></p>
+<figure class="image"><img src="/apps-after-reinstall-truenas-4.png"></figure>
+<p>Restart TrueNAS by clicking <strong>power icon</strong> &gt; <strong>Restart</strong></p>
+<figure class="image"><img src="/restart-truenas.png"></figure>
+<p>Go back into the web interface, go to <strong>Apps</strong> &gt; <strong>Configuration</strong> &gt; <strong>Choose Pool</strong></p>
+<p>&nbsp;</p>
 <ul>
-  <li>Restart TrueNAS</li>
-  <li>Go back into the web interface, go to Apps &gt; Configuration &gt; Choose Pool</li>
   <li>Your apps should show back up and you should be able to start them.</li>
   <li>Go to the HexOS web interface.</li>
   <li>If you haven't already, unclaim your old server and claim the new one</li>
