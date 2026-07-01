@@ -2,7 +2,7 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-06-26T21:26:45.769Z
+date: 2026-07-01T10:29:26.344Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-06-22T12:46:47.046Z
@@ -41,6 +41,7 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>In this section of the guide we will complete the following tasks:</p>
 <ul>
   <li>Log in to TrueNAS</li>
+  <li>Note your password</li>
   <li>Turn off 2FA</li>
   <li>Download TrueNAS config file and back it up</li>
   <li>Download any encryption keys and back them up</li>
@@ -61,6 +62,8 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>Next you will see the TrueNAS login.&nbsp;</p>
 <figure class="image"><img src="/truenas-login-screen.png"></figure>
 <p>The username is <strong>truenas_admin</strong> and the password is the one chosen when you installed HexOS.</p>
+<h3>Note down your password</h3>
+<p>The TrueNAS password for this server will be needed again in the future, when the new machine is set up. Make sure to note it down.</p>
 <h4>From TrueNAS</h4>
 <p>If you are not yet using HexOS, enter TrueNAS by going to the login screen at your server IP address. For example https://192.168.1.142/ui/signin.</p>
 <p>Your username as password were set during TrueNAS installation.</p>
@@ -104,6 +107,7 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <h3>Final Checks</h3>
 <p>You should now have a</p>
 <ul>
+  <li>Your password</li>
   <li>Copy of the config file any encryption keys</li>
   <li>Backup of these</li>
   <li>Fully backup of the data on your pools which you have verified is working</li>
@@ -139,8 +143,12 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>In this case, the same boot drive is used, so this remains plugged in. The serial number matches the boot-pool drive in TrueNAS.</p>
 <figure class="image"><img src="/boot-drive-serial-number-check.jpg"></figure>
 <h2>Install HexOS</h2>
-<p>Follow the <a href="https://docs.hexos.com/getting-started/installation/InstallGuide.html">HexOS installation guide here.</a></p>
-<p>When you get to the step Select Installation Drive there should only be one drive listed. &nbsp;Check that this matches the description of the drive you want to install HexOS on.</p>
+<p>Follow the <a href="https://docs.hexos.com/getting-started/installation/InstallGuide.html">HexOS installation guide here.&nbsp;</a></p>
+<p><strong>Two important notes</strong></p>
+<ul>
+  <li>The password you choose during install is temporary, itwill be replaced by your original password later&nbsp;</li>
+  <li>When you get to the step <strong>Select Installation Drive </strong>there should only be one drive listed. &nbsp;<i><strong>Check that this drive matches the description of the place you want to install HexOS.</strong></i> Be sure, any data on the drive will be overwritten.</li>
+</ul>
 <figure class="image"><img src="/choose-boot-pool-drive.jpg"></figure>
 <p>At the end of the install process, you will see the following<strong> Console setup </strong>screen.&nbsp;</p>
 <figure class="image"><img src="/truenas_ip_address.jpg"></figure>
@@ -148,12 +156,12 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p><strong>Log in</strong> to TrueNAS.</p>
 <figure class="image"><img src="/log-in-to-truenas-after-reinstall.png"></figure>
 <h3>Upgrade TrueNAS</h3>
-<p>The next step is to update TrueNAS to the same version as our previous instance. You can find this from the config file name, or in your notes from earlier steps. [notes on updating truenas while using hexos genrally?)[[TODO]</p>
+<p>The next step is to update TrueNAS to the same version as our previous instance. You can find this from the config file name, or in your notes from earlier steps. In this case the version number is<strong> 12.10.4</strong> [notes on updating truenas while using hexos genrally?)[[TODO]</p>
 <figure class="image"><img src="/truenas-version-number-fileame.png"></figure>
 <p>After loging in, TrueNAS should open on the dashboard.&nbsp;</p>
 <p>Click the <strong>Updates Available</strong> button.</p>
 <figure class="image"><img src="/update-truenas-1.png"></figure>
-<p>&nbsp;In this instance there is only one update to make our TrueNAS version numbers match. If the options available do not allow you to update to the correct version, please contact support [TODO] or something.</p>
+<p>In this case there is only one update to make our TrueNAS version numbers match. If the options available do not allow you to update to the correct version, please contact support [TODO].</p>
 <p>Click <strong>Install Update</strong>.</p>
 <figure class="image"><img src="/update-trunenas-2.png"></figure>
 <p>Download the config and settings and password as suggested by clicking<strong> Save Configuration.</strong></p>
@@ -162,36 +170,36 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <figure class="image"><img src="/screenshot_from_2026-06-26_13-41-16.png"></figure>
 <p>The system will run the update and reboot</p>
 <figure class="image"><img src="/truenas-updating.png"></figure>
-<p>When the reboot has finished and the Console Setup screen is showing on the monitor again, boot down the machine. Plug all the remaining drives back in and boot it back up again.</p>
+<p>When the reboot has finished and the Console Setup screen is showing on the monitor again, boot down the machine. Plug all the remaining drives back in and boot up.</p>
 <h3>Import your storage pool config</h3>
 <p>Go to <strong>Storage</strong> &gt; <strong>Import Pool&nbsp;</strong></p>
 <figure class="image"><img src="/import-pool-truens-1.png"></figure>
-<p>Find your pool in the list, in this case there is only one pool. Click <strong>Import</strong>.</p>
+<p>Find your pool in the list, in this instance there is only one pool. Click <strong>Import</strong>.</p>
 <figure class="image"><img src="/import-pool-truenas-2.png"></figure>
-<p>The pool should then import.</p>
+<p>The pool will then import, this may take some time.</p>
 <figure class="image"><img src="/import-pool-truenas-3.png"></figure>
-<p>One the pool is imported the<strong> Storage Dashboard </strong>should be populated.</p>
+<p>One the pool is imported the<strong> Storage Dashboard </strong>will be populated.</p>
 <figure class="image"><img src="/screenshot_from_2026-06-26_21-49-47.png"></figure>
 <h3>Upload your config</h3>
 <p>Go into <strong>System</strong> &gt; <strong>Advanced Settings</strong></p>
 <figure class="image"><img src="/import-config-truenas-1.png"></figure>
-<p>then click <strong>Manage Configuration </strong>&gt;<strong> Upload File</strong></p>
+<p>Then click <strong>Manage Configuration </strong>&gt;<strong> Upload File</strong></p>
 <figure class="image"><img src="/import-truenas-config-2.png"></figure>
-<p>Navigate to and select your config file, and upload it</p>
+<p>Navigate to and select your config file, and select it</p>
 <figure class="image"><img src="/screenshot_from_2026-06-26_22-04-42.png"></figure>
 <p>Click <strong>Upload</strong></p>
 <figure class="image"><img src="/screenshot_from_2026-06-26_22-04-52.png"></figure>
 <p>The import will run and the system will reboot.</p>
 <figure class="image"><img src="/screenshot_from_2026-06-26_22-04-56.png"></figure>
-<p>When you log back in, you will need to use the origonal password from your old machine.</p>
-<p>&nbsp;</p>
+<p>When you log back in, you will need to use the original password which was noted at the start of the process. The temporary password is no longer used.</p>
+<h2>Import apps config</h2>
 <p>After reboot, go to Apps &gt; Configuration &gt; Unset Pool</p>
 <ul>
   <li>Restart TrueNAS</li>
   <li>Go back into the web interface, go to Apps &gt; Configuration &gt; Choose Pool</li>
   <li>Your apps should show back up and you should be able to start them.</li>
-  <li>Go to the HexOS web interface.&nbsp;</li>
+  <li>Go to the HexOS web interface.</li>
   <li>If you haven't already, unclaim your old server and claim the new one</li>
-  <li>The hardware check screen should give you a warning about an existing pool. This is good, go onto the next screen and skip creating pool.&nbsp;</li>
+  <li>The hardware check screen should give you a warning about an existing pool. This is good, go onto the next screen and skip creating pool.</li>
   <li>Give your server a name and you should be good to go!</li>
 </ul>
