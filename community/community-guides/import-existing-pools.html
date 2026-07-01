@@ -2,7 +2,7 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-07-01T13:18:16.212Z
+date: 2026-07-01T13:30:45.767Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-06-22T12:46:47.046Z
@@ -16,26 +16,29 @@ dateCreated: 2026-06-22T12:46:47.046Z
   <li>Reinstall HexOS on the same hardware</li>
 </ul>
 <p><i><strong>specially</strong></i> if you do not want to wipe your storage pools as part of the process.</p>
-<p><strong>Best practice would be a fresh install of HexOS and with </strong><i><strong>new</strong></i><strong> storage pools</strong>, with data added to the new storage pools from backup afterwards. However, if you are in a hurry or perhaps have:</p>
+<p><strong>Best practice would be a fresh install of HexOS with </strong><i><strong>new</strong></i><strong> storage pools</strong>, and the data added to these new pools from backup afterwards. However, if you have:</p>
 <ul>
   <li>a large amount of data in your storage pools</li>
   <li>a large number of drives in the storage pools</li>
   <li>complex app configurations</li>
+  <li>not much time</li>
 </ul>
 <p>then this guide will show you how to keep your existing storage pools and import them to a new HexOS install.</p>
-<p>The guide does not assume significant prior knowledge of the software involved, and all steps are described thoroughly. If at any point you do not feel confident, please pause and ask for help - this is a high risk process as a mistake could make your data inaccessible.</p>
-<h2>Warning</h2>
-<p>You <i>must</i> have backups of your data before you attempt this process: without adequate backups you can lose your data during this process.</p>
+<p>The guide does not assume significant prior knowledge of the software involved, and all steps are described thoroughly. If at any point you do not feel confident, please pause and ask for help - this is a high risk process and a mistake could make your data unrecoverable..</p>
+<h2>Warning: data is at risk</h2>
+<p>You <i>must</i> have backups of your data. Without adequate backups you could permanently lose data at several points during this process. Best practice is:</p>
 <ol>
   <li>Have backups of everything</li>
   <li>Verify they still work</li>
-  <li>Try to copy a small set of files to prove out this isn’t a new problem that you’re not aware of</li>
+  <li>Try to copy a small set of files to prove out the data is accessible.</li>
 </ol>
-<p>For example</p>
-<p>[add screen shots] [TODO]</p>
 <h2>Process</h2>
 <ol>
-  <li>Export TrueNAS cofniguration and keys</li>
+  <li>Export TrueNAS configuration and keys</li>
+  <li>Prepare hardware for install</li>
+  <li>Install HexOS and update TrueNAS</li>
+  <li>Import configuration and keys</li>
+  <li>Claim server</li>
 </ol>
 <h2>Exporting TrueNAS configuration and keys</h2>
 <p>In this section of the guide we will complete the following tasks:</p>
@@ -171,6 +174,7 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>The system will run the update and reboot</p>
 <figure class="image"><img src="/truenas-updating.png"></figure>
 <p>When the reboot has finished and the Console Setup screen is showing on the monitor again, boot down the machine. Plug all the remaining drives back in and boot up.</p>
+<h2>Import your pool, config and apps</h2>
 <h3>Import your storage pool config</h3>
 <p>Go to <strong>Storage</strong> &gt; <strong>Import Pool&nbsp;</strong></p>
 <figure class="image"><img src="/import-pool-truens-1.png"></figure>
@@ -192,7 +196,7 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>The import will run and the system will reboot.</p>
 <figure class="image"><img src="/screenshot_from_2026-06-26_22-04-56.png"></figure>
 <p>When you log back in, you will need to use the original password which was noted at the start of the process. The temporary password is no longer used.</p>
-<h2>Import apps config</h2>
+<h3>Import apps config</h3>
 <p>Reboot the NAS then go to <strong>Apps</strong> &gt; <strong>Configuration</strong> &gt; <strong>Unset Pool</strong></p>
 <figure class="image"><img src="/apps-after-reinstall-truenas-1.png"></figure>
 <p>Click <strong>Unset</strong></p>
