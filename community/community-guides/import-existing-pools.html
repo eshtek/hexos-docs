@@ -2,7 +2,7 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-07-03T11:38:16.735Z
+date: 2026-07-03T11:51:14.982Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-06-22T12:46:47.046Z
@@ -25,6 +25,12 @@ dateCreated: 2026-06-22T12:46:47.046Z
 </ul>
 <p>then this guide will show you how to keep your existing storage pools and import them to a new HexOS install.</p>
 <p>The guide does not assume significant prior knowledge of the software involved, and all steps are described thoroughly. If at any point you do not feel confident, please pause and ask for help - this is a high risk process and a mistake could make your data unrecoverable..</p>
+<p>TODO By exporting the TrueNAS configuration you are backing up&nbsp;</p>
+<ul>
+  <li>Settings of your apps</li>
+  <li>Folders</li>
+  <li>[TODO, more]</li>
+</ul>
 <h2>Warning: data is at risk</h2>
 <p>You <i>must</i> have backups of your data. Without adequate backups you could permanently lose data at several points during this process. Best practice is:</p>
 <ol>
@@ -50,11 +56,9 @@ dateCreated: 2026-06-22T12:46:47.046Z
   <li>Find our serial numbers of drives</li>
   <li>Check we are ready to install HexOS</li>
 </ul>
-<p>By exporting the TrueNAS configuration you are backing up&nbsp;</p>
-<ul>
-  <li>Settings of your apps</li>
-  <li>Folders</li>
-  <li>[TODO, more]</li>
+<h4>You will need</h4>
+<ul class="todo-list">
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">todo</span></label></li>
 </ul>
 <h3>Log into TrueNAS Web Interface</h3>
 <h4>From HexOS</h4>
@@ -125,6 +129,10 @@ dateCreated: 2026-06-22T12:46:47.046Z
   <li>Unplug the storage pool drives</li>
   <li>Make any other hardware updates</li>
 </ul>
+<h4>You will need</h4>
+<ul class="todo-list">
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">TODO</span></label></li>
+</ul>
 <h3>Shut down the server</h3>
 <p>First, shut down the server. From TrueNAS this can be done by clicking the power button icon and <strong>Shut Down</strong></p>
 <figure class="image"><img src="/shutdown.png"></figure>
@@ -146,7 +154,7 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>Make any other planned hardware changes to your system now also.&nbsp;</p>
 <p>In this case, the same boot drive is used, so this remains plugged in. The serial number matches the boot-pool drive in TrueNAS.</p>
 <figure class="image"><img src="/boot-drive-serial-number-check.jpg"></figure>
-<h3>Checks</h3>
+<h3>Final Checks</h3>
 <ul class="todo-list">
   <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">The machine is off</span></label></li>
   <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">The drives for storage pools are unplugged</span></label></li>
@@ -158,6 +166,10 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <ul>
   <li>Install HexOS, following the guide</li>
   <li>Update TrueNAS</li>
+</ul>
+<h4>You will need</h4>
+<ul class="todo-list">
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">TODO</span></label></li>
 </ul>
 <h3>Install HexOS</h3>
 <p>Follow the <a href="https://docs.hexos.com/getting-started/installation/InstallGuide.html">HexOS installation guide here.</a></p>
@@ -196,8 +208,24 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>The system will run the update and reboot</p>
 <figure class="image"><img src="/truenas-updating.png"></figure>
 <p>When the reboot has finished and the Console Setup screen is showing on the monitor again, boot down the machine. Plug all the remaining drives back in and boot up.</p>
+<h3>Final Checks</h3>
+<ul class="todo-list">
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">TrueNAS is installed with a temporary password</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">The version number of TrueNAS matches your previous instance</span></label></li>
+</ul>
 <h2>Import your pool, config and apps</h2>
-<h3>Import your storage pool config</h3>
+<p>In this section we will:</p>
+<ul>
+  <li>Import storage pool</li>
+  <li>Upload config file</li>
+  <li>Reset the apps pool (if necessary)</li>
+  <li>Import encryption keys (if necessary)</li>
+</ul>
+<h4>You will need</h4>
+<ul class="todo-list">
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Files</span></label></li>
+</ul>
+<h3>Import your storage pool</h3>
 <p>Go to <strong>Storage</strong> &gt; <strong>Import Pool&nbsp;</strong></p>
 <figure class="image"><img src="/import-pool-truens-1.png"></figure>
 <p>Find your pool in the list, in this instance there is only one pool. Click <strong>Import</strong>.</p>
@@ -219,9 +247,10 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <figure class="image"><img src="/screenshot_from_2026-06-26_22-04-56.png"></figure>
 <p>When you log back in, you will need to use the original password which was noted at the start of the process. The temporary password is no longer used.</p>
 <h3>Import keys for encrypted data</h3>
-<p>If you had encrypted data with keys (as oppsed to passphrases)</p>
+<p>If you had encrypted data with keys (as opposed to passphrases)</p>
 <p>[TODO] Finish, some screenshots done but process finiky with errors will do on second pass</p>
-<h3>Import apps config</h3>
+<h3>Set apps pool correctly (if necessary)</h3>
+<p>TODO IS THIS NEEDED WITH ONLY ONE POOL?? [TODO]</p>
 <p>Reboot the NAS then go to <strong>Apps</strong> &gt; <strong>Configuration</strong> &gt; <strong>Unset Pool</strong></p>
 <figure class="image"><img src="/apps-after-reinstall-truenas-1.png"></figure>
 <p>Click <strong>Unset</strong></p>
@@ -239,13 +268,14 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>Your apps should show back up. Start them by clicking the triangular play symbol under <strong>Controls</strong></p>
 <figure class="image"><img src="/screenshot_from_2026-07-01_11-50-55.png"></figure>
 <figure class="image"><img src="/screenshot_from_2026-07-01_11-52-09.png"></figure>
-<h3>Claim the server</h3>
-<p>If you haven't already, un-claim your old server and claim the new one</p>
-<figure class="image"><img src="/screenshot_from_2026-07-01_11-50-55.png"></figure>
-<h3>Claim the new server on HexOS deck</h3>
-<p>You will need to claim the new server and will probably need to “unclaim" the old server first</p>
+<h3>Checks</h3>
+<ul class="todo-list">
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">todo</span></label></li>
+</ul>
+<h2>Claim the new server on HexOS deck</h2>
+<p>You will need to claim the new server and will probably need to “unclaim" the old server first TODO document the unclaim process!&nbsp;</p>
 <p><a href="/getting-started/setup/CompleteSetup">Follow the guide to claim the new server</a></p>
-<h4><strong>IMPORTANT: data at risk</strong></h4>
+<h3><strong>IMPORTANT: data at risk</strong></h3>
 <p>The following steps are <strong>ESSENTIAL</strong> to avoid data loss. Notice that your storage drives are shown to have data on: this is your pool data. Click <strong>Continue</strong>.</p>
 <figure class="image"><img src="/screenshot_from_2026-07-01_13-42-36.png"></figure>
 <p>Next, when you reach the<strong> Storage pools</strong> screen you <i><strong>MUST</strong></i><strong> </strong>click <strong>Skip.</strong></p>
