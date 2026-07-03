@@ -2,7 +2,7 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-07-03T11:51:14.982Z
+date: 2026-07-03T11:53:44.641Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-06-22T12:46:47.046Z
@@ -56,7 +56,7 @@ dateCreated: 2026-06-22T12:46:47.046Z
   <li>Find our serial numbers of drives</li>
   <li>Check we are ready to install HexOS</li>
 </ul>
-<h4>You will need</h4>
+<p><strong>You will need</strong></p>
 <ul class="todo-list">
   <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">todo</span></label></li>
 </ul>
@@ -68,13 +68,13 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>Next you will see the TrueNAS login.&nbsp;</p>
 <figure class="image"><img src="/truenas-login-screen.png"></figure>
 <p>The username is <strong>truenas_admin</strong> and the password is the one chosen when you installed HexOS.</p>
-<h5>Note down your password</h5>
+<p><strong>Note down your password</strong></p>
 <p>The TrueNAS password for this server will be needed again in the future, when the new machine is set up. Make sure to note it down.</p>
 <h4>From TrueNAS</h4>
 <p>If you are not yet using HexOS, enter TrueNAS by going to the login screen at your server IP address. For example https://192.168.1.142/ui/signin.</p>
 <p>Your username as password were set during TrueNAS installation.</p>
 <figure class="image"><img src="/truenas-login-pre-hexos-install.png"></figure>
-<h5>Note down your password</h5>
+<p><strong>Note down your password</strong></p>
 <p>The TrueNAS password for this server will be needed again in the future, when the new machine is set up. Make sure to note it down.</p>
 <h3>Turn off 2FA</h3>
 <p>If 2FA is enabled you will not be able to claim your server when installing HexOS. Check that 2FA is disabled. Go to <strong>System</strong> &gt; <strong>Advanced Settings</strong> then scroll down to <strong>Global Two Factor Authentication </strong>and check that 2FA is showing as disabled.</p>
@@ -112,7 +112,7 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>Copy down the drive serial numbers and their pool name/use. You can click an entry to see more of the serial number if needed.&nbsp;</p>
 <p>When we boot down the server, all the storage pool drives will be unplugged.</p>
 <figure class="image"><img src="/drive-serial-numbers-note.jpg"></figure>
-<h3>Final Checks</h3>
+<p><strong>Final Checks</strong></p>
 <p>You should now have a</p>
 <ul class="todo-list">
   <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Your password</span></label></li>
@@ -129,7 +129,7 @@ dateCreated: 2026-06-22T12:46:47.046Z
   <li>Unplug the storage pool drives</li>
   <li>Make any other hardware updates</li>
 </ul>
-<h4>You will need</h4>
+<p><strong>You will need</strong></p>
 <ul class="todo-list">
   <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">TODO</span></label></li>
 </ul>
@@ -154,7 +154,7 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>Make any other planned hardware changes to your system now also.&nbsp;</p>
 <p>In this case, the same boot drive is used, so this remains plugged in. The serial number matches the boot-pool drive in TrueNAS.</p>
 <figure class="image"><img src="/boot-drive-serial-number-check.jpg"></figure>
-<h3>Final Checks</h3>
+<p><strong>Final Checks</strong></p>
 <ul class="todo-list">
   <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">The machine is off</span></label></li>
   <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">The drives for storage pools are unplugged</span></label></li>
@@ -167,7 +167,7 @@ dateCreated: 2026-06-22T12:46:47.046Z
   <li>Install HexOS, following the guide</li>
   <li>Update TrueNAS</li>
 </ul>
-<h4>You will need</h4>
+<p><strong>You will need</strong></p>
 <ul class="todo-list">
   <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">TODO</span></label></li>
 </ul>
@@ -208,7 +208,7 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>The system will run the update and reboot</p>
 <figure class="image"><img src="/truenas-updating.png"></figure>
 <p>When the reboot has finished and the Console Setup screen is showing on the monitor again, boot down the machine. Plug all the remaining drives back in and boot up.</p>
-<h3>Final Checks</h3>
+<p><strong>Final Checks</strong></p>
 <ul class="todo-list">
   <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">TrueNAS is installed with a temporary password</span></label></li>
   <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">The version number of TrueNAS matches your previous instance</span></label></li>
@@ -221,7 +221,7 @@ dateCreated: 2026-06-22T12:46:47.046Z
   <li>Reset the apps pool (if necessary)</li>
   <li>Import encryption keys (if necessary)</li>
 </ul>
-<h4>You will need</h4>
+<p><strong>You will need</strong></p>
 <ul class="todo-list">
   <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Files</span></label></li>
 </ul>
