@@ -2,7 +2,7 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-07-03T11:11:26.608Z
+date: 2026-07-03T11:38:16.735Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-06-22T12:46:47.046Z
@@ -34,21 +34,20 @@ dateCreated: 2026-06-22T12:46:47.046Z
 </ol>
 <h2>Process</h2>
 <ol>
-  <li>Export TrueNAS configuration and keys</li>
+  <li>Export TrueNAS configuration</li>
   <li>Prepare hardware for install</li>
-  <li>Install HexOS and update TrueNAS</li>
-  <li>Import configuration and keys</li>
+  <li>Install HexOS</li>
+  <li>Import configuration</li>
   <li>Claim server</li>
 </ol>
 <h2>Exporting TrueNAS configuration and keys</h2>
 <p>In this section of the guide we will complete the following tasks:</p>
 <ul>
-  <li>Log in to TrueNAS</li>
-  <li>Note your password</li>
-  <li>Turn off 2FA</li>
-  <li>Download TrueNAS config file and back it up</li>
-  <li>Download any encryption keys and back them up</li>
-  <li>Find our boot pool drive and storage pool drives serial numbers</li>
+  <li>Log in to TrueNAS and note password</li>
+  <li>Turn off 2FA (if applicable)</li>
+  <li>Download TrueNAS config file</li>
+  <li>Download encryption keys (if applicable)</li>
+  <li>Find our serial numbers of drives</li>
   <li>Check we are ready to install HexOS</li>
 </ul>
 <p>By exporting the TrueNAS configuration you are backing up&nbsp;</p>
@@ -65,12 +64,14 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>Next you will see the TrueNAS login.&nbsp;</p>
 <figure class="image"><img src="/truenas-login-screen.png"></figure>
 <p>The username is <strong>truenas_admin</strong> and the password is the one chosen when you installed HexOS.</p>
-<h3>Note down your password</h3>
+<h5>Note down your password</h5>
 <p>The TrueNAS password for this server will be needed again in the future, when the new machine is set up. Make sure to note it down.</p>
 <h4>From TrueNAS</h4>
 <p>If you are not yet using HexOS, enter TrueNAS by going to the login screen at your server IP address. For example https://192.168.1.142/ui/signin.</p>
 <p>Your username as password were set during TrueNAS installation.</p>
 <figure class="image"><img src="/truenas-login-pre-hexos-install.png"></figure>
+<h5>Note down your password</h5>
+<p>The TrueNAS password for this server will be needed again in the future, when the new machine is set up. Make sure to note it down.</p>
 <h3>Turn off 2FA</h3>
 <p>If 2FA is enabled you will not be able to claim your server when installing HexOS. Check that 2FA is disabled. Go to <strong>System</strong> &gt; <strong>Advanced Settings</strong> then scroll down to <strong>Global Two Factor Authentication </strong>and check that 2FA is showing as disabled.</p>
 <figure class="image"><img src="/2fa-disabled.png"></figure>
@@ -109,13 +110,13 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <figure class="image"><img src="/drive-serial-numbers-note.jpg"></figure>
 <h3>Final Checks</h3>
 <p>You should now have a</p>
-<ul>
-  <li>Your password</li>
-  <li>Copy of the config file any encryption keys</li>
-  <li>Backup of these</li>
-  <li>Fully backup of the data on your pools which you have verified is working</li>
-  <li>Note of your TrueNAS version number</li>
-  <li>Sheet of paper with the drive serial numbers on</li>
+<ul class="todo-list">
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Your password</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Copy of the config file any encryption keys</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Backup of these</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Fully backup of the data on your pools which you have verified is working</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Note of your TrueNAS version number</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Sheet of paper with the drive serial numbers on</span></label></li>
 </ul>
 <h2>Preparing to Install HexOS</h2>
 <p>In this section we will:</p>
@@ -145,22 +146,43 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>Make any other planned hardware changes to your system now also.&nbsp;</p>
 <p>In this case, the same boot drive is used, so this remains plugged in. The serial number matches the boot-pool drive in TrueNAS.</p>
 <figure class="image"><img src="/boot-drive-serial-number-check.jpg"></figure>
-<h2>Install HexOS</h2>
-<p>Follow the <a href="https://docs.hexos.com/getting-started/installation/InstallGuide.html">HexOS installation guide here.&nbsp;</a></p>
+<h3>Checks</h3>
+<ul class="todo-list">
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">The machine is off</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">The drives for storage pools are unplugged</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">The boot drive that will have HexOS on in plugged in</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">&nbsp;All data is backed up</span></label></li>
+</ul>
+<h2>Install HexOS and Update TrueNAS</h2>
+<p>In this section we will:</p>
+<ul>
+  <li>Install HexOS, following the guide</li>
+  <li>Update TrueNAS</li>
+</ul>
+<h3>Install HexOS</h3>
+<p>Follow the <a href="https://docs.hexos.com/getting-started/installation/InstallGuide.html">HexOS installation guide here.</a></p>
+<p>At the end of the installation process,<i> come back to this guide</i> and do not continue on to complete the HexOS setup.</p>
 <p><strong>Two important notes</strong></p>
 <ul>
-  <li>The password you choose during install is temporary, itwill be replaced by your original password later&nbsp;</li>
-  <li>When you get to the step <strong>Select Installation Drive </strong>there should only be one drive listed. &nbsp;<i><strong>Check that this drive matches the description of the place you want to install HexOS.</strong></i> Be sure, any data on the drive will be overwritten.</li>
+  <li>The password you choose during install is temporary, it will later be replaced by the password you noted down earlier.&nbsp;</li>
+  <li>When you get to the step <strong>Select Installation Drive </strong>there should only be one drive listed. &nbsp;Double check this drive matches the description of the place you want to install HexOS<i><strong>.</strong></i> Be <i><strong>sure</strong></i>, any data on the drive will be overwritten.</li>
 </ul>
 <figure class="image"><img src="/choose-boot-pool-drive.jpg"></figure>
 <p>At the end of the install process, you will see the following<strong> Console setup </strong>screen.&nbsp;</p>
 <figure class="image"><img src="/truenas_ip_address.jpg"></figure>
-<p>Do not continue following the docs to complete the HexOS complete setup. First, log into TueNAS by going to the IP address shown on the <strong>Console setup </strong>screen.</p>
+<p><i><strong>Do not continue</strong></i> following the docs to complete HexOS setup.</p>
+<h3>Upgrade TrueNAS</h3>
+<p>The next step is to update TrueNAS to the same version as our previous instance. &nbsp;[notes on updating truenas while using hexos genrally?)[[TODO]</p>
+<p>You can find the version number from the config file name, or in your notes from earlier steps. In this case the version number is<strong> 12.10.4</strong></p>
+<figure class="image"><img src="/truenas-version-number-fileame.png"></figure>
+<p>&nbsp;</p>
+<h4>Log in to TrueNAS</h4>
+<p>First, log into TueNAS by going to the IP address shown on the <strong>Console setup </strong>screen.</p>
 <p><strong>Log in</strong> to TrueNAS.</p>
 <figure class="image"><img src="/log-in-to-truenas-after-reinstall.png"></figure>
-<h3>Upgrade TrueNAS</h3>
-<p>The next step is to update TrueNAS to the same version as our previous instance. You can find this from the config file name, or in your notes from earlier steps. In this case the version number is<strong> 12.10.4</strong> [notes on updating truenas while using hexos genrally?)[[TODO]</p>
-<figure class="image"><img src="/truenas-version-number-fileame.png"></figure>
+<h3>&nbsp;</h3>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 <p>After loging in, TrueNAS should open on the dashboard.&nbsp;</p>
 <p>Click the <strong>Updates Available</strong> button.</p>
 <figure class="image"><img src="/update-truenas-1.png"></figure>
