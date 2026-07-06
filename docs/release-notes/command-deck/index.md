@@ -11,6 +11,7 @@ For users who are actively connected during an update, there may be a brief down
 <!-- auto-generated-year-sections-start -->
 ## 2026 Releases
 
+- [**2026-07-06**](./2026-07-06) - DIF drive support, new curated apps, and self-healing improvements
 - [**2026-06-26**](./2026-06-26) - Onboarding redesign, live storage progress, and app preconfiguration improvements
 - [**2026-06-06**](./2026-06-06) - New curated applications
 - [**2026-05-29**](./2026-05-29) - New curated applications
