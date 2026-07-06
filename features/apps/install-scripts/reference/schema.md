@@ -2,7 +2,7 @@
 title: Install Script Schema
 description: 
 published: true
-date: 2026-06-09T20:03:11.659Z
+date: 2026-06-30T17:22:44.697Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:40:16.156Z
@@ -217,7 +217,7 @@ When users attempt to install an app, HexOS performs the following checks:
 
 Installation questions allow you to prompt users for configuration values during app installation. Question responses can be referenced in `app_values` using the `$QUESTION(key)` syntax.
 
-![Installation Questions UI](/assets/screenshots/installation-questions-example.png)
+![installation-questions-example.png](/installation-questions-example.png =750x){.align-center}
 
 *Example of installation questions displayed during app installation*
 

@@ -2,7 +2,7 @@
 title: Complete Server Setup
 description: 
 published: true
-date: 2026-06-09T20:03:49.665Z
+date: 2026-06-28T21:30:51.605Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:41:10.493Z
@@ -24,7 +24,7 @@ You'll need:
 ## Login to HexOS
 
 First, go to [deck.hexos.com](https://deck.hexos.com) and log in.   
-If you have not already signed up you can [sign up](https://hub.hexos.com/register/) here.
+If you have not already signed up you can [sign up on HexOS hub](https://hub.hexos.com/).
 
 <img alt="Screenshot From 2025-09-30 11-20-17" src="https://github.com/user-attachments/assets/bad810b2-5525-4eed-b029-99ea7467ba4e" />
 
@@ -71,7 +71,7 @@ You will now see a suggested arrangement of your drives into storage pools. "Poo
 HexOS will suggest a storage pool layout based on your hardware. 
 
 Ideally you will have at least 3 drives in your pool, this means you can add more later.  
-[Read more about storage pool layouts here](https://docs.hexos.com/getting-started/overview.html#recommended-layouts).
+[Read more about storage pool layouts here](https://docs-new.hexos.com/getting-started/overview.html#recommended-layouts).
 
 For most people, the recommended configuration is the best path forward. To use the default suggested layout click the `Continue` button again.
 

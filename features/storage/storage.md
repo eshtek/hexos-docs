@@ -2,7 +2,7 @@
 title: Storage
 description: 
 published: true
-date: 2026-06-18T23:01:58.430Z
+date: 2026-06-28T21:46:07.238Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:40:57.001Z
@@ -22,7 +22,7 @@ When first setting up your server, you likely created at least one storage pool.
 
 If you have unused drives, you can create a new pool by selecting the create pool button.
 
-It’s important to create pools with an appropriate amount of drives. Any pools with less than three drives cannot be expanded with additional drives.<br> [Read more about drives and pools here](https://docs.hexos.com/getting-started/overview.html#get-yourself-some-storage)
+It’s important to create pools with an appropriate amount of drives. Any pools with less than three drives cannot be expanded with additional drives.<br> [Read more about drives and pools here](https://docs-new.hexos.com/getting-started/overview.html#get-yourself-some-storage)
 
 ## Replacing Drives
 
@@ -71,7 +71,8 @@ To add another drive to your pool:
 
 ### Expanding drives 
 
-This is how you can upgrade individual drives one at a time. The process for this is the same as [replacing individual drives that have failed.](/###how-to-replace-a-drive)
+This is how you can upgrade individual drives one at a time. The process for this is the same as replacing individual drives that have failed.
+
 
 ## Critical Errors
 

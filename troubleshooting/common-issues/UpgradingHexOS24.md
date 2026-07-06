@@ -2,7 +2,7 @@
 title: Upgrading HexOS with TrueNAS 24.10.0 to TrueNAS 25.10.3
 description: 
 published: true
-date: 2026-06-09T20:05:45.194Z
+date: 2026-06-30T18:30:11.071Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:43:52.526Z
@@ -18,11 +18,13 @@ dateCreated: 2026-06-08T15:43:52.526Z
 
 ## Finding your server ip address
 
-> **📋 Using a monitor connected to your server to find your ip address**
-> 1) Connect a display to your server.
->    2) When turned on the server will show your `ip address`
-> ![](../../public/assets/screenshots/Hexos24to25/2.png)
-
+<details>
+  <summary> 📋 Using a monitor connected to your server to find your ip address</summary>
+1. Connect a display to your server.
+  
+2. When turned on the server will show your `ip address`
+![2.png](/upgrading-hexos/2.png =500x){.align-center}
+</details>
 
 If you are unable to connect a monitor to your server you may be able to find the server `ip address` by logging into your router's web interface and looking at connected devices.
 
@@ -32,22 +34,22 @@ If you are unable to connect a monitor to your server you may be able to find th
 2) Login
     - The username will be `truenas_admin`
     - The password will be what you selected when first installing HexOS
-![](../../public/assets/screenshots/Hexos24to25/1.png)
+![1.png](/upgrading-hexos/1.png =400x){.align-center}
 
 ## Updating Process
 
 1) Select the blue `Updates Available` button
-![](../../public/assets/screenshots/Hexos24to25/3.png)
+![3.png](/upgrading-hexos/3.png =600x){.align-center}
 2) Click the `Train` dropdown
-![](../../public/assets/screenshots/Hexos24to25/4.png)
+![4.png](/upgrading-hexos/4.png =600x){.align-center}
 3) Select `TrueNAS SCALE Goldeye 25.10` in the dropdown
-![](../../public/assets/screenshots/Hexos24to25/5.png)
+![5.png](/upgrading-hexos/5.png =600x){.align-center}
 4) Confirm changing the train
-![](../../public/assets/screenshots/Hexos24to25/6.png)
+![6.png](/upgrading-hexos/6.png =600x){.align-center}
 5) Select the `Do not save` button
-![](../../public/assets/screenshots/Hexos24to25/7.png)
+![7.png](/upgrading-hexos/7.png =600x){.align-center}
 6) Select `Apply updates and reboot system after downloading` and the click `Download`
-![](../../public/assets/screenshots/Hexos24to25/8.png)
+![8.png](/upgrading-hexos/8.png =600x){.align-center}
 
 ## If you still can't connect to HexOS deck
 

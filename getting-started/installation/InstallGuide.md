@@ -2,7 +2,7 @@
 title: Illustrated Installation Guide
 description: 
 published: true
-date: 2026-06-09T20:03:43.037Z
+date: 2026-06-29T20:15:48.288Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:41:01.586Z
@@ -17,7 +17,7 @@ dateCreated: 2026-06-08T15:41:01.586Z
 You will need:
 
 - [To purchase a HexOS license](https://hub.hexos.com/store/product/1-lifetime/)
-- [Server hardware](https://docs.hexos.com/getting-started/overview.html#getting-started)
+- [Server hardware](https://docs-new.hexos.com/getting-started/overview.html#getting-started)
 - An 8 GB or larger USB drive that can be safely erased
 - An ethernet cable to connect your server to your router or network switch
 - A display, keyboard and optionally a mouse to connect to your server
@@ -70,13 +70,13 @@ Once you see this screen, you are ready to boot into HexOS and install it:
 -   Select "Start HexOS Installation" (default)
 -   This screen will pass automatically after a moment
 
-![Boot Screen](../../public/assets/screenshots/Installation-guide/1.png "Enlarge image")
+![1.png](/installation-guide/1.png)
 
 ### Installation Menu
 
 -   Once the system loads, select option 1: "Install/Upgrade"
 
-![Installation Menu](../../public/assets/screenshots/Installation-guide/2.png "Enlarge image")
+![2.png](/installation-guide/2.png)
 
 ### Select Installation Drive
 
@@ -85,13 +85,13 @@ What you see now will depend on how many drives you have in your server. The dri
 -   **Use arrow keys to navigate, space-bar to select your installation drive or drives**
 -   "**[*]**" in the first column indicates the device is selected
 
-![Drive Selection](../../public/assets/screenshots/Installation-guide/3.png "Enlarge image")
+![3.png](/installation-guide/3.png)
 
 ### Confirm Drive Erasure
 
 -   Confirm you understand the selected drive(s) will be **FULLY ERASED**
 
-![Drive Erasure Warning](../../public/assets/screenshots/Installation-guide/4.png "Enlarge image")
+![4.png](/installation-guide/4.png)
 
 ### User Account Setup
 
@@ -99,23 +99,23 @@ What you see now will depend on how many drives you have in your server. The dri
 - <span style="color: red;">**Save this password, you'll need it later**</span>
 -   **Non-US keyboard users**: Be careful with special characters in the password. The installer uses a [US keyboard layout](https://en.wikipedia.org/wiki/British_and_American_keyboards#/media/File:KB_United_States-NoAltGr.svg). [See details here](https://hub.hexos.com/topic/103-illustrated-installation-guide-start-here/page/2/#findComment-8073) <!-- TODO: migrate this hub forum link -->
 
-![Root Password Setup](../../public/assets/screenshots/Installation-guide/6.png "Enlarge image")
+![5.png](/installation-guide/5.png)
 
 ### Installation Progress
 
 -   The installer will run for a few minutes...
 
-![Installation In Progress](../../public/assets/screenshots/Installation-guide/7.png "Enlarge image")
+![6.png](/installation-guide/6.png)
 
 ### Installation Complete
 
 -   Remove the install USB
 
-![Installation Complete](../../public/assets/screenshots/Installation-guide/8.png "Enlarge image")
+![7.png](/installation-guide/7.png)
 
 -   Restart your Machine
 
-![Restart](../../public/assets/screenshots/Installation-guide/9.png "Enlarge image")
+![8.png](/installation-guide/8.png)
 
 ## First Boot
 
@@ -124,20 +124,20 @@ What you see now will depend on how many drives you have in your server. The dri
 -   The boot select screen will appear again - ignore it
 -   The default option is correct and will auto-select
 
-![First Boot Screen](../../public/assets/screenshots/Installation-guide/10.png "Enlarge image")
+![9.png](/installation-guide/9.png)
 
 ### System Startup
 
 -   The console will display startup information
--   **Tip**: If boot fails, check that HexOS is at the top in your BIOS boot device order. The instructions are [at the top of this guide here](####boot-device-order).
+-   **Tip**: If boot fails, check that HexOS is at the top in your BIOS boot device order. The instructions are at the top of this guide.
 
-![System Startup](../../public/assets/screenshots/Installation-guide/11.png "Enlarge image")
+![10.png](/installation-guide/10.png)
 
 ### Success!
 
 -  The "Console Setup" screen shows when your server has fully booted
 
-![Console Setup Screen](../../public/assets/screenshots/Installation-guide/12.png "Enlarge image")
+![11.png](/installation-guide/11.png)
 
 **Installation complete!**
 
