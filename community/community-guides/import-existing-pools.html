@@ -2,7 +2,7 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-07-09T13:01:21.612Z
+date: 2026-07-09T13:20:06.967Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-06-22T12:46:47.046Z
@@ -154,36 +154,36 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>When the browser starts to show a connection error, the server has shut down.</p>
 <figure class="image"><img src="https://docs-new.hexos.com/shutdown-error-truenas.png"></figure>
 <h3>Unplug your storage pool drives</h3>
-<p>At this stage, unplug all the drives that make up the storage pools. It is essential to do this, to prevent accidental <strong>data loss</strong> during HexOS install.</p>
-<p>These drives can be identified by the model number or serial number that was noted down earlier.</p>
-<figure class="image"><img src="https://docs-new.hexos.com/unplug-storage-drives.jpg"></figure>
+<p>At this stage we will unplug all the drives that make up the storage pools. It is essential to do this, to prevent accidental <strong>data loss</strong> during HexOS install.</p>
+<p>These drives can be identified using the<strong> model numbers</strong> or <strong>serial numbers</strong> noted down earlier. Remove the data and power cables from all the storage pool drives.</p>
+<figure class="image"><img src="/unplug-drives.jpg"></figure>
 <h3>Make any hardware changes</h3>
 <p>Make any other planned hardware changes to your system now also.&nbsp;</p>
-<p>In this case, the same boot drive is used, so this remains plugged in. The serial number matches the boot-pool drive in TrueNAS.</p>
-<figure class="image"><img src="https://docs-new.hexos.com/boot-drive-serial-number-check.jpg"></figure>
+<p>In this case, I will be using the same boot drive, so this remains plugged in ready for HexOS to be installed. The serial number matches what I noted down as the boot-pool drive in TrueNAS.</p>
+<figure class="image"><img src="/leave-boot-drive-plugged-in.jpg"></figure>
 <p><strong>Final Checks</strong></p>
 <ul class="todo-list">
   <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">The machine is off</span></label></li>
   <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">The drives for storage pools are unplugged</span></label></li>
   <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">The boot drive that will have HexOS on in plugged in</span></label></li>
-  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">&nbsp;All data is backed up</span></label></li>
 </ul>
 <h2>Install HexOS and Update TrueNAS</h2>
 <p>In this section we will:</p>
 <ul>
-  <li>Install HexOS, following the guide</li>
+  <li>Install HexOS, following the install guide up until we see the console setup screen</li>
   <li>Update TrueNAS</li>
 </ul>
 <p><strong>You will need</strong></p>
 <ul class="todo-list">
-  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">TODO</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">The items listed on the </span></label><a href="/getting-started/installation/InstallGuide"><label class="todo-list__label"><span class="todo-list__label__description">install guide</span></label></a></li>
 </ul>
 <h3>Install HexOS</h3>
 <p>Follow the <a href="https://docs.hexos.com/getting-started/installation/InstallGuide.html">HexOS installation guide here.</a></p>
-<p>At the end of the installation process,<i> come back to this guide</i> and do not continue on to complete the HexOS setup.</p>
+<p>At the end of the installation process,<i> come back to this guide.</i></p>
+<p>Do not continue on to complete the HexOS setup.</p>
 <p><strong>Two important notes</strong></p>
 <ul>
-  <li>The password you choose during install is temporary, it will later be replaced by the password you noted down earlier.</li>
+  <li>The password you use during install is temporary, it will later be replaced by the password you noted down.</li>
   <li>When you get to the step <strong>Select Installation Drive </strong>there should only be one drive listed. &nbsp;Double check this drive matches the description of the place you want to install HexOS<i><strong>.</strong></i> Be <i><strong>sure</strong></i>, any data on the drive will be overwritten.</li>
 </ul>
 <figure class="image"><img src="https://docs-new.hexos.com/choose-boot-pool-drive.jpg"></figure>
