@@ -2,28 +2,28 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-07-03T12:03:15.497Z
+date: 2026-07-09T13:01:21.612Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-06-22T12:46:47.046Z
 -->
 
 <h2>Who this guide is for</h2>
-<p>This guide will help you:&nbsp;</p>
+<p>This guide will help you</p>
 <ul>
   <li>Migrate from TrueNAS to HexOS</li>
   <li>Move HexOS to new hardware when a reinstall is required</li>
   <li>Reinstall HexOS on the same hardware</li>
 </ul>
-<p><i><strong>specially</strong></i> if you do not want to wipe your storage pools as part of the process.</p>
-<p><strong>Best practice would be a fresh install of HexOS with </strong><i><strong>new</strong></i><strong> storage pools</strong>, and the data added to these new pools from backup afterwards. However, if you have:</p>
+<p><i><strong>specifically</strong></i> if you do not want to wipe your storage pools as part of the process.</p>
+<p>Best practice would be a fresh install of HexOS with <i>new</i> storage pools and adding the data to these new pools from backup. However, if you have:</p>
 <ul>
   <li>a large amount of data in your storage pools</li>
   <li>a large number of drives in the storage pools</li>
   <li>complex app configurations</li>
   <li>not much time</li>
 </ul>
-<p>then this guide will show you how to keep your existing storage pools and import them to a new HexOS install.</p>
+<p>this guide will show you how to keep your existing storage pools and import them to a new HexOS install.</p>
 <p>The guide does not assume significant prior knowledge of the software involved, and all steps are described thoroughly. If at any point you do not feel confident, please pause and ask for help - this is a high risk process and a mistake could make your data unrecoverable..</p>
 <p>TODO By exporting the TrueNAS configuration you are backing up&nbsp;</p>
 <ul>
@@ -36,7 +36,7 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <ol>
   <li>Have backups of everything</li>
   <li>Verify they still work</li>
-  <li>Try to copy a small set of files to prove out the data is accessible.</li>
+  <li>Try to copy a small set of files to be sure the data is accessible.</li>
 </ol>
 <h2>Process</h2>
 <ol>
@@ -47,24 +47,26 @@ dateCreated: 2026-06-22T12:46:47.046Z
   <li>Claim server</li>
 </ol>
 <h2>Exporting TrueNAS configuration and keys</h2>
-<p>In this section of the guide we will complete the following tasks:</p>
+<p>In this section we will complete the following tasks:</p>
 <ul>
   <li>Log in to TrueNAS and note password</li>
   <li>Turn off 2FA (if applicable)</li>
   <li>Download TrueNAS config file</li>
   <li>Download encryption keys (if applicable)</li>
-  <li>Find our serial numbers of drives</li>
+  <li>Find the serial numbers of our drives</li>
   <li>Check we are ready to install HexOS</li>
 </ul>
 <p><strong>You will need</strong></p>
 <ul class="todo-list">
-  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">todo</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Note pad and pen</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">USB drive to backup config and encryption</span></label></li>
 </ul>
 <h3>Log into TrueNAS Web Interface</h3>
 <h4>From HexOS</h4>
 <p>If you are starting in HexOS, go to <a href="https://deck.hexos.com/"><u>https://deck.hexos.com/</u></a> &gt; <strong>Settings</strong> &gt; <strong>TrueNAS</strong></p>
 <figure class="image"><img src="https://docs-new.hexos.com/open-truenas.png"></figure>
-<p>This will open a new window in your browser. You may need to click through a security warning about a self signed SSL certificate, for example, in Firefox I clicked <strong>Advanced</strong>, and <strong>Accept the risk and continue</strong>.&nbsp;</p>
+<p>This will open a new window in your browser.&nbsp;</p>
+<p>You may need to click through a security warning about a self signed SSL certificate. For example, in Firefox I clicked <strong>Advanced</strong>, and <strong>Accept the risk and continue</strong>.&nbsp;</p>
 <p>Next you will see the TrueNAS login.&nbsp;</p>
 <figure class="image"><img src="https://docs-new.hexos.com/truenas-login-screen.png"></figure>
 <p>The username is <strong>truenas_admin</strong> and the password is the one chosen when you installed HexOS.</p>
@@ -77,50 +79,60 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p><strong>Note down your password</strong></p>
 <p>The TrueNAS password for this server will be needed again in the future, when the new machine is set up. Make sure to note it down.</p>
 <h3>Turn off 2FA</h3>
-<p>If 2FA is enabled you will not be able to claim your server when installing HexOS. Check that 2FA is disabled. Go to <strong>System</strong> &gt; <strong>Advanced Settings</strong> then scroll down to <strong>Global Two Factor Authentication </strong>and check that 2FA is showing as disabled.</p>
+<p>If 2FA is enabled you will not be able to claim your server when installing HexOS. Check that 2FA is disabled.&nbsp;</p>
+<p>Go to <strong>System</strong> &gt; <strong>Advanced Settings</strong> then scroll down to <strong>Global Two Factor Authentication </strong>and check that 2FA is showing as disabled.</p>
+<p>You may need to scroll down to see the <strong>System</strong> menu item</p>
 <figure class="image"><img src="https://docs-new.hexos.com/2fa-disabled.png"></figure>
 <p>&nbsp;If it is showing as enabled, click <strong>Configure, </strong>un-check the <strong>Enable Two Factor Authentication Globally</strong> box and click<strong> Save</strong></p>
 <h3>Download TrueNAS Configuration&nbsp;</h3>
-<p>Go to <strong>System</strong> &gt; <strong>Advanced Settings</strong> &gt; <strong>Manage Configuration</strong> &gt; <strong>Download File</strong></p>
+<p>Go to <strong>System</strong> &gt; <strong>Advanced Settings</strong></p>
 <p>You may need to scroll down to see the <strong>System</strong> menu item</p>
 <figure class="image"><img src="https://docs-new.hexos.com/truenas-system-advanced-menu.png"></figure>
-<p>The<strong> Manage configuration</strong> dropdown is on the top right of the screen.</p>
+<p>Then go to<strong> Manage configuration</strong> &gt;<strong> Download File. </strong>This dropdown is on the top right of the screen.</p>
 <figure class="image"><img src="https://docs-new.hexos.com/truenas-manage-config-menu.png"></figure>
+<p>Leave the<strong> Password Secret Seed</strong> box checked. Click <strong>Save.</strong></p>
+<figure class="image"><img src="/download-config-truenas-2.png"></figure>
 <p>Check that the file has downloaded. Make a note of the TrueNAS version number included in the file name (in this case 25.10.4) - you will need this later.</p>
-<figure class="image"><img src="https://docs-new.hexos.com/config-download-sucsessfull-truenas.png"></figure>
+<figure class="image"><img src="/config-download-sucsessfull-truenas.png"></figure>
 <p>Back up this file to a secure local place, such as a usb drive.</p>
+<figure class="image"><img src="/config-backup-truenas-1.png"></figure>
 <h3>Download Keys for Encrypted Datasets</h3>
 <p>If you have data encrypted with a key in your storage pool, the keys must be downloaded.<strong> If this step is skipped you will lose your data.</strong></p>
-<p>To see if you have encrypted data go to <strong>Datasets</strong> from the main menu in TrueNAS. In the <strong>Encryption</strong> column, datasets that are encrypted are marked as <strong>Locked</strong> or <strong>Unlocked</strong>. The rest are marked <strong>Unencrypted</strong>.</p>
+<p>To see if you have encrypted data go to <strong>Datasets</strong> from the main menu in TrueNAS.&nbsp;</p>
+<p>In the <strong>Encryption</strong> column, datasets that are encrypted are marked as <strong>Locked</strong> or <strong>Unlocked</strong>. The rest are marked <strong>Unencrypted</strong>.</p>
 <figure class="image"><img src="https://docs-new.hexos.com/find-encrypted-dataset-truenas.png"></figure>
-<p>To find out if a dataset is key encrypted, click on the entry then scroll down to <strong>Encryption</strong>. If there is a button for <strong>Export Key</strong>, then the data is encrypted with a key. <strong>You need this key be able to access the data again later: without the key the data is unreadable.&nbsp;</strong></p>
-<p>Click the <strong>Export Key</strong> button. You will be reminded that each encrypted dataset has it's own key, and you must download each key separately.</p>
-<figure class="image"><img src="https://docs-new.hexos.com/download-key-encrypted-dataset-2-truenas.png"></figure>
+<p>If you have no encrypted data you can skip ahead,</p>
+<p>If you have encrypted data, next find out if it is key encrypted. Click on the entry then scroll down to <strong>Encryption</strong>.&nbsp;</p>
+<p>If there is an <strong>Export Key</strong> button, then the data is encrypted with a key.&nbsp;</p>
+<p><strong>You need this key be able to access the data again later: without the key the data is unreadable.&nbsp;</strong></p>
+<p>To export your key, click the <strong>Export Key</strong> button. You will be reminded that each encrypted dataset has it's own key, and you must download each key separately.</p>
+<figure class="image"><img src="https://docs-new.hexos.com/download-key-encrypted-dataset-truenas.png"></figure>
 <p>When you have downloaded they key, check that it looks similar to the example key below:</p>
 <figure class="image"><img src="https://docs-new.hexos.com/example-of-a-key-truenas.png"></figure>
 <p>Then back up the key to a safe local place, such as a USB drive.</p>
-<p>If there is no <strong>Export Key</strong> button showing, this means the data is protected with a passphrase and not a key and so this backup step is not needed.</p>
+<figure class="image"><img src="/key-backup-truenas-1.png"></figure>
+<h4>Passphrase encryption</h4>
+<p>If there is no button to export the key, then the data is encrypted with passphrase only. In this case you don't need to download anything, as long as you know the passphrase you can access the data.</p>
 <p>To confirm this click <strong>Edit</strong> (you may need to unlock first) and check that the <strong>Encryption Type* </strong>dropdown is showing <strong>Passphrase</strong>. Encrypted folders set up in HexOS always use a passphrase..&nbsp;</p>
-<p>f you have any doubts or questions, please contact HexOS support, this step is critical to get right.</p>
-<figure class="image"><img src="https://docs-new.hexos.com/download-key-encrypted-dataset-truenas.png"></figure>
+<p>If you have any doubts or questions, please contact HexOS support [TODO]: this step is critical to get right.</p>
 <h3>Find the serial numbers of your drives</h3>
-<p>To prevent data loss, we want to make sure we know which drives are pool drives and which drives are boot drives in the machine. We're going to unplug the pool drives now to make sure they don't get overwritten.</p>
-<p>First, in TrueNAS go to <strong>Storage</strong> &gt; <strong>Disks</strong></p>
+<p>To prevent data loss, we want to make sure we know which drives are <i>pool drives </i>and which drives are<i> boot drives</i> in the machine. Then we will unplug the pool drives to make sure they don't get overwritten.</p>
+<p>First, in TrueNAS go to <strong>Storage</strong> &gt; <strong>Disks.</strong> The disks button is top right.</p>
 <figure class="image"><img src="https://docs-new.hexos.com/storage-disks-truenas.png"></figure>
-<p>You will see a list of all the drives in the machine. Note that the name of the boot drive is <strong>boot-pool.</strong> The <i>storage</i> pool drives, which have our data on, will have the name given when the storage pool was created, in this case “HDDs".</p>
+<p>You will see a list of all the drives in the machine.&nbsp;</p>
+<p>The name of the boot drive is <strong>boot-pool.</strong> The <i>storage</i> pool drives, which have our data on, will have the name given when the storage pool was created, in this case “HDDs".</p>
 <figure class="image"><img src="https://docs-new.hexos.com/list-of-drives-truenas.png"></figure>
-<p>Copy down the drive serial numbers and their pool name/use. You can click an entry to see more of the serial number if needed.&nbsp;</p>
-<p>When we boot down the server, all the storage pool drives will be unplugged.</p>
-<figure class="image"><img src="https://docs-new.hexos.com/drive-serial-numbers-note.jpg"></figure>
+<p>Click on each entry and note down the drive <strong>Model Number,</strong> <strong>Disk Size </strong>and<strong> Pool.&nbsp;</strong></p>
+<figure class="image"><img src="/check-drive-model-number-truenas.png"></figure>
+<p>I have used model number because this is shown during HexOS install process. However, if your drives all have the same<strong> Model Number</strong> then note down the <strong>Serial Numbers</strong> too.&nbsp;</p>
+<figure class="image"><img src="/drive-model-numbers-note-truenas.jpg"></figure>
 <p><strong>Final Checks</strong></p>
-<p>You should now have a</p>
+<p>You should now have a:</p>
 <ul class="todo-list">
-  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Your password</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Note with your password, TrueNAS version and drive model/serial numbers, pool and size</span></label></li>
   <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Copy of the config file any encryption keys</span></label></li>
-  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Backup of these</span></label></li>
-  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Fully backup of the data on your pools which you have verified is working</span></label></li>
-  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Note of your TrueNAS version number</span></label></li>
-  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Sheet of paper with the drive serial numbers on</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Backup of the config and encryption keys</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Full backup of the data on your pools which you have verified is working</span></label></li>
 </ul>
 <h2>Preparing to Install HexOS</h2>
 <p>In this section we will:</p>
@@ -131,7 +143,8 @@ dateCreated: 2026-06-22T12:46:47.046Z
 </ul>
 <p><strong>You will need</strong></p>
 <ul class="todo-list">
-  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">TODO</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Physical access to your server</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Any hardware new you're installing</span></label></li>
 </ul>
 <h3>Shut down the server</h3>
 <p>First, shut down the server. From TrueNAS this can be done by clicking the power button icon and <strong>Shut Down</strong></p>
@@ -140,15 +153,9 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <figure class="image"><img src="https://docs-new.hexos.com/shutdown-2-truenas.png"></figure>
 <p>When the browser starts to show a connection error, the server has shut down.</p>
 <figure class="image"><img src="https://docs-new.hexos.com/shutdown-error-truenas.png"></figure>
-<p>In HexOS click the power button then<strong> Shut Down.&nbsp;</strong></p>
-<figure class="image"><img src="https://docs-new.hexos.com/shutdown-button-hexos.png"></figure>
-<p>Then confirm by clicking <strong>Yes, shutdown now</strong></p>
-<figure class="image"><img src="https://docs-new.hexos.com/shutdown-confirm-hexos.png"></figure>
-<p>When the browser starts to show a connection error, the server has shut down.</p>
-<figure class="image"><img src="https://docs-new.hexos.com/shutdown-error-hexos.png"></figure>
 <h3>Unplug your storage pool drives</h3>
-<p>At this stage, unplug all the drives that make up the storage pools. It is <strong>essential</strong> to do this, to prevent accidental <strong>data loss</strong> during HexOS install.</p>
-<p>These drives can be identified by the serial number (or model number) that was noted down earlier.</p>
+<p>At this stage, unplug all the drives that make up the storage pools. It is essential to do this, to prevent accidental <strong>data loss</strong> during HexOS install.</p>
+<p>These drives can be identified by the model number or serial number that was noted down earlier.</p>
 <figure class="image"><img src="https://docs-new.hexos.com/unplug-storage-drives.jpg"></figure>
 <h3>Make any hardware changes</h3>
 <p>Make any other planned hardware changes to your system now also.&nbsp;</p>
