@@ -2,7 +2,7 @@
 title: Command Deck Release Notes
 description: 
 published: true
-date: 2026-06-09T20:05:21.758Z
+date: 2026-07-09T18:29:19.674Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:43:20.245Z
@@ -21,7 +21,7 @@ For users who are actively connected during an update, there may be a brief down
 <!-- auto-generated-year-sections-start -->
 ## 2026 Releases
 
-- [**2026-07-06**](./2026-07-06) - DIF drive support, new curated apps, and self-healing improvements
+- [**2026-07-06**](release-notes/command-deck/2026-07-06) - DIF drive support, new curated apps, and self-healing improvements
 - [**2026-06-26**](./2026-06-26) - Onboarding redesign, live storage progress, and app preconfiguration improvements
 - [**2026-06-06**](./2026-06-06) - New curated applications
 - [**2026-05-29**](./2026-05-29) - New curated applications
