@@ -2,7 +2,7 @@
 title: Release Notes
 description: 
 published: true
-date: 2026-06-18T23:49:43.939Z
+date: 2026-07-09T18:49:59.922Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:43:24.662Z
@@ -18,7 +18,7 @@ The Command Deck is the HexOS web interface. Updates are automatically deployed 
 
 **[View Command Deck Release Notes →](/release-notes/command-deck/)**
 
-**Latest:** [2026-07-06 — DIF drive support, new curated apps, and self-healing improvements](/release-notes/command-deck/2026-07-06)
+**Latest:** [2026-07-09 — New App Curations (Rackula, Warracker & Wiki.js)](/release-notes/command-deck/2026-07-09)
 
 ## TrueNAS
 
