@@ -2,7 +2,7 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-07-09T15:13:42.999Z
+date: 2026-07-09T20:14:38.523Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-06-22T12:46:47.046Z
@@ -187,17 +187,17 @@ dateCreated: 2026-06-22T12:46:47.046Z
   <li>When you get to the step <strong>Select Installation Drive </strong>there should only be one drive listed. &nbsp;Double check this drive matches the description of the place you want to install HexOS<i><strong>.</strong></i> Be <i><strong>sure</strong></i>, any data on the drive will be overwritten.</li>
 </ul>
 <figure class="image"><img src="/choose-boot-pool-drive.png"></figure>
-<p>At the end of the install process, you will see the following<strong> Console setup </strong>screen.&nbsp;</p>
-<figure class="image"><img src="https://docs-new.hexos.com/truenas_ip_address.jpg"></figure>
-<p><i><strong>Do not continue</strong></i> following the docs to complete HexOS setup.</p>
+<p>At the end of the install process, you will see the following<strong> Console setup </strong>screen. &nbsp;<i><strong>Do not continue</strong></i> following the docs to complete HexOS setup.</p>
+<p>This screen shows the IP address we will use in the next step.</p>
+<figure class="image"><img src="/truenas_ip_address.png"></figure>
 <h3>Log in to TrueNAS</h3>
 <p>First, log into TueNAS by going to the IP address shown on the <strong>Console setup </strong>screen.</p>
-<p><strong>Log in</strong> to TrueNAS.</p>
+<p>Enter the username<strong> truenas_admin and </strong>the temporary password you chose. Click <strong>Log in.</strong></p>
 <figure class="image"><img src="https://docs-new.hexos.com/log-in-to-truenas-after-reinstall.png"></figure>
 <h3>Upgrade TrueNAS</h3>
 <p>The next step is to update TrueNAS to the same version as our previous instance. &nbsp;[notes on updating truenas while using hexos genrally?)[[TODO]</p>
-<p>You can find the version number from the config file name, or in your notes from earlier steps. In this case the version number is<strong> 12.10.4</strong></p>
-<figure class="image"><img src="https://docs-new.hexos.com/truenas-version-number-fileame.png"></figure>
+<p>You should have the version number in the notes from earlier steps, it can also be found in the config file name. In this case the version number is<strong> 12.10.4</strong></p>
+<figure class="image"><img src="/config-download-sucsessfull-truenas.png"></figure>
 <p>After loging in, TrueNAS should open on the dashboard.&nbsp;</p>
 <p>Click the <strong>Updates Available</strong> button.</p>
 <figure class="image"><img src="https://docs-new.hexos.com/update-truenas-1.png"></figure>
@@ -207,10 +207,11 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>Download the config and settings and password as suggested by clicking<strong> Save Configuration.</strong></p>
 <figure class="image"><img src="https://docs-new.hexos.com/truenas-update-3.png"></figure>
 <p>Then click <strong>Install</strong>.</p>
-<figure class="image"><img src="https://docs-new.hexos.com/screenshot_from_2026-06-26_13-41-16.png"></figure>
+<figure class="image"><img src="/click-install-truenas.png"></figure>
 <p>The system will run the update and reboot</p>
 <figure class="image"><img src="https://docs-new.hexos.com/truenas-updating.png"></figure>
-<p>When the reboot has finished and the Console Setup screen is showing on the monitor again, boot down the machine. Plug all the remaining drives back in and boot up.</p>
+<p>When the reboot has finished and the <strong>Console Setup</strong> screen is showing again, boot down the machine.&nbsp;</p>
+<p>Plug all the remaining drives back in and boot up.</p>
 <p><strong>Final Checks</strong></p>
 <ul class="todo-list">
   <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">TrueNAS is installed with a temporary password</span></label></li>
@@ -226,11 +227,12 @@ dateCreated: 2026-06-22T12:46:47.046Z
 </ul>
 <p><strong>You will need</strong></p>
 <ul class="todo-list">
-  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Files</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">The backed up config file and keys</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Your temporary password and the original password</span></label></li>
 </ul>
 <h3>Import your storage pool</h3>
-<p>Go to <strong>Storage</strong> &gt; <strong>Import Pool&nbsp;</strong></p>
-<figure class="image"><img src="https://docs-new.hexos.com/import-pool-truens-1.png"></figure>
+<p>Go to <strong>Storage</strong> &gt; <strong>Import Pool. </strong>Import pool is on the top right of the screen.</p>
+<figure class="image"><img src="/import-pool-truenas-1.png"></figure>
 <p>Find your pool in the list, in this instance there is only one pool. Click <strong>Import</strong>.</p>
 <figure class="image"><img src="https://docs-new.hexos.com/import-pool-truenas-2.png"></figure>
 <p>The pool will then import, this may take some time.</p>
