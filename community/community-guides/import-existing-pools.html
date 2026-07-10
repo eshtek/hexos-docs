@@ -2,7 +2,7 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-07-09T21:41:18.189Z
+date: 2026-07-10T09:47:53.368Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-06-22T12:46:47.046Z
@@ -228,7 +228,8 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p><strong>You will need</strong></p>
 <ul class="todo-list">
   <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">The backed up config file and keys</span></label></li>
-  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Your temporary password and the original password</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Your temporary password&nbsp;</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">The original password</span></label></li>
 </ul>
 <h3>Import your storage pool</h3>
 <p>Go to <strong>Storage</strong> &gt; <strong>Import Pool. </strong>Import pool is on the top right of the screen.</p>
@@ -238,18 +239,24 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>The pool will then import, this may take some time.</p>
 <figure class="image"><img src="https://docs-new.hexos.com/import-pool-truenas-3.png"></figure>
 <p>One the pool is imported the<strong> Storage Dashboard </strong>will be populated.</p>
-<figure class="image"><img src="https://docs-new.hexos.com/screenshot_from_2026-06-26_21-49-47.png"></figure>
+<figure class="image"><img src="/import-pool-truenas-4.png"></figure>
 <h3>Upload your config</h3>
 <p>Go into <strong>System</strong> &gt; <strong>Advanced Settings</strong></p>
 <figure class="image"><img src="https://docs-new.hexos.com/import-config-truenas-1.png"></figure>
-<p>Then click <strong>Manage Configuration </strong>&gt;<strong> Upload File</strong></p>
+<p>Then click <strong>Manage Configuration </strong>&gt;<strong> Upload File. </strong>Manage configuration is found top right of the screen.</p>
 <figure class="image"><img src="https://docs-new.hexos.com/import-truenas-config-2.png"></figure>
-<p>Navigate to and select your config file, and select it</p>
-<figure class="image"><img src="https://docs-new.hexos.com/screenshot_from_2026-06-26_22-04-42.png"></figure>
+<p>You will be reminded that your temporary password will now be replaced by the original password.</p>
+<figure class="image"><img src="/import-truenas-config-4.png"></figure>
+<p>Navigate to and select your config file</p>
+<figure class="image"><img src="/import-truenas-config-3.png"></figure>
 <p>Click <strong>Upload</strong></p>
-<figure class="image"><img src="https://docs-new.hexos.com/screenshot_from_2026-06-26_22-04-52.png"></figure>
-<p>The import will run and the system will reboot.</p>
+<figure class="image"><img src="/config-upload-5.png"></figure>
+<p>The import will run and the system will reboot.&nbsp;</p>
 <figure class="image"><img src="https://docs-new.hexos.com/screenshot_from_2026-06-26_22-04-56.png"></figure>
+<p>While the system is rebooting you will see the error “Connecting to TrueNAS”.&nbsp;</p>
+<figure class="image"><img src="/shutdown-error-truenas.png"></figure>
+<p>When the system has rebooted you will see the login screen.</p>
+<figure class="image"><img src="/truenas-login-screen.png"></figure>
 <p>When you log back in, you will need to use the original password which was noted at the start of the process. The temporary password is no longer used.</p>
 <h3>Import keys for encrypted data (if necessary)</h3>
 <p>If you had encrypted data with keys (as opposed to passphrases)</p>
