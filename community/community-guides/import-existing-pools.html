@@ -2,7 +2,7 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-07-10T21:03:15.531Z
+date: 2026-07-10T21:10:21.044Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-06-22T12:46:47.046Z
@@ -28,8 +28,8 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>TODO By exporting the TrueNAS configuration you are backing up&nbsp;</p>
 <ul>
   <li>Settings of your apps</li>
-  <li>Folders</li>
-  <li>[TODO, more]</li>
+  <li>Folders and permissions&nbsp;</li>
+  <li>Users and permissions&nbsp;</li>
 </ul>
 <h2>Warning: data is at risk</h2>
 <p>You <i>must</i> have backups of your data. Without adequate backups you could permanently lose data at several points during this process. Best practice is:</p>
@@ -274,7 +274,7 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <figure class="image"><img src="/key-import-from-truenas-6.png"></figure>
 <p>When the process has finished you can click <strong>Close</strong></p>
 <figure class="image"><img src="/key-import-truenas-7.png"></figure>
-<p>[TODO - did this work, do I need to unlock passphrase ones also at this point for them to show in hexos?)</p>
+<p>TODO - this folder dosen't show in HexOS&nbsp;</p>
 <h3>Set apps pool correctly (if necessary)</h3>
 <p>Go to the <strong>Apps</strong> screen. If the apps have <strong>Running </strong>in the status column then this step can be skipped.</p>
 <p>If they are not running or not visible you need to choose the correct pool for apps.</p>
@@ -300,17 +300,16 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <ul class="todo-list">
   <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">You have imported your pools</span></label></li>
   <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">You have uploaded your config</span></label></li>
-  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">All data sets are unlocked [TODO]</span></label></li>
   <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">All apps are running</span></label></li>
 </ul>
 <h2>Claim the new server on HexOS deck</h2>
 <p>In this section we will claim the server in the HexOS deck, making sure to skip the create pool step.</p>
 <p><strong>You will need</strong></p>
 <ul class="todo-list">
-  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">key</span></label></li>
-  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">password</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">HexOS.com username and password</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">A HexOS licence</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">Server password</span></label></li>
 </ul>
-<p>If you have had HexOS before you probably need to “unclaim" the old server first TODO document the unclaim process!&nbsp;</p>
 <h3>Unclaim server</h3>
 <p>In most situations you will need to unclaim your old server in order to claim a new one.</p>
 <p>To do this, log in to <a href="https://deck.hexos.com/dash">deck.hexos.com</a> with your the email and password used when you purchased your HexOS licence.</p>
