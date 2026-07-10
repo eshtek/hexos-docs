@@ -2,7 +2,7 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-07-10T10:11:58.709Z
+date: 2026-07-10T21:03:15.531Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-06-22T12:46:47.046Z
@@ -222,8 +222,8 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <ul>
   <li>Import storage pool</li>
   <li>Upload config file</li>
-  <li>Reset the apps pool (if necessary)</li>
   <li>Import encryption keys (if necessary)</li>
+  <li>Reset the apps pool (if necessary)</li>
 </ul>
 <p><strong>You will need</strong></p>
 <ul class="todo-list">
@@ -274,29 +274,34 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <figure class="image"><img src="/key-import-from-truenas-6.png"></figure>
 <p>When the process has finished you can click <strong>Close</strong></p>
 <figure class="image"><img src="/key-import-truenas-7.png"></figure>
-<p>&nbsp;</p>
+<p>[TODO - did this work, do I need to unlock passphrase ones also at this point for them to show in hexos?)</p>
 <h3>Set apps pool correctly (if necessary)</h3>
-<p>&nbsp;</p>
-<p>Reboot the NAS then go to <strong>Apps</strong> &gt; <strong>Configuration</strong> &gt; <strong>Unset Pool</strong></p>
+<p>Go to the <strong>Apps</strong> screen. If the apps have <strong>Running </strong>in the status column then this step can be skipped.</p>
+<p>If they are not running or not visible you need to choose the correct pool for apps.</p>
+<p>Go to <strong>Apps</strong> &gt; <strong>Configuration</strong> &gt; <strong>Unset Pool</strong></p>
 <figure class="image"><img src="https://docs-new.hexos.com/apps-after-reinstall-truenas-1.png"></figure>
 <p>Click <strong>Unset</strong></p>
 <figure class="image"><img src="https://docs-new.hexos.com/apps-after-reinstall-truenas-2.png"></figure>
 <p>The process will run</p>
 <figure class="image"><img src="https://docs-new.hexos.com/apps-after-reinstall-truenas-3.png"></figure>
-<p>You will now see <strong>No applications installed&nbsp;</strong></p>
+<p>You will see <strong>No applications installed&nbsp;</strong></p>
 <figure class="image"><img src="https://docs-new.hexos.com/apps-after-reinstall-truenas-4.png"></figure>
 <p>Restart TrueNAS by clicking <strong>power icon</strong> &gt; <strong>Restart</strong></p>
 <figure class="image"><img src="https://docs-new.hexos.com/restart-truenas.png"></figure>
-<p>Go back into the web interface, go to <strong>Apps</strong> &gt; <strong>Configuration</strong> &gt; <strong>Choose Pool</strong></p>
+<p>After rebooting and logging in, go to <strong>Apps</strong> &gt; <strong>Configuration</strong> &gt; <strong>Choose Pool</strong></p>
 <figure class="image"><img src="https://docs-new.hexos.com/apps-after-reinstall-truenas-6.png"></figure>
 <p>Select your pool from the dropdown and click <strong>Choose. </strong>If you have multiple pools choose the one xyz [TODO] how do you know which is apps pool?</p>
 <figure class="image"><img src="https://docs-new.hexos.com/apps-after-reinstall-truenas-7.png"></figure>
 <p>Your apps should show back up. Start them by clicking the triangular play symbol under <strong>Controls</strong></p>
-<figure class="image"><img src="https://docs-new.hexos.com/screenshot_from_2026-07-01_11-50-55.png"></figure>
-<figure class="image"><img src="https://docs-new.hexos.com/screenshot_from_2026-07-01_11-52-09.png"></figure>
+<figure class="image"><img src="/apps-after-reinstall-truenas-8.png"></figure>
+<p>After apps have started you should see <strong>Running</strong> in green in the <strong>Status</strong> column.</p>
+<figure class="image"><img src="/apps-after-reinstall-truenas-9.png"></figure>
 <p><strong>Checks</strong></p>
 <ul class="todo-list">
-  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">todo</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">You have imported your pools</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">You have uploaded your config</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">All data sets are unlocked [TODO]</span></label></li>
+  <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">All apps are running</span></label></li>
 </ul>
 <h2>Claim the new server on HexOS deck</h2>
 <p>In this section we will claim the server in the HexOS deck, making sure to skip the create pool step.</p>
@@ -306,15 +311,32 @@ dateCreated: 2026-06-22T12:46:47.046Z
   <li><label class="todo-list__label"><input type="checkbox" disabled="disabled"><span class="todo-list__label__description">password</span></label></li>
 </ul>
 <p>If you have had HexOS before you probably need to “unclaim" the old server first TODO document the unclaim process!&nbsp;</p>
-<p><a href="https://docs-new.hexos.com/getting-started/setup/CompleteSetup">Follow the guide to claim the new server</a></p>
-<h3><strong>Skip Create Storage Pool Step</strong></h3>
+<h3>Unclaim server</h3>
+<p>In most situations you will need to unclaim your old server in order to claim a new one.</p>
+<p>To do this, log in to <a href="https://deck.hexos.com/dash">deck.hexos.com</a> with your the email and password used when you purchased your HexOS licence.</p>
+<figure class="image"><img src="/unclaim-hexos-server-1.png"></figure>
+<p>When you reach the deck, you will see <strong>This server is not available.&nbsp;</strong></p>
+<p>If you have multiple servers make sure that the server name, at the top of the screen, is the server you are currently working on.</p>
+<p>Click <strong>Unclaim Server</strong></p>
+<figure class="image"><img src="/unclaim-hexos-server-2.png"></figure>
+<p>Click <strong>Unclaim this server from HexOS&nbsp;</strong></p>
+<figure class="image"><img src="/unclaim-hexos-server-3.png"></figure>
+<h3>Claim the New Server</h3>
+<p><a href="/getting-started/setup/CompleteSetup">Follow the guide to claim the new server</a> - noting carefully the differences described below, <strong>your data is at risk.</strong></p>
+<h4><strong>Skip Create Storage Pool Step</strong></h4>
 <p><strong>DATA AT RISK</strong></p>
 <p>The following steps are <strong>ESSENTIAL</strong> to avoid data loss. Notice that your storage drives are shown to have data on: this is your pool data. Click <strong>Continue</strong>.</p>
-<figure class="image"><img src="https://docs-new.hexos.com/screenshot_from_2026-07-01_13-42-36.png"></figure>
+<figure class="image"><img src="/skip-pool-creation-1.png"></figure>
 <p>Next, when you reach the<strong> Storage pools</strong> screen you <i><strong>MUST</strong></i><strong> </strong>click <strong>Skip.</strong></p>
-<figure class="image"><img src="https://docs-new.hexos.com/screenshot_from_2026-07-01_13-43-04.png"></figure>
+<figure class="image"><img src="/skip-pool-creation-2.png"></figure>
 <p><strong>Check the box</strong> and click <strong>Confirm</strong></p>
 <figure class="image"><img src="https://docs-new.hexos.com/skip-pool-creation-3.png"></figure>
 <p>Then finish any remaining steps in the <a href="https://docs-new.hexos.com/getting-started/setup/CompleteSetup">guide</a> and your server should now be as it was before.&nbsp;</p>
-<p>[todo] file permissions / users</p>
-<p>Checklist?</p>
+<p><strong>Final Checks</strong></p>
+<ul>
+  <li>Check apps are running</li>
+  <li>Check users and folder permissions are correct</li>
+</ul>
+<figure class="image"><img src="/check-apps.png"></figure>
+<figure class="image"><img src="/check-folder-permissions.png"></figure>
+<p>&nbsp;</p>
