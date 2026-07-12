@@ -2,7 +2,7 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-07-10T21:10:21.044Z
+date: 2026-07-12T12:01:06.210Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-06-22T12:46:47.046Z
@@ -276,8 +276,9 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <figure class="image"><img src="/key-import-truenas-7.png"></figure>
 <p>TODO - this folder dosen't show in HexOS&nbsp;</p>
 <h3>Set apps pool correctly (if necessary)</h3>
-<p>Go to the <strong>Apps</strong> screen. If the apps have <strong>Running </strong>in the status column then this step can be skipped.</p>
+<p>Go to the <strong>Apps</strong> screen. If the apps show <strong>Running </strong>in the <strong>Status</strong> column then this step can be skipped.&nbsp;</p>
 <p>If they are not running or not visible you need to choose the correct pool for apps.</p>
+<p>If you are unsure which pool is the apps pool, it will be the first one you set up when the system was first built. If you set up multiple pools at once it will be the first pool that used SSD's.</p>
 <p>Go to <strong>Apps</strong> &gt; <strong>Configuration</strong> &gt; <strong>Unset Pool</strong></p>
 <figure class="image"><img src="https://docs-new.hexos.com/apps-after-reinstall-truenas-1.png"></figure>
 <p>Click <strong>Unset</strong></p>
