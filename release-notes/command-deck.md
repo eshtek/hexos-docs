@@ -2,7 +2,7 @@
 title: Command Deck Release Notes
 description: 
 published: true
-date: 2026-07-09T18:49:02.820Z
+date: 2026-07-14T17:46:56.656Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:43:20.245Z
@@ -23,8 +23,8 @@ For users who are actively connected during an update, there may be a brief down
 - [**2026-07-09**](/release-notes/command-deck/2026-07-09) - New App Curations (Rackula, Warracker & Wiki.js)
 - [**2026-07-06**](/release-notes/command-deck/2026-07-06) - DIF drive support, new curated apps, and self-healing improvements
 - [**2026-06-26**](/release-notes/command-deck/2026-06-26) - Onboarding redesign, live storage progress, and app preconfiguration improvements
-- [**2026-06-06**](/release-notes/command-deck/2026-06-06) - New curated applications
-- [**2026-05-29**](/release-notes/command-deck/2026-05-29) - New curated applications
+- [**2026-06-06**](/release-notes/command-deck/2026-06-06) - New App Curations (MKVToolNix & qui)
+- [**2026-05-29**](/release-notes/command-deck/2026-05-29) - New App Curations (Fladder, Jellystat & Seerr)
 - [**2026-05-20**](/release-notes/command-deck/2026-05-20) - App install script v4, New app curations, Curation beta program
 - [**2026-05-13**](/release-notes/command-deck/2026-05-13) - TrueNAS Compatibility, App Install Improvements & Buddy Backup Foundations
 - [**2026-04-21**](/release-notes/command-deck/2026-04-21) - HexOS 1.0 Local Rollout Complete
