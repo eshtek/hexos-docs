@@ -2,7 +2,7 @@
 title: Contributing a New App
 description: 
 published: true
-date: 2026-06-09T20:03:05.028Z
+date: 2026-07-07T18:29:23.389Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:39:57.416Z
@@ -69,9 +69,11 @@ Community contributors who don't need separate `.ts` files can embed hook code d
 }
 ```
 
-::: tip Testing with Custom Install
-You can test inline hook scripts using **Custom Install in Expert Mode** — paste your V5 JSON with `scriptContent` hooks directly into the editor and run it. This is useful for development and testing before submitting a PR. Inline scripts should not be part of a PR submission for testing purposes only — submit them when they're ready for production use.
-:::
+> Testing with Custom Install
+> You can test inline hook scripts using **Custom Install in Expert Mode** — paste your V5 JSON with `scriptContent` hooks directly into the editor and run it. This is useful for development and testing before submitting a PR. Inline scripts should not be part of a PR submission for testing purposes only — submit them when they're ready for production use.
+{.is-info}
+
+
 
 ## Best Practices
 

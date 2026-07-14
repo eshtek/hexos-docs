@@ -2,7 +2,7 @@
 title: How to Create a New Folder
 description: 
 published: true
-date: 2026-06-09T20:03:14.750Z
+date: 2026-07-07T18:31:05.373Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:40:20.899Z
@@ -25,11 +25,15 @@ This will bring up the **Create Folder** dialogue
 ### Folder Name
 - Select a folder name.
 > **Note:** Folder name cannot be modified after folder creation.
+{.is-warning}
+
 
 ### Location
 - Select the pool where you would like your folder to be in.
   - If you only have one pool then it will automatically be selected for you.
 > **Note:** Folder location cannot be modified after folder creation.
+{.is-warning}
+
 
 <img alt="location" src="https://github.com/user-attachments/assets/75ce2a6e-2977-4ac5-b9bd-1012e3dbcb8d" />
 
@@ -60,7 +64,9 @@ You can optionally enable encryption on folders you create. [Read about encrypte
 
 <img alt="encryption" src="https://github.com/user-attachments/assets/51155ee1-219e-4850-8ac2-897dfde2b66f" />
 
->**Important:** Encryption can only be enabled during folder creation and cannot be disabled once the folder is created, nor can the passphrase be changed. 
+> **Important:** Encryption can only be enabled during folder creation and cannot be disabled once the folder is created, nor can the passphrase be changed. 
+{.is-warning}
+
 
 ## Finalizing New Folder Creation
 

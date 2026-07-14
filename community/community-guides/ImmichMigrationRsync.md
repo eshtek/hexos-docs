@@ -1,8 +1,8 @@
 ---
 title: Migrating Immich to New Storage Configuration (Rsync Method)
 description: 
-published: true
-date: 2026-06-09T20:02:21.765Z
+published: false
+date: 2026-07-07T18:26:56.464Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:39:11.970Z

@@ -2,7 +2,7 @@
 title: Careers
 description: 
 published: true
-date: 2026-06-09T20:02:15.560Z
+date: 2026-07-07T18:24:25.467Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:39:03.122Z
@@ -16,6 +16,8 @@ HexOS is growing, and we're actively working on defining new roles. Check back h
 
 <span style="opacity: 0.6;">We don't currently have any open positions.</span>
 
-::: tip Interested in working with us?
-Feel free to reach out at **join@hexos.com** with your background and what you're passionate about. We'd love to hear from you.
-:::
+> Interested in working with us?
+> Feel free to reach out at **join@hexos.com** with your background and what you're passionate about. We'd love to hear from you.
+{.is-info}
+
+

@@ -2,7 +2,7 @@
 title: Folders
 description: 
 published: true
-date: 2026-06-09T20:03:24.129Z
+date: 2026-07-07T18:31:40.594Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:40:34.274Z
@@ -60,6 +60,8 @@ File encryption is when a file's data is scrambled in a way it can only be recov
 - Passphrase cannot be changed after folder creation.
 - <span style="color: red;">If the passphrase is lost, data cannot be recovered by HexOS.</span>
 > **Note:** Encryption can only be enabled during folder creation and cannot be disabled once the folder is created.
+{.is-warning}
+
 
 ## Users
 

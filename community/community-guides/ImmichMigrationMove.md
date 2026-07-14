@@ -1,8 +1,8 @@
 ---
 title: Migrating Immich to New Storage Configuration (Move Method)
 description: 
-published: true
-date: 2026-06-09T20:02:18.776Z
+published: false
+date: 2026-07-07T18:27:31.666Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:39:07.451Z
