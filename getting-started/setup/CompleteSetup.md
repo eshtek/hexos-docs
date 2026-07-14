@@ -71,7 +71,7 @@ You will now see a suggested arrangement of your drives into storage pools. "Poo
 HexOS will suggest a storage pool layout based on your hardware. 
 
 Ideally you will have at least 3 drives in your pool, this means you can add more later.  
-[Read more about storage pool layouts here](https://docs-new.hexos.com/getting-started/overview.html#recommended-layouts).
+[Read more about storage pool layouts here](https://docs.hexos.com/getting-started/overview.html#recommended-layouts).
 
 For most people, the recommended configuration is the best path forward. To use the default suggested layout click the `Continue` button again.
 
