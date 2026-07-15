@@ -2,7 +2,7 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-07-15T15:11:46.019Z
+date: 2026-07-15T15:17:13.092Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-06-22T12:46:47.046Z
@@ -195,13 +195,14 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>Enter the username<strong> truenas_admin and </strong>the temporary password you chose. Click <strong>Log in.</strong></p>
 <figure class="image"><img src="https://docs.hexos.com/log-in-to-truenas-after-reinstall.png"></figure>
 <h3>Upgrade TrueNAS</h3>
-<p>The next step is to update TrueNAS to the same version as our previous instance. &nbsp;[notes on updating truenas while using hexos genrally?)[[TODO]</p>
+<p>The next step is to update TrueNAS to the same version as our previous instance.&nbsp;</p>
+<p>Note: Usually, you should not manually update TrueNAS this way: TrueNAS updates should be handled by HexOS. In this specific situation, TrueNAS needs to be updated in order to ensure the config file uploads correctly.</p>
 <p>You should have the version number in the notes from earlier steps, it can also be found in the config file name. In this case the version number is<strong> 12.10.4</strong></p>
 <figure class="image"><img src="/config-download-sucsessfull-truenas.png"></figure>
 <p>After loging in, TrueNAS should open on the dashboard.&nbsp;</p>
 <p>Click the <strong>Updates Available</strong> button.</p>
 <figure class="image"><img src="https://docs.hexos.com/update-truenas-1.png"></figure>
-<p>In this case there is only one update to make our TrueNAS version numbers match. If the options available do not allow you to update to the correct version, please contact support [TODO].</p>
+<p>In this case there is only one update to make our TrueNAS version numbers match. If the options available do not allow you to update to the correct version, <a href="https://discord.com/invite/DjEp3WRHKz">please contact support</a>.</p>
 <p>Click <strong>Install Update</strong>.</p>
 <figure class="image"><img src="https://docs.hexos.com/update-trunenas-2.png"></figure>
 <p>Download the config and settings and password as suggested by clicking<strong> Save Configuration.</strong></p>
@@ -307,7 +308,7 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <figure class="image"><img src="https://docs.hexos.com/restart-truenas.png"></figure>
 <p>After rebooting and logging in, go to <strong>Apps</strong> &gt; <strong>Configuration</strong> &gt; <strong>Choose Pool</strong></p>
 <figure class="image"><img src="https://docs.hexos.com/apps-after-reinstall-truenas-6.png"></figure>
-<p>Select your pool from the dropdown and click <strong>Choose. </strong>If you have multiple pools choose the one xyz [TODO] how do you know which is apps pool?</p>
+<p>Select your pool from the dropdown and click <strong>Choose. </strong>If you have multiple pools your apps pool is likely to be the first one you created. If you created multiple pools it will be the first one using SSD's (as opposed to HDDs)</p>
 <figure class="image"><img src="https://docs.hexos.com/apps-after-reinstall-truenas-7.png"></figure>
 <p>Your apps should show back up. Start them by clicking the triangular play symbol under <strong>Controls</strong></p>
 <figure class="image"><img src="/apps-after-reinstall-truenas-8.png"></figure>
