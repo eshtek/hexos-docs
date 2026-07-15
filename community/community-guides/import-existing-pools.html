@@ -2,7 +2,7 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-07-12T12:01:06.210Z
+date: 2026-07-15T15:09:52.873Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-06-22T12:46:47.046Z
@@ -28,8 +28,8 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>TODO By exporting the TrueNAS configuration you are backing up&nbsp;</p>
 <ul>
   <li>Settings of your apps</li>
-  <li>Folders and permissions&nbsp;</li>
-  <li>Users and permissions&nbsp;</li>
+  <li>Folders and permissions</li>
+  <li>Users and permissions</li>
 </ul>
 <h2>Warning: data is at risk</h2>
 <p>You <i>must</i> have backups of your data. Without adequate backups you could permanently lose data at several points during this process. Best practice is:</p>
@@ -222,7 +222,7 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <ul>
   <li>Import storage pool</li>
   <li>Upload config file</li>
-  <li>Import encryption keys (if necessary)</li>
+  <li>Import encryption keys and set up SMB share (if necessary)</li>
   <li>Reset the apps pool (if necessary)</li>
 </ul>
 <p><strong>You will need</strong></p>
@@ -258,7 +258,7 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <p>When the system has rebooted you will see the login screen.</p>
 <figure class="image"><img src="/truenas-login-screen.png"></figure>
 <p>When you log back in, you will need to use the original password which was noted at the start of the process. The temporary password is no longer used.</p>
-<h3>Import keys for encrypted data (if necessary)</h3>
+<h3>Import keys for encrypted data and set up SMB share (if necessary)</h3>
 <p>If you had encrypted data with keys (as opposed to passphrases)</p>
 <p>Go to <strong>Datasets</strong> and click the encrypted dataset</p>
 <figure class="image"><img src="/key-import-truenas-1.png"></figure>
@@ -274,7 +274,23 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <figure class="image"><img src="/key-import-from-truenas-6.png"></figure>
 <p>When the process has finished you can click <strong>Close</strong></p>
 <figure class="image"><img src="/key-import-truenas-7.png"></figure>
-<p>TODO - this folder dosen't show in HexOS&nbsp;</p>
+<p>Additionally, as the key encrypted dataset was created in TrueNAS it needs an SMB share setting up to be accessible in HexOS (if it dosent already have one)</p>
+<p>Go to <strong>Shares</strong> and click the<strong> View All </strong>button to see if the encrypted dataset has a share set up.&nbsp;</p>
+<figure class="image"><img src="/truenas-set-up-smb-share-1.png"></figure>
+<p>In this example the dataset Top-Secret-With-Key is not on the list.</p>
+<figure class="image"><img src="/truenas-set-up-smb-share-2.png"></figure>
+<p>To set up the share click <strong>Add</strong> which is towards the top right</p>
+<figure class="image"><img src="/truenas-set-up-smb-share-3.png"></figure>
+<p>Click the <strong>arrow</strong> to find the dataset</p>
+<figure class="image"><img src="/truenas-set-up-smb-share-4.png"></figure>
+<p>Select the dataset from the list</p>
+<figure class="image"><img src="/truenas-set-up-smb-share-5.png"></figure>
+<p>Then scroll down to the bottom of the dialogue to click the <strong>Save </strong>button</p>
+<figure class="image"><img src="/truenas-set-up-smb-share-6.png"></figure>
+<p>You should now see your new share on the list</p>
+<figure class="image"><img src="/truenas-set-up-smb-share-7.png"></figure>
+<p>Please note that, as of writing, this folder needs to be locked and unlocked via the TrueNAS interface.&nbsp;</p>
+<p>When unlocked, the data will be accessible via HexOS. If the folder is locked, however, it cannot be unlocked within HexOS: only passphrase encryption is supported in the HexOS dashboard..</p>
 <h3>Set apps pool correctly (if necessary)</h3>
 <p>Go to the <strong>Apps</strong> screen. If the apps show <strong>Running </strong>in the <strong>Status</strong> column then this step can be skipped.&nbsp;</p>
 <p>If they are not running or not visible you need to choose the correct pool for apps.</p>
