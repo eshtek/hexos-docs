@@ -2,7 +2,7 @@
 title: Blog
 description: 
 published: true
-date: 2026-06-09T20:02:09.068Z
+date: 2026-07-15T19:50:59.807Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:38:53.875Z
@@ -13,7 +13,7 @@ dateCreated: 2026-06-08T15:38:53.875Z
 Stay up to date with the latest news and updates from the HexOS team.
 
 ## 2026
-
+- [2026-7-15](/blog/2026-7-15)
 - [HexOS Now Preconfigures Your Apps For You - June 18, 2026](/blog/2026-06-18)
 - [HexOS 1.0 Local Rollout Complete - April 21, 2026](/blog/2026-04-21)
 - [HexOS 1.0 Has Arrived - April 2, 2026](/blog/2026-04-02)
