@@ -2,7 +2,7 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-07-15T15:09:52.873Z
+date: 2026-07-15T15:11:46.019Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-06-22T12:46:47.046Z
@@ -25,7 +25,7 @@ dateCreated: 2026-06-22T12:46:47.046Z
 </ul>
 <p>this guide will show you how to keep your existing storage pools and import them to a new HexOS install.</p>
 <p>The guide does not assume significant prior knowledge of the software involved, and all steps are described thoroughly. If at any point you do not feel confident, please pause and ask for help - this is a high risk process and a mistake could make your data unrecoverable..</p>
-<p>TODO By exporting the TrueNAS configuration you are backing up&nbsp;</p>
+<p>By exporting the TrueNAS configuration you are backing up things like:</p>
 <ul>
   <li>Settings of your apps</li>
   <li>Folders and permissions</li>
@@ -114,7 +114,7 @@ dateCreated: 2026-06-22T12:46:47.046Z
 <h4>Passphrase encryption</h4>
 <p>If there is no button to export the key, then the data is encrypted with passphrase only. In this case you don't need to download anything, as long as you know the passphrase you can access the data.</p>
 <p>To confirm this click <strong>Edit</strong> (you may need to unlock first) and check that the <strong>Encryption Type* </strong>dropdown is showing <strong>Passphrase</strong>. Encrypted folders set up in HexOS always use a passphrase..&nbsp;</p>
-<p>If you have any doubts or questions, please contact HexOS support [TODO]: this step is critical to get right.</p>
+<p>If you have any doubts or questions, please <a href="https://discord.com/invite/DjEp3WRHKz">contact HexOS support</a>: this step is critical to get right.</p>
 <h3>Find the serial numbers of your drives</h3>
 <p>To prevent data loss, we want to make sure we know which drives are <i>pool drives </i>and which drives are<i> boot drives</i> in the machine. Then we will unplug the pool drives to make sure they don't get overwritten.</p>
 <p>First, in TrueNAS go to <strong>Storage</strong> &gt; <strong>Disks.</strong> The disks button is top right.</p>
