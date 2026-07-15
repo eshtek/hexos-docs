@@ -1,0 +1,45 @@
+<!--
+title: Mixing and Matching Drives, Finally: What ZFS AnyRAID Means for Your Home Server
+description: Mixed-size drives often leave usable storage capacity stranded in traditional RAID-Z configurations. As storage costs rise, organizations need more flexible ways to maximize the capacity of the drives they already own.
+published: true
+date: 2026-07-15T18:27:34.068Z
+tags: blog
+editor: code
+dateCreated: 2026-07-15T18:27:05.923Z
+-->
+
+<h1 id="mixing-and-matching-drives-finally-what-zfs-anyraid-means-for-your-home-server" class="toc-header"> Mixing and Matching Drives, Finally: What ZFS AnyRAID Means for Your Home Server</h1>
+<p>If you've ever built a home server or NAS, you've run into this problem: you have a few drives lying around, they're not all the same size, and traditional RAID makes you feel like you're wasting half of them. Buy a shiny new 12TB drive to replace an aging 4TB one, and RAID-Z just shrugs and treats it like a 4TB drive anyway. All that extra space sits there, unused, until every single drive in the array has been upgraded.</p>
+<p>We think that's a bad deal for home users, and last month our CEO, Jon Panozzo, sat down with Allan Jude of Klara Inc. for a webinar on the fix: a new ZFS feature called <strong>AnyRAID</strong>. If you're not a storage nerd, don't worry — we're going to walk through what it is, why we cared enough to help fund it, and when you can expect to actually use it.</p>
+<p>Prefer to watch instead of read? Here's the full webinar:</p>
+
+<p>Otherwise, read on for the breakdown below.</p>
+<h2 id="why-eshtek-and-hexos-sponsored-this" class="toc-header"> Why Eshtek and HexOS Sponsored This</h2>
+<p>Here's the thing: HexOS exists to make self-hosting and home servers accessible. And one of the most common frustrations we hear from our community is exactly this drive-mismatch problem. Home servers rarely start out with a matched set of identical drives — they grow organically. You add a drive here, replace a failing one there, maybe inherit a couple of drives from an old PC. Traditional RAID punishes that kind of setup.</p>
+<p>That's why we made the decision to sponsor this project with Klara. Mixing and matching drive sizes without losing capacity isn't a nice-to-have for home servers and self-hosters — it's one of the most practical, wallet-friendly improvements ZFS could get. We wanted to see it happen, so we put resources behind it.</p>
+<h2 id="the-problem-with-traditional-raid-z" class="toc-header"> The Problem with Traditional RAID-Z</h2>
+<p>Without getting too deep into the weeds: in a traditional RAID-Z array, every drive is treated as if it's the size of the <em>smallest</em> drive in the group. Mix two 4TB drives with two 6TB drives, and ZFS treats the whole array as if it were four 4TB drives. That extra 4TB of space across your bigger drives? Gone. Wasted.</p>
+<p>It gets worse when you try to upgrade. Swap a small drive for a bigger one, and you still don't get any benefit until <em>every</em> drive in the array has been replaced. For enterprise environments with matched hardware, this isn't usually a big deal. But for home servers built from whatever drives you have on hand, it can mean giving up a huge chunk of the storage you paid for.</p>
+<h2 id="how-anyraid-fixes-this" class="toc-header"> How AnyRAID Fixes This</h2>
+<p>AnyRAID takes a fundamentally different approach. Instead of treating whole drives as building blocks, it breaks every drive into small, equal-sized chunks called "tiles." Those tiles get mapped to physical locations on your disks and striped together to form your storage array — and because tiles (not whole drives) are the building block, ZFS can pull extra tiles from your larger drives instead of ignoring that space.</p>
+<p>The practical upshot: mix a couple of 4TB drives with a couple of 6TB drives, and you actually get to use that extra capacity, instead of watching it go to waste. In our testing scenarios, this recovered more than an entire drive's worth of usable space in some mixed-drive setups — without giving up ZFS's data protection.</p>
+<p>And because AnyRAID tracks where tiles live with a "map," it opens up flexibility that was never possible before:</p>
+<ul>
+<li><strong>Expansion</strong> — add a new drive, and its space becomes available right away, without changing your array's protection level.</li>
+<li><strong>Rebalancing</strong> — ZFS can shuffle tiles around behind the scenes to make the best use of new, larger drives you add later.</li>
+<li><strong>Contraction</strong> — you can actually <em>remove</em> a drive from an array and have its data safely relocated elsewhere, something that just isn't possible with traditional RAID-Z today.</li>
+</ul>
+<h2 id="what-about-performance" class="toc-header"> What About Performance?</h2>
+<p>Any time you change how storage works under the hood, there's a fair question: does it slow things down? The honest answer is: a little, in certain scenarios — but it's very unlikely to matter for a home server.</p>
+<p>The tradeoffs AnyRAID introduces mostly show up under intensive, latency-sensitive enterprise workloads — think busy databases or high-transaction business applications. For the kind of things a home server or self-hosting setup is actually doing — media streaming, file storage, backups, running a handful of apps — AnyRAID will perform just fine. This is a case where the flexibility gain is worth far more than the performance cost, especially for the audience it's built for.</p>
+<h2 id="when-will-you-see-this-in-hexos" class="toc-header"> When Will You See This in HexOS?</h2>
+<p>We know this is the question everyone actually wants answered, so let's lay out the roadmap as we currently understand it:</p>
+<ol>
+<li><strong>OpenZFS 2.5</strong> — targeted for later this year, likely toward the end of 2026. This is where the full AnyRAID feature set lands upstream, including AnyRAID support for RAID-Z1, Z2, and Z3 (the initial 2.4 release only covered AnyRAID mirrors), along with pool contraction and rebalancing.</li>
+<li><strong>TrueNAS SCALE</strong> — once AnyRAID is accepted upstream, the next step is getting it into TrueNAS SCALE, which will likely be the SCALE 27 release, expected sometime next year.</li>
+<li><strong>HexOS</strong> — the final step is bringing support into HexOS itself. Since we build on top of TrueNAS, this should be the simplest part of the journey. Our goal is to have this done by the end of 2027.</li>
+</ol>
+<p>We want to be upfront that these are our best current estimates, not promises. Upstream open source development can shift based on code review feedback, testing, and priorities we don't fully control. But the trajectory is clear, and progress is being made.</p>
+<h2 id="the-bottom-line" class="toc-header"> The Bottom Line</h2>
+<p>AnyRAID solves a real, everyday problem for home server builders: it lets you actually use the capacity of mismatched drives instead of wasting it, it makes growing (or shrinking) your storage array far more flexible than it's ever been with ZFS, and any performance tradeoffs are the kind that enterprise workloads need to worry about — not home servers.</p>
+<p>This is exactly why Eshtek chose to sponsor this project in the first place. We want ZFS to be as efficient and approachable as possible for the home server and self-hosting community, and AnyRAID is a big step in that direction. We'll keep you updated as it makes its way through OpenZFS, into TrueNAS SCALE, and eventually into HexOS itself.</p>
