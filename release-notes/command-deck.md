@@ -20,6 +20,7 @@ For users who are actively connected during an update, there may be a brief down
 
 <!-- auto-generated-year-sections-start -->
 ## 2026 Releases
+- [**2026-07-16**](/release-notes/command-deck/2026-07-16) - Performance telemetry, live app metrics, international keyboard support, and storage intelligence
 - [**2026-07-09**](/release-notes/command-deck/2026-07-09) - New App Curations (Rackula, Warracker & Wiki.js)
 - [**2026-07-06**](/release-notes/command-deck/2026-07-06) - DIF drive support, new curated apps, and self-healing improvements
 - [**2026-06-26**](/release-notes/command-deck/2026-06-26) - Onboarding redesign, live storage progress, and app preconfiguration improvements
