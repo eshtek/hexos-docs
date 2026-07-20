@@ -2,7 +2,7 @@
 title: Lifecycle Hooks Reference
 description: 
 published: true
-date: 2026-06-09T20:03:03.652Z
+date: 2026-07-20T02:38:12.510Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-09T20:03:00.318Z
@@ -57,12 +57,14 @@ Each entry in the `hooks` array is a hook declaration:
 | `inputs` | array | No | OAuth or question inputs to collect from the user before execution (see [Inputs](#hook-inputs)) |
 | `userOptional` | object | No | Allows the user to opt out of this hook during install (see [User Optional](#user-optional-hooks)) |
 
-::: warning script vs scriptContent
+#### Script vs scriptContent
 Every hook must have exactly one of `script` or `scriptContent` — never both, never neither. The schema enforces this with a validation rule.
+
+
 
 - **`script`** — references an external `.ts` file in the [hexos-app-catalog](https://github.com/eshtek/hexos-app-catalog) repo. Used by first-party curated hooks.
 - **`scriptContent`** — embeds the TypeScript code directly in the JSON. Used by community contributions for self-contained simplicity.
-:::
+
 
 ## Writing a Hook Script
 
