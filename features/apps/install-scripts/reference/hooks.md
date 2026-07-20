@@ -2,7 +2,7 @@
 title: Lifecycle Hooks Reference
 description: 
 published: true
-date: 2026-07-20T02:39:20.379Z
+date: 2026-07-20T02:42:10.893Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-09T20:03:00.318Z
@@ -328,9 +328,9 @@ Use the `link` property to display a clickable link after the description text. 
 
 The link opens in a new tab. It renders inline at the end of the description paragraph, styled as a branded underlined link.
 
-::: tip When to use a link
+- When to use a link
 If your hook accepts terms, agrees to a EULA, or performs an action governed by a third-party service's policies on behalf of the user, include a `link` to the relevant terms so the user can review them before opting in.
-:::
+
 
 During upgrades, `userOptional` hooks are automatically excluded — only non-optional hooks run.
 
