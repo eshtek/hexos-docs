@@ -2,7 +2,7 @@
 title: Lifecycle Hooks Reference
 description: 
 published: true
-date: 2026-07-20T02:38:12.510Z
+date: 2026-07-20T02:39:20.379Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-09T20:03:00.318Z
@@ -144,9 +144,9 @@ Embed the code directly in the JSON — no external files needed:
 }
 ```
 
-::: tip Testing inline hooks
+#### Testing inline hooks
 The `scriptContent` field is useful for **testing hooks via Custom Install in Expert Mode** — you can paste a V5 JSON with inline hooks directly into the editor and run it immediately. This is a development and testing workflow only; inline scripts submitted via PR go through the same review process as file-based hooks.
-:::
+
 
 ## HookContext API
 
