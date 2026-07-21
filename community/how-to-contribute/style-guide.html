@@ -2,7 +2,7 @@
 title: HexOS Documentation Style Guide
 description: 
 published: false
-date: 2026-07-18T10:40:25.606Z
+date: 2026-07-21T14:13:43.668Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-07-18T09:49:27.262Z
@@ -13,33 +13,38 @@ dateCreated: 2026-07-18T09:49:27.262Z
 <ul>
   <li>Friendly</li>
   <li>Clear</li>
-  <li>Avoid things that are difficult to translate or for non-native english speakers such as:<ul>
-      <li>MetaphorcTurns of phrase</li>
-      <li>Pop culture references</li>
-    </ul>
-  </li>
+  <li>Avoid things that are difficult to translate or for non-native english speakers such as:</li>
 </ul>
+<h3><strong>Referring to user interface</strong></h3>
+<p>When directly quoting from the HexOS user interface please follow the exact wording and capitalisation with the bold the words quoted. For example</p>
+<p>Click <strong>Continue</strong></p>
+<p>When describing a navigation process, each item should be in bold with a non-bold &gt; between. For example:&nbsp;</p>
+<p><strong>Apps</strong> &gt; <strong>Immich</strong></p>
+<h3><strong>Terminology</strong></h3>
+<ul>
+  <li>Click</li>
+  <li>Screen</li>
+  <li>Dialouge</li>
+  <li>screen v page?</li>
+</ul>
+<h3>Writing accessibly</h3>
+<p>Some ways of writing are much simpler to translate and easier to understand for non-native English speakers. We can avoid phrases which, while feeling natural to native English speakers, can be confusing when translated literally or read by people with a different language background or cultural references.</p>
+<h4><strong>Metaphors</strong></h4>
+<p>"HexOS is your gateway to self-hosting" &gt; "HexOS makes self-hosting easier"</p>
+<p>The word "gateway" is being used figuratively and reader may understand the individual words but not the intended meaning.</p>
+<h4><strong>Turns of phrase and idioms</strong></h4>
+<p>“HexOS is running TrueNAS under the hood” &gt; “HexOS runs on top of TrueNAS”</p>
+<p>The phrase "under the hood" is an idiom borrowed from cars meaning something hidden/working the background. This meaning may not be obvious to all readers.</p>
+<h4><strong>Pop culture references</strong></h4>
+<p>"Type the password and open sesame! Your files will appear." &gt; "Type the password and you will see your files."</p>
+<p>"Open sesame", from <i>Ali Baba and the Forty Thieves</i>, is often used to decisive something magically opening. However, readers unfamiliar with this cultural reference may be wondering why sesame seeds are involved in their NAS setup!</p>
 <h3>Capitalisation</h3>
 <p>Sentence case is used for heading, so the first letter of the first word is capitalised and otherwise only propper nouns are capitalised.</p>
-<p><strong>Accessibility</strong></p>
+<h3><strong>Accessibility</strong></h3>
 <ul>
   <li>Rename screenshot before adding to github, this automatically puts alt-text as something human readable (for screenreader)</li>
 </ul>
-<p><strong>Referring to UI</strong></p>
-<ul>
-  <li>Direct quote from app e.g button names should follow the capitalisation of the app</li>
-  <li>Direct quotes from app should be in bold<ul>
-      <li>E.g. Press the <strong>Continue</strong> button</li>
-    </ul>
-  </li>
-  <li>Menu navigation format <strong>Item</strong> &gt; <strong>Item</strong></li>
-</ul>
-<p><strong>Terminology</strong></p>
-<ul>
-  <li>click v tap ?</li>
-  <li>screen v page?</li>
-</ul>
-<p><strong>Image styles</strong></p>
+<h4><strong>Image styles</strong></h4>
 <ul>
   <li>Dark mode or light?</li>
   <li>What to include what to crop</li>
