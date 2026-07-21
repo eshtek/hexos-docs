@@ -2,7 +2,7 @@
 title: Community Guides
 description: 
 published: true
-date: 2026-06-30T19:38:13.332Z
+date: 2026-07-21T12:42:21.166Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:39:30.276Z
@@ -18,6 +18,7 @@ Welcome to the HexOS community guides! These guides are created by community mem
 - [**Migrating Immich Storage (Rsync Method)**](https://docs.hexos.com/en/community/community-guides/ImmichMigrationRsync) - Migrate Immich to new storage configuration using rsync
 - [**Migrating Immich Storage (Move Method)**](https://docs.hexos.com/en/community/community-guides/ImmichMigrationMove) - Migrate Immich to new storage configuration by moving files
 - [**Setting Up Time Machine**](https://docs.hexos.com/en/community/community-guides/TimeMachineInstall) - Configure Mac Time Machine backups with HexOS
+- [**Import pools to HexOS**](https://docs.hexos.com/community/community-guides/import-existing-pools) Import exsiting pools to HexOS, for example when migrating from TrueNAS or swapping out boot drive.
 
 ## Contributing
 
