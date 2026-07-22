@@ -2,7 +2,7 @@
 title: Getting Started
 description: 
 published: true
-date: 2026-06-18T05:05:44.781Z
+date: 2026-07-22T12:52:26.058Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:41:06.152Z
@@ -12,7 +12,7 @@ dateCreated: 2026-06-08T15:41:06.152Z
 
 Congratulations for getting started with HexOS and self-hosting! This article will guide you through choosing hardware, and getting HexOS installed and set up. If you want to know more about HexOS first then you can [read about it here](/about-hexos/).
 
-## System Requirements
+## System requirements
 
 For basic storage and folder capabilities, HexOS has the same underlying system requirements as TrueNAS SCALE:
 
@@ -28,14 +28,14 @@ For basic storage and folder capabilities, HexOS has the same underlying system 
 
 However, the apps you install on your server can significantly increase these requirements. [Read more about apps on HexOS here](/features/apps/). Consult the documentation of the apps you are interested in to see their recommended specifications.
 
-## Preparing Server Hardware
+## Preparing server hardware
 
 When it comes to the physical hardware of the NAS you have two choices
 
 1. Bring your own hardware
 2. Buy something pre-built
 
-### Bring Your Own Hardware
+### Bring your own hardware
 
 Do you have an old PC or gaming rig laying around? Can you get your hands on a decommissioned or refurbished server? Or do you want to build something new? One of the best things about HexOS is the ability to take almost any hardware that meets the system requirements and turn it into a home server.  
 
@@ -43,7 +43,7 @@ TrueNAS provides a [comprehensive hardware guide](https://www.truenas.com/docs/s
 
 You are welcome to introduce yourself to the HexOS community in [Discord](https://discord.gg/fCW2htvYdz), where you can get further guidance and support on your hardware choices.
 
-### Buy Pre-Built
+### Buy pre-built
 
 There are many pre-built NAS devices available for purchase in the hardware market. For the best support, TrueNAS servers including their [Mini-R series](https://www.truenas.com/truenas-mini/) are tested to ensure smooth running of HexOS.  For non-TrueNAS based systems, make sure to seek community guidance and avoid proprietary hardware vendors like Synology or QNAP. Proprietary NAS hardware can be locked down and may be unable to run other operating systems such as HexOS.
 
@@ -63,17 +63,17 @@ There are various factors to consider when selecting storage for for a server. T
 <small>\* *Storage speeds vary based on drive model and technology.*  
 ** *SLC abd MLC SSDs are uncommon and may be difficult to procure*</small>
 
-### Recommended Storage Templates
+### Recommended storage templates
 
 While you can create as many pools in whatever configurations you want using HexOS, most users will benefit from one of the following templates.
 
-#### The Minimalist
+#### The minimalist
 
 - 3 or more HDDs of the same capacity
 
 A pool consisting of 3 HDDs is the most cost efficient method to create a pool that can later be expanded with additional storage drives. In this configuration your data and applications will stay on the same storage pool. This is sufficient if high speed performance is unnecessary.
 
-#### The Enthusiast
+#### The enthusiast
 
 - 3 or more HDDs of the same capacity
 - 2 or more SSDs of the same capacity
