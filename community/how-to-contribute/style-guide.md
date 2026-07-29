@@ -2,7 +2,7 @@
 title: HexOS Documentation Style Guide
 description: 
 published: false
-date: 2026-07-29T13:47:59.309Z
+date: 2026-07-29T14:02:36.561Z
 tags: 
 editor: markdown
 dateCreated: 2026-07-18T09:49:27.262Z
@@ -92,6 +92,20 @@ For headings in the documentation, sentence case is used: the first letter of th
 -   **The folders screen** \- in this example the word “Folders” would usually be capitalised as it is capitalised in the UI. However the headings are easier to read when capitalisation is very consistent, so even in this case lower case is used.
 
 ### Call outs
+
+> This is blockquote
+
+> This is info
+{.is-info}
+
+> This is sucsess
+{.is-success}
+
+> This is warning
+{.is-warning}
+
+> This is error
+{.is-danger}
 
 
 ### Writing accessibly
