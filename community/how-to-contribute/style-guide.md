@@ -2,7 +2,7 @@
 title: HexOS Documentation Style Guide
 description: 
 published: false
-date: 2026-07-29T14:35:53.070Z
+date: 2026-07-29T14:43:02.482Z
 tags: 
 editor: markdown
 dateCreated: 2026-07-18T09:49:27.262Z
@@ -137,12 +137,14 @@ The phrase "under the hood" is an idiom borrowed from cars meaning something hid
 
 ### Alt txt
 
-#### Image styles
+### Image styles
 
 -   Light mode
 -   Include something to orient the user e.g. menu, logo, side bar - especially in screenshots where the user is navigating
--   What to pixelise?
--   How to place in docs
+-   [TODO] What to pixelise?
+-   [TODO] How to place in docs
+-   [TODO] Organise in folder
+
 
 [TODO] rewrite this is we remove the visual editor
 
