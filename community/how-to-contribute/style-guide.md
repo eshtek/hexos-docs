@@ -2,7 +2,7 @@
 title: HexOS Documentation Style Guide
 description: 
 published: false
-date: 2026-07-29T14:02:36.561Z
+date: 2026-07-29T14:03:00.706Z
 tags: 
 editor: markdown
 dateCreated: 2026-07-18T09:49:27.262Z
@@ -106,6 +106,9 @@ For headings in the documentation, sentence case is used: the first letter of th
 
 > This is error
 {.is-danger}
+
+> This is new one
+{.is-new}
 
 
 ### Writing accessibly
