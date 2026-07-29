@@ -2,7 +2,7 @@
 title: Documentation How To Contribute
 description: 
 published: false
-date: 2026-07-29T12:57:40.408Z
+date: 2026-07-29T13:00:55.805Z
 tags: 
 editor: markdown
 dateCreated: 2026-07-18T09:51:14.516Z
@@ -60,9 +60,4 @@ There are two main ways to help improve the HexOS docs.
 ### Feedback and publication
 
 [TODO]
-
-
-
-    
-
-Give time for others to review it and test it out?
+-   Give time for others to review it and test it out?
