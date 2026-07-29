@@ -2,7 +2,7 @@
 title: HexOS Documentation Style Guide
 description: 
 published: false
-date: 2026-07-29T13:03:57.145Z
+date: 2026-07-29T13:08:53.872Z
 tags: 
 editor: markdown
 dateCreated: 2026-07-18T09:49:27.262Z
@@ -49,20 +49,38 @@ Here are some quick key terms to use, instead of their various alternatives. For
 Below is the **Processor card** in the **System tray.** 
 
 Cards display extra information, in this case CPU usage and temperature. If it's just static text it's a button, not a card.
-
+<details>
+  <summary> System tray and tiles </summary>
+  
 ![Image showing the system tray and tiles](/card-in-system-tray.png)
+  </details>
 
 Clicking the **Processor card** opens the **Processor info panel**
 
+<details>
+  <summary> Processor info panel</summary>
+  
 ![Processor info panel](/processor-info-pannel.png)
 
+  </details>
+  
 Click the **New Folder** button
-
+<details>
+  <summary> New folder button </summary>
+  
 ![Image showing the new folder button being clicked](/new-folder-button.png)
+
+  </details>
+
 
 This opens the **Create folder** dialogue. Click the **Access** tab.
 
+<details>
+  <summary> Dialogue and tab </summary>
+  
 ![Create Folder dialogue and Access tab being clicked](/new-user-dialogue.png)
+</details>
+
 
 ### Capitalisation
 
