@@ -2,7 +2,7 @@
 title: HexOS Documentation Style Guide
 description: 
 published: false
-date: 2026-07-29T14:22:24.956Z
+date: 2026-07-29T14:35:53.070Z
 tags: 
 editor: markdown
 dateCreated: 2026-07-18T09:49:27.262Z
@@ -22,7 +22,7 @@ HexOS docs are written to be:
     -   have different learning styles
     -   have a disability
 
-### **Referring to user interface**
+### Referring to the user interface
 
 When directly quoting from the HexOS user interface please follow the exact wording and capitalisation with the bold the words quoted. For example
 
