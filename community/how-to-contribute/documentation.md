@@ -2,7 +2,7 @@
 title: Documentation How To Contribute
 description: 
 published: false
-date: 2026-07-29T13:00:55.805Z
+date: 2026-07-29T14:41:06.104Z
 tags: 
 editor: markdown
 dateCreated: 2026-07-18T09:51:14.516Z
@@ -23,7 +23,7 @@ There are two main ways to help improve the HexOS docs.
 -   Join the [HexOS Discord server](https://discord.com/invite/fCW2htvYdz) 
 -   In the # Docs channel describe the guide you would like to contribute
 -   Ask for edit access to the docs site: this is usually given same day but can take a few days
-- You can then edit the Community > Community guides section of docs.hexos.com usuing your usual hexos.com login
+- You can then edit the Community > Community guides section of docs.hexos.com using your usual hexos.com login
 
 
 ### Write the guide
@@ -35,7 +35,7 @@ There are two main ways to help improve the HexOS docs.
 
   ![add-new-page.png](/add-new-page.png){.align-center}
     </details>
--  Set the page lcoation as **Diffrent ways to contribute** > **Community guides **
+-  Set the page location as **Different ways to contribute** > **Community guides **
 <details>
   <summary> Choose page location </summary>
 
@@ -59,5 +59,7 @@ There are two main ways to help improve the HexOS docs.
 
 ### Feedback and publication
 
-[TODO]
--   Give time for others to review it and test it out?
+-   Once your guide is written and you're happy with it, add a link to the docs channel and ask for others to review it.
+- This could involve others following the steps to check it works for them
+- They may suggest edits to working or formatting
+- When you're done the guide can be published and a docs admin can add it to the list on the **Community guides** page.
