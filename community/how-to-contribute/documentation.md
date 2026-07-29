@@ -2,7 +2,7 @@
 title: Documentation How To Contribute
 description: 
 published: false
-date: 2026-07-29T14:43:04.290Z
+date: 2026-07-29T15:23:53.790Z
 tags: 
 editor: markdown
 dateCreated: 2026-07-18T09:51:14.516Z
@@ -16,6 +16,25 @@ There are two main ways to help improve the HexOS docs.
 -   Writing guides for the HexOS community
 
 ## Feedback, corrections and tweaks
+-   Join the [HexOS Discord server](https://discord.com/invite/fCW2htvYdz) 
+-   In the # Docs channel describe the issue you found with the docs
+- If the issue is with Getting started, Features or Troubleshooting then HexOS staff will fix the documentation
+- If the problem is with a Community guide you can request a fix or correct the guide yourself
+	- To correct the issue yourself please request edit access in discod
+  - Once access is granted log in at HexOS.com, navigate to the docs page and click the edit button
+  <details>
+  <summary> Click the edit button </summary>
+
+  ![click-edit-button.png](/click-edit-button.png){.align-center}
+    </details>
+    - Once you have finished the edit, click the save button
+    
+  <details>
+  <summary> Click the save button </summary>
+
+   ![click-save-button.png](/click-save-button.png){.align-center}
+
+    </details> 
 
 ## Writing a guide
 
