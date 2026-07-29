@@ -2,7 +2,7 @@
 title: HexOS Documentation Style Guide
 description: 
 published: false
-date: 2026-07-29T13:08:53.872Z
+date: 2026-07-29T13:47:59.309Z
 tags: 
 editor: markdown
 dateCreated: 2026-07-18T09:49:27.262Z
@@ -72,13 +72,12 @@ Click the **New Folder** button
 
   </details>
 
-
 This opens the **Create folder** dialogue. Click the **Access** tab.
-
 <details>
   <summary> Dialogue and tab </summary>
-  
-![Create Folder dialogue and Access tab being clicked](/new-user-dialogue.png)
+
+![create-folder-dialogue.png](/create-folder-dialogue.png)
+
 </details>
 
 
@@ -92,23 +91,26 @@ For headings in the documentation, sentence case is used: the first letter of th
 -   **Preparing server hardware** - only the first letter is capitalised
 -   **The folders screen** \- in this example the word “Folders” would usually be capitalised as it is capitalised in the UI. However the headings are easier to read when capitalisation is very consistent, so even in this case lower case is used.
 
+### Call outs
+
+
 ### Writing accessibly
 
 Some ways of writing are much simpler to translate and easier to understand for non-native English speakers. We can avoid phrases which, while feeling natural to native English speakers, can be confusing when translated literally or read by people with a different language background or cultural references.
 
-#### **Metaphors**
+#### Metaphors
 
 "HexOS is your gateway to self-hosting" > "HexOS makes self-hosting easier"
 
 The word "gateway" is being used figuratively and reader may understand the individual words but not the intended meaning.
 
-#### **Turns of phrase and idioms**
+#### Turns of phrase and idioms
 
 “HexOS is running TrueNAS under the hood” > “HexOS runs on top of TrueNAS”
 
 The phrase "under the hood" is an idiom borrowed from cars meaning something hidden/working the background. This meaning may not be obvious to all readers.
 
-#### **Pop culture references**
+#### Pop culture references
 
 "Type the password and open sesame! Your files will appear." > "Type the password and you will see your files."
 
@@ -118,6 +120,15 @@ The phrase "under the hood" is an idiom borrowed from cars meaning something hid
 
 ### Alt txt
 
+#### Image styles
+
+-   Light mode
+-   Include something to orient the user e.g. menu, logo, side bar - especially in screenshots where the user is navigating
+-   What to pixelise?
+-   How to place in docs
+
+[TODO] rewrite this is we remove the visual editor
+
 Always set an Alt Text for each image. This should be written in a concise and simple way:
 
 “Create Folder dialogue and Access tab being clicked” is preferable to than “Image showing the create folder dialogue and the user is clicking on the access tab”
@@ -126,17 +137,14 @@ The Alt Txt allows people with visual impairments to understand what is in the i
 
 To add the Alt Text, insert the image and then right click it and click the Change image text alternative button (eyeball icon). Then enter the text and hit enter.
 
+<details>
+  <summary> Alt text button</summary>
+  
 ![Alt text button](/alt-text-adding.png)
+    </details>
 
-#### **Image styles**
+## Licence
 
--   Light mode
--   Include something to orient the user e.g. menu, logo, side bar - especially in screenshots where the user is navigating
--   What to pixelise?
--   How to place in docs
-
-**Licence** 
-
-What licence is it published under etc, that would be applied to the contributions
+[TODO] What licence is it published under etc, that would be applied to the contributions
 
 **Licence** that would be applied to the contributions
