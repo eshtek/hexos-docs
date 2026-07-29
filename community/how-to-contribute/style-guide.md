@@ -2,7 +2,7 @@
 title: HexOS Documentation Style Guide
 description: 
 published: false
-date: 2026-07-29T14:03:00.706Z
+date: 2026-07-29T14:22:24.956Z
 tags: 
 editor: markdown
 dateCreated: 2026-07-18T09:49:27.262Z
