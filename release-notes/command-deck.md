@@ -2,7 +2,7 @@
 title: Command Deck Release Notes
 description: 
 published: true
-date: 2026-07-31T03:19:41.786Z
+date: 2026-07-31T03:19:56.440Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:43:20.245Z
@@ -20,7 +20,7 @@ For users who are actively connected during an update, there may be a brief down
 
 <!-- auto-generated-year-sections-start -->
 ## 2026 Releases
-- [**2026-07-26**](/release-notes/command-deck/2026-07-26) New App Curations (BentoPDF & Paperless-ngx)
+- [**2026-07-26**](/release-notes/command-deck/2026-07-26) - New App Curations (BentoPDF & Paperless-ngx)
 - [**2026-07-16**](/release-notes/command-deck/2026-07-16) - Performance telemetry, live app metrics, international keyboard support, and storage intelligence
 - [**2026-07-09**](/release-notes/command-deck/2026-07-09) - New App Curations (Rackula, Warracker & Wiki.js)
 - [**2026-07-06**](/release-notes/command-deck/2026-07-06) - DIF drive support, new curated apps, and self-healing improvements
