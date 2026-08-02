@@ -2,7 +2,7 @@
 title: Command Deck Release Notes
 description: 
 published: true
-date: 2026-07-31T03:20:50.579Z
+date: 2026-08-02T00:16:08.025Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:43:20.245Z
@@ -20,6 +20,7 @@ For users who are actively connected during an update, there may be a brief down
 
 <!-- auto-generated-year-sections-start -->
 ## 2026 Releases
+- [**2026-08-01**](/release-notes/command-deck/2026-08-01) - New App Curations (Actual Budget, Firefly 3 and Sure)
 - [**2026-07-26**](/release-notes/command-deck/2026-07-26) - New App Curations (BentoPDF & Paperless-ngx)
 - [**2026-07-19**](/release-notes/command-deck/2026-07-19) - New App Curations (AFFiNE & Sportarr)
 - [**2026-07-16**](/release-notes/command-deck/2026-07-16) - Performance telemetry, live app metrics, international keyboard support, and storage intelligence
