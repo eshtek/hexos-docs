@@ -21,6 +21,14 @@ The most valuable contribution is expanding the available applications.
 - Create install scripts for new applications
 - Improve documentation with setup guides
 
+## Translate HexOS
+
+Speak a language other than English? Help HexOS speak it too:
+
+- [Join the translation program](/community/translating-hexos) at [translate.hexos.com](https://translate.hexos.com)
+- Translate at your own pace — no deadlines, no minimum commitment
+- Active translators become reviewers for their language
+
 ## Improve Documentation
 
 Help keep our docs accurate and helpful:
