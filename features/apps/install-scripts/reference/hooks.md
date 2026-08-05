@@ -2,7 +2,7 @@
 title: Lifecycle Hooks Reference
 description: 
 published: true
-date: 2026-06-09T20:03:03.652Z
+date: 2026-07-20T02:42:10.893Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-09T20:03:00.318Z
@@ -57,12 +57,14 @@ Each entry in the `hooks` array is a hook declaration:
 | `inputs` | array | No | OAuth or question inputs to collect from the user before execution (see [Inputs](#hook-inputs)) |
 | `userOptional` | object | No | Allows the user to opt out of this hook during install (see [User Optional](#user-optional-hooks)) |
 
-::: warning script vs scriptContent
+#### Script vs scriptContent
 Every hook must have exactly one of `script` or `scriptContent` — never both, never neither. The schema enforces this with a validation rule.
+
+
 
 - **`script`** — references an external `.ts` file in the [hexos-app-catalog](https://github.com/eshtek/hexos-app-catalog) repo. Used by first-party curated hooks.
 - **`scriptContent`** — embeds the TypeScript code directly in the JSON. Used by community contributions for self-contained simplicity.
-:::
+
 
 ## Writing a Hook Script
 
@@ -142,9 +144,9 @@ Embed the code directly in the JSON — no external files needed:
 }
 ```
 
-::: tip Testing inline hooks
+#### Testing inline hooks
 The `scriptContent` field is useful for **testing hooks via Custom Install in Expert Mode** — you can paste a V5 JSON with inline hooks directly into the editor and run it immediately. This is a development and testing workflow only; inline scripts submitted via PR go through the same review process as file-based hooks.
-:::
+
 
 ## HookContext API
 
@@ -326,9 +328,9 @@ Use the `link` property to display a clickable link after the description text. 
 
 The link opens in a new tab. It renders inline at the end of the description paragraph, styled as a branded underlined link.
 
-::: tip When to use a link
+- When to use a link
 If your hook accepts terms, agrees to a EULA, or performs an action governed by a third-party service's policies on behalf of the user, include a `link` to the relevant terms so the user can review them before opting in.
-:::
+
 
 During upgrades, `userOptional` hooks are automatically excluded — only non-optional hooks run.
 

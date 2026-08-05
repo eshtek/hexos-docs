@@ -2,7 +2,7 @@
 title: Illustrated Installation Guide
 description: 
 published: true
-date: 2026-06-29T20:15:48.288Z
+date: 2026-07-18T10:44:24.307Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:41:01.586Z
@@ -23,7 +23,7 @@ You will need:
 - A display, keyboard and optionally a mouse to connect to your server
 - A separate computer to create a bootable USB installer and set up your server after installation
 
-## Download the HexOS Installer
+## Download the HexOS installer
 
 Start by downloading the HexOS installer. You can download the installer from either link below.
 

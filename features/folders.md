@@ -2,7 +2,7 @@
 title: Folders
 description: 
 published: true
-date: 2026-07-07T18:31:40.594Z
+date: 2026-07-22T12:56:38.140Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:40:34.274Z
@@ -14,7 +14,7 @@ Folders can be used to organize data, share files over the network and for back 
 
 Folders can optionally be password protected and encrypted. You can also create users and decide what they can view and edit.
 
-## The Folders Screen
+## The Folders screen
 
 You can access the Folders screen in the [Deck](https://deck.hexos.com) through the sidebar menu. On this screen you can view existing folders, create new folders and network credentials for accessing folders. 
 
