@@ -2,7 +2,7 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-08-06T14:04:42.736Z
+date: 2026-08-06T14:12:23.119Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-22T12:46:47.046Z
@@ -356,6 +356,10 @@ In this section we will:
 -   [ ] The backed up config file and keys
 -   [ ] Your temporary password 
 -   [ ] The original password
+
+> Make sure you have updated TrueNAS to the correct version before proceeding.
+{.is-success}
+
 
 ### Import your storage pool
 
