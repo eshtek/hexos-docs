@@ -2,7 +2,7 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-08-06T13:24:17.301Z
+date: 2026-08-06T13:24:52.608Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-22T12:46:47.046Z
@@ -39,9 +39,8 @@ By exporting the TrueNAS configuration you are backing up things like:
 
 ## Warning: data is at risk
 
-> **Warning**: You must have backups of your data. Without adequate backups you could permanently lose data at several points during this process. Best practice is:*
-> 
-{.is-warning}
+> **Warning**: You must have backups of your data. Without adequate backups you could permanently lose data at several points during this process. Best practice is:
+> {.is-warning}
 
 1.  Have backups of everything
 2.  Verify they still work
