@@ -2,13 +2,15 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-08-06T14:12:23.119Z
+date: 2026-08-06T14:31:49.337Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-22T12:46:47.046Z
 ---
 
 # Import pools to HexOS
+> Thanks to lnkd and ShinobiRen for the origional guide
+{.is-contribute}
 
 ## Who this guide is for
 
@@ -591,3 +593,6 @@ Then finish any remaining steps in the [guide](https://docs.hexos.com/getting-st
 ![](/check-apps.png)
 
 ![](/check-folder-permissions.png)
+
+> Help to improve HexOS documentation: [join the #Docs channel on discord](https://discord.com/invite/DjEp3WRHKz) today!
+{.is-contribute}
