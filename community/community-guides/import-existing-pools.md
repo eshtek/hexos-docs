@@ -2,7 +2,7 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-08-06T13:24:52.608Z
+date: 2026-08-06T14:04:42.736Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-22T12:46:47.046Z
@@ -39,9 +39,10 @@ By exporting the TrueNAS configuration you are backing up things like:
 
 ## Warning: data is at risk
 
-> **Warning**: You must have backups of your data. Without adequate backups you could permanently lose data at several points during this process. Best practice is:
-> {.is-warning}
+> **Warning**: You must have backups of your data. Without adequate backups you could permanently lose data at several points during this process. 
+> {.is-danger}
 
+Best practice is to:
 1.  Have backups of everything
 2.  Verify they still work
 3.  Try to copy a small set of files to be sure the data is accessible.
@@ -174,7 +175,9 @@ If there is no button to export the key, then the data is encrypted with passphr
 
 To confirm this click **Edit** (you may need to unlock first) and check that the **Encryption Type\*** dropdown is showing **Passphrase**. Encrypted folders set up in HexOS always use a passphrase.. 
 
-If you have any doubts or questions, please [contact HexOS support](https://discord.com/invite/DjEp3WRHKz): this step is critical to get right.
+> If you have any doubts or questions, please [contact HexOS support](https://discord.com/invite/DjEp3WRHKz): this step is critical to get right.
+{.is-troubleshooting}
+
 
 ### Find the serial numbers of your drives
 
