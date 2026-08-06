@@ -2,35 +2,41 @@
 title: HexOS Documentation Style Guide
 description: 
 published: false
-date: 2026-07-29T14:43:02.482Z
+date: 2026-08-06T13:02:39.034Z
 tags: 
 editor: markdown
 dateCreated: 2026-07-18T09:49:27.262Z
 ---
 
-# HexOS Documentation Style Guide
+# HexOS documentation style guide
+
+### Language
+
+HexOS d# HexOS documentation style guide
 
 ### Language
 
 HexOS docs are written to be:
 
--   Friendly and Open
+-   Friendly
 -   Clear
--   Accessible to a wide variety of people including people who:
-    -   have a wide range of technical skills and interests
-    -   their first language is not English
-    -   have different learning styles
-    -   have a disability
+-   Accessible to a wide variety of people including those with:
 
-### Referring to the user interface
+    -     first languages other than English
+    -     different learning styles
+    -   disabilities
+    -     little or no experience of the subject matter
 
-When directly quoting from the HexOS user interface please follow the exact wording and capitalisation with the bold the words quoted. For example
+### **Referring to user interface**
 
-Click **Continue**
+When directly quoting from the HexOS user interface please follow the exact wording and capitalisation. Use bold for the words quoted. For example:
 
-When describing a navigation process, each item should be in **bold** with a non-bold > between. For example: 
+Click **`Continue`**
+
+When describing navigation through a menu, each item should be in **bold** with a non-bold > between. For example: 
 
 **Apps** > **Immich**
+
 
 ### **Terminology**
 
