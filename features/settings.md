@@ -2,7 +2,7 @@
 title: Settings
 description: 
 published: true
-date: 2026-06-09T20:03:36.528Z
+date: 2026-08-06T14:17:36.906Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:40:52.326Z
@@ -43,5 +43,9 @@ The reset settings allows for rolling back your server to a different state.
 A location editor which allows for customizations of system folder paths. 
 - Select where applications install. 
 - Choose the locations for downloads, documents, media, and other system folders across your storage pools.
->System folder locations can only be modified if no installed are are using it.
+
+> System folder locations can only be modified if no apps are are using them.
+{.is-info}
+
+
 

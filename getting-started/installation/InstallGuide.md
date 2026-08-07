@@ -2,7 +2,7 @@
 title: Illustrated Installation Guide
 description: 
 published: true
-date: 2026-07-18T10:44:24.307Z
+date: 2026-08-06T14:19:52.624Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:41:01.586Z
@@ -42,7 +42,7 @@ The next step is to put the .iso file onto a USB stick with Balena Etcher. The U
     -   Select your target USB drive
     -   Click 'Flash!'
 
-**Important**: Do not use Rufus to create the installation USB - Stick with Balena Etcher.
+**Important**: Do not use Rufusto create the installation USB - Stick with Balena Etcher.
 
 ## Installation Process
 
@@ -129,7 +129,10 @@ What you see now will depend on how many drives you have in your server. The dri
 ### System Startup
 
 -   The console will display startup information
--   **Tip**: If boot fails, check that HexOS is at the top in your BIOS boot device order. The instructions are at the top of this guide.
+
+> **Tip**: If boot fails, check that HexOS is at the top in your BIOS boot device order. The instructions are at the top of this guide.
+{.is-tip}
+
 
 ![10.png](/installation-guide/10.png)
 
