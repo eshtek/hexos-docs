@@ -18,7 +18,7 @@ The Command Deck is the HexOS web interface. Updates are automatically deployed 
 
 **[View Command Deck Release Notes →](/release-notes/command-deck/)**
 
-**Latest:** [August 1, 2026 - New App Curations (Actual Budget, Firefly 3 and Sure)](/release-notes/command-deck/2026-08-01)
+**Latest:** [August 7, 2026 - Redesigned navigation, community translations, and stability hardening](/release-notes/command-deck/2026-08-07)
 
 ## TrueNAS
 

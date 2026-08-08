@@ -20,6 +20,7 @@ For users who are actively connected during an update, there may be a brief down
 
 <!-- auto-generated-year-sections-start -->
 ## 2026 Releases
+- [**2026-08-07**](/release-notes/command-deck/2026-08-07) - Redesigned navigation, community translations, and stability hardening
 - [**2026-08-01**](/release-notes/command-deck/2026-08-01) - New App Curations (Actual Budget, Firefly 3 and Sure)
 - [**2026-07-26**](/release-notes/command-deck/2026-07-26) - New App Curations (BentoPDF & Paperless-ngx)
 - [**2026-07-19**](/release-notes/command-deck/2026-07-19) - New App Curations (AFFiNE & Sportarr)
