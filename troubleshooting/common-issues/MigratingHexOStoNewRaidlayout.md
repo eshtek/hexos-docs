@@ -2,13 +2,12 @@
 title: Migrating HexOS to New Hardware using New Raidz layout
 description: If you have a system and you built a new one with a different layout like moving from a mirror to Raid Z1 or Z2 or Z3
 published: true
-date: 2026-08-09T02:00:05.860Z
+date: 2026-08-09T02:22:47.257Z
 tags: migrating, new hardware, raidz2, raidz3
 editor: markdown
 dateCreated: 2026-08-09T02:00:05.860Z
 ---
 
-# Header
 # Migrating HexOS to New Hardware
 
 Moving your apps, VMs and data to a different machine — including changing your pool layout
