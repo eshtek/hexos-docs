@@ -2,7 +2,7 @@
 title: Troubleshooting
 description: 
 published: true
-date: 2026-06-28T21:58:40.087Z
+date: 2026-08-09T02:44:14.332Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:44:02.077Z
@@ -21,6 +21,7 @@ This guide helps you resolve common issues with HexOS installation, setup, and o
 > - [Updating HexOS 24.10](https://docs.hexos.com/en/troubleshooting/common-issues/UpgradingHexOS24) - Guide for updating HexOS 24.10 to HexOS 25.10
 > - [Updating Immich to Postgres 18](https://docs.hexos.com/en/troubleshooting/common-issues/ImmichPG18) - Guide for updating Immich to Postgres 18
 > - [Drive Failure Guide](https://docs.hexos.com/en/troubleshooting/common-issues/DriveFailure) - Guide for replacing a failed drive
+> - [Migrating HexOS to New Hardware and RaidZ layout Guide](https://docs.hexos.com/en/troubleshooting/common-issues/MigratingHexOStoNewRaidlayout) - Guide for Migrating HexOS to New Hardware and RaidZ layout
 >
 > Visit the [HexOS Discord Community](https://discord.gg/fCW2htvYdz) for additional support from other users.
 
