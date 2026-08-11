@@ -1,0 +1,38 @@
+{
+  "version": 3,
+  "script": {
+    "version": "1.0.0",
+    "changeLog": "Initial Script"
+  },
+  "requirements": {
+    "locations": [],
+    "specifications": [
+      "2CORE",
+      "4096MB"
+    ],
+    "permissions": [],
+    "ports": []
+  },
+  "installation_questions": [
+    {
+      "question": "Tunnel Token",
+      "description": "The Tunnel Token to use for Cloudflared.",
+      "type": "text",
+      "key": "tunnel_token",
+      "required": true
+    }
+  ],
+  "ensure_directories_exists": [],
+  "app_values": {
+    "cloudflared": {
+      "mode": "tunnel",
+      "tunnel_token": "$QUESTION(tunnel_token)"
+    },
+    "resources": {
+      "limits": {
+        "cpus": 2,
+        "memory": "$MEMORY(10%, 4096)"
+      }
+    }
+  }
+}
