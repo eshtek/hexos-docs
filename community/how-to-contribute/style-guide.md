@@ -2,7 +2,7 @@
 title: HexOS Documentation Style Guide
 description: 
 published: false
-date: 2026-08-11T11:17:55.625Z
+date: 2026-08-11T11:49:37.470Z
 tags: 
 editor: markdown
 dateCreated: 2026-07-18T09:49:27.262Z
@@ -18,14 +18,14 @@ HexOS docs are written to be:
 -   Clear
 -   Accessible to a wide variety of people including those with:
 
-    -  people whose first language is not English
+    -  those with a different first language to English
     -  different preferences for accessing information
     -  disabilities
     -  little or no experience of the subject matter
 
 ### Referring to the user interface
 
-When directly quoting from the HexOS user interface please follow the exact wording and capitalisation. Use bold for the words quoted. For example:
+When directly quoting from the HexOS user interface please follow the exact wording and capitalization. Use bold for the words quoted. For example:
 
 Click **Continue**
 
@@ -50,7 +50,7 @@ Here are the words used to describe the HexOS user interface and the methods of 
 
 #### Referring to typed commands
 
-In the rare occasion a command is described, this should use the inline code format `curl ipinfo.io/ip`
+On the rare occasions when a command is described, please should use the inline code format `curl ipinfo.io/ip`
 
 #### Examples
 
@@ -99,7 +99,7 @@ The HexOS docs use American English and spelling, for example:
 
 #### Capitalization
 
-HexOS and TrueNAS are capitalized like this. When directly quoting from the UI please follow the exact wording and capitalisation.
+HexOS and TrueNAS are capitalized like this. When directly quoting from the UI please follow the exact wording and capitalization.
 
 For headings, sentence case is used: the first letter of the first word is capitalized and otherwise only proper nouns are capitalized. Even if quoting from the UI in a heading, sentence case is used. 
 
@@ -111,11 +111,11 @@ For headings, sentence case is used: the first letter of the first word is capit
 
 ### Callouts
 
-Here are a range of standard callouts for use within documentation with examples of their use. These are important for consistency for the reader.
+Here are a range of standard callouts for use within documentation with examples of their use. These are important for consistency for the reader. To add a callout to the docs use the blockquote feature of the editor.
 
-Call out text is usually formatted as "**bold word:** text explanation" 
+Callout text is usually formatted as "**bold word:** text explanation" 
 
-To create this callout use the danger dropdown in the markdown editor which looks like this in markdown
+To create a **Warning** callout select the error blockquote from the editor drop down. It looks like this in markdown:
 
 ``` 
 > **Warning:** text is here
@@ -126,9 +126,9 @@ and this is what the reader sees:
 > **Warning:** text is here
 > {.is-danger}
 
-#### Danger callout
+#### Warning callout
 
-This callout is the most critical and is used mainly for situations which could cause data loss and other critical outcomes. For example:
+The error callout is used for warnings, and is the most critical and is used mainly for situations which could cause data loss and other critical outcomes. For example:
 
 > **Warning:** You must have backups of your data. Without adequate backups you could permanently lose data at several points during this process.
 > {.is-danger}
@@ -173,7 +173,7 @@ This callout is used to thank community members who worked on a guide, or to enc
 
 For example a thank you should be added at the top of each community guide:
 
-> **Thank you** to lnkd and ShinobiRen for the original guide
+> **Thank you:** lnkd and ShinobiRen for the original guide
 {.is-contribute}
 
 And the following should be added to the bottom of each page:
@@ -286,7 +286,7 @@ The filename of the screenshot is important as it:
 - allows future editors to be able to find or identify the image, for example to re-use or replace it
 - is used by the wiki as the default alt-text for the image
 
-Screenshot filenames should be all lower case with hypens between words.
+Screenshot filenames should be all lower case with hyphens between words.
 
 They should be short, descriptive, and specific enough to work as both a filename and default alt text.
 
@@ -298,8 +298,8 @@ If needed the alt-text may be edited further by changing the text within the squ
 ![screenshots-choose-folder.png](/style-guide/screenshots-choose-folder.png)
 ```
 
-## Licence
+## License
 
-[TODO] What Licence is it published under etc. that would be applied to the contributions
+[TODO] What License is it published under etc. that would be applied to the contributions
 
-**Licence** that would be applied to the contributions
+**License** that would be applied to the contributions
