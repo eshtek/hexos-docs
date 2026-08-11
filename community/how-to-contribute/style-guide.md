@@ -2,7 +2,7 @@
 title: HexOS Documentation Style Guide
 description: 
 published: false
-date: 2026-08-06T14:33:53.728Z
+date: 2026-08-11T09:32:28.093Z
 tags: 
 editor: markdown
 dateCreated: 2026-07-18T09:49:27.262Z
@@ -23,7 +23,7 @@ HexOS docs are written to be:
     -  disabilities
     -  little or no experience of the subject matter
 
-### Referring to user interface
+### Referring to the user interface
 
 When directly quoting from the HexOS user interface please follow the exact wording and capitalisation. Use bold for the words quoted. For example:
 
@@ -33,14 +33,7 @@ When describing navigation through a menu, each item should be in **bold** with 
 
 **Apps** > **Immich**
 
-
-#### Referring to typed commands
-
-In the rare occasion a command is described,this should use the inline code format `curl ipinfo.io/ip`
-
-
-
-### **Terminology**
+#### Terminology
 
 Here are the words used to describe the HexOS user interface and the methods of interacting with it.
 
@@ -50,9 +43,12 @@ Here are the words used to describe the HexOS user interface and the methods of 
 -   Card and tray
 -   Info panel
 -   Button
--   Dialogue
+-   Dialog
 - 	Tab
 
+#### Referring to typed commands
+
+In the rare occasion a command is described, this should use the inline code format `curl ipinfo.io/ip`
 
 #### Examples
 
@@ -82,30 +78,38 @@ Click the **New Folder** button
 
   </details>
 
-This opens the **Create folder** dialogue. Click the **Access** tab.
+This opens the **Create folder** dialog. Click the **Access** tab.
 <details>
-  <summary> Dialogue and tab </summary>
+  <summary> Dialog and tab </summary>
 
 ![create-folder-dialogue.png](/create-folder-dialogue.png)
 
 </details>
 
+### Language and capitalization
 
-### Capitalisation
+#### Spelling
 
-HexOS and TrueNAS are capitalised like this. 
+The HexOS docs use American English and spelling, for example: 
+- organise > organize
+- colour > color
+- behaviour > behavior
 
-For headings in the documentation, sentence case is used: the first letter of the first word is capitalised and otherwise only proper nouns are capitalised. This remains the same even if quoting from the UI.
+#### Capitalization
+
+HexOS and TrueNAS are capitalized like this. 
+
+For headings in the documentation, sentence case is used: the first letter of the first word is capitalized and otherwise only proper nouns are capitalized. This remains the same even if quoting from the UI.
 
 #### Examples
 
--   **Import pools to HexOS** - the first letter and HexOS are capitalised but “pools” and “to” are not.
--   **Preparing server hardware** - only the first letter is capitalised
--   **The folders screen** \- “Folders” would usually be capitalised to follow UI, however headings are easier to read when they consistent, so even in this case lower case f is used.
+-   **Import pools to HexOS** - the first letter and HexOS are capitalized but “pools” and “to” are not.
+-   **Preparing server hardware** - only the first letter is capitalized
+-   **The folders screen** \- “Folders” would usually be capitalized to follow UI, however headings are easier to read when they are consistent, so even in this case lower case f is used.
 
-### Call outs
+### Callouts
 
-Here are a range of stanard call out boxes for use within documneation with examples of their use. These are impornant for conistency for the reader.
+Here are a range of standard call out boxes for use within documentation with examples of their use. These are important for consistency for the reader.
 
 To create this call out use the danger dropdown in the markdown editor which looks like this
 
@@ -124,50 +128,50 @@ This call out is the most critical and is used mainly for situations which could
 
 #### Warning
 
-This is for important risks or common pitfalls where, for example, time could be wasted or permenant changes made. For example
+This is for important risks or common pitfalls where, for example, time could be wasted or permanent changes made. For example
 
 > **Warning.** Encryption can only be enabled during folder creation and cannot be disabled once the folder is created.
 {.is-warning}
 
 #### Requirement (success block quote)
 
-The sucsess call out is for when an earlier stage or task is required for the next step to work correctly, but where danger or warning are not needed. For example:
+The success call out is for when an earlier stage or task is required for the next step to work correctly, but where danger or warning are not needed. For example:
 
 > Make sure you have updated TrueNAS to the correct version before proceeding.
 {.is-success}
 
 #### Info
-This for additional context or information that needs to be highlighted to users. Perhaps something they should know before starting a task or a common issue that is non-critical. For example:
+This is for additional context or information that needs to be highlighted to users. Perhaps something they should know before starting a task or a common issue that is non-critical. For example:
 
-> System folder locations can only be modified if no apps are are using them.
+> System folder locations can only be modified if no apps are using them.
 {.is-info}
 
 #### Tip
 
-This is for a helpful pointer for the reader. It may be in resonse to a common problem, missunderstanding or  pre-emptive troubleshooting step. For example:
+This is for a helpful pointer for the reader. It may be in response to a common problem, misunderstanding or  pre-emptive troubleshooting step. For example:
 
 > **Tip**: If boot fails, check that HexOS is at the top in your BIOS boot device order. The instructions are at the top of this guide.
 {.is-tip}
 
 #### Get help (troubleshooting call out)
 
-This is for direct refrences to troubleshooting pages or links for get support directly. For example:
+This is for direct references to troubleshooting pages or links to get support directly. For example:
 
 > If you have any doubts or questions, please [contact HexOS support](https://discord.com/invite/DjEp3WRHKz): this step is critical to get right.
 {.is-troubleshooting}
 
 #### Contribute 
 
-This callout is used to thank community members who worked on a guide, or to encorage readers to get involved in working on HexOS documentaion writing. 
+This call out is used to thank community members who worked on a guide, or to encourage readers to get involved in working on HexOS documentation writing. 
 
-For example a thankyou should be added at the top of each community guide:
+For example a thank you should be added at the top of each community guide:
 
 > Thanks to lnkd and ShinobiRen for the original guide
 {.is-contribute}
 
 And the following should be added to the bottom of each page:
 
-> Help to improve HexOS documentation: [join the #Docs channel on discord](https://discord.com/invite/DjEp3WRHKz) today! Send feedback, suggestions or write contribute a guide.
+> Help to improve HexOS documentation: [join the #Docs channel on discord](https://discord.com/invite/DjEp3WRHKz) today! Send feedback, suggestions or contribute a guide.
 {.is-contribute}
 
 
@@ -185,51 +189,96 @@ The word "gateway" is being used figuratively and reader may understand the indi
 
 “HexOS is running TrueNAS under the hood” > “HexOS runs on top of TrueNAS”
 
-The phrase "under the hood" is an idiom borrowed from cars meaning something hidden/working the background. This meaning may not be obvious to all readers.
+The phrase "under the hood" is an idiom borrowed from cars meaning something hidden or working in the background. This meaning may not be obvious to all readers.
 
 #### Pop culture references
 
 "Type the password and open sesame! Your files will appear." > "Type the password and you will see your files."
 
-"Open sesame", from *Ali Baba and the Forty Thieves*, is often used to decisive something magically opening. However, readers unfamiliar with this cultural reference may be wondering why sesame seeds are involved in their NAS setup!
+"Open sesame", from *Ali Baba and the Forty Thieves*, is often used to describe something magically opening. However, readers unfamiliar with this cultural reference may be wondering why sesame seeds are involved in their NAS setup!
 
 ## Screenshots
 
-### Storage
+In HexOS documentation each instruction/action is provided in text form followed by a screenshot in a dropdown box below. This is accessible to a range of learning styles.
 
-[todo]
+The screenshots are taken with surrounding UI elements included, to help orient the user.
 
-### Alt txt
+Image names are carefully chosen both to keep the wiki organised and to serve as acceptable alt text for those accessing the docs with a screen reader.
 
-[todo]
+### Image style
 
-### Image styles
+Please take screenshots as follows:
 
--   Light mode
--   Include something to orient the user e.g. menu, logo, side bar - especially in screenshots where the user is navigating
--   [TODO] What to pixelise?
--   [TODO] How to place in docs
--   [TODO] Organise in folder
+-   On a desktop/laptop (not mobile)
+- 	In light mode (white background, not black)
+-   Include surrounding UI elements to help orient the user. For example:
+    - logo
+    - menu
+    - side bar
+- A brief, descriptive file name, which
+    - serves as the alt-text for screen reader users
+    - helps other editors find images more easily
 
+#### Example screenshots
 
-[TODO] rewrite this is we remove the visual editor
+1) In this example, the user is being asked to click on the **Installed apps** button. The menu to the left is included in the screenshot too. This shows the user:
 
-Always set an Alt Text for each image. This should be written in a concise and simple way:
-
-“Create Folder dialogue and Access tab being clicked” is preferable to than “Image showing the create folder dialogue and the user is clicking on the access tab”
-
-The Alt Txt allows people with visual impairments to understand what is in the image. With no alt text, screen readers will either skip the image or say “image”. 
-
-To add the Alt Text, insert the image and then right click it and click the Change image text alternative button (eyeball icon). Then enter the text and hit enter.
+- which screen they need to be on, as **Apps** is highlighted in the menu.
+- where the button is on the screen relative to the menu, but also, 
 
 <details>
-  <summary> Alt text button</summary>
+<summary> Example of including menu in a screenshot </summary>
   
-![Alt text button](/alt-text-adding.png)
-    </details>
+![include-other-ui-elements-in-screenshot.png](/style-guide/include-other-ui-elements-in-screenshot.png)
+</details>
+     
+2) In the next example, the user is being asked to look at the HDDs system tray. The screenshot includes the Storage screen showing in the background, with the cursor left on the HDD's button that was just clicked to open the system tray.
+
+<details>
+<summary> Example of including menu in  a screenshot </summary>
+  
+![include-background-to-system-tray.png](/style-guide/include-background-to-system-tray.png)
+</details>
+ 
+-   [TODO] What to pixelise?
+
+
+### Placing the screenshot in the dropdown
+
+The html needed to put the screenshot in the dropdown is as follows:
+
+```<details>
+<summary> Choose folder </summary>
+
+![screenshots-choose-folder.png](/style-guide/screenshots-choose-folder.png)
+</details>
+```
+the central element ![alt-text](/url/of-image.png) is automatically generated by the editor when adding an image to the page. The space after </summary> is important, without it the image will not display. Check that the image is displaying inside the dropdown each time, with even a small error, only the url will display.
+
+### Folders and file names
+
+When adding a screenshot, please add the image to the correct folder. 
+
+Folders can be identified by their file name, which should be the same as the page name (or similar)
+
+<details>
+<summary> Choose the correct folder </summary>
+  
+![screenshots-choose-folder.png](/style-guide/screenshots-choose-folder.png)
+</details>
+
+If you are writing a new guide please create a matching folder for the images. Please name it carefully as folder names cannot be easily edited.
+
+#### Naming the screenshot
+
+The filename of the screenshot is important as it:
+
+- serves as the default alt text for the image, which is how screen reader users will experience the image
+- allows future editors to be able to find or identify the image, for example to re-use or replace it
+
 
 ## Licence
 
-[TODO] What licence is it published under etc, that would be applied to the contributions
+[TODO] What Licence is it published under etc. that would be applied to the contributions
 
 **Licence** that would be applied to the contributions
