@@ -2,7 +2,7 @@
 title: HexOS Documentation Style Guide
 description: 
 published: false
-date: 2026-08-11T09:32:28.093Z
+date: 2026-08-11T11:17:55.625Z
 tags: 
 editor: markdown
 dateCreated: 2026-07-18T09:49:27.262Z
@@ -18,8 +18,8 @@ HexOS docs are written to be:
 -   Clear
 -   Accessible to a wide variety of people including those with:
 
-    -  first languages other than English
-    -  different learning styles
+    -  people whose first language is not English
+    -  different preferences for accessing information
     -  disabilities
     -  little or no experience of the subject matter
 
@@ -40,11 +40,13 @@ Here are the words used to describe the HexOS user interface and the methods of 
 -   Click
 -   Screen
 -   Menu
--   Card and tray
+-   Card
+-   System Tray
+-   Tiles
 -   Info panel
 -   Button
 -   Dialog
-- 	Tab
+- 	Tab (not tap, press, select)
 
 #### Referring to typed commands
 
@@ -54,7 +56,7 @@ In the rare occasion a command is described, this should use the inline code for
 
 Below is the **Processor card** in the **System tray.** 
 
-Cards display extra information, in this case CPU usage and temperature. If it's just static text then it's a button, not a card.
+Cards display extra information, in this case CPU usage and temperature. If there is only a single action with no additional information, then the element is called a button, not a card.
 <details>
   <summary> System tray and tiles </summary>
   
@@ -97,9 +99,9 @@ The HexOS docs use American English and spelling, for example:
 
 #### Capitalization
 
-HexOS and TrueNAS are capitalized like this. 
+HexOS and TrueNAS are capitalized like this. When directly quoting from the UI please follow the exact wording and capitalisation.
 
-For headings in the documentation, sentence case is used: the first letter of the first word is capitalized and otherwise only proper nouns are capitalized. This remains the same even if quoting from the UI.
+For headings, sentence case is used: the first letter of the first word is capitalized and otherwise only proper nouns are capitalized. Even if quoting from the UI in a heading, sentence case is used. 
 
 #### Examples
 
@@ -109,69 +111,74 @@ For headings in the documentation, sentence case is used: the first letter of th
 
 ### Callouts
 
-Here are a range of standard call out boxes for use within documentation with examples of their use. These are important for consistency for the reader.
+Here are a range of standard callouts for use within documentation with examples of their use. These are important for consistency for the reader.
 
-To create this call out use the danger dropdown in the markdown editor which looks like this
+Call out text is usually formatted as "**bold word:** text explanation" 
 
-`> Warning text is here
-{.is-danger}`
+To create this callout use the danger dropdown in the markdown editor which looks like this in markdown
 
-> Warning text is here
+``` 
+> **Warning:** text is here
+{.is-danger}
+```
+
+and this is what the reader sees:
+> **Warning:** text is here
 > {.is-danger}
 
-#### Danger
+#### Danger callout
 
-This call out is the most critical and is used mainly for situations which could cause data loss and other critical outcomes. For example:
+This callout is the most critical and is used mainly for situations which could cause data loss and other critical outcomes. For example:
 
-> **Warning**: You must have backups of your data. Without adequate backups you could permanently lose data at several points during this process.
+> **Warning:** You must have backups of your data. Without adequate backups you could permanently lose data at several points during this process.
 > {.is-danger}
 
-#### Warning
+#### Warning callout
 
 This is for important risks or common pitfalls where, for example, time could be wasted or permanent changes made. For example
 
-> **Warning.** Encryption can only be enabled during folder creation and cannot be disabled once the folder is created.
+> **Warning:** Encryption can only be enabled during folder creation and cannot be disabled once the folder is created.
 {.is-warning}
 
-#### Requirement (success block quote)
+#### Requirement callout 
 
-The success call out is for when an earlier stage or task is required for the next step to work correctly, but where danger or warning are not needed. For example:
+The success callout is used for requirements. This is when an earlier stage or task is required for the next step to work correctly, but where danger or warning are not needed. For example:
 
-> Make sure you have updated TrueNAS to the correct version before proceeding.
+> **Requirement:** Make sure you have updated TrueNAS to the correct version before proceeding.
 {.is-success}
 
-#### Info
+#### Info callout
 This is for additional context or information that needs to be highlighted to users. Perhaps something they should know before starting a task or a common issue that is non-critical. For example:
 
-> System folder locations can only be modified if no apps are using them.
+> **Info:** System folder locations can only be modified if no apps are using them.
 {.is-info}
 
-#### Tip
+#### Tip callout
 
 This is for a helpful pointer for the reader. It may be in response to a common problem, misunderstanding or  pre-emptive troubleshooting step. For example:
 
 > **Tip**: If boot fails, check that HexOS is at the top in your BIOS boot device order. The instructions are at the top of this guide.
 {.is-tip}
 
-#### Get help (troubleshooting call out)
+#### Get help callout (troubleshooting callout)
 
 This is for direct references to troubleshooting pages or links to get support directly. For example:
 
-> If you have any doubts or questions, please [contact HexOS support](https://discord.com/invite/DjEp3WRHKz): this step is critical to get right.
+> **Help:** If you have any doubts or questions, please [contact HexOS support](https://discord.com/invite/DjEp3WRHKz): this step is critical to get right.
 {.is-troubleshooting}
 
-#### Contribute 
+#### Contribute callout
 
-This call out is used to thank community members who worked on a guide, or to encourage readers to get involved in working on HexOS documentation writing. 
+This callout is used to thank community members who worked on a guide, or to encourage readers to get involved in working on HexOS documentation writing. 
 
 For example a thank you should be added at the top of each community guide:
 
-> Thanks to lnkd and ShinobiRen for the original guide
+> **Thank you** to lnkd and ShinobiRen for the original guide
 {.is-contribute}
 
 And the following should be added to the bottom of each page:
 
-> Help to improve HexOS documentation: [join the #Docs channel on discord](https://discord.com/invite/DjEp3WRHKz) today! Send feedback, suggestions or contribute a guide.
+> **Contribute:** to help to improve HexOS documentation [join the #Docs channel on Discord](https://discord.com/invite/DjEp3WRHKz) today! Send feedback, suggestions or contribute a guide.
 {.is-contribute}
 
 
@@ -199,11 +206,14 @@ The phrase "under the hood" is an idiom borrowed from cars meaning something hid
 
 ## Screenshots
 
-In HexOS documentation each instruction/action is provided in text form followed by a screenshot in a dropdown box below. This is accessible to a range of learning styles.
+In HexOS docs each instruction/action is provided as text, followed by a screenshot in a dropdown box. 
 
 The screenshots are taken with surrounding UI elements included, to help orient the user.
 
-Image names are carefully chosen both to keep the wiki organised and to serve as acceptable alt text for those accessing the docs with a screen reader.
+Filenames are carefully chosen both to keep the wiki organised and to serve as acceptable alt-text for those accessing the docs with a screen reader.
+
+Together, these make the docs accessible to a wide variety of HexOS users.
+
 
 ### Image style
 
@@ -215,8 +225,8 @@ Please take screenshots as follows:
     - logo
     - menu
     - side bar
-- A brief, descriptive file name, which
-    - serves as the alt-text for screen reader users
+- A brief, descriptive filename, which:
+    - can serve as the alt-text for screen reader users
     - helps other editors find images more easily
 
 #### Example screenshots
@@ -240,7 +250,7 @@ Please take screenshots as follows:
 ![include-background-to-system-tray.png](/style-guide/include-background-to-system-tray.png)
 </details>
  
--   [TODO] What to pixelise?
+-   [TODO] What to pixelize?
 
 
 ### Placing the screenshot in the dropdown
@@ -255,11 +265,11 @@ The html needed to put the screenshot in the dropdown is as follows:
 ```
 the central element ![alt-text](/url/of-image.png) is automatically generated by the editor when adding an image to the page. The space after </summary> is important, without it the image will not display. Check that the image is displaying inside the dropdown each time, with even a small error, only the url will display.
 
-### Folders and file names
+### Folders and filenames
 
 When adding a screenshot, please add the image to the correct folder. 
 
-Folders can be identified by their file name, which should be the same as the page name (or similar)
+Folders can be identified by their name, which should be the same as the page name (or similar)
 
 <details>
 <summary> Choose the correct folder </summary>
@@ -267,15 +277,26 @@ Folders can be identified by their file name, which should be the same as the pa
 ![screenshots-choose-folder.png](/style-guide/screenshots-choose-folder.png)
 </details>
 
-If you are writing a new guide please create a matching folder for the images. Please name it carefully as folder names cannot be easily edited.
+If you are writing a new guide please create a matching folder for the images. Hyphens between words must be used (instead of spaces) as otherwise images in the folder will not show in the documentation. Please name the folder carefully as folder names cannot be easily edited.
 
-#### Naming the screenshot
+#### Naming the screenshot and alt-text
 
 The filename of the screenshot is important as it:
 
-- serves as the default alt text for the image, which is how screen reader users will experience the image
 - allows future editors to be able to find or identify the image, for example to re-use or replace it
+- is used by the wiki as the default alt-text for the image
 
+Screenshot filenames should be all lower case with hypens between words.
+
+They should be short, descriptive, and specific enough to work as both a filename and default alt text.
+
+For example, use **new-folder-button.png** rather than **screenshot3.png**. Not every detail included is needed, for example **select-storage-folder.png** is more useful than **storage-screen-with-menu-and-cursor.png**.
+
+If needed the alt-text may be edited further by changing the text within the square brackets
+
+```
+![screenshots-choose-folder.png](/style-guide/screenshots-choose-folder.png)
+```
 
 ## Licence
 
