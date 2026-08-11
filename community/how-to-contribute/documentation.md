@@ -2,7 +2,7 @@
 title: Documentation How To Contribute
 description: 
 published: false
-date: 2026-07-29T15:23:53.790Z
+date: 2026-08-11T12:40:09.723Z
 tags: 
 editor: markdown
 dateCreated: 2026-07-18T09:51:14.516Z
@@ -19,7 +19,7 @@ There are two main ways to help improve the HexOS docs.
 -   Join the [HexOS Discord server](https://discord.com/invite/fCW2htvYdz) 
 -   In the # Docs channel describe the issue you found with the docs
 - If the issue is with Getting started, Features or Troubleshooting then HexOS staff will fix the documentation
-- If the problem is with a Community guide you can request a fix or correct the guide yourself
+- If the problem is with a Community Guide you can request a fix or correct the guide yourself
 	- To correct the issue yourself please request edit access in discod
   - Once access is granted log in at HexOS.com, navigate to the docs page and click the edit button
   <details>
@@ -27,7 +27,7 @@ There are two main ways to help improve the HexOS docs.
 
   ![click-edit-button.png](/click-edit-button.png){.align-center}
     </details>
-    - Once you have finished the edit, click the save button
+- Once you have finished the edit, click the save button
     
   <details>
   <summary> Click the save button </summary>
@@ -40,13 +40,14 @@ There are two main ways to help improve the HexOS docs.
 
 ### Get in touch
 -   Join the [HexOS Discord server](https://discord.com/invite/fCW2htvYdz) 
--   In the # Docs channel describe the guide you would like to contribute
+-   In the #Docs channel describe the guide you would like to contribute
 -   Ask for edit access to the docs site: this is usually given same day but can take a few days
-- You can then edit the Community > Community guides section of docs.hexos.com using your usual hexos.com login
+- You can then edit the **Community** > **Community guides section** of docs.hexos.com using your usual hexos.com login
 
 
 ### Write the guide
 - Read through the documentation the style guide \[TODO - link\]
+- Consider writing the guide elswhere and pasting it in as the wiki editor does not autosave
 - Create a new page by clicking the new page icon
 
 <details>
@@ -54,13 +55,14 @@ There are two main ways to help improve the HexOS docs.
 
   ![add-new-page.png](/add-new-page.png){.align-center}
     </details>
--  Set the page location as **Different ways to contribute** > **Community guides **
+-  Set the page location as **Different ways to contribute** > **Community guides**
 <details>
   <summary> Choose page location </summary>
+  
+![choose-the-guide-location.png](/choose-the-guide-location.png)
+</details>
 
-  ![add-new-page.png](/add-new-page.png){.align-center}
-    </details>
-- Name the page, using your guide title
+- Name the page, using your guide title, lower case words and hyphens between them
 <details>
   <summary> Name the page </summary>
 
@@ -74,7 +76,10 @@ There are two main ways to help improve the HexOS docs.
 
   ![toggle-off-published.png](/toggle-off-published.png){.align-center}
     </details>
-- Don't forget to save the guide as you go, wiki.js does not autosave
+- Save the guide using the save tick
+
+> **Warning:** Don't forget to save the guide as you go, wiki.js does not autosave
+{.is-warning}
 
 ### Feedback and publication
 
