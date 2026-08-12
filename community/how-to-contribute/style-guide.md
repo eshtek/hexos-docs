@@ -2,7 +2,7 @@
 title: HexOS Documentation Style Guide
 description: 
 published: false
-date: 2026-08-11T12:12:49.996Z
+date: 2026-08-12T10:28:13.068Z
 tags: 
 editor: markdown
 dateCreated: 2026-07-18T09:49:27.262Z
@@ -247,8 +247,23 @@ Please take screenshots as follows:
   
 ![include-background-to-system-tray.png](/style-guide/include-background-to-system-tray.png)
 </details>
- 
--   [TODO] What to pixelize?
+
+### Things to pixelize
+
+When taking screenshots for HexOS documentation you *may* wish to hide the following:
+
+- Your HexOS username
+- Your LAN IP address
+
+You **must** not show any of the following in HexOS documentation:
+
+- Passwords, encryption keys and API keys
+- App-specific tokens/passes that are paid (e.g. Plex Pass)
+- Copyrighted media, if documenting e.g. Jellyfin or Plex
+- Personal photographs of people
+
+In the latter two cases, please use copyright free content as placeholders or blur any images.
+
 
 ### Screenshot folder names
 
