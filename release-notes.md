@@ -2,7 +2,7 @@
 title: Release Notes
 description: 
 published: true
-date: 2026-08-02T00:23:18.478Z
+date: 2026-08-15T03:26:48.967Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:43:24.662Z
@@ -18,7 +18,7 @@ The Command Deck is the HexOS web interface. Updates are automatically deployed 
 
 **[View Command Deck Release Notes →](/release-notes/command-deck/)**
 
-**Latest:** [August 7, 2026 - Redesigned navigation, community translations, and stability hardening](/release-notes/command-deck/2026-08-07)
+**Latest:** [August 14, 2026 - New App Curation (Palworld Server)](/release-notes/command-deck/2026-08-14)
 
 ## TrueNAS
 
