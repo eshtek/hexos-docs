@@ -2,7 +2,7 @@
 title: Illustrated Installation Guide
 description: 
 published: true
-date: 2026-08-06T14:19:52.624Z
+date: 2026-08-17T16:45:18.140Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:41:01.586Z
@@ -42,7 +42,7 @@ The next step is to put the .iso file onto a USB stick with Balena Etcher. The U
     -   Select your target USB drive
     -   Click 'Flash!'
 
-**Important**: Do not use Rufusto create the installation USB - Stick with Balena Etcher.
+**Important**: Do not use Rufus to create the installation USB - Stick with Balena Etcher.
 
 ## Installation Process
 
