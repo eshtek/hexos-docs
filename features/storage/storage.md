@@ -2,7 +2,7 @@
 title: Storage
 description: 
 published: true
-date: 2026-06-28T21:46:07.238Z
+date: 2026-08-18T17:57:14.075Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:40:57.001Z
@@ -85,4 +85,8 @@ Sometimes storage issues are more serious than a single drive failure. Before as
 **Multiple drive problems**: If you lose more drives than your redundancy can handle, by default 1 drive, you're in data loss territory. <span style="color: red;">**Stop using the system immediately**</span> and consider professional data recovery if the data is critical.
 
 The key is acting quickly when you see alerts. Most pool problems start small and get worse if ignored.
+
+## Understanding Capacity Usage
+
+When copying data to a system, some users will notice a discrepency between the size of the files they are copying and the capacity in use on the given storage pool/folder.  This is due to ZFS compression, which reduces the total space needed to store some files.  This is a completely normal observation.  Example:  Storage pool with one 700MB file in it could report back only 300MB of capacity in use.  This mean's that ZFS compression conserved 400MB of capacity for you automatically.  Just another silent benefit of ZFS and HexOS!
 
