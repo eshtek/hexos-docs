@@ -265,6 +265,41 @@ You **must** not show any of the following in HexOS documentation:
 In the latter two cases, please use copyright free content as placeholders or blur any images.
 
 
+### Image sizing
+
+By default images display at their full width, which can make large screenshots overwhelm a page. Add a size class in curly braces directly after the image markdown to cap its width and center it:
+
+```markdown
+![storage-pools.png](/features/storage-pools.png){.medium .framed}
+```
+
+Available classes:
+
+| Class | Effect |
+|---|---|
+| `{.small}` | Max width 320px, centered |
+| `{.medium}` | Max width 560px, centered |
+| `{.large}` | Max width 800px, centered |
+| `{.framed}` | Border, rounded corners, and drop shadow |
+
+Classes combine inside a single set of braces — `{.medium .framed}` is the recommended style for UI screenshots. Note that a second set of braces will not work: write `{.medium .framed}`, not `{.medium}{.framed}`.
+
+You don't need to remember the class names: the markdown editor toolbar has an **image size menu** (the image icon between the blockquote menu and the bullet list button). Place your cursor immediately after the image markdown, open the menu, and pick a size — with or without a frame — and it inserts the classes for you.
+
+<details>
+<summary> Example of the same image at each size </summary>
+
+Small, framed:
+
+![card-in-system-tray.png](/card-in-system-tray.png){.small .framed}
+
+Medium, framed:
+
+![card-in-system-tray.png](/card-in-system-tray.png){.medium .framed}
+
+</details>
+
+
 ### Screenshot folder names
 
 When adding a screenshot, please add the image to the correct folder. 
