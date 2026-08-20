@@ -2,7 +2,7 @@
 title: Documentation Licensing
 description: Licensing for the HexOS product documentation
 published: false
-date: 2026-08-11T14:21:00.545Z
+date: 2026-08-20T14:26:43.676Z
 tags: 
 editor: markdown
 dateCreated: 2026-08-11T14:21:00.545Z
@@ -14,9 +14,7 @@ dateCreated: 2026-08-11T14:21:00.545Z
 
 The HexOS documentation is developed and maintained by **Eshtek, Inc.** with contributions from the HexOS community.
 
-We want the HexOS documentation to remain freely available for people to use, improve, translate, and share while ensuring that improvements to the documentation remain available to the broader community.
-
----
+We want the HexOS documentation to be freely available for people to use, improve, translate, and share, while also allowing contributions to be reused under different licences where appropriate. This allows HexOS documentation to benefit the wider HexOS community in as many ways as possible.
 
 ## Documentation License
 
