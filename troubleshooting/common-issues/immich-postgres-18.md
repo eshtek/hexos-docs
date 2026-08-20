@@ -219,3 +219,6 @@ If you are still having trouble updating Immich please reach out to `support@hex
 `BruteNas` - Provided the instructions for saving files in shell
 
 Also a big thank you to everyone that contributed on [GitHub](https://github.com/truenas/apps/issues/4628) to find a solution
+
+> **Contribute:** to help to improve HexOS documentation [join the #Docs channel on Discord](https://discord.com/invite/DjEp3WRHKz) today! Send feedback, suggestions or contribute a guide.
+{.is-contribute}

@@ -176,3 +176,6 @@ Only once the new server is doing everything the old one did:
 If you get stuck partway through, the [HexOS Discord](https://discord.gg/fCW2htvYdz) is the
 fastest place to ask. Include which step you reached, which option you chose, your old and new
 pool names, and whether the new server has been claimed yet.
+
+> **Contribute:** to help to improve HexOS documentation [join the #Docs channel on Discord](https://discord.com/invite/DjEp3WRHKz) today! Send feedback, suggestions or contribute a guide.
+{.is-contribute}
