@@ -2,7 +2,7 @@
 title: Command Deck Release Notes
 description: 
 published: true
-date: 2026-08-15T03:25:25.690Z
+date: 2026-08-20T19:30:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:43:20.245Z

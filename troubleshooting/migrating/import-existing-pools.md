@@ -2,7 +2,7 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-08-06T14:31:49.337Z
+date: 2026-08-20T19:30:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-22T12:46:47.046Z

@@ -2,7 +2,7 @@
 title: Drive Failure
 description: Identify a failed drive and replace it without losing data
 published: true
-date: 2026-08-20T18:40:00.000Z
+date: 2026-08-20T19:30:00.000Z
 tags: replace, drive
 editor: markdown
 dateCreated: 2026-06-16T02:28:08.916Z

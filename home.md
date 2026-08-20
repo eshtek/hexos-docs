@@ -2,7 +2,7 @@
 title: HexOS Docs
 description: 
 published: true
-date: 2026-06-09T20:03:52.819Z
+date: 2026-08-20T19:30:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:41:15.127Z

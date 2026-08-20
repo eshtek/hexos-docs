@@ -2,7 +2,7 @@
 title: Installation issues
 description: USB imaging problems and installer failures
 published: true
-date: 2026-08-20T18:00:00.000Z
+date: 2026-08-20T19:30:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-08-20T18:00:00.000Z

@@ -2,7 +2,7 @@
 title: Sign-in and account issues
 description: Claiming your server, Command Deck login, local server authentication
 published: true
-date: 2026-08-20T18:00:00.000Z
+date: 2026-08-20T19:30:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-08-20T18:00:00.000Z

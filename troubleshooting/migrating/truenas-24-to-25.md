@@ -2,7 +2,7 @@
 title: Upgrading HexOS with TrueNAS 24.10.0 to TrueNAS 25.10.3
 description: 
 published: true
-date: 2026-06-30T18:30:11.071Z
+date: 2026-08-20T19:30:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:43:52.526Z

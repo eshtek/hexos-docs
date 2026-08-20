@@ -2,7 +2,7 @@
 title: Community Guides
 description: 
 published: true
-date: 2026-07-28T11:22:51.421Z
+date: 2026-08-20T19:30:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:39:30.276Z

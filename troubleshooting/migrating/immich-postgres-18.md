@@ -2,7 +2,7 @@
 title: Updating Immich to use Postgres 18
 description: 
 published: true
-date: 2026-06-30T18:36:50.664Z
+date: 2026-08-20T19:30:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:43:47.690Z

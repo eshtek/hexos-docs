@@ -2,7 +2,7 @@
 title: Clear Browser Cache
 description: 
 published: true
-date: 2026-06-21T23:48:30.521Z
+date: 2026-08-20T19:30:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:43:38.260Z

@@ -2,7 +2,7 @@
 title: Migrating Immich to New Storage Configuration
 description: 
 published: true
-date: 2026-06-30T17:55:50.722Z
+date: 2026-08-20T19:30:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:43:42.835Z

@@ -2,7 +2,7 @@
 title: Windows 11 cannot connect to public folders
 description: Windows 11 requires SMB signing for public shares. This is how to turn that requirement off.
 published: true
-date: 2026-08-20T19:00:00.000Z
+date: 2026-08-20T19:30:00.000Z
 tags: troubleshoot, smb, samba, network
 editor: markdown
 dateCreated: 2026-06-18T22:20:59.343Z

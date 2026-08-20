@@ -2,7 +2,7 @@
 title: Why you should avoid USB attached drives for data pool disks
 description: 
 published: true
-date: 2026-06-09T20:05:31.507Z
+date: 2026-08-20T19:30:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:43:33.887Z
