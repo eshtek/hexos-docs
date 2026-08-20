@@ -1,8 +1,8 @@
 ---
 title: HexOS Documentation Style Guide
 description: 
-published: false
-date: 2026-08-20T15:45:58.338Z
+published: true
+date: 2026-08-20T15:46:29.254Z
 tags: 
 editor: markdown
 dateCreated: 2026-07-18T09:49:27.262Z
