@@ -38,7 +38,7 @@ From the Storage screen you can
 - View the status of pools
 - View the health of pools & drives
 
-[Read more about the Storage screen here.](/features/storage/storage)
+[Read more about the Storage screen here.](/features/storage)
 
 
 ## Folders
