@@ -8,11 +8,11 @@ editor: markdown
 dateCreated: 2026-06-08T15:40:20.899Z
 ---
 
-# How to Create a New Folder
+# How to create a new folder
 
 1. Log into [HexOS deck](https://deck.hexos.com) 
 2. Move to the Folders section in the side menu 
-3. Select the **New Folder** button
+3. Click the **New Folder** button
 
 <details>
 <summary> New Folder button </summary>
@@ -20,7 +20,7 @@ dateCreated: 2026-06-08T15:40:20.899Z
 ![click-add-new-folder](https://github.com/user-attachments/assets/c0ca6cef-3829-4127-835c-df7f556cd6f3){.medium .framed}
 </details>
 
-This will bring up the **Create Folder** dialogue
+This will bring up the **Create Folder** dialog
 
 <details>
 <summary> Create Folder dialogue </summary>
@@ -30,16 +30,16 @@ This will bring up the **Create Folder** dialogue
 
 ## General
 
-### Folder Name
-- Select a folder name.
-> **Note:** Folder name cannot be modified after folder creation.
+### Folder name
+- Choose a folder name.
+> **Warning:** Folder name cannot be modified after folder creation.
 {.is-warning}
 
 
 ### Location
-- Select the pool where you would like your folder to be in.
+- Choose the pool you would like your folder to be in.
   - If you only have one pool then it will automatically be selected for you.
-> **Note:** Folder location cannot be modified after folder creation.
+> **Warning:** Folder location cannot be modified after folder creation.
 {.is-warning}
 
 
@@ -50,7 +50,7 @@ This will bring up the **Create Folder** dialogue
 </details>
 
 ## Access <small>(optional)</small>
-In the **Access** section you can select which users have access to this folder and which permissions they are granted. This is covered in more detail in the [Folder Permissions section](/features/folders/#folder-permissions). 
+In the **Access** section you can choose which users have access to this folder and which permissions they are granted. This is covered in more detail in the [Folder Permissions section](/features/folders/#folder-permissions). 
 
 <details>
 <summary> Access settings section </summary>
@@ -72,7 +72,7 @@ In this example a user has been selected and given permission only to view the f
 In this section you can set a maximum amount of disk space the folder may use. This helps manage disk usage when multiple people or applications share your server.
 
 ### Backup <small>(optional)</small>
-You can Enable Time Machine by selecting the checkbox. Enabling this feature sets up the folder with the proper configuration for Apple's Time Machine backup system.
+You can enable Time Machine by clicking the checkbox. Enabling this feature sets up the folder with the proper configuration for Apple's Time Machine backup system.
 
 <details>
 <summary> Storage limit and backup options </summary>
@@ -92,11 +92,11 @@ You can optionally enable encryption on folders you create. [Read about encrypte
 ![encryption](https://github.com/user-attachments/assets/51155ee1-219e-4850-8ac2-897dfde2b66f){.medium .framed}
 </details>
 
-> **Important:** Encryption can only be enabled during folder creation and cannot be disabled once the folder is created, nor can the passphrase be changed. 
+> **Warning:** Encryption can only be enabled during folder creation and cannot be disabled once the folder is created, nor can the passphrase be changed. 
 {.is-warning}
 
 
-## Finalizing New Folder Creation
+## Finalizing new folder creation
 
 <details>
 <summary> Folder settings overview </summary>
@@ -104,13 +104,13 @@ You can optionally enable encryption on folders you create. [Read about encrypte
 ![overview](https://github.com/user-attachments/assets/8fb0e6b6-a0ab-42a2-a0cb-9cd1e969b8bc){.medium .framed}
 </details>
 
-After configuring all fo the folder settings you will see the overview of your choices. 
+After configuring all of the folder settings you will see the overview of your choices. 
 
-If you wish to adjust any settings, select the back button and edit the settings. When you are ready select **Create** and the folder will be created. When a folder is created you will see it on the **Folders** screen.
+If you wish to adjust any settings, click the back button and edit the settings. When you are ready click **Create** and the folder will be created. When a folder is created you will see it on the **Folders** screen.
 
 ## Editing folder settings
 
-To edit the settings of a folder go to the Folders screen and select the folder you wish to edit.
+To edit the settings of a folder go to the Folders screen and click the folder you wish to edit.
 
 <details>
 <summary> Selecting a folder to edit </summary>
@@ -118,7 +118,7 @@ To edit the settings of a folder go to the Folders screen and select the folder 
 ![click-folder](https://github.com/user-attachments/assets/def9039e-0043-4b22-a404-5f3c021f50ec){.medium .framed}
 </details>
 
-Then select **Edit**
+Then click **Edit**
 
 <details>
 <summary> Edit button </summary>
@@ -126,7 +126,7 @@ Then select **Edit**
 ![Screenshot From 2025-10-03 14-13-34](https://github.com/user-attachments/assets/80689a91-4de7-413a-824f-0b1c0b3f9836){.medium .framed}
 </details>
 
-Folders cannot be renamed and encryption settings can’t be modified after folder creation. <br>The edit dialogue shows you what may be edited.
+Folders cannot be renamed and encryption settings can’t be modified after folder creation. <br>The edit dialog shows you what may be edited.
 
 <details>
 <summary> Edit folder dialogue </summary>

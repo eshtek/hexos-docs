@@ -12,11 +12,10 @@ dateCreated: 2026-06-08T15:40:16.156Z
 
 Install scripts are JSON objects with the following structure. Scripts can use various macros (template variables) that are dynamically replaced during processing.
 
-::: tip Source of Truth
-Install scripts live in the [hexos-app-catalog](https://github.com/eshtek/hexos-app-catalog) repository. See [Contributing](/features/apps/install-scripts/contributing) for how to submit new scripts.
-:::
+> **Tip:** Install scripts live in the [hexos-app-catalog](https://github.com/eshtek/hexos-app-catalog) repository. See [Contributing](/features/apps/install-scripts/contributing) for how to submit new scripts.
+{.is-tip}
 
-## Root Properties
+## Root properties
 
 - **`version`** (required): Schema version. Must be `4` or `5`. Versions 1-3 are deprecated. Use `5` if your script includes lifecycle hooks; otherwise `4` is fine.
 - **`custom`** (optional): Set to `true` for community/custom apps that aren't in the default TrueNAS catalog
@@ -32,11 +31,11 @@ Install scripts live in the [hexos-app-catalog](https://github.com/eshtek/hexos-
 - **`app_values`** (required): Configuration object passed directly to TrueNAS API
 - **`hooks`** (optional, V5 only): Array of lifecycle hook declarations. See [Hooks Reference](/features/apps/install-scripts/reference/hooks)
 
-## Available Macros
+## Available macros
 
 Install scripts support various macros that are replaced dynamically during script processing:
 
-### Basic Macros
+### Basic macros
 - **`$SERVER_LAN_IP`**: Server's LAN IP address
 - **`$SERVER_HOST_ID`**: Server's unique host ID
 - **`$LOCATION(locationId)`**: Resolves to configured location path
@@ -45,7 +44,7 @@ Install scripts support various macros that are replaced dynamically during scri
 - **`$HOST_PATH(path)`**: Creates host path configuration object
 - **`$MOUNTED_HOST_PATH(path, mount_point)`**: Creates mounted host path configuration
 
-### Conditional Macros
+### Conditional macros
 - **`$APP_INSTALLED(appName)`**: Returns "true" or "false" if app is installed
 - **`$QUESTION(key)`**: References user's response to installation question
 - **`$IF(condition, trueValue, [falseValue])`**: Conditional logic with support for:
@@ -60,7 +59,7 @@ Install scripts support various macros that are replaced dynamically during scri
 
 For detailed macro documentation and examples, see the [Macros Reference](/features/apps/install-scripts/reference/macros).
 
-## Custom App Metadata
+## Custom app metadata
 
 When `custom: true`, the `metadata` object is required:
 
@@ -71,7 +70,7 @@ When `custom: true`, the `metadata` object is required:
 | `icon` | string | Yes | URL to the app's icon (SVG or PNG) |
 | `version` | string | Yes | Semantic version of the custom app |
 
-## Example Structure
+## Example structure
 
 For complete, working examples of install scripts, browse the [hexos-app-catalog](https://github.com/eshtek/hexos-app-catalog) repository. These production-ready scripts demonstrate best practices and real-world usage patterns for popular applications like Plex, Jellyfin, Immich, and more.
 
@@ -87,7 +86,7 @@ The `requirements` object defines system requirements that HexOS validates befor
 
 ### Locations
 
-Locations are folder paths configured in HexOS Settings → Locations. Each location maps to a specific use case:
+Locations are folder paths configured in HexOS **Settings** > **Locations**. Each location maps to a specific use case:
 
 **Available Locations:**
 - `ApplicationsPerformance`: High-performance storage for app data (typically SSD)
@@ -173,7 +172,7 @@ Network ports that the application will use. HexOS can validate port availabilit
 }
 ```
 
-### Complete Requirements Example
+### Complete requirements example
 
 ```json
 {
@@ -196,11 +195,11 @@ Network ports that the application will use. HexOS can validate port availabilit
 }
 ```
 
-### Requirements Validation
+### Requirements validation
 
 When users attempt to install an app, HexOS performs the following checks:
 
-1. **Location Validation**: Verifies that all required locations are configured in Settings → Locations
+1. **Location Validation**: Verifies that all required locations are configured in **Settings** > **Locations**
    - If a location is not configured, it will be marked as "unmet"
    - Users must configure missing locations before installation can proceed
    - The install script's `ensure_directories_exists` will create subdirectories within configured locations
@@ -213,7 +212,7 @@ When users attempt to install an app, HexOS performs the following checks:
 
 **Important**: The `ensure_directories_exists` section of your install script will only create subdirectories and files. It does **not** create the base location paths themselves. Users must configure these locations in HexOS Settings first, and your requirements validation ensures this happens before installation begins.
 
-## Installation Questions
+## Installation questions
 
 Installation questions allow you to prompt users for configuration values during app installation. Question responses can be referenced in `app_values` using the `$QUESTION(key)` syntax.
 
@@ -266,7 +265,7 @@ Reference question responses in your `app_values` using the `$QUESTION(key)` syn
 
 Question responses can be used in conditional logic with the `$IF` macro. See the [$IF macro documentation](/features/apps/install-scripts/reference/macros#if-condition-truevalue-falsevalue) for examples of using questions in conditional expressions.
 
-## Directory Creation, Ownership, and Snapshots
+## Directory creation, ownership, and snapshots
 
 Each entry in `ensure_directories_exists` is an object with the following properties:
 
@@ -304,10 +303,10 @@ Each entry in `ensure_directories_exists` is an object with the following proper
 - Only the latest 3 snapshots per app per dataset are kept — older snapshots are automatically pruned after each new snapshot
 - Only applies to app-specific paths (4+ path segments) — location roots are never snapshotted
 
-## App Values
+## App values
 This object is passed directly to TrueNAS's app installation API. The structure varies by application and corresponds to the app's configuration schema in the [TrueNAS apps repository](https://github.com/truenas/apps). For example, you can see Plex's schema for the `storage` property [here](https://github.com/truenas/apps/blob/1d2a6e9811f9af2ceae6529cc094a432a7da4e96/trains/stable/plex/app_versions.json#L422).
 
-### Conditional Configuration
+### Conditional configuration
 
 Install scripts support conditional logic to customize app configuration based on:
 - Other installed apps using [`$APP_INSTALLED(appName)`](/features/apps/install-scripts/reference/macros#app_installedappname)

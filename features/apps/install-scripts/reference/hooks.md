@@ -14,7 +14,7 @@ Lifecycle hooks are TypeScript functions that execute at specific points during 
 
 Hooks are a **V5** feature. To use hooks, set `"version": 5` in your install script and add a `hooks` array.
 
-## Hook Events
+## Hook events
 
 | Event | When it fires |
 |---|---|
@@ -23,7 +23,7 @@ Hooks are a **V5** feature. To use hooks, set `"version": 5` in your install scr
 | `onBeforeUpgrade` | Before `app.upgrade` is called on TrueNAS |
 | `onAfterUpgrade` | After `app.upgrade` completes successfully |
 
-## Hook Declaration
+## Hook declaration
 
 Each entry in the `hooks` array is a hook declaration:
 
@@ -40,7 +40,7 @@ Each entry in the `hooks` array is a hook declaration:
 }
 ```
 
-### Declaration Properties
+### Declaration properties
 
 | Property | Type | Required | Description |
 |---|---|---|---|
@@ -66,11 +66,11 @@ Every hook must have exactly one of `script` or `scriptContent` — never both, 
 - **`scriptContent`** — embeds the TypeScript code directly in the JSON. Used by community contributions for self-contained simplicity.
 
 
-## Writing a Hook Script
+## Writing a hook script
 
 Hook scripts are TypeScript files that export an async function. The function receives a `HookContext` object with methods for interacting with the app and reporting progress.
 
-### File-Based Hook (first-party)
+### File-based hook (first-party)
 
 Create a directory for your app in the catalog repo with a `.ts` file:
 
@@ -117,7 +117,7 @@ Reference it in the install script JSON:
 }
 ```
 
-### Inline Hook (community `scriptContent`)
+### Inline hook (community `scriptContent`)
 
 Embed the code directly in the JSON — no external files needed:
 
@@ -168,7 +168,7 @@ The `HookContext` object is passed to your hook function. It provides everything
 
 ### Methods
 
-#### Checkpoint Management
+#### Checkpoint management
 
 Checkpoints represent progress steps shown to the user in the HexOS activity center.
 
@@ -187,20 +187,20 @@ Checkpoints represent progress steps shown to the user in the HexOS activity cen
 | `sleep(ms)` | Async delay for the given number of milliseconds. |
 | `waitForApp(path, opts?)` | Poll the app's HTTP endpoint until it responds. Uses exponential backoff (40 attempts by default). Options: `{ timeout?, retries?, method?, expectedStatus? }` |
 
-#### Error Handling
+#### Error handling
 
 | Method | Description |
 |---|---|
 | `fail(message, context?)` | Throw a structured error. `context` is an array of `{ label, value }` pairs for diagnostic display. |
-| `awaitCheckpointRetry(checkpointId, error, context?)` | Pause the hook at a failed checkpoint and wait for the user to click Retry or Skip. Returns `"retry"` or `"skip"`. |
+| `awaitCheckpointRetry(checkpointId, error, context?)` | Pause the hook at a failed checkpoint and wait for the user to click **Retry** or **Skip**. Returns `"retry"` or `"skip"`. |
 
-#### Input Access
+#### Input access
 
 | Method | Description |
 |---|---|
 | `getInput<T>(inputId, schema?)` | Type-safe accessor for user-collected inputs. Throws if the input is missing. |
 
-## Version Conditions
+## Version conditions
 
 Hooks can be restricted to specific version transitions during upgrades:
 
@@ -220,11 +220,11 @@ Hooks can be restricted to specific version transitions during upgrades:
 
 Both `fromVersionRange` and `toVersionRange` use [semver range syntax](https://www.npmjs.com/package/semver#ranges). The hook only fires if both conditions match (when both are specified).
 
-## Hook Inputs
+## Hook inputs
 
 Hooks can declare inputs that are collected from the user before the hook runs. The HexOS UI shows an input dialog when the hook enters the `AWAITING_INPUT` state.
 
-### OAuth Input
+### OAuth input
 
 ```json
 {
@@ -249,7 +249,7 @@ Hooks can declare inputs that are collected from the user before the hook runs. 
 }
 ```
 
-### Question Input
+### Question input
 
 ```json
 {
@@ -276,7 +276,7 @@ const { authToken } = ctx.getInput<{ authToken: string }>("plex_login");
 const libraryName = ctx.getInput<string>("library_name");
 ```
 
-## User Optional Hooks
+## User optional hooks
 
 Hooks with `userOptional` show a toggle switch in the install dialog, letting the user decide whether to run the hook:
 
@@ -292,7 +292,7 @@ Hooks with `userOptional` show a toggle switch in the install dialog, letting th
 }
 ```
 
-### userOptional Properties
+### userOptional properties
 
 | Property | Type | Required | Description |
 |---|---|---|---|
@@ -301,7 +301,7 @@ Hooks with `userOptional` show a toggle switch in the install dialog, letting th
 | `default` | boolean | No | Whether the toggle is on by default (default: `true`) |
 | `link` | object | No | A link rendered inline at the end of the description (see below) |
 
-### Adding a Link
+### Adding a link
 
 Use the `link` property to display a clickable link after the description text. This is useful when your hook performs an action that requires the user to acknowledge external terms of service or documentation.
 
@@ -328,13 +328,12 @@ Use the `link` property to display a clickable link after the description text. 
 
 The link opens in a new tab. It renders inline at the end of the description paragraph, styled as a branded underlined link.
 
-- When to use a link
-If your hook accepts terms, agrees to a EULA, or performs an action governed by a third-party service's policies on behalf of the user, include a `link` to the relevant terms so the user can review them before opting in.
+**When to use a link:** If your hook accepts terms, agrees to a EULA, or performs an action governed by a third-party service's policies on behalf of the user, include a `link` to the relevant terms so the user can review them before opting in.
 
 
 During upgrades, `userOptional` hooks are automatically excluded — only non-optional hooks run.
 
-## Hook Execution Flow
+## Hook execution flow
 
 ### Install
 
@@ -348,18 +347,18 @@ During upgrades, `userOptional` hooks are automatically excluded — only non-op
 
 Same pattern with `onBeforeUpgrade` and `onAfterUpgrade`. Only hooks matching the version [conditions](#version-conditions) run. `userOptional` hooks are excluded.
 
-### Failure Handling
+### Failure handling
 
 When a non-optional hook fails after all auto-retries:
 
 1. The hook task enters `AWAITING_RETRY` state
-2. The user sees Retry and Skip buttons in the activity center
+2. The user sees **Retry** and **Skip** buttons in the activity center
 3. **Retry** re-executes the hook from the beginning (or from the failed checkpoint if using `awaitCheckpointRetry`)
 4. **Skip** marks the hook as skipped and allows the parent task to complete
 
 Optional hooks (`optional: true`) are automatically skipped on failure without blocking the install.
 
-## Checkpoint Retry Pattern
+## Checkpoint retry pattern
 
 For hooks with multiple steps, use `awaitCheckpointRetry` to let users retry individual steps without restarting the entire hook:
 
@@ -388,7 +387,7 @@ export async function afterInstall(ctx: HookContext) {
 }
 ```
 
-## Custom App Metadata
+## Custom app metadata
 
 When `custom: true`, the `metadata` field is required:
 
@@ -407,7 +406,7 @@ When `custom: true`, the `metadata` field is required:
 
 Custom apps appear in the HexOS app store alongside standard TrueNAS catalog apps. The `internal: true` flag hides them in production (useful for test apps).
 
-## Complete V5 Example
+## Complete V5 example
 
 ```json
 {

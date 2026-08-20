@@ -12,7 +12,7 @@ dateCreated: 2026-06-08T15:39:57.416Z
 
 Want to add your app curation to the official HexOS catalog? Install scripts now live in the [hexos-app-catalog](https://github.com/eshtek/hexos-app-catalog) repository — this is the single source of truth for all curated and community install scripts.
 
-## Contribution Steps
+## Contribution steps
 
 1. **Test your install script** in HexOS using Custom Install (Expert Mode) and verify it works reliably
 2. **Fork** the [hexos-app-catalog](https://github.com/eshtek/hexos-app-catalog) repository
@@ -23,7 +23,7 @@ Want to add your app curation to the official HexOS catalog? Install scripts now
    - Any special requirements (unique mounts, GPU usage, special environment variables)
    - What the hooks do (if V5)
 
-## Repository Structure
+## Repository structure
 
 ```
 hexos-app-catalog/
@@ -39,14 +39,14 @@ hexos-app-catalog/
 └── ...
 ```
 
-## Script Format
+## Script format
 
 - **V4**: Standard install scripts without hooks. Set `"version": 4`.
 - **V5**: Install scripts with lifecycle hooks. Set `"version": 5` and add a `hooks` array. See the [Hooks Reference](/features/apps/install-scripts/reference/hooks) for details.
 
 Both formats are fully supported. Use V5 only if your app benefits from post-install automation.
 
-## Using Inline Hooks (`scriptContent`)
+## Using inline hooks (`scriptContent`)
 
 Community contributors who don't need separate `.ts` files can embed hook code directly in the JSON using the `scriptContent` field. This keeps everything in a single file:
 
@@ -69,13 +69,12 @@ Community contributors who don't need separate `.ts` files can embed hook code d
 }
 ```
 
-> Testing with Custom Install
-> You can test inline hook scripts using **Custom Install in Expert Mode** — paste your V5 JSON with `scriptContent` hooks directly into the editor and run it. This is useful for development and testing before submitting a PR. Inline scripts should not be part of a PR submission for testing purposes only — submit them when they're ready for production use.
+> **Testing with Custom Install:** You can test inline hook scripts using **Custom Install in Expert Mode** — paste your V5 JSON with `scriptContent` hooks directly into the editor and run it. This is useful for development and testing before submitting a PR. Inline scripts for testing purposes only should not be part of a PR submission — submit them when they're ready for production use.
 {.is-info}
 
 
 
-## Best Practices
+## Best practices
 
 - Use the [Schema Reference](/features/apps/install-scripts/reference/schema) and [Macros Reference](/features/apps/install-scripts/reference/macros) to understand all available fields and template variables
 - Browse existing scripts in the [hexos-app-catalog](https://github.com/eshtek/hexos-app-catalog) for real-world examples
@@ -84,6 +83,6 @@ Community contributors who don't need separate `.ts` files can embed hook code d
 - Use `$LOCATION()` macros instead of hardcoded paths
 - Declare `owner` on directories that need specific permissions
 
-## Sharing Before Contributing
+## Sharing before contributing
 
 Not ready for a PR? Share your install script JSON in the [HexOS Community Forums](https://forums.hexos.com) to get feedback from other users first.

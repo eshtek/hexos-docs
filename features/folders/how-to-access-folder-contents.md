@@ -8,18 +8,19 @@ editor: markdown
 dateCreated: 2026-06-08T15:40:29.773Z
 ---
 
-# How to Access Files and Folders Over the Network
+# How to access files and folders over the network
 
 In HexOS, you can [create folders](/features/folders/create-a-new-folder) through the deck, but you can’t add contents to the folders via the deck. <br>
 The folder contents are added, viewed and edited from another device *over the network*. This means folders are accessed using a computer, laptop or phone connected to the same network. 
 
 This guide will explain how to access a folder on your HexOS server from a variety of other devices.
->Note: Some apps may require different methods to add or view data. In Immich, for example, you upload photos and videos via a web browser.
+> **Info:** Some apps may require different methods to add or view data. In Immich, for example, you upload photos and videos via a web browser.
+{.is-info}
 
-## Copying the Address of a Folder
+## Copying the address of a folder
 
-1. In the folders screen of your [HexOS deck](https://deck.hexos.com), select on the folder you want to access
-2. Select the **Browse** button
+1. In the folders screen of your [HexOS deck](https://deck.hexos.com), click the folder you want to access
+2. Click the **Browse** button
 
 <details>
 <summary> Browse button </summary>
@@ -27,7 +28,7 @@ This guide will explain how to access a folder on your HexOS server from a varie
 ![browse-button](https://github.com/user-attachments/assets/4bc786e3-e672-41b6-9235-fb94c80d6e18){.medium .framed}
 </details>
 
-You will be given the folder IP address needed to connect to it from other devices on the same network. You can select the Copy button to copy a link and paste it following the instructions below.
+You will be given the folder IP address needed to connect to it from other devices on the same network. You can click the **Copy** button to copy a link and paste it following the instructions below.
 
 <details>
 <summary> Folder address with Copy button </summary>
@@ -35,7 +36,7 @@ You will be given the folder IP address needed to connect to it from other devic
 ![link-for-browse](https://github.com/user-attachments/assets/5cb66e5e-a6de-4f89-b3a3-35b523abd0be){.medium .framed}
 </details>
 
-You can select Windows or Mac using the dropdown.
+You can choose Windows or Mac using the dropdown.
 
 <details>
 <summary> Windows or Mac dropdown </summary>
@@ -52,14 +53,14 @@ Here are some examples of how to access the file from various devices. The speci
 ### On Mac
 
 1. Open Finder
-2. Select "Go" in the menu bar
-3. Select "Connect to Server"
-4. Paste the SMB link into the "Server Address" field
-5. Select the "Connect" button
+2. Click **Go** in the menu bar
+3. Click **Connect to Server**
+4. Paste the SMB link into the **Server Address** field
+5. Click the **Connect** button
 
 ### On Windows
 1. Open File Explorer
-2. On the left side there is a list of folders and locations, select **This PC**
+2. On the left side there is a list of folders and locations, click **This PC**
 
 <details>
 <summary> This PC in File Explorer </summary>
@@ -68,7 +69,7 @@ Here are some examples of how to access the file from various devices. The speci
 </details>
 
 1. Right click for the menu 
-2. Select **Add a network location**
+2. Click **Add a network location**
 
 <details>
 <summary> Add a network location option </summary>
@@ -76,7 +77,7 @@ Here are some examples of how to access the file from various devices. The speci
 ![add-a-network-location](https://github.com/user-attachments/assets/33afaa07-7e69-4bac-9fc4-c6d0009dc312){.medium .framed}
 </details>
 
-Follow the wizard though by selecting the **Next** button.
+Follow the wizard through by clicking the **Next** button.
 
 <details>
 <summary> Network location wizard </summary>
@@ -84,7 +85,7 @@ Follow the wizard though by selecting the **Next** button.
 ![next](https://github.com/user-attachments/assets/877a37f5-2df4-4ef4-8bf9-98c790eecec1){.medium .framed}
 </details>
 
-Select the **Next** button on the **Choose a custom network location** step.
+Click the **Next** button on the **Choose a custom network location** step.
 
 <details>
 <summary> Custom network location step </summary>
@@ -92,7 +93,7 @@ Select the **Next** button on the **Choose a custom network location** step.
 ![choose-custom-next](https://github.com/user-attachments/assets/183a83a5-755d-46cb-a62d-4e25e1ccff8c){.medium .framed}
 </details>
 
-Paste the folder address in and select the **Next** button.
+Paste the folder address in and click the **Next** button.
 
 <details>
 <summary> Folder address field </summary>
@@ -100,7 +101,7 @@ Paste the folder address in and select the **Next** button.
 ![paste-in-address](https://github.com/user-attachments/assets/34109dba-a600-49f4-9a32-91698c0604d0){.medium .framed}
 </details>
 
-You can optionally choose a display name. Select the **Next** button.
+You can optionally choose a display name. Click the **Next** button.
 
 <details>
 <summary> Display name field </summary>
@@ -108,7 +109,7 @@ You can optionally choose a display name. Select the **Next** button.
 ![name-it](https://github.com/user-attachments/assets/6827c07e-aa33-4557-861d-e4c8f75372bc){.medium .framed}
 </details>
 
-Then select the **Finish** button.
+Then click the **Finish** button.
 
 <details>
 <summary> Finish button </summary>
@@ -136,9 +137,9 @@ Open the My Files app.
 ![my-files](https://github.com/user-attachments/assets/7fc60faf-ac38-468e-8988-0c52c4d5b5d3){.medium .framed}
 </details>
 
-1. On the top right, select the menu button (three vertical dots)
-2. Select Services
-3. Select SMB File Share
+1. On the top right, click the menu button (three vertical dots)
+2. Click **Services**
+3. Click **SMB File Share**
 
 <details>
 <summary> SMB File Share menu option </summary>
@@ -146,9 +147,9 @@ Open the My Files app.
 ![services-smb-share](https://github.com/user-attachments/assets/7e153a65-747b-42c5-bc35-5e0473cdcadb){.medium .framed}
 </details>
 
-1. Then select a suggested share from the list or manually enter the URL using the given in the windows section "\\\ipaddress\Folder-name"
+1. Then click a suggested share from the list or manually enter the URL using the format given in the Windows section "\\\ipaddress\Folder-name"
 2. Fill out the password field if required
-3. Select **Add**
+3. Click **Add**
 
 <details>
 <summary> SMB share login dialogue </summary>
@@ -156,7 +157,7 @@ Open the My Files app.
 ![smb-share-login](https://github.com/user-attachments/assets/e1107dab-088b-448a-898f-433f552b8a25){.medium .framed}
 </details>
 
-The file will now show in the left hand navigation on My Files
+The folder will now show in the left-hand navigation on My Files
 
 <details>
 <summary> Share shortcut in My Files </summary>
@@ -166,10 +167,10 @@ The file will now show in the left hand navigation on My Files
 
 ### On Linux
 
-This varies depending on your linux distro. The url required will likely be similar to the Mac one, with forward slashes (rather than windows and chrome with \\ back slashes). The following example is from Fedora.
+This varies depending on your Linux distro. The URL required will likely be similar to the Mac one, with forward slashes (rather than Windows and ChromeOS with \\ backslashes). The following example is from Fedora.
 
 1. Open your files app
-2. Select **Network**
+2. Click **Network**
 3. Paste in the folder address 
 
 <details>
@@ -179,7 +180,7 @@ This varies depending on your linux distro. The url required will likely be simi
 </details>
 
 1. Fill in the username and password if needed
-2. Select **Connect**
+2. Click **Connect**
 
 <details>
 <summary> Username and password prompt </summary>
@@ -187,7 +188,7 @@ This varies depending on your linux distro. The url required will likely be simi
 ![enter-details](https://github.com/user-attachments/assets/3d1d558d-58dc-4e63-8e55-cf98f45a88c4){.medium .framed}
 </details>
 
-You will now see the folder in your Networks section of your file manager and also as a shortcut at the bottom of the left hand navigation of files
+You will now see the folder in your Networks section of your file manager and also as a shortcut at the bottom of the left-hand navigation of files
 
 <details>
 <summary> Folder shortcut in file manager </summary>
@@ -207,13 +208,13 @@ Sometimes the folder may show under **Other locations**
 
 ### Samsung Galaxy
 
-1. Open `My Files` app
+1. Open the **My Files** app
 <details>
 <summary> My Files app </summary>
 
 ![](../../public/assets/screenshots/folder-access-guide/g1.png){.medium .framed}
 </details>
-2. Select network storage
+2. Click network storage
     - You may be prompted to update the app
 
 <details>
@@ -221,28 +222,28 @@ Sometimes the folder may show under **Other locations**
 
 ![](../../public/assets/screenshots/folder-access-guide/g2.png){.medium .framed}
 </details>
-3. Select the + button at the top right corner
+3. Click the + button at the top right corner
 <details>
 <summary> Plus button in My Files </summary>
 
 ![](../../public/assets/screenshots/folder-access-guide/g3.png){.medium .framed}
 </details>
-4. Select Network Drive (SMBv2/SMBv3)
+4. Click **Network Drive (SMBv2/SMBv3)**
 <details>
 <summary> Network Drive option </summary>
 
 ![](../../public/assets/screenshots/folder-access-guide/g4.png){.medium .framed}
 </details>
-5. If your server appears select it, if not select `add manually`
+5. If your server appears click it, if not click **add manually**
 <details>
 <summary> Server selection list </summary>
 
 ![](../../public/assets/screenshots/folder-access-guide/g5.png){.medium .framed}
 </details>
-6. Fill this out with your information and press `add`<br>
-- The `Address` can be found at the folders screen of [HexOS deck](https://deck.hexos.com/folders) <br>
-          1. Select any folder <br>
-          2. Select the `Browse` button
+6. Fill this out with your information and click **Add**<br>
+- The **Address** can be found on the folders screen of [HexOS deck](https://deck.hexos.com/folders) <br>
+          1. Click any folder <br>
+          2. Click the **Browse** button
           <details>
           <summary> Browse button </summary>
           
@@ -255,7 +256,7 @@ Sometimes the folder may show under **Other locations**
           ![](../../public/assets/screenshots/folder-access-guide/ip2.png){.medium .framed}
           </details>
      - You can leave the port alone
-     - Username and password are optional but if you would like to use them then uncheck `Sign in anonymously`
+     - Username and password are optional but if you would like to use them then uncheck **Sign in anonymously**
 <details>
 <summary> Network drive details form </summary>
 
@@ -264,33 +265,33 @@ Sometimes the folder may show under **Other locations**
 
 ### Google Pixel
 
-There isn't a native function on pixel devices to access SMB network shares.</br>
-SMB network shares can still be accessed by installing 3rd party applications.
+There isn't a native function on Pixel devices to access SMB network shares.</br>
+SMB network shares can still be accessed by installing third-party applications.
 
 ## iOS
 
-1. Open the `Files` app
+1. Open the **Files** app
 <details>
 <summary> Files app </summary>
 
 ![](../../public/assets/screenshots/folder-access-guide/i1.jpg){.medium .framed}
 </details>
-2. Press the 3 horizontal dots button on the top right corner
+2. Click the 3 horizontal dots button on the top right corner
 <details>
 <summary> Three-dot menu button </summary>
 
 ![](../../public/assets/screenshots/folder-access-guide/i2.png){.medium .framed}
 </details>
-3. Select `Connect to Server`
+3. Click **Connect to Server**
 <details>
 <summary> Connect to Server option </summary>
 
 ![](../../public/assets/screenshots/folder-access-guide/i3.png){.medium .framed}
 </details>
-4. Type your server ip address in the `Server` textbox 
-    - The `Address` can be found at the folders screen of [HexOS deck](https://deck.hexos.com/folders)
-        1. Select any folder
-        2. Select the `Browse` button
+4. Type your server IP address in the **Server** textbox 
+    - The **Address** can be found on the folders screen of [HexOS deck](https://deck.hexos.com/folders)
+        1. Click any folder
+        2. Click the **Browse** button
         <details>
         <summary> Browse button </summary>
         
@@ -308,7 +309,7 @@ SMB network shares can still be accessed by installing 3rd party applications.
 
 ![](../../public/assets/screenshots/folder-access-guide/i4.png){.medium .framed}
 </details>
-5. Select `Guest` or `Registered User`
+5. Click **Guest** or **Registered User**
     - Input your username and password if you would like to log in as a registered user
 
 <details>

@@ -16,19 +16,19 @@ This screen allows you to
 - Swap drives.
 - Fix problems related to storage.
 
-## Creating Storage Pools
+## Creating storage pools
 
-When first setting up your server, you likely created at least one storage pool. Pools are groups of drives that will work together as one, allowing a larger amount of storage space than a single drive and may also giving additional “redundancy” in case of drive failure.
+When first setting up your server, you likely created at least one storage pool. Pools are groups of drives that will work together as one, allowing a larger amount of storage space than a single drive and may also give additional “redundancy” in case of drive failure.
 
-If you have unused drives, you can create a new pool by selecting the create pool button.
+If you have unused drives, you can create a new pool by clicking the create pool button.
 
-It’s important to create pools with an appropriate amount of drives. Any pools with less than three drives cannot be expanded with additional drives.<br> [Read more about drives and pools here](/getting-started/overview#get-yourself-some-storage)
+It’s important to create pools with an appropriate number of drives. Any pools with fewer than three drives cannot be expanded with additional drives.<br> [Read more about drives and pools here](/getting-started/overview#get-yourself-some-storage)
 
-## Replacing Drives
+## Replacing drives
 
 Eventually every drive will fail. Storage pools with [parity](https://en.wikipedia.org/wiki/Parity_drive), like the ones that HexOS suggests, allow for failing drives to be replaced without losing the data.
 
-The storage interface will show and alert when there are problems relating to your pools and drives. When drives start showing errors on  [SMART](https://www.truenas.com/docs/scale/25.10/scaletutorials/storage/disks/drivehealthmanagement/index.html#smart-tests-options-for-community-edition) tests, having I/O problems, or go missing entirely, you'll see visual indicators right in the interface. 
+The storage interface will show an alert when there are problems relating to your pools and drives. When drives start showing errors on [SMART](https://www.truenas.com/docs/scale/25.10/scaletutorials/storage/disks/drivehealthmanagement/index.html#smart-tests-options-for-community-edition) tests, having I/O problems, or go missing entirely, you'll see visual indicators right in the interface. 
 
 When a drive needs replacement, HexOS will look at your available unused drives and suggest suitable replacements.  
 
@@ -37,7 +37,7 @@ If you don't yet have a replacement drive, check out our guide before buying [se
 ### How to replace a drive
 
 - First install the drive in the machine
-- Next go to [deck.hexos.com](https://deck.hexos.com) and click to the Storage screen
+- Next go to [deck.hexos.com](https://deck.hexos.com) and open the **Storage** screen
 - Then click on your storage pool
 <details>
 <summary> Storage pool </summary>
@@ -45,7 +45,7 @@ If you don't yet have a replacement drive, check out our guide before buying [se
 ![Screenshot From 2025-10-01 11-26-58](https://github.com/user-attachments/assets/756974b0-e517-4fcb-a9dc-2a1c56b357ad){.medium .framed}
 </details>
 
-- Click on the View Drives button
+- Click the **View Drives** button
 <details>
 <summary> View Drives button </summary>
 
@@ -59,14 +59,14 @@ If you don't yet have a replacement drive, check out our guide before buying [se
 ![Screenshot From 2025-10-01 11-33-37](https://github.com/user-attachments/assets/236667b6-f4e5-464a-910d-4cd87da538c3){.medium .framed}
 </details>
 
-- Next click the replace button
+- Next click the **Replace** button
 <details>
 <summary> Replace button </summary>
 
 ![Screenshot From 2025-10-01 11-33-46](https://github.com/user-attachments/assets/436f9a2e-1246-482c-9942-c012b4e8e874){.medium .framed}
 </details>
 
-## Growing Your Storage
+## Growing your storage
 
 As your server usage grows, you might need more storage capacity. HexOS gives you options to expand your storage.
 
@@ -77,7 +77,7 @@ This is how you can add more drives to your existing pool for more storage space
 To add another drive to your pool:
 
 - First install the drive in the machine 
-- Then go to [deck.hexos.com](https://deck.hexos.com) and click to the Storage screen.
+- Then go to [deck.hexos.com](https://deck.hexos.com) and open the **Storage** screen.
 -   You should see the drive appear under Unused Drives
 - Click on the pool
 <details>
@@ -86,7 +86,7 @@ To add another drive to your pool:
 ![Screenshot From 2025-10-01 11-26-58](https://github.com/user-attachments/assets/7287e9a1-0112-4ad6-8210-6be6c35e5448){.medium .framed}
 </details>
 
-- Click Add drive
+- Click **Add drive**
 <details>
 <summary> Add drive button </summary>
 
@@ -98,19 +98,19 @@ To add another drive to your pool:
 This is how you can upgrade individual drives one at a time. The process for this is the same as replacing individual drives that have failed.
 
 
-## Critical Errors
+## Critical errors
 
-Sometimes storage issues are more serious than a single drive failure. Before assuming the world is falling apart, try restarting your server and checking if any of the errors go away.<br> If the errors persist, here's a quick overview of what you may see.
+Sometimes storage issues are more serious than a single drive failure. Before assuming the worst, try restarting your server and checking if any of the errors go away.<br> If the errors persist, here's a quick overview of what you may see.
 
-**Pool degradation**: Your pool is running weakened. Check if all drives are properly connected and look for drive errors. Usually this means a drive needs replacement, but your data is still safe.
+**Pool degradation**: Your pool is running in a weakened state. Check if all drives are properly connected and look for drive errors. Usually this means a drive needs replacement, but your data is still safe.
 
 **Pool offline**: Your pool isn't accessible right now. This often happens when too many drives fail at once or there's a connection issue. Check drive connections first, then look for multiple drive failures.
 
-**Multiple drive problems**: If you lose more drives than your redundancy can handle, by default 1 drive, you're in data loss territory. <span style="color: red;">**Stop using the system immediately**</span> and consider professional data recovery if the data is critical.
+**Multiple drive problems**: If you lose more drives than your redundancy can handle, by default 1 drive, you are at risk of data loss. <span style="color: red;">**Stop using the system immediately**</span> and consider professional data recovery if the data is critical.
 
 The key is acting quickly when you see alerts. Most pool problems start small and get worse if ignored.
 
-## Understanding Capacity Usage
+## Understanding capacity usage
 
-When copying data to a system, some users will notice a discrepency between the size of the files they are copying and the capacity in use on the given storage pool/folder.  This is due to ZFS compression, which reduces the total space needed to store some files.  This is a completely normal observation.  Example:  Storage pool with one 700MB file in it could report back only 300MB of capacity in use.  This mean's that ZFS compression conserved 400MB of capacity for you automatically.  Just another silent benefit of ZFS and HexOS!
+When copying data to a system, some users will notice a discrepancy between the size of the files they are copying and the capacity in use on the given storage pool/folder.  This is due to ZFS compression, which reduces the total space needed to store some files.  This is a completely normal observation.  Example:  Storage pool with one 700MB file in it could report back only 300MB of capacity in use.  This means that ZFS compression conserved 400MB of capacity for you automatically.  Just another silent benefit of ZFS and HexOS!
 

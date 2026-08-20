@@ -8,21 +8,21 @@ editor: markdown
 dateCreated: 2026-06-08T15:39:43.876Z
 ---
 
-# Curated Apps
+# Curated apps
 
 This section contains guides and troubleshooting information for apps officially curated by HexOS.
 
-## Available App Guides
+## Available app guides
 
 Guides will be added soon, check back for updates! 
 
-## About Curated Apps
+## About curated apps
 
 HexOS provides curated install scripts for popular home server applications. These apps have been tested and configured to work seamlessly with HexOS, but each app is maintained by its respective development team.
 
 For information about creating your own install scripts or contributing to the curated collection, see the [Install Scripts documentation](/features/apps/install-scripts/overview).
 
-## Need Help?
+## Need help?
 
 If you're experiencing issues with a curated app:
 

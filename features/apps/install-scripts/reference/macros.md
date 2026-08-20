@@ -184,12 +184,12 @@ Automatically detects and configures GPU resources for applications. The macro q
 - **Game Streaming**: Sunshine, Steam Link
 
 **NVIDIA Driver Update Steps:**
-NVIDIA drivers were installed already if this was a fresh install, however if this system was adopted or for whatever reason they require manual updating of the drivers from within the TrueNAS ui they can perform the following:
+NVIDIA drivers were installed already if this was a fresh install. However, if this system was adopted, or the drivers otherwise require manual updating, perform the following from within the TrueNAS UI:
 
-1. Apps → Settings (gear icon) → Advanced Settings
-2. Toggle "Enable GPU Support" or "NVIDIA Runtime" OFF → Save
+1. Go to **Apps** > **Settings** (gear icon) > **Advanced Settings**
+2. Toggle **Enable GPU Support** or **NVIDIA Runtime** OFF > **Save**
 3. Wait 10-30 seconds
-4. Toggle back ON → Save
+4. Toggle back ON > **Save**
 5. This triggers a `docker.update` with latest compatible NVIDIA drivers
 
 ## `$IF(condition, trueValue, [falseValue])`

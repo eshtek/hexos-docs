@@ -41,7 +41,7 @@ Notifications can be both marked as read and dismissed, and previous notificatio
 
 ## Common notifications
 
-### Task Notifications
+### Task notifications
 
 Certain tasks will let you know if they are still in progress with the rotating in progress symbol shown below. <br>
 <small>Examples: installing apps, managing storage or system updates.</small>
@@ -65,7 +65,7 @@ HexOS will send notifications for
 ![Screenshot From 2025-10-20 12-35-33](https://github.com/user-attachments/assets/5a4342cf-653f-48bd-90ce-0c85e5711764){.medium .framed}
 </details>
 
-### Operations and Achievements
+### Operations and achievements
 
 HexOS will send notifications for
 - New user creation or deletion is completed
@@ -78,20 +78,20 @@ HexOS will send notifications for
 ![Screenshot From 2025-10-20 12-34-36](https://github.com/user-attachments/assets/dc3a9ebc-3bab-45c5-8873-2155965f5424){.medium .framed}
 </details>
 
-### System Health Notifications
+### System health notifications
 
-HexOS will send health related notifications for
+HexOS will send health-related notifications for
 - Overheating alerts
 - Storage pool warnings
 - Storage drive errors
 
-### SMART Errors
+### SMART errors
 
 Your drives collect health data that HexOS monitors for potential problems. When you see SMART errors, it means the system has detected something that warrants investigation. This could indicate a drive issue that needs attention, but doesn't necessarily mean immediate replacement is required.
 
 Learn more about [SMART](https://www.truenas.com/docs/scale/25.10/scaletutorials/storage/disks/drivehealthmanagement/index.html#smart-tests-options-for-community-edition) technology.
 
-## Managing Notifications
+## Managing notifications
 
-You have control over how notifications appear and persist in your system. You can mark notifications as read by clicking on them, dismiss them when you've handled them, or use "Mark All as Read" and "Dismiss All" to handle multiple notifications at once. You can also view older notifications in the archive, with all notification history accessible through the [activity messages](/features/settings/#activity-history) page.
+You have control over how notifications appear and persist in your system. You can mark notifications as read by clicking on them, dismiss them when you've handled them, or use **Mark All as Read** and **Dismiss All** to handle multiple notifications at once. You can also view older notifications in the archive, with all notification history accessible through the [activity messages](/features/settings/#activity-history) page.
 
