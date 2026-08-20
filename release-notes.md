@@ -8,7 +8,7 @@ editor: markdown
 dateCreated: 2026-06-08T15:43:24.662Z
 ---
 
-# Release Notes
+# Release notes
 
 Stay up to date with the latest changes to HexOS and the underlying TrueNAS platform.
 

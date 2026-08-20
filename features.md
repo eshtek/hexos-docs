@@ -12,7 +12,7 @@ dateCreated: 2026-06-08T15:40:38.908Z
 
 Once your server is up and running, you'll have access to everything you need to manage your data, run applications, share files across your network, and keep your system running smoothly.
 
-This document will will briefly introduce each screen within HexOS.
+This document will briefly introduce each screen within HexOS.
 
 ## Dashboard
 
@@ -49,7 +49,7 @@ From the Folders screen you can
 - Create folders
 - Manage folders
 - Share folders over the network
-- Setup backup with Apple Time Machine or Windows Backup
+- Set up backup with Apple Time Machine or Windows Backup
 - Create user accounts
 - Manage user accounts
 
@@ -59,7 +59,7 @@ From the Folders screen you can
 
 The Apps screen allows us to install and manage apps.
 
-From the apps screen you can
+From the Apps screen you can
 - Install apps
 - Modify apps
 - Open the WebUI for apps
@@ -87,9 +87,9 @@ From the Settings screen you can
 
 ## Notifications
 
-The Notifications screen shows alerts and updates on our servers
+The Notifications screen shows alerts and updates on our servers.
 
-From the notification screen you can view
+From the Notifications screen you can view
 - Server updates
 - Application updates
 - Server warnings

@@ -14,7 +14,7 @@ The HexOS Docs site will guide you through setting up and running a HexOS home s
 
 Want to get involved? Check out our [contribution guide](/community/how-to-contribute/).
 
-## Quick Links
+## Quick links
 
 - [**About HexOS**](/about-hexos/) - Learn about HexOS
 - [**Common Issues**](/troubleshooting/common-issues/) - Solutions to frequently encountered problems

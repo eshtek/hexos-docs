@@ -8,11 +8,11 @@ editor: markdown
 dateCreated: 2026-06-08T15:41:01.586Z
 ---
 
-# Illustrated Installation Guide
+# Illustrated installation guide
 
 *by @Mawson with edits by @gingerling*
 
-## Before you Begin
+## Before you begin
 
 You will need:
 
@@ -32,42 +32,44 @@ Start by downloading the HexOS installer. You can download the installer from ei
     -   SHA256 Checksum: ```e551911445c95c1943e6638091896f34d2d423900cccd688ac09d811e78ed450```
 -   _(current as of 4/17/26)_
 
-## Create Installation USB
+## Create installation USB
 
 The next step is to put the .iso file onto a USB stick with Balena Etcher. The USB will be **erased** during this process.
 
 -   [Download Balena Etcher](https://etcher.balena.io/#download-etcher) onto your computer
     -   Install and open Etcher
-    -   Select "Flash from File" and choose your downloaded ISO
+    -   Select **Flash from File** and choose your downloaded ISO
     -   Select your target USB drive
-    -   Click 'Flash!'
+    -   Click **Flash!**
 
-**Important**: Do not use Rufus to create the installation USB - Stick with Balena Etcher.
+> **Warning:** Do not use Rufus to create the installation USB - stick with Balena Etcher.
+{.is-warning}
 
-## Installation Process
+## Installation process
 
 - Insert the USB into your server and power it on
 
-### Getting to the Boot Screen
+### Getting to the boot screen
 
-If you do not see the boot screen (shown in the next section) right away the following are common issues
+If you do not see the boot screen (shown in the next section) right away the following are common issues:
 
 #### Boot device order 
 
-Your server might be trying to boot from a different drive, for example an old windows install on one of the hard drives.
+Your server might be trying to boot from a different drive, for example an old Windows install on one of the hard drives.
 To fix this first enter the BIOS -  usually this is done by pressing F1, F2, F10, F12 or DEL while the machine is turning on.
 Then in the BIOS change the order of boot drives so your USB ISO is at the top. Then save/restart.
 
 #### Disabling Secure Boot
+
 If you see an error message about a “security policy violation” after booting, this is caused by [Secure Boot](https://en.wikipedia.org/wiki/UEFI#Secure_Boot)
 
-For instructions on how to disable secure boot search '[your motherboard model here] disable secure boot'. You can also search for the motherboard user manual, and search within that for 'secure boot'".
+For instructions on how to disable secure boot search '[your motherboard model here] disable secure boot'. You can also search for the motherboard user manual, and search within that for 'secure boot'.
 
-### Boot Screen
+### Boot screen
 
 Once you see this screen, you are ready to boot into HexOS and install it:
 
--   Select "Start HexOS Installation" (default)
+-   Select **Start HexOS Installation** (default)
 -   This screen will pass automatically after a moment
 
 <details>
@@ -76,9 +78,9 @@ Once you see this screen, you are ready to boot into HexOS and install it:
 ![1.png](/installation-guide/1.png){.medium .framed}
 </details>
 
-### Installation Menu
+### Installation menu
 
--   Once the system loads, select option 1: "Install/Upgrade"
+-   Once the system loads, select option 1: **Install/Upgrade**
 
 <details>
 <summary> Install/Upgrade menu option </summary>
@@ -86,7 +88,7 @@ Once you see this screen, you are ready to boot into HexOS and install it:
 ![2.png](/installation-guide/2.png){.medium .framed}
 </details>
 
-### Select Installation Drive
+### Select installation drive
 
 What you see now will depend on how many drives you have in your server. The drive or drives you choose to install HexOS on will not be available to store data on. 
 
@@ -99,7 +101,7 @@ What you see now will depend on how many drives you have in your server. The dri
 ![3.png](/installation-guide/3.png){.medium .framed}
 </details>
 
-### Confirm Drive Erasure
+### Confirm drive erasure
 
 -   Confirm you understand the selected drive(s) will be **FULLY ERASED**
 
@@ -109,7 +111,7 @@ What you see now will depend on how many drives you have in your server. The dri
 ![4.png](/installation-guide/4.png){.medium .framed}
 </details>
 
-### User Account Setup
+### User account setup
 
 -   Set the root password for the administrative user `truenas_admin` 
 - <span style="color: red;">**Save this password, you'll need it later**</span>
@@ -121,7 +123,7 @@ What you see now will depend on how many drives you have in your server. The dri
 ![5.png](/installation-guide/5.png){.medium .framed}
 </details>
 
-### Installation Progress
+### Installation progress
 
 -   The installer will run for a few minutes...
 
@@ -131,7 +133,7 @@ What you see now will depend on how many drives you have in your server. The dri
 ![6.png](/installation-guide/6.png){.medium .framed}
 </details>
 
-### Installation Complete
+### Installation complete
 
 -   Remove the install USB
 
@@ -141,7 +143,7 @@ What you see now will depend on how many drives you have in your server. The dri
 ![7.png](/installation-guide/7.png){.medium .framed}
 </details>
 
--   Restart your Machine
+-   Restart your machine
 
 <details>
 <summary> Reboot menu option </summary>
@@ -149,9 +151,9 @@ What you see now will depend on how many drives you have in your server. The dri
 ![8.png](/installation-guide/8.png){.medium .framed}
 </details>
 
-## First Boot
+## First boot
 
-### Boot Screen
+### Boot screen
 
 -   The boot select screen will appear again - ignore it
 -   The default option is correct and will auto-select
@@ -162,11 +164,11 @@ What you see now will depend on how many drives you have in your server. The dri
 ![9.png](/installation-guide/9.png){.medium .framed}
 </details>
 
-### System Startup
+### System startup
 
 -   The console will display startup information
 
-> **Tip**: If boot fails, check that HexOS is at the top in your BIOS boot device order. The instructions are at the top of this guide.
+> **Tip:** If boot fails, check that HexOS is at the top in your BIOS boot device order. The instructions are at the top of this guide.
 {.is-tip}
 
 
@@ -178,7 +180,7 @@ What you see now will depend on how many drives you have in your server. The dri
 
 ### Success!
 
--  The "Console Setup" screen shows when your server has fully booted
+-  The **Console Setup** screen shows when your server has fully booted
 
 <details>
 <summary> Console setup screen </summary>

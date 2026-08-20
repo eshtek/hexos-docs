@@ -12,7 +12,7 @@ dateCreated: 2026-06-08T15:39:03.122Z
 
 HexOS is growing, and we're actively working on defining new roles. Check back here regularly for open positions. We're always interested in connecting with talented people who are passionate about home servers and self-hosting and HexOS in general.
 
-## Open Positions
+## Open positions
 
 <span style="opacity: 0.6;">We don't currently have any open positions.</span>
 

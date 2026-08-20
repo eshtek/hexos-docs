@@ -13,7 +13,7 @@ dateCreated: 2026-06-08T15:37:46.550Z
 
 HexOS is software used to run a private home server also known as NAS (Network Attached Storage). A NAS keeps your content secure and private on your own computer, it's like "the cloud" but in your own home.
 
-## Simplified Setup
+## Simplified setup
 
 Until now, the largest barrier to running a home server was how complicated the software has been to use. This is where HexOS truly shines, with simplicity at its core. 
 
@@ -28,20 +28,20 @@ Simply install the apps of your choice from the Apps screen. Using apps you can 
 - run games and virtual machines 
 - and so much more. 
 
-## Bring Your Own Hardware
+## Bring your own hardware
 
-Part of what makes HexOS special is the ability to runs on a wide array of hardware, from repurposed systems to highly custom builds.<br> This allows you to upgrade your servers at will and even pick your favorite brand of storage.
+Part of what makes HexOS special is the ability to run on a wide array of hardware, from repurposed systems to highly custom builds.<br> This allows you to upgrade your servers at will and even pick your favorite brand of storage.
 
 The choice is yours.
 
 ## Partnering with TrueNAS
 
 We have partnered with TrueNAS to provide a simpler server solution, HexOS.<br> 
-TrueNAS scale is a fully featured and extensively tested enterprise data platform. 
+TrueNAS Scale is a fully featured and extensively tested enterprise data platform. 
 
 Running HexOS on top of TrueNAS Scale allows us to focus completely on improving the user experience without compromising on functionality or security.
 
-## How To Get HexOS
+## How to get HexOS
 
 HexOS is currently in its beta phase.
 

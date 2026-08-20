@@ -9,11 +9,11 @@ dateCreated: 2026-06-08T15:41:10.493Z
 ---
 
 
-# Complete Server Setup
+# Complete server setup
 
 Now that HexOS is installed, it’s time to log in and set up your server!
 
-### Before You Start
+### Before you start
 
 You'll need:
 - Your **HexOS username and password**  
@@ -21,7 +21,7 @@ You'll need:
 - Your **server connected to your Wi-Fi router** with a network cable  
 - A **computer on the same network** as your server
 
-## Login to HexOS
+## Log in to HexOS
 
 First, go to [deck.hexos.com](https://deck.hexos.com) and log in.   
 If you have not already signed up you can [sign up on HexOS hub](https://hub.hexos.com/).
@@ -32,11 +32,11 @@ If you have not already signed up you can [sign up on HexOS hub](https://hub.hex
 ![Screenshot From 2025-09-30 11-20-17](https://github.com/user-attachments/assets/bad810b2-5525-4eed-b029-99ea7467ba4e){.medium .framed}
 </details>
 
-> **💡 Note**
-> *This is the username and password you created when buying HexOS, it's not the root password you used when installing HexOS.*
+> **Info:** This is the username and password you created when buying HexOS, it's not the root password you used when installing HexOS.
+{.is-info}
 
 
-## Claiming Your Server
+## Claiming your server
 
 Once logged in, you'll need to claim your server.
 
@@ -46,22 +46,22 @@ Once logged in, you'll need to claim your server.
 ![Screenshot-from-2025-01-28-11-36-15-1536x864](https://github.com/user-attachments/assets/849718a1-ff66-47e2-8d22-a03e6dac4754){.medium .framed}
 </details>
 
-Your server should appear in the panel where it says "Looking for servers..." on the right of the screen. Click the `Claim` button.
+Your server should appear in the panel where it says **Looking for servers...** on the right of the screen. Click the **Claim** button.
 
-### Server Not Showing Up?
+### Server not showing up?
 
-First check that the server is connected to your wifi network, check that the cables are fully plugged in. Then refresh the page.
+First check that the server is connected to your Wi-Fi network, check that the cables are fully plugged in. Then refresh the page.
 
 If this does not let the server be detected you may need to connect manually.  
-- Click the "Having Problems" link at the bottom of the “Lets get started!” section
-- Then click "enter your ip manually".
+- Click the **Having Problems** link at the bottom of the **Lets get started!** section
+- Then click **enter your ip manually**.
 - Enter your WAN IP address (if you are unsure what that is you can find yours [here](https://whatismyipaddress.com/)).
 
 Once entered, your server should appear and can be claimed.
 
-## Server Setup Process
+## Server setup process
 
-### Step 1: Health and Capabilities 
+### Step 1: Health and capabilities 
 
 After claiming your server, you'll be brought to a display containing all of your server's hardware.
 
@@ -72,9 +72,9 @@ After claiming your server, you'll be brought to a display containing all of you
 </details>
 
 Make sure you see the correct number of drives and that no errors are being displayed.
-If you see green checks/ticks on everything then you're good to go. Click the `Continue` button.
+If you see green checks/ticks on everything then you're good to go. Click the **Continue** button.
 
-### Step 2: Storage Pools
+### Step 2: Storage pools
 
 You will now see a suggested arrangement of your drives into storage pools. "Pools" are groups of drives that will work together as one, allowing a larger amount of storage space than a single drive and also giving additional “redundancy” in case one or more drives fail.
 
@@ -89,9 +89,9 @@ HexOS will suggest a storage pool layout based on your hardware.
 Ideally you will have at least 3 drives in your pool, this means you can add more later.  
 [Read more about storage pool layouts here](/getting-started/overview#recommended-layouts).
 
-For most people, the recommended configuration is the best path forward. To use the default suggested layout click the `Continue` button again.
+For most people, the recommended configuration is the best path forward. To use the default suggested layout click the **Continue** button again.
 
-You will now see the setup process running
+You will now see the setup process running.
 
 <details>
 <summary> Setup progress screen </summary>
@@ -107,14 +107,14 @@ If you are more of a tinkerer you can remove drives from default pools or skip p
 - this affects how safely your pools handle failures
 - if you have fewer than 3 drives in a pool you can't add more drives to the pool later on
 
-### Step 3: Name Your Server
+### Step 3: Name your server
 
 You are just about done setting up your server.
 All that's left is to give your server a name and then the initialization process will begin.
 
 ### Step 4: Welcome to your HexOS NAS
 
-Now your setup is complete and it's time to take a look at your HexOS NAS for the first time. Click `Go to the dashboard`. You will see the Welcome to HexOS welcome wizard.
+Now your setup is complete and it's time to take a look at your HexOS NAS for the first time. Click **Go to the dashboard**. You will see the Welcome to HexOS welcome wizard.
 
 <details>
 <summary> HexOS welcome wizard </summary>
@@ -122,7 +122,7 @@ Now your setup is complete and it's time to take a look at your HexOS NAS for th
 ![Screenshot-from-2025-01-28-11-40-32-1536x864](https://github.com/user-attachments/assets/f92630cd-cf9e-4b4c-aafb-14317e927a6e){.medium .framed}
 </details>
 
-## What's Next?
+## What's next?
 
 This is a good point to check that the install has worked well and that your system is running smoothly. 
 
