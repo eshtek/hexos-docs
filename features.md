@@ -55,6 +55,20 @@ From the Folders screen you can
 
 [Learn more about the Folders screen here.](/features/folders/)
 
+## File browser
+
+The file browser lets us work with the contents of our folders from the Command Deck.
+
+From the file browser you can
+- Browse, sort, and search the files in a folder
+- Upload files and whole folders
+- Download files to your computer
+- Create, rename, move, copy, and delete files and folders
+- Download a file from the internet straight to the server
+- Burn an ISO to a USB stick plugged into the server
+
+[Learn more about the file browser here.](/features/file-browser)
+
 ## Apps
 
 The Apps screen allows us to install and manage apps.

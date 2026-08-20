@@ -24,7 +24,7 @@ You can access the Folders screen in the [Deck](https://deck.hexos.com) through 
 ![folders-screen-hexos](https://github.com/user-attachments/assets/eda14325-2d91-497c-9362-5784bce8bc87){.medium .framed}
 </details>
 
-You can’t browse the files from here. The Folders screen only shows the folders and not their contents.<br> [Read about how to access the folder contents here](/features/folders/how-to-access-folder-contents)
+The Folders screen shows your folders, not their contents. To look inside one, click the folder and then click **Browse** to open the [file browser](/features/file-browser). You can also [connect your computer to the folder over the network](/features/folders/how-to-access-folder-contents).
 
 ## Folder permissions
 
