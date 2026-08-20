@@ -2,7 +2,7 @@
 title: Documentation How To Contribute
 description: 
 published: false
-date: 2026-08-20T14:33:31.114Z
+date: 2026-08-20T14:47:15.653Z
 tags: 
 editor: markdown
 dateCreated: 2026-07-18T09:51:14.516Z
@@ -163,3 +163,7 @@ Click **OK** to finish the set up
 - When you're done the guide can be published. A docs admin can add it to the list on the **Community guides** page.
 
 Thank you! Documentation is a huge part of what makes a project like HexOS work for its users. Your support is invaluable. 
+
+### Documentation Licence
+
+By contributing you are agreeing to make your work available to the public under CC BY-SA 4.0 and to grant Eshtek, Inc. a perpetual, worldwide, non-exclusive, royalty-free, irrevocable license to it. Read all about the licence here. 
