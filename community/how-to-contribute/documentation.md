@@ -2,7 +2,7 @@
 title: Documentation How To Contribute
 description: 
 published: false
-date: 2026-08-20T14:57:42.852Z
+date: 2026-08-20T15:03:23.223Z
 tags: 
 editor: markdown
 dateCreated: 2026-07-18T09:51:14.516Z
@@ -60,7 +60,7 @@ You're all done! Thank you for your support.
 
 ### How to write a guide
 
-- Read through the documentation the style guide \[TODO - link\]
+- Read through the [documentation the style guide](/community/how-to-contribute/style-guide)
 - Take your time writing, and ask for help if you need it
 
 #### Create a page
