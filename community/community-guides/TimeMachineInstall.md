@@ -48,3 +48,6 @@ To do this, we need to add the share to the login items
     [![Screenshot2024-12-13at15_55_55.png.9f5e94a3a9a4fd321256c5c6c7aed01b.png](https://hub.hexos.com/uploads/monthly_2024_12/Screenshot2024-12-13at15_55_55.png.9f5e94a3a9a4fd321256c5c6c7aed01b.png){.medium .framed}](https://hub.hexos.com/uploads/monthly_2024_12/Screenshot2024-12-13at15_55_55.png.9f5e94a3a9a4fd321256c5c6c7aed01b.png "Fetching info...")  
       
     That's it, you should be all set up and running.
+
+> **Contribute:** to help to improve HexOS documentation [join the #Docs channel on Discord](https://discord.com/invite/DjEp3WRHKz) today! Send feedback, suggestions or contribute a guide.
+{.is-contribute}

@@ -10,7 +10,8 @@ dateCreated: 2026-06-08T15:39:11.970Z
 
 # Migrating Immich to new storage configuration (rsync method)
 
-*by @forsaken*
+> **Thank you:** @forsaken for the original guide
+{.is-contribute}
 
 I fixed it! 😁, but it was a pain to do it because rsync and TrueNAS datasets that have ACLs don't like each other.
 
@@ -89,3 +90,6 @@ sudo rsync -avh --stats --progress /mnt/HDDs/Photos/                            
 
 - Go back to Services and stop the SSH service
 - Delete the old datasets (be 100% sure that everything copied fine and all your files are copied to the new `data` dataset before doing this)
+
+> **Contribute:** to help to improve HexOS documentation [join the #Docs channel on Discord](https://discord.com/invite/DjEp3WRHKz) today! Send feedback, suggestions or contribute a guide.
+{.is-contribute}

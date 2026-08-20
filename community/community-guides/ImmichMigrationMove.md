@@ -10,7 +10,8 @@ dateCreated: 2026-06-08T15:39:07.451Z
 
 # Migrating Immich to new storage configuration (move method)
 
-*by @G-M0N3Y-2503*
+> **Thank you:** @G-M0N3Y-2503 for the original guide
+{.is-contribute}
 
 Just adding what I did to get it working for me. However, I received numerous permission warnings for the moves, but they didn't seem to have any ill effect.
 
@@ -114,3 +115,6 @@ b. Set **Postgres Data Storage** to `/mnt/SSDs/Applications/immich/postgres_data
 
 The reason I did the move rather than a copy was that I had snapshots of the previous datasets, so effectively the same thing.
 After that, I updated Immich to stable.
+
+> **Contribute:** to help to improve HexOS documentation [join the #Docs channel on Discord](https://discord.com/invite/DjEp3WRHKz) today! Send feedback, suggestions or contribute a guide.
+{.is-contribute}

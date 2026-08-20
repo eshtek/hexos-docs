@@ -10,7 +10,8 @@ dateCreated: 2026-06-08T15:39:16.279Z
 
 # Replicating virtual machines from one TrueNAS server to another
 
-*by @ShinobiRen*
+> **Thank you:** @ShinobiRen for the original guide
+{.is-contribute}
 
 Hello everyone!
 
@@ -99,3 +100,6 @@ Set up the backup credentials on the server you are transferring from. In my cas
 [![image.png](https://hub.hexos.com/uploads/monthly_2025_04/image.thumb.png.cba475dc9359559a1d03648381ba7199.png){.medium .framed}](https://hub.hexos.com/uploads/monthly_2025_04/image.png.e40a92042a3f6a172d540a55b3a4d46c.png)
 
 [![image.png](https://hub.hexos.com/uploads/monthly_2025_04/image.png.bd3c253eca7787e6ba656ae6ebcfe501.png){.medium .framed}](https://hub.hexos.com/uploads/monthly_2025_04/image.png.bd3c253eca7787e6ba656ae6ebcfe501.png)
+
+> **Contribute:** to help to improve HexOS documentation [join the #Docs channel on Discord](https://discord.com/invite/DjEp3WRHKz) today! Send feedback, suggestions or contribute a guide.
+{.is-contribute}
