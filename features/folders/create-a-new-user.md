@@ -25,17 +25,29 @@ If you want to share selected folders or files with someone who has access to yo
 > **Note:** The admin account doesn't show up in this list of users
 
 
-<img alt="add-new-user" src="https://github.com/user-attachments/assets/bea6021f-5538-4cc6-8d15-01890dcaffb1" />
+<details>
+<summary> Add new button under Users </summary>
+
+![add-new-user](https://github.com/user-attachments/assets/bea6021f-5538-4cc6-8d15-01890dcaffb1){.medium .framed}
+</details>
 
 
 1. Select a **Username** and **Password** 
 2. Select **Add account**
 
-<img alt="set-username-and-password" src="https://github.com/user-attachments/assets/50947bce-082f-4c68-bf76-e5d7c0204db9" />
+<details>
+<summary> Username and password fields </summary>
+
+![set-username-and-password](https://github.com/user-attachments/assets/50947bce-082f-4c68-bf76-e5d7c0204db9){.medium .framed}
+</details>
 
 The user will then appear in the deck under the **Users** section of the **Folders** screen. This might take a few moments.
 
-<img alt="user-is-there" src="https://github.com/user-attachments/assets/9d6aa23b-673f-475e-bc5a-df69200f113c" />
+<details>
+<summary> New user in the Users section </summary>
+
+![user-is-there](https://github.com/user-attachments/assets/9d6aa23b-673f-475e-bc5a-df69200f113c){.medium .framed}
+</details>
 
 
 ## Changing the password of a user
@@ -45,17 +57,29 @@ You can change the username or set a new password for an existing user.
 2. Select the **Folders** screen
 3. Select the user you wish to edit
 
-<img alt="edit-user-1" src="https://github.com/user-attachments/assets/fe56752f-1f64-4d01-90df-7ddf9fef10fe" />
+<details>
+<summary> Selecting a user to edit </summary>
+
+![edit-user-1](https://github.com/user-attachments/assets/fe56752f-1f64-4d01-90df-7ddf9fef10fe){.medium .framed}
+</details>
 
 Select the **Edit** button
 
-<img alt="edit-user-2" src="https://github.com/user-attachments/assets/fb983810-0509-48e2-9775-02f559b1c8c8" />
+<details>
+<summary> Edit button </summary>
+
+![edit-user-2](https://github.com/user-attachments/assets/fb983810-0509-48e2-9775-02f559b1c8c8){.medium .framed}
+</details>
 
 
 1. Change the username and set a new password if desired 
 2. Select **Update account** when you are finished.
 
-<img alt="edit-user-password" src="https://github.com/user-attachments/assets/44b37610-0270-41d3-826b-b5494cd6d36a" />
+<details>
+<summary> Update account dialogue </summary>
+
+![edit-user-password](https://github.com/user-attachments/assets/44b37610-0270-41d3-826b-b5494cd6d36a){.medium .framed}
+</details>
 
 ## How can a user access folders
 

@@ -39,16 +39,32 @@ If you don't yet have a replacement drive, check out our guide before buying [se
 - First install the drive in the machine
 - Next go to [deck.hexos.com](https://deck.hexos.com) and click to the Storage screen
 - Then click on your storage pool
-<img alt="Screenshot From 2025-10-01 11-26-58" src="https://github.com/user-attachments/assets/756974b0-e517-4fcb-a9dc-2a1c56b357ad" />
+<details>
+<summary> Storage pool </summary>
+
+![Screenshot From 2025-10-01 11-26-58](https://github.com/user-attachments/assets/756974b0-e517-4fcb-a9dc-2a1c56b357ad){.medium .framed}
+</details>
 
 - Click on the View Drives button
-<img alt="Screenshot From 2025-10-01 11-32-46" src="https://github.com/user-attachments/assets/b80c4171-dc87-43f3-a15d-643cf9b64f55" />
+<details>
+<summary> View Drives button </summary>
+
+![Screenshot From 2025-10-01 11-32-46](https://github.com/user-attachments/assets/b80c4171-dc87-43f3-a15d-643cf9b64f55){.medium .framed}
+</details>
 
 - Then click on the drive you want to replace
-<img alt="Screenshot From 2025-10-01 11-33-37" src="https://github.com/user-attachments/assets/236667b6-f4e5-464a-910d-4cd87da538c3" />
+<details>
+<summary> Drive selection in pool </summary>
+
+![Screenshot From 2025-10-01 11-33-37](https://github.com/user-attachments/assets/236667b6-f4e5-464a-910d-4cd87da538c3){.medium .framed}
+</details>
 
 - Next click the replace button
-<img alt="Screenshot From 2025-10-01 11-33-46" src="https://github.com/user-attachments/assets/436f9a2e-1246-482c-9942-c012b4e8e874" />
+<details>
+<summary> Replace button </summary>
+
+![Screenshot From 2025-10-01 11-33-46](https://github.com/user-attachments/assets/436f9a2e-1246-482c-9942-c012b4e8e874){.medium .framed}
+</details>
 
 ## Growing Your Storage
 
@@ -64,10 +80,18 @@ To add another drive to your pool:
 - Then go to [deck.hexos.com](https://deck.hexos.com) and click to the Storage screen.
 -   You should see the drive appear under Unused Drives
 - Click on the pool
-<img alt="Screenshot From 2025-10-01 11-26-58" src="https://github.com/user-attachments/assets/7287e9a1-0112-4ad6-8210-6be6c35e5448" />
+<details>
+<summary> Storage pool </summary>
+
+![Screenshot From 2025-10-01 11-26-58](https://github.com/user-attachments/assets/7287e9a1-0112-4ad6-8210-6be6c35e5448){.medium .framed}
+</details>
 
 - Click Add drive
-<img alt="Screenshot From 2025-10-01 11-46-33" src="https://github.com/user-attachments/assets/2548c137-773d-4583-baa4-001bfebea986" />
+<details>
+<summary> Add drive button </summary>
+
+![Screenshot From 2025-10-01 11-46-33](https://github.com/user-attachments/assets/2548c137-773d-4583-baa4-001bfebea986){.medium .framed}
+</details>
 
 ### Expanding drives 
 

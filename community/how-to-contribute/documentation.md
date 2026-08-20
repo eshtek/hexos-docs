@@ -32,7 +32,7 @@ Once edit access is granted, log in to HexOS.com and navigate to the documentati
 First click the **Edit** button
 
   <details>
-  <summary> Click the Edit button </summary>
+  <summary> Edit button </summary>
 
   ![click-edit-button.png](/click-edit-button.png){.align-center}
     </details>
@@ -40,7 +40,7 @@ First click the **Edit** button
 Once you have finished the edit, click the **Save** button
     
   <details>
-  <summary> Click the save button </summary>
+  <summary> Save button </summary>
 
    ![click-save-button.png](/click-save-button.png){.align-center}
     </details> 
@@ -67,7 +67,7 @@ You're all done! Thank you for your support.
 - Create a page by clicking the **New Page** icon
 
 <details>
-  <summary> Add new page </summary>
+  <summary> New Page icon </summary>
 
   ![add-new-page.png](/add-new-page.png){.align-center}
     </details>
@@ -76,9 +76,9 @@ You're all done! Thank you for your support.
 -  Set the **Page Location** to **Different ways to contribute** > **Community guides**. This is the WikiJS folder/page structure.
 
 <details>
-  <summary> Set the page location </summary>
+  <summary> Page location selector </summary>
   
-![choose-the-guide-location.png](/choose-the-guide-location.png)
+![choose-the-guide-location.png](/choose-the-guide-location.png){.medium .framed}
 </details>
 
 #### Name the page
@@ -88,7 +88,7 @@ You're all done! Thank you for your support.
   - This is part of the URL of the page, not the title displayed to readers which you will set later.
 
 <details>
-  <summary> Name the page </summary>
+  <summary> Page name field </summary>
 
   ![name-the-guide.png](/name-the-guide.png){.align-center}
     </details>
@@ -96,9 +96,9 @@ You're all done! Thank you for your support.
 Click the *Select* button
 
 <details>
-  <summary> Click Select </summary>
+  <summary> Select button </summary>
 
-  ![click-select.png](/how-to-contribute/click-select.png)
+  ![click-select.png](/how-to-contribute/click-select.png){.medium .framed}
 
 </details>
 
@@ -108,9 +108,9 @@ Click the *Select* button
 Please use the **Markdown** editor. 
 
 <details>
-  <summary> Click markdown editor </summary>
+  <summary> Editor selection screen </summary>
 
-![choose-visual-editor.png](/how-to-contribute/choose-visual-editor.png)
+![choose-visual-editor.png](/how-to-contribute/choose-visual-editor.png){.medium .framed}
 </details>
 
 
@@ -126,15 +126,15 @@ ages made using the visual editor would need to be converted to the markdown for
 #### Page properties
 Give the page a title. This will usually match the page page name you chose earlier
 <details>
-  <summary> Add page title </summary>
+  <summary> Page title field </summary>
 
-![title-page.png](/how-to-contribute/title-page.png)
+![title-page.png](/how-to-contribute/title-page.png){.medium .framed}
 </details>
 
 Under **Scheduling**, toggle off **Published**.
 
 <details>
-  <summary> Toggle off published </summary>
+  <summary> Published toggle </summary>
 
   ![toggle-off-published.png](/toggle-off-published.png){.align-center}
     </details>
@@ -142,9 +142,9 @@ Under **Scheduling**, toggle off **Published**.
 Click **OK** to finish the set up
 
 <details>
-  <summary> Click OK </summary>
+  <summary> OK button </summary>
 
-![click-okay.png](/how-to-contribute/click-okay.png)    </details>
+![click-okay.png](/how-to-contribute/click-okay.png){.medium .framed}    </details>
 
 > **Tip:** Save your work by clicking the checkmark icon
 {.is-tip}

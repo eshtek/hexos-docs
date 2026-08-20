@@ -20,7 +20,11 @@ dateCreated: 2026-06-08T15:43:42.835Z
      1) Select `Apps` on the left side bar
      2) Click on the `immich` app on the list (Not the Checkbox)
      3) View the `Application Version` in the Application info card
+<details>
+<summary> Application version in info card </summary>
+
 ![1.png](/immich-storage-migration/1.png =700x){.align-center}
+</details>
 
 ## Preparation
 - Note the contents of the `Photos` folder
@@ -39,20 +43,40 @@ dateCreated: 2026-06-08T15:43:42.835Z
 
 Once in the TrueNAS interface we will
 1) Select `Datasets` in the left sidebar</br>
+<details>
+<summary> Datasets option in sidebar </summary>
+
 ![2.png](/immich-storage-migration/2.png =500x){.align-center}
+</details>
 2) Click on the pool with your `Photos` folder and press `Add Dataset`</br>
+<details>
+<summary> Add Dataset button </summary>
+
 ![3.png](/immich-storage-migration/3.png =700x){.align-center}
+</details>
 3) Name the Dataset `Photos2` and select `save`</br>
+<details>
+<summary> Naming the Photos2 dataset </summary>
+
 ![4.png](/immich-storage-migration/4.png =500x){.align-center}
+</details>
 4) Click on the original `Photos` dataset and then press `Add Dataset`
 5) Name the Dataset `immich`, set the Dataset Preset to `Apps` and then select `save`</br>
+<details>
+<summary> Immich dataset with Apps preset </summary>
+
 ![5.png](/immich-storage-migration/5.png =500x){.align-center}
+</details>
 
 ## Copying Files
 
 1) Select `System` in the left sidebar
 2) Select `Shell` in the new sidebar</br>
+<details>
+<summary> Shell option in sidebar </summary>
+
 ![6.png](/immich-storage-migration/6.png =400x){.align-center}
+</details>
 3) Type `tmux` into the shell and press enter
    - This creates a session of the terminal that will keep going even if the TrueNAS web-ui times out
    - If the TrueNAS web-ui times out you can return to `shell` and type `tmux attach` to renter the session
@@ -89,17 +113,33 @@ Once in the TrueNAS interface we will
 ## Updating Immich
 
 1) Select `Apps` in the left sidebar</br>
+<details>
+<summary> Apps option in sidebar </summary>
+
 ![7.png](/immich-storage-migration/7.png =300x){.align-center}
+</details>
 2) Select `immich` 
 3) Verify `immich` app version is **1.132.0 or higher** in the application information card again
 4) Select `Edit` in the application information card</br>
+<details>
+<summary> Edit button on info card </summary>
+
 ![8.png](/immich-storage-migration/8.png =800x){.align-center}
+</details>
 5) Scroll down to the storage section
 6) Uncheck `Use old storage configuration`</br>
+<details>
+<summary> Old storage configuration checkbox </summary>
+
 ![19.png](/immich-storage-migration/9.png =700x){.align-center}
+</details>
 7) Select `Host Path` for Data Storage (aka Upload Location)
 8) Set the Host path to `/mnt/HDDs/Photos/immich`</br>
+<details>
+<summary> Host path setting </summary>
+
 ![10.png](/immich-storage-migration/10.png =700x){.align-center}
+</details>
 9) Scroll down to the bottom and select the update button
 10) Verify if the immich web-ui is working
 11) If immich Web-UI is working as expected, update the immich app in [HexOS Deck](https://deck.hexos.com)
@@ -111,9 +151,17 @@ Once in the TrueNAS interface we will
 2) we will be deleting the old datasets to free up storage space (Optional)
    1) Select `Datasets` in the left sidebar
    2) Click on the `Photos2` data set created earlier, press the `clipboard` to copy and press `Delete`</br>
+<details>
+<summary> Deleting the Photos2 dataset </summary>
+
 ![11.png](/immich-storage-migration/11.png =750x){.align-center}
+</details>
    3) Follow the on-screen prompts to confirm deletion</br>
+<details>
+<summary> Dataset deletion confirmation </summary>
+
 ![12.png](/immich-storage-migration/12.png =500x){.align-center}
+</details>
    4) Navigate to the ~/Applications/immich/ dataset
    5) Delete the `Backups`, `encoded-video`, `profile`, `thumbs` & `upload` datasets. </br>
 > <span style="color: red;">**Warning**: Do not delete the `postgres_data` dataset in the ~/Applications/immich/ dataset</span>

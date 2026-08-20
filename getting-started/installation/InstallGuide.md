@@ -70,13 +70,21 @@ Once you see this screen, you are ready to boot into HexOS and install it:
 -   Select "Start HexOS Installation" (default)
 -   This screen will pass automatically after a moment
 
-![1.png](/installation-guide/1.png)
+<details>
+<summary> HexOS installer boot screen </summary>
+
+![1.png](/installation-guide/1.png){.medium .framed}
+</details>
 
 ### Installation Menu
 
 -   Once the system loads, select option 1: "Install/Upgrade"
 
-![2.png](/installation-guide/2.png)
+<details>
+<summary> Install/Upgrade menu option </summary>
+
+![2.png](/installation-guide/2.png){.medium .framed}
+</details>
 
 ### Select Installation Drive
 
@@ -85,13 +93,21 @@ What you see now will depend on how many drives you have in your server. The dri
 -   **Use arrow keys to navigate, space-bar to select your installation drive or drives**
 -   "**[*]**" in the first column indicates the device is selected
 
-![3.png](/installation-guide/3.png)
+<details>
+<summary> Installation drive selection </summary>
+
+![3.png](/installation-guide/3.png){.medium .framed}
+</details>
 
 ### Confirm Drive Erasure
 
 -   Confirm you understand the selected drive(s) will be **FULLY ERASED**
 
-![4.png](/installation-guide/4.png)
+<details>
+<summary> Drive erasure confirmation </summary>
+
+![4.png](/installation-guide/4.png){.medium .framed}
+</details>
 
 ### User Account Setup
 
@@ -99,23 +115,39 @@ What you see now will depend on how many drives you have in your server. The dri
 - <span style="color: red;">**Save this password, you'll need it later**</span>
 -   **Non-US keyboard users**: Be careful with special characters in the password. The installer uses a [US keyboard layout](https://en.wikipedia.org/wiki/British_and_American_keyboards#/media/File:KB_United_States-NoAltGr.svg). [See details here](https://hub.hexos.com/topic/103-illustrated-installation-guide-start-here/page/2/#findComment-8073) <!-- TODO: migrate this hub forum link -->
 
-![5.png](/installation-guide/5.png)
+<details>
+<summary> Root password entry </summary>
+
+![5.png](/installation-guide/5.png){.medium .framed}
+</details>
 
 ### Installation Progress
 
 -   The installer will run for a few minutes...
 
-![6.png](/installation-guide/6.png)
+<details>
+<summary> Installation progress screen </summary>
+
+![6.png](/installation-guide/6.png){.medium .framed}
+</details>
 
 ### Installation Complete
 
 -   Remove the install USB
 
-![7.png](/installation-guide/7.png)
+<details>
+<summary> Installation complete prompt </summary>
+
+![7.png](/installation-guide/7.png){.medium .framed}
+</details>
 
 -   Restart your Machine
 
-![8.png](/installation-guide/8.png)
+<details>
+<summary> Reboot menu option </summary>
+
+![8.png](/installation-guide/8.png){.medium .framed}
+</details>
 
 ## First Boot
 
@@ -124,7 +156,11 @@ What you see now will depend on how many drives you have in your server. The dri
 -   The boot select screen will appear again - ignore it
 -   The default option is correct and will auto-select
 
-![9.png](/installation-guide/9.png)
+<details>
+<summary> Boot selection screen </summary>
+
+![9.png](/installation-guide/9.png){.medium .framed}
+</details>
 
 ### System Startup
 
@@ -134,13 +170,21 @@ What you see now will depend on how many drives you have in your server. The dri
 {.is-tip}
 
 
-![10.png](/installation-guide/10.png)
+<details>
+<summary> Console startup output </summary>
+
+![10.png](/installation-guide/10.png){.medium .framed}
+</details>
 
 ### Success!
 
 -  The "Console Setup" screen shows when your server has fully booted
 
-![11.png](/installation-guide/11.png)
+<details>
+<summary> Console setup screen </summary>
+
+![11.png](/installation-guide/11.png){.medium .framed}
+</details>
 
 **Installation complete!**
 

@@ -17,15 +17,27 @@ HexOS provides notifications to users in two primary ways:
 
 ## Notification bell
 
-<img alt="Screenshot From 2025-10-20 12-23-31" src="https://github.com/user-attachments/assets/2823ef5f-53ef-459e-9cab-e674c10ac948" />
+<details>
+<summary> Notification bell </summary>
+
+![Screenshot From 2025-10-20 12-23-31](https://github.com/user-attachments/assets/2823ef5f-53ef-459e-9cab-e674c10ac948){.medium .framed}
+</details>
 
 Notifications show as a red bubble with the number of unread notifications shown. Clicking directly on the notification bell will bring up a dropdown showing the notifications.
 
-<img alt="Screenshot From 2025-10-20 12-23-43" src="https://github.com/user-attachments/assets/a6960a0e-8cad-4f5c-98e1-ab7fc670f7c6" />
+<details>
+<summary> Notification dropdown with unread count </summary>
+
+![Screenshot From 2025-10-20 12-23-43](https://github.com/user-attachments/assets/a6960a0e-8cad-4f5c-98e1-ab7fc670f7c6){.medium .framed}
+</details>
 
 Notifications can be both marked as read and dismissed, and previous notifications can be viewed from within the messaging archive.
 
-<img alt="Screenshot From 2025-10-20 12-23-54" src="https://github.com/user-attachments/assets/7c68e7c8-3118-4663-86f2-63405ba1ba85" />
+<details>
+<summary> Mark as read and dismiss options </summary>
+
+![Screenshot From 2025-10-20 12-23-54](https://github.com/user-attachments/assets/7c68e7c8-3118-4663-86f2-63405ba1ba85){.medium .framed}
+</details>
 
 ## Common notifications
 
@@ -34,7 +46,11 @@ Notifications can be both marked as read and dismissed, and previous notificatio
 Certain tasks will let you know if they are still in progress with the rotating in progress symbol shown below. <br>
 <small>Examples: installing apps, managing storage or system updates.</small>
 
-<img alt="Screenshot From 2025-10-20 12-29-00" src="https://github.com/user-attachments/assets/eb65ef63-c80a-452b-b87d-1448163029ee" />
+<details>
+<summary> In-progress task notification </summary>
+
+![Screenshot From 2025-10-20 12-29-00](https://github.com/user-attachments/assets/eb65ef63-c80a-452b-b87d-1448163029ee){.medium .framed}
+</details>
 
 ### Updates
 
@@ -43,7 +59,11 @@ HexOS will send notifications for
 - Software updates completed
 - Application updates available
 
-<img alt="Screenshot From 2025-10-20 12-35-33" src="https://github.com/user-attachments/assets/5a4342cf-653f-48bd-90ce-0c85e5711764" />
+<details>
+<summary> App update notification </summary>
+
+![Screenshot From 2025-10-20 12-35-33](https://github.com/user-attachments/assets/5a4342cf-653f-48bd-90ce-0c85e5711764){.medium .framed}
+</details>
 
 ### Operations and Achievements
 
@@ -52,7 +72,11 @@ HexOS will send notifications for
 - New folder creation or deletion is completed
 - Achievements for trying HexOS features
 
-<img alt="Screenshot From 2025-10-20 12-34-36" src="https://github.com/user-attachments/assets/dc3a9ebc-3bab-45c5-8873-2155965f5424" />
+<details>
+<summary> Achievement notification </summary>
+
+![Screenshot From 2025-10-20 12-34-36](https://github.com/user-attachments/assets/dc3a9ebc-3bab-45c5-8873-2155965f5424){.medium .framed}
+</details>
 
 ### System Health Notifications
 

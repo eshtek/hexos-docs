@@ -18,7 +18,11 @@ Folders can optionally be password protected and encrypted. You can also create 
 
 You can access the Folders screen in the [Deck](https://deck.hexos.com) through the sidebar menu. On this screen you can view existing folders, create new folders and network credentials for accessing folders. 
 
-<img alt="folders-screen-hexos" src="https://github.com/user-attachments/assets/eda14325-2d91-497c-9362-5784bce8bc87" />
+<details>
+<summary> Folders screen in Deck </summary>
+
+![folders-screen-hexos](https://github.com/user-attachments/assets/eda14325-2d91-497c-9362-5784bce8bc87){.medium .framed}
+</details>
 
 You can’t browse the files from here. The Folders screen only shows the folders and not their contents.<br> [Read about how to access the folder contents here](/features/folders/how-to-access-folder-contents)
 

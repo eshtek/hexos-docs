@@ -26,7 +26,11 @@ You'll need:
 First, go to [deck.hexos.com](https://deck.hexos.com) and log in.   
 If you have not already signed up you can [sign up on HexOS hub](https://hub.hexos.com/).
 
-<img alt="Screenshot From 2025-09-30 11-20-17" src="https://github.com/user-attachments/assets/bad810b2-5525-4eed-b029-99ea7467ba4e" />
+<details>
+<summary> HexOS sign-up page </summary>
+
+![Screenshot From 2025-09-30 11-20-17](https://github.com/user-attachments/assets/bad810b2-5525-4eed-b029-99ea7467ba4e){.medium .framed}
+</details>
 
 > **💡 Note**
 > *This is the username and password you created when buying HexOS, it's not the root password you used when installing HexOS.*
@@ -36,7 +40,11 @@ If you have not already signed up you can [sign up on HexOS hub](https://hub.hex
 
 Once logged in, you'll need to claim your server.
 
-<img alt="Screenshot-from-2025-01-28-11-36-15-1536x864" src="https://github.com/user-attachments/assets/849718a1-ff66-47e2-8d22-a03e6dac4754" />
+<details>
+<summary> Claim server screen </summary>
+
+![Screenshot-from-2025-01-28-11-36-15-1536x864](https://github.com/user-attachments/assets/849718a1-ff66-47e2-8d22-a03e6dac4754){.medium .framed}
+</details>
 
 Your server should appear in the panel where it says "Looking for servers..." on the right of the screen. Click the `Claim` button.
 
@@ -57,7 +65,11 @@ Once entered, your server should appear and can be claimed.
 
 After claiming your server, you'll be brought to a display containing all of your server's hardware.
 
-<img alt="Screenshot-from-2025-01-28-11-37-25-1536x864" src="https://github.com/user-attachments/assets/d9037d2e-f4ca-4868-a979-f2a8b8ec14fc" />
+<details>
+<summary> Server hardware overview </summary>
+
+![Screenshot-from-2025-01-28-11-37-25-1536x864](https://github.com/user-attachments/assets/d9037d2e-f4ca-4868-a979-f2a8b8ec14fc){.medium .framed}
+</details>
 
 Make sure you see the correct number of drives and that no errors are being displayed.
 If you see green checks/ticks on everything then you're good to go. Click the `Continue` button.
@@ -66,7 +78,11 @@ If you see green checks/ticks on everything then you're good to go. Click the `C
 
 You will now see a suggested arrangement of your drives into storage pools. "Pools" are groups of drives that will work together as one, allowing a larger amount of storage space than a single drive and also giving additional “redundancy” in case one or more drives fail.
 
-<img alt="Screenshot-from-2025-01-28-11-38-03-1536x864" src="https://github.com/user-attachments/assets/9a82426a-c98f-4648-b3bb-7598a3d15a42" />
+<details>
+<summary> Suggested storage pool layout </summary>
+
+![Screenshot-from-2025-01-28-11-38-03-1536x864](https://github.com/user-attachments/assets/9a82426a-c98f-4648-b3bb-7598a3d15a42){.medium .framed}
+</details>
 
 HexOS will suggest a storage pool layout based on your hardware. 
 
@@ -77,7 +93,11 @@ For most people, the recommended configuration is the best path forward. To use 
 
 You will now see the setup process running
 
-<img alt="Screenshot-from-2025-01-28-11-39-57" src="https://github.com/user-attachments/assets/ad59b25f-f974-4fa9-81c9-1d3afd7f1dd7" />
+<details>
+<summary> Setup progress screen </summary>
+
+![Screenshot-from-2025-01-28-11-39-57](https://github.com/user-attachments/assets/ad59b25f-f974-4fa9-81c9-1d3afd7f1dd7){.medium .framed}
+</details>
 
 #### Manually configuring pools
 
@@ -96,7 +116,11 @@ All that's left is to give your server a name and then the initialization proces
 
 Now your setup is complete and it's time to take a look at your HexOS NAS for the first time. Click `Go to the dashboard`. You will see the Welcome to HexOS welcome wizard.
 
-<img alt="Screenshot-from-2025-01-28-11-40-32-1536x864" src="https://github.com/user-attachments/assets/f92630cd-cf9e-4b4c-aafb-14317e927a6e" />
+<details>
+<summary> HexOS welcome wizard </summary>
+
+![Screenshot-from-2025-01-28-11-40-32-1536x864](https://github.com/user-attachments/assets/f92630cd-cf9e-4b4c-aafb-14317e927a6e){.medium .framed}
+</details>
 
 ## What's Next?
 

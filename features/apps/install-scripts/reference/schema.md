@@ -217,7 +217,11 @@ When users attempt to install an app, HexOS performs the following checks:
 
 Installation questions allow you to prompt users for configuration values during app installation. Question responses can be referenced in `app_values` using the `$QUESTION(key)` syntax.
 
+<details>
+<summary> Installation questions dialogue </summary>
+
 ![installation-questions-example.png](/installation-questions-example.png =750x){.align-center}
+</details>
 
 *Example of installation questions displayed during app installation*
 

@@ -21,15 +21,27 @@ This guide will explain how to access a folder on your HexOS server from a varie
 1. In the folders screen of your [HexOS deck](https://deck.hexos.com), select on the folder you want to access
 2. Select the **Browse** button
 
-<img alt="browse-button" src="https://github.com/user-attachments/assets/4bc786e3-e672-41b6-9235-fb94c80d6e18" />
+<details>
+<summary> Browse button </summary>
+
+![browse-button](https://github.com/user-attachments/assets/4bc786e3-e672-41b6-9235-fb94c80d6e18){.medium .framed}
+</details>
 
 You will be given the folder IP address needed to connect to it from other devices on the same network. You can select the Copy button to copy a link and paste it following the instructions below.
 
-<img alt="link-for-browse" src="https://github.com/user-attachments/assets/5cb66e5e-a6de-4f89-b3a3-35b523abd0be" />
+<details>
+<summary> Folder address with Copy button </summary>
+
+![link-for-browse](https://github.com/user-attachments/assets/5cb66e5e-a6de-4f89-b3a3-35b523abd0be){.medium .framed}
+</details>
 
 You can select Windows or Mac using the dropdown.
 
-<img alt="choose-between-windows-or-mac" src="https://github.com/user-attachments/assets/ee0c6d56-d436-4c23-88a9-7c2d20a7c4d6" />
+<details>
+<summary> Windows or Mac dropdown </summary>
+
+![choose-between-windows-or-mac](https://github.com/user-attachments/assets/ee0c6d56-d436-4c23-88a9-7c2d20a7c4d6){.medium .framed}
+</details>
 
 Changing the Windows/Mac setting doesn't modify the folder, it just provides instructions for the selected operating system.
 
@@ -49,60 +61,108 @@ Here are some examples of how to access the file from various devices. The speci
 1. Open File Explorer
 2. On the left side there is a list of folders and locations, select **This PC**
 
-<img alt="this-pc" src="https://github.com/user-attachments/assets/2674928c-adac-4972-ab11-e831c6df0ac9" />
+<details>
+<summary> This PC in File Explorer </summary>
+
+![this-pc](https://github.com/user-attachments/assets/2674928c-adac-4972-ab11-e831c6df0ac9){.medium .framed}
+</details>
 
 1. Right click for the menu 
 2. Select **Add a network location**
 
-<img alt="add-a-network-location" src="https://github.com/user-attachments/assets/33afaa07-7e69-4bac-9fc4-c6d0009dc312" />
+<details>
+<summary> Add a network location option </summary>
+
+![add-a-network-location](https://github.com/user-attachments/assets/33afaa07-7e69-4bac-9fc4-c6d0009dc312){.medium .framed}
+</details>
 
 Follow the wizard though by selecting the **Next** button.
 
-<img alt="next" src="https://github.com/user-attachments/assets/877a37f5-2df4-4ef4-8bf9-98c790eecec1" />
+<details>
+<summary> Network location wizard </summary>
+
+![next](https://github.com/user-attachments/assets/877a37f5-2df4-4ef4-8bf9-98c790eecec1){.medium .framed}
+</details>
 
 Select the **Next** button on the **Choose a custom network location** step.
 
-<img alt="choose-custom-next" src="https://github.com/user-attachments/assets/183a83a5-755d-46cb-a62d-4e25e1ccff8c" />
+<details>
+<summary> Custom network location step </summary>
+
+![choose-custom-next](https://github.com/user-attachments/assets/183a83a5-755d-46cb-a62d-4e25e1ccff8c){.medium .framed}
+</details>
 
 Paste the folder address in and select the **Next** button.
 
-<img alt="paste-in-address" src="https://github.com/user-attachments/assets/34109dba-a600-49f4-9a32-91698c0604d0" />
+<details>
+<summary> Folder address field </summary>
+
+![paste-in-address](https://github.com/user-attachments/assets/34109dba-a600-49f4-9a32-91698c0604d0){.medium .framed}
+</details>
 
 You can optionally choose a display name. Select the **Next** button.
 
-<img alt="name-it" src="https://github.com/user-attachments/assets/6827c07e-aa33-4557-861d-e4c8f75372bc" />
+<details>
+<summary> Display name field </summary>
+
+![name-it](https://github.com/user-attachments/assets/6827c07e-aa33-4557-861d-e4c8f75372bc){.medium .framed}
+</details>
 
 Then select the **Finish** button.
 
-<img alt="finish" src="https://github.com/user-attachments/assets/3e60c006-fd4b-468b-82ac-edcbf83200ee" />
+<details>
+<summary> Finish button </summary>
+
+![finish](https://github.com/user-attachments/assets/3e60c006-fd4b-468b-82ac-edcbf83200ee){.medium .framed}
+</details>
 
 Your folder will now be accessible from your file browser.
 
 If the folder is private you will be asked for a username and password before it will open.
 
-<img alt="password" src="https://github.com/user-attachments/assets/2e6459cd-bb4f-45b1-895a-51c9ea0b4a52" />
+<details>
+<summary> Network credentials prompt </summary>
+
+![password](https://github.com/user-attachments/assets/2e6459cd-bb4f-45b1-895a-51c9ea0b4a52){.medium .framed}
+</details>
 
 ### On ChromeOS
 
 Open the My Files app.
 
-<img alt="my-files" src="https://github.com/user-attachments/assets/7fc60faf-ac38-468e-8988-0c52c4d5b5d3" />
+<details>
+<summary> My Files app </summary>
+
+![my-files](https://github.com/user-attachments/assets/7fc60faf-ac38-468e-8988-0c52c4d5b5d3){.medium .framed}
+</details>
 
 1. On the top right, select the menu button (three vertical dots)
 2. Select Services
 3. Select SMB File Share
 
-<img alt="services-smb-share" src="https://github.com/user-attachments/assets/7e153a65-747b-42c5-bc35-5e0473cdcadb" />
+<details>
+<summary> SMB File Share menu option </summary>
+
+![services-smb-share](https://github.com/user-attachments/assets/7e153a65-747b-42c5-bc35-5e0473cdcadb){.medium .framed}
+</details>
 
 1. Then select a suggested share from the list or manually enter the URL using the given in the windows section "\\\ipaddress\Folder-name"
 2. Fill out the password field if required
 3. Select **Add**
 
-<img alt="smb-share-login" src="https://github.com/user-attachments/assets/e1107dab-088b-448a-898f-433f552b8a25" />
+<details>
+<summary> SMB share login dialogue </summary>
+
+![smb-share-login](https://github.com/user-attachments/assets/e1107dab-088b-448a-898f-433f552b8a25){.medium .framed}
+</details>
 
 The file will now show in the left hand navigation on My Files
 
-<img alt="shortcut-in-my-files" src="https://github.com/user-attachments/assets/ecca25e5-df0f-436b-a5c1-c859439cee4f" />
+<details>
+<summary> Share shortcut in My Files </summary>
+
+![shortcut-in-my-files](https://github.com/user-attachments/assets/ecca25e5-df0f-436b-a5c1-c859439cee4f){.medium .framed}
+</details>
 
 ### On Linux
 
@@ -112,47 +172,95 @@ This varies depending on your linux distro. The url required will likely be simi
 2. Select **Network**
 3. Paste in the folder address 
 
-<img alt="paste-in-address-1" src="https://github.com/user-attachments/assets/390cbaff-3e82-43d1-925e-6bead7f143cc" />
+<details>
+<summary> Network address field in Files </summary>
+
+![paste-in-address-1](https://github.com/user-attachments/assets/390cbaff-3e82-43d1-925e-6bead7f143cc){.medium .framed}
+</details>
 
 1. Fill in the username and password if needed
 2. Select **Connect**
 
-<img alt="enter-details" src="https://github.com/user-attachments/assets/3d1d558d-58dc-4e63-8e55-cf98f45a88c4" />
+<details>
+<summary> Username and password prompt </summary>
+
+![enter-details](https://github.com/user-attachments/assets/3d1d558d-58dc-4e63-8e55-cf98f45a88c4){.medium .framed}
+</details>
 
 You will now see the folder in your Networks section of your file manager and also as a shortcut at the bottom of the left hand navigation of files
 
-<img alt="files-shortcut" src="https://github.com/user-attachments/assets/0da3c4b9-90fd-4318-a914-b189e0a54f8f" />
+<details>
+<summary> Folder shortcut in file manager </summary>
+
+![files-shortcut](https://github.com/user-attachments/assets/0da3c4b9-90fd-4318-a914-b189e0a54f8f){.medium .framed}
+</details>
 
 Sometimes the folder may show under **Other locations** 
 
-<img alt="other-locations" src="https://github.com/user-attachments/assets/649fb11e-8227-4726-9fff-e8a8fff56643" />
+<details>
+<summary> Other locations section </summary>
+
+![other-locations](https://github.com/user-attachments/assets/649fb11e-8227-4726-9fff-e8a8fff56643){.medium .framed}
+</details>
 
 ## Android
 
 ### Samsung Galaxy
 
 1. Open `My Files` app
-![](../../public/assets/screenshots/folder-access-guide/g1.png)
+<details>
+<summary> My Files app </summary>
+
+![](../../public/assets/screenshots/folder-access-guide/g1.png){.medium .framed}
+</details>
 2. Select network storage
     - You may be prompted to update the app
 
-![](../../public/assets/screenshots/folder-access-guide/g2.png)
+<details>
+<summary> App update prompt </summary>
+
+![](../../public/assets/screenshots/folder-access-guide/g2.png){.medium .framed}
+</details>
 3. Select the + button at the top right corner
-![](../../public/assets/screenshots/folder-access-guide/g3.png)
+<details>
+<summary> Plus button in My Files </summary>
+
+![](../../public/assets/screenshots/folder-access-guide/g3.png){.medium .framed}
+</details>
 4. Select Network Drive (SMBv2/SMBv3)
-![](../../public/assets/screenshots/folder-access-guide/g4.png)
+<details>
+<summary> Network Drive option </summary>
+
+![](../../public/assets/screenshots/folder-access-guide/g4.png){.medium .framed}
+</details>
 5. If your server appears select it, if not select `add manually`
-![](../../public/assets/screenshots/folder-access-guide/g5.png)
+<details>
+<summary> Server selection list </summary>
+
+![](../../public/assets/screenshots/folder-access-guide/g5.png){.medium .framed}
+</details>
 6. Fill this out with your information and press `add`<br>
 - The `Address` can be found at the folders screen of [HexOS deck](https://deck.hexos.com/folders) <br>
           1. Select any folder <br>
           2. Select the `Browse` button
-          ![](../../public/assets/screenshots/folder-access-guide/ip1.png)
+          <details>
+          <summary> Browse button </summary>
+          
+          ![](../../public/assets/screenshots/folder-access-guide/ip1.png){.medium .framed}
+          </details>
           3. The address will be just the numbers shown (highlighted in this example)
-          ![](../../public/assets/screenshots/folder-access-guide/ip2.png)
+          <details>
+          <summary> Highlighted server address </summary>
+          
+          ![](../../public/assets/screenshots/folder-access-guide/ip2.png){.medium .framed}
+          </details>
      - You can leave the port alone
      - Username and password are optional but if you would like to use them then uncheck `Sign in anonymously`
-![](../../public/assets/screenshots/folder-access-guide/g6.png)
+<details>
+<summary> Network drive details form </summary>
+
+![](../../public/assets/screenshots/folder-access-guide/g6.png){.medium .framed}
+</details>
 
 ### Google Pixel
 
@@ -162,23 +270,55 @@ SMB network shares can still be accessed by installing 3rd party applications.
 ## iOS
 
 1. Open the `Files` app
-![](../../public/assets/screenshots/folder-access-guide/i1.jpg)
+<details>
+<summary> Files app </summary>
+
+![](../../public/assets/screenshots/folder-access-guide/i1.jpg){.medium .framed}
+</details>
 2. Press the 3 horizontal dots button on the top right corner
-![](../../public/assets/screenshots/folder-access-guide/i2.png)
+<details>
+<summary> Three-dot menu button </summary>
+
+![](../../public/assets/screenshots/folder-access-guide/i2.png){.medium .framed}
+</details>
 3. Select `Connect to Server`
-![](../../public/assets/screenshots/folder-access-guide/i3.png)
+<details>
+<summary> Connect to Server option </summary>
+
+![](../../public/assets/screenshots/folder-access-guide/i3.png){.medium .framed}
+</details>
 4. Type your server ip address in the `Server` textbox 
     - The `Address` can be found at the folders screen of [HexOS deck](https://deck.hexos.com/folders)
         1. Select any folder
         2. Select the `Browse` button
-        ![](../../public/assets/screenshots/folder-access-guide/ip1.png)
-        3. The address will be just the numbers shown (highlighted in this example)
-        ![](../../public/assets/screenshots/folder-access-guide/ip2.png)
+        <details>
+        <summary> Browse button </summary>
         
-![](../../public/assets/screenshots/folder-access-guide/i4.png)
+        ![](../../public/assets/screenshots/folder-access-guide/ip1.png){.medium .framed}
+        </details>
+        3. The address will be just the numbers shown (highlighted in this example)
+        <details>
+        <summary> Highlighted server address </summary>
+        
+        ![](../../public/assets/screenshots/folder-access-guide/ip2.png){.medium .framed}
+        </details>
+        
+<details>
+<summary> Server address entered </summary>
+
+![](../../public/assets/screenshots/folder-access-guide/i4.png){.medium .framed}
+</details>
 5. Select `Guest` or `Registered User`
     - Input your username and password if you would like to log in as a registered user
 
-![](../../public/assets/screenshots/folder-access-guide/i5.png)
+<details>
+<summary> Guest or Registered User screen </summary>
+
+![](../../public/assets/screenshots/folder-access-guide/i5.png){.medium .framed}
+</details>
 6. You can find your server under the Shared section. 
-![](../../public/assets/screenshots/folder-access-guide/i6.png)
+<details>
+<summary> Server in the Shared section </summary>
+
+![](../../public/assets/screenshots/folder-access-guide/i6.png){.medium .framed}
+</details>
