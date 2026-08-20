@@ -41,7 +41,7 @@ Something not working? Find the area below that matches what you are seeing.
 
 ## Migrating and upgrading
 
-Planned changes to a working server — moving hardware, restructuring storage, or running a required upgrade.
+Planned changes to a working server — moving hardware, restructuring storage, or running a required upgrade. See [Migrating and upgrading](/troubleshooting/migrating) for all of these together.
 
 - [**Import existing pools**](/troubleshooting/migrating/import-existing-pools) - Move drives from TrueNAS or a previous install without wiping them
 - [**Move to new hardware**](/troubleshooting/migrating/new-hardware) - Move apps, VMs, and data to a different machine
