@@ -2,7 +2,7 @@
 title: Documentation How To Contribute
 description: 
 published: false
-date: 2026-08-20T14:47:15.653Z
+date: 2026-08-20T14:57:42.852Z
 tags: 
 editor: markdown
 dateCreated: 2026-07-18T09:51:14.516Z
@@ -166,4 +166,4 @@ Thank you! Documentation is a huge part of what makes a project like HexOS work 
 
 ### Documentation Licence
 
-By contributing you are agreeing to make your work available to the public under CC BY-SA 4.0 and to grant Eshtek, Inc. a perpetual, worldwide, non-exclusive, royalty-free, irrevocable license to it. Read all about the licence here. 
+By contributing you are agreeing to make your work available to the public under CC BY-SA 4.0 and to grant Eshtek, Inc. a perpetual, worldwide, non-exclusive, royalty-free, irrevocable license to it. Read all about the [licence here](/docs-licensing). 
