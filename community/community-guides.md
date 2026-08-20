@@ -10,14 +10,16 @@ dateCreated: 2026-06-08T15:39:30.276Z
 
 # Community guides
 
-Welcome to the HexOS community guides! These guides are created by community members to help you get the most out of your HexOS experience.
+Guides written by HexOS community members. They live alongside the official docs by topic — this page collects them so you can see everything the community has contributed.
 
-## Available guides
+> **Contribute:** to help to improve HexOS documentation [join the #Docs channel on Discord](https://discord.com/invite/DjEp3WRHKz) today! Send feedback, suggestions or contribute a guide.
+{.is-contribute}
 
-- [**Replicating Virtual Machines**](/community/community-guides/ReplicatingVirtualMachines) - How to replicate and manage virtual machines
-- [**Setting Up Time Machine**](/community/community-guides/TimeMachineInstall) - Configure Mac Time Machine backups with HexOS
-- [**Import pools to HexOS**](/community/community-guides/import-existing-pools) - Import existing pools to HexOS, for example when migrating from TrueNAS or swapping out a boot drive.
+## Migrating and upgrading
 
-## Contributing
+- [**Import existing pools**](/troubleshooting/migrating/import-existing-pools) - Move drives from TrueNAS or a previous install without wiping them — *lnkd and ShinobiRen*
 
-Have a guide you'd like to share? Check out our [contribution guide](/community/how-to-contribute/) to learn how to add your own community guide.
+## How-to guides
+
+- [**Time Machine install guide**](/community/community-guides/TimeMachineInstall) - Set up Mac Time Machine backups against a HexOS folder
+- [**Replicating virtual machines**](/community/community-guides/ReplicatingVirtualMachines) - Replicate VMs from one TrueNAS server to another — *@ShinobiRen*

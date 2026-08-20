@@ -10,6 +10,10 @@ dateCreated: 2026-06-08T15:43:42.835Z
 
 # Migrating Immich to a new storage configuration
 
+> **Thank you:** @G-M0N3Y-2503 and @forsaken, whose community guides on moving Immich storage informed this walkthrough.
+{.is-contribute}
+
+
 ## Prerequisites
 
 - This guide requires at least enough storage space free on a pool to create another copy of your current Immich installation including media such as photos and videos.

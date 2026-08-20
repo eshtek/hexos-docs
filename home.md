@@ -17,7 +17,7 @@ Want to get involved? Check out our [contribution guide](/community/how-to-contr
 ## Quick links
 
 - [**About HexOS**](/about-hexos/) - Learn about HexOS
-- [**Common Issues**](/troubleshooting/common-issues/) - Solutions to frequently encountered problems
+- [**Common Issues**](/troubleshooting) - Solutions to frequently encountered problems
 - [**Community Guides**](/community/community-guides/) - User contributed guides and tutorials
 - [**Release Notes**](/release-notes/command-deck/) - Latest features and updates
 

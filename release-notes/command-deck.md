@@ -67,6 +67,6 @@ For users who are actively connected during an update, there may be a brief down
 ## Need Help?
 
 If you encounter any issues after an update:
-- Try [clearing your browser cache](/troubleshooting/common-issues/ClearCache) first
+- Try [clearing your browser cache](/troubleshooting/browser-cache) first
 - Check the [troubleshooting guide](/troubleshooting/) for common solutions
 - Visit the [HexOS Community](https://discord.gg/fCW2htvYdz) for additional support
