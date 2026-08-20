@@ -2,7 +2,7 @@
 title: Different ways to contribute
 description: 
 published: true
-date: 2026-08-20T15:10:29.599Z
+date: 2026-08-20T15:36:38.631Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:39:39.407Z
@@ -41,7 +41,7 @@ You can help to keep our docs accurate and useful:
 
 [Getting started](/community/how-to-contribute/documentation)
 
-[Documenaion Style Guide
+[Documentation Style Guide
 ](/community/how-to-contribute/style-guide)
 
 ## Support Other Users
