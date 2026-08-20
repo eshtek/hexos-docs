@@ -2,7 +2,7 @@
 title: Different ways to contribute
 description: 
 published: true
-date: 2026-08-20T14:37:54.359Z
+date: 2026-08-20T15:10:29.599Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:39:39.407Z
@@ -12,14 +12,13 @@ dateCreated: 2026-06-08T15:39:39.407Z
 
 Help make HexOS better for everyone! Here are the ways you can contribute:
 
-## Create App Install Scripts
+## Getting Started
 
-The most valuable contribution is expanding the available applications.
-
-- [Learn how to contribute apps](/features/apps/install-scripts/contributing)
-- Test community scripts and provide feedback
-- Create install scripts for new applications
-- Improve documentation with setup guides
+New to contributing? Start small:
+1. Join the [HexOS Discord Community](https://discord.gg/fCW2htvYdz)
+2. Look for simple documentation fixes
+3. Test existing app scripts and report feedback
+4. Share your own setup guides
 
 ## Translate HexOS
 
@@ -31,12 +30,19 @@ Speak a language other than English? Help HexOS speak it too:
 
 ## Improve Documentation
 
-Help keep our docs accurate and helpful:
+[Contribute to HexOS documentation](/community/how-to-contribute/documentation)
+
+You can help to keep our docs accurate and useful:
 
 - Fix errors or outdated information
 - Add missing guides or examples
 - Clarify confusing sections
 - Share real-world use cases
+
+[Getting started](/community/how-to-contribute/documentation)
+
+[Documenaion Style Guide
+](/community/how-to-contribute/style-guide)
 
 ## Support Other Users
 
@@ -47,10 +53,11 @@ Build our community by helping others:
 - Help debug issues
 - Welcome newcomers
 
-## Getting Started
+## Create App Install Scripts
 
-New to contributing? Start small:
-1. Join the [HexOS Discord Community](https://discord.gg/fCW2htvYdz)
-2. Look for simple documentation fixes
-3. Test existing app scripts and report feedback
-4. Share your own setup guides
+The most valuable contribution is expanding the available applications.
+
+- [Learn how to contribute apps](/features/apps/install-scripts/contributing)
+- Test community scripts and provide feedback
+- Create install scripts for new applications
+- Improve documentation with setup guides
