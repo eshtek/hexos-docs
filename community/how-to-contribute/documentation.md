@@ -54,13 +54,13 @@ You're all done! Thank you for your support.
 ## Contribute a guide
 
 -   Join the [HexOS Discord server](https://discord.com/invite/fCW2htvYdz) 
--   In the #docs channel describe the guide you would like to contribute. Don't be shy we're all nerds together! 
+-   In the #Docs channel describe the guide you would like to contribute. Don't be shy, we're all nerds together! 
 - Ask for edit access to the documentation site. This is usually granted the same day, but can take a few days.
 - You can then edit the **Community** > **Community Guides** section of docs.hexos.com using your usual hexos.com login
 
 ### How to write a guide
 
-- Read through the [documentation the style guide](/community/how-to-contribute/style-guide)
+- Read through the [documentation style guide](/community/how-to-contribute/style-guide)
 - Take your time writing, and ask for help if you need it
 
 #### Create a page
@@ -93,7 +93,7 @@ You're all done! Thank you for your support.
   ![name-the-guide.png](/name-the-guide.png){.align-center}
     </details>
 
-Click the *Select* button
+Click the **Select** button
 
 <details>
   <summary> Select button </summary>
@@ -103,7 +103,7 @@ Click the *Select* button
 </details>
 
 
-#### Chose an editor
+#### Choose an editor
 
 Please use the **Markdown** editor. 
 
@@ -114,17 +114,17 @@ Please use the **Markdown** editor.
 </details>
 
 
-This is because Key components of the style guide, for example:
+This is because key components of the style guide, for example:
 
-- call out warnings
+- callout warnings
 - image dropdown
 
 cannot be added in the visual editor.
 
-ages made using the visual editor would need to be converted to the markdown format in order to add those elements.
+Pages made using the visual editor would need to be converted to the markdown format in order to add those elements.
 
 #### Page properties
-Give the page a title. This will usually match the page page name you chose earlier
+Give the page a title. This will usually match the page name you chose earlier
 <details>
   <summary> Page title field </summary>
 
@@ -139,7 +139,7 @@ Under **Scheduling**, toggle off **Published**.
   ![toggle-off-published.png](/toggle-off-published.png){.align-center}
     </details>
     
-Click **OK** to finish the set up
+Click **OK** to finish the setup
 
 <details>
   <summary> OK button </summary>
@@ -164,6 +164,6 @@ Click **OK** to finish the set up
 
 Thank you! Documentation is a huge part of what makes a project like HexOS work for its users. Your support is invaluable. 
 
-### Documentation Licence
+### Documentation license
 
-By contributing you are agreeing to make your work available to the public under CC BY-SA 4.0 and to grant Eshtek, Inc. a perpetual, worldwide, non-exclusive, royalty-free, irrevocable license to it. Read all about the [licence here](/docs-licensing). 
+By contributing you are agreeing to make your work available to the public under CC BY-SA 4.0 and to grant Eshtek, Inc. a perpetual, worldwide, non-exclusive, royalty-free, irrevocable license to it. Read all about the [license here](/docs-licensing). 

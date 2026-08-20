@@ -8,26 +8,26 @@ editor: markdown
 dateCreated: 2026-06-08T15:39:11.970Z
 ---
 
-# Migrating Immich to New Storage Configuration (Rsync Method)
+# Migrating Immich to new storage configuration (rsync method)
 
 *by @forsaken*
 
-I fixed it! 😁, but it was a pain to do it because rsync and TrueNAS dataset that have ACL don't like each other.
+I fixed it! 😁, but it was a pain to do it because rsync and TrueNAS datasets that have ACLs don't like each other.
 
-I made a small guide, but it requires to enter to TrueNAS and run commands, so don't even try to follow it if it you are not comfortable with getting your hands dirty, do it at your own risk since if you type something wrong you could make a mess.
+I made a small guide, but it requires you to enter TrueNAS and run commands, so don't even try to follow it if you are not comfortable with getting your hands dirty, do it at your own risk since if you type something wrong you could make a mess.
 
-I'm just a guy that wanted to have this fixed soon, I know enough to fix things, but also little enough to make big mistakes and break them. Maybe this fix that I came with is really a bad idea, I don't know. So, follow at your own risk!
+I'm just a guy that wanted to have this fixed soon, I know enough to fix things, but also little enough to make big mistakes and break them. Maybe this fix that I came up with is really a bad idea, I don't know. So, follow at your own risk!
 
-## Guide (read it complete first, maybe there is a step that you don't want to do)
+## Guide (read it completely first, maybe there is a step that you don't want to do)
 
 ### Stop Immich
 
 - Go to TrueNAS
-- Go to "Apps" and stop "Immich"
+- Go to **Apps** and stop **Immich**
 
-### Create Data Dataset
+### Create data dataset
 
-- Go to "Datasets" create a dataset inside of the "immich" dataset (that is inside "Applications"), Name it `data`, don't worry about the dataset preset, choose "Generic".
+- Go to **Datasets** and create a dataset inside of the **immich** dataset (that is inside **Applications**), name it `data`, don't worry about the dataset preset, choose **Generic**.
 
 <details>
 <summary> Creating the data dataset </summary>
@@ -35,10 +35,10 @@ I'm just a guy that wanted to have this fixed soon, I know enough to fix things,
 ![Creating the data dataset](/assets/screenshots/immich-create-data-dataset.png){.medium .framed}
 </details>
 
-### Strip ACL Permissions
+### Strip ACL permissions
 
-- Click the `data` dataset that you just created click "Edit" on the "Permissions" section (it is located on the right)
-- Click "Strip ACL" (because TrueNAS don't like rsync touching datasets that use ACL)
+- Click the `data` dataset that you just created, then click **Edit** on the **Permissions** section (it is located on the right)
+- Click **Strip ACL** (because TrueNAS doesn't like rsync touching datasets that use ACLs)
 
 <details>
 <summary> Strip ACL button </summary>
@@ -54,11 +54,11 @@ I'm just a guy that wanted to have this fixed soon, I know enough to fix things,
 ![Permissions after stripping ACL](/assets/screenshots/immich-stripped-permissions.png){.medium .framed}
 </details>
 
-### Enable SSH and Copy Data
+### Enable SSH and copy data
 
-- On "System" > "Services" I started the SSH service (this is because the web shell times out and disconnects me, so I opted to connect remotely using SSH)
+- On **System** > **Services** I started the SSH service (this is because the web shell times out and disconnects me, so I opted to connect remotely using SSH)
 - Connected to TrueNAS using SSH (if you don't know what SSH is, maybe you should not be doing this manual fix)
-- Run the following commands (one by one to check that everything copied fine, also, this will take a lot of time depending on the amount of photos and videos and the speed of your disks, for me it took hours):
+- Run the following commands (one by one to check that everything copied fine, also, this will take a lot of time depending on the number of photos and videos and the speed of your disks, for me it took hours):
 
 ```bash
 sudo rsync -avh --stats --progress /mnt/.ix-apps/app_mounts/immich/backups/       /mnt/HDDs/Applications/immich/data/backups/
@@ -69,20 +69,20 @@ sudo rsync -avh --stats --progress /mnt/HDDs/Applications/immich/uploads/       
 sudo rsync -avh --stats --progress /mnt/HDDs/Photos/                              /mnt/HDDs/Applications/immich/data/library/
 ```
 
-### Update Immich Configuration
+### Update Immich configuration
 
-- In TrueNAS, Go to "Apps", select Immich and click "Edit", scroll down and uncheck "Use Old Storage Configuration (Deprecated)"
-- In "Data Storage (aka Upload Location) select "Host Path (Path that already exists on the system)" and input `/mnt/HDDs/Applications/immich/data` in "Host Path"
-- Scroll down and click "Update"
+- In TrueNAS, go to **Apps**, click **Immich** and click **Edit**, scroll down and uncheck **Use Old Storage Configuration (Deprecated)**
+- In **Data Storage (aka Upload Location)** click **Host Path (Path that already exists on the system)** and input `/mnt/HDDs/Applications/immich/data` in **Host Path**
+- Scroll down and click **Update**
 
-### Start and Verify
+### Start and verify
 
-- Start Immich and wait for it to change from "Deploying" to "Running"
-- Enter to Immich and check that everything is working, that your photos and videos are there
-- Go back to TrueNAS, Apps, and then update Immich (I did it from TrueNAS, but I guess you could do it from HexOS? not sure)
+- Start Immich and wait for it to change from **Deploying** to **Running**
+- Enter Immich and check that everything is working, that your photos and videos are there
+- Go back to TrueNAS, **Apps**, and then update Immich (I did it from TrueNAS, but I guess you could do it from HexOS? not sure)
 
-> **⚠️ CHECK THAT EVERYTHING IS WORKING FINE!**
-> AUTOMATIC BACKUPS, UPLOADS, DOWNLOADS, SEARCH, EVERYTHING!
+> **Warning:** Check that everything is working fine! Automatic backups, uploads, downloads, search, everything!
+{.is-warning}
 
 
 ### Cleanup

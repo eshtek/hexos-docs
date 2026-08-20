@@ -12,7 +12,7 @@ dateCreated: 2026-06-08T15:39:39.407Z
 
 Help make HexOS better for everyone! Here are the ways you can contribute:
 
-## Getting Started
+## Getting started
 
 New to contributing? Start small:
 1. Join the [HexOS Discord Community](https://discord.gg/fCW2htvYdz)
@@ -28,7 +28,7 @@ Speak a language other than English? Help HexOS speak it too:
 - Translate at your own pace — no deadlines, no minimum commitment
 - Active translators become reviewers for their language
 
-## Improve Documentation
+## Improve documentation
 
 [Contribute to HexOS documentation](/community/how-to-contribute/documentation)
 
@@ -44,7 +44,7 @@ You can help to keep our docs accurate and useful:
 [Documentation Style Guide
 ](/community/how-to-contribute/style-guide)
 
-## Support Other Users
+## Support other users
 
 Build our community by helping others:
 
@@ -53,7 +53,7 @@ Build our community by helping others:
 - Help debug issues
 - Welcome newcomers
 
-## Create App Install Scripts
+## Create app install scripts
 
 The most valuable contribution is expanding the available applications.
 

@@ -54,7 +54,7 @@ Reviewers approve translations for their language and effectively own its qualit
 
 ## New strings over time
 
-As HexOS gains features, new strings flow into Weblate automatically with each release. They'll appear as untranslated in your language, and Weblate can notify you by email when there's new material. Keeping a shipped language topped up is just as valuable as the initial push.
+As HexOS gains features, new strings flow into Weblate automatically with each release. They'll appear as untranslated in your language, and Weblate can notify you by email when there's new material. Keeping a shipped language up to date is just as valuable as the initial push.
 
 ## Questions?
 
