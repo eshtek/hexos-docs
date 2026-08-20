@@ -82,7 +82,7 @@ If you are starting in HexOS, go to [_https://deck.hexos.com/_](https://deck.hex
 <details>
 <summary> Open TrueNAS button </summary>
 
-![Open TrueNAS](https://docs.hexos.com/open-truenas.png){.medium .framed}
+![Open TrueNAS](/open-truenas.png){.medium .framed}
 </details>
 
 This will open a new window in your browser. 
@@ -94,7 +94,7 @@ Next you will see the TrueNAS login. 
 <details>
 <summary> TrueNAS login </summary>
 
-![](https://docs.hexos.com/truenas-login-screen.png){.medium .framed}
+![](/truenas-login-screen.png){.medium .framed}
 </details>
 
 The username is **truenas\_admin** and the password is the one chosen when you installed HexOS.
@@ -112,7 +112,7 @@ Your username as password were set during TrueNAS installation.
 <details>
 <summary> TrueNAS login screen </summary>
 
-![](https://docs.hexos.com/truenas-login-pre-hexos-install.png){.medium .framed}
+![](/truenas-login-pre-hexos-install.png){.medium .framed}
 </details>
 
 **Note down your password**
@@ -130,7 +130,7 @@ You may need to scroll down to see the **System** menu item
 <details>
 <summary> Two-factor authentication setting </summary>
 
-![](https://docs.hexos.com/2fa-disabled.png){.medium .framed}
+![](/2fa-disabled.png){.medium .framed}
 </details>
 
  If it is showing as enabled, click **Configure,** un-check the **Enable Two Factor Authentication Globally** box and click **Save**
@@ -144,7 +144,7 @@ You may need to scroll down to see the **System** menu item
 <details>
 <summary> System menu in sidebar </summary>
 
-![](https://docs.hexos.com/truenas-system-advanced-menu.png){.medium .framed}
+![](/truenas-system-advanced-menu.png){.medium .framed}
 </details>
 
 Then go to **Manage configuration** > **Download File.** This dropdown is on the top right of the screen.
@@ -152,7 +152,7 @@ Then go to **Manage configuration** > **Download File.** This dropdown is on the
 <details>
 <summary> Manage Configuration dropdown </summary>
 
-![](https://docs.hexos.com/truenas-manage-config-menu.png){.medium .framed}
+![](/truenas-manage-config-menu.png){.medium .framed}
 </details>
 
 Leave the **Password Secret Seed** box checked. Click **Save.**
@@ -184,7 +184,7 @@ In the **Encryption** column, datasets that are encrypted are marked as **Locked
 <details>
 <summary> Dataset encryption status column </summary>
 
-![](https://docs.hexos.com/find-encrypted-dataset-truenas.png){.medium .framed}
+![](/find-encrypted-dataset-truenas.png){.medium .framed}
 </details>
 
 If you have no encrypted data you can skip ahead,
@@ -200,7 +200,7 @@ To export your key, click the **Export Key** button. You will be reminded that e
 <details>
 <summary> Export Key button </summary>
 
-![](https://docs.hexos.com/download-key-encrypted-dataset-truenas.png){.medium .framed}
+![](/download-key-encrypted-dataset-truenas.png){.medium .framed}
 </details>
 
 When you have downloaded they key, check that it looks similar to the example key below:
@@ -208,7 +208,7 @@ When you have downloaded they key, check that it looks similar to the example ke
 <details>
 <summary> Example encryption key file </summary>
 
-![](https://docs.hexos.com/example-of-a-key-truenas.png){.medium .framed}
+![](/example-of-a-key-truenas.png){.medium .framed}
 </details>
 
 Then back up the key to a safe local place, such as a USB drive.
@@ -238,7 +238,7 @@ First, in TrueNAS go to **Storage** > **Disks.** The disks button is top right.
 <details>
 <summary> Disks button on Storage screen </summary>
 
-![](https://docs.hexos.com/storage-disks-truenas.png){.medium .framed}
+![](/storage-disks-truenas.png){.medium .framed}
 </details>
 
 You will see a list of all the drives in the machine. 
@@ -248,7 +248,7 @@ The name of the boot drive is **boot-pool.** The *storage* pool drives, which ha
 <details>
 <summary> List of drives </summary>
 
-![](https://docs.hexos.com/list-of-drives-truenas.png){.medium .framed}
+![](/list-of-drives-truenas.png){.medium .framed}
 </details>
 
 Click on each entry and note down the drive **Model Number,** **Disk Size** and **Pool.** 
@@ -296,7 +296,7 @@ First, shut down the server. From TrueNAS this can be done by clicking the power
 <details>
 <summary> Shut Down menu option </summary>
 
-![](https://docs.hexos.com/shutdown.png){.medium .framed}
+![](/shutdown.png){.medium .framed}
 </details>
 
 then check confirm  and click **Shut Down**
@@ -304,7 +304,7 @@ then check confirm  and click **Shut Down**
 <details>
 <summary> Shutdown confirmation dialog </summary>
 
-![](https://docs.hexos.com/shutdown-2-truenas.png){.medium .framed}
+![](/shutdown-2-truenas.png){.medium .framed}
 </details>
 
 When the browser starts to show a connection error, the server has shut down.
@@ -312,7 +312,7 @@ When the browser starts to show a connection error, the server has shut down.
 <details>
 <summary> Browser connection error </summary>
 
-![](https://docs.hexos.com/shutdown-error-truenas.png){.medium .framed}
+![](/shutdown-error-truenas.png){.medium .framed}
 </details>
 
 ### Unplug your storage pool drives
@@ -358,7 +358,7 @@ In this section we will:
 
 ### Install HexOS
 
-Follow the [HexOS installation guide here.](https://docs.hexos.com/getting-started/installation/InstallGuide.html)
+Follow the [HexOS installation guide here.](/getting-started/installation/InstallGuide)
 
 At the end of the installation process, *come back to this guide.*
 
@@ -394,7 +394,7 @@ Enter the username **truenas\_admin and** the temporary password you chose. Clic
 <details>
 <summary> TrueNAS login screen </summary>
 
-![](https://docs.hexos.com/log-in-to-truenas-after-reinstall.png){.medium .framed}
+![](/log-in-to-truenas-after-reinstall.png){.medium .framed}
 </details>
 
 ### Upgrade TrueNAS
@@ -418,7 +418,7 @@ Click the **Updates Available** button.
 <details>
 <summary> Updates Available button </summary>
 
-![](https://docs.hexos.com/update-truenas-1.png){.medium .framed}
+![](/update-truenas-1.png){.medium .framed}
 </details>
 
 In this case there is only one update to make our TrueNAS version numbers match. If the options available do not allow you to update to the correct version, [please contact support](https://discord.com/invite/DjEp3WRHKz).
@@ -428,7 +428,7 @@ Click **Install Update**.
 <details>
 <summary> Install Update button </summary>
 
-![](https://docs.hexos.com/update-trunenas-2.png){.medium .framed}
+![](/update-trunenas-2.png){.medium .framed}
 </details>
 
 Download the config and settings and password as suggested by clicking **Save Configuration.**
@@ -436,7 +436,7 @@ Download the config and settings and password as suggested by clicking **Save Co
 <details>
 <summary> Save Configuration prompt </summary>
 
-![](https://docs.hexos.com/truenas-update-3.png){.medium .framed}
+![](/truenas-update-3.png){.medium .framed}
 </details>
 
 Then click **Install**.
@@ -452,7 +452,7 @@ The system will run the update and reboot
 <details>
 <summary> Update progress screen </summary>
 
-![](https://docs.hexos.com/truenas-updating.png){.medium .framed}
+![](/truenas-updating.png){.medium .framed}
 </details>
 
 When the reboot has finished and the **Console Setup** screen is showing again, boot down the machine. 
@@ -498,7 +498,7 @@ Find your pool in the list, in this instance there is only one pool. Click **Imp
 <details>
 <summary> Pool import dialog </summary>
 
-![](https://docs.hexos.com/import-pool-truenas-2.png){.medium .framed}
+![](/import-pool-truenas-2.png){.medium .framed}
 </details>
 
 The pool will then import, this may take some time.
@@ -506,7 +506,7 @@ The pool will then import, this may take some time.
 <details>
 <summary> Pool import progress </summary>
 
-![](https://docs.hexos.com/import-pool-truenas-3.png){.medium .framed}
+![](/import-pool-truenas-3.png){.medium .framed}
 </details>
 
 One the pool is imported the **Storage Dashboard** will be populated.
@@ -524,7 +524,7 @@ Go into **System** > **Advanced Settings**
 <details>
 <summary> Advanced Settings menu </summary>
 
-![](https://docs.hexos.com/import-config-truenas-1.png){.medium .framed}
+![](/import-config-truenas-1.png){.medium .framed}
 </details>
 
 Then click **Manage Configuration** \> **Upload File.** Manage configuration is found top right of the screen.
@@ -532,7 +532,7 @@ Then click **Manage Configuration** \> **Upload File.** Manage configuration is 
 <details>
 <summary> Upload File menu option </summary>
 
-![](https://docs.hexos.com/import-truenas-config-2.png){.medium .framed}
+![](/import-truenas-config-2.png){.medium .framed}
 </details>
 
 You will be reminded that your temporary password will now be replaced by the original password.
@@ -564,7 +564,7 @@ The import will run and the system will reboot. 
 <details>
 <summary> Config import progress </summary>
 
-![](https://docs.hexos.com/screenshot_from_2026-06-26_22-04-56.png){.medium .framed}
+![](/screenshot_from_2026-06-26_22-04-56.png){.medium .framed}
 </details>
 
 While the system is rebooting you will see the error “Connecting to TrueNAS”. 
@@ -720,7 +720,7 @@ Go to **Apps** > **Configuration** > **Unset Pool**
 <details>
 <summary> Unset Pool menu option </summary>
 
-![](https://docs.hexos.com/apps-after-reinstall-truenas-1.png){.medium .framed}
+![](/apps-after-reinstall-truenas-1.png){.medium .framed}
 </details>
 
 Click **Unset**
@@ -728,7 +728,7 @@ Click **Unset**
 <details>
 <summary> Unset pool confirmation </summary>
 
-![](https://docs.hexos.com/apps-after-reinstall-truenas-2.png){.medium .framed}
+![](/apps-after-reinstall-truenas-2.png){.medium .framed}
 </details>
 
 The process will run
@@ -736,7 +736,7 @@ The process will run
 <details>
 <summary> Unset pool progress </summary>
 
-![](https://docs.hexos.com/apps-after-reinstall-truenas-3.png){.medium .framed}
+![](/apps-after-reinstall-truenas-3.png){.medium .framed}
 </details>
 
 You will see **No applications installed** 
@@ -744,7 +744,7 @@ You will see **No applications installed** 
 <details>
 <summary> No applications installed screen </summary>
 
-![](https://docs.hexos.com/apps-after-reinstall-truenas-4.png){.medium .framed}
+![](/apps-after-reinstall-truenas-4.png){.medium .framed}
 </details>
 
 Restart TrueNAS by clicking **power icon** > **Restart**
@@ -752,7 +752,7 @@ Restart TrueNAS by clicking **power icon** > **Restart**
 <details>
 <summary> Restart menu option </summary>
 
-![](https://docs.hexos.com/restart-truenas.png){.medium .framed}
+![](/restart-truenas.png){.medium .framed}
 </details>
 
 After rebooting and logging in, go to **Apps** > **Configuration** > **Choose Pool**
@@ -760,7 +760,7 @@ After rebooting and logging in, go to **Apps** > **Configuration** > **Choose Po
 <details>
 <summary> Choose Pool menu option </summary>
 
-![](https://docs.hexos.com/apps-after-reinstall-truenas-6.png){.medium .framed}
+![](/apps-after-reinstall-truenas-6.png){.medium .framed}
 </details>
 
 Select your pool from the dropdown and click **Choose.** If you have multiple pools your apps pool is likely to be the first one you created. If you created multiple pools it will be the first one using SSD's (as opposed to HDDs)
@@ -768,7 +768,7 @@ Select your pool from the dropdown and click **Choose.** If you have multiple po
 <details>
 <summary> Pool selection dropdown </summary>
 
-![](https://docs.hexos.com/apps-after-reinstall-truenas-7.png){.medium .framed}
+![](/apps-after-reinstall-truenas-7.png){.medium .framed}
 </details>
 
 Your apps should show back up. Start them by clicking the triangular play symbol under **Controls**
@@ -864,10 +864,10 @@ Next, when you reach the **Storage pools** screen you ***MUST*** click **Skip.**
 <details>
 <summary> Skip confirmation dialog </summary>
 
-![](https://docs.hexos.com/skip-pool-creation-3.png){.medium .framed}
+![](/skip-pool-creation-3.png){.medium .framed}
 </details>
 
-Then finish any remaining steps in the [guide](https://docs.hexos.com/getting-started/setup/CompleteSetup) and your server should now be as it was before. 
+Then finish any remaining steps in the [guide](/getting-started/setup/CompleteSetup) and your server should now be as it was before. 
 
 **Final Checks**
 

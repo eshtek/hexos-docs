@@ -13,15 +13,15 @@ dateCreated: 2026-06-08T15:44:02.077Z
 This guide helps you resolve common issues with HexOS installation, setup, and operation. Issues are organized by category for quick reference.
 
 > **💡 Quick Help**
-> Check our [Common Issues](https://docs.hexos.com/en/troubleshooting/common-issues) section for frequently encountered problems:
-> - [Application Errors](https://docs.hexos.com/en/troubleshooting/common-issues/ApplicationErrors) - App installation, updates, and startup issues
-> - [Immich Migration Guide](https://docs.hexos.com/en/troubleshooting/common-issues/ImmichMigration) - Migrating existing Immich installations
-> - [Clear Browser Cache](https://docs.hexos.com/en/troubleshooting/common-issues/ClearCache) - Fixing login and UI issues
-> - [Avoid USB Drives](https://docs.hexos.com/en/troubleshooting/common-issues/AvoidUSBDrives) - Why USB drives cause problems
-> - [Updating HexOS 24.10](https://docs.hexos.com/en/troubleshooting/common-issues/UpgradingHexOS24) - Guide for updating HexOS 24.10 to HexOS 25.10
-> - [Updating Immich to Postgres 18](https://docs.hexos.com/en/troubleshooting/common-issues/ImmichPG18) - Guide for updating Immich to Postgres 18
-> - [Drive Failure Guide](https://docs.hexos.com/en/troubleshooting/common-issues/DriveFailure) - Guide for replacing a failed drive
-> - [Migrating HexOS to New Hardware and RaidZ layout Guide](https://docs.hexos.com/en/troubleshooting/common-issues/MigratingHexOStoNewRaidlayout) - Guide for Migrating HexOS to New Hardware and RaidZ layout
+> Check our [Common Issues](/troubleshooting/common-issues) section for frequently encountered problems:
+> - [Application Errors](/troubleshooting/common-issues/ApplicationErrors) - App installation, updates, and startup issues
+> - [Immich Migration Guide](/troubleshooting/common-issues/ImmichMigration) - Migrating existing Immich installations
+> - [Clear Browser Cache](/troubleshooting/common-issues/ClearCache) - Fixing login and UI issues
+> - [Avoid USB Drives](/troubleshooting/common-issues/AvoidUSBDrives) - Why USB drives cause problems
+> - [Updating HexOS 24.10](/troubleshooting/common-issues/UpgradingHexOS24) - Guide for updating HexOS 24.10 to HexOS 25.10
+> - [Updating Immich to Postgres 18](/troubleshooting/common-issues/ImmichPG18) - Guide for updating Immich to Postgres 18
+> - [Drive Failure Guide](/troubleshooting/common-issues/DriveFailure) - Guide for replacing a failed drive
+> - [Migrating HexOS to New Hardware and RaidZ layout Guide](/troubleshooting/common-issues/MigratingHexOStoNewRaidlayout) - Guide for Migrating HexOS to New Hardware and RaidZ layout
 >
 > Visit the [HexOS Discord Community](https://discord.gg/fCW2htvYdz) for additional support from other users.
 

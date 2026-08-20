@@ -14,9 +14,9 @@ Welcome to the HexOS community guides! These guides are created by community mem
 
 ## Available Guides
 
-- [**Replicating Virtual Machines**](https://docs.hexos.com/en/community/community-guides/ReplicatingVirtualMachines) - How to replicate and manage virtual machines
-- [**Setting Up Time Machine**](https://docs.hexos.com/en/community/community-guides/TimeMachineInstall) - Configure Mac Time Machine backups with HexOS
-- [**Import pools to HexOS**](https://docs.hexos.com/community/community-guides/import-existing-pools) Import exsiting pools to HexOS, for example when migrating from TrueNAS or swapping out boot drive.
+- [**Replicating Virtual Machines**](/community/community-guides/ReplicatingVirtualMachines) - How to replicate and manage virtual machines
+- [**Setting Up Time Machine**](/community/community-guides/TimeMachineInstall) - Configure Mac Time Machine backups with HexOS
+- [**Import pools to HexOS**](/community/community-guides/import-existing-pools) Import exsiting pools to HexOS, for example when migrating from TrueNAS or swapping out boot drive.
 
 ## Contributing
 

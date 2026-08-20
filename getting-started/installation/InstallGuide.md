@@ -17,7 +17,7 @@ dateCreated: 2026-06-08T15:41:01.586Z
 You will need:
 
 - [To purchase a HexOS license](https://hub.hexos.com/store/product/1-lifetime/)
-- [Server hardware](https://docs.hexos.com/getting-started/overview.html#getting-started)
+- [Server hardware](/getting-started/overview#getting-started)
 - An 8 GB or larger USB drive that can be safely erased
 - An ethernet cable to connect your server to your router or network switch
 - A display, keyboard and optionally a mouse to connect to your server
