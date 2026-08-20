@@ -1,8 +1,8 @@
 ---
 title: Documentation Licensing
 description: Licensing for the HexOS product documentation
-published: false
-date: 2026-08-20T14:56:17.927Z
+published: true
+date: 2026-08-20T15:47:25.856Z
 tags: 
 editor: markdown
 dateCreated: 2026-08-11T14:21:00.545Z
