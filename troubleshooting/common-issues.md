@@ -8,7 +8,7 @@ editor: markdown
 dateCreated: 2026-06-08T15:43:57.203Z
 ---
 
-# Current Guides
+# Current guides
 
 Having trouble with your HexOS setup? Check out these common issues and solutions from the community.
 
@@ -18,7 +18,7 @@ Having trouble with your HexOS setup? Check out these common issues and solution
 - [**Immich Migration**](/troubleshooting/common-issues/ImmichMigration) - Guide for migrating existing Immich installations to HexOS
 - [**Updating HexOS 24.10**](/troubleshooting/common-issues/UpgradingHexOS24) - Guide for updating HexOS 24.10 to HexOS 25.10
 - [**Updating Immich to Postgres 18**](/troubleshooting/common-issues/ImmichPG18) - Guide for updating Immich to Postgres 18
-- [**Migrating HexOS to New Hardware and RaidZ layout**](/troubleshooting/common-issues/MigratingHexOStoNewRaidlayout) - Guide for Migrating HexOS to New Hardware and RaidZ layout
+- [**Migrating HexOS to New Hardware and RAIDZ Layout**](/troubleshooting/common-issues/MigratingHexOStoNewRaidlayout) - Guide for migrating HexOS to new hardware and a RAIDZ layout
 
-> **💡 Contribute to Documentation**
-> Found a solution that worked? [Learn how to contribute](/community/how-to-contribute/) to improve these docs for everyone, submit corrections through the documentation repository, or share your solutions on the [HexOS Discord Community](https://discord.gg/fCW2htvYdz).
+> **Contribute:** Found a solution that worked? [Learn how to contribute](/community/how-to-contribute/) to improve these docs for everyone, submit corrections through the documentation repository, or share your solutions on the [HexOS Discord Community](https://discord.gg/fCW2htvYdz).
+{.is-contribute}

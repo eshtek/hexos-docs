@@ -12,8 +12,7 @@ dateCreated: 2026-06-08T15:44:02.077Z
 
 This guide helps you resolve common issues with HexOS installation, setup, and operation. Issues are organized by category for quick reference.
 
-> **💡 Quick Help**
-> Check our [Common Issues](/troubleshooting/common-issues) section for frequently encountered problems:
+> **Help:** Check our [Common Issues](/troubleshooting/common-issues) section for frequently encountered problems:
 > - [Application Errors](/troubleshooting/common-issues/ApplicationErrors) - App installation, updates, and startup issues
 > - [Immich Migration Guide](/troubleshooting/common-issues/ImmichMigration) - Migrating existing Immich installations
 > - [Clear Browser Cache](/troubleshooting/common-issues/ClearCache) - Fixing login and UI issues
@@ -24,11 +23,12 @@ This guide helps you resolve common issues with HexOS installation, setup, and o
 > - [Migrating HexOS to New Hardware and RaidZ layout Guide](/troubleshooting/common-issues/MigratingHexOStoNewRaidlayout) - Guide for Migrating HexOS to New Hardware and RaidZ layout
 >
 > Visit the [HexOS Discord Community](https://discord.gg/fCW2htvYdz) for additional support from other users.
+{.is-troubleshooting}
 
 
-## Installation Issues
+## Installation issues
 
-### Cannot Image USB Stick with ISO
+### Cannot image USB stick with ISO
 
 If you're having trouble creating a bootable USB drive from the HexOS ISO:
 
@@ -47,7 +47,7 @@ If you're having trouble creating a bootable USB drive from the HexOS ISO:
    - Sometimes download corruption can cause imaging issues
    - Verify the ISO checksum if provided
 
-### Installation Process Failures
+### Installation process failures
 
 Installation problems can happen for various reasons:
 
@@ -64,9 +64,9 @@ Installation problems can happen for various reasons:
    - Run a memory test (memtest86+) if the installer crashes
    - Try installing with minimal RAM configuration
 
-## Network & Connectivity Issues
+## Network & connectivity issues
 
-### Server Fails to Get an IP Address
+### Server fails to get an IP address
 
 Network connectivity problems after installation:
 
@@ -85,7 +85,7 @@ Network connectivity problems after installation:
    - Check if your network uses static IP assignments
    - Verify network subnet and DHCP range
 
-### Server Discovery Problems
+### Server discovery problems
 
 If deck.hexos.com can't find your server:
 
@@ -102,9 +102,9 @@ If deck.hexos.com can't find your server:
    - Check server status lights/indicators
    - Try refreshing the discovery page
 
-## Account & Authentication Issues
+## Account & authentication issues
 
-### Problems Claiming Your Server
+### Problems claiming your server
 
 If you can't claim your server on deck.hexos.com:
 
@@ -121,12 +121,12 @@ If you can't claim your server on deck.hexos.com:
    - Check if the server might already be claimed by another account
    - Contact support if you need to transfer ownership
 
-### Login Issues with deck.hexos.com
+### Login issues with deck.hexos.com
 
 Authentication problems with the HexOS management portal:
 
 1. **Password problems**
-   - Use the "Forgot Password" feature to reset your credentials
+   - Use the **Forgot Password** feature to reset your credentials
    - Ensure you're using the correct email address
    - Check that Caps Lock isn't affecting password entry
 
@@ -139,7 +139,7 @@ Authentication problems with the HexOS management portal:
    - Try a different browser or incognito/private mode
    - Disable browser extensions that might interfere
 
-### Server Authentication Problems
+### Server authentication problems
 
 When you can't authenticate to your local server:
 
@@ -152,9 +152,9 @@ When you can't authenticate to your local server:
    - Ensure your keyboard layout matches what you used during setup
    - Try typing the password in a text editor first to verify
 
-## Storage & Drive Issues
+## Storage & drive issues
 
-### Drive Not Recognized
+### Drive not recognized
 
 If your drives aren't showing up:
 
@@ -171,7 +171,7 @@ If your drives aren't showing up:
    - Ensure adequate power supply capacity for all drives
    - Check that all power connectors are secure
 
-### Pool Creation Issues
+### Pool creation issues
 
 Problems creating storage pools:
 
@@ -184,13 +184,13 @@ Problems creating storage pools:
    - RAIDZ1 requires at least 3 drives
    - RAIDZ2 requires at least 4 drives
 
-## Task & Operation Issues
+## Task & operation issues
 
-### Dismissing Stale Tasks
+### Dismissing stale tasks
 
 If a task is taking too long or appears stuck in the Activities panel, you can manually dismiss it by enabling [Experimental Features](/features/settings/experimental-features/) and clicking the X icon next to the task.
 
-## Getting Additional Help
+## Getting additional help
 
 If your issue isn't covered here:
 
@@ -199,5 +199,5 @@ If your issue isn't covered here:
 - Review the [Getting Started Guide](/getting-started/overview) for setup help
 - Contact HexOS support through the official channels
 
-> **⚠️ Important**
-> Always backup important data before making system changes or troubleshooting storage issues.
+> **Warning:** Always back up important data before making system changes or troubleshooting storage issues.
+{.is-warning}

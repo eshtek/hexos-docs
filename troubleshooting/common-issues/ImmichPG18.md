@@ -14,21 +14,21 @@ dateCreated: 2026-06-08T15:43:47.690Z
 
 - This guide applies to users unable to update Immich and getting the following error
  `[EINVAL] immich.postgres_image_selector: Input should be 'vectorchord_18_image'`
-- This guide only applies to users that are still able to access the Immich WebUI
+- This guide only applies to users that are still able to access the Immich web UI
 
 
-## Logging into the TrueNAS WebUI
+## Logging in to the TrueNAS web UI
 
-- Log into TrueNAS UI
+- Log in to the TrueNAS UI
    1) Navigate to [HexOS Deck](https://deck.hexos.com)
-   2) Navigate to the `settings` panel by selecting it on the left sidebar
+   2) Navigate to the **settings** panel by clicking it on the left sidebar
 <details>
   <summary> Settings option in sidebar </summary>
   
 ![1.png](/immich-pg18-guide/1.png){.align-center}
 </details>
 
-   3) Select the `TrueNAS` button
+   3) Click the **TrueNAS** button
    
 <details>
   <summary> TrueNAS button in settings </summary>
@@ -36,7 +36,7 @@ dateCreated: 2026-06-08T15:43:47.690Z
 ![2.png](/immich-pg18-guide/2.png){.align-center}
     </details>
     
-   3) Select the new `TrueNAS` button
+   4) Click the new **TrueNAS** button
    
 <details>
   <summary> TrueNAS launch button </summary>
@@ -44,7 +44,7 @@ dateCreated: 2026-06-08T15:43:47.690Z
 ![3.png](/immich-pg18-guide/3.png){.align-center}
 </details>
 
-   4) Login
+   5) Log in
        - The username will be `truenas_admin`
        - The password will be what you selected when first installing HexOS
 <details>
@@ -53,9 +53,9 @@ dateCreated: 2026-06-08T15:43:47.690Z
 ![4.png](/immich-pg18-guide/4.png){.align-center}
 </details>
 
-## Updating Process
+## Updating process
 
-1) Navigate to the `Apps` tab
+1) Navigate to the **Apps** tab
 <details>
   <summary> Apps tab in sidebar </summary>
   
@@ -76,8 +76,9 @@ dateCreated: 2026-06-08T15:43:47.690Z
 ![7.png](/immich-pg18-guide/7.png){.align-center}
 </details>
 
-4) Determine Immich `version` on the `Application Info` card
-> **Note:** Not to be confused with `App Version`
+4) Determine the Immich **version** on the **Application Info** card
+> **Info:** Not to be confused with **App Version**
+{.is-info}
 
 <details>
   <summary> Immich version on info card </summary>
@@ -85,7 +86,7 @@ dateCreated: 2026-06-08T15:43:47.690Z
 ![8.png](/immich-pg18-guide/8.png){.align-center}
 </details>
 
-5) Modify the following command to include your Immich `Version`
+5) Modify the following command to include your Immich **version**
 
 ```
 sudo nano /mnt/.ix-apps/app_configs/immich/versions/<insert_your_immich_version>/ix_values.yaml
@@ -94,18 +95,19 @@ In this example the command would be
 ```
 sudo nano /mnt/.ix-apps/app_configs/immich/versions/1.14.13/ix_values.yaml
 ```
-6) Navigate to the `System` tab and then select `shell`
+6) Navigate to the **System** tab and then click **Shell**
 <details>
   <summary> Shell option under System tab </summary>
   
 ![9.png](/immich-pg18-guide/9.png){.align-center}
 </details>
 
-7) Paste the command created in step 4 and press enter
-> **Note:** To paste things in shell you need to press `Shift + Enter`
+7) Paste the command created in step 5 and press enter
+> **Tip:** To paste things in shell you need to press `Shift + Enter`
+{.is-tip}
 
 8) You will be asked to enter your password.
-     - This is the same password used to login into TrueNAS
+     - This is the same password used to log in to TrueNAS
      - There will be no input shown on screen as a security feature
      - When you finish entering your password you can press enter
 <details>
@@ -152,7 +154,7 @@ sudo nano /mnt/.ix-apps/app_configs/immich/versions/1.14.13/ix_values.yaml
 ![15.png](/immich-pg18-guide/15.png){.align-center}
 </details>
 
-12) Return to the `Apps` tab
+12) Return to the **Apps** tab
 <details>
   <summary> Apps tab in sidebar </summary>
   
@@ -166,21 +168,21 @@ sudo nano /mnt/.ix-apps/app_configs/immich/versions/1.14.13/ix_values.yaml
 ![16.png](/immich-pg18-guide/16.png){.align-center}
 </details>
 
-14) On the `Application Info` card press `edit`
+14) On the **Application Info** card click **Edit**
 <details>
   <summary> Edit button on info card </summary>
   
 ![17.png](/immich-pg18-guide/17.png){.align-center}
 </details>
 
-15) Edit the `Postgres Image (CAUTION)` line to `Postgres 18`
+15) Edit the **Postgres Image (CAUTION)** line to **Postgres 18**
 <details>
   <summary> Postgres image selection </summary>
   
 ![18.png](/immich-pg18-guide/18.png){.align-center}
 </details>
 
-16) Scroll all the way down and press the `Update button`
+16) Scroll all the way down and click the **Update** button
 17) Start the Immich app
 <details>
   <summary> Start button for Immich </summary>
@@ -188,9 +190,10 @@ sudo nano /mnt/.ix-apps/app_configs/immich/versions/1.14.13/ix_values.yaml
 ![19.png](/immich-pg18-guide/19.png){.align-center}
 </details>
 
-> **Note:** Starting Immich will take longer than usual this time.
+> **Info:** Starting Immich will take longer than usual this time.
+{.is-info}
 
-18) Once Immich has the `Running` status open the WebUI and make sure Immich is functioning normally
+18) Once Immich has the **Running** status, open the web UI and make sure Immich is functioning normally
 <details>
   <summary> Immich running status </summary>
   
@@ -211,6 +214,6 @@ If you are still having trouble updating Immich please reach out to `support@hex
 
 `sunny_raven` - Created the original guide in the HexOS forums
 
-`BruteNas` - Provided the instructions to saving files in shell
+`BruteNas` - Provided the instructions for saving files in shell
 
-Also a big thank you to everyone that contributed on [github](https://github.com/truenas/apps/issues/4628) to find a solution
+Also a big thank you to everyone that contributed on [GitHub](https://github.com/truenas/apps/issues/4628) to find a solution

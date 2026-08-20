@@ -14,24 +14,24 @@ dateCreated: 2026-06-08T15:43:52.526Z
 
 - With the HexOS update to 1.0 with Local UI any system still running older versions will need to upgrade TrueNAS to work with HexOS 1.0. 
 - This guide only applies to users on `TrueNAS SCALE version 24.10.2.1` or older.
-- If you can access HexOS deck this guide does not apply to you
+- If you can access HexOS Deck this guide does not apply to you
 
-## Finding your server ip address
+## Finding your server IP address
 
 <details>
   <summary> Finding the IP address with a monitor </summary>
 1. Connect a display to your server.
   
-2. When turned on the server will show your `ip address`
+2. When turned on the server will show your IP address
 ![2.png](/upgrading-hexos/2.png =500x){.align-center}
 </details>
 
-If you are unable to connect a monitor to your server you may be able to find the server `ip address` by logging into your router's web interface and looking at connected devices.
+If you are unable to connect a monitor to your server you may be able to find the server IP address by logging into your router's web interface and looking at connected devices.
 
-## Logging into the TrueNAS WebUI
+## Logging in to the TrueNAS web UI
 
-1) Type the `ip address` into your browser
-2) Login
+1) Type the IP address into your browser
+2) Log in
     - The username will be `truenas_admin`
     - The password will be what you selected when first installing HexOS
 <details>
@@ -40,21 +40,21 @@ If you are unable to connect a monitor to your server you may be able to find th
 ![1.png](/upgrading-hexos/1.png =400x){.align-center}
 </details>
 
-## Updating Process
+## Updating process
 
-1) Select the blue `Updates Available` button
+1) Click the blue **Updates Available** button
 <details>
 <summary> Updates Available button </summary>
 
 ![3.png](/upgrading-hexos/3.png =600x){.align-center}
 </details>
-2) Click the `Train` dropdown
+2) Click the **Train** dropdown
 <details>
 <summary> Train dropdown </summary>
 
 ![4.png](/upgrading-hexos/4.png =600x){.align-center}
 </details>
-3) Select `TrueNAS SCALE Goldeye 25.10` in the dropdown
+3) Click **TrueNAS SCALE Goldeye 25.10** in the dropdown
 <details>
 <summary> Goldeye train selection </summary>
 
@@ -66,19 +66,19 @@ If you are unable to connect a monitor to your server you may be able to find th
 
 ![6.png](/upgrading-hexos/6.png =600x){.align-center}
 </details>
-5) Select the `Do not save` button
+5) Click the **Do not save** button
 <details>
 <summary> Do not save prompt </summary>
 
 ![7.png](/upgrading-hexos/7.png =600x){.align-center}
 </details>
-6) Select `Apply updates and reboot system after downloading` and the click `Download`
+6) Click **Apply updates and reboot system after downloading** and then click **Download**
 <details>
 <summary> Update download options </summary>
 
 ![8.png](/upgrading-hexos/8.png =600x){.align-center}
 </details>
 
-## If you still can't connect to HexOS deck
+## If you still can't connect to HexOS Deck
 
-If you are still having trouble claiming your server or connecting to HexOS deck please reach out to `support@hexos.com`
+If you are still having trouble claiming your server or connecting to HexOS Deck please reach out to `support@hexos.com`

@@ -8,15 +8,15 @@ editor: markdown
 dateCreated: 2026-08-09T02:00:05.860Z
 ---
 
-# Migrating HexOS to New Hardware
+# Migrating HexOS to new hardware
 
 Moving your apps, VMs and data to a different machine — including changing your pool layout
 (for example, from a 2-drive mirror to RAIDZ2).
 
-::: warning This is an advanced guide
-Most of this work happens in the **TrueNAS interface behind HexOS**, not in the Command Deck. If you only need to move drives between machines *without* changing the pool layout, you can usually just move the physical disks — this guide is for the case where the new server has adifferent pool layout, so the data has to be copied across.
-
-Take your time, and don't erase anything on the old server until the new one is fully verified.
+> **Warning:** This is an advanced guide. Most of this work happens in the **TrueNAS interface behind HexOS**, not in the Command Deck. If you only need to move drives between machines *without* changing the pool layout, you can usually just move the physical disks — this guide is for the case where the new server has a different pool layout, so the data has to be copied across.
+>
+> Take your time, and don't erase anything on the old server until the new one is fully verified.
+{.is-warning}
 
 ## What you can and can't carry over
 
@@ -35,17 +35,17 @@ There are two valid ways to get your users, shares and VM definitions onto the n
 
 **Option A — Start clean and recreate by hand.** You set your users and shares up again on the new server. Simplest to follow, nothing unexpected carried over, and you end up with a tidy system. Best if you have a handful of shares and users, which is true for most HexOS setups.
 
-**Option B — Restore the config backup from the old server.** Your users, shares, SMB settings and VM definitions come back in one shot. Saves real work if you have a lot of them, at the cost of a few extra steps and a couple of sharp edges — including one that will strand your new pool until you re-import it.
+**Option B — Restore the config backup from the old server.** Your users, shares, SMB settings and VM definitions come back all at once. Saves real work if you have a lot of them, at the cost of a few extra steps and a couple of pitfalls — including one that will strand your new pool until you re-import it.
 
 Both options are written out in full in Step 6. Everything up to that point is identical, with one exception noted in Step 5.
 
 ## Before you start
 
 1. **Save a config backup from the old server.** In the TrueNAS UI:
-   **System → General → Manage Configuration → Download File**, and tick **Export Password Secret
+   **System** > **General** > **Manage Configuration** > **Download File**, and check **Export Password Secret
    Seed**. Option B needs this file. Take it even if you're planning on Option A — it costs nothing and it's a useful record of how the old server was set up.
-2. **Write down your current pool name, exactly.** You'll find it in Storage in the Command Deck,or in the TrueNAS UI. HexOS names pools after the type of drive in them, so it's usually something like `HDDs`, `SSDs` or `NVMEs`. You will need it character for character.
-3. **Make a list of your installed apps** and any settings you customised.
+2. **Write down your current pool name, exactly.** You'll find it in Storage in the Command Deck, or in the TrueNAS UI. HexOS names pools after the type of drive in them, so it's usually something like `HDDs`, `SSDs` or `NVMEs`. You will need it character for character.
+3. **Make a list of your installed apps** and any settings you customized.
 4. **Check capacity.** Your new RAIDZ2 pool needs enough usable space for everything currently on the old pool.
 5. **Leave the old drives untouched** until the new server is confirmed working. That is your rollback plan, and it costs you nothing to keep.
 
@@ -56,14 +56,14 @@ the new server's boot drive.
 
 Stop before claiming it in the Command Deck.
 
-::: tip One license, one claimed server
-A HexOS license covers one claimed server at a time. If you try to claim the new machine while the old one is still claimed, you'll see *"You do not have any licenses available to claim a new server."* That's expected — you'll claim the new server at the end, once everything has been copied across and checked.
-
-Leaving the new machine unclaimed for now is fine. An unclaimed HexOS machine is still a fully working TrueNAS system, reachable at `https://<new-server-ip>` with the `truenas_admin` account and the root password you set during installation. That's where the next few steps happen.
+> **Tip:** One license, one claimed server. A HexOS license covers one claimed server at a time. If you try to claim the new machine while the old one is still claimed, you'll see *"You do not have any licenses available to claim a new server."* That's expected — you'll claim the new server at the end, once everything has been copied across and checked.
+>
+> Leaving the new machine unclaimed for now is fine. An unclaimed HexOS machine is still a fully working TrueNAS system, reachable at `https://<new-server-ip>` with the `truenas_admin` account and the root password you set during installation. That's where the next few steps happen.
+{.is-tip}
 
 ## Step 2: Create the RAIDZ2 pool from the TrueNAS UI
 
-Log in to the new server directly at `https://<new-server-ip>` and create your pool under **Storage → Create Pool**, choosing the RAIDZ2 layout.
+Log in to the new server directly at `https://<new-server-ip>` and create your pool under **Storage** > **Create Pool**, choosing the RAIDZ2 layout.
 
 Two things to know:
 
@@ -73,13 +73,12 @@ Two things to know:
 That second point is the single most valuable thing in this guide. Apps and VMs store absolute paths like `/mnt/HDDs/…` and `/dev/zvol/HDDs/…`. If the pool name matches, everything you copy across simply works. If it doesn't, you'll be hand-editing paths in every app and every VM
 afterwards — and creating the pool yourself is the only opportunity you get to choose the name, because HexOS generates pool names automatically from the drive type.
 
-::: info Names in the Command Deck
-The name you can edit for a pool in HexOS is a display label. The underlying ZFS pool name — the one that appears in paths — is set when the pool is created and isn't changed by renaming the label.
-:::
+> **Info:** Names in the Command Deck — the name you can edit for a pool in HexOS is a display label. The underlying ZFS pool name — the one that appears in paths — is set when the pool is created and isn't changed by renaming the label.
+{.is-info}
 
-::: warning Create the pool before restoring any config backup If you're going with Option B, don't restore the config yet. TrueNAS won't let you create a pool
-whose name already appears in its configuration, and a restored config still lists the old server's pool by that name. Create the pool first, restore later — Step 6 covers the order.
-:::
+> **Warning:** Create the pool before restoring any config backup. If you're going with Option B, don't restore the config yet. TrueNAS won't let you create a pool
+> whose name already appears in its configuration, and a restored config still lists the old server's pool by that name. Create the pool first, restore later — Step 6 covers the order.
+{.is-warning}
 
 ## Step 3: Copy the data across with ZFS replication
 
@@ -93,16 +92,15 @@ Replicate all of the following from the old pool to the new one:
 - **The `ix-apps` dataset** (`<pool>/ix-apps`). This is where your app configurations live. It is what actually brings your apps back — app settings are *not* in the config backup file, under either option.
 - **The zvols behind your VMs.**
 
-::: tip Stop your apps before the final pass
-Replicate a snapshot taken with the apps stopped, so databases aren't caught mid-write. A practical approach: run the replication once while everything is running to move the bulk of the data, then stop your apps and run it a second time to pick up the changes. The second pass is
-incremental and much faster.
-:::
+> **Tip:** Stop your apps before the final pass. Replicate a snapshot taken with the apps stopped, so databases aren't caught mid-write. A practical approach: run the replication once while everything is running to move the bulk of the data, then stop your apps and run it a second time to pick up the changes. The second pass is
+> incremental and much faster.
+{.is-tip}
 
 Expect this to take hours rather than minutes for a couple of terabytes on a gigabit network.
 
 ## Step 4: Bring your apps back
 
-On the new server, in the TrueNAS UI, go to **Apps → Settings** (the configuration menu) and set the apps pool to the pool you just replicated into.
+On the new server, in the TrueNAS UI, go to **Apps** > **Settings** (the configuration menu) and set the apps pool to the pool you just replicated into.
 
 TrueNAS finds the existing `ix-apps` dataset and picks your apps up with their settings intact. Because the pool name matches the old one, any folders your apps mount resolve to the right place.
 
@@ -125,8 +123,8 @@ Pick the option you decided on earlier. Either way, this has to happen **before*
 
 In the TrueNAS UI on the new server, recreate:
 
-- your users (**Credentials → Users**)
-- your shares (**Shares → Windows Shares (SMB)**, or whichever protocols you use), pointing at the datasets you replicated in Step 3
+- your users (**Credentials** > **Users**)
+- your shares (**Shares** > **Windows Shares (SMB)**, or whichever protocols you use), pointing at the datasets you replicated in Step 3
 
 Then move on to Step 7. Once the server is claimed, the folders will appear in the Command Deck alongside your apps.
 
@@ -135,22 +133,24 @@ Then move on to Step 7. Once the server is claimed, the folders will appear in t
 The order matters here. Do it exactly like this:
 
 1. **Restore the config.** In the TrueNAS UI on the new server:
-   **System → General → Manage Configuration → Upload File**, choose the file you saved from the old server, and confirm. The server reboots on its own.
-2. **Expect the pool to be missing after that reboot.** This is normal and it's the sharp edge to be ready for. TrueNAS remembers pools by a unique ID, and the restored configuration only knows about the old server's pool — so your new RAIDZ2 pool isn't recognised on the way up. Your data is fine; the system just isn't looking at it yet.
-3. **Import the pool.** Go to **Storage → Import Pool** and select your pool. TrueNAS replaces the stale entry with the real one, the datasets mount, and your shares start resolving to the right paths.
+   **System** > **General** > **Manage Configuration** > **Upload File**, choose the file you saved from the old server, and confirm. The server reboots on its own.
+2. **Expect the pool to be missing after that reboot.** This is normal and it's the pitfall to be ready for. TrueNAS remembers pools by a unique ID, and the restored configuration only knows about the old server's pool — so your new RAIDZ2 pool isn't recognized on the way up. Your data is fine; the system just isn't looking at it yet.
+3. **Import the pool.** Go to **Storage** > **Import Pool** and select your pool. TrueNAS replaces the stale entry with the real one, the datasets mount, and your shares start resolving to the right paths.
 4. **Check your apps.** Go back to **Apps** and confirm they're running. If the apps pool setting didn't survive the round trip, set it again as in Step 4.
 5. **Check your VMs.** Their definitions should be back. Confirm each one's disk points at a zvol that exists, and re-select any passed-through hardware.
 6. **Check the network.** See the note below — this is the other thing to be ready for.
 
-::: warning Two things to watch on Option B
-**Network settings come from the old machine.** The new motherboard's network ports have different names, so the restored network configuration may not apply cleanly, and the restored hostname and static IP may collide with the old server if both are powered on. Keep a monitor and
-keyboard on the new server for this reboot so you can fix the network from the console if it doesn't come back on the LAN.
+> **Warning:** Two things to watch on Option B.
+>
+> **Network settings come from the old machine.** The new motherboard's network ports have different names, so the restored network configuration may not apply cleanly, and the restored hostname and static IP may collide with the old server if both are powered on. Keep a monitor and
+> keyboard on the new server for this reboot so you can fix the network from the console if it doesn't come back on the LAN.
+>
+> **Never upload a config file to a server that's already claimed.** The config contains the API key HexOS uses to talk to your server. Restoring an older config replaces that key, and the Command Deck loses access and disconnects the server. Restoring now, while the new machine is still
+> unclaimed, avoids this entirely — which is why Step 7 comes last.
+{.is-warning}
 
-**Never upload a config file to a server that's already claimed.** The config contains the API key HexOS uses to talk to your server. Restoring an older config replaces that key, and the Command Deck loses access and disconnects the server. Restoring now, while the new machine is still
-unclaimed, avoids this entirely — which is why Step 7 comes last.
-
-::: info What a config restore does not bring back
-App configurations. They live on the pool in the `ix-apps` dataset, not in the config file, whichis why Step 3 replicates it under both options.
+> **Info:** What a config restore does not bring back: app configurations. They live on the pool in the `ix-apps` dataset, not in the config file, which is why Step 3 replicates it under both options.
+{.is-info}
 
 ## Step 7: Claim the new server
 
@@ -169,7 +169,7 @@ Only once the new server is doing everything the old one did:
 
 **Encryption keys.** Pools created by HexOS aren't encrypted, so this usually doesn't apply. If you created encrypted datasets yourself, export their keys from the old server before you start, and keep them with your config backup.
 
-**The old server is your safety net.** Don't wipe it, and don't pull its drives, until the new server has been running your workload happily for a while.
+**The old server is your rollback plan.** Don't wipe it, and don't pull its drives, until the new server has been running your workload without problems for a while.
 
 ## Getting help
 

@@ -8,21 +8,21 @@ editor: markdown
 dateCreated: 2026-06-08T15:43:29.316Z
 ---
 
-# Application Troubleshooting Guide
+# Application troubleshooting guide
 
 ## Installation
 
 - If installation fails once, try again immediately
-- If it still fails check error
-    - This can be done by pressing the bell icon at the top of HexOS deck
-    - If HexOS shows an unknown error you can find more details by entering TrueNAS and selecting the clipboard icon
+- If it still fails, check the error
+    - This can be done by clicking the bell icon at the top of HexOS Deck
+    - If HexOS shows an unknown error you can find more details by entering TrueNAS and clicking the clipboard icon
 <details> 
 <summary> How to view the error in TrueNAS </summary>
-1. Login to HexOS deck and go to Settings
+1. Log in to HexOS Deck and go to **Settings**
  
-2. Select the TrueNAS Button
+2. Click the **TrueNAS** button
 ![1.png](/app-troubleshooting-guide/1.png =600x){.align-center}
-3) Login to TrueNAS
+3) Log in to TrueNAS
     - Username: truenas_admin
     - Password: What was selected when installing HexOS
 ![2.png](/app-troubleshooting-guide/2.png =400x){.align-center}
@@ -30,7 +30,7 @@ dateCreated: 2026-06-08T15:43:29.316Z
 ![3.png](/app-troubleshooting-guide/3.png =600x){.align-center}
 </details> 
 
-### Custom Application Name Conflicts
+### Custom application name conflicts
 
 When installing a custom application through TrueNAS, the name you assign must be unique across your system. If a custom application shares the exact name of an application available in the HexOS catalog, the installation will fail and the catalog application will not be installable until the conflict is resolved. This commonly occurs when setting up multiple instances of the same application configured for different purposes, such as:
 
@@ -50,54 +50,56 @@ If you have already installed a custom application whose name matches a catalog 
 
 ## Updating
 
-An App has to be running for it to updated. <br>
+An app has to be running for it to be updated. <br>
 It is good practice to update apps regularly.
 
 <details> 
   <summary> How to update </summary>
 
-1) Login into HexOS deck and go to the apps section
-2) Select your app
-3) Select the Update button on the Application info card
+1) Log in to HexOS Deck and go to the apps section
+2) Click your app
+3) Click the **Update** button on the **Application info** card
 ![4.png](/app-troubleshooting-guide/4.png =400x){.align-center}
 </details>
 
 ### If an app is not working after an application update
 
-If your app stopped working immediately after an update you can go into TrueNAS and roll back a previous version of your app.
-> Note: Some applications may have bugs when rolled back
+If your app stopped working immediately after an update you can go into TrueNAS and roll back to a previous version of your app.
+> **Warning:** Some applications may have bugs when rolled back
+{.is-warning}
 <details> 
   <summary> Instructions for rolling back an application </summary>
 
-1) Login to HexOS deck and go to settings
+1) Log in to HexOS Deck and go to **Settings**
 ![1.png](/app-troubleshooting-guide/1.png =600x){.align-center}
-2) Select the TrueNAS Button
-3) Login to TrueNAS
+2) Click the **TrueNAS** button
+3) Log in to TrueNAS
     - Username: truenas_admin
     - Password: What was selected when installing HexOS
 ![2.png](/app-troubleshooting-guide/2.png =400x){.align-center}
-4) Navigate to the `Apps` tab on the left sidebar menu
+4) Navigate to the **Apps** tab on the left sidebar menu
 ![5.png](/app-troubleshooting-guide/5.png =300x){.align-center}
 5) Click on your application
-6) Select the `Rollback` option on the `Application Info` card 
+6) Click the **Rollback** option on the **Application Info** card 
 ![6.png](/app-troubleshooting-guide/6.png =400x){.align-center}
-7) Select the most recent version of the app that worked and rollback
+7) Click the most recent version of the app that worked and roll back
 ![7.png](/app-troubleshooting-guide/7.png =400x){.align-center}
 </details>
 
-## Resetting App Curation
+## Resetting app curation
 
-If the settings on an app were changed in TrueNAS you can use `Reset App Curation` to bring it back to the HexOS default configuration.
-> Note: This can be used to update your application settings if HexOS has updated the curation.
+If the settings on an app were changed in TrueNAS you can use **Reset App Curation** to bring it back to the HexOS default configuration.
+> **Info:** This can be used to update your application settings if HexOS has updated the curation.
+{.is-info}
 
 <details> 
   <summary> How to Reset App Curation </summary>
-1) Open Hexos Deck Application section
+1) Open the HexOS Deck application section
 
-2) Select the app
-3) Select the `options` button on the application info card
+2) Click the app
+3) Click the **options** button on the application info card
 ![8.png](/app-troubleshooting-guide/8.png =400x){.align-center}
-4) Select `Reset App Curation`
+4) Click **Reset App Curation**
 ![9.png](/app-troubleshooting-guide/9.png =600x){.align-center}
 </details>
 
@@ -110,35 +112,37 @@ If the settings on an app were changed in TrueNAS you can use `Reset App Curatio
 ## App not starting
 
 If apps are not starting after recent hardware changes you can try the following <br>
-Motherboard changed: Try opening the app from HexOS Deck as your sever IP Address may have changed <br>
-GPU changed: Try disabling GPU pass-through and disable using a gpu in the application configuration to troubleshoot <br>
+Motherboard changed: Try opening the app from HexOS Deck as your server IP address may have changed <br>
+GPU changed: Try disabling GPU pass-through and disable using a GPU in the application configuration to troubleshoot <br>
 <details> 
   <summary> How to turn off GPU pass-through </summary>
- 1. Select the app in HexOS deck
+ 1. Click the app in HexOS Deck
   
-2) Press the `options` button on the applications info card
+2) Click the **options** button on the application info card
 ![10.png](/app-troubleshooting-guide/10.png =400x){.align-center}
-3) Press `Configure in TrueNAS`
+3) Click **Configure in TrueNAS**
 ![11.png](/app-troubleshooting-guide/11.png =400x){.align-center}
-4) Scroll all the way to the bottom and uncheck GPU related options
+4) Scroll all the way to the bottom and uncheck GPU-related options
 ![12.png](/app-troubleshooting-guide/12.png =400x){.align-center}
-5) Press the Update button
+5) Click the **Update** button
 ![13.png](/app-troubleshooting-guide/13.png =400x){.align-center}
 </details>
 
-# App Specific Troubleshooting
+# App-specific troubleshooting
 
 <details> 
   <summary> Immich </summary>
 ## Immich
 
-> <span style="color: red;">Warning: Do Not uninstall immich as a troubleshooting step unless explicitly instructed to or are planning to start again fresh</span> 
+> **Warning:** Do not uninstall Immich as a troubleshooting step unless explicitly instructed to or you are planning to start again fresh
+{.is-warning}
 
 ### Installation
 
-If you uninstalled Immich and it is no longer re-installing 
-consider deleting the the old datasets and start over fresh
-> <span style="color: red;">Warning: Deleting the old data sets will also delete the copy of your media on the server</span> 
+If you uninstalled Immich and it is no longer re-installing, 
+consider deleting the old datasets and starting over fresh
+> **Danger:** Deleting the old datasets will also delete the copy of your media on the server
+{.is-danger}
 
 ### Updating Immich
 
@@ -150,23 +154,23 @@ Coming soon
 
 Coming soon
 
-### Mobile Application not functioning
+### Mobile application not functioning
 
 Update the Immich app on both the server side and the mobile side
 
-### Immich Media not showing up
+### Immich media not showing up
 
 Check the storage paths in the settings <br>
 Uploads: (HDDs/SSDs)/Photos/immich <br>
 Postgres: (HDDs/SSDs)/Applications/immich/postgres_data <br>
 
 
-If your storage locations do not match and you installed Immich via HexOS, are on Immich version 2.0.0+ and have not modified Immich in TrueNAS then you can [`Reset App Curation`](/troubleshooting/common-issues/ApplicationErrors.html#resetting-app-curation)
+If your storage locations do not match and you installed Immich via HexOS, are on Immich version 2.0.0+ and have not modified Immich in TrueNAS then you can [**Reset App Curation**](/troubleshooting/common-issues/ApplicationErrors.html#resetting-app-curation)
 
 </details>
 # What to do if you need more help with apps
 
-Fill out the following template and share it in on [HexOS HUB](https://hub.hexos.com) or contact us at Support@hexos.com
+Fill out the following template and share it on [HexOS HUB](https://hub.hexos.com) or contact us at support@hexos.com
 
 ## Template 
 
@@ -181,32 +185,32 @@ Troubleshooting steps attempted: <br>
 <details> 
   <summary> TrueNAS Version </summary>
 
-TrueNAS Version can be found by
-1) Login to [HexOS Deck Settings](https://deck.hexos.com/settings)
-2) Select the TrueNAS Button
+The TrueNAS version can be found by
+1) Log in to [HexOS Deck Settings](https://deck.hexos.com/settings)
+2) Click the **TrueNAS** button
 ![1.png](/app-troubleshooting-guide/1.png =600x){.align-center}
-3) Login to TrueNAS
+3) Log in to TrueNAS
     - Username: truenas_admin
     - Password: What was selected when installing HexOS
 ![2.png](/app-troubleshooting-guide/2.png =400x){.align-center}
-4) On the system information card you will see your TrueNAS Version
+4) On the **System Information** card you will see your TrueNAS version
 ![14.png](/app-troubleshooting-guide/14.png =400x){.align-center}
 
 </details>
 <details> 
   <summary> Application Version </summary>
 
-The application Version can be found by
-1) Login to HexOS deck and go to `Settings`
-2) Select the TrueNAS Button
+The application version can be found by
+1) Log in to HexOS Deck and go to **Settings**
+2) Click the **TrueNAS** button
 ![1.png](/app-troubleshooting-guide/1.png =600x){.align-center}
-3) Login to TrueNAS
+3) Log in to TrueNAS
     - Username: truenas_admin
     - Password: What was selected when installing HexOS
 ![2.png](/app-troubleshooting-guide/2.png =400x){.align-center}
-4) Navigate to the `Apps` tab on the left sidebar menu
+4) Navigate to the **Apps** tab on the left sidebar menu
 5) Click on your application
-6) On the `Application Info` card you will see an `App Version`
+6) On the **Application Info** card you will see an **App Version**
 ![15.png](/app-troubleshooting-guide/15.png =400x){.align-center}
 </details>
 
@@ -214,29 +218,29 @@ The application Version can be found by
   <summary> Model of CPU </summary>
 
 The model of the CPU in your server can be found by
-1) Login to [HexOS Deck Settings](https://deck.hexos.com/settings)
-2) Select the TrueNAS Button
+1) Log in to [HexOS Deck Settings](https://deck.hexos.com/settings)
+2) Click the **TrueNAS** button
 ![1.png](/app-troubleshooting-guide/1.png =600x){.align-center}
-3) Login to TrueNAS
+3) Log in to TrueNAS
     - Username: truenas_admin
     - Password: What was selected when installing HexOS
 ![2.png](/app-troubleshooting-guide/2.png =400x){.align-center}
-4) On the `CPU Model` card you will see your CPU Model
+4) On the **CPU Model** card you will see your CPU model
 </details>
 
 <details> 
   <summary> Model of GPU </summary>
-1. Login to HexOS Deck and go to `Settings` 
+1. Log in to HexOS Deck and go to **Settings** 
   
-2) Select the TrueNAS Button
+2) Click the **TrueNAS** button
 ![1.png](/app-troubleshooting-guide/1.png =600x){.align-center}
-3) Login to TrueNAS
+3) Log in to TrueNAS
     - Username: truenas_admin
     - Password: What was selected when installing HexOS
 ![2.png](/app-troubleshooting-guide/2.png =400x){.align-center}
-4) Navigate to the `System` tab on the left sidebar menu
+4) Navigate to the **System** tab on the left sidebar menu
 ![16.png](/app-troubleshooting-guide/16.png =300x){.align-center}
-5) Select `Shell`
+5) Click **Shell**
 ![17.png](/app-troubleshooting-guide/17.png =400x){.align-center}
 6) Type `lspci | egrep -i 'vga|3d|display'`
 ![18.png](/app-troubleshooting-guide/18.png =600x){.align-center}</details>
@@ -256,7 +260,7 @@ Describe the problem
 When did it start?
 What steps did you take before the problem started?
 
-Include any errors reports that HexOS or TrueNAS informs you of in this section.
+Include any error reports that HexOS or TrueNAS informs you of in this section.
 </details>
 <details> 
   <summary> Troubleshooting steps attempted </summary>
