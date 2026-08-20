@@ -9,8 +9,12 @@ dateCreated: 2026-06-22T12:46:47.046Z
 ---
 
 # Import pools to HexOS
+
 > **Thank you:** lnkd and ShinobiRen for the original guide
 {.is-contribute}
+
+> **Info:** This guide was contributed by a member of the HexOS community. Your setup may differ slightly — if a step doesn't match what you see, ask in the [#Docs channel on Discord](https://discord.com/invite/DjEp3WRHKz).
+{.is-info}
 
 ## Who this guide is for
 

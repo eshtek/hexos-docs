@@ -13,6 +13,9 @@ dateCreated: 2026-06-08T15:39:07.451Z
 > **Thank you:** @G-M0N3Y-2503 for the original guide
 {.is-contribute}
 
+> **Info:** This guide was contributed by a member of the HexOS community. Your setup may differ slightly — if a step doesn't match what you see, ask in the [#Docs channel on Discord](https://discord.com/invite/DjEp3WRHKz).
+{.is-info}
+
 Just adding what I did to get it working for me. However, I received numerous permission warnings for the moves, but they didn't seem to have any ill effect.
 
 My overall plan was to migrate from the old to the new, where the new is how I approximated a new install of Immich would look.

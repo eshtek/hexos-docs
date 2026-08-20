@@ -8,6 +8,9 @@ editor: markdown
 dateCreated: 2026-06-08T15:39:25.033Z
 ---
 
+> **Info:** This guide was contributed by a member of the HexOS community. Your setup may differ slightly — if a step doesn't match what you see, ask in the [#Docs channel on Discord](https://discord.com/invite/DjEp3WRHKz).
+{.is-info}
+
 
   
 **TIME MACHINE INSTALL GUIDE (Hex + TrueNAS)**

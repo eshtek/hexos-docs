@@ -13,6 +13,9 @@ dateCreated: 2026-06-08T15:39:11.970Z
 > **Thank you:** @forsaken for the original guide
 {.is-contribute}
 
+> **Info:** This guide was contributed by a member of the HexOS community. Your setup may differ slightly — if a step doesn't match what you see, ask in the [#Docs channel on Discord](https://discord.com/invite/DjEp3WRHKz).
+{.is-info}
+
 I fixed it! 😁, but it was a pain to do it because rsync and TrueNAS datasets that have ACLs don't like each other.
 
 I made a small guide, but it requires you to enter TrueNAS and run commands, so don't even try to follow it if you are not comfortable with getting your hands dirty, do it at your own risk since if you type something wrong you could make a mess.

@@ -13,6 +13,9 @@ dateCreated: 2026-06-08T15:39:16.279Z
 > **Thank you:** @ShinobiRen for the original guide
 {.is-contribute}
 
+> **Info:** This guide was contributed by a member of the HexOS community. Your setup may differ slightly — if a step doesn't match what you see, ask in the [#Docs channel on Discord](https://discord.com/invite/DjEp3WRHKz).
+{.is-info}
+
 Hello everyone!
 
 I wanted to set up a secondary server - one for testing to break things and one for a more stable NAS environment that I will wait for HexOS to support updates, etc. To do this I needed to get some things off of my test server - primarily my VMs that I had created. Here is how I set up replication and moved the VMs. Hope you find this useful!
