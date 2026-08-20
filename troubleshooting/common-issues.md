@@ -2,13 +2,13 @@
 title: Current Guides
 description: 
 published: true
-date: 2026-08-09T02:31:17.937Z
+date: 2026-08-20T18:08:38.846Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:43:57.203Z
 ---
 
-# Current guides
+# Common Issues
 
 Having trouble with your HexOS setup? Check out these common issues and solutions from the community.
 
