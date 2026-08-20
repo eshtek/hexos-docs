@@ -2,7 +2,7 @@
 title: Documentation How To Contribute
 description: 
 published: false
-date: 2026-08-12T11:48:30.479Z
+date: 2026-08-20T13:57:17.867Z
 tags: 
 editor: markdown
 dateCreated: 2026-07-18T09:51:14.516Z
@@ -93,9 +93,20 @@ You're all done! Thank you for your support.
   ![name-the-guide.png](/name-the-guide.png){.align-center}
     </details>
 
-#### [todo] title
+Click the *Select* button
 
-- [TODO] Choose editor
+
+
+<details>
+  <summary> Name the page </summary>
+
+  
+</details>
+
+
+#### Chose an editor
+
+- [Choose editor
 - Under **Scheduling**, toggle off **Published**.
 
 <details>
