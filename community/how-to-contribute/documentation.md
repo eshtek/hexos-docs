@@ -2,7 +2,7 @@
 title: Documentation How To Contribute
 description: 
 published: false
-date: 2026-08-20T13:57:17.867Z
+date: 2026-08-20T14:33:31.114Z
 tags: 
 editor: markdown
 dateCreated: 2026-07-18T09:51:14.516Z
@@ -95,19 +95,43 @@ You're all done! Thank you for your support.
 
 Click the *Select* button
 
-
-
 <details>
-  <summary> Name the page </summary>
+  <summary> Click Select </summary>
 
-  
+  ![click-select.png](/how-to-contribute/click-select.png)
+
 </details>
 
 
 #### Chose an editor
 
-- [Choose editor
-- Under **Scheduling**, toggle off **Published**.
+Please use the **Markdown** editor. 
+
+<details>
+  <summary> Click markdown editor </summary>
+
+![choose-visual-editor.png](/how-to-contribute/choose-visual-editor.png)
+</details>
+
+
+This is because Key components of the style guide, for example:
+
+- call out warnings
+- image dropdown
+
+cannot be added in the visual editor.
+
+ages made using the visual editor would need to be converted to the markdown format in order to add those elements.
+
+#### Page properties
+Give the page a title. This will usually match the page page name you chose earlier
+<details>
+  <summary> Add page title </summary>
+
+![title-page.png](/how-to-contribute/title-page.png)
+</details>
+
+Under **Scheduling**, toggle off **Published**.
 
 <details>
   <summary> Toggle off published </summary>
@@ -115,8 +139,15 @@ Click the *Select* button
   ![toggle-off-published.png](/toggle-off-published.png){.align-center}
     </details>
     
-- [Todo] finish up making page
-- Save the guide by clicking the checkmark icon.
+Click **OK** to finish the set up
+
+<details>
+  <summary> Click OK </summary>
+
+![click-okay.png](/how-to-contribute/click-okay.png)    </details>
+
+> **Tip:** Save your work by clicking the checkmark icon
+{.is-tip}
 
 > **Warning:**  The wiki editor does not autosave! Consider writing in another tool and then pasting into the wiki for formatting.
 {.is-warning}
@@ -132,4 +163,3 @@ Click the *Select* button
 - When you're done the guide can be published. A docs admin can add it to the list on the **Community guides** page.
 
 Thank you! Documentation is a huge part of what makes a project like HexOS work for its users. Your support is invaluable. 
-## 
