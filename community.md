@@ -2,13 +2,13 @@
 title: Different ways to contribute
 description: 
 published: true
-date: 2026-07-08T18:07:43.336Z
+date: 2026-08-20T14:37:54.359Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:39:39.407Z
 ---
 
-# Different ways to contribute
+# How to contribute
 
 Help make HexOS better for everyone! Here are the ways you can contribute:
 
