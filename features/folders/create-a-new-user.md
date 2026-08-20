@@ -22,6 +22,7 @@ If you want to share selected folders or files with someone who has access to yo
 1. Open [HexOS deck](https://deck.hexos.com)
 2. Go to the **Folders** screen 
 3. Click **Add new** under the **Users** section. 
+
 > **Info:** The admin account doesn't show up in this list of users
 {.is-info}
 

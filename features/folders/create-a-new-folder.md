@@ -32,6 +32,7 @@ This will bring up the **Create Folder** dialog
 
 ### Folder name
 - Choose a folder name.
+
 > **Warning:** Folder name cannot be modified after folder creation.
 {.is-warning}
 
@@ -39,6 +40,7 @@ This will bring up the **Create Folder** dialog
 ### Location
 - Choose the pool you would like your folder to be in.
   - If you only have one pool then it will automatically be selected for you.
+
 > **Warning:** Folder location cannot be modified after folder creation.
 {.is-warning}
 

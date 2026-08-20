@@ -14,6 +14,7 @@ In HexOS, you can [create folders](/features/folders/create-a-new-folder) throug
 The folder contents are added, viewed and edited from another device *over the network*. This means folders are accessed using a computer, laptop or phone connected to the same network. 
 
 This guide will explain how to access a folder on your HexOS server from a variety of other devices.
+
 > **Info:** Some apps may require different methods to add or view data. In Immich, for example, you upload photos and videos via a web browser.
 {.is-info}
 

@@ -63,6 +63,7 @@ File encryption is when a file's data is scrambled in a way it can only be recov
 - The selected passphrase is needed to unlock the encrypted folder every time.
 - Passphrase cannot be changed after folder creation.
 - <span style="color: red;">If the passphrase is lost, data cannot be recovered by HexOS.</span>
+
 > **Warning:** Encryption can only be enabled during folder creation and cannot be disabled once the folder is created.
 {.is-warning}
 

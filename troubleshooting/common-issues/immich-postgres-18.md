@@ -77,6 +77,7 @@ dateCreated: 2026-06-08T15:43:47.690Z
 </details>
 
 4) Determine the Immich **version** on the **Application Info** card
+
 > **Info:** Not to be confused with **App Version**
 {.is-info}
 
@@ -103,6 +104,7 @@ sudo nano /mnt/.ix-apps/app_configs/immich/versions/1.14.13/ix_values.yaml
 </details>
 
 7) Paste the command created in step 5 and press enter
+
 > **Tip:** To paste things in shell you need to press `Shift + Enter`
 {.is-tip}
 

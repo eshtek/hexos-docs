@@ -84,6 +84,7 @@ Once in the TrueNAS interface we will
    - There will be a prompt for the admin password
    - When you enter the admin password the screen will not show any characters as a security feature
    - When the password is fully entered the command will run after pressing `enter`
+
 > **Info:** The following commands are for users that have their Photos and Applications on HDDs
 {.is-info}
 
@@ -166,8 +167,10 @@ Once in the TrueNAS interface we will
 </details>
    4) Navigate to the ~/Applications/immich/ dataset
    5) Delete the `Backups`, `encoded-video`, `profile`, `thumbs` & `upload` datasets. </br>
+
 > **Danger:** Do not delete the `postgres_data` dataset in the ~/Applications/immich/ dataset
 {.is-danger}
+
 3) Open the original **Photos** folder using SMB again.
    1) Refer to the contents noted in the preparation section of this guide
    2) Make your hidden files visible

@@ -65,8 +65,10 @@ It is good practice to update apps regularly.
 ### If an app is not working after an application update
 
 If your app stopped working immediately after an update you can go into TrueNAS and roll back to a previous version of your app.
+
 > **Warning:** Some applications may have bugs when rolled back
 {.is-warning}
+
 <details> 
   <summary> Instructions for rolling back an application </summary>
 
@@ -89,6 +91,7 @@ If your app stopped working immediately after an update you can go into TrueNAS 
 ## Resetting app curation
 
 If the settings on an app were changed in TrueNAS you can use **Reset App Curation** to bring it back to the HexOS default configuration.
+
 > **Info:** This can be used to update your application settings if HexOS has updated the curation.
 {.is-info}
 
@@ -141,6 +144,7 @@ GPU changed: Try disabling GPU pass-through and disable using a GPU in the appli
 
 If you uninstalled Immich and it is no longer re-installing, 
 consider deleting the old datasets and starting over fresh
+
 > **Danger:** Deleting the old datasets will also delete the copy of your media on the server
 {.is-danger}
 
