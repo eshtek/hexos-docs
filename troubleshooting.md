@@ -2,7 +2,7 @@
 title: Troubleshooting
 description: 
 published: true
-date: 2026-08-09T02:44:14.332Z
+date: 2026-08-20T18:08:14.313Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:44:02.077Z
@@ -184,7 +184,7 @@ If a task is taking too long or appears stuck in the Activities panel, you can m
 
 If your issue isn't covered here:
 
-- Check [Common Issues](./common-issues/) for community-reported problems
+- Check [Common Issues](/troubleshooting/common-issues/) for community-reported problems
 - Visit the [HexOS Discord Community](https://discord.gg/fCW2htvYdz) for user support
 - Review the [Getting Started Guide](/getting-started/overview) for setup help
 - Contact HexOS support through the official channels
