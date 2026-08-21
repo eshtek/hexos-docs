@@ -20,7 +20,7 @@ For users who are actively connected during an update, there may be a brief down
 
 <!-- auto-generated-year-sections-start -->
 ## 2026 Releases
-- [**2026-08-25**](/release-notes/command-deck/2026-08-25) - HexOS Imager API, smarter uploads, and storage safety improvements
+- [**2026-08-21**](/release-notes/command-deck/2026-08-21-2) - Introducing HexOS Imager, smarter uploads, and storage safety improvements
 - [**2026-08-21**](/release-notes/command-deck/2026-08-21) - New app curations (Ratelog & Swiparr)
 - [**2026-08-20**](/release-notes/command-deck/2026-08-20) - File browser upgrades, instant app details, and reliability improvements
 - [**2026-08-17**](/release-notes/command-deck/2026-08-17) - File browser, USB burning, URL downloads, and app install improvements
