@@ -16,9 +16,15 @@ Stay up to date with the latest changes to HexOS and the underlying TrueNAS plat
 
 The Command Deck is the HexOS web interface. Updates are automatically deployed — no action needed on your part.
 
-**[View Command Deck Release Notes →](/release-notes/command-deck/)**
+### Recent updates
 
-**Latest:** [August 20, 2026 - New App Curations (Ratelog & Swiparr)](/release-notes/command-deck/2026-08-20)
+- [**2026-08-21**](/release-notes/command-deck/2026-08-21) — New app curations (Ratelog & Swiparr)
+- [**2026-08-20**](/release-notes/command-deck/2026-08-20) — File browser upgrades, instant app details, and reliability improvements
+- [**2026-08-17**](/release-notes/command-deck/2026-08-17) — File browser, USB burning, URL downloads, and app install improvements
+- [**2026-08-14**](/release-notes/command-deck/2026-08-14) — New app curation (Palworld Server)
+- [**2026-08-07**](/release-notes/command-deck/2026-08-07) — Redesigned navigation, community translations, and stability hardening
+
+**[View all Command Deck release notes →](/release-notes/command-deck/)**
 
 ## TrueNAS
 

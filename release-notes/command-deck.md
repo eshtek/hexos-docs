@@ -20,7 +20,8 @@ For users who are actively connected during an update, there may be a brief down
 
 <!-- auto-generated-year-sections-start -->
 ## 2026 Releases
-- [**2026-08-20**](/release-notes/command-deck/2026-08-20) - New App Curations (Ratelog & Swiparr)
+- [**2026-08-21**](/release-notes/command-deck/2026-08-21) - New app curations (Ratelog & Swiparr)
+- [**2026-08-20**](/release-notes/command-deck/2026-08-20) - File browser upgrades, instant app details, and reliability improvements
 - [**2026-08-17**](/release-notes/command-deck/2026-08-17) - File browser, USB burning, URL downloads, and app install improvements
 - [**2026-08-14**](/release-notes/command-deck/2026-08-14) - New App Curation (Palworld Server)
 - [**2026-08-07**](/release-notes/command-deck/2026-08-07) - Redesigned navigation, community translations, and stability hardening
