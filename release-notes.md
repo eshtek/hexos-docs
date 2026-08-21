@@ -2,7 +2,7 @@
 title: Release Notes
 description: 
 published: true
-date: 2026-08-15T03:26:48.967Z
+date: 2026-08-21T03:51:22.796Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:43:24.662Z
@@ -18,7 +18,7 @@ The Command Deck is the HexOS web interface. Updates are automatically deployed 
 
 **[View Command Deck Release Notes →](/release-notes/command-deck/)**
 
-**Latest:** [August 17, 2026 - File browser, USB burning, URL downloads, and app install improvements](/release-notes/command-deck/2026-08-17)
+**Latest:** [August 20, 2026 - New App Curations (Ratelog & Swiparr)](/release-notes/command-deck/2026-08-20)
 
 ## TrueNAS
 
