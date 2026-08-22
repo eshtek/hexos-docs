@@ -20,6 +20,7 @@ Something not working? Find the area below that matches what you are seeing.
 - [**Installation issues**](/troubleshooting/installation) - USB imaging problems and installer failures
 - [**Avoid USB drives**](/troubleshooting/usb-drives) - Why USB drives cause problems and what to use instead
 - [**Connection issues**](/troubleshooting/connection) - Server not getting an IP address, discovery problems
+- [**Network ports**](/troubleshooting/network-ports) - What ports 43705 and 43706 are for, and whether it is safe to block them
 
 ## Signing in
 
