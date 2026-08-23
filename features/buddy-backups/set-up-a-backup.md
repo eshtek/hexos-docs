@@ -2,10 +2,10 @@
 title: Set up a backup
 description: Run the New backup wizard to start backing up to a buddy or to a second server you own
 published: false
-date: 2026-08-21T12:00:00.000Z
+date: 2026-08-23T12:54:35.373Z
 tags: backups, buddy, setup, wizard
 editor: markdown
-dateCreated: 2026-08-21T12:00:00.000Z
+dateCreated: 2026-08-23T12:07:31.422Z
 ---
 
 # Set up a backup
