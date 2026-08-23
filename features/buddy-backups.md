@@ -2,10 +2,10 @@
 title: Buddy Backups
 description: Keep an offsite copy of your folders on a server you trust, without paying for cloud storage
 published: false
-date: 2026-08-21T12:00:00.000Z
+date: 2026-08-23T12:53:54.208Z
 tags: backups, buddy, offsite, disaster recovery, restore
 editor: markdown
-dateCreated: 2026-08-21T12:00:00.000Z
+dateCreated: 2026-08-23T12:07:07.025Z
 ---
 
 # Buddy Backups
