@@ -2,10 +2,10 @@
 title: Restore a folder
 description: Get a backed-up folder back onto your server, including the passphrase step for encrypted folders
 published: false
-date: 2026-08-21T12:00:00.000Z
+date: 2026-08-23T12:55:04.292Z
 tags: backups, buddy, restore, passphrase
 editor: markdown
-dateCreated: 2026-08-21T12:00:00.000Z
+dateCreated: 2026-08-23T12:07:27.379Z
 ---
 
 # Restore a folder
