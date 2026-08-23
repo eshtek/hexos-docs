@@ -2,10 +2,10 @@
 title: Removing backups
 description: What pausing, withdrawing, removing, and deleting each destroy — and what they keep
 published: false
-date: 2026-08-21T12:00:00.000Z
-tags: backups, buddy, delete, remove, pause
+date: 2026-08-23T12:55:46.988Z
+tags: backups, buddy, pause, delete, remove
 editor: markdown
-dateCreated: 2026-08-21T12:00:00.000Z
+dateCreated: 2026-08-23T12:07:23.254Z
 ---
 
 # Removing backups
