@@ -18,11 +18,11 @@ The Command Deck is the HexOS web interface. Updates are automatically deployed 
 
 ### Recent updates
 
+- [**2026-08-24**](/release-notes/command-deck/2026-08-24) — Danish language support, storage improvements, and dashboard polish
 - [**2026-08-21**](/release-notes/command-deck/2026-08-21-2) — Introducing HexOS Imager, smarter uploads, and storage safety improvements
 - [**2026-08-21**](/release-notes/command-deck/2026-08-21) — New app curations (Ratelog & Swiparr)
 - [**2026-08-20**](/release-notes/command-deck/2026-08-20) — File browser upgrades, instant app details, and reliability improvements
 - [**2026-08-17**](/release-notes/command-deck/2026-08-17) — File browser, USB burning, URL downloads, and app install improvements
-- [**2026-08-14**](/release-notes/command-deck/2026-08-14) — New app curation (Palworld Server)
 
 **[View all Command Deck release notes →](/release-notes/command-deck/)**
 
