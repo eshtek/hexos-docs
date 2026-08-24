@@ -2,10 +2,10 @@
 title: Manage your backups
 description: Add folders, change the schedule and speed, adjust reserved space, pause, and read the backup map
 published: false
-date: 2026-08-21T12:00:00.000Z
+date: 2026-08-23T12:54:54.645Z
 tags: backups, buddy, schedule, pause, folders
 editor: markdown
-dateCreated: 2026-08-21T12:00:00.000Z
+dateCreated: 2026-08-23T12:07:15.363Z
 ---
 
 # Manage your backups

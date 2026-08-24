@@ -2,10 +2,10 @@
 title: Recover a failed server
 description: Rebuild onto a replacement machine using the backups your buddy still holds
 published: false
-date: 2026-08-21T12:00:00.000Z
+date: 2026-08-23T12:55:14.946Z
 tags: backups, buddy, disaster recovery, transfer
 editor: markdown
-dateCreated: 2026-08-21T12:00:00.000Z
+dateCreated: 2026-08-23T12:07:19.404Z
 ---
 
 # Recover a failed server

@@ -2,10 +2,10 @@
 title: Host a buddy's backup
 description: Accept or decline a backup request, and what you are agreeing to when you store someone else's files
 published: false
-date: 2026-08-21T12:00:00.000Z
+date: 2026-08-23T12:54:44.986Z
 tags: backups, buddy, host, request
 editor: markdown
-dateCreated: 2026-08-21T12:00:00.000Z
+dateCreated: 2026-08-23T12:07:11.349Z
 ---
 
 # Host a buddy's backup
