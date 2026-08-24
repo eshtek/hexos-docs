@@ -237,6 +237,7 @@ Installation questions allow you to prompt users for configuration values during
 - **`options`** (required for `select` type): Array of option objects with `text` and `value` properties
 - **`required`** (optional): Whether the question must be answered (default: false)
 - **`default`** (optional): Default value or special syntax like `$RANDOM_STRING(16)`
+- **`installonly`** (optional): Set to `true` for values the app only consumes on first boot (e.g. initial admin credentials). The question is still asked during install (including custom install and reinstall), but is hidden from the post-install Options/Configure dialog, where changing it would have no effect. The question's `$QUESTION(key)` reference should appear in `app_values` so the current value stays recoverable from the installed app's configuration during updates.
 
 **Using Question Responses:**
 
