@@ -42,9 +42,9 @@ For full details, see the [Hooks Reference](/features/apps/install-scripts/refer
 
 ### What's new in V6: one melded hook family
 
-V6 merges the separate "actions" concept into hooks. There is **one declaration — a hook**. Its `events` decide *when* it runs; a hook whose events include `userAction` is user-triggerable, and its `surfaces` decide *where* the user can fire it.
+V6 declares everything through **one shape — a hook**. Its `events` decide *when* it runs; a hook whose events include `userAction` is user-triggerable, and its `surfaces` decide *where* the user can fire it.
 
-> **An action is a hook with a `userAction` event.**
+> Users see user-triggerable hooks as the app's **Actions** in the interface.
 {.is-info}
 
 One `hooks` array now covers all of it:

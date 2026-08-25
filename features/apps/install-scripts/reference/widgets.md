@@ -18,9 +18,9 @@ Widgets are not tasks and not hooks: no checkpoints, no inputs, no retries, no u
 
 ## The V6 declaration model
 
-V6 merges the old separate "actions" concept into hooks. There is ONE declaration — a hook. Its `events` decide **when** it runs; a hook whose events include `userAction` is user-triggerable, and its `surfaces` decide **where** the user can fire it.
+V6 declares everything through one shape — a hook. Its `events` decide **when** it runs; a hook whose events include `userAction` is user-triggerable, and its `surfaces` decide **where** the user can fire it.
 
-> **An action is a hook with a `userAction` event.**
+> Users see user-triggerable hooks as the app's **Actions** in the interface.
 {.is-info}
 
 That matters here because a widget never declares a button inline. Its `buttons` array holds **hook ids** — the same declaration that renders on the app card renders on the widget. Declare once, surface everywhere. See the [Hooks Reference](/features/apps/install-scripts/reference/hooks).

@@ -14,7 +14,7 @@ A hook is a TypeScript function the platform runs on behalf of an app: health ch
 
 There is **one** declaration type. A hook's `events` decide **when** it runs. A hook whose events include `userAction` can be fired by a person, and its `surfaces` decide **where** they can fire it.
 
-> **An action is a hook with a `userAction` event.** There is no separate actions concept, no second array, no second schema — a card button, a file-browser verb, an install-picker pairing, and a post-install ceremony are all the same declaration shape, distinguished by data.
+> A card button, a file-browser verb, an install-picker pairing, and a post-install ceremony are all the same declaration shape — they differ only in their `events`, `surfaces` and `conditions`. Users see the user-triggerable ones as the app's **Actions**.
 {.is-info}
 
 ## Dictionary dialects

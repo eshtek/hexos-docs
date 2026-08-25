@@ -341,9 +341,9 @@ Fields: `id`, `event`, `script` / `scriptContent`, `entrypoint`, `condition`, `t
 
 ## Hooks (V6)
 
-V6 merges the separate "actions" concept into hooks. There is one declaration — a hook. Its `events` decide *when* it runs; a hook whose events include `userAction` is user-triggerable, and its `surfaces` decide *where* the user can fire it.
+V6 declares everything through one shape — a hook. Its `events` decide *when* it runs; a hook whose events include `userAction` is user-triggerable, and its `surfaces` decide *where* the user can fire it.
 
-> **An action is a hook with a `userAction` event.**
+> Users see user-triggerable hooks as the app's **Actions** in the interface.
 {.is-info}
 
 ```json

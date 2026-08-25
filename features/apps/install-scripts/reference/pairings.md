@@ -23,7 +23,7 @@ Nothing in the catalog declares the pairing itself. It is derived from the hook'
 
 ## One declaration: the hook
 
-In V6 there is **one** declaration — a hook. Its `events` decide *when* it runs; a hook whose events include `userAction` is user-triggerable, and its `surfaces` decide *where* the user can fire it. **An action is a hook with a `userAction` event.**
+In V6 there is **one** declaration — a hook. Its `events` decide *when* it runs; a hook whose events include `userAction` is user-triggerable, and its `surfaces` decide *where* the user can fire it. Users see the user-triggerable ones as the app's **Actions**.
 
 `events` is optional and defaults to `["userAction"]`, so a pairing hook — a verb the user fires, never part of the install ceremony — writes no `events` at all.
 

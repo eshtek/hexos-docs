@@ -12,9 +12,9 @@ dateCreated: 2026-08-25T00:00:00.000Z
 
 A **surface** is a place in the HexOS UI where a user can press a hook and run it.
 
-V6 dictionaries declare one thing: a hook. There is no separate "actions" list. A hook's `events` decide **when** it runs, and its `surfaces` decide **where** a person can fire it.
+V6 dictionaries declare one thing: a hook. A hook's `events` decide **when** it runs, and its `surfaces` decide **where** a person can fire it.
 
-> **An action is a hook with a `userAction` event.**
+> Users see user-triggerable hooks as the app's **Actions** in the interface.
 {.is-info}
 
 `events` defaults to `["userAction"]`, so a declaration that writes no `events` at all is a pure action — it never runs during install or upgrade, and it shows up wherever its surfaces put it. A hook whose `events` list omits `userAction` is lifecycle-only: it has no surfaces, no buttons, and `surfaces` on it is inert.
