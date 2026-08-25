@@ -35,6 +35,10 @@ Something not working? Find the area below that matches what you are seeing.
 - [**Storage and drive issues**](/troubleshooting/storage-and-drives) - Drives not recognized, pool creation problems
 - [**Drive failure**](/troubleshooting/drive-failure) - Replace a failed or failing drive without losing data
 
+## Hardware
+
+- [**Ryzen idle freezes**](/troubleshooting/ryzen-idle-freeze) - Fix random idle freezes on Ryzen 1000–3000 systems with one BIOS setting
+
 ## Accessing your files
 
 - [**File sharing**](/troubleshooting/file-sharing) - Fix Windows 11 connections to your folders
