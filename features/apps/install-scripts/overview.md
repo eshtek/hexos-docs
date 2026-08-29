@@ -32,7 +32,7 @@ Install scripts are a curated, turnkey solution for installing applications thro
 - **User-triggerable hooks** — the same declarations surfaced as app-card buttons, install-time cross-app links, and file-browser verbs (V6)
 - **Widgets** — dashboard glances declared in the same dictionary (V6)
 - **Upfront pairing config collection** — when a pairing target is checked in the install picker, its install questions and consent hooks render inline so all config is collected in one dialog (V6)
-- **Cross-app hook discovery** — `listCrossAppHooks` lets the frontend discover hooks across all installed apps, powering the pairing picker and suggestions (V6)
+- **Cross-app hook discovery** — HexOS scans all catalog dictionaries to discover hooks across apps, powering the pairing picker and **Also pairs well with** suggestions (V6)
 
 ### What's new in V5: lifecycle hooks
 

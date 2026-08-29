@@ -295,11 +295,11 @@ Independently of `rerun`, the same app + hook + file selection cannot run twice 
 
 ## Last run status
 
-Hooks carry `lastRunStatus?: 'connected' | 'failed'`, derived from completed HOOK task history. The frontend uses this to decide the button state on the app card:
+Each hook tracks whether its last completed run succeeded or failed. HexOS uses this to decide the button state on the app card:
 
-- **"Run" button** — the hook has never run, or its last run failed.
-- **"Run again" button** — the hook previously connected (`lastRunStatus: 'connected'`) and has `rerun: 'converge'`.
-- **Check icon with "Connected" label** — the hook has `rerun: 'refuse'` and `lastRunStatus: 'connected'`, so re-running is blocked.
+- **Run** — the hook has never run, or its last run failed.
+- **Run again** — the hook previously succeeded and has `rerun` set to `converge`.
+- **Connected** (check icon, no button) — the hook has `rerun` set to `refuse` and its last run succeeded, so re-running is blocked.
 
 ## File targets
 

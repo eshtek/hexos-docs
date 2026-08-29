@@ -133,11 +133,11 @@ Selections ride the install request and are stamped into the install task as its
 
 ## Upfront pairing config collection
 
-When a target is checked in the picker, the target's install questions and consent hooks render inline beneath the checkbox. The `AppPairingConfig` carries `questionResponses` and `hookOptIns` per target, passed through to `installPairingTarget` so the target installs with those answers already supplied — no second dialog.
+When a pairing target is checked in the picker, its install questions and consent hooks render inline beneath the checkbox. The user fills in everything — install options, hook opt-ins — in one dialog. When the install runs, those answers are passed through so the target installs with the user's choices already applied.
 
 ## Pairings panel on the app card
 
-After install, the app details pane shows a `PairingsPanel` listing all pairing targets with their current status: **connected** (last hook run succeeded), **installed** (target exists but the hook has not run or failed), or **not installed**. The panel is read-only; the user re-runs a connect hook from the Actions list, not from the panel.
+After install, the app card shows a **Pairings** panel listing all pairing targets with their current status: **connected** (the hook's last run succeeded), **installed** (the target exists but the hook has not run or failed), or **not installed**. The panel is read-only; the user re-runs a connect hook from the **Actions** list, not from the panel.
 
 ## Consent gating with `requiresHooks`
 
