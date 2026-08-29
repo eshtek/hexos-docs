@@ -16,7 +16,7 @@ If an install script fails, this will help:
 1. In the HexOS UI, check your notifications for an app install failure
 2. Click the notification to view the error message
 
-### 2. Check hook failures (V5 scripts)
+### 2. Check hook failures (V5 and V6 scripts)
 
 If your install script uses lifecycle hooks, hook tasks appear as children of the main install task in the HexOS activity center:
 

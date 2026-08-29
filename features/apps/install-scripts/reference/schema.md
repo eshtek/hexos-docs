@@ -1,8 +1,8 @@
 ---
 title: Install Script Schema
-description: 
+description: Every field an install script can declare, by schema version.
 published: true
-date: 2026-06-30T17:22:44.697Z
+date: 2026-08-25T00:00:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:40:16.156Z
@@ -17,7 +17,7 @@ Install scripts are JSON objects with the following structure. Scripts can use v
 
 ## Root properties
 
-- **`version`** (required): Schema version. Must be `4` or `5`. Versions 1-3 are deprecated. Use `5` if your script includes lifecycle hooks; otherwise `4` is fine.
+- **`version`** (required): Schema version. Must be `4`, `5`, or `6`. Versions 1-3 are deprecated. Use `6` for hooks, user-triggerable actions, or widgets; `5` for lifecycle-only hooks; `4` for neither.
 - **`custom`** (optional): Set to `true` for community/custom apps that aren't in the default TrueNAS catalog
 - **`internal`** (optional): Set to `true` for dev/test apps — hidden in production
 - **`metadata`** (required if `custom: true`): Custom app metadata (see [Custom App Metadata](#custom-app-metadata))
@@ -29,7 +29,9 @@ Install scripts are JSON objects with the following structure. Scripts can use v
 - **`installation_questions`** (optional): Array of questions to ask the user during installation
 - **`ensure_directories_exists`** (optional): Array of directory entry objects to create before installation, with optional ownership and snapshot declarations
 - **`app_values`** (required): Configuration object passed directly to TrueNAS API
-- **`hooks`** (optional, V5 only): Array of lifecycle hook declarations. See [Hooks Reference](/features/apps/install-scripts/reference/hooks)
+- **`hooks`** (optional, V5 and V6): Array of hook declarations. V5 declares lifecycle hooks in the [V5 dialect](#hooks-v5); V6 declares the [melded family](#hooks-v6) — one declaration covers lifecycle automation and user-triggerable actions
+- **`widgetsSchema`** (optional, V6): Widget declaration vocabulary version. Must be `2` — any other value means this platform reads none of the app's widgets
+- **`widgets`** (optional, V6): Array of [widget declarations](#widgets-v6). Requires `widgetsSchema`
 
 ## Available macros
 
@@ -313,3 +315,296 @@ Install scripts support conditional logic to customize app configuration based o
 - Other installed apps using [`$APP_INSTALLED(appName)`](/features/apps/install-scripts/reference/macros#app_installedappname)
 - User responses to installation questions using [`$QUESTION(key)`](/features/apps/install-scripts/reference/macros#questionkey)
 - Complex conditions using the [`$IF`](/features/apps/install-scripts/reference/macros#if-condition-truevalue-falsevalue) macro
+
+## Hooks (V5)
+
+In V5, each entry in `hooks` declares one lifecycle hook keyed by a singular `event` — one of `onBeforeInstall`, `onAfterInstall`, `onBeforeUpgrade`, or `onAfterUpgrade`.
+
+```json
+{
+  "version": 5,
+  "hooks": [
+    {
+      "id": "configure-myapp",
+      "event": "onAfterInstall",
+      "script": "myapp/myapp_hook.ts",
+      "entrypoint": "afterInstall",
+      "timeout": 120,
+      "description": "Setting up MyApp",
+      "optional": true
+    }
+  ]
+}
+```
+
+Fields: `id`, `event`, `script` / `scriptContent`, `entrypoint`, `condition`, `timeout`, `description`, `optional`, `retries`, `inputs`, `userOptional`. See the [Hooks Reference](/features/apps/install-scripts/reference/hooks) for each one in detail.
+
+## Hooks (V6)
+
+V6 declares everything through one shape — a hook. Its `events` decide *when* it runs; a hook whose events include `userAction` is user-triggerable, and its `surfaces` decide *where* the user can fire it.
+
+> Users see user-triggerable hooks as the app's **Actions** in the interface.
+{.is-info}
+
+```json
+{
+  "version": 6,
+  "hooks": [
+    {
+      "id": "connect-seer",
+      "title": "Connect to Seer",
+      "description": "Link this Plex server to Seer so requests and discovery use your library.",
+      "kind": "connect",
+      "conditions": [
+        { "role": "visibility", "type": "appInstalled", "app": "seerr" },
+        { "role": "availability", "type": "appRunning", "app": "seerr" },
+        { "role": "availability", "type": "appRunning", "app": "plex" }
+      ],
+      "rerun": "converge",
+      "script": "plex/connect_seer.ts",
+      "entrypoint": "run",
+      "timeout": 300,
+      "retries": 0
+    }
+  ]
+}
+```
+
+### Declaration properties
+
+| Property | Type | Required | Description |
+|---|---|---|---|
+| `id` | string | Yes | Unique within the dictionary. Load-bearing — consent opt-ins, task history, rerun keys, and widget button references all key off it |
+| `title` | string | Yes | User-facing name: the button label, the install-picker row, the consent checkbox label |
+| `description` | string | No | Explanatory text. Also the progress label while the hook runs, falling back to `title` |
+| `kind` | string | No | `connect`, `maintain`, or `custom`. Descriptive only — used for icons and grouping, never for behavior |
+| `events` | array | No | When the hook fires (see [Events](#events)). Absent means `["userAction"]` |
+| `optional` | boolean | No | Lifecycle firings only: skip on failure or input timeout instead of blocking the ceremony |
+| `userOptional` | object | No | Consent checkbox in the install dialog (see [userOptional](#useroptional-v6)). Requires an install event |
+| `conditions` | array | No | Visibility and availability gates (see [Conditions](#conditions)) |
+| `surfaces` | array | No | Narrows where a user-triggerable hook appears (see [Surfaces](#surfaces)). Absent means derived |
+| `inputs` | array | No | OAuth or question inputs collected from the user before execution — same shapes as V5 |
+| `requiresHooks` | array | No | Up to 8 same-app hook ids this hook depends on. The install dialog gates this hook's row on those hooks' consent toggles, and their collected inputs carry over so matching input keys never re-prompt |
+| `target` | object | No | File selection contract (see [Targets](#targets)). User-fired only |
+| `rerun` | string | Conditional | `idempotent`, `converge`, or `refuse`. Required if the hook is user-triggerable, rejected if it isn't |
+| `script` | string | No | Path to a `.ts` file in the catalog repo (e.g., `"plex/connect_seer.ts"`) |
+| `scriptContent` | string | No | Inline TypeScript embedded directly in the JSON |
+| `entrypoint` | string | Yes | Name of the exported async function to call |
+| `timeout` | number | No | Maximum execution time in seconds (default: 300) |
+| `retries` | number | No | Automatic retry attempts on failure (default: 0) |
+
+Every hook must have exactly one of `script` or `scriptContent` — never both, never neither.
+
+`rerun` describes what a second run means: `refuse` blocks a run while a completed run already exists for the same app, hook, and target; `idempotent` and `converge` always allow one. Failed and dismissed runs never block — `refuse` protects a successful one-time setup from running twice, not the user from retrying a failure.
+
+### Events
+
+Each entry in `events` is either a string or an object.
+
+| Event | When it fires |
+|---|---|
+| `userAction` | A person presses it from a surface — app card, install picker, file browser, or widget button |
+| `onBeforeInstall` | Before `app.create` is called on TrueNAS |
+| `onAfterInstall` | After `app.create` completes successfully |
+| `onBeforeUpgrade` | Before `app.upgrade` is called on TrueNAS |
+| `onAfterUpgrade` | After `app.upgrade` completes successfully |
+
+The object form is legal for any lifecycle event and carries per-trigger configuration:
+
+| Property | Type | Required | Description |
+|---|---|---|---|
+| `event` | string | Yes | One of the four lifecycle events above |
+| `from` | string | No | Semver range matching the version being departed. Upgrade events only |
+| `to` | string | No | Semver range matching the version being installed. Upgrade events only |
+
+```json
+"events": [{ "event": "onBeforeUpgrade", "from": "< 2.0.0", "to": ">= 2.0.0" }]
+```
+
+Trigger rules:
+- `from` / `to` on an install event is rejected — they gate upgrade transitions only
+- A version-gated trigger cannot share a declaration with `userAction` — a one-time migration must not double as a forever-button. Split the manual escape hatch into its own declaration
+- `onBeforeInstall` and `onAfterInstall` cannot share a declaration; neither can `onBeforeUpgrade` and `onAfterUpgrade`. Split them into two declarations with distinct ids
+- The same event may not appear twice in one `events` array
+- The V5 singular `event` field inside a V6 entry is a validation error, not a silent no-op
+- V5's declaration-level `condition: { fromVersionRange, toVersionRange }` has no V6 equivalent — the gate lives on the event object as `from` / `to`. A leftover `condition` field is ignored, and the hook would fire on every upgrade
+
+### Conditions
+
+Conditions gate a hook against live system state. Every condition carries a `role`: `visibility` hides the hook entirely, `availability` shows it disabled with a reason.
+
+| Type | Extra properties | Passes when |
+|---|---|---|
+| `appInstalled` | `app` (string) | That app is installed |
+| `appRunning` | `app` (string) | That app is installed and running |
+| `appVersion` | `app` (string), `range` (semver range) | The installed app's version satisfies the range |
+| `capabilityPresent` | `capability` (string) | The named capability is present |
+| `script` | `script` (string), `entrypoint` (string, optional) | A local-side script predicate returns true |
+
+Every predicate must pass. A failing `visibility` condition hides the hook; a failing `availability` condition disables it with a reason. Hidden implies unavailable.
+
+Condition evaluation fails closed: any predicate the platform cannot evaluate — including a `type` it doesn't recognize at all — counts as false rather than breaking the dictionary. **`appInstalled` and `appRunning` are the predicates evaluated today**; a hook gated on `appVersion`, `capabilityPresent`, or `script` will never pass its gate, so build on the first two.
+
+Two combinations are rejected outright:
+- An `appVersion` condition on the *declaring* app, on a hook with an upgrade trigger. Conditions evaluate the post-upgrade version, so it would never fire — put the gate on the trigger entry (`{ "event": ..., "from": ..., "to": ... }`) instead
+- A condition referencing *another* app, on a hook with any lifecycle trigger. Cross-app connects run from the install picker; remove the lifecycle trigger
+
+### Targets
+
+A `target` makes the hook act on user-selected files, surfacing it in the file browser instead of on the app card.
+
+| Property | Type | Required | Description |
+|---|---|---|---|
+| `type` | string | Yes | `files` |
+| `accepts` | array | Yes | Lowercase extensions with a leading dot (e.g. `[".mkv", ".avi"]`). The hook is offered only when *every* selected file matches |
+| `maxFiles` | number | No | Maximum files per invocation (default: unlimited) |
+| `requiresTargetMount` | boolean | No | Whether the app must see the files at a mounted path (default: `true`). When true, a file the app can't reach makes the hook unavailable and the engine pre-resolves the container path. Set `false` for watch-folder style hooks that deliver the files themselves |
+
+A `target` is user-fired only — declaring one alongside a lifecycle trigger is rejected, since a lifecycle firing has no file selection.
+
+```json
+{
+  "id": "convert-to-mp4",
+  "title": "Convert to MP4",
+  "kind": "custom",
+  "target": {
+    "type": "files",
+    "accepts": [".mkv", ".avi", ".mov", ".webm"],
+    "maxFiles": 5,
+    "requiresTargetMount": true
+  },
+  "conditions": [{ "role": "availability", "type": "appRunning", "app": "fileflows" }],
+  "rerun": "converge",
+  "script": "fileflows/convert_to_mp4.ts",
+  "entrypoint": "run",
+  "timeout": 3600
+}
+```
+
+### Surfaces
+
+`surfaces` is an array of `installPicker`, `card`, `fileBrowser`, and `widget`. Most declarations omit it, because the placement is derived from the declaration itself:
+
+| Declaration | Derived surfaces |
+|---|---|
+| Has a `target` | `fileBrowser` |
+| Has conditions referencing another app | `installPicker`, `card`, `widget` |
+| Anything else user-triggerable | `card`, `widget` |
+
+When present, `surfaces` replaces the derived list — write it to narrow placement, not to invent one. A hook narrowed away from `installPicker` never becomes a cross-app pairing, and listing `installPicker` on a hook whose conditions reference no other app produces no pairing either: pairings are derived from the conditions.
+
+A hook with no `userAction` event surfaces nowhere — pure ceremony never becomes a verb.
+
+### userOptional (V6)
+
+`userOptional` renders a consent checkbox in the install dialog. The checkbox label is the hook's `title`; `description` is the consent body in its own register (a terms-acceptance clause, for example), falling back to the hook's `description` when absent.
+
+| Property | Type | Required | Description |
+|---|---|---|---|
+| `description` | string | No | Consent text shown below the checkbox |
+| `default` | boolean | No | Whether the checkbox starts checked (default: `true`) |
+| `link.url` | string | Yes (within `link`) | Fully qualified URL |
+| `link.label` | string | Yes (within `link`) | Clickable text rendered inline at the end of the description |
+
+`userOptional` requires an install trigger (`onBeforeInstall` or `onAfterInstall`) — the checkbox renders nowhere else.
+
+```json
+{
+  "id": "configure-plex",
+  "title": "Pre-configure Plex",
+  "description": "Setting up Plex server",
+  "events": ["onAfterInstall"],
+  "optional": true,
+  "userOptional": {
+    "description": "Sign in to your Plex account to automatically claim your server, set preferences, and create media libraries. By enabling this, you agree that HexOS will accept the Plex Terms of Service on your behalf.",
+    "default": true,
+    "link": {
+      "url": "https://www.plex.tv/about/privacy-legal/plex-terms-of-service/",
+      "label": "Plex Terms of Service"
+    }
+  },
+  "script": "plex/plex_hook.ts",
+  "entrypoint": "afterInstall",
+  "timeout": 300
+}
+```
+
+### Field availability by firing class
+
+| Field | Requires |
+|---|---|
+| `optional` | At least one lifecycle event |
+| `userOptional` | An install event |
+| `target` | No lifecycle event (user-fired only) |
+| `rerun` | A `userAction` event — and is required when one is present |
+
+### Parse tolerance
+
+A hook that fails validation is dropped on its own, with its error reported — the rest of the dictionary still parses and installs. Two behaviors worth knowing while authoring:
+
+- An unrecognized entry inside `events` is dropped as future vocabulary. If that leaves a declaration with no recognized events, the whole declaration is dropped rather than defaulting to `["userAction"]` — a typo'd lifecycle hook never silently becomes a card button
+- Duplicate `id` values within one dictionary are reported as errors
+
+## Widgets (V6)
+
+Widgets are read-only dashboard glances: a cached query per widget, rendered by the platform's size templates. They are declared in the same dictionary as hooks, gated by `widgetsSchema`.
+
+```json
+{
+  "version": 6,
+  "widgetsSchema": 2,
+  "widgets": [
+    {
+      "id": "now-playing",
+      "title": "Now playing",
+      "description": "Active Plex streams right now.",
+      "refresh": 10,
+      "conditions": [{ "role": "availability", "type": "appRunning", "app": "plex" }],
+      "sizes": {
+        "small": { "slots": [{ "type": "stat", "field": "streams" }] },
+        "large": {
+          "media": { "placement": "left", "field": "art" },
+          "slots": [
+            { "type": "stat", "field": "streams" },
+            { "type": "list", "field": "sessions" }
+          ]
+        }
+      },
+      "script": "plex/widget_now_playing.ts",
+      "entrypoint": "run",
+      "timeout": 10
+    }
+  ]
+}
+```
+
+### Declaration properties
+
+| Property | Type | Required | Description |
+|---|---|---|---|
+| `id` | string | Yes | Unique within the dictionary. Lowercase letters, digits, `-` and `_` only |
+| `title` | string | Yes | Widget name shown on the dashboard |
+| `description` | string | No | Short explanation, shown when adding the widget |
+| `refresh` | number | No | Seconds between query refreshes (default: 300, floor: 10) |
+| `conditions` | array | No | Same condition vocabulary as hooks — `visibility` hides, `availability` renders the reason instead of data |
+| `script` | string | No | Path to a `.ts` file in the catalog repo |
+| `scriptContent` | string | No | Inline TypeScript embedded directly in the JSON |
+| `entrypoint` | string | Yes | Name of the exported async function to call |
+| `timeout` | number | No | Seconds before the query is abandoned (default: 10) |
+| `sizes` | object | No | Per-size variant declarations (see below). Absent uses default field rendering |
+| `buttons` | array | No | Up to 4 ids of this app's user-triggerable hooks, rendered as buttons on the widget. Ids must be unique, and a button renders only if the hook allows the `widget` surface — the derived defaults include it |
+
+Exactly one of `script` or `scriptContent`, same rule as hooks.
+
+### Sizes
+
+One widget is one query. Sizes are projections of the same result document — variants never multiply polls, so every `field` a size references must resolve from this widget's single query.
+
+| Size | Slots | Media placement |
+|---|---|---|
+| `small` | 1-3 | `top`, `bottom` |
+| `large` | 1-4 | `left`, `right`, `both` |
+
+Each slot is `{ "type": ..., "field": ... }` where `type` is `text`, `stat`, `list`, or `image`, and `field` names a field in the query result. `media` is `{ "placement": ..., "field": ... }`.
+
+The fulfillment script returns a named-field result document that the slots project from. See the [Widgets Reference](/features/apps/install-scripts/reference/widgets) for the result shapes and for writing the query script.

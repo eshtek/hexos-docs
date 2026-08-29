@@ -17,11 +17,11 @@ Want to add your app curation to the official HexOS catalog? Install scripts now
 1. **Test your install script** in HexOS using Custom Install (Expert Mode) and verify it works reliably
 2. **Fork** the [hexos-app-catalog](https://github.com/eshtek/hexos-app-catalog) repository
 3. **Add your install script** as a JSON file named after the TrueNAS app (e.g., `myapp.json`)
-4. **If your script includes hooks** (V5), add the hook `.ts` files in a subdirectory (e.g., `myapp/myapp_hook.ts`) — or use inline `scriptContent` for simpler hooks
+4. **If your script includes hooks** (V5 or V6), add the hook `.ts` files in a subdirectory (e.g., `myapp/myapp_hook.ts`) — or use inline `scriptContent` for simpler hooks
 5. **Submit a Pull Request** with a description of:
    - What the app does
    - Any special requirements (unique mounts, GPU usage, special environment variables)
-   - What the hooks do (if V5)
+   - What the hooks do (if any)
 
 ## Repository structure
 
@@ -29,10 +29,10 @@ Want to add your app curation to the official HexOS catalog? Install scripts now
 hexos-app-catalog/
 ├── _lib/
 │   └── hook_context.ts        # HookContext type stubs (import for autocompletion)
-├── myapp.json                 # Your install script (V4 or V5)
-├── myapp/                     # Hook scripts directory (V5 only, optional)
+├── myapp.json                 # Your install script (V4, V5 or V6)
+├── myapp/                     # Hook scripts directory (V5/V6, optional)
 │   └── myapp_hook.ts          # Hook implementation
-├── plex.json                  # Example: first-party V5 with hooks
+├── plex.json                  # Example: first-party script with hooks
 ├── plex/
 │   └── plex_hook.ts
 ├── jellyfin.json              # Example: V4 script (no hooks)
@@ -42,9 +42,10 @@ hexos-app-catalog/
 ## Script format
 
 - **V4**: Standard install scripts without hooks. Set `"version": 4`.
-- **V5**: Install scripts with lifecycle hooks. Set `"version": 5` and add a `hooks` array. See the [Hooks Reference](/features/apps/install-scripts/reference/hooks) for details.
+- **V5**: Install scripts with lifecycle hooks. Set `"version": 5` and add a `hooks` array.
+- **V6**: One melded hook family — lifecycle automation, user-triggerable actions, cross-app links and widgets. Set `"version": 6`. See the [Hooks Reference](/features/apps/install-scripts/reference/hooks) for details.
 
-Both formats are fully supported. Use V5 only if your app benefits from post-install automation.
+All three are fully supported. Add hooks only if your app benefits from post-install automation.
 
 ## Using inline hooks (`scriptContent`)
 
@@ -69,7 +70,7 @@ Community contributors who don't need separate `.ts` files can embed hook code d
 }
 ```
 
-> **Testing with Custom Install:** You can test inline hook scripts using **Custom Install in Expert Mode** — paste your V5 JSON with `scriptContent` hooks directly into the editor and run it. This is useful for development and testing before submitting a PR. Inline scripts for testing purposes only should not be part of a PR submission — submit them when they're ready for production use.
+> **Testing with Custom Install:** You can test inline hook scripts using **Custom Install in Expert Mode** — paste your JSON with `scriptContent` hooks directly into the editor and run it. This is useful for development and testing before submitting a PR. Inline scripts for testing purposes only should not be part of a PR submission — submit them when they're ready for production use.
 {.is-info}
 
 
