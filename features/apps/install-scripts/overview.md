@@ -31,6 +31,8 @@ Install scripts are a curated, turnkey solution for installing applications thro
 - **Hooks** — run automated setup steps before or after install and upgrade (V5 and V6)
 - **User-triggerable hooks** — the same declarations surfaced as app-card buttons, install-time cross-app links, and file-browser verbs (V6)
 - **Widgets** — dashboard glances declared in the same dictionary (V6)
+- **Upfront pairing config collection** — when a pairing target is checked in the install picker, its install questions and consent hooks render inline so all config is collected in one dialog (V6)
+- **Cross-app hook discovery** — `listCrossAppHooks` lets the frontend discover hooks across all installed apps, powering the pairing picker and suggestions (V6)
 
 ### What's new in V5: lifecycle hooks
 
@@ -53,7 +55,7 @@ One `hooks` array now covers all of it:
 |---|---|
 | Automation during install or upgrade | `"events": ["onAfterInstall"]` |
 | A button on the app card | no `events` at all (absent means `["userAction"]`) |
-| A cross-app link offered at install time | a `userAction` hook whose `conditions` reference the partner app |
+| A cross-app link offered at install time | a `userAction` hook whose `conditions` reference another app (the pairing target) |
 | A verb in the file browser | a `userAction` hook with a `target` of type `files` |
 | A button on a dashboard widget | a `userAction` hook, referenced by id from the widget's `buttons` |
 
@@ -95,7 +97,7 @@ One `hooks` array now covers all of it:
 
 #### Surfaces
 
-`surfaces` narrows where a user-triggerable hook appears — `installPicker`, `card`, `fileBrowser`, `widget`. Most scripts omit it, because HexOS derives the right answer from the declaration itself: a hook with a file `target` belongs to the file browser, a hook whose conditions reference a partner app belongs to the install picker and the app card, and everything else is an app-card verb.
+`surfaces` narrows where a user-triggerable hook appears — `installPicker`, `card`, `fileBrowser`, `widget`. Most scripts omit it, because HexOS derives the right answer from the declaration itself: a hook with a file `target` belongs to the file browser, a hook whose conditions reference another app (a pairing target) belongs to the install picker and the app card, and everything else is an app-card verb.
 
 #### Widgets alongside
 

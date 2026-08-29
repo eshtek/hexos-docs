@@ -188,7 +188,7 @@ Conditions are also how cross-app links are discovered: a user-triggerable hook 
 | Conditions reference another app | `["installPicker", "card", "widget"]` |
 | Anything else | `["card", "widget"]` |
 
-Declaring `surfaces` replaces the derivation entirely — it is a narrowing tool. `"surfaces": ["card"]` on a partner-referencing hook keeps it off the install picker, and therefore out of pairing discovery. `"surfaces": ["installPicker"]` offers a link at install time and nowhere else.
+Declaring `surfaces` replaces the derivation entirely — it is a narrowing tool. `"surfaces": ["card"]` on a pairing-target-referencing hook keeps it off the install picker, and therefore out of pairing discovery. `"surfaces": ["installPicker"]` offers a link at install time and nowhere else.
 
 Because `widget` rides the defaults, a widget can reference an existing card verb by id without any change to the hook:
 
@@ -293,6 +293,14 @@ A hook with `userOptional` renders a consent checkbox in the install dialog. The
 
 Independently of `rerun`, the same app + hook + file selection cannot run twice concurrently — a press while a run is in flight returns `APP_HOOK_ALREADY_RUNNING`. Different file selections of the same hook run in parallel.
 
+## Last run status
+
+Hooks carry `lastRunStatus?: 'connected' | 'failed'`, derived from completed HOOK task history. The frontend uses this to decide the button state on the app card:
+
+- **"Run" button** — the hook has never run, or its last run failed.
+- **"Run again" button** — the hook previously connected (`lastRunStatus: 'connected'`) and has `rerun: 'converge'`.
+- **Check icon with "Connected" label** — the hook has `rerun: 'refuse'` and `lastRunStatus: 'connected'`, so re-running is blocked.
+
 ## File targets
 
 A `target` makes the hook act on user-selected files, and surfaces it in the file browser instead of on the app card.
@@ -360,7 +368,7 @@ Every rule below fails the individual declaration (with a reported error) rather
 | Duplicate entries for one event | `duplicate trigger entries` |
 | Both halves of one ceremony in one declaration | `cannot share a declaration` |
 | Self `appVersion` condition on an upgrade hook | `transition gates belong on the trigger entry` |
-| Partner-referencing conditions plus a lifecycle trigger | `cross-app connects fire from the install picker automatically` |
+| Pairing-target-referencing conditions plus a lifecycle trigger | `cross-app connects fire from the install picker automatically` |
 | Duplicate `id` within the dictionary | `Duplicate hook id` |
 
 ## The four canonical shapes
@@ -382,7 +390,7 @@ Every rule below fails the individual declaration (with a reported error) rather
 }
 ```
 
-**Cross-app connect** — no `events`, so it is a user action; the partner reference routes it to the install picker and the card:
+**Cross-app connect** — no `events`, so it is a user action; the pairing target reference routes it to the install picker and the card:
 
 ```json
 {
@@ -699,7 +707,7 @@ Checkpoints represent progress steps shown to the user in the HexOS activity cen
 | `log(message)` | Log a message to the backend logger (not shown to the user). |
 | `sleep(ms)` | Async delay for the given number of milliseconds. |
 | `waitForApp(path, opts?)` | Poll the app's HTTP endpoint until it responds. Uses exponential backoff (40 attempts by default). Options: `{ timeout?, retries?, method?, expectedStatus? }` |
-| `getInstalledAppUrl(appId)` | Base URL of another installed app (e.g. `"http://192.168.1.50:5055"`), or `null` when it isn't installed or has no known port. Resolves on user-fired runs — connect hooks use it to reach the partner; lifecycle firings receive `null`. |
+| `getInstalledAppUrl(appId)` | Base URL of another installed app (e.g. `"http://192.168.1.50:5055"`), or `null` when it isn't installed or has no known port. Resolves on user-fired runs — connect hooks use it to reach the pairing target; lifecycle firings receive `null`. |
 
 #### Error handling
 

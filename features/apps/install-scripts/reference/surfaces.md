@@ -29,7 +29,7 @@ V5 scripts (`"version": 5`) are fully supported and unaffected — they declare 
 |---|---|---|
 | `card` | The **Actions** panel on the app's card in HexOS | The app is installed |
 | `fileBrowser` | Action rows under the current selection in the file browser | A `target` of type `files` |
-| `installPicker` | The **App customizations** rows in another app's install dialog | Conditions referencing a partner app |
+| `installPicker` | The **App customizations** rows in another app's install dialog | Conditions referencing another app |
 | `widget` | A button on a dashboard widget | A widget in the same dictionary that lists the hook id in its `buttons` |
 
 Each surface filters independently. The same declaration can reach all four; a hook the user cannot see on one surface is unaffected on the others.
@@ -50,9 +50,9 @@ When `surfaces` is omitted, the effective list is derived from the rest of the d
 Two consequences worth internalizing:
 
 - **A file-targeted hook is a file-browser verb and nothing else** by default. It never lands on the card, because a card button has no file selection to act on.
-- **A cross-app hook is offered at install time *and* stays on the card forever.** The install picker is where the link is discovered; the card is where the user re-runs it later. "Cross-app" means what `referencedPartnerApps` computes: the distinct `app` values across the hook's `conditions`, excluding the app whose dictionary this is.
+- **A cross-app hook is offered at install time *and* stays on the card forever.** The install picker is where the link is discovered; the card is where the user re-runs it later. "Cross-app" means what `referencedPairingTargetApps` computes: the distinct `app` values across the hook's `conditions`, excluding the app whose dictionary this is.
 
-Everything else — a plain maintenance verb with no target and no partner — is a card button that is also eligible to be a widget button.
+Everything else — a plain maintenance verb with no target and no pairing target reference — is a card button that is also eligible to be a widget button.
 
 > The `widget` entry rides the defaults deliberately, so an app that later adds a widget can put an existing action on it by referencing the hook id, with no edit to the hook.
 {.is-info}
@@ -61,7 +61,7 @@ Everything else — a plain maintenance verb with no target and no partner — i
 
 `surfaces` is how you take a hook *off* a surface. Each removal has a specific effect:
 
-- **Drop `installPicker`** and the hook stops being a pairing. Install-time cross-app discovery reads only picker-eligible hooks, so a connect verb narrowed to `["card"]` will never appear as an App customization row in the partner's install dialog — the user has to find it on the card after both apps exist.
+- **Drop `installPicker`** and the hook stops being a pairing. Install-time cross-app discovery reads only picker-eligible hooks, so a connect verb narrowed to `["card"]` will never appear as an App customization row in the target's install dialog — the user has to find it on the card after both apps exist.
 - **Drop `fileBrowser`** and the hook leaves the catalog-wide file index entirely: no action row for installed users, and no contextual suggestion for anyone else.
 - **Drop `widget`** and any widget `buttons` entry pointing at that hook is silently skipped when the widget renders.
 - **Drop `card`** and the only way to run the hook is the surface you kept.
@@ -180,7 +180,7 @@ Because `widget` is not in the list, adding `"buttons": ["connect-seer"]` to a P
 | File verb missing from the file browser | `surfaces` was written without `fileBrowser`, or the hook has no `files` target |
 | Cross-app link never offered at install | `surfaces` was written without `installPicker` |
 | Widget button renders nothing | The hook id is a typo, or `surfaces` omits `widget` |
-| Dropped with "cross-app connects fire from the install picker automatically" | A hook with partner conditions also declared a lifecycle event — split them into two declarations |
+| Dropped with "cross-app connects fire from the install picker automatically" | A hook with pairing-target-referencing conditions also declared a lifecycle event — split them into two declarations |
 
 An invalid declaration is dropped on its own, with an error reported; the rest of the dictionary still loads. A dropped hook is an invisible hook, so the failure looks like "my button isn't there" rather than a broken app.
 

@@ -21,7 +21,7 @@ Curated install scripts are maintained in the [hexos-app-catalog](https://github
 
 **[Browse hexos-app-catalog on GitHub](https://github.com/eshtek/hexos-app-catalog)**
 
-Each `.json` file in the repository root is an install script. Apps with lifecycle hooks (V5) also have a subdirectory containing their hook `.ts` files (e.g., `plex/plex_hook.ts`).
+Each `.json` file in the repository root is an install script. Apps with hooks (V5 or V6) also have a subdirectory containing their hook `.ts` files (e.g., `plex/plex_hook.ts`).
 
 ## Want to contribute?
 

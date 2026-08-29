@@ -39,7 +39,7 @@ A pairing exists when both of these are true of a hook:
 1. Its **conditions reference another app** — some condition carries an `app` field whose value is not the declaring app's own id.
 2. Its **effective surfaces include `installPicker`**.
 
-Condition types that carry an `app` field are `appInstalled`, `appRunning`, and `appVersion`. Every distinct partner id across the hook's conditions is collected once; the declaring app's own id is always excluded.
+Condition types that carry an `app` field are `appInstalled`, `appRunning`, and `appVersion`. Every distinct target app id across the hook's conditions is collected once; the declaring app's own id is always excluded.
 
 ```json
 {
@@ -60,7 +60,7 @@ Condition types that carry an `app` field are `appInstalled`, `appRunning`, and 
 }
 ```
 
-Declared in `plex.json`, this hook references one partner: `seerr`. The `plex` condition is the declaring app itself and is ignored for pairing purposes.
+Declared in `plex.json`, this hook references one pairing target: `seerr`. The `plex` condition is the declaring app itself and is ignored for pairing purposes.
 
 ### Surfaces are derived unless you narrow them
 
@@ -69,10 +69,10 @@ Declared in `plex.json`, this hook references one partner: `seerr`. The `plex` c
 | Declaration | Effective surfaces |
 |---|---|
 | Has a `target` (file hook) | `["fileBrowser"]` |
-| Conditions reference a partner app | `["installPicker", "card", "widget"]` |
+| Conditions reference another app | `["installPicker", "card", "widget"]` |
 | Neither | `["card", "widget"]` |
 
-So a partner-referencing hook lands in the install picker automatically — you write nothing. Conversely, narrowing a hook to `"surfaces": ["card"]` removes it from the picker, and **it stops producing pairings entirely**: no install row, no incoming row on the partner, no "Also pairs with" suggestion.
+So a pairing-target-referencing hook lands in the install picker automatically — you write nothing. Conversely, narrowing a hook to `"surfaces": ["card"]` removes it from the picker, and **it stops producing pairings entirely**: no install row, no incoming row on the pairing target, no "Also pairs with" suggestion.
 
 ### Derivation is read-only
 
@@ -90,22 +90,22 @@ GET /api/apps/{appId}/pairings
 
 ## Outgoing and incoming
 
-Every pairing names the app whose hook runs (`runsOnAppId`) and the partner apps it links with. Which of those is the app being installed decides the direction.
+Every pairing names the app whose hook runs (`runsOnAppId`) and the pairing target apps it links with. Which of those is the app being installed decides the direction.
 
-| | Declaring app | Partner shown to the user | `runsOnAppId` |
+| | Declaring app | Target shown to the user | `runsOnAppId` |
 |---|---|---|---|
 | **Outgoing** | the app being installed | the referenced apps | the app being installed |
 | **Incoming** | another catalog app | the declaring app | the declaring app |
 
-Installing **Plex** produces an outgoing pairing: Plex's own `connect-seer` names `seerr` as the partner, and the hook runs on Plex.
+Installing **Plex** produces an outgoing pairing: Plex's own `connect-seer` names `seerr` as the pairing target, and the hook runs on Plex.
 
-Installing **Seerr** produces an incoming pairing from the same declaration: Plex is the partner, and the hook still runs on Plex. If Plex's hook referenced several partners, the Seerr install shows only Plex — another app's partners are none of this install's business.
+Installing **Seerr** produces an incoming pairing from the same declaration: Plex is the pairing target, and the hook still runs on Plex. If Plex's hook referenced several pairing targets, the Seerr install shows only Plex — another app's targets are none of this install's business.
 
 The resulting pairing:
 
 ```json
 {
-  "partners": [{ "appId": "seerr", "name": "Seerr", "icon": "seerr.png" }],
+  "targets": [{ "appId": "seerr", "name": "Seerr", "icon": "seerr.png" }],
   "runsOnAppId": "plex",
   "hookId": "connect-seer",
   "title": "Connect to Seer",
@@ -116,20 +116,28 @@ The resulting pairing:
 
 Because both directions come from one declaration, only one app in a pair needs to declare the hook. Jellyfin declares `check-fladder`; Fladder's dictionary says nothing about Jellyfin, and a Fladder install still offers the link.
 
-## The install payload picker
+## The install pairing picker
 
 When an app has pairings, the install dialog shows a **Customize Install (N options available)** button. The default install path never forces the menu open.
 
 Expanded, the picker has two sections:
 
-- **Link with your installed apps** — the partner is already installed. Rows read *Connect to {partner}* and are **checked by default**.
-- **Also pairs well with** — the partner is not installed. Rows read *Install and Connect to {partner}* and are **unchecked by default**.
+- **Link with your installed apps** — the pairing target is already installed. Rows read *Connect to {target}* and are **checked by default**.
+- **Also pairs well with** — the pairing target is not installed. Rows read *Install and Connect to {target}* and are **unchecked by default**.
 
-Collapsed, the dialog still names the links that will fire: *Will also connect to Seerr, Tautulli*. Installed partners default to on, so consent is witnessed even on a one-click install.
+Collapsed, the dialog still names the links that will fire: *Will also connect to Seerr, Tautulli*. Installed targets default to on, so consent is witnessed even on a one-click install.
 
-**One row per partner, one run per hook.** A hook naming several partners shows a row each; picking two of them installs both and runs the hook once, because the hook takes no partner argument.
+**One row per target, one run per hook.** A hook naming several targets shows a row each; picking two of them installs both and runs the hook once, because the hook takes no target argument.
 
-Selections ride the install request and are stamped into the install task as its plan. Limits: at most **6 links** per install and **6 partners** per link.
+Selections ride the install request and are stamped into the install task as its plan. Limits: at most **6 links** per install and **6 targets** per link.
+
+## Upfront pairing config collection
+
+When a target is checked in the picker, the target's install questions and consent hooks render inline beneath the checkbox. The `AppPairingConfig` carries `questionResponses` and `hookOptIns` per target, passed through to `installPairingTarget` so the target installs with those answers already supplied — no second dialog.
+
+## Pairings panel on the app card
+
+After install, the app details pane shows a `PairingsPanel` listing all pairing targets with their current status: **connected** (last hook run succeeded), **installed** (target exists but the hook has not run or failed), or **not installed**. The panel is read-only; the user re-runs a connect hook from the Actions list, not from the panel.
 
 ## Consent gating with `requiresHooks`
 
@@ -170,20 +178,20 @@ Selected links run as child tasks of the install, under **App customizations** i
 
 1. The app's own lifecycle hooks settle first — connect scripts read what preconfigure hooks write.
 2. For each link, in turn:
-   - Any partner marked for installation is installed first, as an ordinary standard install, and **its** lifecycle hooks settle before the link continues.
+   - Any pairing target marked for installation is installed first, as an ordinary standard install, and **its** lifecycle hooks settle before the link continues.
    - The declared hook runs once, as a single hook task.
 
-Links run one at a time; two connect scripts poking the same app concurrently is exactly the race this ordering avoids. If the partner's containers are still starting, HexOS retries starting the hook for about three minutes before giving up on that link.
+Links run one at a time; two connect scripts poking the same app concurrently is exactly the race this ordering avoids. If the pairing target's containers are still starting, HexOS retries starting the hook for about three minutes before giving up on that link.
 
-Every step reaches an honest terminal state, and failure is contained: a link that fails records its failure on its own child task and the rest of the plan continues. The install's success is never revoked by a link. When a link completes, the user gets a notification per partner it actually linked.
+Every step reaches an honest terminal state, and failure is contained: a link that fails records its failure on its own child task and the rest of the plan continues. The install's success is never revoked by a link. When a link completes, the user gets a notification per pairing target it actually linked.
 
-Because a partner may be installed first, the checklist can show an install the user did not start from the app store — that is the *Install and Connect to {partner}* row doing its job.
+Because a pairing target may be installed first, the checklist can show an install the user did not start from the app store — that is the *Install and Connect to {target}* row doing its job.
 
 ## "Also pairs with" on an installed app
 
-An installed app's card lists its **outgoing** pairings whose partner is not installed yet, one row per partner, each with an **Install** button that opens the partner's app page.
+An installed app's card lists its **outgoing** pairings whose pairing target is not installed yet, one row per target, each with an **Install** button that opens the target's app page.
 
-No pre-selection is needed. From the partner's side the same pairing is incoming with the origin app already installed, so the partner's own install picker puts it in *Link with your installed apps* and checks it by default.
+No pre-selection is needed. From the target's side the same pairing is incoming with the origin app already installed, so the target's own install picker puts it in *Link with your installed apps* and checks it by default.
 
 Only install-picker-surfaced hooks appear here, so a hook narrowed to `"surfaces": ["card"]` never generates a suggestion.
 
@@ -191,16 +199,16 @@ Only install-picker-surfaced hooks appear here, so a hook narrowed to `"surfaces
 
 **Declare the pairing on the app that does the work.** The hook runs on its declaring app, so put it in the dictionary of the app whose API you are calling. One declaration serves both directions.
 
-**Give each partner condition a role.** The usual shape is a `visibility` `appInstalled` condition on the partner (hide the card button until the partner exists) plus `availability` `appRunning` conditions on the partner and on the declaring app (a running app is required to run against).
+**Give each target condition a role.** The usual shape is a `visibility` `appInstalled` condition on the pairing target (hide the card button until the target exists) plus `availability` `appRunning` conditions on the pairing target and on the declaring app (a running app is required to run against).
 
 **Never put a lifecycle event on a pairing hook.** A hook that declares both a lifecycle trigger and a cross-app condition is rejected at parse time and dropped, with the error *cross-app connects fire from the install picker automatically — remove the lifecycle trigger*. Cross-app connects are user verbs. Leave `events` off.
 
-**Multi-partner hooks run once.** A hook naming `seerr` and `tautulli` produces one pairing carrying both partners, one picker row each, and a single run for whatever the user picked. Only write one when a single script run genuinely handles any subset of those partners — the script must tolerate a partner that is not there. If each partner needs its own script run, declare a hook per partner, as Plex does with `connect-seer` and `connect-tautulli`.
+**Multi-target hooks run once.** A hook naming `seerr` and `tautulli` produces one pairing carrying both targets, one picker row each, and a single run for whatever the user picked. Only write one when a single script run genuinely handles any subset of those targets — the script must tolerate a target that is not there. If each target needs its own script run, declare a hook per target, as Plex does with `connect-seer` and `connect-tautulli`.
 
-**Watch condition semantics on the card.** Every condition must pass: a failed `visibility` condition hides the hook, a failed `availability` condition disables it with a reason. So a hook carrying `appInstalled` visibility conditions for two partners is hidden on the app card until both are installed. Pairings are derived regardless of what is installed, so the picker still offers the link either way. When in doubt, one hook per partner.
+**Watch condition semantics on the card.** Every condition must pass: a failed `visibility` condition hides the hook, a failed `availability` condition disables it with a reason. So a hook carrying `appInstalled` visibility conditions for two pairing targets is hidden on the app card until both are installed. Pairings are derived regardless of what is installed, so the picker still offers the link either way. When in doubt, one hook per target.
 
 **Only install-picker-surfaced hooks produce pairings.** A card-only verb, a file-browser verb (`target`), or any hook you narrow with `surfaces` away from `installPicker` is invisible to pairing discovery, no matter what its conditions reference.
 
-**Use catalog app ids.** The `app` value in a condition is the partner's catalog app id — `seerr`, `tautulli`, `jellystat` — not its display name. A partner id that does not match any catalog app still produces a pairing, but it is labelled with the raw id and can never be installed from the picker.
+**Use catalog app ids.** The `app` value in a condition is the pairing target's catalog app id — `seerr`, `tautulli`, `jellystat` — not its display name. A target app id that does not match any catalog app still produces a pairing, but it is labelled with the raw id and can never be installed from the picker.
 
-**Set `rerun` honestly.** `rerun` is required on every user-triggerable hook, and a connect hook is re-runnable by definition — a user who reinstalls a partner will fire it again. `converge` suits most connect hooks; `idempotent` suits pure checks like `check-fladder`.
+**Set `rerun` honestly.** `rerun` is required on every user-triggerable hook, and a connect hook is re-runnable by definition — a user who reinstalls a pairing target will fire it again. `converge` suits most connect hooks; `idempotent` suits pure checks like `check-fladder`.
