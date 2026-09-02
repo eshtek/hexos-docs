@@ -1,8 +1,8 @@
 ---
-title: Migrating Immich to New Storage Configuration (old)
+title: Migrating Immich to New Storage Configuration (don't publish)
 description: 
 published: false
-date: 2026-09-02T02:29:37.094Z
+date: 2026-09-02T02:29:55.833Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:43:42.835Z
