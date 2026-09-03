@@ -26,7 +26,7 @@ Speak a language other than English? Help HexOS speak it too:
 
 - [Join the translation program](/community/translating-hexos) at [translate.hexos.com](https://translate.hexos.com)
 - Translate at your own pace — no deadlines, no minimum commitment
-- Active translators become reviewers for their language
+- [Use the key inspector](/community/translating-hexos/key-inspector) to jump from any text in HexOS straight to its string in Weblate
 
 ## Improve documentation
 

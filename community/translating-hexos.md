@@ -18,7 +18,7 @@ Want to see who's working on your language, coordinate with other translators, o
 
 Translations happen at [translate.hexos.com](https://translate.hexos.com), powered by [Weblate](https://weblate.org) — the same open-source translation platform used by projects like Fedora and LibreOffice. Everything runs in your browser: you see the English text, you type your translation, Weblate saves as you go.
 
-The HexOS interface is about 2,800 strings — button labels, error messages, setup wizards, everything. They live in a single component called **Deck**, with feature-area labels (account, server, storage, apps, tasks, errors) so you can focus on one area at a time.
+The HexOS interface is thousands of strings — button labels, error messages, setup wizards, everything. They live in a single component called **Deck**, with feature-area labels (account, server, storage, apps, tasks, errors) so you can focus on one area at a time.
 
 ## Getting started
 
@@ -43,6 +43,12 @@ Because nothing ships without review, you can't break anything — jump in.
 ## Becoming a reviewer
 
 Reviewers approve translations for their language and effectively own its quality. We promote active translators to reviewer — once you've been translating a language for a bit, expect to hear from us. There's nothing to apply for.
+
+## Finding a string you saw in HexOS
+
+Spotted a translation that reads badly, but can't find it in Weblate? HexOS has a built-in key inspector: point at any text in the interface and it names the string behind it, then takes you straight to it in Weblate.
+
+[Using the key inspector](/community/translating-hexos/key-inspector)
 
 ## Translation guidelines
 

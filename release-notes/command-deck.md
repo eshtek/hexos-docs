@@ -20,6 +20,8 @@ For users who are actively connected during an update, there may be a brief down
 
 <!-- auto-generated-year-sections-start -->
 ## 2026 Releases
+- [**2026-09-03**](/release-notes/command-deck/2026-09-03) - Automatic timezone detection, storage safety, and setup recovery
+- [**2026-09-01**](/release-notes/command-deck/2026-09-01) - New app curations (Donetick & RomM)
 - [**2026-08-28**](/release-notes/command-deck/2026-08-28) - Dashboard widgets, install scripts v6, cross-app linking, and storage polish
 - [**2026-08-27**](/release-notes/command-deck/2026-08-27) - ZFS pool import, Update all, and server reliability
 - [**2026-08-24**](/release-notes/command-deck/2026-08-24) - Danish language support, storage improvements, and dashboard polish
