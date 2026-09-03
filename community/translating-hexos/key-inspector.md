@@ -1,11 +1,11 @@
 ---
 title: Finding the key behind a string
 description: Use the key inspector to jump from any text in Command Deck straight to the string in Weblate
-published: false
-date: 2026-09-03T20:00:00.000Z
+published: true
+date: 2026-09-03T17:30:35.486Z
 tags: community, translations, i18n, weblate
 editor: markdown
-dateCreated: 2026-09-03T20:00:00.000Z
+dateCreated: 2026-09-03T17:05:21.637Z
 ---
 
 # Finding the key behind a string
@@ -26,14 +26,6 @@ The version number now has **[DEV MODE]** next to it.
 <summary> Sidebar footer with developer mode enabled </summary>
 
 ![dev-mode-enabled.png](/translating-hexos/dev-mode-enabled.png){.small .framed}
-</details>
-
-To leave developer mode, click the version number 10 times again and click **Disable**.
-
-<details>
-<summary> The Developer Mode dialog </summary>
-
-![developer-mode-dialog.png](/translating-hexos/developer-mode-dialog.png){.medium .framed}
 </details>
 
 > **Info:** Developer mode is saved to your account, so it follows you between browsers and devices. It does not change anything about how your server runs.
