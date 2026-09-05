@@ -12,13 +12,11 @@ dateCreated: 2026-08-20T18:00:00.000Z
 
 ## Cannot image USB stick with ISO
 
-If you're having trouble creating a bootable USB drive from the HexOS ISO:
+If you are having trouble creating a bootable USB drive:
 
-1. **Use a different imaging tool**
-   - Try [balenaEtcher](https://www.balena.io/etcher/) (recommended)
-   - On Windows: Use Rufus in DD mode
-   - On macOS: Use built-in Disk Utility or `dd` command
-   - On Linux: Use `dd` command or GNOME Disks
+1. **Use HexOS Imager**
+   - [HexOS Imager](/getting-started/installation/InstallGuide#install-hexos-imager) downloads and verifies the installer for you, then writes it to the USB drive. It is the recommended tool and removes most imaging problems.
+   - If you prefer another tool, use [Balena Etcher](https://etcher.balena.io/#download-etcher). Do not use Rufus, which has produced unbootable installers.
 
 2. **Try a different USB drive**
    - Use a high-quality USB 3.0+ drive (minimum 8GB)
