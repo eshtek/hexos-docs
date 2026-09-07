@@ -78,6 +78,37 @@ Compare the checksum against the file you downloaded before writing it. A checks
 > **Warning:** Do not use Rufus to create the installation USB. It has caused unbootable installers for HexOS users. Use HexOS Imager or Balena Etcher.
 {.is-warning}
 
+<details>
+<summary> Verify your download (optional) </summary>
+
+Two small files are published next to the installer:
+
+- [Checksum file](https://downloads.hexos.com/TrueNAS-SCALE-25.10.7-HexOS.iso.sha256), the SHA256 checksum shown above
+- [Signature file](https://downloads.hexos.com/TrueNAS-SCALE-25.10.7-HexOS.iso.gpg), a GPG signature from the iXsystems security team
+
+**Check the checksum**
+
+Run one of the following commands in the folder where you saved the installer, then compare the result to the SHA256 checksum shown above. The two must match exactly.
+
+- Windows (PowerShell): `Get-FileHash TrueNAS-SCALE-25.10.7-HexOS.iso -Algorithm SHA256`
+- macOS: `shasum -a 256 TrueNAS-SCALE-25.10.7-HexOS.iso`
+- Linux: `sha256sum TrueNAS-SCALE-25.10.7-HexOS.iso`
+
+**Check the signature**
+
+Checking the signature confirms that the installer was built by iXsystems, the makers of TrueNAS. This needs GPG installed on your computer, for example [Gpg4win](https://www.gpg4win.org/) on Windows or [GPG Suite](https://gpgtools.org/) on macOS. Most Linux distributions include it.
+
+1. Download the signature file to the same folder as the installer.
+2. Import the iXsystems signing key: `gpg --keyserver hkps://keys.openpgp.org --recv-keys C8D62DEF767C1DB0DFF4E6EC358EAA9112CF7946`
+3. Verify the installer: `gpg --verify TrueNAS-SCALE-25.10.7-HexOS.iso.gpg TrueNAS-SCALE-25.10.7-HexOS.iso`
+
+The output should include `Good signature from "IX SecTeam <security-officer@ixsystems.com>"` and the key fingerprint `C8D6 2DEF 767C 1DB0 DFF4 E6EC 358E AA91 12CF 7946`.
+
+> **Info:** GPG will also print a warning that the key is not certified with a trusted signature. This is expected. It only means you have not personally marked the iXsystems key as trusted on your computer.
+{.is-info}
+
+</details>
+
 ## Installation process
 
 - Insert the USB into your server and power it on
