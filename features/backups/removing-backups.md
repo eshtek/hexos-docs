@@ -1,11 +1,11 @@
 ---
 title: Removing backups
 description: What pausing, declining, removing a folder, removing a connection, deleting a folder, and resetting a server each keep and destroy
-published: false
-date: 2026-09-07T00:00:00.000Z
+published: true
+date: 2026-09-07T00:33:21.257Z
 tags: backups, buddy, pause, delete, remove
 editor: markdown
-dateCreated: 2026-08-23T12:07:23.254Z
+dateCreated: 2026-09-07T00:31:08.086Z
 ---
 
 # Removing backups
@@ -31,11 +31,6 @@ The files on your own server are never touched by any of these except deleting t
 
 **Pause** stops new backups running. Everything stored stays where it is and the reservation stays reserved. Both sides are told. Only the account that paused can resume it, except a pause HexOS made for space, which either side can resume and which resumes on its own when the space problem is fixed.
 
-<details>
-<summary> The Pause tile </summary>
-
-![Details view showing the Pause tile](/features/backups/images/pause-tile-active.png){.medium .framed}
-</details>
 
 Pausing does not free space on the destination. To give the space back, the connection has to be removed.
 
