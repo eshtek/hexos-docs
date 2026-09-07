@@ -2,7 +2,7 @@
 title: The Biggest HexOS Update Yet: Buddy Backups, Virtual Machines, and Beyond
 description: Buddy Backups, VMs, the road to 1.1, the end of early access pricing, and what's up next for the team.
 published: false
-date: 2026-09-07T20:00:38.702Z
+date: 2026-09-07T20:01:12.429Z
 tags: buddy backups, virtual machines, roadmap
 editor: markdown
 dateCreated: 2026-09-07T20:00:38.702Z
