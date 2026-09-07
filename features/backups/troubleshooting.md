@@ -82,7 +82,7 @@ Common causes:
 
 ## Folders are locked when editing folders
 
-On a buddy connection, unencrypted folders show "Only encrypted folders can be backed up to buddy servers". Encryption cannot be added to a folder after it is created. Create a new encrypted folder, move the files into it, and choose that one. Backups to a server you own accept any folder. See [Folder encryption](/features/folders#encryption).
+On a buddy connection, unencrypted folders show "Only encrypted folders can be backed up to buddy servers". Encryption cannot be added to a folder after it is created. Create a new encrypted folder, move the files into it, and choose that one. Backups to a server you own accept any folder. See [Folder encryption](/features/folders#encrypted-folders).
 
 ## The destination list is empty
 

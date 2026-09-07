@@ -18,7 +18,7 @@ When a server that sent backups is removed from your account, its copies on the 
 
 Ownership is proved by your HexOS account. As long as you can sign in, you can recover.
 
-> **Danger:** Recovery depends on your folder passphrases. Encrypted folders in a retained backup cannot be opened without them, and there is no reset. See [Folder encryption](/features/folders#encryption).
+> **Danger:** Recovery depends on your folder passphrases. Encrypted folders in a retained backup cannot be opened without them, and there is no reset. See [Folder encryption](/features/folders#encrypted-folders).
 {.is-danger}
 
 ## The steps

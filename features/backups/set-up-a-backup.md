@@ -18,7 +18,7 @@ In a few minutes you can have an encrypted copy of your folders leaving your ser
 - **Folders sent to a buddy must be encrypted.** Folders sent to your own server can be anything.
 - **Have your buddy's HexOS account email** ready if you are backing up to a buddy.
 
-> **Requirement:** A folder cannot be encrypted after it is created. If a folder you want to send to a buddy is not encrypted, create a new encrypted folder and move the files into it first. See [Folder encryption](/features/folders#encryption).
+> **Requirement:** A folder cannot be encrypted after it is created. If a folder you want to send to a buddy is not encrypted, create a new encrypted folder and move the files into it first. See [Folder encryption](/features/folders#encrypted-folders).
 {.is-success}
 
 ## Starting a new backup

@@ -33,7 +33,7 @@ The only real protection against those is a copy in a different building. Most p
 4. Each completed run becomes a restore point on the destination. You can bring back the latest copy or any dated restore point within your retention window.
 5. Folders sent to a buddy are encrypted folders. They arrive encrypted and stay encrypted. Your buddy stores them but cannot open them, and neither can HexOS.
 
-> **Warning:** Your buddy cannot read your encrypted folders, and neither can anyone else, including HexOS. That protection depends on the folder's passphrase. If you lose the passphrase, nobody can open the backup. Write it down and keep it somewhere that is not on the server. See [Folder encryption](/features/folders#encryption).
+> **Warning:** Your buddy cannot read your encrypted folders, and neither can anyone else, including HexOS. That protection depends on the folder's passphrase. If you lose the passphrase, nobody can open the backup. Write it down and keep it somewhere that is not on the server. See [Folder encryption](/features/folders#encrypted-folders).
 {.is-warning}
 
 ## What you give and what you get

@@ -20,7 +20,7 @@ Only you can restore your own backups. The buddy storing your copy cannot browse
 - Make sure the pool you restore to has room for the whole folder.
 - Have the folder's passphrase if it is encrypted. You can enter it when you start or later, but the restore cannot finish without it.
 
-> **Danger:** If you do not know an encrypted folder's passphrase, the backup cannot be opened by you, your buddy, or HexOS. There is no reset. See [Folder encryption](/features/folders#encryption).
+> **Danger:** If you do not know an encrypted folder's passphrase, the backup cannot be opened by you, your buddy, or HexOS. There is no reset. See [Folder encryption](/features/folders#encrypted-folders).
 {.is-danger}
 
 ## Starting a restore
