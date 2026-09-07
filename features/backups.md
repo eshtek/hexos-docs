@@ -1,11 +1,11 @@
 ---
 title: Buddy Backups
 description: Keep an encrypted offsite copy of your folders on a buddy's server or a second server you own, with no cloud bill and no third-party tools
-published: false
-date: 2026-09-07T00:00:00.000Z
+published: true
+date: 2026-09-07T00:44:53.683Z
 tags: backups, buddy, offsite, disaster recovery, restore
 editor: markdown
-dateCreated: 2026-08-23T12:07:07.025Z
+dateCreated: 2026-09-07T00:30:50.314Z
 ---
 
 # Buddy Backups
@@ -21,7 +21,6 @@ A storage pool with redundancy protects you when a drive fails. It does not prot
 - A fire, a flood, or a power surge
 - Theft of the server itself
 - Ransomware that encrypts everything the server can reach
-- Deleting a folder and noticing months later
 
 The only real protection against those is a copy in a different building. Most people pay a cloud provider for that. Buddy Backups uses the spare space you and your buddy already own instead, so you both save money and both end up protected.
 
