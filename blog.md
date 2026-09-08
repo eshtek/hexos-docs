@@ -2,7 +2,7 @@
 title: Blog
 description: 
 published: true
-date: 2026-09-08T19:30:34.317Z
+date: 2026-09-08T19:34:41.790Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:38:53.875Z
@@ -13,7 +13,7 @@ dateCreated: 2026-06-08T15:38:53.875Z
 Stay up to date with the latest news and updates from the HexOS team.
 
 ## 2026
-- [The biggest HexOS update yet: Buddy Backups, Virtual Machines, and more](/blog/2026-09-08)
+- [The Biggest HexOS update yet: Buddy Backups, Virtual Machines, and more - September 8, 2026](/blog/2026-09-08)
 - [Mixing and Matching Drives, Finally: What ZFS AnyRAID Means for Your Home Server - July 15, 2026](/blog/2026-7-15)
 - [HexOS Now Preconfigures Your Apps For You - June 18, 2026](/blog/2026-06-18)
 - [HexOS 1.0 Local Rollout Complete - April 21, 2026](/blog/2026-04-21)
