@@ -1,7 +1,7 @@
 ---
 title: Manage your backups
 description: Change which folders are backed up, the schedule and retention, transfer speed, space, pause and resume, names, and read the Backups page and map
-published: false
+published: true
 date: 2026-09-07T00:00:00.000Z
 tags: backups, buddy, schedule, pause, folders
 editor: markdown

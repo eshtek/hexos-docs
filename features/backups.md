@@ -77,6 +77,7 @@ How much a folder shrinks depends on what is in it. Photos and video are already
 | Rebuild after losing a server | [Recover a failed server](/features/backups/recover-a-failed-server) |
 | Understand what each removal deletes | [Removing backups](/features/backups/removing-backups) |
 | Work out what a status or notice means | [Backup troubleshooting](/features/backups/troubleshooting) |
+| Understand what is underneath | [How Buddy Backups works](/features/backups/how-it-works) |
 
 > **Contribute:** to help to improve HexOS documentation [join the #Docs channel on Discord](https://discord.com/invite/DjEp3WRHKz) today! Send feedback, suggestions or contribute a guide.
 {.is-contribute}

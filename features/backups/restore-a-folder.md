@@ -1,7 +1,7 @@
 ---
 title: Restore a folder
 description: Bring a backed-up folder back onto your server as a new folder, from the latest copy or any restore point
-published: false
+published: true
 date: 2026-09-07T00:00:00.000Z
 tags: backups, buddy, restore, passphrase
 editor: markdown

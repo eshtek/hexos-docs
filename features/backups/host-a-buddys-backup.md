@@ -1,7 +1,7 @@
 ---
 title: Host a buddy's backup
 description: Respond to a backup request, choose where the copies live, and understand what you are agreeing to when you store a buddy's encrypted data
-published: false
+published: true
 date: 2026-09-07T00:00:00.000Z
 tags: backups, buddy, host, request
 editor: markdown

@@ -1,7 +1,7 @@
 ---
 title: Set up a backup
 description: Use New backup to start backing up to a buddy's server or to another server you own
-published: false
+published: true
 date: 2026-09-07T00:00:00.000Z
 tags: backups, buddy, setup, wizard
 editor: markdown

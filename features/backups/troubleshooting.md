@@ -1,7 +1,7 @@
 ---
 title: Backup troubleshooting
 description: What every backup status and notice means, and what to do about the common stuck states
-published: false
+published: true
 date: 2026-09-07T00:00:00.000Z
 tags: backups, buddy, troubleshoot, status
 editor: markdown
