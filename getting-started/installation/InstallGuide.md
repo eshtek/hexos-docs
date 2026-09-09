@@ -34,15 +34,15 @@ Download the version for your computer. These are all the same release, built fo
 
 | Your computer | Download |
 |---|---|
-| Windows | [HexOS-Imager-v2.1.6-20260902-Setup.exe](https://github.com/eshtek/etcher/releases/download/v2.1.6%2B20260902/HexOS-Imager-v2.1.6-20260902-Setup.exe) |
-| Mac with Apple silicon (M1 or newer) | [HexOS-Imager-v2.1.6-20260902-arm64.dmg](https://github.com/eshtek/etcher/releases/download/v2.1.6%2B20260902/HexOS-Imager-v2.1.6-20260902-arm64.dmg) |
-| Mac with an Intel processor | [HexOS-Imager-v2.1.6-20260902-x64.dmg](https://github.com/eshtek/etcher/releases/download/v2.1.6%2B20260902/HexOS-Imager-v2.1.6-20260902-x64.dmg) |
-| Linux, Debian or Ubuntu (x64) | [HexOS-Imager-v2.1.6-20260902-x64.deb](https://github.com/eshtek/etcher/releases/download/v2.1.6%2B20260902/HexOS-Imager-v2.1.6-20260902-x64.deb) |
-| Linux, Debian or Ubuntu (arm64) | [HexOS-Imager-v2.1.6-20260902-arm64.deb](https://github.com/eshtek/etcher/releases/download/v2.1.6%2B20260902/HexOS-Imager-v2.1.6-20260902-arm64.deb) |
-| Linux, Fedora or RHEL (x64) | [HexOS-Imager-v2.1.6-20260902-x64.rpm](https://github.com/eshtek/etcher/releases/download/v2.1.6%2B20260902/HexOS-Imager-v2.1.6-20260902-x64.rpm) |
-| Linux, Fedora or RHEL (arm64) | [HexOS-Imager-v2.1.6-20260902-arm64.rpm](https://github.com/eshtek/etcher/releases/download/v2.1.6%2B20260902/HexOS-Imager-v2.1.6-20260902-arm64.rpm) |
+| Windows | [HexOS-Imager-v2.1.6-20260908-Setup.exe](https://github.com/eshtek/etcher/releases/download/v2.1.6%2B20260908/HexOS-Imager-v2.1.6-20260908-Setup.exe) |
+| Mac with Apple silicon (M1 or newer) | [HexOS-Imager-v2.1.6-20260908-arm64.dmg](https://github.com/eshtek/etcher/releases/download/v2.1.6%2B20260908/HexOS-Imager-v2.1.6-20260908-arm64.dmg) |
+| Mac with an Intel processor | [HexOS-Imager-v2.1.6-20260908-x64.dmg](https://github.com/eshtek/etcher/releases/download/v2.1.6%2B20260908/HexOS-Imager-v2.1.6-20260908-x64.dmg) |
+| Linux, Debian or Ubuntu (x64) | [HexOS-Imager-v2.1.6-20260908-x64.deb](https://github.com/eshtek/etcher/releases/download/v2.1.6%2B20260908/HexOS-Imager-v2.1.6-20260908-x64.deb) |
+| Linux, Debian or Ubuntu (arm64) | [HexOS-Imager-v2.1.6-20260908-arm64.deb](https://github.com/eshtek/etcher/releases/download/v2.1.6%2B20260908/HexOS-Imager-v2.1.6-20260908-arm64.deb) |
+| Linux, Fedora or RHEL (x64) | [HexOS-Imager-v2.1.6-20260908-x64.rpm](https://github.com/eshtek/etcher/releases/download/v2.1.6%2B20260908/HexOS-Imager-v2.1.6-20260908-x64.rpm) |
+| Linux, Fedora or RHEL (arm64) | [HexOS-Imager-v2.1.6-20260908-arm64.rpm](https://github.com/eshtek/etcher/releases/download/v2.1.6%2B20260908/HexOS-Imager-v2.1.6-20260908-arm64.rpm) |
 
-All downloads, including a `SHA256SUMS.txt` file for checking them, are on the [HexOS Imager release page](https://github.com/eshtek/etcher/releases/tag/v2.1.6%2B20260902). HexOS Imager does not update itself yet, so check that page for newer versions.
+All downloads, including a `SHA256SUMS.txt` file for checking them, are on the [HexOS Imager release page](https://github.com/eshtek/etcher/releases/tag/v2.1.6%2B20260908). HexOS Imager does not update itself yet, so check that page for newer versions.
 
 > **Info:** On Windows, the installer is signed by Eshtek Inc. Because the signing certificate is new, Windows may still show a "Windows protected your PC" message. Click **More info** and check that the publisher reads **Eshtek Inc.**, then click **Run anyway**. This message will stop appearing as the certificate builds a reputation.
 {.is-info}
