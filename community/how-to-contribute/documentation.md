@@ -1,8 +1,8 @@
 ---
 title: Documentation How To Contribute
 description: 
-published: false
-date: 2026-08-20T15:03:23.223Z
+published: true
+date: 2026-09-12T14:56:15.991Z
 tags: 
 editor: markdown
 dateCreated: 2026-07-18T09:51:14.516Z
