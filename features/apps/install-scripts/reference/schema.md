@@ -235,11 +235,36 @@ Installation questions allow you to prompt users for configuration values during
   - `"number"`: Numeric input field
   - `"select"`: Dropdown/selection with predefined options
   - `"boolean"`: True/false toggle
+  - `"password"`: Masked text input. A `$RANDOM_STRING(n)` default offers a generated value
 - **`key`** (required): Unique identifier used to reference the answer with `$QUESTION(key)`
 - **`options`** (required for `select` type): Array of option objects with `text` and `value` properties
 - **`required`** (optional): Whether the question must be answered (default: false)
 - **`default`** (optional): Default value or special syntax like `$RANDOM_STRING(16)`
 - **`installonly`** (optional): Set to `true` for values the app only consumes on first boot (e.g. initial admin credentials). The question is still asked during install (including custom install and reinstall), but is hidden from the post-install Options/Configure dialog, where changing it would have no effect. The question's `$QUESTION(key)` reference should appear in `app_values` so the current value stays recoverable from the installed app's configuration during updates.
+- **`group`** (optional): Splits a long list of questions into steps and sections in the install workflow. Without it, every question appears on one screen. With it, the workflow shows one dot per step, and each screen holds a handful of inputs, so an app with dozens of questions reads as a short flow instead of one long form.
+
+**Grouping format:**
+
+The value is `"Step"` or `"Step / Section"`. The text before the spaced slash names the step; the text after it names a section within that step. Questions with the same step text share a step, and questions with the same full value share a section.
+
+```json
+{ "question": "Admin username", "type": "text", "key": "admin_user", "group": "Server / Access" },
+{ "question": "Admin password", "type": "password", "key": "admin_pass", "group": "Server / Access" },
+{ "question": "Web port", "type": "number", "key": "web_port", "group": "Server / Network" },
+{ "question": "Library path", "type": "text", "key": "library", "group": "Storage" }
+```
+
+This produces two steps. The first holds two sections, **Access** (username and password) and **Network** (port), shown in a clickable rail beside the form. The second, from the plain `"Storage"` value, has a single section, so the form fills the screen with no rail.
+
+What the user sees:
+
+- The step name is not displayed. It only decides which questions share a dot in the workflow.
+- Section names appear in the rail, and only when a step has more than one section.
+- A question with a plain `"Step"` value that shares its step with `"Step / Section"` questions appears in the rail as **General**.
+
+Steps and sections appear in the order their first question is listed. Only the first ` / ` in a value splits it, and the slash must have a space on each side, so `"TCP/IP settings"` stays one name.
+
+Grouping is presentational only. It has no effect on the install payload or on `$QUESTION()` references. It applies to the standard install flow; the custom install dialog and the post-install **Options** dialog show every question on one screen regardless of `group`.
 
 **Using Question Responses:**
 
