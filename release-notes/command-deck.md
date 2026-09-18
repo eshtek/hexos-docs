@@ -20,6 +20,7 @@ For users who are actively connected during an update, there may be a brief down
 
 <!-- auto-generated-year-sections-start -->
 ## 2026 Releases
+- [**2026-09-18**](/release-notes/command-deck/2026-09-18) - A clearer walk through multi-step screens
 - [**2026-09-17**](/release-notes/command-deck/2026-09-17) - Multiple authenticators, folder and app fixes, and server reliability
 - [**2026-09-09**](/release-notes/command-deck/2026-09-09) - New app curations (Donetick & RomM)
 - [**2026-09-03**](/release-notes/command-deck/2026-09-03) - Automatic timezone detection, storage safety, and setup recovery

@@ -18,11 +18,11 @@ The Command Deck is the HexOS web interface. Updates are automatically deployed 
 
 ### Recent updates
 
+- [**2026-09-18**](/release-notes/command-deck/2026-09-18) — A clearer walk through multi-step screens
 - [**2026-09-17**](/release-notes/command-deck/2026-09-17) — Multiple authenticators, folder and app fixes, and server reliability
 - [**2026-09-09**](/release-notes/command-deck/2026-09-09) — New app curations (Donetick & RomM)
 - [**2026-09-03**](/release-notes/command-deck/2026-09-03) — Automatic timezone detection, storage safety, and setup recovery
 - [**2026-08-28**](/release-notes/command-deck/2026-08-28) — Dashboard widgets, install scripts v6, cross-app linking, and storage polish
-- [**2026-08-27**](/release-notes/command-deck/2026-08-27) — ZFS pool import, Update all, and server reliability
 
 **[View all Command Deck release notes →](/release-notes/command-deck/)**
 
