@@ -1,7 +1,7 @@
 ---
 title: Using a VM's console from a phone or tablet
 description: Type, tap, drag, scroll and zoom a VM's console from a touchscreen
-published: false
+published: true
 date: 2026-09-21T21:30:12.000Z
 tags: vm, vms, console, phone, tablet, touch
 editor: markdown
