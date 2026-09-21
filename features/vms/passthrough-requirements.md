@@ -1,7 +1,7 @@
 ---
 title: Passthrough requirements for VMs
 description: What your server needs before a VM can use a graphics card, monitor, keyboard and mouse directly
-published: false
+published: true
 date: 2026-09-21T22:47:06.000Z
 tags: vm, vms, passthrough, gpu, graphics card, usb
 editor: markdown

@@ -1,7 +1,7 @@
 ---
 title: Install media for VMs
 description: Where installer ISOs live on your server and how to add one
-published: false
+published: true
 date: 2026-09-21T21:29:04.000Z
 tags: vm, vms, iso, install media, installation media
 editor: markdown

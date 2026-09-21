@@ -1,7 +1,7 @@
 ---
 title: VMs
 description: Run Windows, Linux, and appliance operating systems on your HexOS server
-published: false
+published: true
 date: 2026-09-21T21:27:13.000Z
 tags: vm, vms, virtual machine, windows, linux
 editor: markdown
