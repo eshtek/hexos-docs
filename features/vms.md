@@ -50,7 +50,7 @@ If your server does not have enough processor cores, memory, or unused pool stor
 1. Go to **VMs**.
 2. Click the system you want. Its page shows a description, screenshots, and three tabs:
    - **Requirements**: the processor cores, memory, and storage it needs
-   - **Locations**: which of your storage locations it uses, **Virtual Disks** and sometimes **Installation Media**
+   - **Locations**: which of your storage locations it uses, **Virtual Disks** and sometimes **Install Media**
    - **Permissions**: what it is allowed to access
 3. Click **Install**.
 4. Work through the setup dialog, clicking **Continue** after each step.
@@ -292,7 +292,7 @@ To take one out, open the ISO's menu on the **Disks** tab and choose **Eject** f
 
 </details>
 
-> **Info:** VMs can only boot ISOs stored in your **Installation Media** location. See [Installation media](/features/vms/installation-media).
+> **Info:** VMs can only boot ISOs stored in your **Install Media** location. See [Install media](/features/vms/installation-media).
 {.is-info}
 
 ### Options
@@ -344,7 +344,7 @@ A stopped VM shows **Power on** in place of the **Power** menu. To restart a VM,
 
 VM disks are thin-provisioned: the size you choose is a limit, and the disk only takes up space as it fills. Making a disk bigger later is easy and making it smaller is not possible, so there is no need to over-allocate.
 
-Two locations under **Settings** > **Locations** > **Virtualization** are used by VMs: **Virtual Disks** for VM disks, and **Installation Media** for ISOs. When you place a disk on a different pool during setup, HexOS creates a Virtual Disks folder on that pool.
+Two locations under **Settings** > **Locations** > **Virtualization** are used by VMs: **Virtual Disks** for VM disks, and **Install Media** for ISOs. When you place a disk on a different pool during setup, HexOS creates a Virtual Disks folder on that pool.
 
 > **Info:** A location cannot be changed while VMs are using it. Uninstall those VMs first.
 {.is-info}
@@ -362,5 +362,5 @@ If you chose **Automatic** snapshots, HexOS takes one every day and keeps each f
 
 Some systems in the catalog also need particular processor features or a minimum TrueNAS version. HexOS leaves out anything your server cannot run.
 
-> **Info:** Handing a graphics card, USB devices, or other hardware directly to a VM is not available yet. **Locally (Passthrough)** in the custom VM dialog will be available in a future update.
+> **Info:** Handing a graphics card, USB devices, or other hardware directly to a VM is not available yet. **Locally (Passthrough)** in the custom VM dialog will be available in a future update. See [Passthrough requirements](/features/vms/passthrough-requirements) for the hardware it will need.
 {.is-info}
