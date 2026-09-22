@@ -97,6 +97,17 @@ A keypair lets the old server log in to the new server without a password.
 ![user-sudo-commands.png](/replicating-virtual-machines/user-sudo-commands.png){.large .framed}
 </details>
 
+7. Click **System** > **Services**. On the **SSH** row, click the start button so **Status** shows **Running**. SSH is off on a new TrueNAS install, and the old server cannot connect until it is on.
+
+<details>
+<summary> The SSH service on the services screen </summary>
+
+![system-services-ssh.png](/replicating-virtual-machines/system-services-ssh.png){.large .framed}
+</details>
+
+> **Tip:** When the move is finished, you can stop the SSH service again on the same screen.
+{.is-tip}
+
 ## Step 3: Connect the old server to the new server
 
 1. On the old server, click **Credentials** > **Backup Credentials** again.
@@ -130,6 +141,9 @@ A keypair lets the old server log in to the new server without a password.
 
 ![discover-remote-host-key.png](/replicating-virtual-machines/discover-remote-host-key.png){.large .framed}
 </details>
+
+> **Help:** If you see **ssh-keyscan failed** with nothing after it, the old server cannot reach SSH on the new server. Check that the SSH service is **Running** on the new server (Step 2) and that the **Host** is the new server's IP address.
+{.is-troubleshooting}
 
 ## Step 4: Copy the disks with a replication task
 
