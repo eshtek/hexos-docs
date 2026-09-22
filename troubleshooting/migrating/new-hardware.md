@@ -84,7 +84,7 @@ afterwards — and creating the pool yourself is the only opportunity you get to
 
 Put both servers on the same network. Replication runs directly between them; it doesn't go through HexOS or the internet.
 
-The setup — SSH keypair, SSH connection, replication task — is covered step by step, with screenshots, in [Replicating Virtual Machines](./ReplicatingVirtualMachines). The same procedure applies here; you're just replicating more than VM disks.
+The setup — SSH keypair, SSH connection, replication task — is covered step by step, with screenshots, in [Replicating Virtual Machines](/community/community-guides/ReplicatingVirtualMachines). The same procedure applies here; you're just replicating more than VM disks.
 
 Replicate all of the following from the old pool to the new one:
 
@@ -109,7 +109,7 @@ Start the apps and check each one before moving on.
 ## Step 5: Virtual machines
 
 **On Option A**, recreate each VM in the TrueNAS UI now, attaching the zvol you replicated as its disk rather than creating a new one. The last section of
-[Replicating Virtual Machines](./ReplicatingVirtualMachines) shows this.
+[Replicating Virtual Machines](/community/community-guides/ReplicatingVirtualMachines) shows this.
 
 **On Option B**, skip this step. VM definitions are part of the config backup, so they'll come back on their own in Step 6 — and because the pool name matches, they'll already be pointing at the zvols you replicated. Check them after the restore instead.
 
