@@ -362,5 +362,7 @@ If you chose **Automatic** snapshots, HexOS takes one every day and keeps each f
 
 Some systems in the catalog also need particular processor features or a minimum TrueNAS version. HexOS leaves out anything your server cannot run.
 
+If HexOS itself runs as a virtual machine on Proxmox, a few Proxmox settings make VMs run up to twice as fast. See [Running HexOS on Proxmox](/troubleshooting/proxmox-tuning).
+
 > **Info:** Handing a graphics card, USB devices, or other hardware directly to a VM is not available yet. **Locally (Passthrough)** in the custom VM dialog will be available in a future update. See [Passthrough requirements](/features/vms/passthrough-requirements) for the hardware it will need.
 {.is-info}
