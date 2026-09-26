@@ -1,108 +1,214 @@
 ---
-title: Replicating Virtual Machines from one TrueNAS Server to Another
-description: 
+title: Replicating virtual machines from one TrueNAS server to another
+description: Copy virtual machine disks to another TrueNAS server with ZFS replication, then set the virtual machines up again on the new server
 published: true
-date: 2026-06-09T20:02:24.793Z
-tags: 
+date: 2026-09-22T00:00:00.000Z
+tags: virtual machines, replication, migrating
 editor: markdown
 dateCreated: 2026-06-08T15:39:16.279Z
 ---
 
-# Replicating virtual machines from one TrueNAS server to another
-
 > **Thank you:** @ShinobiRen for the original guide
 {.is-contribute}
 
-> **Info:** This guide was contributed by a member of the HexOS community. Your setup may differ slightly — if a step doesn't match what you see, ask in the [#Docs channel on Discord](https://discord.com/invite/DjEp3WRHKz).
+# Replicating virtual machines from one TrueNAS server to another
+
+This guide copies the disks of your virtual machines from one TrueNAS server to another over your network. You then set each virtual machine up again on the new server, using its copied disk. The same steps copy any other dataset, such as your folders.
+
+> **Info:** This guide was contributed by a member of the HexOS community and updated for TrueNAS 25.10. If a step does not match what you see, ask in the [#Docs channel on Discord](https://discord.com/invite/DjEp3WRHKz).
 {.is-info}
 
-Hello everyone!
+In this guide, the **old server** has your virtual machines now, and the **new server** is where you are moving them. Every step happens in the TrueNAS interface of one of the two servers. To open it, go to `https://<server-ip>` in your browser and log in.
 
-I wanted to set up a secondary server - one for testing to break things and one for a more stable NAS environment that I will wait for HexOS to support updates, etc. To do this I needed to get some things off of my test server - primarily my VMs that I had created. Here is how I set up replication and moved the VMs. Hope you find this useful!
+## Before you start
 
-## Prerequisites
+- Put both servers on the same network, and write down the new server's IP address.
+- Write down the virtual machines you want to move. HexOS keeps their disks in a dataset named **Virtualization Virtual Disks**, which you can see on the **Datasets** screen.
+- Shut down the virtual machines before you copy them, so their disks do not change during the copy.
 
-1. Find the VM you would like to move
-2. TrueNAS should be able to make the connection to the other server but it sometimes (frequently) fails to do so, so I will dive into how to do it manually
+> **Info:** TrueNAS can set up the connection between the servers for you, with the **Semi-automatic** setup method. It does not always work, so this guide sets it up by hand.
+{.is-info}
 
-## Step 1: Set up backup credentials on source server
+## Step 1: Create a keypair on the old server
 
-Set up the backup credentials on the server you are transferring from. In my case this is my 01 server.
+A keypair lets the old server log in to the new server without a password.
 
-1. Navigate to **Credentials** > **Backup credentials** on the left side:
+1. On the old server, click **Credentials** > **Backup Credentials**.
 
-   [![image.png.ba5671896e8101a6c00b6ca46afb8139.png](https://hub.hexos.com/uploads/monthly_2025_04/image.png.ba5671896e8101a6c00b6ca46afb8139.png){.medium .framed}](https://hub.hexos.com/uploads/monthly_2025_04/image.png.ba5671896e8101a6c00b6ca46afb8139.png "Enlarge image")
+<details>
+<summary> Backup credentials in the credentials menu </summary>
 
-2. In the SSH Keypairs section click the **Add** button
+![credentials-backup-credentials-menu.png](/replicating-virtual-machines/credentials-backup-credentials-menu.png){.large .framed}
+</details>
 
-   [![image.thumb.png.db7cc680574195ddc4707f6a415dbbe7.png](https://hub.hexos.com/uploads/monthly_2025_04/image.thumb.png.db7cc680574195ddc4707f6a415dbbe7.png){.medium .framed}](https://hub.hexos.com/uploads/monthly_2025_04/image.png.52480c092ffb8d2dcfcfd9e0c616b87f.png)
+2. On the **SSH Keypairs** card, click **Add**.
 
-3. Give your keypair a name and click the **Generate Keypair** button:
+<details>
+<summary> Add button on the SSH keypairs card </summary>
 
-   [![image.thumb.png.d719b13cec2a3728451249320c047d5c.png](https://hub.hexos.com/uploads/monthly_2025_04/image.thumb.png.d719b13cec2a3728451249320c047d5c.png){.medium .framed}](https://hub.hexos.com/uploads/monthly_2025_04/image.png.6597985bb444a7acbaad747ef9f91148.png)
+![ssh-keypairs-add-button.png](/replicating-virtual-machines/ssh-keypairs-add-button.png){.large .framed}
+</details>
 
-4. Copy your Public Key. You will need this on your new server.
+3. Give the keypair a name, for example `replication-key`, and click **Generate Keypair**.
+4. Copy everything in the **Public Key** box and keep it for Step 2. Then click **Save**.
 
-## Step 2: Set up the keypair on your new server
+<details>
+<summary> A generated keypair </summary>
 
-1. Navigate to your new server and **Credentials** > **Users**
+![generate-keypair.png](/replicating-virtual-machines/generate-keypair.png){.large .framed}
+</details>
 
-   [![image.png.fbcf402e4fddbd56cd88dfdada6f9db4.png](https://hub.hexos.com/uploads/monthly_2025_04/image.png.fbcf402e4fddbd56cd88dfdada6f9db4.png){.medium .framed}](https://hub.hexos.com/uploads/monthly_2025_04/image.png.fbcf402e4fddbd56cd88dfdada6f9db4.png "Enlarge image")
+> **Warning:** Never share the **Private Key**. Only the public key goes to the new server.
+{.is-warning}
 
-2. Click the user you will be using to do your ZFS replication task and click **Edit**
+## Step 2: Add the public key on the new server
 
-   [![image.png.2d577d12e332e0bf1fd15eb1690e1073.png](https://hub.hexos.com/uploads/monthly_2025_04/image.png.2d577d12e332e0bf1fd15eb1690e1073.png){.medium .framed}](https://hub.hexos.com/uploads/monthly_2025_04/image.png.2d577d12e332e0bf1fd15eb1690e1073.png "Enlarge image")
+1. On the new server, click **Credentials** > **Users**.
 
-3. In the Authentication section of the edit dialog for the user you should see "Authorized Keys". This is where you will paste your public key that you generated.
+<details>
+<summary> Users in the credentials menu </summary>
 
-   [![image.thumb.png.31475c065b1c3a6bc7676f18f957e432.png](https://hub.hexos.com/uploads/monthly_2025_04/image.thumb.png.31475c065b1c3a6bc7676f18f957e432.png){.medium .framed}](https://hub.hexos.com/uploads/monthly_2025_04/image.png.818d1b42519305f8830a75eba4e509e6.png)
+![credentials-users-menu.png](/replicating-virtual-machines/credentials-users-menu.png){.large .framed}
+</details>
 
-4. Scroll down and check the box that says **Allow all sudo commands** and **Allow all sudo commands with no password**.
+2. Click the user the old server will log in as, usually `truenas_admin`, then click **Edit**.
 
-   [![image.png.3799dbc527d612923f2065c09ecc54d9.png](https://hub.hexos.com/uploads/monthly_2025_04/image.png.3799dbc527d612923f2065c09ecc54d9.png){.medium .framed}](https://hub.hexos.com/uploads/monthly_2025_04/image.png.3799dbc527d612923f2065c09ecc54d9.png "Enlarge image")
+<details>
+<summary> Edit button for the selected user </summary>
 
-## Step 3: Set up SSH connection on primary server
+![user-edit-button.png](/replicating-virtual-machines/user-edit-button.png){.large .framed}
+</details>
 
-1. Time to set up the SSH link on your primary server. Navigate back to it.
-2. On the primary server navigate back to **Credentials** > **Backup Credentials** and click **Add** on SSH Connections
+3. Check that **SSH Access** is checked.
+4. Paste the public key from Step 1 into the **Public SSH Key** box. If the box already has a key, keep it and paste the new one on a new line.
 
-   [![image.png.fbf4abf80194476b01eb8ecde0ad1a86.png](https://hub.hexos.com/uploads/monthly_2025_04/image.png.fbf4abf80194476b01eb8ecde0ad1a86.png){.medium .framed}](https://hub.hexos.com/uploads/monthly_2025_04/image.png.fbf4abf80194476b01eb8ecde0ad1a86.png "Enlarge image")
+<details>
+<summary> SSH access and the public SSH key box </summary>
 
-3. In the new dialog give it a name, change the Setup Method to **Manual**, and fill out the rest of this information (including selecting the Private Key you generated):
+![user-public-ssh-key.png](/replicating-virtual-machines/user-public-ssh-key.png){.large .framed}
+</details>
 
-   [![image.thumb.png.6174347f436204c4c822c20d3b9d48b2.png](https://hub.hexos.com/uploads/monthly_2025_04/image.thumb.png.6174347f436204c4c822c20d3b9d48b2.png){.medium .framed}](https://hub.hexos.com/uploads/monthly_2025_04/image.png.38aaebfb9d26942706938e9f45a8b466.png)
+5. Scroll down to **Additional Details** and click **Sudo Commands**.
+6. Check **Allow all sudo commands** and **Allow all sudo commands with no password**, then click **Save**.
 
-4. Once you select your Private Key you can click the **Discover Remote Host Key** button.
-5. Click **Save**. Now it is time to generate a replication task.
+<details>
+<summary> Sudo commands for the user </summary>
 
-## Step 4: Create replication task
+![user-sudo-commands.png](/replicating-virtual-machines/user-sudo-commands.png){.large .framed}
+</details>
 
-1. Navigate to **Data Protection** on the left side and click **Add** on Replication Task:
+7. Click **System** > **Services**. On the **SSH** row, click the start button so **Status** shows **Running**. SSH is off on a new TrueNAS install, and the old server cannot connect until it is on.
 
-   [![image.png.5b6d42a076acdc8e20ba6c32606cc9c6.png](https://hub.hexos.com/uploads/monthly_2025_04/image.png.5b6d42a076acdc8e20ba6c32606cc9c6.png){.medium .framed}](https://hub.hexos.com/uploads/monthly_2025_04/image.png.5b6d42a076acdc8e20ba6c32606cc9c6.png "Enlarge image")
+<details>
+<summary> The SSH service on the services screen </summary>
 
-   [![image.thumb.png.850e0effea90cb5ef70189faa44a8367.png](https://hub.hexos.com/uploads/monthly_2025_04/image.thumb.png.850e0effea90cb5ef70189faa44a8367.png){.medium .framed}](https://hub.hexos.com/uploads/monthly_2025_04/image.png.4fe6ab083601e2cdc2f6454712f0ba38.png)
+![system-services-ssh.png](/replicating-virtual-machines/system-services-ssh.png){.large .framed}
+</details>
 
-2. Fill out this information and click **Next**:
+> **Tip:** When the move is finished, you can stop the SSH service again on the same screen.
+{.is-tip}
 
-   [![image.thumb.png.ccbd4daf97503036476fef4a9e07acdf.png](https://hub.hexos.com/uploads/monthly_2025_04/image.thumb.png.ccbd4daf97503036476fef4a9e07acdf.png){.medium .framed}](https://hub.hexos.com/uploads/monthly_2025_04/image.png.f46240a94a07cb415dc6822c6c0e6cdc.png)
+## Step 3: Connect the old server to the new server
 
-3. When you select your SSH credentials this dialog opens. Click **Use Sudo for ZFS Commands** or check the box with the arrow above.
+1. On the old server, click **Credentials** > **Backup Credentials** again.
+2. On the **SSH Connections** card, click **Add**.
 
-   [![image.png.c3e9ceb670ccb396c48285e3c00dc124.png](https://hub.hexos.com/uploads/monthly_2025_04/image.png.c3e9ceb670ccb396c48285e3c00dc124.png){.medium .framed}](https://hub.hexos.com/uploads/monthly_2025_04/image.png.c3e9ceb670ccb396c48285e3c00dc124.png "Enlarge image")
+<details>
+<summary> Add button on the SSH connections card </summary>
 
-4. If you have snapshots for VMs you can check **Recursive** to copy those snapshots over.
-5. Keep your name that TrueNAS generates for you or rename it to something else and click **Next**.
-6. In the When section I selected **Run Once**.
-7. **Save** it and the replication will start. If on the same network it is incredibly fast - I moved two VMs of roughly 120 GB in less than 5 minutes.
+![ssh-connections-add-button.png](/replicating-virtual-machines/ssh-connections-add-button.png){.large .framed}
+</details>
 
-## Step 5: Verify and recreate VMs
+3. Fill in the form:
+   - **Connection Name**: a name you will recognize, for example `new-server`
+   - **Setup Method**: **Manual**
+   - **Host**: the new server's IP address
+   - **Port**: `22`
+   - **Username**: the user from Step 2, for example `truenas_admin`
+   - **Private Key**: the keypair from Step 1
 
-1. Verify on your new server the zVOL disks you copied over are present and recreate your virtual machines as you would when setting up a new VM, linking the VirtIO disks you just replicated.
+<details>
+<summary> The new SSH connection form </summary>
 
-[![image.png](https://hub.hexos.com/uploads/monthly_2025_04/image.thumb.png.cba475dc9359559a1d03648381ba7199.png){.medium .framed}](https://hub.hexos.com/uploads/monthly_2025_04/image.png.e40a92042a3f6a172d540a55b3a4d46c.png)
+![new-ssh-connection-manual.png](/replicating-virtual-machines/new-ssh-connection-manual.png){.large .framed}
+</details>
 
-[![image.png](https://hub.hexos.com/uploads/monthly_2025_04/image.png.bd3c253eca7787e6ba656ae6ebcfe501.png){.medium .framed}](https://hub.hexos.com/uploads/monthly_2025_04/image.png.bd3c253eca7787e6ba656ae6ebcfe501.png)
+4. Click **Discover Remote Host Key**. The **Remote Host Key** box fills in.
+5. Click **Save**.
+
+<details>
+<summary> Discover remote host key </summary>
+
+![discover-remote-host-key.png](/replicating-virtual-machines/discover-remote-host-key.png){.large .framed}
+</details>
+
+> **Help:** If you see **ssh-keyscan failed** with nothing after it, the old server cannot reach SSH on the new server. Check that the SSH service is **Running** on the new server (Step 2) and that the **Host** is the new server's IP address.
+{.is-troubleshooting}
+
+## Step 4: Copy the disks with a replication task
+
+1. On the old server, click **Data Protection**.
+2. On the **Replication Tasks** card, click **Add**.
+
+<details>
+<summary> Add button on the replication tasks card </summary>
+
+![replication-tasks-add-button.png](/replicating-virtual-machines/replication-tasks-add-button.png){.large .framed}
+</details>
+
+3. Set **Source Location** to **On this System** and **Destination Location** to **On a Different System**.
+4. Set **SSH Connection** to the connection from Step 3. The **Sudo Enabled** dialog opens. Click **Use Sudo For ZFS Commands**.
+
+<details>
+<summary> The sudo enabled dialog </summary>
+
+![sudo-enabled-dialog.png](/replicating-virtual-machines/sudo-enabled-dialog.png){.large .framed}
+</details>
+
+5. In **Source**, pick the disk of your virtual machine. You can pick more than one.
+6. In **Destination**, type where the copy goes on the new server. Use the same pool and dataset names as on the old server, so the paths stay the same.
+7. If you keep snapshots of your virtual machines, check **Recursive** to copy them too.
+8. Keep the **Task Name** TrueNAS fills in, or type your own, and click **Next**.
+
+<details>
+<summary> The what and where step </summary>
+
+![replication-what-and-where.png](/replicating-virtual-machines/replication-what-and-where.png){.large .framed}
+</details>
+
+9. Under **Replication Schedule**, click **Run Once**, then click **Save**. The copy starts.
+
+<details>
+<summary> Run once </summary>
+
+![replication-run-once.png](/replicating-virtual-machines/replication-run-once.png){.large .framed}
+</details>
+
+The copy runs directly between the two servers. On a home network it is fast: the original author moved two virtual machines of about 120 GB in less than 5 minutes.
+
+## Step 5: Set up the virtual machines on the new server
+
+1. On the new server, click **Datasets** and check that each copied disk is there.
+
+<details>
+<summary> A copied disk on the datasets screen </summary>
+
+![datasets-replicated-zvol.png](/replicating-virtual-machines/datasets-replicated-zvol.png){.large .framed}
+</details>
+
+2. Click **Virtual Machines** > **Add** and set up the virtual machine the way it was on the old server.
+3. On the **Disks** step, click **Use existing disk image**. Set **Select Disk Type** to the type the virtual machine used before, then pick the copied disk in **Select Existing Zvol**.
+
+<details>
+<summary> Use an existing disk image </summary>
+
+![vm-use-existing-disk.png](/replicating-virtual-machines/vm-use-existing-disk.png){.large .framed}
+</details>
+
+4. Finish the remaining steps and start the virtual machine.
+
+> **Tip:** Keep the virtual machines on the old server until the new ones start and work as expected. If something goes wrong, you can still go back.
+{.is-tip}
 
 > **Contribute:** to help to improve HexOS documentation [join the #Docs channel on Discord](https://discord.com/invite/DjEp3WRHKz) today! Send feedback, suggestions or contribute a guide.
 {.is-contribute}
