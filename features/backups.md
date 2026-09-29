@@ -30,10 +30,10 @@ The only real protection against those is a copy in a different building. Most p
 2. HexOS builds a direct, encrypted, peer-to-peer WireGuard tunnel between the two servers. There is no port forwarding, no dynamic DNS, no VPN account, and no extra app. The tunnel is created and maintained automatically.
 3. Each backup run takes a ZFS snapshot of your folders and sends it over the tunnel. The first run copies everything. Every run after that sends only what changed.
 4. Each completed run becomes a restore point on the destination. You can bring back the latest copy or any dated restore point within your retention window.
-5. Folders sent to a buddy are encrypted folders. They arrive encrypted and stay encrypted. Your buddy stores them but cannot open them, and neither can HexOS.
+5. Folders sent to a buddy are encrypted. They arrive encrypted and stay encrypted. Your buddy stores them but cannot open them, and neither can HexOS.
 
-> **Warning:** Your buddy cannot read your encrypted folders, and neither can anyone else, including HexOS. That protection depends on the folder's passphrase. If you lose the passphrase, nobody can open the backup. Write it down and keep it somewhere that is not on the server. See [Folder encryption](/features/folders#encrypted-folders).
-{.is-warning}
+> **Info:** Your buddy cannot read your folders. If HexOS manages your encryption keys (the default), your data is protected by a recovery key that you can view or download from **Settings > Recovery key**. If you choose end-to-end encryption and keep the recovery key yourself, HexOS holds nothing that can open your data. See [Folder encryption](/features/folders#encrypted-folders).
+{.is-info}
 
 ## What you give and what you get
 
@@ -46,12 +46,9 @@ The only real protection against those is a copy in a different building. Most p
 ## What you need
 
 - **Two servers running HexOS.** Yours and a buddy's, or two of your own.
-- **Encrypted folders** for anything sent to another person's server. Backups to a server you own can include any folder.
+- **Encrypted folders** for anything sent to another person's server. If a folder is not encrypted yet, you can [turn on encryption from the folder's page](/features/folders#turning-on-encryption). Backups to a server you own can include any folder.
 - **Both servers online** while the connection is set up.
 - **Your buddy's HexOS account email**, if you are backing up to a buddy.
-
-> **Requirement:** A folder cannot be encrypted after it is created. To back up an unencrypted folder to a buddy, create a new encrypted folder and move the files into it first.
-{.is-success}
 
 ## Compression
 
