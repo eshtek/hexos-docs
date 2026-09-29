@@ -2,7 +2,7 @@
 title: Network cards with known issues
 description: Why HexOS warns about some network cards, what the warning means for you, and which cards work well with TrueNAS
 published: true
-date: 2026-09-21T00:00:00.000Z
+date: 2026-09-22T00:00:00.000Z
 tags: troubleshoot, network, hardware
 editor: markdown
 dateCreated: 2026-09-21T00:00:00.000Z
@@ -10,7 +10,7 @@ dateCreated: 2026-09-21T00:00:00.000Z
 
 # Network cards with known issues
 
-HexOS checks the network card in your server against a list of parts that are known to misbehave with TrueNAS, the system that runs under HexOS. When your card is on that list, the **Network** card on your dashboard turns amber and the network page shows one line: **This device has known issues**. Click **See details** to read what the problem is and what to do about it.
+HexOS checks the network card in your server against a list of parts that are known to cause problems with TrueNAS. HexOS runs on top of TrueNAS. When your card is on that list, the **Network** card on your dashboard turns amber. Click the card to open its info panel, which shows one line: **This device has known issues**. Click **See details** to read what the problem is and what to do about it.
 
 This page explains each of those warnings. A warning does not mean your server is broken. Many people run these cards without trouble. It means that if you see the trouble described here, the card is the likely cause.
 
@@ -21,7 +21,7 @@ This page explains each of those warnings. A warning does not mean your server i
 
 **Which cards:** Realtek RTL8111, RTL8168 and RTL8411. These are the gigabit cards built into most consumer motherboards.
 
-**The problem:** The community has reported that these cards can disconnect or slow down during heavy use, for example while a backup runs or a large folder copies. They may still work without issue. The problem shows up as transfers that stall or a server that drops off the network for a moment and comes back.
+**The problem:** The community has reported that these cards can disconnect or slow down during heavy use, for example while a backup runs or a large folder copies. They may still work without issue. The problem shows up as transfers that stall or a server that loses its network connection for a moment and then reconnects.
 
 **The recommended fix:** Consider replacing it with an Intel-based network card. See [what to buy instead](#what-to-buy-instead).
 
@@ -40,7 +40,7 @@ This page explains each of those warnings. A warning does not mean your server i
 
 **Which cards:** Intel I225-V, revisions 1 and 2. Revision 3 and the newer I226-V fixed the problem and are not affected.
 
-**The problem:** Early revisions of this chipset are known to drop their connection. This one comes from Intel itself, not only from community reports.
+**The problem:** Early revisions of this chipset are known to drop their connection. Intel itself has confirmed this problem, not only community reports.
 
 **The recommended fix:** If you see disconnects, consider replacing it with an Intel I226-based network card. If your connection is stable, there is nothing to do. See [what to buy instead](#what-to-buy-instead).
 
@@ -86,4 +86,4 @@ Before you buy, check that the card fits a free slot in your server. A 1 or 2.5 
 
 1. Shut the server down from the HexOS power menu and install the new card.
 2. Start the server. HexOS reads the parts again and the warning disappears on its own.
-3. If the server does not come back on the network, the new card may have a different name. Follow [Connection issues](/troubleshooting/connection) to find it.
+3. If the server does not reconnect to the network, the new card may have a different name. Follow [Connection issues](/troubleshooting/connection) to find it.

@@ -2,7 +2,7 @@
 title: SSDs for pool data
 description: Why HexOS warns about QLC and DRAM-less SSDs holding pool data, and which SSDs to choose instead
 published: true
-date: 2026-09-21T00:00:00.000Z
+date: 2026-09-22T00:00:00.000Z
 tags: troubleshoot, storage, ssd, hardware
 editor: markdown
 dateCreated: 2026-09-21T00:00:00.000Z
@@ -10,7 +10,7 @@ dateCreated: 2026-09-21T00:00:00.000Z
 
 # SSDs for pool data
 
-Not every SSD is a good fit for holding your files. HexOS checks the model of each SSD in your pools and the job it does. When a drive of a known slow type holds pool data, the drive turns amber on the **Storage** screen and its page shows one line: **This device has known issues**. Click **See details** to read the warning.
+Not every SSD is a good fit for holding your files. HexOS checks the model of each SSD in your pools and the job it does. When a drive of a known slow type holds pool data, the drive turns amber in its pool's list of drives. To find it, click the pool on the **Storage** screen, then click **View drives**. Click the drive to open its info panel, which shows one line: **This device has known issues**. Click **See details** to read the warning.
 
 The same SSD used as a boot drive or as a cache drive gets no warning. In those jobs the drawbacks below do not matter, and if the drive wears out your data is not at risk.
 
@@ -29,7 +29,7 @@ The same SSD used as a boot drive or as a cache drive gets no warning. In those 
 
 **Which drives:** Kingston A400 and NV1, Crucial BX500, WD Green SATA.
 
-**The problem:** These drives have no memory chip of their own to keep track of where data is stored. They borrow a little of the computer's memory instead, or manage without. Small writes and the bookkeeping a file system does constantly are much slower as a result, and steady writing speed drops as the drive fills.
+**The problem:** These drives have no memory chip of their own to keep track of where data is stored. They use a little of the computer's memory instead, or none at all. Small writes, and the record keeping a file system does all the time, are much slower as a result, and steady writing speed drops as the drive fills.
 
 **The recommended fix:** For pool data, an SSD with a DRAM cache is a better fit. See [what to buy instead](#what-to-buy-instead).
 
@@ -45,7 +45,7 @@ Look for two things on the spec sheet:
 | SATA (2.5 inch) | Samsung 870 EVO, Crucial MX500, WD Red SA500 |
 | NVMe (M.2) | Samsung 980 Pro or 990 Pro, WD Red SN700, Crucial P5 Plus |
 
-Drives sold for NAS use, such as the WD Red and Seagate IronWolf SSD lines, are built for sustained writing and long service and are a safe choice.
+Drives sold for NAS use, such as the WD Red and Seagate IronWolf SSD lines, are built for sustained writing and a long service life. They are a safe choice.
 
 > **Tip:** The **Storage** screen shows the job each drive does. Keep QLC and DRAM-less drives for the boot drive or a cache, where they do fine, and put your files on drives with TLC and DRAM.
 {.is-tip}
@@ -55,4 +55,4 @@ Drives sold for NAS use, such as the WD Red and Seagate IronWolf SSD lines, are 
 
 ## After you change the drive
 
-Replacing a pool drive is a guided task in HexOS. Open the drive's page and click **Replace**. The button is there for any drive in a pool of two or more drives, not only for a failed one, and [Drive failure](/troubleshooting/drive-failure) walks through the same steps. Replace one drive at a time and let the pool finish rebuilding before the next. Once the new drive is in the pool, HexOS reads the parts again and the warning disappears on its own.
+Replacing a pool drive is a guided task in HexOS. Click the drive to open its info panel, then click **Replace**. The button is there for any drive in a pool of two or more drives, not only for a failed one, and [Drive failure](/troubleshooting/drive-failure) walks through the same steps. Replace one drive at a time and let the pool finish rebuilding before the next. Once the new drive is in the pool, HexOS reads the parts again and the warning disappears on its own.
