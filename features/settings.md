@@ -47,7 +47,7 @@ A location editor which allows for customizations of system folder paths.
 
 Changing a location only changes where new files go. Nothing is moved or deleted.
 
-> **Info:** A location cannot be changed while apps or VMs are using it. The **Used by** list on each location shows what is using it.
+> **Info:** A location cannot be changed while apps or VMs are using it. The **Used by** list on each location shows what is using it. A location saved as a whole pool on an earlier version is the exception. It shows a notice, and you can change it to a folder after you confirm.
 {.is-info}
 
 
