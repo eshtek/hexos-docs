@@ -43,8 +43,9 @@ The reset settings allow for rolling back your server to a different state.
 A location editor which allows for customizations of system folder paths. 
 - Select where applications install. 
 - Choose the locations for downloads, documents, media, and other system folders across your storage pools.
+- A location must be a folder inside a pool. A whole pool cannot be used as a location.
 
-> **Info:** System folder locations can only be modified if no apps are using them.
+> **Info:** A location that apps or Virtual Machines are using is locked. To change it, uninstall what uses it first. A location that was saved as a whole pool is the exception. It can be changed to a folder after you confirm.
 {.is-info}
 
 
