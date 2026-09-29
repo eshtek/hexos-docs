@@ -2,7 +2,7 @@
 title: Storage
 description: 
 published: true
-date: 2026-08-18T17:57:14.075Z
+date: 2026-09-29T21:00:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:40:57.001Z
@@ -96,6 +96,35 @@ To add another drive to your pool:
 ### Expanding drives 
 
 This is how you can upgrade individual drives one at a time. The process for this is the same as replacing individual drives that have failed.
+
+### Using drives of different sizes
+
+You can add or swap in a drive that is larger than the other drives in the pool. HexOS lists the unused drives of a suitable type that are at least as large as the smallest drive in the pool.
+
+A pool gives every drive the capacity of its smallest drive. When you pick a larger drive, HexOS shows this message:
+
+**You can use this disk, but some capacity won’t be available until all disks are replaced with larger ones.**
+
+What this means for each option:
+
+| Option | What happens | What you get |
+|---|---|---|
+| **Add drive** | The larger drive joins the pool. | The larger drive is used as if it were the size of the smallest drive in the pool. The remaining space on it is not used. |
+| **Replace** | HexOS copies the data from one drive to the larger drive. The old drive becomes an unused drive. | The pool stays the same size until every drive has been replaced with a larger one. |
+
+To use the full capacity of larger drives:
+
+- Replace one drive in the pool with a larger drive. Follow the steps in [How to replace a drive](#how-to-replace-a-drive).
+- Wait for the replacement to finish.
+- Repeat for each remaining drive in the pool.
+
+After the last replacement finishes, HexOS expands the pool for you. You do not need to click anything. The Activity Center shows **Growing pool into its bigger drives** and then **Pool grown to use its bigger drives**.
+
+> **Info:** Expanding the pool only adds space. It does not delete or move your data.
+{.is-info}
+
+> **Tip:** You can replace a healthy drive. The pool keeps its protection during the replacement.
+{.is-tip}
 
 
 ## Critical errors
