@@ -59,7 +59,7 @@ Click **Edit folders** to change which folders are included. The dialog lists ev
 - **Checking a folder** adds it. The next run copies all of it, so expect that run to take longer.
 - **Unchecking a backed-up folder** shows a warning naming the folders and their restore points. The button changes to **Remove N folder(s) and save**, and a confirmation titled "Delete the stored backup of N folder?" must be accepted.
 
-On a buddy connection, unencrypted folders are locked with "Only encrypted folders can be backed up to buddy servers". Choosing an encrypted folder shows a reminder to keep its passphrase safe.
+On a buddy connection, unencrypted folders show a prompt to [turn on encryption](/features/folders#turning-on-encryption) before they can be added.
 
 > **Danger:** Removing a folder from a backup deletes that folder's copy and every restore point for it on the destination. The files on your own server are never touched. See [Removing backups](/features/backups/removing-backups).
 {.is-danger}
