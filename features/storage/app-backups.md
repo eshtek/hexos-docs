@@ -27,6 +27,12 @@ Shared folders on the apps drive are not copied. Your files on the protected poo
 
 There is nothing to switch on. When setup puts your apps on a single drive, click that pool in the setup plan: its panel names the pool where the nightly copy goes. HexOS sets up the copy when setup finishes.
 
+<details>
+<summary> The setup plan says where the copy goes </summary>
+
+![setup-plan-app-backup-note.png](/app-backups/setup-plan-app-backup-note.png){.medium .framed}
+</details>
+
 > **Requirement:** The copy needs a second pool that can lose a drive, with at least a quarter more free space than your apps use. A server with only single drives has nowhere to keep the copy, and the plan says so.
 {.is-success}
 
@@ -52,6 +58,14 @@ If a copy does not happen, a notice tells you why. It stays until the next good 
 | **App backup: apps pool is missing** | Your apps drive is gone. See [When the apps drive fails](/features/storage/apps-drive-failed). |
 | **App backup stopped** | The copy was removed in TrueNAS. Set up the app backup again. |
 
+Click a notice in the activity center to read it in full.
+
+<details>
+<summary> An app backup notice </summary>
+
+![app-backup-overdue-notice.png](/app-backups/app-backup-overdue-notice.png){.medium .framed}
+</details>
+
 > **Warning:** HexOS never deletes anything to make room. When space runs short, you get a notice instead. Free room on the protected pool so the copy can finish.
 {.is-warning}
 
@@ -74,7 +88,13 @@ A virtual machine whose disk is on a single drive is lost with that drive. Its d
 ![vm-copy-keep-dialog.png](/app-backups/vm-copy-keep-dialog.png){.medium .framed}
 </details>
 
-Tick the box in the confirmation and confirm your choice.
+<details>
+<summary> Leaving a virtual machine out </summary>
+
+![vm-copy-no-dialog.png](/app-backups/vm-copy-no-dialog.png){.medium .framed}
+</details>
+
+Tick the box in the confirmation, then click **Keep a nightly copy** or **No copy** to confirm your choice.
 
 You can change your answer at any time. Open the virtual machine, click the **Options** tab, and use the **Nightly copy** switch. The line under the switch says whether the copy is running.
 

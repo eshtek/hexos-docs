@@ -29,6 +29,18 @@ Open your server in the Command Deck. Instead of the dashboard, a page tells you
 | **Your apps did not start** | The drive is there, but your server did not start the storage on it. |
 | **Your server is starting up** | Wait. The page updates by itself. |
 
+<details>
+<summary> The drive that runs your apps is still missing </summary>
+
+![apps-drive-still-missing.png](/apps-drive-failed/apps-drive-still-missing.png){.medium .framed}
+</details>
+
+<details>
+<summary> Your apps did not start </summary>
+
+![apps-did-not-start.png](/apps-drive-failed/apps-did-not-start.png){.medium .framed}
+</details>
+
 ## Step 1: Check the drive
 
 Turn the server off. Check the drive's cable and power, then turn the server back on. The page updates by itself, or click **Check again**. If the drive comes back, your apps start again and nothing else is needed.
@@ -77,7 +89,21 @@ If you have [app backups](/features/storage/app-backups), a card on the **Storag
 ![put-apps-back-dialog.png](/apps-drive-failed/put-apps-back-dialog.png){.medium .framed}
 </details>
 
-Follow the progress in the activity center. When it finishes, the activity center lists anything you need to do yourself, such as an app to install again.
+Follow the progress in the activity center. The row shows each step as it happens.
+
+<details>
+<summary> Putting your apps back in the activity center </summary>
+
+![put-back-activity-row.png](/apps-drive-failed/put-back-activity-row.png){.medium .framed}
+</details>
+
+When it finishes, the row lists anything you need to do yourself, such as an app to install again, or a virtual machine to check before you start it.
+
+<details>
+<summary> What is left for you to do </summary>
+
+![put-back-results.png](/apps-drive-failed/put-back-results.png){.medium .framed}
+</details>
 
 > **Info:** Nothing on the pool is replaced. If an app cannot be set up safely, its data still comes back and the activity center tells you to install it again.
 {.is-info}
@@ -87,12 +113,18 @@ Follow the progress in the activity center. When it finishes, the activity cente
 
 ## Step 5: Go back to your old apps drive
 
-If the drive that was missing comes back, and you had run your apps from another pool, a card says **Your apps drive is back**. Click the button with your old pool's name, for example **Use SSDs again**, tick the box, and confirm. HexOS runs your apps from the old drive again, as they were when it went missing.
+If the drive that was missing comes back, and you had run your apps from another pool, a card says **Your apps drive is back**. Click the button with your old pool's name, for example **Use SSDs again**. In the dialog, tick the box and click the same button again. HexOS runs your apps from the old drive again, as they were when it went missing.
 
 <details>
 <summary> Your apps drive is back </summary>
 
 ![apps-drive-is-back.png](/apps-drive-failed/apps-drive-is-back.png){.medium .framed}
+</details>
+
+<details>
+<summary> Going back to the old drive </summary>
+
+![use-old-pool-again-dialog.png](/apps-drive-failed/use-old-pool-again-dialog.png){.medium .framed}
 </details>
 
 > **Warning:** The apps you ran from the other pool stop running when you go back. Their data stays on that pool.

@@ -47,7 +47,13 @@ Close a notice with its **X** to put it away. HexOS keeps watching either way.
 
 ## When files are damaged
 
-If a pool has no second copy of some files and they are damaged, HexOS cannot repair them. It tells you right away, and the notice says to restore those files from a backup.
+If a pool has no second copy of some files and they are damaged, HexOS cannot repair them. It tells you right away with a notice, for example **Some data on HDDs can't be read**. The notice says to restore those files from a backup. **Go to storage** opens the **Storage** screen.
+
+<details>
+<summary> A notice about damaged files </summary>
+
+![files-damaged-notice.png](/drive-errors/files-damaged-notice.png){.medium .framed}
+</details>
 
 > **Danger:** If a notice says files are damaged, restore them from a backup. If it happens again after you check the cable, replace the drive.
 {.is-danger}

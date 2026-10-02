@@ -17,16 +17,22 @@ Now that HexOS is installed, it is time to set up your server. Setup takes a few
 
 You need:
 
-- Your **HexOS username and password**.
+- Your **HexOS email and password**.
 - The **admin password** you chose when you installed HexOS.
 - Your **server connected to your router** with a network cable.
 - A **computer on the same network** as your server.
 
 ## Log in to HexOS
 
-Go to [deck.hexos.com](https://deck.hexos.com) and log in. If you do not have an account yet, [sign up on the HexOS hub](https://hub.hexos.com/).
+Go to [deck.hexos.com](https://deck.hexos.com). Enter your email and password, and click **Sign In**. If you do not have an account yet, [sign up on the HexOS hub](https://hub.hexos.com/).
 
-> **Info:** This is the username and password you created when you bought HexOS. It is not the admin password you chose when you installed HexOS.
+<details>
+<summary> The sign in page </summary>
+
+![log-in.png](/complete-setup/log-in.png){.medium .framed}
+</details>
+
+> **Info:** This is the email and password you used when you bought HexOS. It is not the admin password you chose when you installed HexOS.
 {.is-info}
 
 ## What every screen looks like
@@ -56,17 +62,32 @@ Each server that HexOS finds is one row:
 ![server-found-claim-button.png](/complete-setup/server-found-claim-button.png){.medium .framed}
 </details>
 
-> **Tip:** If your server does not show up, click **Having problems?**. It lists things to check, and lets you enter your network's public IP address yourself.
-{.is-tip}
+### If your server does not show up
+
+Click **Having problems?**. It lists the things to check first. If your network is set up in a custom way, click **entering the server IP manually** and type your network's public IP address.
+
+<details>
+<summary> Having problems </summary>
+
+![having-problems.png](/complete-setup/having-problems.png){.medium .framed}
+</details>
 
 ## Server basics
 
-Enter a name for your server, pick your time zone, and type the admin password you chose when you installed HexOS. If the password is refused, click **Change keyboard layout** and choose the keyboard you typed it on.
+Enter a name for your server, pick your time zone, and type the admin password you chose when you installed HexOS.
 
 <details>
 <summary> Server basics </summary>
 
 ![server-basics.png](/complete-setup/server-basics.png){.medium .framed}
+</details>
+
+If the password is refused, click **Change keyboard layout**, choose the keyboard you typed the password on when you installed HexOS, and click **Confirm**.
+
+<details>
+<summary> Change keyboard layout </summary>
+
+![change-keyboard-layout.png](/complete-setup/change-keyboard-layout.png){.medium .framed}
 </details>
 
 ## Health and capabilities
@@ -88,8 +109,19 @@ HexOS checks your hardware and shows four cards: **System**, **Storage**, **Appl
 ![storage-panel.png](/complete-setup/storage-panel.png){.medium .framed}
 </details>
 
-> **Tip:** If a drive or part is missing from the list, click **Something missing?** for what to check.
-{.is-tip}
+<details>
+<summary> The virtualization panel </summary>
+
+![virtualization-panel.png](/complete-setup/virtualization-panel.png){.medium .framed}
+</details>
+
+If a drive or part is missing from the list, click **Something missing?**. It lists what to check.
+
+<details>
+<summary> Something missing </summary>
+
+![something-missing.png](/complete-setup/something-missing.png){.medium .framed}
+</details>
 
 ## Import existing pools
 
@@ -103,13 +135,23 @@ Every pool that can be imported starts switched on. Click a pool to see its driv
 ![import-existing-pools.png](/complete-setup/import-existing-pools.png){.medium .framed}
 </details>
 
-> **Danger:** A pool you switch off is not kept. Its drives are offered for new pools, and they are erased if you put them in a new pool and finish setup. HexOS asks you to confirm before it goes on.
-{.is-danger}
-
 <details>
 <summary> A pool and its import switch </summary>
 
 ![import-pool-panel.png](/complete-setup/import-pool-panel.png){.medium .framed}
+</details>
+
+Click **Import** to keep the pools that are switched on. Click **Skip** to keep none of them.
+
+> **Danger:** A pool you switch off or skip is not kept. Its drives are offered for new pools, and they are erased if you put them in a new pool and finish setup.
+{.is-danger}
+
+When a pool is left out, HexOS asks you to confirm in the **Skip import** dialog. Tick the box and click **Confirm**.
+
+<details>
+<summary> Skip import </summary>
+
+![skip-import-dialog.png](/complete-setup/skip-import-dialog.png){.medium .framed}
 </details>
 
 ## New storage pools
@@ -169,7 +211,15 @@ Click a pool to see why HexOS chose this layout and which drives are in it. From
 
 ## Custom setup
 
-On the **Build your storage** screen, click **Add pool**:
+On the **Build your storage** screen, click **Add pool**.
+
+<details>
+<summary> Build your storage </summary>
+
+![build-your-storage.png](/complete-setup/build-your-storage.png){.medium .framed}
+</details>
+
+In the **Add pool** dialog:
 
 1. Tick the drives for the pool.
 2. Choose a **Layout**. The list only shows what your number of drives allows.
@@ -182,8 +232,20 @@ On the **Build your storage** screen, click **Add pool**:
 ![add-pool-dialog.png](/complete-setup/add-pool-dialog.png){.medium .framed}
 </details>
 
+<details>
+<summary> Confirm the pool </summary>
+
+![create-pool-confirm.png](/complete-setup/create-pool-confirm.png){.medium .framed}
+</details>
+
 > **Warning:** If you choose a layout that does not protect your data well, HexOS shows a warning that explains the risk. The choice is still yours.
 {.is-warning}
+
+<details>
+<summary> A layout warning </summary>
+
+![layout-warning.png](/complete-setup/layout-warning.png){.medium .framed}
+</details>
 
 ## Finish setup
 

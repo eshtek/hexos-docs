@@ -43,7 +43,7 @@ The activity center shows one row for the check, with a step for each drive and 
 ## The results
 
 - **Passed:** every drive tested cleanly and all data checked out.
-- **Problem found:** a drive failed its self-test, or some data was damaged. The drive is marked on the **Storage** screen. If a loose cable is the likely cause, HexOS says so.
+- **Problem found:** a drive failed its self-test, or the data check found errors. A drive that failed says **Faulty** on its tile on the **Storage** screen, or **Check cable** when a loose cable is the likely cause.
 - **Not finished:** something got in the way, such as a restart, or a drive that cannot run a self-test. Run the check again when the server is settled.
 
 Open the finished check's notice to see the report. It has a line for each drive and a line for the data check.
@@ -57,9 +57,11 @@ Open the finished check's notice to see the report. It has a line for each drive
 > **Warning:** If a drive failed, replace it, then click **Run the check again**. See [Drive failure](/troubleshooting/drive-failure).
 {.is-warning}
 
-## Stop a check
+## If you need the pool sooner
 
-Dismiss the row in the activity center, or stop the check from the pool. The drives stop testing and nothing is left behind.
+A deep check cannot be stopped from the Command Deck. It only reads your data, so it is safe to let it finish.
+
+If you need to use the pool before the check finishes, click **Enable now** in a notice about that pool. See [Use a pool before its check finishes](/getting-started/setup/new-server-checklist#use-a-pool-before-its-check-finishes). The pool opens, and the check keeps running and still reports its result.
 
 > **Help:** Questions about a check result? Ask in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz).
 {.is-troubleshooting}

@@ -21,6 +21,12 @@ The checklist has two checks:
 
 While a pool is being checked, you cannot put new data on it yet. Creating a shared folder, installing an app, or creating a virtual machine disk on that pool waits. A note beside the button explains why, and shows the time left when HexOS knows it. Everything else works as usual.
 
+<details>
+<summary> A new shared folder waiting for its pool </summary>
+
+![pool-waiting-note.png](/new-server-checklist/pool-waiting-note.png){.medium .framed}
+</details>
+
 The pool's card on the **Storage** screen shows **Being checked**.
 
 <details>
@@ -33,6 +39,12 @@ The pool's card on the **Storage** screen shows **Being checked**.
 {.is-info}
 
 When the check passes, the pool opens on its own and a notice tells you it is ready. If the check could not finish, the pool opens anyway and the notice says so.
+
+<details>
+<summary> The pool is ready </summary>
+
+![pool-ready-notice.png](/new-server-checklist/pool-ready-notice.png){.medium .framed}
+</details>
 
 ## The memory test
 
@@ -47,25 +59,55 @@ The first time you open the dashboard after setup, a notice in the activity cent
 - Click **Start the test** to open the **Memory** page with the test ready to run.
 - Click **Do it later** to skip it for now.
 
+On the **Memory** page, click **Start**. A new server runs the **Standard** test: a quick pass, then a full one. It finds nearly all memory faults. The dialog shows how long your server will be offline, based on how much memory it has.
+
+<details>
+<summary> Starting the memory test </summary>
+
+![memory-test-start.png](/new-server-checklist/memory-test-start.png){.medium .framed}
+</details>
+
 > **Requirement:** The memory test restarts the server, so it waits until every drive check on the server has finished.
 {.is-success}
 
 > **Warning:** The test screen shows a green PASS after each round. The test is only done after the second round, and the server restarts on its own when it is done. Do not stop it after the first PASS.
 {.is-warning}
 
-If the test was stopped early, HexOS asks you what the screen showed. Click **No errors shown**, **Errors were shown**, or **Didn't see the screen**.
+When the server is back, HexOS reads the result. If it cannot, for example because the test was stopped early, the **Memory test report** asks **What did the server's screen show?**. Click **Errors were shown**, **No errors shown**, or **Didn't see the screen**.
+
+<details>
+<summary> What did the screen show </summary>
+
+![memory-test-what-screen-showed.png](/new-server-checklist/memory-test-what-screen-showed.png){.medium .framed}
+</details>
 
 > **Info:** A server that runs inside a virtual machine cannot test its physical memory, so it does not get this notice.
 {.is-info}
 
 ## Skip the memory test
 
-When you click **Do it later**, HexOS explains the risk. Tick the box to say you understand, then click **Skip for now**. Your pools open, and the **Memory** card on the dashboard shows that the test was skipped. You can run the test any time from the **Memory** page.
+When you click **Do it later**, HexOS explains the risk. Tick the box to say you understand, then click **Skip for now**.
 
 <details>
 <summary> Skipping the memory test </summary>
 
 ![skip-memory-test-dialog.png](/new-server-checklist/skip-memory-test-dialog.png){.medium .framed}
+</details>
+
+Your pools open, and the **Memory** card on the dashboard says **Untested** and the date you skipped.
+
+<details>
+<summary> The Memory card after a skip </summary>
+
+![memory-card-skipped.png](/new-server-checklist/memory-card-skipped.png){.medium .framed}
+</details>
+
+You can run the test any time. Click the **Memory** card, then **Test memory**. Choose **Standard** or **Deep**, and click **Start**. **Deep** is a quick pass, then three full ones, and takes the longest.
+
+<details>
+<summary> Choosing the memory test </summary>
+
+![memory-test-choice.png](/new-server-checklist/memory-test-choice.png){.medium .framed}
 </details>
 
 ## Use a pool before its check finishes
