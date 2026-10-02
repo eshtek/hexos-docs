@@ -18,11 +18,11 @@ The Command Deck is the HexOS web interface. Updates are automatically deployed 
 
 ### Recent updates
 
+- [**2026-10-02**](/release-notes/command-deck/2026-10-02) - Clearer storage health, folder encryption improvements, and achievements
 - [**2026-09-29**](/release-notes/command-deck/2026-09-29) — Managed folder encryption and recovery keys
 - [**2026-09-27**](/release-notes/command-deck/2026-09-27) — Public beta for Virtual Machines and Buddy Backup, restart history, and protected app data
 - [**2026-09-18**](/release-notes/command-deck/2026-09-18) — A clearer walk through multi-step screens
 - [**2026-09-17**](/release-notes/command-deck/2026-09-17) — Multiple authenticators, folder and app fixes, and server reliability
-- [**2026-09-09**](/release-notes/command-deck/2026-09-09) — New app curations (Donetick & RomM)
 
 **[View all Command Deck release notes →](/release-notes/command-deck/)**
 
