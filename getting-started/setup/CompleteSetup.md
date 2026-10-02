@@ -1,9 +1,9 @@
 ---
-title: Complete Server Setup
-description: 
+title: Complete server setup
+description: Log in, find your server, check its hardware, choose how to use your drives and finish setup
 published: true
-date: 2026-06-28T21:30:51.605Z
-tags: 
+date: 2026-10-02T00:00:00.000Z
+tags: setup, storage, pools, getting started
 editor: markdown
 dateCreated: 2026-06-08T15:41:10.493Z
 ---
@@ -11,123 +11,277 @@ dateCreated: 2026-06-08T15:41:10.493Z
 
 # Complete server setup
 
-Now that HexOS is installed, it’s time to log in and set up your server!
+Now that HexOS is installed, it is time to set up your server. Setup takes a few short steps: you find your server, give it a name, check its hardware, and choose how to use your drives. Nothing on your drives changes until the last screen, after you tick a box and click **Finish setup**.
 
-### Before you start
+## Before you start
 
-You'll need:
-- Your **HexOS username and password**  
-- The **root password** from installation  
-- Your **server connected to your Wi-Fi router** with a network cable  
-- A **computer on the same network** as your server
+You need:
+
+- Your **HexOS email and password**.
+- The **admin password** you chose when you installed HexOS.
+- Your **server connected to your router** with a network cable.
+- A **computer on the same network** as your server.
 
 ## Log in to HexOS
 
-First, go to [deck.hexos.com](https://deck.hexos.com) and log in.   
-If you have not already signed up you can [sign up on HexOS hub](https://hub.hexos.com/).
+Go to [deck.hexos.com](https://deck.hexos.com). Enter your email and password, and click **Sign In**. If you do not have an account yet, [sign up on the HexOS hub](https://hub.hexos.com/).
 
 <details>
-<summary> HexOS sign-up page </summary>
+<summary> The sign in page </summary>
 
-![Screenshot From 2025-09-30 11-20-17](https://github.com/user-attachments/assets/bad810b2-5525-4eed-b029-99ea7467ba4e){.medium .framed}
+![log-in.png](/complete-setup/log-in.png){.medium .framed}
 </details>
 
-> **Info:** This is the username and password you created when buying HexOS, it's not the root password you used when installing HexOS.
+> **Info:** This is the email and password you used when you bought HexOS. It is not the admin password you chose when you installed HexOS.
 {.is-info}
 
+## What every screen looks like
 
-## Claiming your server
+- The top of the screen shows **Server setup** and a bar that fills as you go. **Exit** takes you back to the dashboard.
+- The left side has the title, a short explanation and the **Continue** button.
+- The right side has cards. A card with an arrow opens a panel with more details.
 
-Once logged in, you'll need to claim your server.
+## Find your server
 
-<details>
-<summary> Claim server screen </summary>
-
-![Screenshot-from-2025-01-28-11-36-15-1536x864](https://github.com/user-attachments/assets/849718a1-ff66-47e2-8d22-a03e6dac4754){.medium .framed}
-</details>
-
-Your server should appear in the panel where it says **Looking for servers...** on the right of the screen. Click the **Claim** button.
-
-### Server not showing up?
-
-First check that the server is connected to your Wi-Fi network, check that the cables are fully plugged in. Then refresh the page.
-
-If this does not let the server be detected you may need to connect manually.  
-- Click the **Having Problems** link at the bottom of the **Lets get started!** section
-- Then click **enter your ip manually**.
-- Enter your WAN IP address (if you are unsure what that is you can find yours [here](https://whatismyipaddress.com/)).
-
-Once entered, your server should appear and can be claimed.
-
-## Server setup process
-
-### Step 1: Health and capabilities 
-
-After claiming your server, you'll be brought to a display containing all of your server's hardware.
+On the first screen, click **Find my server**. HexOS looks for servers on your network. If you still need to install HexOS, click **Create a USB installer** instead.
 
 <details>
-<summary> Server hardware overview </summary>
+<summary> The first setup screen </summary>
 
-![Screenshot-from-2025-01-28-11-37-25-1536x864](https://github.com/user-attachments/assets/d9037d2e-f4ca-4868-a979-f2a8b8ec14fc){.medium .framed}
+![setup-welcome-screen.png](/complete-setup/setup-welcome-screen.png){.medium .framed}
 </details>
 
-Make sure you see the correct number of drives and that no errors are being displayed.
-If you see green checks/ticks on everything then you're good to go. Click the **Continue** button.
+Each server that HexOS finds is one row:
 
-### Step 2: Storage pools
-
-You will now see a suggested arrangement of your drives into storage pools. "Pools" are groups of drives that will work together as one, allowing a larger amount of storage space than a single drive and also giving additional “redundancy” in case one or more drives fail.
+- A new server has a **Claim** button. Click it to add the server to your account.
+- A server you started to set up before shows **Continue setup**.
 
 <details>
-<summary> Suggested storage pool layout </summary>
+<summary> A server found on the network </summary>
 
-![Screenshot-from-2025-01-28-11-38-03-1536x864](https://github.com/user-attachments/assets/9a82426a-c98f-4648-b3bb-7598a3d15a42){.medium .framed}
+![server-found-claim-button.png](/complete-setup/server-found-claim-button.png){.medium .framed}
 </details>
 
-HexOS will suggest a storage pool layout based on your hardware. 
+### If your server does not show up
 
-Ideally you will have at least 3 drives in your pool, this means you can add more later.  
-[Read more about storage pool layouts here](/getting-started/overview#recommended-layouts).
-
-For most people, the recommended configuration is the best path forward. To use the default suggested layout click the **Continue** button again.
-
-You will now see the setup process running.
+Click **Having problems?**. It lists the things to check first. If your network is set up in a custom way, click **entering the server IP manually** and type your network's public IP address.
 
 <details>
-<summary> Setup progress screen </summary>
+<summary> Having problems </summary>
 
-![Screenshot-from-2025-01-28-11-39-57](https://github.com/user-attachments/assets/ad59b25f-f974-4fa9-81c9-1d3afd7f1dd7){.medium .framed}
+![having-problems.png](/complete-setup/having-problems.png){.medium .framed}
 </details>
 
-#### Manually configuring pools
+## Server basics
 
-If you are more of a tinkerer you can remove drives from default pools or skip pool creation and manually configure it later. Just remember that:
-
-- removing drives can reduce redundancy
-- this affects how safely your pools handle failures
-- if you have fewer than 3 drives in a pool you can't add more drives to the pool later on
-
-### Step 3: Name your server
-
-You are just about done setting up your server.
-All that's left is to give your server a name and then the initialization process will begin.
-
-### Step 4: Welcome to your HexOS NAS
-
-Now your setup is complete and it's time to take a look at your HexOS NAS for the first time. Click **Go to the dashboard**. You will see the Welcome to HexOS welcome wizard.
+Enter a name for your server, pick your time zone, and type the admin password you chose when you installed HexOS.
 
 <details>
-<summary> HexOS welcome wizard </summary>
+<summary> Server basics </summary>
 
-![Screenshot-from-2025-01-28-11-40-32-1536x864](https://github.com/user-attachments/assets/f92630cd-cf9e-4b4c-aafb-14317e927a6e){.medium .framed}
+![server-basics.png](/complete-setup/server-basics.png){.medium .framed}
 </details>
 
-## What's next?
+If the password is refused, click **Change keyboard layout**, choose the keyboard you typed the password on when you installed HexOS, and click **Confirm**.
 
-This is a good point to check that the install has worked well and that your system is running smoothly. 
+<details>
+<summary> Change keyboard layout </summary>
 
-Whenever you go to [deck.hexos.com](https://deck.hexos.com) you will see your HexOS [dashboard](/features/). This is your control center where you can monitor your server, manage storage, install apps, and configure settings. 
+![change-keyboard-layout.png](/complete-setup/change-keyboard-layout.png){.medium .framed}
+</details>
 
-Try clicking on each item on the Dash now and check the details as they pop out from the right hand side of the screen. There should be no warnings or errors and the pool should match what you chose during setup. If you have any problems [try our Discord](https://discord.gg/fCW2htvYdz).
+## Health and capabilities
 
-Ready to explore? Check out our [Features Guide](/features/) to learn about everything HexOS can do!
+HexOS checks your hardware and shows four cards: **System**, **Storage**, **Applications** and **Virtualization**. Each card has one status line. Click a card to see the details.
+
+<details>
+<summary> Health and capabilities </summary>
+
+![health-and-capabilities.png](/complete-setup/health-and-capabilities.png){.medium .framed}
+</details>
+
+- The **Storage** panel lists every drive. A drive that already holds data says so. Reading this changes nothing.
+- The **Virtualization** panel shows what your server needs to run virtual machines: 4 processor cores, 8 GB of memory, and hardware virtualization turned on.
+
+<details>
+<summary> The storage panel </summary>
+
+![storage-panel.png](/complete-setup/storage-panel.png){.medium .framed}
+</details>
+
+<details>
+<summary> The virtualization panel </summary>
+
+![virtualization-panel.png](/complete-setup/virtualization-panel.png){.medium .framed}
+</details>
+
+If a drive or part is missing from the list, click **Something missing?**. It lists what to check.
+
+<details>
+<summary> Something missing </summary>
+
+![something-missing.png](/complete-setup/something-missing.png){.medium .framed}
+</details>
+
+## Import existing pools
+
+You only see this screen when your drives already hold storage pools, for example drives moved from another server.
+
+Every pool that can be imported starts switched on. Click a pool to see its drives, or to switch it off. A pool you import keeps everything on it: folders, users, apps and virtual machines.
+
+<details>
+<summary> Import existing pools </summary>
+
+![import-existing-pools.png](/complete-setup/import-existing-pools.png){.medium .framed}
+</details>
+
+<details>
+<summary> A pool and its import switch </summary>
+
+![import-pool-panel.png](/complete-setup/import-pool-panel.png){.medium .framed}
+</details>
+
+Click **Import** to keep the pools that are switched on. Click **Skip** to keep none of them.
+
+> **Danger:** A pool you switch off or skip is not kept. Its drives are offered for new pools, and they are erased if you put them in a new pool and finish setup.
+{.is-danger}
+
+When a pool is left out, HexOS asks you to confirm in the **Skip import** dialog. Tick the box and click **Confirm**.
+
+<details>
+<summary> Skip import </summary>
+
+![skip-import-dialog.png](/complete-setup/skip-import-dialog.png){.medium .framed}
+</details>
+
+## New storage pools
+
+Choose how to use the drives that are free:
+
+- **Recommended:** answer one question and HexOS plans the pools for you.
+- **Custom:** choose the drives and the layout yourself.
+- **Only use imported pools:** create nothing new. You only see this when you kept a pool.
+
+<details>
+<summary> New storage pools </summary>
+
+![new-storage-pools.png](/complete-setup/new-storage-pools.png){.medium .framed}
+</details>
+
+## Recommended setup
+
+### Choose what matters most
+
+On the **What matter most?** screen, choose one:
+
+- **Most space** gives you the most usable space, with good protection.
+- **Balanced** adds more protection to bigger groups of drives.
+- **Most protection** lets more drives fail without losing data, and uses more space.
+
+<details>
+<summary> What matters most </summary>
+
+![what-matter-most.png](/complete-setup/what-matter-most.png){.medium .framed}
+</details>
+
+### Check the recommended layout
+
+Each card is one pool. It shows the pool's name, its number of drives, its usable space, and how many drives can fail without losing data. Below the pools, you see the pools you kept and any drives that were not used.
+
+<details>
+<summary> Recommended layout </summary>
+
+![recommended-layout.png](/complete-setup/recommended-layout.png){.medium .framed}
+</details>
+
+Click a pool to see why HexOS chose this layout and which drives are in it. From there you can:
+
+- Click **Edit** to change the pool's drives or layout.
+- Click **Rename** to give the pool another name.
+- Click **Remove** to take the pool out of the plan.
+
+<details>
+<summary> A pool in the recommended layout </summary>
+
+![recommended-pool-panel.png](/complete-setup/recommended-pool-panel.png){.medium .framed}
+</details>
+
+> **Info:** A pool counts every drive as the size of its smallest drive, so HexOS only puts drives of similar sizes together. Hard drives and SSDs never share a pool. A drive that does not fit a pool is listed as not assigned, with the reason.
+{.is-info}
+
+## Custom setup
+
+On the **Build your storage** screen, click **Add pool**.
+
+<details>
+<summary> Build your storage </summary>
+
+![build-your-storage.png](/complete-setup/build-your-storage.png){.medium .framed}
+</details>
+
+In the **Add pool** dialog:
+
+1. Tick the drives for the pool.
+2. Choose a **Layout**. The list only shows what your number of drives allows.
+3. Check the usable space and how many drives can fail.
+4. Click **Continue**, tick the box, and click **Create pool**. The pool is added to your plan. Nothing is built yet.
+
+<details>
+<summary> Add pool </summary>
+
+![add-pool-dialog.png](/complete-setup/add-pool-dialog.png){.medium .framed}
+</details>
+
+<details>
+<summary> Confirm the pool </summary>
+
+![create-pool-confirm.png](/complete-setup/create-pool-confirm.png){.medium .framed}
+</details>
+
+> **Warning:** If you choose a layout that does not protect your data well, HexOS shows a warning that explains the risk. The choice is still yours.
+{.is-warning}
+
+<details>
+<summary> A layout warning </summary>
+
+![layout-warning.png](/complete-setup/layout-warning.png){.medium .framed}
+</details>
+
+## Finish setup
+
+The **Almost done!** screen is your last look. It lists the server's name, the new pools and the pools you kept.
+
+<details>
+<summary> Almost done </summary>
+
+![almost-done.png](/complete-setup/almost-done.png){.medium .framed}
+</details>
+
+> **Danger:** When you click **Finish setup**, the drives in the new pools are erased. Make sure nothing on them is still needed.
+{.is-danger}
+
+Tick the box and click **Finish setup**. Each step gets a check mark as it finishes. When all steps are done, click **Go to the dashboard**.
+
+<details>
+<summary> Working on it </summary>
+
+![working-on-it.png](/complete-setup/working-on-it.png){.medium .framed}
+</details>
+
+<details>
+<summary> Your server is ready </summary>
+
+![your-server-is-ready.png](/complete-setup/your-server-is-ready.png){.medium .framed}
+</details>
+
+> **Info:** If a drive is unplugged or swapped after you saw the summary, setup stops before it changes anything and asks you to check the plan again.
+{.is-info}
+
+## After setup
+
+Your new server runs a checklist of health checks before it is ready for apps. See [New server checklist](/getting-started/setup/new-server-checklist).
+
+If your apps run on a single drive, HexOS can keep a nightly copy of them on a protected pool. See [App backups](/features/storage/app-backups).
+
+> **Help:** Something not working during setup? See [Troubleshooting](/troubleshooting) or ask in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz).
+{.is-troubleshooting}

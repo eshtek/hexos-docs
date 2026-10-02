@@ -143,3 +143,11 @@ The key is acting quickly when you see alerts. Most pool problems start small an
 
 When copying data to a system, some users will notice a discrepancy between the size of the files they are copying and the capacity in use on the given storage pool/folder.  This is due to ZFS compression, which reduces the total space needed to store some files.  This is a completely normal observation.  Example:  Storage pool with one 700MB file in it could report back only 300MB of capacity in use.  This means that ZFS compression conserved 400MB of capacity for you automatically.  Just another silent benefit of ZFS and HexOS!
 
+## Where to go next
+
+| I want to… | Guide |
+|---|---|
+| Know what the deep check does to my drives | [Deep check](/features/storage/deep-check) |
+| Understand a notice about drive errors | [Drive errors](/features/storage/drive-errors) |
+| Keep a nightly copy of apps on a single drive | [App backups](/features/storage/app-backups) |
+| Get my apps back after the apps drive fails | [When the apps drive fails](/features/storage/apps-drive-failed) |
