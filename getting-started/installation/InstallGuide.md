@@ -129,6 +129,12 @@ If you see an error message about a "security policy violation" after booting, t
 
 For instructions on how to disable Secure Boot, search for "[your motherboard model here] disable secure boot". You can also search for the motherboard user manual, and search within that for "secure boot".
 
+#### Start the USB drive in UEFI mode
+
+Some HexOS features, such as the memory test, need your server to start in UEFI mode. The mode you start the USB drive in is the mode HexOS is installed in.
+
+If you use your motherboard's boot menu, it often shows the USB drive twice. Choose the entry whose name starts with **UEFI**, for example **UEFI: USB Flash Disk 1.00, Partition 1**. See [UEFI boot mode](/troubleshooting/uefi-boot-mode) for pictures and the boot menu key for your motherboard.
+
 ### Boot screen
 
 Once you see this screen, you are ready to boot into HexOS and install it:
