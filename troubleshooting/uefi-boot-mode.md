@@ -40,7 +40,7 @@ Only UEFI firmware lets HexOS ask for that one-time start. In legacy mode there 
 
 On the **Health and capabilities** screen, HexOS checks how your server started. If it started in legacy mode, you see a red message: **Switch this server to UEFI mode**. The **System** card shows **Issues detected**.
 
-The message tells you how to fix it. If HexOS has already tested your model of motherboard, the message says which fix worked on it: switching the setting, or reinstalling.
+If HexOS has already tested your model of motherboard, the message says which fix worked on it: switching the setting, or reinstalling. Click **How to switch to UEFI** in the message to open this page in a new tab.
 
 <details>
 <summary> Switch this server to UEFI mode message </summary>
