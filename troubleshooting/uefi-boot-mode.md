@@ -58,7 +58,7 @@ If HexOS has already tested your model of motherboard, the message says which fi
 
 ### When you test memory
 
-**Test memory** is on the **Memory** info panel, and needs Expert mode turned on in **Settings**. If you click **Test memory** on a server installed in legacy mode, HexOS shows **The memory test can't run on this server** and the **Start** button stays off. You can still test the memory with a Memtest86+ USB drive. The message links to [memtest.org](https://memtest.org), where you can download it.
+**Test memory** is on the **Memory** info panel, and needs Expert mode turned on in **Settings**. If you click **Test memory** on a server installed in legacy mode, HexOS shows **The memory test can't run on this server** and the **Start** button stays off. You can still test the memory with a Memtest86+ USB drive. The message links to [memtest.org](https://memtest.org), where you can download it, and to this page through **How to switch to UEFI**.
 
 <details>
 <summary> The memory test can't run on this server </summary>
@@ -68,7 +68,7 @@ If HexOS has already tested your model of motherboard, the message says which fi
 
 ### On a new server's storage
 
-On a new server, HexOS locks the storage you created during setup until the memory test has run. In legacy mode the test cannot run, so the lock would never open. Wherever HexOS asks you to run the memory test or explains the lock, it shows the same message instead, with an **I understand** button. You also see it when you click **Skip for now** next to the memory test recommendation. Click **I understand**, and the memory test no longer locks your storage.
+On a new server, HexOS locks the storage you created during setup until the memory test has run. In legacy mode the test cannot run, so the lock would never open. Wherever HexOS asks you to run the memory test or explains the lock, it shows the same message instead, with the **How to switch to UEFI** link and an **I understand** button. You also see it when you click **Skip for now** next to the memory test recommendation. Click **I understand**, and the memory test no longer locks your storage.
 
 <details>
 <summary> I understand button </summary>
