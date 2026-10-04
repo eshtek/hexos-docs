@@ -36,6 +36,7 @@ Something not working? Find the area below that matches what you are seeing.
 
 - [**Storage and drive issues**](/troubleshooting/storage-and-drives) - Drives not recognized, pool creation problems
 - [**Drive failure**](/troubleshooting/drive-failure) - Replace a failed or failing drive without losing data
+- [**Why your pool size changes**](/troubleshooting/pool-size) - How HexOS calculates a pool's size, and why it can grow past your drives or shrink when you delete files
 
 ## Hardware
 
