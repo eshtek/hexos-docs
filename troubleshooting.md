@@ -36,6 +36,7 @@ Something not working? Find the area below that matches what you are seeing.
 
 - [**Storage and drive issues**](/troubleshooting/storage-and-drives) - Drives not recognized, pool creation problems
 - [**Drive failure**](/troubleshooting/drive-failure) - Replace a failed or failing drive without losing data
+- [**Files that can't be read**](/troubleshooting/pool-data-errors) - Damaged files on a pool, Repair for a damaged TrueNAS file, Check pool and Reset error count
 
 ## Hardware
 
