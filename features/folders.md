@@ -88,6 +88,10 @@ Each server has its own recovery key, a short code that protects the backup copi
 {.is-warning}
 
 
+## Repair access
+
+If your computers can't open a folder or some of the files in it, but HexOS shows the files are there, the folder's info panel offers **Repair access**. See [Repair access to a folder](/features/folders/repair-access).
+
 ## Users
 
 Creating additional users is optional. 
