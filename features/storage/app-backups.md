@@ -107,9 +107,9 @@ You can change your answer at any time. Open the virtual machine, click the **Op
 > **Info:** Some virtual machines cannot be copied: one with disks on more than one pool or in more than one folder, and one that shares a disk with another virtual machine. The card says why.
 {.is-info}
 
-## Put your apps back
+## Restore your apps
 
-If your apps drive fails, you can put your apps and the virtual machines you chose back from the copy. See [When the apps drive fails](/features/storage/apps-drive-failed).
+If your apps drive fails, you can restore your apps and the virtual machines you chose from the copy. See [When the apps drive fails](/features/storage/apps-drive-failed).
 
 > **Help:** Questions about app backups? Ask in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz).
 {.is-troubleshooting}
