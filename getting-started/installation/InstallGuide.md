@@ -123,6 +123,10 @@ Your server might be trying to boot from a different drive, for example an old W
 To fix this, first enter the BIOS. Usually this is done by pressing `F1`, `F2`, `F10`, `F12` or `Del` while the machine is turning on.
 Then in the BIOS, change the order of boot drives so your USB drive is at the top. Then save and restart.
 
+#### UGREEN NAS: turn off the watchdog
+
+UGREEN NAS models restart about 3 minutes after they turn on unless the watchdog in the BIOS is turned off, and that can interrupt the installation. While you are in the BIOS, follow [UGREEN NAS keeps restarting](/troubleshooting/ugreen-watchdog) to turn it off.
+
 #### Disabling Secure Boot
 
 If you see an error message about a "security policy violation" after booting, this is caused by [Secure Boot](https://en.wikipedia.org/wiki/UEFI#Secure_Boot).

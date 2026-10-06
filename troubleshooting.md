@@ -19,6 +19,7 @@ Something not working? Find the area below that matches what you are seeing.
 
 - [**Installation issues**](/troubleshooting/installation) - USB imaging problems and installer failures
 - [**Avoid USB drives**](/troubleshooting/usb-drives) - Why USB drives cause problems and what to use instead
+- [**UGREEN NAS keeps restarting**](/troubleshooting/ugreen-watchdog) - Turn off the BIOS watchdog that restarts a UGREEN NAS every few minutes
 - [**Connection issues**](/troubleshooting/connection) - Server not getting an IP address, discovery problems
 - [**Network ports**](/troubleshooting/network-ports) - What ports 43705 and 43706 are for, and whether it is safe to block them
 - [**DNS rebind protection**](/troubleshooting/dns-rebind-protection) - Your router is blocking local access to your server
