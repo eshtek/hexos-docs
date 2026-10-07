@@ -103,15 +103,15 @@ If you have never made a choice for this server, the switch is off and the page 
 
 ## What we collect
 
-The **What we collect** link next to the switch opens this page. A report is sent only while sharing is on for that server. It contains:
+The **What we collect** link next to the switch opens this page. A report is sent only while sharing is on for that server, and it counts only what happened after you last turned sharing on. It contains:
 
-- **The parts in your server:** the motherboard's maker and model, its BIOS version, the processor model, each network card and its driver name, storage and graphics controllers and their driver names, and any USB dock or enclosure that holds a drive. Each part comes with the hardware ID numbers that tell its make and model apart, and each network port with its system name, such as `enp3s0`.
+- **The parts in your server:** the motherboard's maker and model, its BIOS version, the processor model, each network card and its driver name, storage and graphics controllers and their driver names, and any USB dock or enclosure that holds a drive. Each part comes with the hardware ID numbers that tell its make and model apart.
 - **Drives that match a known issue:** the drive's model, and its firmware version when the issue depends on it.
 - **How those parts behave:** counts of trouble signs, such as a network connection dropping, network errors, drive read or write errors, drive timeouts, a drive that disappears, or a restart that HexOS did not start. The report also says how many hours it covers.
 - **Known issues that match your parts:** which known hardware issues match this server, and whether you marked one as fixed.
 - **Your TrueNAS version** and how long the server has been running since it last started.
 
-Drives are not identified by their serial numbers. Each drive is identified by a private code that your server makes.
+Drives and network ports are identified by private codes that your server makes, never by a drive's serial number or a network port's name.
 
 Reports are not anonymous. Each report is linked to your server, so HexOS knows which server sent it.
 
@@ -121,22 +121,24 @@ Reports are not anonymous. Each report is linked to your server, so HexOS knows 
 - The names of your folders, shares, apps or users
 - Passwords or keys
 - Drive serial numbers
+- Network port names and hardware (MAC) addresses
 - The motherboard's serial number or system ID
 - Lines from your server's system log
 
 ### When reports are sent
 
 - Once a day, at night. The report starts at 3:37 a.m. US Central time, and each server waits a different time of up to two hours, so the reports do not all arrive together.
-- The first report is sent on the first night after you turn sharing on. The first report a server ever sends covers at most the last 24 hours.
-- Each later report covers the time since the server's last report. The server keeps its own record of trouble signs for 30 days, so after a long gap a report can include up to 30 days of counts.
-- The server needs its connection to HexOS. If a night is missed, the next report covers the missed time.
-- HexOS support can ask your server to send its report early. This works only while sharing is on.
+- After you turn sharing on, the server first takes a starting reading on its nightly check and sends nothing. The first report goes out on the night after that and counts only what happened since the starting reading. On a server that logs a lot, this can take a few nights.
+- Each later report covers the time since the server's last report, up to the last 7 days.
+- The server needs its connection to HexOS. If a night is missed, the next report covers the missed time, up to 7 days.
+- HexOS support can ask your server to send its report early. This works only while sharing is on. Right after you turn sharing on, the first early request only takes the starting reading.
+- A server sends reports only once it runs a current version of HexOS.
 
 ### If you turn sharing off
 
-- The server stops sending reports.
+- The server stops sending reports. If you turn sharing back on, reports never include anything from while it was off. Your server keeps its own record for diagnostics.
 - What was already sent stays with HexOS. You cannot delete it yourself. To ask HexOS to delete it, email support@hexos.com and name the server.
-- When a server is unclaimed or reset, its choice goes back to not chosen. The next owner is asked again, and nothing is sent until they turn sharing on.
+- When a server is unclaimed or reset, its choice goes back to not chosen. The next owner is asked again, and nothing is sent until they turn sharing on. Reports never include anything from before the new owner turned sharing on.
 
 ## Run diagnostics
 
@@ -177,7 +179,7 @@ The top of the report says **Nothing needs your attention** or how many things n
 
 This part lists known problems with parts like the ones in your server. It shows one of these:
 
-- **One entry for each known issue that matches.** Each entry says what the problem is and, when there is one, the recommended fix. It names the part after **Device:**. For a network part, it also says what this server has seen. Click **Learn more** to open a page about the issue.
+- **One entry for each known issue that matches.** Each entry says what the problem is and, when there is one, the recommended fix. It names the part after **Device:**. For a drive, that is its system name and model, such as `sda WDC WD40EFRX`. A report kept from before this update shows **Drive**. For a network part, it also says what this server has seen. Click **Learn more** to open a page about the issue.
 - **Known issue, not seen on this server:** a network part has a known issue, but this server has not logged that trouble. Most of these entries do not count as things that need your attention.
 - **No known issues with this server's hardware.**
 - **Hardware advisories are off because this server doesn't share hardware data. Turn sharing on above to see them.** The page keeps showing this until a new run. After you turn sharing on, click **Run again**.
@@ -223,7 +225,7 @@ Under the checks, click **HexOS internals** to see checks of the parts of HexOS 
 
 Click **Copy report**. The whole report, HexOS internals included, is copied as text, and HexOS shows **Report copied. Paste it into your message to HexOS support.** Paste it into an email to support@hexos.com.
 
-> **Warning:** The copied report includes details about your server, such as your server's ID, pool names, IP addresses and drive identifiers. Send it only to HexOS support by email. Do not paste it in a public place such as Discord.
+> **Warning:** The copied report includes details about your server, such as your server's ID, pool names and IP addresses. TrueNAS alerts in it can also include drive serial numbers. Send it only to HexOS support by email. Do not paste it in a public place such as Discord.
 {.is-warning}
 
 <details>
@@ -271,7 +273,6 @@ These are problems we know about. Each one says what to do for now.
 
 - **The Meet the Hardware Advisor window keeps coming back.** It opens again in each new browser tab until you click **Continue**, and it asks once for each server you own. What to do: click **Continue**. Leave the switch off if you do not want to share. Your choice is saved and the window stops opening for that server.
 - **Hardware warnings show only in diagnostics.** The window talks about HexOS warning you about hardware, but the dashboard does not show these warnings yet. What to do: run diagnostics and read **Hardware advisories**.
-- **A report after you turn sharing back on can include time when sharing was off.** If this server has sent a report before, even before it changed owner, the next report includes the trouble-sign counts since that report, from up to the last 30 days. That can include days when sharing was off. The report holds only what [What we collect](#what-we-collect) lists. What to do: there is no way to stop this yet.
 - **You cannot mark a hardware advisory as fixed.** When HexOS cannot detect a fix on its own, the warning stays in the report after you apply the fix and still counts as a thing that needs your attention. One example is the BIOS setting for [Ryzen idle freezes](/troubleshooting/ryzen-idle-freeze). What to do: if you have applied the fix that the **Learn more** page describes, you can ignore that entry.
 
 ## Frequently asked questions
@@ -280,7 +281,7 @@ These are problems we know about. Each one says what to do for now.
 No. Sharing is your choice, and it starts off. Diagnostics works without it. Only **Hardware advisories** in the diagnostics report need sharing.
 
 **Is the data anonymous?**
-No. Each report is linked to the server that sent it. Drives are identified by a private code, not by their serial numbers, and no files, passwords or system log lines are sent. See [What we collect](#what-we-collect).
+No. Each report is linked to the server that sent it. Drives and network ports are identified by private codes, not by serial numbers or names, and no files, passwords or system log lines are sent. See [What we collect](#what-we-collect).
 
 **Can I see what my server sent?**
 No. HexOS does not show the reports in the app. [What we collect](#what-we-collect) lists everything a report contains.

@@ -10,7 +10,7 @@ dateCreated: 2026-09-21T00:00:00.000Z
 
 # SSDs for pool data
 
-Not every SSD is a good fit for holding your files. HexOS checks the model of each SSD in your pools and the job it does. To see the result, your server must share hardware data with HexOS. Open **Settings** > **Health & Capabilities** and click **Run diagnostics**. When a drive of a known slow type holds pool data, the report shows it under **Hardware advisories**, with an identifier for the drive after **Device:** and what to do about it. Click **Learn more** in the entry to open this page.
+Not every SSD is a good fit for holding your files. HexOS checks the model of each SSD in your pools and the job it does. To see the result, your server must share hardware data with HexOS. Open **Settings** > **Health & Capabilities** and click **Run diagnostics**. When a drive of a known slow type holds pool data, the report shows it under **Hardware advisories**, with the drive's system name and model after **Device:** and what to do about it. Click **Learn more** in the entry to open this page.
 
 <details>
 <summary> An SSD warning in diagnostics </summary>
