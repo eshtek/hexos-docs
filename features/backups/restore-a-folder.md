@@ -30,9 +30,6 @@ Only you can restore your own backups. The buddy who stores your copy cannot ope
 
 ## Start a restore
 
-> **Warning:** The restored folder is open to everyone on your network until you set its access. See [After it finishes](#after-it-finishes).
-{.is-warning}
-
 1. Open the backup that holds the folder: click its row on the **Backups** page, or its card in the dashboard's **Backups** section.
 2. Open the folder's menu and click **Restore from this backup**. You can also click the **Restore** tile and pick the folder.
 
@@ -42,17 +39,33 @@ Only you can restore your own backups. The buddy who stores your copy cannot ope
 ![folder-actions-menu.png](/features/backups/images/folder-actions-menu.png){.medium .framed}
 </details>
 
-3. In **Restore a folder**, choose the **Restore point**. "Latest backup" is the newest one, with its date. The others are older restore points, each with its date and size.
-4. Under **Restore to pool**, choose the pool. A pool without enough room is marked "not enough space" and cannot be chosen.
-5. Under **Restore as**, check the folder's name. HexOS suggests the folder's own name if you have no folder by that name. If you do, it adds the restore point's date, for example "Photos-20261005".
-6. If the folder uses a passphrase and is still on this server, you can type it under **Passphrase (optional)**. Leave it empty to type it later. If the folder is no longer on this server, there is no field: HexOS asks for the passphrase once the data has copied.
-7. Click **Restore**.
+3. **Restore a folder** opens on a review once it has everything it needs: the folder and its name, the restore point, the pool, and who can open the folder. Check each card.
 
 <details>
-<summary> The Restore a folder dialog </summary>
+<summary> The review </summary>
+
+![restore-folder-review.png](/features/backups/images/restore-folder-review.png){.medium .framed}
+</details>
+
+4. **Who can open it.** If the original folder is still on this server, HexOS copies its access: "Based on" the folder's "current access". If it is not, nobody can open the restored folder over the network until you add people: the card says "No users assigned. Add users to give them access." To change it, click the pencil on the **Access** card, choose **Public (Everyone)** or **Private**, tick the people who can open it and pick **Full Access** or **View Only** for each, then click **Continue**.
+
+<details>
+<summary> The Access step </summary>
+
+![restore-folder-access.png](/features/backups/images/restore-folder-access.png){.medium .framed}
+</details>
+
+5. **Something else to change?** Click the pencil on the **Folder** card to pick another restore point, change the name under **Restore as**, or type the folder's passphrase. "Latest backup" is the newest restore point, with its date. HexOS suggests the folder's own name if you have no folder by that name; if you do, it adds the restore point's date, for example "Photos-20261005". If the folder uses a passphrase and is still on this server, you can type it under **Passphrase (optional)**, or leave it empty and type it later. Click the pencil on the **Location** card to pick another pool; a pool without enough room is marked "not enough space" and cannot be chosen.
+
+<details>
+<summary> The Folder step </summary>
 
 ![restore-folder-dialog.png](/features/backups/images/restore-folder-dialog.png){.medium .framed}
 </details>
+
+6. Click **Restore**.
+
+If something is still loading when the dialog opens, it starts on the first step instead. Click **Continue** through the steps to reach the review.
 
 HexOS confirms with "Restore started" and closes the dialog. Follow the restore in the activity center.
 
@@ -88,10 +101,28 @@ The activity center shows the progress. A large folder can take a long time. To 
 
 ## After it finishes
 
-You get a notice that the folder was restored. It shows with your other folders, on the pool you chose. Your original folder, if it still exists, is unchanged.
+You get a notice that the folder was restored. It says who can open it, for example "Your folder is back. Sharing access was granted to" the people you chose. If someone you chose is no longer on this server, the notice says they "could not be matched to the accounts you selected, so they were left out." The folder shows with your other folders, on the pool you chose. Your original folder, if it still exists, is unchanged.
 
-> **Danger:** A restored folder comes back open to everyone on your network, whatever its access was before. Anyone on your network can open it and change its files, with no password. As soon as the restore finishes, set who can open the folder. See [Folder permissions](/features/folders#folder-permissions).
-{.is-danger}
+To change who can open the folder later, see [Folder permissions](/features/folders#folder-permissions).
+
+> **Warning:** Folders restored before restores asked who can open them came back open to everyone on your network, with no password. If you restored a folder before then, set who can open it. See [Folder permissions](/features/folders#folder-permissions).
+{.is-warning}
+
+## If sharing could not be finished
+
+Your files are restored, but the folder is not shared yet. The restore says one of these:
+
+- "Your files are restored, but HexOS could not finish setting up sharing. Try again." On the backup's page, under **Restores needing attention**, click **Try again**. Nobody can open the folder over the network until it finishes.
+- "Update this server, then press Try again to finish sharing the folder." Update HexOS on this server, then click **Try again**.
+- "Your files are restored, but HexOS could not verify the network share settings. It has stopped setting up sharing. Contact support." HexOS found a network share for the folder that it did not set up, and changed nothing. Ask in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz).
+
+<details>
+<summary> A restore waiting for Try again </summary>
+
+![restore-held-try-again.png](/features/backups/images/restore-held-try-again.png){.medium .framed}
+</details>
+
+**Cancel** on a restore like this keeps the restored files.
 
 ## A restore that did not finish
 

@@ -71,7 +71,7 @@ When you create a backup to your own server, or your buddy accepts your request,
 
 Then each folder you chose is added, and its first backup starts on its own.
 
-If a step fails, HexOS tries again within about 10 minutes and picks up where it stopped. **Retry now** in the activity item tries again straight away. **Cancel setup** removes the half-built connection. On a new backup, that holds no backed-up data yet. On a backup you recovered onto a new server, it deletes the backup's copies, so use **Retry now** there. See [Known issues](/features/backups#known-issues).
+If a step fails, HexOS tries again within about 10 minutes and picks up where it stopped. **Retry now** in the activity item tries again straight away. On a new backup, **Cancel setup** removes the half-built connection, which holds no backed-up data yet. A backup you recovered onto a new server has no **Cancel setup**: use **Retry now**.
 
 ## What is stored on the receiving server
 
@@ -142,8 +142,7 @@ A restore pulls the copy back as a new folder. An encrypted folder arrives still
 
 **Passphrase:** your passphrase passes through HexOS to your server without being stored. Your server keeps it in memory for the unlock, never on disk, and drops it afterwards.
 
-> **Danger:** Once it unlocks, the restored folder is shared on your network and open to everyone, whatever its access was before. Set its access as soon as the restore finishes. See [Restore a folder](/features/backups/restore-a-folder#after-it-finishes).
-{.is-danger}
+Once it unlocks, the restored folder is shared on your network with the access you chose in the restore's review. See [Restore a folder](/features/backups/restore-a-folder#start-a-restore).
 
 > **Info:** With keys managed by HexOS (the default), HexOS can unlock restored folders for you. If you keep the recovery key yourself, store it somewhere safe. See [Recovery keys](/features/folders#recovery-keys).
 {.is-info}

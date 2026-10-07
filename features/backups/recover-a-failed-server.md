@@ -54,10 +54,9 @@ Recovering has two parts:
 
 HexOS then sets the backup up on the new server. This shows in the activity center, like a new backup's setup.
 
-> **Danger:** If that setup fails, click **Retry now**. Do not click **Cancel setup**: on a recovered backup it deletes every copy the backup holds, even though the dialog says no folders were backed up. See [Known issues](/features/backups#known-issues).
-{.is-danger}
+If that setup fails, click **Retry now**. A recovered backup has no **Cancel setup**, so its copies are kept.
 
-HexOS confirms with "Connection transferred to" the new server's name, and "Restore its folders from the backup's details."
+HexOS confirms with "Connection transferred to" the new server's name, and "Restore its folders from the backup's details." For a paused backup, it says "It's still paused." instead.
 
 If you have nothing to recover, HexOS says "You do not have any backups that can be recovered."
 
@@ -68,14 +67,17 @@ Recover moves only the connection. It does not bring back any folders by itself.
 1. Open the backup on the **Backups** page.
 2. Click the **Restore** tile, or open a folder's menu and click **Restore from this backup**.
 3. Restore each folder you need. See [Restore a folder](/features/backups/restore-a-folder).
-4. After each restore, set who can open the folder. A restored folder comes back open to everyone on your network. See [Folder permissions](/features/folders#folder-permissions).
+4. Check who can open each folder before you click **Restore**. On a new server the original folder and its users are usually not there yet, so nobody is assigned. Add people on the **Access** card, or later in [Folder permissions](/features/folders#folder-permissions).
 
 > **Tip:** Restore a folder under its own name, from its newest restore point. HexOS then reconnects it to the backup, so it keeps backing up from the new server.
 {.is-tip}
 
+## Recovering a paused backup
+
+A paused backup can be recovered too. It shows "paused" in the list, and "Recovering keeps this backup paused." when you choose it. It stays paused on the new server, and HexOS says "It's still paused." Resume it there when you are ready. If your buddy paused it, ask them to resume it.
+
 ## When recovering cannot go ahead
 
-- **The backup is paused.** A paused backup shows "paused, resume it first" and cannot be chosen. If the old server still works, resume the backup on its **Backups** page first. If the old server is gone, the backup can be neither resumed nor recovered yet. Its copies are kept. Ask in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz) before you do anything else. See [Known issues](/features/backups#known-issues).
 - **The server that stores the backup is offline.** The dialog says so. Try again once it is back online.
 
 ## Retained backups

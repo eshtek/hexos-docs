@@ -125,10 +125,7 @@ If the other server's pool is full, the notice says so, because more space set a
 
 ## Setup will not finish
 
-HexOS tries failed setup steps again on its own within about 10 minutes. To act sooner, use **Retry now** in the activity item, **Retry** on the backup's page, or **Retry setup** in the row's menu. **Cancel setup**, then **Cancel setup** again in "Cancel this backup setup?", stops it. On a new backup, cancelling loses nothing, because nothing was backed up yet.
-
-> **Danger:** On a backup you recovered onto a new server, **Cancel setup** deletes every copy the backup holds. Use **Retry now** instead. See [Known issues](/features/backups#known-issues).
-{.is-danger}
+HexOS tries failed setup steps again on its own within about 10 minutes. To act sooner, use **Retry now** in the activity item, **Retry** on the backup's page, or **Retry setup** in the row's menu. On a new backup, **Cancel setup**, then **Cancel setup** again in "Cancel this backup setup?", stops it and loses nothing. A backup you recovered onto a new server has no **Cancel setup**.
 
 Common causes:
 
@@ -146,11 +143,13 @@ If encryption finished but the folder was not added, HexOS says so. Add it again
 
 ## A removed folder's copy is still on the other server
 
-If you removed a folder from a backup, or deleted a backed-up folder, while the other server was offline, its copy there was not deleted. The message said the deletion would finish later, but it does not. To clear it, add the folder back to that backup and remove it again while both servers are online, or remove the whole connection. See [Known issues](/features/backups#known-issues).
+If you removed a folder, or deleted a backed-up folder, while the other server was offline, its copy is deleted when that server is back online. A copy left by a removal made before this fix stays: add the folder back to that backup and remove it again while both servers are online, or remove the whole connection.
 
-## A paused backup cannot be recovered
+While that copy is still owed, moving the backup to another pool or server says "A removed folder's copy is still being deleted. Try the move again in a few minutes." Wait until the other server is online, then try the move again.
 
-A backup that was paused cannot be recovered onto a new server. If the old server still works, resume the backup there first. If the old server is gone, the backup cannot be resumed or recovered yet. Its copies are kept. Ask in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz) before you remove anything.
+## Recovering a paused backup
+
+A paused backup can be recovered onto a new server. It stays paused there until it is resumed. If your buddy paused it, ask them to resume it.
 
 ## You cannot delete a folder
 
