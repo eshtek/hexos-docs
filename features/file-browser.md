@@ -2,7 +2,7 @@
 title: File Browser
 description: Browse, upload, download, and organize the files in your folders from the Command Deck
 published: true
-date: 2026-08-20T21:00:00.000Z
+date: 2026-10-07T00:00:00.000Z
 tags: files, upload, download, usb
 editor: markdown
 dateCreated: 2026-08-20T21:00:00.000Z
@@ -22,6 +22,14 @@ The file browser opens over the folder screen. Close it with the **X** button or
 
 > **Info:** If a folder is encrypted and locked, the **Browse** button is unavailable. Unlock the folder first.
 {.is-info}
+
+While HexOS is turning on encryption for a folder by moving its files, the file browser says "This folder is being encrypted. Its files will be back once that finishes." See [Turn on encryption for a folder](/features/folders/turn-on-encryption#while-it-runs).
+
+<details>
+<summary> File browser while a folder is being encrypted </summary>
+
+![turn-on-file-browser-held.png](/features/folders/images/turn-on-file-browser-held.png){.medium .framed}
+</details>
 
 ## Browsing your files
 

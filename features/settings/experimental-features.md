@@ -2,7 +2,7 @@
 title: Experimental Features
 description: 
 published: true
-date: 2026-06-09T20:03:33.403Z
+date: 2026-10-07T00:00:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:40:47.966Z
@@ -17,7 +17,5 @@ In order to enable experimental features go to **Settings** > **Preferences**. T
 ## Current features
 
 - **Custom Install Scripts** - View and edit the install scripts that power app installations. Customize configurations or create scripts for non-curated apps.
-
-- **Advanced Encryption Options** - Access additional encryption settings when creating folders, beyond the standard encryption toggle.
 
 - **Task Dismissal** - Manually dismiss stale or stuck tasks from the Activities panel. Useful when operations complete but tasks remain active.

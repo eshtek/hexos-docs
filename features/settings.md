@@ -2,7 +2,7 @@
 title: Settings
 description: 
 published: true
-date: 2026-08-06T14:17:36.906Z
+date: 2026-10-07T00:00:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:40:52.326Z
@@ -28,6 +28,16 @@ Fine-tune your HexOS experience with dashboard controls.
 - Switch to dark mode.
 - Choose how dates and temperatures are written. See [Personalization](/features/settings/personalization).
 - Enable [experimental features](/features/settings/experimental-features/).
+
+### Recovery key
+
+"The key that opens this server's encrypted backups." Here you can view and copy this server's recovery key, choose who keeps it (**Managed** or **End-to-end encryption**), rotate it, and download its **Emergency kit**. See [Recovery key and emergency kit](/features/folders/recovery-key).
+
+<details>
+<summary> Recovery key tile in Settings </summary>
+
+![settings-recovery-key-tile.png](/features/folders/images/settings-recovery-key-tile.png){.medium .framed}
+</details>
 
 ## Reset
 

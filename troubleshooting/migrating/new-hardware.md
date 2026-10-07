@@ -2,7 +2,7 @@
 title: Migrating HexOS to New Hardware using New Raidz layout
 description: If you have a system and you built a new one with a different layout like moving from a mirror to Raid Z1 or Z2 or Z3
 published: true
-date: 2026-08-20T19:30:00.000Z
+date: 2026-10-07T00:00:00.000Z
 tags: migrating, new hardware, raidz2, raidz3
 editor: markdown
 dateCreated: 2026-08-09T02:00:05.860Z
@@ -167,7 +167,7 @@ Only once the new server is doing everything the old one did:
 
 **Hardware passthrough needs re-selecting.** GPUs, TPUs and USB devices have to be picked again on the new machine, under both options.
 
-**Encryption keys.** Pools created by HexOS aren't encrypted, so this usually doesn't apply. If you created encrypted datasets yourself, export their keys from the old server before you start, and keep them with your config backup.
+**Encryption keys.** HexOS encrypts new folders by default, so this probably applies to you. Before you start, export the key of every encrypted folder from the old server (in TrueNAS, open **Datasets**, click the folder and click **Export Key**) and keep the keys with your config backup. You need a folder's key to open the copy of it on the new server. A folder with a manual passphrase has no key to export: have its passphrase ready instead. If your recovery key is set to **End-to-end encryption**, also have the old server's [Emergency kit](/features/folders/recovery-key#emergency-kit). See [Getting a folder's key out of HexOS](/features/folders#getting-a-folders-key-out-of-hexos).
 
 **The old server is your rollback plan.** Don't wipe it, and don't pull its drives, until the new server has been running your workload without problems for a while.
 
