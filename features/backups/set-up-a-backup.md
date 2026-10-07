@@ -195,13 +195,15 @@ If the folder is not encrypted, the dialog explains that it cannot go to a buddy
 
 Setup usually takes a few minutes. The activity center shows each step: **Connecting servers**, **Authorizing transfer**, **Preparing storage**, **Securing connection**, and **Finishing up**. You can close the activity item. Setup keeps going.
 
-If a step fails, HexOS tries again on its own within about 10 minutes. To act sooner:
+Setup needs both servers online. If one is offline, setup waits and continues on its own once that server is back. Meanwhile, the backup's row on the **Backups** page shows a pause icon.
+
+If a step fails while both servers are online, HexOS tries again on its own, first within about 10 minutes and then less often after each failure. After about a day of failures it stops, and the activity item says "Stopped trying automatically after several failed attempts." To try again sooner, or after it stops:
 
 - In the activity item, click **Retry now**. To stop instead, click **Cancel setup**, then **Cancel setup** again in "Cancel this backup setup?".
 - On the backup's page, click **Retry** next to the error.
 - On the **Backups** page, open the row's menu and click **Retry setup**.
 
-Cancelling removes the connection. On a new backup, no backed-up data is lost, because nothing was backed up yet. If you host the backup, use **Retry** on the backup's page. The row menu's **Retry setup** is only on the sending side.
+A retry from any of these starts the automatic tries over. Cancelling removes the connection. On a new backup, no backed-up data is lost, because nothing was backed up yet. If you host the backup, use **Retry** on the backup's page. The row menu's **Retry setup** is only on the sending side.
 
 ## The first backup
 

@@ -71,7 +71,7 @@ When you create a backup to your own server, or your buddy accepts your request,
 
 Then each folder you chose is added, and its first backup starts on its own.
 
-If a step fails, HexOS tries again within about 10 minutes and picks up where it stopped. **Retry now** in the activity item tries again straight away. **Cancel setup** removes the half-built connection. On a new backup, that holds no backed-up data yet. On a backup you recovered onto a new server, it deletes the backup's copies, so use **Retry now** there. See [Known issues](/features/backups#known-issues).
+Setup needs both servers online. While one is offline, HexOS waits and continues setup once that server is back. The wait does not count as a failure. If a step fails while both servers are online, HexOS tries again and picks up where it stopped. The first retry comes within about 10 minutes. After each further failure the wait doubles (10 minutes, then 20, then 40) up to 6 hours. After 10 failures in a row (about a day of trying), HexOS stops trying on its own. **Retry now** in the activity item tries again straight away and starts the count over. **Cancel setup** removes the half-built connection. On a new backup, that holds no backed-up data yet. On a backup you recovered onto a new server, it deletes the backup's copies, so use **Retry now** there. See [Known issues](/features/backups#known-issues).
 
 ## What is stored on the receiving server
 

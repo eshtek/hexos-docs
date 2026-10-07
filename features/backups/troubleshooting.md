@@ -125,14 +125,14 @@ If the other server's pool is full, the notice says so, because more space set a
 
 ## Setup will not finish
 
-HexOS tries failed setup steps again on its own within about 10 minutes. To act sooner, use **Retry now** in the activity item, **Retry** on the backup's page, or **Retry setup** in the row's menu. **Cancel setup**, then **Cancel setup** again in "Cancel this backup setup?", stops it. On a new backup, cancelling loses nothing, because nothing was backed up yet.
+HexOS tries failed setup steps again on its own, first within about 10 minutes and then less often after each failure. After about a day of failures it stops, and the activity item says "Stopped trying automatically after several failed attempts." To try again sooner, or after it stops, use **Retry now** in the activity item, **Retry** on the backup's page, or **Retry setup** in the row's menu. Each one starts the automatic tries over. **Cancel setup**, then **Cancel setup** again in "Cancel this backup setup?", stops it. On a new backup, cancelling loses nothing, because nothing was backed up yet.
 
 > **Danger:** On a backup you recovered onto a new server, **Cancel setup** deletes every copy the backup holds. Use **Retry now** instead. See [Known issues](/features/backups#known-issues).
 {.is-danger}
 
 Common causes:
 
-- **The other server is offline.** Both servers must be online at the same time.
+- **The other server is offline.** Both servers must be online at the same time. Setup waits while one is offline and continues on its own once it is back, so you do not need to retry.
 - **One server lost its connection to HexOS.** Check it on the dashboard.
 - **You are hosting.** Use **Retry** on the backup's page. The row menu's **Retry setup** is only on the sending side.
 
