@@ -10,7 +10,16 @@ dateCreated: 2026-09-21T00:00:00.000Z
 
 # USB network adapters
 
-HexOS warns when your server's network connection runs through a USB adapter. The **Network** card on your dashboard turns amber. Click the card to open its info panel, which shows one line: **This device has known issues**. Click **See details** to read the warning.
+HexOS warns when your server's network connection runs through a USB adapter. To see the result, your server must share hardware data with HexOS. Open **Settings** > **Health & Capabilities** and click **Run diagnostics**. The report shows the adapter under **Hardware advisories**, with what the problem is and what to do about it. If your server has not logged that problem, the entry is titled **Known issue, not seen on this server**. Click **Learn more** in the entry to open this page.
+
+<details>
+<summary> A USB network adapter warning in diagnostics </summary>
+
+![diagnostics-advisory-usb-network-adapter.png](/features/health-and-capabilities/images/diagnostics-advisory-usb-network-adapter.png){.medium .framed}
+</details>
+
+> **Info:** Warnings on the dashboard are not shown for everyone yet. For now, the diagnostics report is where you see them. See [Health & Capabilities](/features/health-and-capabilities).
+{.is-info}
 
 A USB adapter is fine for occasional use, and on some small computers it is the only option. It is a poor fit for a server, which moves large amounts of data for hours at a time.
 
@@ -34,5 +43,5 @@ For a server, use a network card that plugs into a slot inside the computer. See
 ## After you change the adapter
 
 1. Shut the server down from the HexOS power menu and install the new card.
-2. Start the server. HexOS reads the parts again and the warning disappears on its own.
+2. Start the server. HexOS reads the parts again, and the warning is gone the next time you run diagnostics.
 3. If the server does not reconnect to the network, follow [Connection issues](/troubleshooting/connection).

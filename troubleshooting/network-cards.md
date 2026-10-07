@@ -10,11 +10,20 @@ dateCreated: 2026-09-21T00:00:00.000Z
 
 # Network cards with known issues
 
-HexOS checks the network card in your server against a list of parts that are known to cause problems with TrueNAS. HexOS runs on top of TrueNAS. When your card is on that list, the **Network** card on your dashboard turns amber. Click the card to open its info panel, which shows one line: **This device has known issues**. Click **See details** to read what the problem is and what to do about it.
+HexOS checks the network card in your server against a list of parts that are known to cause problems with TrueNAS. HexOS runs on top of TrueNAS. To see the result, your server must share hardware data with HexOS. Open **Settings** > **Health & Capabilities** and click **Run diagnostics**. When your card is on that list, the report shows it under **Hardware advisories**, with what the problem is and what to do about it. If your server has not logged that problem, the entry is titled **Known issue, not seen on this server**. Click **Learn more** in the entry to open this page.
+
+<details>
+<summary> A network card warning in diagnostics </summary>
+
+![diagnostics-hardware-advisory.png](/features/health-and-capabilities/images/diagnostics-hardware-advisory.png){.medium .framed}
+</details>
+
+> **Info:** Warnings on the dashboard are not shown for everyone yet. For now, the diagnostics report is where you see them. See [Health & Capabilities](/features/health-and-capabilities).
+{.is-info}
 
 This page explains each of those warnings. A warning does not mean your server is broken. Many people run these cards without trouble. It means that if you see the trouble described here, the card is the likely cause.
 
-> **Info:** After you replace the card, the warning disappears on its own the next time HexOS reads your server's parts. There is nothing to confirm.
+> **Info:** After you replace the card, HexOS reads your server's parts again when the server starts, and the warning is gone the next time you run diagnostics. There is nothing to confirm.
 {.is-info}
 
 ## Realtek gigabit cards
@@ -85,5 +94,5 @@ Before you buy, check that the card fits a free slot in your server. A 1 or 2.5 
 ## After you change the card
 
 1. Shut the server down from the HexOS power menu and install the new card.
-2. Start the server. HexOS reads the parts again and the warning disappears on its own.
+2. Start the server. HexOS reads the parts again, and the warning is gone the next time you run diagnostics.
 3. If the server does not reconnect to the network, the new card may have a different name. Follow [Connection issues](/troubleshooting/connection) to find it.

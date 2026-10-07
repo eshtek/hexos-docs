@@ -29,6 +29,18 @@ Fine-tune your HexOS experience with dashboard controls.
 - Choose how dates and temperatures are written. See [Personalization](/features/settings/personalization).
 - Enable [experimental features](/features/settings/experimental-features/).
 
+### Health & Capabilities
+
+Hardware data sharing and diagnostics for the server you have open. See [Health & Capabilities](/features/health-and-capabilities).
+- Choose whether this server shares hardware data with HexOS. Sharing is off until you turn it on.
+- Run diagnostics to check your server's storage, memory, network, apps and hardware.
+
+<details>
+<summary> Health & Capabilities tile in Settings </summary>
+
+![settings-tile.png](/features/health-and-capabilities/images/settings-tile.png){.medium .framed}
+</details>
+
 ## Reset
 
 The reset settings allow for rolling back your server to a different state.  

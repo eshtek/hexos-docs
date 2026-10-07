@@ -10,7 +10,16 @@ dateCreated: 2026-09-21T00:00:00.000Z
 
 # SSDs for pool data
 
-Not every SSD is a good fit for holding your files. HexOS checks the model of each SSD in your pools and the job it does. When a drive of a known slow type holds pool data, the drive turns amber in its pool's list of drives. To find it, click the pool on the **Storage** screen, then click **View drives**. Click the drive to open its info panel, which shows one line: **This device has known issues**. Click **See details** to read the warning.
+Not every SSD is a good fit for holding your files. HexOS checks the model of each SSD in your pools and the job it does. To see the result, your server must share hardware data with HexOS. Open **Settings** > **Health & Capabilities** and click **Run diagnostics**. When a drive of a known slow type holds pool data, the report shows it under **Hardware advisories**, with an identifier for the drive after **Device:** and what to do about it. Click **Learn more** in the entry to open this page.
+
+<details>
+<summary> An SSD warning in diagnostics </summary>
+
+![diagnostics-advisory-ssd.png](/features/health-and-capabilities/images/diagnostics-advisory-ssd.png){.medium .framed}
+</details>
+
+> **Info:** Warnings on the dashboard are not shown for everyone yet. For now, the diagnostics report is where you see them. See [Health & Capabilities](/features/health-and-capabilities).
+{.is-info}
 
 The same SSD used as a boot drive or as a cache drive gets no warning. In those jobs the drawbacks below do not matter, and if the drive wears out your data is not at risk.
 
@@ -55,4 +64,4 @@ Drives sold for NAS use, such as the WD Red and Seagate IronWolf SSD lines, are 
 
 ## After you change the drive
 
-Replacing a pool drive is a guided task in HexOS. Click the drive to open its info panel, then click **Replace**. The button is there for any drive in a pool of two or more drives, not only for a failed one, and [Drive failure](/troubleshooting/drive-failure) walks through the same steps. Replace one drive at a time and let the pool finish rebuilding before the next. Once the new drive is in the pool, HexOS reads the parts again and the warning disappears on its own.
+Replacing a pool drive is a guided task in HexOS. On the **Storage** screen, click the pool, then click **View drives**. Click the drive to open its info panel, then click **Replace**. The button is there for any drive in a pool of two or more drives, not only for a failed one, and [Drive failure](/troubleshooting/drive-failure) walks through the same steps. Replace one drive at a time and let the pool finish rebuilding before the next. Once the new drive is in the pool, HexOS reads the parts again and the warning is gone the next time you run diagnostics.
