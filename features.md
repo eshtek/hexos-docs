@@ -83,6 +83,20 @@ From the Apps screen you can
 
 [Read more about the Apps screen here.](/features/apps/)
 
+## Backups
+
+The Backups screen keeps a copy of your folders on a buddy's server or on another server you own. Buddy Backups is in beta and open to everyone. It works on the hosted Command Deck at [deck.hexos.com](https://deck.hexos.com).
+
+From the Backups screen you can
+- Set up a new backup
+- Answer backup requests from a buddy
+- See the backups this server sends and the backups it stores for others
+- Restore a folder from a backup
+- Move a backup to a new server after losing one
+- View a map of all your backups
+
+[Read more about Buddy Backups here.](/features/backups)
+
 ## Settings
 
 The Settings screen allows us to modify our server preferences.

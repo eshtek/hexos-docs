@@ -2,7 +2,7 @@
 title: Removing backups
 description: What pausing, declining, removing a folder, removing a connection, deleting a folder, and resetting a server each keep and destroy
 published: true
-date: 2026-09-07T00:33:21.257Z
+date: 2026-10-07T00:00:00.000Z
 tags: backups, buddy, pause, delete, remove
 editor: markdown
 dateCreated: 2026-09-07T00:31:08.086Z
@@ -10,91 +10,125 @@ dateCreated: 2026-09-07T00:31:08.086Z
 
 # Removing backups
 
-Several actions look similar and do very different things. Check this page before you click.
+> **Info:** Buddy Backups is in beta. Everyone can use it, and every backup it makes is a real copy you can restore. Beta means we are still finishing it, so screens may change and you may find a rough edge. Keep any backup you already rely on running alongside it. [What beta means](/features/backups#what-beta-means)
+{.is-info}
+
+Several actions look alike but do very different things. Read this page before you click.
 
 ## The short version
 
-| Action | What it destroys | Reversible? |
+| Action | What it deletes | Can you undo it? |
 |---|---|---|
 | Withdraw a request | Nothing. Nothing was copied. | Yes, send it again |
 | **Decline** a request | Nothing. Nothing was copied. | Yes, they can send it again |
-| Cancel setup | Nothing. Setup never finished. | Yes, start again |
-| **Pause** | Nothing. Stored copies and the reservation stay. | Yes, by the account that paused |
-| **Remove from backup** (a folder) | That folder's copy and all its restore points on the destination | **No** |
-| **Remove connection** | Every folder and every restore point on the destination, and the reservation | **No** |
-| Delete a folder with **Also delete the backup copies** checked | The folder on your server and its backup copies | **No** |
-| Unclaim or reset a server that hosts backups | Every backup that server hosts for others | **No** |
+| **Cancel setup** on a new backup | Nothing. Setup never finished. | Yes, set it up again |
+| **Cancel setup** on a backup you recovered | **Every copy the backup holds.** Use **Retry now** instead. | **No** |
+| **Pause** | Nothing. Copies and the space set aside stay. | Yes, by the person who paused |
+| Remove a folder from a backup | That folder's copy and all its restore points on the other server | **No** |
+| **Remove connection** | Every folder and every restore point on the other server, and the space set aside | **No** |
+| Delete a folder that is backed up | The folder on your server **and** its backup copies on servers that are online | **No** |
+| **Repair backup** | That folder's copy on the other server, before a fresh copy is sent | **No** |
+| **Change pool** or **Change server** (on a backup you store) | The old copy, once the new copy is checked | Not needed: the backup moves |
+| **Delete old copy** (after a move) | Restore points only the old copy held | **No** |
+| Unclaim or reset a server that stores backups | Every backup that server stores for others | **No** |
 
-The files on your own server are never touched by any of these except deleting the folder itself.
+Only deleting a folder deletes your own files. Removing a connection also stops any restore in progress and removes the unfinished copy it left on your server.
+
+HexOS deletes a backup copy only when someone confirms one of the actions on this page. On its own, it removes only restore points older than the time you chose to keep them, and the unfinished copy that a stopped restore left on your server.
 
 ## Pausing is not removing
 
-**Pause** stops new backups running. Everything stored stays where it is and the reservation stays reserved. Both sides are told. Only the account that paused can resume it, except a pause HexOS made for space, which either side can resume and which resumes on its own when the space problem is fixed.
+**Pause** stops backups. Everything stored stays where it is, and the space stays set aside. On a buddy's backup, the other side gets a notice.
 
+- Only the person who paused can resume. Between your own servers, you can resume from either side.
+- A pause HexOS made because space ran short can be resumed by either side, and resumes on its own when there is room.
 
-Pausing does not free space on the destination. To give the space back, the connection has to be removed.
+Pausing does not free space on the other server. To give the space back, remove the connection.
 
-## Removing a folder from a backup
+## Withdraw a request or cancel setup
 
-Open the folder's menu and click **Remove from backup**, or uncheck it in **Edit folders**. HexOS names the folder and its restore points, and asks you to confirm "Delete the stored backup of N folder?".
+On the **Backups** page, click **Requests**. Under **Outgoing requests**, click **Withdraw** on the request, then **Withdraw request** to confirm. Nothing was copied, so nothing is deleted.
 
-The folder on your server stays. Its copy on the destination and every restore point for it are deleted permanently.
+A setup that has not finished can be stopped with **Cancel setup** in its activity item, then **Cancel setup** again in "Cancel this backup setup?". That removes the connection. On a new backup, no folders were backed up yet, so nothing is lost.
 
-> **Info:** If the destination server is offline, the deletion completes automatically when it reconnects.
-{.is-info}
+> **Danger:** Recovering a backup onto a new server runs setup again. If that setup fails, **Cancel setup** deletes every copy the backup holds, even though the dialog says no folders were backed up. Use **Retry now** instead, or ask in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz). See [Known issues](/features/backups#known-issues).
+{.is-danger}
 
-## Removing a connection
+## Remove a folder from a backup
 
-Click **Remove** on the details view or **Remove connection** in the row menu on the **Backups** page. The dialog says "Removing this connection will stop all backups between this server and {name}" and "Backup data stored on {destination} will be permanently deleted, and your storage reservation will be removed."
+You can do this in three places:
+
+- **The folder's menu on the backup's page:** click **Remove**. HexOS asks you to confirm, and explains that the folder stays on your server while its copy and restore points on the other server go. Click **Remove from backup**.
+- **The Folders dialog:** uncheck the folder and click **Remove 1 folder and save**, then **Delete and save** to confirm.
+- **The folder's own page:** under **Backing up to**, open the backup's menu and click **Remove backup destination**, then **Remove destination**.
+
+The folder on your server stays. Its copy on the other server, and every restore point of it, is deleted for good.
+
+> **Warning:** Remove a folder only while the other server is online. If it is offline, its copy there is not deleted, even though the message says the deletion will complete later. The copy stays on the other server, still encrypted if the folder is, until you add a folder with the same name to that backup again or remove the whole connection. See [Known issues](/features/backups#known-issues).
+{.is-warning}
+
+## Remove a connection
+
+Click the **Remove** tile on the backup's page, or **Remove connection** in the row's menu on the **Backups** page.
+
+The **Remove connection** dialog says "Removing this connection stops all backups between this server and" the other side. A red box says every restore point stored on the other server is permanently deleted, and the space set aside is released. It also suggests: "To stop backups without losing anything, pause the connection instead."
+
+To go ahead, check "I understand that removing this connection permanently deletes all of its backups." and click **Remove connection**.
 
 <details>
 <summary> The Remove connection dialog </summary>
 
-![Remove connection confirmation dialog](/features/backups/images/remove-connection-dialog.png){.medium .framed}
+![remove-connection-dialog.png](/features/backups/images/remove-connection-dialog.png){.medium .framed}
 </details>
 
-> **Danger:** One click confirms. There is no undo and no typed confirmation. Every folder and every restore point on the destination is deleted.
+> **Danger:** Removing a connection cannot be undone. Every folder and every restore point on the other server is deleted.
 {.is-danger}
 
-> **Danger:** Either side can remove a connection. If you host a buddy's backup, you can delete it, and they are notified. If a buddy hosts yours, they can delete yours. An offsite copy is only as safe as the server holding it. Keep a second destination for anything irreplaceable.
+> **Danger:** Either side can remove a connection. If you store a buddy's backup, you can delete it, and they get a notice. If a buddy stores yours, they can delete yours. Keep a second destination for anything you cannot replace.
 {.is-danger}
 
-If the other server is unreachable when you remove a connection, the deletion completes automatically when it reconnects.
+If the other server is offline when you remove a connection, the dialog says so. The backups are deleted once HexOS can reach it again.
 
-## Deleting a folder on your own server
+## Deleting a folder that is backed up
 
-When you delete a folder that is backed up, the delete dialog offers **Also delete the backup copies stored on {names}**.
-
-- **Leave it unchecked** and the dialog confirms "Backup copies stay on your buddy's server and remain restorable." The folder is gone from your server but can still be restored. This is usually what you want.
-- **Check it** and the folder and every backup copy are deleted everywhere, permanently.
-
-> **Warning:** Checking that box is the most complete deletion in HexOS. Nothing is left on either server.
-{.is-warning}
-
-## Unclaiming or resetting a server that hosts backups
-
-> **Danger:** Unclaiming or resetting a server removes every backup it hosts for other people. The unclaim dialog's "Pool data will not be affected" refers to the server's own files.
+> **Danger:** Deleting a folder that is backed up **always deletes its backup copies too**. There is no way to delete the folder and keep its copies. If you want to keep the backup, do not delete the folder.
 {.is-danger}
 
-If you are going to unclaim, reset, rebuild, or sell a server that hosts backups:
+When you click **Delete** on a folder that is backed up, the dialog names the servers it backs up to. It says "A backed-up folder can only be deleted together with its backup copies, so they will be permanently deleted from there too."
+
+To go ahead, check "I understand that this also permanently deletes the folder's backup copies." and click **Delete**.
+
+<details>
+<summary> Deleting a folder that is backed up </summary>
+
+![remove-folder-dialog.png](/features/backups/images/remove-folder-dialog.png){.medium .framed}
+</details>
+
+Do this while the servers it backs up to are online. A copy on a server that is offline at the time is not deleted, and stays there until you remove that connection. Nothing is left on the servers that were online. If you only want to free space on your server, restore anything you need first, or keep the folder.
+
+## Unclaiming or resetting a server that stores backups
+
+If your server stores backups for others, HexOS stops you before you unclaim or reset it in **Settings**. A dialog titled "Hosted backup deletion" lists whose backups would be deleted. You must check "I understand these hosted backups will be permanently deleted" and click **Delete hosted backups** to go on. Each owner gets a notice.
+
+> **Danger:** Unclaiming or resetting a server permanently deletes every backup it stores for others. The unclaim dialog's "Pool data will not be affected" means the server's own files.
+{.is-danger}
+
+Before you unclaim, reset, rebuild, or sell a server that stores backups:
 
 1. Tell your buddy first.
-2. Use **Remove connection** on each hosted backup. This notifies them.
-3. Then reset the server.
+2. Open each hosted backup, click **Remove**, then **Remove connection**. This tells them.
+3. Then unclaim or reset the server.
 
-Unclaiming your own server does not delete the backups it sent elsewhere. Those are kept as retained backups so a replacement server can restore from them. See [Recover a failed server](/features/backups/recover-a-failed-server).
+Unclaiming your own server does not delete the backups it sent elsewhere. They are kept as **Retained backups**, so a new server can take them over. See [Recover a failed server](/features/backups/recover-a-failed-server).
 
-## Do not remove things during a restore
+## Wait for a restore to finish
 
-> **Warning:** While a restore is running, do not remove the connection, remove the folder from the backup, or delete the folder. Wait for it to finish.
+> **Warning:** While a restore is running, do not remove the folder from the backup or remove the connection. Both delete the copy the restore reads from.
 {.is-warning}
 
-## Retention removes old restore points on its own
+## Old restore points are removed on their own
 
-Restore points older than the retention window are removed at each backup. The window is set per connection in **Schedule & Retention**: 1 week, 2 weeks, 1 month, or 3 months. Shortening it shows how many restore points would be removed and asks you to confirm.
+Restore points older than the time you chose are removed at each backup. You choose the time in **Schedule & Retention**: 1 week, 2 weeks, 1 month, or 3 months. Choosing a shorter time first shows how many restore points would be removed, and asks you to confirm.
 
-> **Help:** Not sure what a button will do? Ask in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz) before clicking it.
+> **Help:** Not sure what a button will do? Ask in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz) before you click it.
 {.is-troubleshooting}
-
-> **Contribute:** to help to improve HexOS documentation [join the #Docs channel on Discord](https://discord.com/invite/DjEp3WRHKz) today! Send feedback, suggestions or contribute a guide.
-{.is-contribute}

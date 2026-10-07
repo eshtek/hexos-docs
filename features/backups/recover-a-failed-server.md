@@ -2,7 +2,7 @@
 title: Recover a failed server
 description: Rebuild onto a replacement server using the retained backups a buddy still holds
 published: true
-date: 2026-09-07T00:00:00.000Z
+date: 2026-10-07T00:00:00.000Z
 tags: backups, buddy, disaster recovery, transfer
 editor: markdown
 dateCreated: 2026-08-23T12:07:19.404Z
@@ -10,51 +10,90 @@ dateCreated: 2026-08-23T12:07:19.404Z
 
 # Recover a failed server
 
-Losing a server does not lose the backups it sent. The copies on your buddy's server are kept, and a replacement server on the same HexOS account can pull them all back with one action. You do not need any access to the old machine.
+> **Info:** Buddy Backups is in beta. Everyone can use it, and every backup it makes is a real copy you can restore. Beta means we are still finishing it, so screens may change and you may find a rough edge. Keep any backup you already rely on running alongside it. [What beta means](/features/backups#what-beta-means)
+{.is-info}
+
+Losing a server does not lose the backups it sent. The copies on the other server are kept. A replacement server on the same HexOS account can take those backups over, then restore the folders from them. You do not need the old server for this.
+
+Recovering has two parts:
+
+1. **Recover** moves the backup connection to the new server.
+2. **Restore** brings each folder back onto the new server.
+
+## Before you start
+
+- Set up the replacement server and claim it to the **same HexOS account** as the old one. Your HexOS account proves the backups are yours.
+- Use the hosted Command Deck, with the new server selected.
+- The server that stores the backup must be online.
+
+> **Info:** If HexOS manages your folder keys (the default), recovered folders unlock on their own while you are signed in. If you chose to keep the recovery key yourself, have the old server's recovery key ready. HexOS asks for it once. See [Recovery keys](/features/folders#recovery-keys).
+{.is-info}
+
+## Move the backup to the new server
+
+1. On the new server, click **Backups** in the sidebar.
+2. Next to the **Backup destinations** heading, click **Recover**.
+
+<details>
+<summary> The Recover button on the Backups page </summary>
+
+![backups-page.png](/features/backups/images/backups-page.png){.medium .framed}
+</details>
+
+3. In **Recover connection**, under "Choose a connection to transfer", choose the backup that belonged to the old server. Each one shows the old server's name, whether it is online or offline, how many folders it holds, and the date of its newest backup.
+4. Click **Recover**.
+
+<details>
+<summary> The Recover connection dialog </summary>
+
+![recover-dialog.png](/features/backups/images/recover-dialog.png){.medium .framed}
+</details>
+
+5. If the old server is still online, or HexOS cannot tell, a dialog asks whether to stop the old server's backups first. Check the box that says you understand its backups to this connection will stop, and click **Recover**. The old server keeps its own folders.
+6. If HexOS asks for the old server's recovery key, type it and click **Recover** again.
+
+HexOS then sets the backup up on the new server. This shows in the activity center, like a new backup's setup.
+
+> **Danger:** If that setup fails, click **Retry now**. Do not click **Cancel setup**: on a recovered backup it deletes every copy the backup holds, even though the dialog says no folders were backed up. See [Known issues](/features/backups#known-issues).
+{.is-danger}
+
+HexOS confirms with "Connection transferred to" the new server's name, and "Restore its folders from the backup's details."
+
+If you have nothing to recover, HexOS says "You do not have any backups that can be recovered."
+
+## Restore the folders
+
+Recover moves only the connection. It does not bring back any folders by itself.
+
+1. Open the backup on the **Backups** page.
+2. Click the **Restore** tile, or open a folder's menu and click **Restore from this backup**.
+3. Restore each folder you need. See [Restore a folder](/features/backups/restore-a-folder).
+4. After each restore, set who can open the folder. A restored folder comes back open to everyone on your network. See [Folder permissions](/features/folders#folder-permissions).
+
+> **Tip:** Restore a folder under its own name, from its newest restore point. HexOS then reconnects it to the backup, so it keeps backing up from the new server.
+{.is-tip}
+
+## When recovering cannot go ahead
+
+- **The backup is paused.** A paused backup shows "paused, resume it first" and cannot be chosen. If the old server still works, resume the backup on its **Backups** page first. If the old server is gone, the backup can be neither resumed nor recovered yet. Its copies are kept. Ask in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz) before you do anything else. See [Known issues](/features/backups#known-issues).
+- **The server that stores the backup is offline.** The dialog says so. Try again once it is back online.
 
 ## Retained backups
 
-When a server that sent backups is removed from your account, its copies on the destination stay and are shown as **Retained backups**, with the note "These copies belonged to a server that was removed. They stay restorable until you delete them". The connection card reads "Backups retained from a removed server".
+When a server that sent backups is unclaimed or reset, the copies it sent are not deleted. They show as **Retained backups** on the **Backups** page of the server that stores them, with the note "These copies belonged to a server that was removed. They stay restorable until you delete them."
 
-Ownership is proved by your HexOS account. As long as you can sign in, you can recover.
+If a buddy stores the copies, the retained backup shows on their **Backups** page. Their only choice is to remove it. Ask them not to remove it while you recover.
 
-> **Info:** If HexOS manages your encryption keys (the default), recovered folders unlock automatically while you are signed in. If you keep your recovery key yourself, HexOS asks for it once during recovery. See [Recovery keys](/features/folders#recovery-keys).
-{.is-info}
+## If the other server failed instead
 
-## The steps
+If the server that stored the backup is the one that is gone, its copy is gone with it. Your own files on your own server are not affected. Set up a new backup to another destination as soon as you can.
 
-1. Set up the replacement server and claim it to the **same HexOS account** as the old one.
-2. If the old server is still listed on your account, unclaim it. This does not delete the copies your buddy holds.
-3. Open the Backups panel from the dashboard and click **Recover**.
+## Plan ahead
 
-4. Choose the connection that belonged to the old server and the folders to restore.
-5. Choose the destination pool.
-6. For folders with an autogenerated key, the restore continues on its own while you are signed in. For a self-managed recovery key, HexOS asks for it once.
-7. Confirm.
+- **If you keep your recovery key yourself**, store it somewhere that is not on the server. You can download an **Emergency kit** in **Settings** > **Recovery key**.
+- **Use more than one destination** for anything you cannot replace.
+- **Check your backups now and then.** Each folder shows when its latest changes were backed up. HexOS also tells you when backups stop arriving.
+- **Do a test restore** while everything works, so your first restore is not during an emergency.
 
-HexOS moves the connection to the new server and restores the folders you selected. Progress shows in the activity center. Folders with a manual passphrase ask for it before they finish, the same way a single restore does. See [Restore a folder](/features/backups/restore-a-folder).
-
-> **Warning:** **Transfer** restores every folder in the backup. Make sure the destination pool has room for all of it.
-{.is-warning}
-
-> **Info:** If the server holding the retained backup is offline, the dialog says so. Wait until it is online and try again.
-{.is-info}
-
-**Transfer** is on your own account, because you own the data. Your buddy sees the retained backup on their side with **Remove** as their only action. Ask them not to remove it while you recover.
-
-## If your buddy's server failed instead
-
-If the destination server is the one that is gone, the offsite copy is gone with it. Your own files on your own server are unaffected. Set up a new backup to another destination as soon as you can.
-
-## Planning ahead
-
-- **If you keep your recovery key yourself**, write it down and keep it somewhere that is not on the server. You can download an emergency kit from **Settings > Recovery key**.
-- **Use more than one destination** for anything irreplaceable.
-- **Check that your connections read "Up to date"** now and then. HexOS notifies you when backups stop arriving, but a quick look costs nothing.
-- **Do a test restore** once while everything is working, so the first time you use the process is not during an emergency.
-
-> **Help:** Recovering and something is not behaving? See [Backup troubleshooting](/features/backups/troubleshooting) or ask in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz).
+> **Help:** Recovering and something is not working? See [Backup troubleshooting](/features/backups/troubleshooting) or ask in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz).
 {.is-troubleshooting}
-
-> **Contribute:** to help to improve HexOS documentation [join the #Docs channel on Discord](https://discord.com/invite/DjEp3WRHKz) today! Send feedback, suggestions or contribute a guide.
-{.is-contribute}

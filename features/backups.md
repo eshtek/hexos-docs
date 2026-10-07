@@ -2,7 +2,7 @@
 title: Buddy Backups
 description: Keep an encrypted offsite copy of your folders on a buddy's server or a second server you own, with no cloud bill and no third-party tools
 published: true
-date: 2026-09-07T00:44:53.683Z
+date: 2026-10-07T00:00:00.000Z
 tags: backups, buddy, offsite, disaster recovery, restore
 editor: markdown
 dateCreated: 2026-09-07T00:30:50.314Z
@@ -10,58 +10,109 @@ dateCreated: 2026-09-07T00:30:50.314Z
 
 # Buddy Backups
 
-Buddy Backups gives you an offsite copy of your most important folders without a monthly bill. You and a friend who also runs HexOS each store an encrypted copy of the other's data. Your files sit on their server, but only you can read them. If you own two servers, you can back one up to the other in exactly the same way.
+> **Info:** Buddy Backups is in beta. Everyone can use it, and every backup it makes is a real copy you can restore. Beta means we are still finishing it, so screens may change and you may find a rough edge. Keep any backup you already rely on running alongside it. [What beta means](/features/backups#what-beta-means)
+{.is-info}
 
-This is peer-to-peer encrypted replication with the networking built in. HexOS handles the connection between the two servers, the encryption, the schedule, and the restore. There is nothing to install and no third party in the middle. Your data stays safe, fast, accessible, and yours.
+Buddy Backups keeps a copy of your most important folders on another server. That server can belong to a friend who also runs HexOS, or it can be a second server of your own. There is no monthly bill and nothing extra to install.
+
+Folders you send to a buddy are encrypted. Your files sit on their server, but they cannot open them.
+
+## What beta means
+
+Buddy Backups is an open beta. It is on for everyone, with no sign-up. The Command Deck shows a **Beta** badge next to **Backups**. Click it to read a short note about the beta.
+
+<details>
+<summary> The Beta badge's note </summary>
+
+![beta-dialog.png](/features/backups/images/beta-dialog.png){.medium .framed}
+</details>
+
+What this means for you:
+
+- **Your backups are real.** Each backup is a full, restorable copy. It uses the same replication that TrueNAS itself uses.
+- **We are still finishing it.** Screens may change, settings may move, and you may find a rough edge now and then.
+- **You are told when something goes wrong.** The activity center says what happened and what to do next. Your data on both servers stays where it is.
+- **Keep your current backup.** If you already have a backup you rely on, keep it running alongside Buddy Backups while it is in beta.
+- **Tell us what confuses you.** Your feedback shapes the finished version. Share it in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz).
+
+### Known issues
+
+We know about these and are working on fixes. This list changes as fixes ship.
+
+- **A restored folder is open to everyone on your network.** When you restore a folder, it comes back open to anyone on your network, with no password, whatever its access was before. Right after a restore, set who can open the folder. See [Restore a folder](/features/backups/restore-a-folder#after-it-finishes).
+- **Removing a folder while the other server is offline leaves its copy there.** The message says the deletion finishes later, but it does not. Meanwhile, remove folders (or delete a backed-up folder) only while both servers are online. To clear a copy left behind, add the folder back to that backup and remove it again while both are online, or remove the whole connection. See [Removing backups](/features/backups/removing-backups#remove-a-folder-from-a-backup).
+- **Cancel setup on a recovered backup deletes its copies.** After you recover a backup onto a new server, its setup runs again. If that setup fails, **Cancel setup** deletes every copy the backup holds, though the dialog says nothing was backed up. Meanwhile, click **Retry now**, never **Cancel setup**, on a recovered backup. See [Recover a failed server](/features/backups/recover-a-failed-server#move-the-backup-to-the-new-server).
+- **A backup paused when its server was lost cannot be recovered.** It cannot be resumed either, because its server is gone. Its copies are kept. Meanwhile, ask in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz) before you remove anything.
+- **The server that sends a backup can see dataset names on the server that stores it.** It can see names, such as folder names, but cannot open anything. Meanwhile, host backups only for people you are happy to show your folder names to.
+- **Storing a backup turns on SSH on your local network.** HexOS turns on the SSH service on the server that stores a backup. It listens on your local network as well as the private link, and stays on after the backup is removed. Nothing is opened on your router. Meanwhile, if your server no longer stores any backups, you can turn SSH off in TrueNAS.
 
 ## Why it exists
 
-A storage pool with redundancy protects you when a drive fails. It does not protect you from the events that take out the whole machine:
+A pool with more than one drive protects you when one drive fails. It does not protect you from something that takes out the whole server:
 
 - A fire, a flood, or a power surge
-- Theft of the server itself
-- Ransomware that encrypts everything the server can reach
+- Theft of the server
+- Ransomware that encrypts every file the server can reach
 
-The only real protection against those is a copy in a different building. Most people pay a cloud provider for that. Buddy Backups uses the spare space you and your buddy already own instead, so you both save money and both end up protected.
+The only protection against those is a copy in another building. Many people pay a cloud service for that. Buddy Backups uses spare space that you and your buddy already own instead.
 
 ## How it works
 
-1. You choose the folders to protect and where the copy should go: a buddy's server or another server you own.
-2. HexOS builds a direct, encrypted, peer-to-peer WireGuard tunnel between the two servers. There is no port forwarding, no dynamic DNS, no VPN account, and no extra app. The tunnel is created and maintained automatically.
-3. Each backup run takes a ZFS snapshot of your folders and sends it over the tunnel. The first run copies everything. Every run after that sends only what changed.
-4. Each completed run becomes a restore point on the destination. You can bring back the latest copy or any dated restore point within your retention window.
-5. Folders sent to a buddy are encrypted. They arrive encrypted and stay encrypted. Your buddy stores them but cannot open them, and neither can HexOS.
+1. You choose the folders to protect and where the copy goes: a buddy's server or another server you own.
+2. HexOS connects the two servers over a private, encrypted link. You do not need to change anything on your router.
+3. On the schedule you choose, your server saves a restore point of each folder and sends it. The first backup copies everything. After that, each backup sends only what changed.
+4. Each backup becomes a restore point on the other server. You can restore the newest one, or an older one from the time you chose to keep them.
+5. A folder sent to a buddy must be encrypted. It stays encrypted on their server, and they cannot open it.
 
-> **Info:** Your buddy cannot read your folders. If HexOS manages your encryption keys (the default), your data is protected by a recovery key that you can view or download from **Settings > Recovery key**. If you choose end-to-end encryption and keep the recovery key yourself, HexOS holds nothing that can open your data. See [Folder encryption](/features/folders#encrypted-folders).
+> **Info:** If HexOS manages your keys (the default), restored folders unlock on their own while you are signed in. If you chose to keep the recovery key yourself, HexOS asks for it once when you recover onto a new server. You can view your key in **Settings** > **Recovery key**. See [Recovery keys](/features/folders#recovery-keys).
 {.is-info}
+
+If you want the technical details, see [How Buddy Backups works](/features/backups/how-it-works).
 
 ## What you give and what you get
 
-**You give** space on your server for your buddy's encrypted copies, and the power to keep the server running. You choose how much space to reserve, and HexOS enforces that reservation on your pool so the backup cannot grow past it and your own data cannot crowd it out.
+**You give** space on your server for your buddy's encrypted copy, and you keep your server running. You choose how much space. HexOS sets that space aside on your pool, so their backup cannot grow past it and your own files cannot take it.
 
-**You get** the same in return: an offsite copy that updates on a schedule, restore points you can go back to, and the ability to rebuild onto a replacement server if yours is lost.
+**You get** the same in return: an offsite copy that updates on a schedule, restore points to go back to, and a way to rebuild onto a new server if yours is lost.
 
-**You rely on** your buddy keeping their server running. Either side can remove a connection, which deletes the stored copies. Choose a buddy whose server you expect to exist in a year, and keep a second destination for anything you cannot replace.
+**You rely on** your buddy keeping their server running. Either of you can remove the connection, and removing it deletes the stored copy. For anything you cannot replace, keep a second destination.
 
 ## What you need
 
 - **Two servers running HexOS.** Yours and a buddy's, or two of your own.
-- **Encrypted folders** for anything sent to another person's server. If a folder is not encrypted yet, you can [turn on encryption from the folder's page](/features/folders#turning-on-encryption). Backups to a server you own can include any folder.
-- **Both servers online** while the connection is set up.
-- **Your buddy's HexOS account email**, if you are backing up to a buddy.
+- **The hosted Command Deck.** Buddy Backups works on the hosted Command Deck, the one at [deck.hexos.com](https://deck.hexos.com). At home, HexOS may open your server's local deck instead. There, the **Backups** page has a **Continue on Hosted Deck** button that takes you to the hosted one.
+- **Encrypted folders** for anything you send to a buddy. You can [turn on encryption for a folder](/features/folders#turning-on-encryption) at any time, even after it is created. Backups to your own server can include any folder.
+- **Both servers online** while the backup is set up.
+- **Your buddy's HexOS email**, if you back up to a buddy.
+
+## Where to find it
+
+Click **Backups** in the sidebar. The **Backups** page lists the backups this server sends and the backups it stores for others. The dashboard also has a **Backups** section with one card for each place this server backs up to.
+
+The **Backups** page also works in your phone's browser.
+
+<details>
+<summary> The Backups page on a phone </summary>
+
+![phone-backups-page.png](/features/backups/images/phone-backups-page.png){.small .framed}
+</details>
 
 ## Compression
 
-Backups are compressed before they are stored, so the space a backup uses on the destination server is usually less than the folder's size on your own server. The **Quota** card on a connection shows "X used of Y limit", and the used figure is the compressed size.
+Backups are stored compressed. The space a copy takes on the other server is usually smaller than the total size of the files in your folders.
 
-How much a folder shrinks depends on what is in it. Photos and video are already compressed and shrink very little. Documents, spreadsheets, text, and databases often shrink a lot. When you decide how much space to ask for, start from the folder's size on your server and treat any saving as a bonus.
+A backup's **Quota** card shows the space in use as "1.8 GB of 20 GB": how much the copy uses, out of the space set aside for it. The first number is the compressed size, so it rarely matches the size of your files. It also includes your older restore points.
+
+How much smaller a copy gets depends on the files. Photos and videos are already compressed, so they shrink very little. Documents and other text often shrink a lot.
+
+When you set up a backup, HexOS suggests how much space to ask for. The suggestion is based on the space your folders take on your pool, plus room to grow.
 
 ## What Buddy Backups is not
 
-- **It is not a long-term archive.** Restore points are kept for the retention window you choose, from 1 week to 3 months. It protects you from a disaster or a recent mistake, not from something deleted a year ago.
-- **It is not file-level restore.** You restore a whole folder as a new folder, then take what you need from it.
-- **It is not a sync service.** Files do not appear on other devices, and editing on one side does not change the other.
-- **It does not replace redundancy.** Keep your pool healthy. This is the second copy, not the first.
+- **It is not a long-term archive.** Restore points are kept for the time you choose: 1 week, 2 weeks, 1 month, or 3 months. It protects you from a disaster or a recent mistake, not from something deleted a year ago.
+- **It does not restore single files.** You restore a whole folder as a folder, then take what you need from it.
+- **It is not a sync service.** Your files do not appear on other devices, and changes on one server do not change the other.
+- **It does not replace a healthy pool.** Keep your drives healthy. A backup is your second copy, not your first.
 
 ## Where to go next
 
@@ -72,9 +123,6 @@ How much a folder shrinks depends on what is in it. Photos and video are already
 | Change what is backed up, how often, or how fast | [Manage your backups](/features/backups/manage-your-backups) |
 | Get a folder back | [Restore a folder](/features/backups/restore-a-folder) |
 | Rebuild after losing a server | [Recover a failed server](/features/backups/recover-a-failed-server) |
-| Understand what each removal deletes | [Removing backups](/features/backups/removing-backups) |
-| Work out what a status or notice means | [Backup troubleshooting](/features/backups/troubleshooting) |
-| Understand what is underneath | [How Buddy Backups works](/features/backups/how-it-works) |
-
-> **Contribute:** to help to improve HexOS documentation [join the #Docs channel on Discord](https://discord.com/invite/DjEp3WRHKz) today! Send feedback, suggestions or contribute a guide.
-{.is-contribute}
+| Know what each removal deletes | [Removing backups](/features/backups/removing-backups) |
+| Understand a notice or fix a failed backup | [Backup troubleshooting](/features/backups/troubleshooting) |
+| Read the technical details | [How Buddy Backups works](/features/backups/how-it-works) |
