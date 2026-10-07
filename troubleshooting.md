@@ -18,6 +18,7 @@ Something not working? Find the area below that matches what you are seeing.
 ## Setting up
 
 - [**Installation issues**](/troubleshooting/installation) - USB imaging problems and installer failures
+- [**UEFI boot mode**](/troubleshooting/uefi-boot-mode) - Why HexOS needs UEFI mode, and how to switch or reinstall
 - [**Avoid USB drives**](/troubleshooting/usb-drives) - Why USB drives cause problems and what to use instead
 - [**UGREEN NAS keeps restarting**](/troubleshooting/ugreen-watchdog) - Turn off the BIOS watchdog that restarts a UGREEN NAS every few minutes
 - [**Connection issues**](/troubleshooting/connection) - Server not getting an IP address, discovery problems
