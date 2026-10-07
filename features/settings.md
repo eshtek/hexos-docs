@@ -26,6 +26,7 @@ Configure your server's network connection and how devices reach it.
 Fine-tune your HexOS experience with dashboard controls.  
 - Toggle dashboard items or sections.
 - Switch to dark mode.
+- Choose how dates and temperatures are written. See [Personalization](/features/settings/personalization).
 - Enable [experimental features](/features/settings/experimental-features/).
 
 ## Reset
