@@ -35,9 +35,9 @@ If you have a question before you sign up, ask in the [HexOS Discord Community](
 
 Back up your folders to a friend's server or a second server of your own. Buddy Backups is open to everyone while we finish it. There is no sign-up: click **Backups** in the sidebar of the hosted Command Deck to start. See [what the Buddy Backups beta means](/community/beta-programs/buddy-backups-and-virtual-machines) and the [Buddy Backups](/features/backups) guide.
 
-### Virtual Machines
+### Virtual Machines: open beta
 
-Run virtual machines through the new wizard. Virtual Machines is still invite-only. Read [what the Virtual Machines beta involves](/community/beta-programs/buddy-backups-and-virtual-machines), then register using the [Virtual Machines beta signup form](https://docs.google.com/forms/d/18XKSC5U0DPcaJL0RxrqRKqLl-mr7aS1WkTR9eftxOZw/viewform).
+Run Windows, Linux, and small appliance systems such as Home Assistant OS on your HexOS server. Virtual Machines is open to everyone while we finish it, and so is VM setup, where HexOS finishes setting up some systems after they start. There is no sign-up: click **VMs** in the sidebar to start. See [what the Virtual Machines beta means](/community/beta-programs/buddy-backups-and-virtual-machines#virtual-machines-open-beta) and the [VMs](/features/vms) guide.
 
 ### App curation
 

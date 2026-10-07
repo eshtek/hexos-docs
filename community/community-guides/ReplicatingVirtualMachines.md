@@ -2,7 +2,7 @@
 title: Replicating virtual machines from one TrueNAS server to another
 description: Copy virtual machine disks to another TrueNAS server with ZFS replication, then set the virtual machines up again on the new server
 published: true
-date: 2026-09-22T00:00:00.000Z
+date: 2026-10-07T00:00:00.000Z
 tags: virtual machines, replication, migrating
 editor: markdown
 dateCreated: 2026-06-08T15:39:16.279Z
@@ -206,6 +206,9 @@ The copy runs directly between the two servers. On a home network it is fast: th
 </details>
 
 4. Finish the remaining steps and start the virtual machine.
+
+> **Danger:** Virtual machines made in TrueNAS also show in HexOS under **VMs**. **Uninstall** in HexOS deletes every disk attached to the virtual machine, including the copied disk. To remove a virtual machine but keep its disk, remove it in TrueNAS instead, without deleting its disks. See [VMs made in TrueNAS](/features/vms#vms-made-in-truenas).
+{.is-danger}
 
 > **Tip:** Keep the virtual machines on the old server until the new ones start and work as expected. If something goes wrong, you can still go back.
 {.is-tip}

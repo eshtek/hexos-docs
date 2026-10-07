@@ -2,7 +2,7 @@
 title: Using a VM's console from a phone or tablet
 description: Type, tap, drag, scroll and zoom a VM's console from a touchscreen
 published: true
-date: 2026-09-21T21:30:12.000Z
+date: 2026-10-07T00:00:00.000Z
 tags: vm, vms, console, phone, tablet, touch
 editor: markdown
 dateCreated: 2026-09-21T20:51:33.000Z
@@ -10,18 +10,23 @@ dateCreated: 2026-09-21T20:51:33.000Z
 
 # Using a VM's console from a phone or tablet
 
+> **Info:** Virtual Machines is in beta. Everyone can use it. Beta means we are still finishing it, so screens may change and you may find a rough edge. [What beta means](/features/vms#what-beta-means)
+{.is-info}
+
 You can open a VM's console, its screen, on a phone or tablet and use it with your fingers. This is most useful when nothing else can reach the VM: while an operating system is installing, at a startup or firmware screen, or when the VM has no network connection.
 
 > **Info:** For everyday use of a Windows VM from a phone, a Remote Desktop app is smoother. See [Connecting](/features/vms#connecting). The console always works, even when Remote Desktop cannot.
 {.is-info}
 
 > **Requirement:** Your phone or tablet must be on the same network as your server, because the console runs on the server itself.
-{.is-warning}
+{.is-success}
 
 ## Opening the console
 
-1. Go to **VMs** > **Installed VMs** and tap the VM.
-2. Tap **Connect**. If it opens something else, such as **Remote Desktop**, tap the arrow beside **Connect** and choose **Console**.
+1. Go to **VMs** > **Installed VMs** and click the VM.
+2. Click **Connect**. If it opens something else, such as **Remote Desktop** or **Web UI**, click the arrow beside **Connect**, then click **Console**.
+
+For a VM with its own web page, such as Home Assistant OS or Plex Media Server, **Console** is only in that list with Expert Mode on. While HexOS is still setting a VM up, the console is locked and the button reads **Setting up**.
 
 The console opens in a new browser tab, scaled to fit. The bar at the top shows the VM's name, a keyboard button, a **⋯** menu and a status dot. The dot is green when the console is connected.
 
@@ -32,8 +37,8 @@ The console opens in a new browser tab, scaled to fit. The bar at the top shows 
 
 </details>
 
-> **Help:** Turn your phone on its side. A desktop is wider than it is tall, so it is drawn larger that way, and the bar has room for more buttons.
-{.is-success}
+> **Tip:** Turn your phone on its side. A desktop is wider than it is tall, so it is drawn larger that way, and the bar has room for more buttons.
+{.is-tip}
 
 ## Using your fingers as the mouse
 
@@ -42,6 +47,7 @@ The console opens in a new browser tab, scaled to fit. The bar at the top shows 
 | Tap | A click |
 | Tap twice | A double click |
 | Press and hold, or tap with two fingers | A right click |
+| Tap with three fingers | A middle click |
 | Drag one finger | Click and drag: move a window, select text, drag a scrollbar |
 | Drag two fingers up or down | Scrolling |
 | Pinch with two fingers | Nothing: this zooms your view, see below |
@@ -67,8 +73,8 @@ To scroll inside the VM while zoomed in, drag its scrollbar with one finger, or 
 
 A fingertip covers what it is pointing at, which makes small buttons hard to hit. Trackpad mode turns the screen into a laptop's trackpad:
 
-1. Tap **⋯**.
-2. Tap **Touch: Direct**. It changes to **Touch: Trackpad**.
+1. Click **⋯**.
+2. Click **Touch: Direct**. It changes to **Touch: Trackpad**.
 
 Now a pointer is drawn on the screen, and:
 
@@ -97,8 +103,8 @@ A row of extra keys appears above your keyboard with the keys a phone does not h
 
 **Ctrl**, **Alt**, **Shift** and the Windows key stay held for you, since you cannot hold one key while pressing another on a phone:
 
-- Tap once to hold it for the next key only. For example, tap **Ctrl**, then type **c** to copy.
-- Tap a second time to keep it held until you tap it again. For example, keep **Alt** held and tap **Tab** several times to switch windows.
+- Tap once to hold it for the next key only. For example, click **Ctrl**, then type **c** to copy.
+- Tap a second time to keep it held until you tap it again. For example, keep **Alt** held and click **Tab** several times to switch windows.
 - Tap a third time to let go.
 
 A held key also applies to taps on the screen, so **Ctrl** and a tap selects several files. Everything is let go when you put the keyboard away.
@@ -110,11 +116,14 @@ A held key also applies to taps on the screen, so **Ctrl** and a tap selects sev
 
 On a phone held upright, the rest of the controls are in the **⋯** menu:
 
+- **Copy Files to VM…**: copy files from your phone or tablet into the VM. This needs the SPICE guest agent inside the VM. See [The console](/features/vms#the-console).
 - **Paste Text**: type a block of text into the VM, such as a password or a command.
 - **Ctrl+Alt+Del**: send that key combination, for example to reach the Windows sign-in screen.
+- **Ctrl+Shift+Esc**: send that key combination, which opens Task Manager in Windows.
 - **Fullscreen**: hide the browser's own bars. Not available on iPhone.
 - **Touch: Direct** / **Touch: Trackpad**: see above.
-- **Shut Down**, **Restart** and **Force Power Off**: each asks you to confirm first. **Force Power Off** is the same as pulling the plug, so anything unsaved inside the VM is lost.
+- **Slow Network Mode: Off**: click it to send fewer, smaller screen updates, for a slow or distant connection. It then reads **Slow Network Mode: On**.
+- **Shut Down**, **Restart** and **Force Power Off**: each asks you to confirm first. **Force Power Off** is the same as unplugging the power cable, so anything unsaved inside the VM is lost.
 
 With the phone on its side, most of these move into the bar, and the power actions are behind the power button.
 
@@ -131,3 +140,5 @@ With the phone on its side, most of these move into the bar, and the power actio
 - **The picture is there but nothing responds:** check the status dot. If it is not green, the screen is reconnecting. If another device has the same console open, you will be asked whether to use it here.
 - **Everything is too small:** turn the phone on its side, pinch to zoom in, or switch to trackpad mode.
 - **The screen went black:** the VM may have gone to sleep or be restarting. Wait a moment, or tap the screen.
+- **It says Virtual Machine Stopped:** the VM is off. Click **Start VM** to start it.
+- **It says Console Session Expired:** close the tab and open the console from HexOS again.
