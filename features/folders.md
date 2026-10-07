@@ -191,6 +191,10 @@ HexOS does not show individual folder keys. TrueNAS keeps each folder's key in i
 A folder with a **Manual** passphrase has no key to export: the passphrase is the key.
 
 
+## Repair access
+
+If your computers can't open a folder or some of the files in it, but HexOS shows the files are there, the folder's info panel offers **Repair access**. See [Repair access to a folder](/features/folders/repair-access).
+
 ## Users
 
 Creating additional users is optional. 
