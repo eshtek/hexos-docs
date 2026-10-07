@@ -170,7 +170,7 @@ Only once the new server is doing everything the old one did:
 
 **Hardware passthrough needs re-selecting.** GPUs, TPUs and USB devices have to be picked again on the new machine, under both options.
 
-**Encryption keys.** Pools created by HexOS aren't encrypted, so this usually doesn't apply. If you created encrypted datasets yourself, export their keys from the old server before you start, and keep them with your config backup.
+**Encryption keys.** HexOS encrypts new folders by default, so this probably applies to you. Before you start, export the key of every encrypted folder from the old server (in TrueNAS, open **Datasets**, click the folder and click **Export Key**) and keep the keys with your config backup. You need a folder's key to open the copy of it on the new server. A folder with a manual passphrase has no key to export: have its passphrase ready instead. If your recovery key is set to **End-to-end encryption**, also have the old server's [Emergency kit](/features/folders/recovery-key#emergency-kit). See [Getting a folder's key out of HexOS](/features/folders#getting-a-folders-key-out-of-hexos).
 
 **The old server is your rollback plan.** Don't wipe it, and don't pull its drives, until the new server has been running your workload without problems for a while.
 
