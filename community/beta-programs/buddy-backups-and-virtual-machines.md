@@ -1,8 +1,8 @@
 ---
 title: Buddy Backups and Virtual Machines beta
-description: What it means to have Buddy Backups and Virtual Machines before release, what we ask of testers, and how to take part
+description: Buddy Backups is an open beta for everyone; Virtual Machines is still invite-only. What beta means, what we ask of you, and how to join the Virtual Machines beta
 published: false
-date: 2026-09-08T12:00:00.000Z
+date: 2026-10-07T00:00:00.000Z
 tags: community, beta, buddy backups, virtual machines
 editor: markdown
 dateCreated: 2026-09-08T12:00:00.000Z
@@ -10,55 +10,53 @@ dateCreated: 2026-09-08T12:00:00.000Z
 
 # Buddy Backups and Virtual Machines beta
 
-Buddy Backups and Virtual Machines are the core of HexOS 1.1, which ships on Black Friday. Before then, a small group of users is running both features on their own servers, so we can see how the decisions we made hold up against real setups and real data before everyone has them.
+Buddy Backups and Virtual Machines are both in beta, in two different ways:
 
-This page explains what being in this beta means, what we ask of you, and how to request a place. For the other programs currently running, see [Beta programs](/community/beta-programs).
+- **Buddy Backups is an open beta.** Everyone has it, with no sign-up.
+- **Virtual Machines is invite-only for now.** You can ask for a place with the signup form below.
 
-## What you get
+For the other programs running now, see [Beta programs](/community/beta-programs).
 
-When your account is added to the beta, the features are switched on for you. There is nothing to install or configure. The next time you open the Command Deck you will find a **Backups** section, and Virtual Machines will appear as they roll out. Everything in them works today.
+## What beta means
 
-You will see a **Beta** badge on every screen that belongs to the program. Click it at any time for a short reminder of what beta means and a link to the beta channel on Discord.
+Both features work today, on your real data. Beta means we are still finishing them. Screens may change, settings may move, and you may find a rough edge now and then. When something does not go as planned, the activity center tells you what happened and what to do next.
 
-> **Info:** Your buddy does not need to be in the beta to host a backup for you, but they do need to be running HexOS 1.1. If nobody you know is on HexOS yet, a second server of your own is the quickest way to try everything.
-{.is-info}
+You see a **Beta** badge on the screens of a feature in beta. Click it for a short note about the beta and a link to share feedback on Discord.
 
-## Why it says beta
+What you tell us shapes what reaches everyone. The beta channel on Discord is read by the people who build the features. Expect follow-up questions.
 
-The feature is finished and working. Beta means you have it before everyone else, and that what we learn from you shapes how it reaches everyone.
+## Buddy Backups: open beta
 
-The choices in it are deliberate: what a button does, when a notice appears, what happens when space runs short or a server goes quiet. A beta is how we find out whether those choices match what people expect when it is their data and their setup, rather than ours. What we hear from you can change what ships.
+Buddy Backups keeps a copy of your folders on a buddy's server or on a second server of your own. It is on for every HexOS account. There is nothing to sign up for and nothing to install. Click **Backups** in the sidebar of the hosted Command Deck to start.
 
-## What we ask of you
+Every backup it makes is a real copy you can restore. It uses the same replication that TrueNAS itself uses.
 
-Beta testing is not a formal commitment, and there is no minimum. The feedback that helps most comes from a few specific habits.
-
-**Run a real backup, for weeks.** A test folder is fine to start. How it fits into your routine only shows over weeks of real use on a schedule.
-
-**Read the notices and tell us what you did next.** When space runs short, when a backup stops arriving, when HexOS pauses something, it tells you what happened and what to do. We want to know whether that matched what you expected, and what you actually did.
-
-**Try the situations we designed for.** Fill the reserved space. Unplug a server for a week. Remove a folder and add it back. Let your buddy decline your request. Each of these has a deliberate behavior, and we want to see it through your eyes.
-
-**Tell us what you expected, not just what happened.** The gap between the two is the most useful thing you can tell us.
-
-> **Warning:** Keep any backup routine you already rely on running alongside Buddy Backups. A new backup destination should never be your only copy of anything.
+> **Warning:** While Buddy Backups is in beta, keep any backup you already rely on running alongside it.
 {.is-warning}
 
-## What you can count on
+What helps us most:
 
-**Nothing is deleted automatically.** Only you, removing a folder or a backup connection and confirming it, deletes anything. Read [what removing things actually deletes](/features/backups/removing-backups) before you need it.
+- **Run a real backup for a few weeks.** How it fits into your routine only shows over time, on a schedule.
+- **Read the notices.** When space runs short, a backup stops arriving, or HexOS pauses something, it tells you what happened and what to do. Tell us whether that matched what you expected, and what you did next.
+- **Tell us what confused you.** The gap between what you expected and what happened is the most useful thing you can share.
 
-**You are told when something needs your attention.** A backup that stops arriving raises a notice in the Command Deck.
+Before you remove anything, read [Removing backups](/features/backups/removing-backups). To get started, see [Set up a backup](/features/backups/set-up-a-backup) and the [Buddy Backups](/features/backups) overview.
 
-**Feedback is read by the people who built it.** The beta channel is watched by the engineers on the feature. Expect follow-up questions.
+## Virtual Machines: invite-only
 
-## Requesting a place
+Virtual Machines lets you run Windows, Linux, and small appliance systems on your HexOS server. It is still invite-only. When your account is added, **VMs** shows in the sidebar. There is nothing to install.
 
-Fill in the [Buddy Backups and Virtual Machines beta signup form](https://docs.google.com/forms/d/18XKSC5U0DPcaJL0RxrqRKqLl-mr7aS1WkTR9eftxOZw/viewform). It asks a little about your setup: how many servers you have, whether you have a buddy who also runs HexOS, and what you are hoping to protect. We are adding people in small groups, and expanding in stages before Black Friday.
+> **Warning:** While Virtual Machines is in beta, keep anything you already rely on running alongside these VMs.
+{.is-warning}
 
-If you have a question before you sign up, ask in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz).
+What helps us most:
 
-Once you are in, start with [Set up a backup](/features/backups/set-up-a-backup), and read the [Buddy Backups](/features/backups) overview for what the feature does and does not do.
+- **Use a VM for something real.** A test VM is fine to start, but the feedback that matters comes from real use over time.
+- **Tell us what you expected.** If a screen or a message did not do what you thought, we want to hear it.
+- **Say what you did next.** What you did after a notice or a result tells us more than whether you liked it.
 
-> **Contribute:** to help to improve HexOS documentation [join the #Docs channel on Discord](https://discord.com/invite/DjEp3WRHKz) today! Send feedback, suggestions or contribute a guide.
-{.is-contribute}
+To ask for a place, fill in the [Virtual Machines beta signup form](https://docs.google.com/forms/d/18XKSC5U0DPcaJL0RxrqRKqLl-mr7aS1WkTR9eftxOZw/viewform). It asks a little about your setup. We add people in small groups, so there may be a short wait.
+
+Once you are in, start with [VMs](/features/vms).
+
+If you have a question, ask in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz).
