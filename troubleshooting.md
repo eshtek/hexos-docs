@@ -18,7 +18,9 @@ Something not working? Find the area below that matches what you are seeing.
 ## Setting up
 
 - [**Installation issues**](/troubleshooting/installation) - USB imaging problems and installer failures
+- [**UEFI boot mode**](/troubleshooting/uefi-boot-mode) - Why HexOS needs UEFI mode, and how to switch or reinstall
 - [**Avoid USB drives**](/troubleshooting/usb-drives) - Why USB drives cause problems and what to use instead
+- [**UGREEN NAS keeps restarting**](/troubleshooting/ugreen-watchdog) - Turn off the BIOS watchdog that restarts a UGREEN NAS every few minutes
 - [**Connection issues**](/troubleshooting/connection) - Server not getting an IP address, discovery problems
 - [**Network ports**](/troubleshooting/network-ports) - What ports 43705 and 43706 are for, and whether it is safe to block them
 - [**DNS rebind protection**](/troubleshooting/dns-rebind-protection) - Your router is blocking local access to your server
@@ -37,6 +39,7 @@ Something not working? Find the area below that matches what you are seeing.
 - [**Storage and drive issues**](/troubleshooting/storage-and-drives) - Drives not recognized, pool creation problems
 - [**Drive failure**](/troubleshooting/drive-failure) - Replace a failed or failing drive without losing data
 - [**Files that can't be read**](/troubleshooting/pool-data-errors) - Damaged files on a pool, Repair for a damaged TrueNAS file, Check pool and Reset error count
+- [**Why your pool size changes**](/troubleshooting/pool-size) - How HexOS calculates a pool's size, and why it can grow past your drives or shrink when you delete files
 
 ## Hardware
 

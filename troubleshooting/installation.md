@@ -44,4 +44,8 @@ Installation problems can happen for various reasons:
    - Run a memory test (memtest86+) if the installer crashes
    - Try installing with minimal RAM configuration
 
+## Server restarts a few minutes after starting
+
+If your server restarts by itself about 3 minutes after it turns on, during installation or after, check for a hardware watchdog in the BIOS. UGREEN NAS models have one turned on from the factory. See [UGREEN NAS keeps restarting](/troubleshooting/ugreen-watchdog) to turn it off.
+
 **Related:** [Avoid USB drives](/troubleshooting/usb-drives) — why USB drives cause problems and what to use instead

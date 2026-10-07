@@ -123,11 +123,21 @@ Your server might be trying to boot from a different drive, for example an old W
 To fix this, first enter the BIOS. Usually this is done by pressing `F1`, `F2`, `F10`, `F12` or `Del` while the machine is turning on.
 Then in the BIOS, change the order of boot drives so your USB drive is at the top. Then save and restart.
 
+#### UGREEN NAS: turn off the watchdog
+
+UGREEN NAS models restart about 3 minutes after they turn on unless the watchdog in the BIOS is turned off, and that can interrupt the installation. While you are in the BIOS, follow [UGREEN NAS keeps restarting](/troubleshooting/ugreen-watchdog) to turn it off.
+
 #### Disabling Secure Boot
 
 If you see an error message about a "security policy violation" after booting, this is caused by [Secure Boot](https://en.wikipedia.org/wiki/UEFI#Secure_Boot).
 
 For instructions on how to disable Secure Boot, search for "[your motherboard model here] disable secure boot". You can also search for the motherboard user manual, and search within that for "secure boot".
+
+#### Start the USB drive in UEFI mode
+
+Some HexOS features, such as the memory test, need your server to start in UEFI mode. The mode you start the USB drive in is the mode HexOS is installed in.
+
+If you use your motherboard's boot menu, it often shows the USB drive twice. Choose the entry whose name starts with **UEFI**, for example **UEFI: USB Flash Disk 1.00, Partition 1**. See [UEFI boot mode](/troubleshooting/uefi-boot-mode) for pictures and the boot menu key for your motherboard.
 
 ### Boot screen
 

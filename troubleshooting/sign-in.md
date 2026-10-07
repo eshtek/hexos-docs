@@ -27,6 +27,10 @@ If you can't claim your server on deck.hexos.com:
    - Check if the server might already be claimed by another account
    - Contact support if you need to transfer ownership
 
+4. **Server keeps restarting**
+   - If the server restarts by itself every few minutes, it cannot finish connecting to HexOS, so claiming fails
+   - On a UGREEN NAS, the BIOS watchdog causes this. See [UGREEN NAS keeps restarting](/troubleshooting/ugreen-watchdog)
+
 ## Login issues with deck.hexos.com
 
 Authentication problems with the HexOS management portal:
