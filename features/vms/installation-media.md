@@ -25,6 +25,22 @@ There are three ways, and all of them end with the ISO in your Install Media loc
 
 **Upload it while you set up the VM.** Where a dialog asks for an ISO, choose **Select an ISO file**, open the list, and click **Browse files…** to upload one from your computer. The list shows the upload's progress.
 
+**Browse files…** opens the file browser in your **Install Media** folder. The path at the top shows where you are.
+
+<details>
+<summary> File browser in Install Media </summary>
+
+![browse-opens-in-install-media.png](/installation-media/browse-opens-in-install-media.png){.medium .framed}
+</details>
+
+To look in your other folders, click **All folders** at the top. **Install Media** is listed there with your folders, so you can click it to go back.
+
+<details>
+<summary> All folders with Install Media </summary>
+
+![browse-all-folders.png](/installation-media/browse-all-folders.png){.medium .framed}
+</details>
+
 **Give HexOS a download link.** Choose **Provide a download link** and paste a link that starts with `https://`. Your server downloads the ISO directly, so nothing passes through your computer. For Windows, the option reads **Provide a download link from Microsoft**, and **Open the official ISO download page** takes you to the page that generates one: pick your edition there, copy the link, and paste it.
 
 **Copy it there yourself.** Use the [file browser](/features/file-browser) to upload or move the ISO into your Install Media folder. It then appears in every **Choose an ISO** list.
