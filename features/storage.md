@@ -147,6 +147,7 @@ When copying data to a system, some users will notice a discrepancy between the 
 
 | I want to… | Guide |
 |---|---|
+| Test one drive and understand its report | [Drive Certification](/features/storage/drive-certification) |
 | Know what the deep check does to my drives | [Deep check](/features/storage/deep-check) |
 | Understand a notice about drive errors | [Drive errors](/features/storage/drive-errors) |
 | Keep a nightly copy of apps on a single drive | [App backups](/features/storage/app-backups) |
