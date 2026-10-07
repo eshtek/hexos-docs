@@ -119,6 +119,8 @@ Only a folder with a **Manual** passphrase can be locked from HexOS. A locked fo
 
 **To lock it:** open the folder's page and click **Lock**. HexOS confirms with **Successfully locked folder**.
 
+You cannot lock a folder while a running VM reads it directly. HexOS says **Folder in use by a virtual machine**. Stop the VM first. See [Direct folder access](/features/vms/plex-media-server#direct-folder-access).
+
 **To unlock it:**
 
 1. Open the folder's page and click **Unlock**.
