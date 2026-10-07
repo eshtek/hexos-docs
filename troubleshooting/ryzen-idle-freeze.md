@@ -66,8 +66,7 @@ Press `F10` (on most boards) to save and exit. The server will restart into HexO
 
 ## After the fix
 
-- If you used **Option B** (**Global C-State Control** set to **Disabled**), HexOS can see the change and the processor warning will clear on its own after the restart.
-- If you used **Option A** (**Typical Current Idle**) — the better fix — the change is invisible to the operating system, so HexOS cannot verify it automatically. Open the processor card and confirm you have applied the fix to clear the warning.
+HexOS cannot see either BIOS change, so the processor warning does not clear on its own. If your server shares hardware data, the warning stays under **Hardware advisories** in your diagnostics report after you apply the fix. Marking it as fixed is not available for everyone yet. Once you have applied the fix, you can ignore that entry. See [Health & Capabilities](/features/health-and-capabilities#known-issues).
 
 ## Common questions
 

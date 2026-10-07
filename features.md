@@ -2,7 +2,7 @@
 title: Features
 description: 
 published: true
-date: 2026-06-09T20:03:27.189Z
+date: 2026-10-07T00:00:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:40:38.908Z
@@ -96,6 +96,20 @@ From the Backups screen you can
 - View a map of all your backups
 
 [Read more about Buddy Backups here.](/features/backups)
+
+## Virtual Machines
+
+The VMs screen runs other computers inside your server: Windows, a Linux desktop, or a small appliance system such as Home Assistant OS or Plex Media Server. Virtual Machines is in beta and open to everyone. Your server needs at least 4 processor cores, 8 GB of memory, and 32 GB of free space on a pool.
+
+From the VMs screen you can
+- Set up a VM from the catalog, with the operating system and apps installed for you
+- Build a custom VM from your own installer ISO
+- Open a VM's screen in your browser, or with Remote Desktop
+- Change a VM's processor cores, memory, and disks
+- Hand a graphics card or USB devices to a VM
+- Start, stop, rename, and uninstall VMs
+
+[Read more about Virtual Machines here.](/features/vms)
 
 ## Settings
 

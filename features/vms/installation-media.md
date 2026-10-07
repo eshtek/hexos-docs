@@ -2,13 +2,16 @@
 title: Install media for VMs
 description: Where installer ISOs live on your server and how to add one
 published: true
-date: 2026-09-21T21:29:04.000Z
+date: 2026-10-07T00:00:00.000Z
 tags: vm, vms, iso, install media, installation media
 editor: markdown
 dateCreated: 2026-09-21T21:29:04.000Z
 ---
 
 # Install media for VMs
+
+> **Info:** Virtual Machines is in beta. Everyone can use it. Beta means we are still finishing it, so screens may change and you may find a rough edge. [What beta means](/features/vms#what-beta-means)
+{.is-info}
 
 Install media are the ISO files a VM boots from: an operating system installer, a rescue disc, or a disc of drivers. HexOS keeps them in one place on your server, the **Install Media** location, and VMs can only boot ISOs stored there.
 
@@ -23,7 +26,7 @@ Go to **Settings** > **Locations** and look under **Virtualization** for **Insta
 
 There are three ways, and all of them end with the ISO in your Install Media location.
 
-**Upload it while you set up the VM.** Where a dialog asks for an ISO, choose **Select an ISO file**, open the list, and click **Browse files…** to upload one from your computer. The list shows the upload's progress.
+**Upload it while you set up the VM.** Where the setup dialog asks for an ISO, choose **Select an ISO file**, open the **Choose an ISO** list, and click **Browse files…** to upload one from your computer. While it uploads, the file you picked shows **Uploading…** and how far it has got. Wait for the upload to finish before you click **Continue**.
 
 **Browse files…** opens the file browser in your **Install Media** folder. The path at the top shows where you are.
 
@@ -41,12 +44,17 @@ To look in your other folders, click **All folders** at the top. **Install Media
 ![browse-all-folders.png](/installation-media/browse-all-folders.png){.medium .framed}
 </details>
 
-**Give HexOS a download link.** Choose **Provide a download link** and paste a link that starts with `https://`. Your server downloads the ISO directly, so nothing passes through your computer. For Windows, the option reads **Provide a download link from Microsoft**, and **Open the official ISO download page** takes you to the page that generates one: pick your edition there, copy the link, and paste it.
+**Give HexOS a download link.** Choose **Provide a download link** and paste a link that starts with `https://`. Your server downloads the ISO directly, so nothing passes through your computer. When you install Windows from the catalog, the option reads **Provide a download link from Microsoft**. Choose it, then click **Open the official ISO download page** to go to the page that makes one: pick your edition there, copy the link, and paste it.
 
 **Copy it there yourself.** Use the [file browser](/features/file-browser) to upload or move the ISO into your Install Media folder. It then appears in every **Choose an ISO** list.
 
-> **Info:** If you pick a file from somewhere else, HexOS says **VMs can only boot ISOs stored in Install Media**. Copy the file there first, then pick it.
+> **Warning:** Put ISO files directly in the Install Media folder, not in a folder inside it. HexOS does not list ISOs in a folder inside Install Media, or files whose names start with a dot, and refuses one you pick there with **Choose an ISO file from Install Media.**
+{.is-warning}
+
+> **Info:** If you pick a file from somewhere else, HexOS says **VMs can only boot ISOs stored in Install Media. Upload or copy the file there, then pick it.**
 {.is-info}
+
+If your Install Media folder has no ISO yet, the list says **No ISO files found in your Install Media folder. Copy one there or paste a download URL below.**
 
 ## Using an ISO with a VM you already have
 

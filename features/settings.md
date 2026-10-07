@@ -37,6 +37,16 @@ Fine-tune your HexOS experience with dashboard controls.
 <summary> Recovery key tile in Settings </summary>
 
 ![settings-recovery-key-tile.png](/features/folders/images/settings-recovery-key-tile.png){.medium .framed}
+### Health & Capabilities
+
+Hardware data sharing and diagnostics for the server you have open. See [Health & Capabilities](/features/health-and-capabilities).
+- Choose whether this server shares hardware data with HexOS. Sharing is off until you turn it on.
+- Run diagnostics to check your server's storage, memory, network, apps and hardware.
+
+<details>
+<summary> Health & Capabilities tile in Settings </summary>
+
+![settings-tile.png](/features/health-and-capabilities/images/settings-tile.png){.medium .framed}
 </details>
 
 ## Reset
