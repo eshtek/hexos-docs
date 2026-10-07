@@ -1,6 +1,6 @@
 ---
 title: Buddy Backups and Virtual Machines beta
-description: Buddy Backups is an open beta for everyone; Virtual Machines is still invite-only. What beta means, what we ask of you, and how to join the Virtual Machines beta
+description: Buddy Backups and Virtual Machines are open betas for everyone. What beta means and what we ask of you
 published: false
 date: 2026-10-07T00:00:00.000Z
 tags: community, beta, buddy backups, virtual machines
@@ -10,10 +10,7 @@ dateCreated: 2026-09-08T12:00:00.000Z
 
 # Buddy Backups and Virtual Machines beta
 
-Buddy Backups and Virtual Machines are both in beta, in two different ways:
-
-- **Buddy Backups is an open beta.** Everyone has it, with no sign-up.
-- **Virtual Machines is invite-only for now.** You can ask for a place with the signup form below.
+Buddy Backups and Virtual Machines are both open betas. Everyone has them, with no sign-up and nothing to install.
 
 For the other programs running now, see [Beta programs](/community/beta-programs).
 
@@ -42,12 +39,19 @@ What helps us most:
 
 Before you remove anything, read [Removing backups](/features/backups/removing-backups). To get started, see [Set up a backup](/features/backups/set-up-a-backup) and the [Buddy Backups](/features/backups) overview.
 
-## Virtual Machines: invite-only
+## Virtual Machines: open beta
 
-Virtual Machines lets you run Windows, Linux, and small appliance systems on your HexOS server. It is still invite-only. When your account is added, **VMs** shows in the sidebar. There is nothing to install.
+Virtual Machines lets you run Windows, Linux, and small appliance systems such as Home Assistant OS on your HexOS server. It is on for every HexOS account. There is nothing to sign up for and nothing to install. Click **VMs** in the sidebar to start.
+
+Every VM is a real computer on your server. It runs on the same virtualization that TrueNAS uses, and its disks are stored on your own pools.
+
+VM setup is part of the same beta. For Plex Media Server and Home Assistant OS, HexOS can finish setting the system up after it starts, if you allow it. See [VM setup](/features/vms/vm-setup).
 
 > **Warning:** While Virtual Machines is in beta, keep anything you already rely on running alongside these VMs.
 {.is-warning}
+
+> **Danger:** **Uninstall** deletes every disk attached to a VM, including a disk shared with another VM or attached by hand, and VMs made in TrueNAS show in HexOS too. **Cancel setup** deletes a VM that is nearly finished. Read the [known issues](/features/vms#known-issues) before you rely on a VM.
+{.is-danger}
 
 What helps us most:
 
@@ -55,8 +59,6 @@ What helps us most:
 - **Tell us what you expected.** If a screen or a message did not do what you thought, we want to hear it.
 - **Say what you did next.** What you did after a notice or a result tells us more than whether you liked it.
 
-To ask for a place, fill in the [Virtual Machines beta signup form](https://docs.google.com/forms/d/18XKSC5U0DPcaJL0RxrqRKqLl-mr7aS1WkTR9eftxOZw/viewform). It asks a little about your setup. We add people in small groups, so there may be a short wait.
-
-Once you are in, start with [VMs](/features/vms).
+To get started, see [VMs](/features/vms). It also lists the [known issues](/features/vms#known-issues) we are working on.
 
 If you have a question, ask in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz).
