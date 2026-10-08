@@ -41,8 +41,6 @@ What this means for you:
 
 We know about these and are working on fixes. This list changes as fixes ship.
 
-- **Uninstall deletes every disk attached to the VM.** That includes a disk shared with another VM and a disk you attached yourself in TrueNAS. VMs made in TrueNAS show in HexOS too, and **Uninstall** deletes their disks the same way. Meanwhile, open the VM's **Disks** tab before you click **Uninstall** and check that every disk listed is one you want gone. To remove a VM made in TrueNAS but keep its disks, remove it in TrueNAS instead. See [VMs made in TrueNAS](/features/vms#vms-made-in-truenas).
-- **Cancel setup deletes the whole VM.** Once the VM exists, **Cancel setup** deletes it and its disks after one confirm, even near the end of a Windows install when you can already use it. Meanwhile, if you have started working inside a VM that is still finishing setup, do not click **Cancel setup**. Let setup finish, then uninstall the VM if you do not want it.
 - **The Power menu does not ask first.** **Reboot**, **Shut down** and **Force off** act as soon as you click them. **Shut down** and **Reboot** turn the VM off if it has not shut down in time. Meanwhile, save your work inside the VM first, or use the power button in the [console](/features/vms#the-console), which asks before each action.
 - **A Reboot that cannot start the VM again says nothing.** The VM stays off. Meanwhile, after a **Reboot**, check that **Status** reads **Running**. If it does not, click **Power on**.
 - **Resize lets a disk grow past the free space on its pool.** Meanwhile, check the free space on the **Storage** screen before you make a disk larger. A full pool stops VMs and apps from saving anything.
@@ -249,14 +247,16 @@ While automated setup runs, the console and power controls are locked so a stray
 
 Windows setup starts by itself. In the rare case that it cannot, HexOS shows **Action needed** and asks you to open the VM's screen and press a key at the "Press any key to boot from CD or DVD" prompt.
 
-Sometimes setup stops but keeps the VM and its disks. For example, when the system inside never reported that it was ready, HexOS says **The VM and its disks were kept** and explains why. You can open the VM to check it, or uninstall it and try again.
+Sometimes setup stops but keeps the VM and its disks. For example, when the system inside never reported that it was ready, HexOS says **The VM and its disks were kept** and explains why. Once the VM exists, HexOS never removes it or its disks by itself: if setup fails after that, HexOS says **Setup stopped. Your VM and disks were kept.** You can open the VM to check it, or uninstall it and try again.
 
 ### Cancel setup
 
-**Cancel setup** is on the system's page in the catalog while it installs. It stops the install. Installer files HexOS downloaded are kept, so a second attempt is faster.
+**Cancel setup** is on the system's page in the catalog while it installs. What it does depends on whether the VM exists yet:
 
-> **Danger:** Once the VM exists, **Cancel setup** deletes the whole VM and its disks, even when setup is nearly finished and you can already use the VM. It asks only once and does not ask you to type the VM's name. If you have started working inside the VM, do not click **Cancel setup**. Let setup finish, then uninstall the VM if you do not want it.
-{.is-danger}
+- **Before the VM exists**, it asks once. Click **Yes, cancel setup**. Setup stops and what it made so far is removed.
+- **Once the VM exists**, it removes the VM. The dialog lists the VM's disks the same way **Uninstall** does, and asks you to type the VM's name. Click **Cancel setup and remove VM**. Ticked disks are deleted for good, and unticked disks are kept. See [Uninstall](/features/vms#uninstall).
+
+Either way, installer files HexOS downloaded are kept, so a second attempt is faster.
 
 <details>
 <summary> Cancel setup </summary>
@@ -429,7 +429,7 @@ The **Options** tab has:
 | **Power** > **Force off** | Cuts power immediately, like holding the power button. Anything unsaved inside the VM is lost |
 | **Rename** | Changes the name the VM is shown under. Stop the VM first |
 | **Run setup** | Runs [VM setup](/features/vms/vm-setup) again, for systems that have it |
-| **Uninstall** | Permanently deletes the VM and every disk attached to it |
+| **Uninstall** | Removes the VM. Deletes only the disks you tick |
 
 A running VM shows the **Power** menu. A stopped VM shows **Power on** instead.
 
@@ -446,10 +446,14 @@ If **Rename** says **Old TPM data for this name is still on the server**, choose
 
 ### Uninstall
 
-To uninstall a VM, click **Uninstall**, type the VM's name to confirm, and click **Remove this VM**.
+To uninstall a VM, click **Uninstall**. The **Uninstall VM** dialog lists the VM's disks under **Disks**:
 
-> **Danger:** **Uninstall** permanently deletes the VM and every virtual disk attached to it, with all of their snapshots. That includes a disk shared with another VM and a disk you attached yourself in TrueNAS, and it applies to [VMs made in TrueNAS](/features/vms#vms-made-in-truenas) too. This cannot be undone. Before you click **Uninstall**, open the **Disks** tab and check that every disk listed is one you want gone.
-{.is-danger}
+- **Disks HexOS made for this VM start ticked.**
+- **A disk HexOS did not make for this VM starts unticked.** It says **Not made by HexOS for this VM. Tick it only if you want it gone.** This covers the disks of [VMs made in TrueNAS](/features/vms#vms-made-in-truenas), a disk you attached yourself, and the disks of a VM set up with an earlier version of HexOS.
+- **Some disks cannot be ticked and are always kept.** Each one says why: another VM uses it, a share or another service uses it, another disk was copied from it or it is protected, or HexOS could not check it.
+- **A disk that is a file** is listed as **File disk, kept**.
+
+Tick the disks you want deleted, type the VM's name, and click **Remove this VM**. HexOS shuts the VM down, removes it, and deletes each ticked disk with its snapshots. Unticked disks are kept.
 
 <details>
 <summary> Uninstall VM </summary>
@@ -457,14 +461,21 @@ To uninstall a VM, click **Uninstall**, type the VM's name to confirm, and click
 ![vms-uninstall-confirm](/vms-uninstall-confirm.png){.medium .framed}
 </details>
 
+> **Danger:** Ticked disks are deleted for good, with their snapshots. This cannot be undone. Check every tick before you click **Remove this VM**.
+{.is-danger}
+
+HexOS checks each ticked disk again just before it deletes it. If another VM or a share started using the disk meanwhile, or another disk was copied from it, the disk is kept and HexOS says **VM removed. Some disks you ticked were kept.**
+
+HexOS asks the VM to shut down and never forces it off. If the VM does not shut down, nothing is removed and HexOS says **The VM did not shut down, so nothing was removed. Turn it off, then try again.** Click **Power** > **Force off**, then click **Uninstall** again.
+
 Uninstall also removes the setup files HexOS made for the VM, its Windows security data, and the account a system such as Plex Media Server uses to read your folders. Your own ISO files, and the installer files HexOS downloaded, are kept.
 
 ## VMs made in TrueNAS
 
 VMs you made in the TrueNAS web interface also show under **Installed VMs**. You can start, stop, and open them from HexOS like any other VM.
 
-> **Danger:** **Uninstall** in HexOS deletes every disk attached to a VM made in TrueNAS, including a disk you attached from an earlier server or a replication. To remove such a VM but keep its disks, remove it in TrueNAS instead, without deleting its disks.
-{.is-danger}
+> **Info:** **Uninstall** lists the disks of a VM made in TrueNAS with none of them ticked, because HexOS did not make them. A disk you leave unticked is kept, so a disk you attached from an earlier server or a replication stays on your pool.
+{.is-info}
 
 ## Storage and snapshots
 

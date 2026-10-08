@@ -74,7 +74,7 @@ When a folder comes back after an outage, HexOS asks Plex to scan that library a
 
 ## Remove it
 
-**Uninstall** deletes the VM and its disk, the **plexvm** account, and the Plex token HexOS kept. Your media folders and the files in them are not touched. See [Uninstall](/features/vms#uninstall).
+**Uninstall** removes the VM, the **plexvm** account, and the Plex token HexOS kept. Its disk is deleted if you leave it ticked. Your media folders and the files in them are not touched. See [Uninstall](/features/vms#uninstall).
 
 ## Known issues
 
