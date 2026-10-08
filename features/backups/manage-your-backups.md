@@ -204,6 +204,7 @@ The tile becomes **Resume**, and the page says "Backups are paused. Nothing new 
 - Only the person who paused can resume. If your buddy paused it, ask them to resume it. Between your own servers, you can resume from either side.
 - A pause HexOS made because space ran short can be resumed by either side. It also resumes on its own when there is room.
 - You cannot pause while a restore is running. The page says "A restore is running. Pausing is unavailable until it finishes."
+- If the server that sends a paused backup is lost, recover the backup onto your new server. It stays paused there, and you can resume it from the new server. See [Recover a failed server](/features/backups/recover-a-failed-server).
 
 Pausing does not free space on the other server. To give the space back, remove the backup instead, which deletes the copy.
 

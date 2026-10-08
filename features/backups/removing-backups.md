@@ -22,7 +22,7 @@ Several actions look alike but do very different things. Read this page before y
 | Withdraw a request | Nothing. Nothing was copied. | Yes, send it again |
 | **Decline** a request | Nothing. Nothing was copied. | Yes, they can send it again |
 | **Cancel setup** on a new backup | Nothing. Setup never finished. | Yes, set it up again |
-| **Cancel setup** on a backup you recovered | **Every copy the backup holds.** Use **Retry now** instead. | **No** |
+| **Cancel setup** on a backup you recovered | Not offered. Use **Retry now**, or **Remove connection** to delete it. | |
 | **Pause** | Nothing. Copies and the space set aside stay. | Yes, by the person who paused |
 | Remove a folder from a backup | That folder's copy and all its restore points on the other server | **No** |
 | **Remove connection** | Every folder and every restore point on the other server, and the space set aside | **No** |
@@ -34,7 +34,7 @@ Several actions look alike but do very different things. Read this page before y
 
 Only deleting a folder deletes your own files. Removing a connection also stops any restore in progress and removes the unfinished copy it left on your server.
 
-HexOS deletes a backup copy only when someone confirms one of the actions on this page. On its own, it removes only restore points older than the time you chose to keep them, and the unfinished copy that a stopped restore left on your server.
+HexOS deletes a backup copy only when someone confirms one of the actions on this page. If the other server is offline then, the delete finishes when it is back. On its own, it removes only restore points older than the time you chose to keep them, and the unfinished copy that a stopped restore left on your server.
 
 ## Pausing is not removing
 
@@ -49,10 +49,7 @@ Pausing does not free space on the other server. To give the space back, remove 
 
 On the **Backups** page, click **Requests**. Under **Outgoing requests**, click **Withdraw** on the request, then **Withdraw request** to confirm. Nothing was copied, so nothing is deleted.
 
-A setup that has not finished can be stopped with **Cancel setup** in its activity item, then **Cancel setup** again in "Cancel this backup setup?". That removes the connection. On a new backup, no folders were backed up yet, so nothing is lost.
-
-> **Danger:** Recovering a backup onto a new server runs setup again. If that setup fails, **Cancel setup** deletes every copy the backup holds, even though the dialog says no folders were backed up. Use **Retry now** instead, or ask in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz). See [Known issues](/features/backups#known-issues).
-{.is-danger}
+A setup that has not finished can be stopped with **Cancel setup** in its activity item, then **Cancel setup** again in "Cancel this backup setup?". That removes the connection. Only a new backup offers it, so nothing is lost. A backup you recovered onto a new server offers **Retry now** instead.
 
 ## Remove a folder from a backup
 
@@ -64,8 +61,8 @@ You can do this in three places:
 
 The folder on your server stays. Its copy on the other server, and every restore point of it, is deleted for good.
 
-> **Warning:** Remove a folder only while the other server is online. If it is offline, its copy there is not deleted, even though the message says the deletion will complete later. The copy stays on the other server, still encrypted if the folder is, until you add a folder with the same name to that backup again or remove the whole connection. See [Known issues](/features/backups#known-issues).
-{.is-warning}
+> **Info:** If the other server is offline, its copy is deleted when that server is back online. Until then it still uses space there, and you can't add a folder with the same name to that backup.
+{.is-info}
 
 ## Remove a connection
 
@@ -74,6 +71,8 @@ Click the **Remove** tile on the backup's page, or **Remove connection** in the 
 The **Remove connection** dialog says "Removing this connection stops all backups between this server and" the other side. A red box says every restore point stored on the other server is permanently deleted, and the space set aside is released. It also suggests: "To stop backups without losing anything, pause the connection instead."
 
 To go ahead, check "I understand that removing this connection permanently deletes all of its backups." and click **Remove connection**.
+
+A new backup whose setup never finished has nothing to delete, so its dialog has no check box.
 
 <details>
 <summary> The Remove connection dialog </summary>
@@ -104,7 +103,7 @@ To go ahead, check "I understand that this also permanently deletes the folder's
 ![remove-folder-dialog.png](/features/backups/images/remove-folder-dialog.png){.medium .framed}
 </details>
 
-Do this while the servers it backs up to are online. A copy on a server that is offline at the time is not deleted, and stays there until you remove that connection. Nothing is left on the servers that were online. If you only want to free space on your server, restore anything you need first, or keep the folder.
+A copy on a server that is offline at the time is deleted when that server is back online. If you only want to free space on your server, restore anything you need first, or keep the folder.
 
 ## Unclaiming or resetting a server that stores backups
 

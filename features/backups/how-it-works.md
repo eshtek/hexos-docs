@@ -41,8 +41,8 @@ Every connection a server makes for Buddy Backups goes outward. To join the netw
 
 The receiving server needs SSH on port 22, and HexOS starts the SSH service there if it is off. Inside the tunnel, a rule allows exactly one thing: TCP port 22 from the sending server to the receiving server. NetBird's default "allow everything" rule is turned off, and HexOS checks that it stays off every five minutes. Each connection gets its own rule.
 
-> **Warning:** Turning on SSH also opens port 22 on the receiving server's local network, as any TrueNAS SSH service does. It is not opened on your router or to the internet. The SSH service stays on after the backup is removed. See [Known issues](/features/backups#known-issues).
-{.is-warning}
+> **Info:** SSH also listens on the receiving server's local network, as any TrueNAS SSH service does, but the sending server's key works only through the private link. While SSH is on, any other account that can log in with SSH can do so from your local network. Nothing is opened on your router or to the internet. When the last backup stored there is removed, HexOS turns SSH off again if HexOS turned it on and nothing else uses it. See [SSH is still on after your server stopped storing backups](/features/backups/troubleshooting#ssh-is-still-on-after-your-server-stopped-storing-backups).
+{.is-info}
 
 ### Direct when possible, relayed when needed
 
@@ -71,7 +71,7 @@ When you create a backup to your own server, or your buddy accepts your request,
 
 Then each folder you chose is added, and its first backup starts on its own.
 
-If a step fails, HexOS tries again within about 10 minutes and picks up where it stopped. **Retry now** in the activity item tries again straight away. **Cancel setup** removes the half-built connection. On a new backup, that holds no backed-up data yet. On a backup you recovered onto a new server, it deletes the backup's copies, so use **Retry now** there. See [Known issues](/features/backups#known-issues).
+If a step fails, HexOS tries again within about 10 minutes and picks up where it stopped. **Retry now** in the activity item tries again straight away. On a new backup, **Cancel setup** removes the half-built connection, which holds no backed-up data yet. A backup you recovered onto a new server has no **Cancel setup**: use **Retry now**.
 
 ## What is stored on the receiving server
 
@@ -79,7 +79,7 @@ The receiving side is built to hold an encrypted folder without being able to op
 
 **A dedicated user.** Its name starts with `hexbk_`. It cannot log in with a password.
 
-**A forced command.** Your server's public key is installed so that every SSH session runs one script and nothing else, with no terminal and no forwarding. The script lets that user run only the ZFS commands a backup or restore needs. It checks each command before running it, and a command that names a dataset must name one inside the connection's own datasets. One gap remains: a `zfs list` that names no dataset is allowed, so the sending server can see the names of every dataset on the receiving server. It cannot open them. See [Known issues](/features/backups#known-issues).
+**A forced command.** Your server's public key is installed so that every SSH session runs one script and nothing else, with no terminal and no forwarding. The script lets that user run only the ZFS commands a backup or restore needs. It checks each command before running it, and a command that names a dataset must name one inside the connection's own datasets. The sending server sees only its own copies, its key works only through the private link, and the copies are never mounted on the receiving server.
 
 **A dataset tree.** Copies land under `<pool>/hexos-backups/<token>`, in a read-only child dataset.
 
@@ -142,8 +142,7 @@ A restore pulls the copy back as a new folder. An encrypted folder arrives still
 
 **Passphrase:** your passphrase passes through HexOS to your server without being stored. Your server keeps it in memory for the unlock, never on disk, and drops it afterwards.
 
-> **Danger:** Once it unlocks, the restored folder is shared on your network and open to everyone, whatever its access was before. Set its access as soon as the restore finishes. See [Restore a folder](/features/backups/restore-a-folder#after-it-finishes).
-{.is-danger}
+Once it unlocks, the restored folder is shared on your network with the access you chose in the restore's review. See [Restore a folder](/features/backups/restore-a-folder#start-a-restore).
 
 > **Info:** With keys managed by HexOS (the default), HexOS can unlock restored folders for you. If you keep the recovery key yourself, store it somewhere safe. See [Recovery keys](/features/folders#recovery-keys).
 {.is-info}
@@ -179,7 +178,7 @@ Here is roughly what it takes to build the same thing yourself on plain TrueNAS:
 9. Watch each task, notice when a run fails or a schedule is missed, and decide when to try again.
 10. Repeat for each folder, each direction, and each buddy.
 
-None of this is unusual. All of it is standard TrueNAS. Buddy Backups does it the same way every time, in the right order, with strict settings, and removes what it created when you remove the connection. The one exception is the SSH service, which stays on.
+None of this is unusual. All of it is standard TrueNAS. Buddy Backups does it the same way every time, in the right order, with strict settings, and removes what it created when you remove the connection. It turns the SSH service back off only if it turned it on and nothing else uses it.
 
 ## What HexOS never has
 
