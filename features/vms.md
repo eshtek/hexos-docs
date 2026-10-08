@@ -247,22 +247,29 @@ While automated setup runs, the console and power controls are locked so a stray
 
 Windows setup starts by itself. In the rare case that it cannot, HexOS shows **Action needed** and asks you to open the VM's screen and press a key at the "Press any key to boot from CD or DVD" prompt.
 
-Sometimes setup stops but keeps the VM and its disks. For example, when the system inside never reported that it was ready, HexOS says **The VM and its disks were kept** and explains why. Once the VM exists, HexOS never removes it or its disks by itself: if setup fails after that, HexOS says **Setup stopped. Your VM and disks were kept.** You can open the VM to check it, or uninstall it and try again.
+Sometimes setup stops but keeps the VM and its disks. For example, when the system inside never reported that it was ready, HexOS says **The VM and its disks were kept** and explains why. Once the VM exists, HexOS never removes it or its disks by itself. If setup fails after that, HexOS keeps them and says so, for example **Setup stopped. Your VM and disks were kept.** You can open the VM to check it, or uninstall it and try again.
 
 ### Cancel setup
 
 **Cancel setup** is on the system's page in the catalog while it installs. What it does depends on whether the VM exists yet:
 
-- **Before the VM exists**, it asks once. Click **Yes, cancel setup**. Setup stops and what it made so far is removed.
-- **Once the VM exists**, it removes the VM. The dialog lists the VM's disks the same way **Uninstall** does, and asks you to type the VM's name. Click **Cancel setup and remove VM**. Ticked disks are deleted for good, and unticked disks are kept. See [Uninstall](/features/vms#uninstall).
-
-Either way, installer files HexOS downloaded are kept, so a second attempt is faster.
+**Before the VM exists**, it asks once. Click **Yes, cancel setup**. Setup stops and what it made so far is removed. If HexOS made the VM while the dialog was open, it says **The VM already exists, so cancelling setup removes it. Reload the page and confirm with the VM's name.** Reload the page and click **Cancel setup** again.
 
 <details>
-<summary> Cancel setup </summary>
+<summary> Cancel setup before the VM exists </summary>
+
+![cancel-setup-before-vm.png](/features/vms/images/cancel-setup-before-vm.png){.medium .framed}
+</details>
+
+**Once the VM exists**, it removes the VM. The dialog lists the VM's disks the same way **Uninstall** does, and asks you to type the VM's name. Click **Cancel setup and remove VM**. Ticked disks are deleted for good, and unticked disks are kept. See [Uninstall](/features/vms#uninstall).
+
+<details>
+<summary> Cancel setup once the VM exists </summary>
 
 ![cancel-setup-confirm.png](/features/vms/images/cancel-setup-confirm.png){.medium .framed}
 </details>
+
+Either way, installer files HexOS downloaded are kept, so a second attempt is faster.
 
 A custom VM started from a download link has no **Cancel setup**. Wait for it to finish or fail, then uninstall it.
 
