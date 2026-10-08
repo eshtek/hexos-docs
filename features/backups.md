@@ -40,8 +40,6 @@ What this means for you:
 We know about these and are working on fixes. This list changes as fixes ship.
 
 - **Folders restored before restores asked who can open them are open to everyone on your network.** Restores now ask, but a folder restored before then came back with no password. If you restored a folder before then, set who can open it. See [Restore a folder](/features/backups/restore-a-folder#after-it-finishes).
-- **The server that sends a backup can see dataset names on the server that stores it.** It can see names, such as folder names, but cannot open anything. Meanwhile, host backups only for people you are happy to show your folder names to.
-- **Storing a backup turns on SSH on your local network.** HexOS turns on the SSH service on the server that stores a backup. It listens on your local network as well as the private link, and stays on after the backup is removed. Nothing is opened on your router. Meanwhile, if your server no longer stores any backups, you can turn SSH off in TrueNAS.
 
 ## Why it exists
 
