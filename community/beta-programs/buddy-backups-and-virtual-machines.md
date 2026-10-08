@@ -50,8 +50,8 @@ VM setup is part of the same beta. For Plex Media Server and Home Assistant OS, 
 > **Warning:** While Virtual Machines is in beta, keep anything you already rely on running alongside these VMs.
 {.is-warning}
 
-> **Danger:** **Uninstall** deletes every disk attached to a VM, including a disk shared with another VM or attached by hand, and VMs made in TrueNAS show in HexOS too. **Cancel setup** deletes a VM that is nearly finished. Read the [known issues](/features/vms#known-issues) before you rely on a VM.
-{.is-danger}
+> **Info:** Read the [known issues](/features/vms#known-issues) before you rely on a VM.
+{.is-info}
 
 What helps us most:
 

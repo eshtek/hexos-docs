@@ -207,8 +207,8 @@ The copy runs directly between the two servers. On a home network it is fast: th
 
 4. Finish the remaining steps and start the virtual machine.
 
-> **Danger:** Virtual machines made in TrueNAS also show in HexOS under **VMs**. **Uninstall** in HexOS deletes every disk attached to the virtual machine, including the copied disk. To remove a virtual machine but keep its disk, remove it in TrueNAS instead, without deleting its disks. See [VMs made in TrueNAS](/features/vms#vms-made-in-truenas).
-{.is-danger}
+> **Info:** Virtual machines made in TrueNAS also show in HexOS under **VMs**. **Uninstall** in HexOS keeps a disk it did not make unless you tick it, so the copied disk stays unless you tick it. See [VMs made in TrueNAS](/features/vms#vms-made-in-truenas).
+{.is-info}
 
 > **Tip:** Keep the virtual machines on the old server until the new ones start and work as expected. If something goes wrong, you can still go back.
 {.is-tip}

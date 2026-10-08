@@ -113,8 +113,8 @@ Start the apps and check each one before moving on.
 
 **On Option B**, skip this step. VM definitions are part of the config backup, so they'll come back on their own in Step 6 — and because the pool name matches, they'll already be pointing at the zvols you replicated. Check them after the restore instead.
 
-> **Danger:** Virtual machines made in TrueNAS also show in HexOS under **VMs**. **Uninstall** in HexOS deletes every disk attached to the virtual machine, including the zvol you replicated. To remove a virtual machine but keep its disk, remove it in TrueNAS instead, without deleting its disks. See [VMs made in TrueNAS](/features/vms#vms-made-in-truenas).
-{.is-danger}
+> **Info:** Virtual machines made in TrueNAS also show in HexOS under **VMs**. **Uninstall** in HexOS keeps a disk it did not make unless you tick it, so the zvol you replicated stays unless you tick it. See [VMs made in TrueNAS](/features/vms#vms-made-in-truenas).
+{.is-info}
 
 Under both options: if a VM or app uses passed-through hardware — a GPU, a TPU, a USB device — you'll need to select that device again on the new machine. Hardware addresses differ from board to board, so the old selection won't carry over, and a restored config can't carry it either.
 

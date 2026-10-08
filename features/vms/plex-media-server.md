@@ -92,7 +92,7 @@ If HexOS cannot connect the folders for another reason, it says **Folders couldn
 
 ## Remove it
 
-**Uninstall** deletes the VM and its disk, the **plexvm** account, and the Plex token HexOS kept. Your media folders and the files in them are not touched. See [Uninstall](/features/vms#uninstall).
+**Uninstall** removes the VM, the **plexvm** account, and the Plex token HexOS kept. Its disk is deleted only if it is ticked. Your media folders and the files in them are not touched. See [Uninstall](/features/vms#uninstall).
 
 ## Known issues
 
