@@ -21,7 +21,7 @@ Hosting a backup means lending part of your pool to a friend. Their folders arri
 
 **You cannot read their data.** Only encrypted folders can be sent to another person. The copies stay encrypted on your pool. On your side, their backup's page shows a note that only they can view their backup data, instead of a list of folders.
 
-**They cannot reach your server.** Hosting gives your buddy no access to your files or Command Deck. The link between the two servers carries backup traffic only. One known gap: your buddy's server can see the names of the datasets on your server, such as your folder names, but cannot open them. See [Known issues](/features/backups#known-issues).
+**They cannot reach your server.** Hosting gives your buddy no access to your files, folder names or Command Deck. The link between the two servers carries backup traffic only, and their server sees only the backup it sends.
 
 **You share your internet.** Backup traffic uses your internet connection. You can limit how fast it runs.
 

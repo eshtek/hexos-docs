@@ -39,12 +39,7 @@ What this means for you:
 
 We know about these and are working on fixes. This list changes as fixes ship.
 
-- **A restored folder is open to everyone on your network.** When you restore a folder, it comes back open to anyone on your network, with no password, whatever its access was before. Right after a restore, set who can open the folder. See [Restore a folder](/features/backups/restore-a-folder#after-it-finishes).
-- **Removing a folder while the other server is offline leaves its copy there.** The message says the deletion finishes later, but it does not. Meanwhile, remove folders (or delete a backed-up folder) only while both servers are online. To clear a copy left behind, add the folder back to that backup and remove it again while both are online, or remove the whole connection. See [Removing backups](/features/backups/removing-backups#remove-a-folder-from-a-backup).
-- **Cancel setup on a recovered backup deletes its copies.** After you recover a backup onto a new server, its setup runs again. If that setup fails, **Cancel setup** deletes every copy the backup holds, though the dialog says nothing was backed up. Meanwhile, click **Retry now**, never **Cancel setup**, on a recovered backup. See [Recover a failed server](/features/backups/recover-a-failed-server#move-the-backup-to-the-new-server).
-- **A backup paused when its server was lost cannot be recovered.** It cannot be resumed either, because its server is gone. Its copies are kept. Meanwhile, ask in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz) before you remove anything.
-- **The server that sends a backup can see dataset names on the server that stores it.** It can see names, such as folder names, but cannot open anything. Meanwhile, host backups only for people you are happy to show your folder names to.
-- **Storing a backup turns on SSH on your local network.** HexOS turns on the SSH service on the server that stores a backup. It listens on your local network as well as the private link, and stays on after the backup is removed. Nothing is opened on your router. Meanwhile, if your server no longer stores any backups, you can turn SSH off in TrueNAS.
+- **Folders restored before restores asked who can open them are open to everyone on your network.** Restores now ask, but a folder restored before then came back with no password. If you restored a folder before then, set who can open it. See [Restore a folder](/features/backups/restore-a-folder#after-it-finishes).
 
 ## Why it exists
 

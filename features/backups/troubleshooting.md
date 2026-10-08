@@ -146,11 +146,38 @@ If encryption finished but the folder was not added, HexOS says so. Add it again
 
 ## A removed folder's copy is still on the other server
 
-If you removed a folder from a backup, or deleted a backed-up folder, while the other server was offline, its copy there was not deleted. The message said the deletion would finish later, but it does not. To clear it, add the folder back to that backup and remove it again while both servers are online, or remove the whole connection. See [Known issues](/features/backups#known-issues).
+If you removed a folder, or deleted a backed-up folder, while the other server was offline, its copy is deleted when that server is back online. A copy left by a removal made before this fix stays: add the folder back to that backup and remove it again while both servers are online, or remove the whole connection.
 
-## A paused backup cannot be recovered
+While that copy is still owed, moving the backup to another pool or server says "A removed folder's copy is still being deleted. Try the move again in a few minutes." Wait until the other server is online, then try the move again.
 
-A backup that was paused cannot be recovered onto a new server. If the old server still works, resume the backup there first. If the old server is gone, the backup cannot be resumed or recovered yet. Its copies are kept. Ask in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz) before you remove anything.
+## SSH is still on after your server stopped storing backups
+
+HexOS turns SSH off only if HexOS turned it on and nothing else on your server can log in with SSH. SSH stays on if:
+
+- SSH was already running, or set to start automatically, before your server stored a backup.
+- Something else can log in with SSH: an SSH key or SSH password on any account, a directory service such as Active Directory, or custom SSH settings.
+- Your server started storing backups before HexOS could turn SSH off again.
+
+If someone was still connected over SSH when the last backup was removed, HexOS tries again every hour.
+
+If your server stores no backups and you do not use SSH, turn SSH off in TrueNAS:
+
+1. Click **System** > **Services**.
+2. On the **SSH** row, click the stop button so **Status** shows **Stopped**.
+3. Click the **Start Automatically** switch to turn it off, so SSH does not start again when the server restarts.
+
+<details>
+<summary> TrueNAS services </summary>
+
+![truenas-services-ssh.png](/features/backups/images/truenas-services-ssh.png){.medium .framed}
+</details>
+
+> **Warning:** Do not turn SSH off while your server still stores a backup. Your buddy's backups stop until it is back on.
+{.is-warning}
+
+## Recovering a paused backup
+
+A paused backup can be recovered onto a new server. It stays paused there until it is resumed. If your buddy paused it, ask them to resume it.
 
 ## You cannot delete a folder
 
