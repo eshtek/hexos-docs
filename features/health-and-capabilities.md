@@ -179,7 +179,7 @@ The top of the report says **Nothing needs your attention** or how many things n
 
 This part lists known problems with parts like the ones in your server. It shows one of these:
 
-- **One entry for each known issue that matches.** Each entry says what the problem is and, when there is one, the recommended fix. It names the part after **Device:**. For a drive, that is its system name and model, such as `sda WDC WD40EFRX`. A report kept from before this update shows **Drive**. For a network part, it also says what this server has seen. Click **Learn more** to open a page about the issue.
+- **One entry for each known issue that matches.** Each entry says what the problem is and, when there is one, the recommended fix. It names the part after **Device:**. For a drive, that is its system name and model, such as `sda WDC_WD40EFRX-68N32N0`. A report kept from before this update shows **Drive**. For a network part, it also says what this server has seen. Click **Learn more** to open a page about the issue.
 - **Known issue, not seen on this server:** a network part has a known issue, but this server has not logged that trouble. Most of these entries do not count as things that need your attention.
 - **No known issues with this server's hardware.**
 - **Hardware advisories are off because this server doesn't share hardware data. Turn sharing on above to see them.** The page keeps showing this until a new run. After you turn sharing on, click **Run again**.
