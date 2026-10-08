@@ -56,6 +56,12 @@ HexOS then sets the backup up on the new server. This shows in the activity cent
 
 If that setup fails, click **Retry now**. A recovered backup has no **Cancel setup**, so its copies are kept.
 
+<details>
+<summary> A recovered setup that failed </summary>
+
+![recovered-setup-failed.png](/features/backups/images/recovered-setup-failed.png){.medium .framed}
+</details>
+
 HexOS confirms with "Connection transferred to" the new server's name, and "Restore its folders from the backup's details." For a paused backup, it says "It's still paused." instead.
 
 If you have nothing to recover, HexOS says "You do not have any backups that can be recovered."
@@ -75,6 +81,12 @@ Recover moves only the connection. It does not bring back any folders by itself.
 ## Recovering a paused backup
 
 A paused backup can be recovered too. It shows "paused" in the list, and "Recovering keeps this backup paused." when you choose it. It stays paused on the new server, and HexOS says "It's still paused." Resume it there when you are ready. If your buddy paused it, ask them to resume it.
+
+<details>
+<summary> Recovering a paused backup </summary>
+
+![recover-dialog-paused.png](/features/backups/images/recover-dialog-paused.png){.medium .framed}
+</details>
 
 ## When recovering cannot go ahead
 
