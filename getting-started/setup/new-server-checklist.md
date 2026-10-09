@@ -15,11 +15,11 @@ A new server is at its riskiest on the first day. The drives may be second-hand,
 The checklist has two checks:
 
 1. **A deep check of your drives.** If a drive in a new pool has been used before, HexOS checks that pool's health in the background. See [Deep check](/features/storage/deep-check).
-2. **A memory test.** On a physical server, HexOS recommends testing the memory before you go far.
+2. **A memory test.** On a physical server, HexOS locks the new pools until the memory test passes or you skip it.
 
 ## While a check runs
 
-While a pool is being checked, you cannot put new data on it yet. Creating a shared folder, installing an app, or creating a virtual machine disk on that pool waits. A note beside the button explains why, and shows the time left when HexOS knows it. Everything else works as usual.
+While a pool is being checked, creating a shared folder, installing an app, or creating a virtual machine disk on that pool waits. A note beside the button explains why, and shows the time left when HexOS knows it. Everything else works as usual.
 
 <details>
 <summary> A new shared folder waiting for its pool </summary>
@@ -48,7 +48,9 @@ When the check passes, the pool opens on its own and a notice tells you it is re
 
 ## The memory test
 
-The first time you open the dashboard after setup, a notice in the activity center asks **New server? Test its memory**. The test restarts the server and takes about 2 hours.
+After setup, HexOS locks the new pools until the memory test passes or you skip it. While a pool is locked, creating a shared folder, installing an app, or creating a virtual machine disk on it waits, the same as while a drive check runs.
+
+The first time you open the dashboard after setup, an orange notice in the activity center asks you to test the memory. While the memory test locks your storage, its title is **Storage locked: test memory**. If you already opened every pool early, the title is **New server? Test its memory**. The test restarts the server and can take a few hours.
 
 <details>
 <summary> The memory test notice </summary>
@@ -56,10 +58,29 @@ The first time you open the dashboard after setup, a notice in the activity cent
 ![memory-test-notice.png](/new-server-checklist/memory-test-notice.png){.medium .framed}
 </details>
 
-- Click **Start the test** to open the **Memory** page with the test ready to run.
+- Click **Start the test** to open the **Memory** info panel with the test ready to run.
 - Click **Do it later** to skip it for now.
 
-On the **Memory** page, click **Start**. A new server runs the **Standard** test: a quick pass, then a full one. It finds nearly all memory faults. The dialog shows how long your server will be offline, based on how much memory it has.
+While the lock is on, the **Memory** card on the dashboard shows **Storage locked**.
+
+<details>
+<summary> The Memory card while storage is locked </summary>
+
+![memory-card-locked.png](/new-server-checklist/memory-card-locked.png){.medium .framed}
+</details>
+
+Click the **Memory** card to open its info panel. It says **Storage is locked for the memory test** and how the lock clears, with **Skip for now** and a link to this page.
+
+<details>
+<summary> The Memory info panel while storage is locked </summary>
+
+![memory-page-locked.png](/new-server-checklist/memory-page-locked.png){.medium .framed}
+</details>
+
+> **Info:** Closing the notice does not unlock your storage. The **Memory** card and info panel keep showing the lock until the test passes or you skip it.
+{.is-info}
+
+On the **Memory** info panel, click **Start**. A new server runs the **Standard** test: a quick pass, then a full one. It finds nearly all memory faults. The dialog shows an estimate of how long your server will be offline, based on how much memory it has.
 
 <details>
 <summary> Starting the memory test </summary>
@@ -81,6 +102,17 @@ When the server is back, HexOS reads the result. If it cannot, for example becau
 ![memory-test-what-screen-showed.png](/new-server-checklist/memory-test-what-screen-showed.png){.medium .framed}
 </details>
 
+When the test passes, HexOS removes the memory lock. If the test finds errors, the lock stays: the **Memory** card shows **Memory test failed** and **Storage locked**. Click **Test memory** on the **Memory** info panel to run it again, or open a pool early as shown in [Use a pool before its check finishes](#use-a-pool-before-its-check-finishes).
+
+<details>
+<summary> The Memory card after a failed test </summary>
+
+![memory-test-failed-locked.png](/new-server-checklist/memory-test-failed-locked.png){.medium .framed}
+</details>
+
+> **Info:** The memory lock and the drive check are separate. A pool that is still being checked stays locked until its check finishes, even after the memory test passes.
+{.is-info}
+
 > **Info:** A server that runs inside a virtual machine cannot test its physical memory, so it does not get this notice.
 {.is-info}
 
@@ -94,7 +126,7 @@ When you click **Do it later**, HexOS explains the risk. Tick the box to say you
 ![skip-memory-test-dialog.png](/new-server-checklist/skip-memory-test-dialog.png){.medium .framed}
 </details>
 
-Your pools open, and the **Memory** card on the dashboard says **Untested** and the date you skipped.
+HexOS removes the memory lock, and the **Memory** card on the dashboard says **Untested** and the date you skipped. A pool that is still being checked stays locked until its check finishes.
 
 <details>
 <summary> The Memory card after a skip </summary>
