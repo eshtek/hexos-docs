@@ -102,6 +102,55 @@ To open the menu from the keyboard, select an item and press Shift+F10, or the M
 
 On a tablet, press and hold a file or folder for half a second to open the same menu. On a phone, press and hold still starts selecting files.
 
+### Dragging files onto a folder
+
+> **Info:** Dragging files onto a folder is being tried out with some accounts first, together with the right-click menu. If you can't drag files, it has not reached your account yet. **Copy to** and **Move to** in the panel work as before.
+{.is-info}
+
+Select one or more files, then drag them onto a folder in the list. You can also drop them on a folder above the one you are in, using the path buttons at the top of the window. When you let go, a menu asks what to do: **Move here**, **Copy here** or **Cancel**. Nothing happens until you choose. **Cancel** is selected to start with, so pressing Enter does nothing.
+
+<details>
+<summary> Menu after dropping two files on a folder </summary>
+
+![drag-drop-menu.png](/features/file-browser/drag-drop-menu.png){.medium .framed}
+</details>
+
+Dragging works with a mouse or trackpad. On a phone, or with a finger or pen, use **Copy to** and **Move to** instead.
+
+#### Undoing a move
+
+When a move you made by dragging finishes, a message says what moved and where. Click **Undo** within 10 minutes to put everything back where it was, under the same names. You can also click **Undo move** in the bar at the bottom of the file browser, which does the same thing.
+
+<details>
+<summary> Message offering Undo after a move </summary>
+
+![drag-drop-undo.png](/features/file-browser/drag-drop-undo.png){.medium .framed}
+</details>
+
+<details>
+<summary> Message after the files went back </summary>
+
+![drag-drop-undone.png](/features/file-browser/drag-drop-undone.png){.medium .framed}
+</details>
+
+Undo never replaces or deletes anything. An item stays where it is, and the message says why, when:
+
+- something else now has its old name
+- it was moved, renamed or replaced after the move
+- the folder it came from is gone or was replaced
+- it is shared or in use now
+
+<details>
+<summary> Message when an item could not go back </summary>
+
+![drag-drop-undo-blocked.png](/features/file-browser/drag-drop-undo-blocked.png){.medium .framed}
+</details>
+
+If an item could not go back because something else has its old name, rename or move that other item. **Undo** is offered again while the 10 minutes last.
+
+> **Info:** Undo isn't offered for a copy, or for a move into a different storage area (for example a folder an app created). Delete the copy, or move the files back yourself.
+{.is-info}
+
 ## Working with files
 
 ### Uploading
