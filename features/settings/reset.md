@@ -2,7 +2,7 @@
 title: Reset
 description: Unclaim a server and keep its data, or erase everything on it with System wipe
 published: true
-date: 2026-10-08T00:00:00.000Z
+date: 2026-10-09T00:00:00.000Z
 tags: settings, reset, unclaim, system wipe
 editor: markdown
 dateCreated: 2026-10-08T00:00:00.000Z
@@ -106,7 +106,7 @@ To use the server with HexOS again, claim it from [Find your server](/getting-st
 
 When the wipe starts, HexOS takes the server off the private network between your servers, pauses this server's own backups to other servers (the copies are kept), and deletes the backups it stores for other servers if you confirmed that.
 
-HexOS goes to the dashboard and says **Wiping** and the server's name: **Activity shows each step. This can take a while.**
+HexOS covers the screen with **Wiping** and the server's name while the wipe runs. The dashboard and its controls are unavailable behind it.
 
 <details>
 <summary> The wipe has started </summary>
@@ -114,7 +114,7 @@ HexOS goes to the dashboard and says **Wiping** and the server's name: **Activit
 ![system-wipe-started.png](/reset/system-wipe-started.png){.medium .framed}
 </details>
 
-Click the notifications button at the top to follow the wipe. It shows **Resetting server** and these steps, each with a check mark when it is done:
+The wipe screen shows these steps, each with a check mark when it is done:
 
 1. **Check the connection to TrueNAS**
 2. **Delete virtual machines**
@@ -129,11 +129,11 @@ Click the notifications button at the top to follow the wipe. It shows **Resetti
 ![system-wipe-steps.png](/reset/system-wipe-steps.png){.medium .framed}
 </details>
 
-You can leave the page or close the browser. The wipe keeps running. In the same browser, HexOS tells you how it ended when you come back. If it did not finish, HexOS tells you in any browser, as described below.
+The wipe screen has no close button while the wipe runs. You can close the browser; the wipe keeps running. In the same browser, HexOS tells you how it ended when you come back. If it did not finish, HexOS tells you in any browser, as described below.
 
 ### When the wipe is done
 
-HexOS says **Your server has been disconnected from HexOS**. If the wiped server is the one you have open, HexOS moves to your next server, or to setup if you have no other server.
+When the wipe ends, the cover closes. HexOS says **Your server has been disconnected from HexOS** when it succeeds. If the wiped server is the one you have open, HexOS moves to your next server, or to setup if you have no other server.
 
 <details>
 <summary> The wipe is done </summary>

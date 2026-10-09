@@ -192,7 +192,7 @@ Follow the [Illustrated installation guide](/getting-started/installation/Instal
 
 ## Check that it worked
 
-Open setup again, or the **Health and capabilities** screen if you are still in setup. The **System** card shows **No issues detected**, and the red message is gone.
+If you are still in setup, return to the **Health and capabilities** screen. The **System** card shows **No issues detected**, and the red message is gone.
 
 <details>
 <summary> System card with no issues </summary>

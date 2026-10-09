@@ -2,7 +2,7 @@
 title: Complete server setup
 description: Log in, find your server, check its hardware, choose how to use your drives and finish setup
 published: true
-date: 2026-10-08T00:00:00.000Z
+date: 2026-10-09T00:00:00.000Z
 tags: setup, storage, pools, getting started
 editor: markdown
 dateCreated: 2026-06-08T15:41:10.493Z
@@ -38,8 +38,8 @@ Go to [deck.hexos.com](https://deck.hexos.com). Enter your email and password, a
 ## What every screen looks like
 
 - The top of the screen shows **Server setup** and a bar that fills as you go. **Exit** takes you back to the dashboard.
-- The left side has the title, a short explanation and the **Continue** button.
-- The right side has cards. A card with an arrow opens a panel with more details.
+- On a wide screen, the title, explanation and **Continue** button are on the left, with cards on the right. On a narrower screen, they stack in one column.
+- A card with an arrow opens an info panel with more details.
 
 ## Find your server
 
@@ -127,7 +127,7 @@ HexOS checks your hardware and shows four cards: **System**, **Storage**, **Appl
 </details>
 
 - The **Storage** panel lists every drive. A drive that already holds data says so. Reading this changes nothing.
-- The **Virtualization** panel shows what your server needs to run virtual machines: 4 processor cores, 8 GB of memory, and hardware virtualization turned on.
+- The **Virtualization** info panel shows what your server needs to run virtual machines: 4 processor cores, 8 GB of memory, and **Virtualization features enabled in BIOS**.
 
 <details>
 <summary> The storage panel </summary>
@@ -268,7 +268,7 @@ If setup cannot tell yet how an import went, for example because the connection 
 
 Choose how to use the drives that are free:
 
-- **Recommended:** answer one question and HexOS plans the pools for you.
+- **Recommended:** HexOS plans the pools for you, asking what matters most when more than one drive is free.
 - **Custom:** choose the drives and the layout yourself.
 - **Only use imported pools:** create nothing new. You only see this when you kept a pool.
 
@@ -292,11 +292,35 @@ If HexOS cannot read the pools on your server, the screen says **We could not re
 
 ### Choose what matters most
 
-On the **What matter most?** screen, choose one:
+The **What matters most?** screen changes with the number of drives free for new pools.
 
-- **Most space** gives you the most usable space, with good protection.
+With **one free drive**, HexOS skips this question and goes straight to **Recommended layout**. One drive cannot protect its data if it fails.
+
+<details>
+<summary> Recommended layout with one free drive </summary>
+
+![recommended-one-drive.png](/complete-setup/recommended-one-drive.png){.medium .framed}
+</details>
+
+With **two free drives**, choose **Most space** or **Most protection**. **Most protection** is selected until you choose. For two drives of the same kind and similar size:
+
+- **Most space** combines them in a stripe. If either drive fails, all data on the pool is lost.
+- **Most protection** uses a mirror: each drive holds a full copy, so one can fail without losing the pool's data.
+
+<details>
+<summary> What matters most with two free drives </summary>
+
+![what-matters-most-two-drives.png](/complete-setup/what-matters-most-two-drives.png){.medium .framed}
+</details>
+
+> **Info:** Hard drives and SSDs stay in separate pools, and HexOS groups drives of similar sizes. If your two drives cannot share a pool, either choice can leave you with separate, unprotected pools. Check the recommended layout before you finish.
+{.is-info}
+
+With **three or more free drives**, choose one:
+
+- **Most space** prioritizes usable space.
 - **Balanced** adds more protection to bigger groups of drives.
-- **Most protection** lets more drives fail without losing data, and uses more space.
+- **Most protection** prioritizes surviving more drive failures and uses more space for protection.
 
 <details>
 <summary> What matters most </summary>
@@ -339,7 +363,7 @@ If you kept pools, click the card below the new pools that counts them, for exam
 
 ## Custom setup
 
-On the **Build your storage** screen, click **Add pool**.
+The **Build your storage** screen starts with **No storage pools**. Click **Add pool**.
 
 <details>
 <summary> Build your storage </summary>
@@ -352,7 +376,7 @@ In the **Add pool** dialog:
 1. Tick the drives for the pool.
 2. Choose a **Layout**. The list only shows what your number of drives allows.
 3. Check the usable space and how many drives can fail.
-4. Click **Continue**, tick the box, and click **Create pool**. The pool is added to your plan. Nothing is built yet. If you click **Continue** right after a change, it waits for the new figures, then moves on by itself.
+4. Click **Continue**, review the pool, and click **Save**. There is no erase consent box in this dialog: the pool is added to your plan, and nothing is built yet. If you click **Continue** right after a change, it waits for the new figures, then moves on by itself.
 
 Once every drive is in a pool, **Add pool** cannot be clicked.
 
@@ -387,7 +411,7 @@ Hard drives and SSDs (including NVMe drives) are different kinds of drive. Once 
 
 ## Finish setup
 
-The **Almost done!** screen is your last look. It lists the server's name, the new pools and the pools you kept.
+The **Almost done!** screen is your last look. It lists the server's name, the time zone your server is using, the new pools and the pools you kept.
 
 <details>
 <summary> Almost done </summary>
@@ -441,3 +465,31 @@ If your apps run on a single drive, HexOS can keep a nightly copy of them on a p
 
 > **Help:** Something not working during setup? See [Troubleshooting](/troubleshooting) or ask in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz).
 {.is-troubleshooting}
+
+## Show the welcome banner again
+
+After setup, the welcome offers shortcuts to storage, users, folders and apps. If you dismissed it, you can show it again for the server you have open.
+
+Click **Settings**, then the **First-time setup** tile.
+
+<details>
+<summary> First-time setup in Settings </summary>
+
+![first-time-setup-tile.png](/complete-setup/first-time-setup-tile.png){.medium .framed}
+</details>
+
+The dialog asks **Would you like to re-enable the welcome banner?** Click **Re-enable**.
+
+<details>
+<summary> Re-enable the welcome banner </summary>
+
+![first-time-setup-confirm.png](/complete-setup/first-time-setup-confirm.png){.medium .framed}
+</details>
+
+The welcome opens again. This restores the welcome banner; it does not reset your server or restart server setup.
+
+<details>
+<summary> The welcome reopened </summary>
+
+![welcome-reopened.png](/complete-setup/welcome-reopened.png){.medium .framed}
+</details>
