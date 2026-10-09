@@ -2,7 +2,7 @@
 title: Complete server setup
 description: Log in, find your server, check its hardware, choose how to use your drives and finish setup
 published: true
-date: 2026-10-02T00:00:00.000Z
+date: 2026-10-08T00:00:00.000Z
 tags: setup, storage, pools, getting started
 editor: markdown
 dateCreated: 2026-06-08T15:41:10.493Z
@@ -72,6 +72,32 @@ Click **Having problems?**. It lists the things to check first. If your network 
 ![having-problems.png](/complete-setup/having-problems.png){.medium .framed}
 </details>
 
+If HexOS cannot look for servers at all, the card says **We could not look for servers. Check this device's internet connection.** Check the internet connection of the computer you are using, then click **Try again**. While this message shows, the buttons on the server rows, such as **Claim**, cannot be clicked.
+
+<details>
+<summary> The search failed </summary>
+
+![find-server-error.png](/complete-setup/find-server-error.png){.medium .framed}
+</details>
+
+If nothing is found for about 15 seconds, the card says **No server found yet. We will keep looking.** HexOS keeps looking. If it knows something about a server you removed from your account, a line tells you what to do, for example **A server you removed was last seen on another network. Join that network and turn off any VPN.** Click **Try again** to look again right away.
+
+<details>
+<summary> No server found yet </summary>
+
+![find-server-empty.png](/complete-setup/find-server-empty.png){.medium .framed}
+</details>
+
+### Already set up
+
+If a server finishes its setup somewhere else while you are on this screen, for example in another browser tab, it is listed as **Already set up**. Click **Open dashboard** to go to it.
+
+<details>
+<summary> Already set up </summary>
+
+![find-server-already-set-up.png](/complete-setup/find-server-already-set-up.png){.medium .framed}
+</details>
+
 ## Server basics
 
 Enter a name for your server, pick your time zone, and type the admin password you chose when you installed HexOS.
@@ -115,6 +141,34 @@ HexOS checks your hardware and shows four cards: **System**, **Storage**, **Appl
 ![virtualization-panel.png](/complete-setup/virtualization-panel.png){.medium .framed}
 </details>
 
+### When a card needs a look
+
+The **System** and **Storage** cards say **No issues detected** when nothing is wrong. Otherwise they say **Attention required** or **Issues detected**, and the card's panel always says why. Click the card to read the reason.
+
+Problems with your pools and drives are listed first in the **Storage** panel, for example **A pool has no scheduled health check.** or **One or more of your storage pools is being reported as unhealthy.** They are never listed on **System**.
+
+<details>
+<summary> A pool problem in the storage panel </summary>
+
+![health-storage-reason.png](/complete-setup/health-storage-reason.png){.medium .framed}
+</details>
+
+Problems with the whole server are listed first in the **System** panel, for example a TrueNAS version that is too old, temperatures out of range, or **Your server's memory changed. We recommend running a memory test to verify it before storing important data.**
+
+<details>
+<summary> A server problem in the system panel </summary>
+
+![health-system-reason.png](/complete-setup/health-system-reason.png){.medium .framed}
+</details>
+
+When Hardware Advisor is available for your server and the server shares hardware data with HexOS, the panels also show Hardware Advisor warnings about parts with known problems. When a part is marked but its details did not arrive, the part says **Hardware Advisor details are unavailable.** and its card says **Details unavailable** instead of **No issues detected**. Nothing is wrong that HexOS can show you. See [Health & Capabilities](/features/health-and-capabilities) for hardware data sharing.
+
+<details>
+<summary> Details unavailable </summary>
+
+![health-details-unavailable.png](/complete-setup/health-details-unavailable.png){.medium .framed}
+</details>
+
 If a drive or part is missing from the list, click **Something missing?**. It lists what to check.
 
 <details>
@@ -125,7 +179,12 @@ If a drive or part is missing from the list, click **Something missing?**. It li
 
 ## Import existing pools
 
-You only see this screen when your drives already hold storage pools, for example drives moved from another server.
+You only see this screen when your drives already hold storage pools. It lists two kinds of pools:
+
+- **Pools from another server**, for example drives you moved from an older server. Their cards say **Previously used on** and the other server's name.
+- **Pools already on this server**, for example after you reset HexOS, or on a server that ran TrueNAS before. Their cards say **Already on this server**.
+
+### Pools from another server
 
 Every pool that can be imported starts switched on. Click a pool to see its drives, or to switch it off. A pool you import keeps everything on it: folders, users, apps and virtual machines.
 
@@ -141,17 +200,68 @@ Every pool that can be imported starts switched on. Click a pool to see its driv
 ![import-pool-panel.png](/complete-setup/import-pool-panel.png){.medium .framed}
 </details>
 
-Click **Import** to keep the pools that are switched on. Click **Skip** to keep none of them.
+### Pools already on this server
 
-> **Danger:** A pool you switch off or skip is not kept. Its drives are offered for new pools, and they are erased if you put them in a new pool and finish setup.
+A pool already on this server starts as **Will be kept with its contents.** Click its card to see what is on it: its drives, its folders and Time Machine backups, and its apps when your apps run from it. Under **On this server, not in this pool**, the panel lists the server's users and virtual machines. To let the pool go, click the **Keep this pool** switch so it is off. Its drives are then offered for new pools.
+
+<details>
+<summary> Pools already on this server </summary>
+
+![import-pools-on-this-server.png](/complete-setup/import-pools-on-this-server.png){.medium .framed}
+</details>
+
+A pool you let go is erased at **Finish setup** only if a new pool uses one of its drives. Then the whole pool is erased, even if the new pool uses only one of its drives. If no new pool uses its drives, it stays as it is. See [How starting fresh works](/getting-started/setup/start-fresh).
+
+### Import or skip
+
+Click **Import** to keep the pools that are switched on. Click **Skip** to keep none of them, including the pools already on this server. Skipping every pool is how you start fresh. Both buttons wait until the pools already on this server are listed.
+
+> **Danger:** A pool you switch off or skip is not kept. Its drives are offered for new pools. If you put them in a new pool and finish setup, they are erased. For a pool already on this server, the whole pool is erased.
 {.is-danger}
 
-When a pool is left out, HexOS asks you to confirm in the **Skip import** dialog. Tick the box and click **Confirm**.
+When a pool is left out, HexOS asks you to confirm in the **Skip import** dialog. Tick the box and click **Confirm**. Nothing is erased until you click **Finish setup**.
 
 <details>
 <summary> Skip import </summary>
 
 ![skip-import-dialog.png](/complete-setup/skip-import-dialog.png){.medium .framed}
+</details>
+
+### While pools are imported
+
+When you open this screen, setup first asks your server whether an import is already running, for example one you started before you reloaded the page. **Import** and **Skip** wait for that answer.
+
+After you click **Import**, each card shows how far its import is. Setup waits for the server to say each import is over, however long that takes. When every pool you kept is in, setup moves to the next screen by itself.
+
+<details>
+<summary> A pool being imported </summary>
+
+![import-in-progress.png](/complete-setup/import-in-progress.png){.medium .framed}
+</details>
+
+If an import does not work, the card says why:
+
+- **This pool was not imported.** The import is over and the pool is not on the server. Click **Retry import** to try again, or **Skip** to leave the pool out.
+- **The import failed.** The server reported that the import failed. Click **Retry import** or **Skip**.
+
+<details>
+<summary> This pool was not imported </summary>
+
+![import-not-imported.png](/complete-setup/import-not-imported.png){.medium .framed}
+</details>
+
+<details>
+<summary> The import failed </summary>
+
+![import-failed.png](/complete-setup/import-failed.png){.medium .framed}
+</details>
+
+If setup cannot tell yet how an import went, for example because the connection dropped or the server restarted, the card says **We cannot confirm this import yet.** and the screen says **We cannot confirm the import yet. Check again before you retry or skip.** Click **Check again**. **Import** and **Skip** wait until setup can tell, so you never act on a guess.
+
+<details>
+<summary> We cannot confirm this import yet </summary>
+
+![import-check-again.png](/complete-setup/import-check-again.png){.medium .framed}
 </details>
 
 ## New storage pools
@@ -166,6 +276,16 @@ Choose how to use the drives that are free:
 <summary> New storage pools </summary>
 
 ![new-storage-pools.png](/complete-setup/new-storage-pools.png){.medium .framed}
+</details>
+
+### If the pools cannot be read
+
+If HexOS cannot read the pools on your server, the screen says **We could not read the pools on this server.** Click **Try again**. **Continue** waits until the pools are read, because setup must know which pools you keep. The same message can show on **Import existing pools**, **Recommended layout**, **Build your storage** and **Almost done!**.
+
+<details>
+<summary> We could not read the pools on this server </summary>
+
+![pools-read-failed.png](/complete-setup/pools-read-failed.png){.medium .framed}
 </details>
 
 ## Recommended setup
@@ -206,6 +326,14 @@ Click a pool to see why HexOS chose this layout and which drives are in it. From
 ![recommended-pool-panel.png](/complete-setup/recommended-pool-panel.png){.medium .framed}
 </details>
 
+If you kept pools, click the card below the new pools that counts them, for example **2 imported pools**. For each pool you kept, the panel shows how much space is used, how many drives can fail, and a line when the pool is not healthy. Under **Also on this server**, it lists what is already there and stays: the server's users, its apps when the pool they run from is kept, its virtual machines whose disks are on kept pools, and the folders (shared or not) and Time Machine backups on the pools you kept. Click a group to see what is in it. Anything HexOS could not read says so.
+
+<details>
+<summary> The pools you kept </summary>
+
+![kept-pools-panel.png](/complete-setup/kept-pools-panel.png){.medium .framed}
+</details>
+
 > **Info:** A pool counts every drive as the size of its smallest drive, so HexOS only puts drives of similar sizes together. Hard drives and SSDs never share a pool. A drive that does not fit a pool is listed as not assigned, with the reason.
 {.is-info}
 
@@ -224,7 +352,9 @@ In the **Add pool** dialog:
 1. Tick the drives for the pool.
 2. Choose a **Layout**. The list only shows what your number of drives allows.
 3. Check the usable space and how many drives can fail.
-4. Click **Continue**, tick the box, and click **Create pool**. The pool is added to your plan. Nothing is built yet.
+4. Click **Continue**, tick the box, and click **Create pool**. The pool is added to your plan. Nothing is built yet. If you click **Continue** right after a change, it waits for the new figures, then moves on by itself.
+
+Once every drive is in a pool, **Add pool** cannot be clicked.
 
 <details>
 <summary> Add pool </summary>
@@ -236,6 +366,14 @@ In the **Add pool** dialog:
 <summary> Confirm the pool </summary>
 
 ![create-pool-confirm.png](/complete-setup/create-pool-confirm.png){.medium .framed}
+</details>
+
+Hard drives and SSDs (including NVMe drives) are different kinds of drive. Once you tick drives of one kind, each drive of the other kind says **Different kind of drive. Mixing slows the whole pool.** You can still tick it.
+
+<details>
+<summary> A different kind of drive </summary>
+
+![add-pool-different-kind.png](/complete-setup/add-pool-different-kind.png){.medium .framed}
 </details>
 
 > **Warning:** If you choose a layout that does not protect your data well, HexOS shows a warning that explains the risk. The choice is still yours.
@@ -257,10 +395,28 @@ The **Almost done!** screen is your last look. It lists the server's name, the n
 ![almost-done.png](/complete-setup/almost-done.png){.medium .framed}
 </details>
 
-> **Danger:** When you click **Finish setup**, the drives in the new pools are erased. Make sure nothing on them is still needed.
+If a new pool uses drives from a pool already on this server, **Almost done!** marks that pool, for example **The Storage pool on this server now - everything on it will be erased**. The box to tick then says so too. **How starting fresh works** opens [How starting fresh works](/getting-started/setup/start-fresh).
+
+<details>
+<summary> Almost done with pools to be erased </summary>
+
+![almost-done-erase.png](/complete-setup/almost-done-erase.png){.medium .framed}
+</details>
+
+Under each pool you kept, one line shows its used space and how many drives can fail. A pool that needs a look has another line, for example **This pool is not healthy (DEGRADED).** One line also says what is already on the server, for example **Already on this server: 2 users, 2 folders, 1 Time Machine backup, 2 apps.** Only what stays is counted: folders, backups, apps and virtual machines on a pool that will be erased are not. Users stay with the server either way.
+
+When you keep anything, a pool or anything already on the server, a second box asks you to confirm it: **I understand what I'm keeping.** It is separate from the erase box, and you tick both. If what you keep changes before you finish, the box is cleared and asked again. It also shows when something on the server could not be read. When nothing is kept and everything was read, there is no second box.
+
+<details>
+<summary> Almost done with pools you keep </summary>
+
+![almost-done-keep.png](/complete-setup/almost-done-keep.png){.medium .framed}
+</details>
+
+> **Danger:** When you click **Finish setup**, the drives in the new pools are erased, and so are the pools marked to be erased. Make sure nothing on them is still needed.
 {.is-danger}
 
-Tick the box and click **Finish setup**. Each step gets a check mark as it finishes. When all steps are done, click **Go to the dashboard**.
+Tick the box, or both boxes, and click **Finish setup**. **Finish setup** waits until the pools on the server have been read. Each step gets a check mark as it finishes. When all steps are done, click **Go to the dashboard**.
 
 <details>
 <summary> Working on it </summary>
@@ -274,7 +430,7 @@ Tick the box and click **Finish setup**. Each step gets a check mark as it finis
 ![your-server-is-ready.png](/complete-setup/your-server-is-ready.png){.medium .framed}
 </details>
 
-> **Info:** If a drive is unplugged or swapped after you saw the summary, setup stops before it changes anything and asks you to check the plan again.
+> **Info:** If a drive for a new pool is unplugged or swapped after you saw the summary, setup stops before it changes anything and asks you to check the plan again.
 {.is-info}
 
 ## After setup

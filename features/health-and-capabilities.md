@@ -2,7 +2,7 @@
 title: Health & Capabilities
 description: Choose whether your server shares hardware data with HexOS, see what it sends, and run diagnostics on your server.
 published: true
-date: 2026-10-07T00:00:00.000Z
+date: 2026-10-09T00:00:00.000Z
 tags: settings, hardware, diagnostics, privacy
 editor: markdown
 dateCreated: 2026-10-07T00:00:00.000Z
@@ -12,7 +12,7 @@ dateCreated: 2026-10-07T00:00:00.000Z
 
 **Health & Capabilities** is a page in **Settings**. It holds two things for the server you have open:
 
-- **Hardware data sharing:** your choice to send HexOS a daily report about your server's hardware. It is off until you turn it on.
+- **Hardware data sharing:** your choice to send HexOS a daily report about your server's hardware. Nothing is sent until you choose to share.
 - **Diagnostics:** a check of your server's storage, memory, network, apps and hardware. You run it whenever you like.
 
 > **Info:** The setup screen named **Health and capabilities** is a different screen. It checks your hardware while you set up a server. See [Complete server setup](/getting-started/setup/CompleteSetup#health-and-capabilities).
@@ -40,7 +40,7 @@ The page starts with a notice: **We are still collecting data before we can enab
 
 The **Share hardware data** switch decides whether this server sends HexOS a daily report about its hardware. [What we collect](#what-we-collect) lists everything in the report.
 
-- Sharing is off until you turn it on. Nothing is sent before you do.
+- Nothing is sent until you choose to share, in the **Meet the Hardware Advisor** window or with the switch.
 - The choice is for one server. If you own several servers, each one has its own switch.
 - Only the server's owner can change it.
 
@@ -53,22 +53,22 @@ Diagnostics works with sharing on or off. Only the **Hardware advisories** part 
 
 ### When HexOS asks
 
-HexOS asks once for each server, in a window named **Meet the Hardware Advisor**. The window opens when you open the server in the Command Deck, after the First Flight guide is closed. The **Share hardware data** switch in the window starts off.
+HexOS asks once for each server, in a window named **Meet the Hardware Advisor**. The window opens when you open the server in the Command Deck, after the First Flight guide is closed. It has two choices, and **Let HexOS monitor my hardware** is selected when the window opens.
 
 <details>
-<summary> Meet the Hardware Advisor window, switch off </summary>
+<summary> Meet the Hardware Advisor window </summary>
 
 ![hardware-advisor-intro.png](/features/health-and-capabilities/images/hardware-advisor-intro.png){.medium .framed}
 </details>
 
-To keep sharing off, click **Continue**. HexOS saves that you chose not to share, and the window does not open again for this server.
+To share, click **Continue**. HexOS saves that you chose to share, and the window does not open again for this server.
 
-To share, click the **Share hardware data** switch so it is on, then click **Continue**.
+To keep sharing off, click **I don't want hardware monitoring**, then click **Continue**. HexOS saves that you chose not to share, and the window does not open again for this server.
 
 <details>
-<summary> Meet the Hardware Advisor window, switch on </summary>
+<summary> Meet the Hardware Advisor window, no monitoring </summary>
 
-![hardware-advisor-intro-on.png](/features/health-and-capabilities/images/hardware-advisor-intro-on.png){.medium .framed}
+![hardware-advisor-intro-off.png](/features/health-and-capabilities/images/hardware-advisor-intro-off.png){.medium .framed}
 </details>
 
 If you close the window without clicking **Continue**, nothing is saved. The window opens again the next time you open HexOS in a new browser tab.
@@ -271,14 +271,14 @@ If the page says **This server needs a HexOS update before it can run diagnostic
 
 These are problems we know about. Each one says what to do for now.
 
-- **The Meet the Hardware Advisor window keeps coming back.** It opens again in each new browser tab until you click **Continue**, and it asks once for each server you own. What to do: click **Continue**. Leave the switch off if you do not want to share. Your choice is saved and the window stops opening for that server.
+- **The Meet the Hardware Advisor window keeps coming back.** It opens again in each new browser tab until you click **Continue**, and it asks once for each server you own. What to do: pick one of the two choices and click **Continue**. Your choice is saved and the window stops opening for that server.
 - **Hardware warnings show only in diagnostics.** The window talks about HexOS warning you about hardware, but the dashboard does not show these warnings yet. What to do: run diagnostics and read **Hardware advisories**.
 - **You cannot mark a hardware advisory as fixed.** When HexOS cannot detect a fix on its own, the warning stays in the report after you apply the fix and still counts as a thing that needs your attention. One example is the BIOS setting for [Ryzen idle freezes](/troubleshooting/ryzen-idle-freeze). What to do: if you have applied the fix that the **Learn more** page describes, you can ignore that entry.
 
 ## Frequently asked questions
 
 **Do I have to share hardware data to use HexOS?**
-No. Sharing is your choice, and it starts off. Diagnostics works without it. Only **Hardware advisories** in the diagnostics report need sharing.
+No. Sharing is your choice, and nothing is sent until you make it. To say no in the **Meet the Hardware Advisor** window, click **I don't want hardware monitoring** before you click **Continue**. Diagnostics works without sharing. Only **Hardware advisories** in the diagnostics report need sharing.
 
 **Is the data anonymous?**
 No. Each report is linked to the server that sent it. Drives and network ports are identified by private codes, not by serial numbers or names, and no files, passwords or system log lines are sent. See [What we collect](#what-we-collect).

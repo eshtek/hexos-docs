@@ -171,6 +171,9 @@ The originals stay where they were. Delete the **Set aside by Undo** folder when
 
 A copy you changed before clicking **Undo** stays where it is. If a **Set aside by Undo** folder is already there, the new one is numbered, for example **Set aside by Undo (1)**.
 
+> **Info:** Undo isn't offered for a copy, or for a move into a different storage area (for example a folder an app created). Delete the copy, or move the files back yourself.
+{.is-info}
+
 ## Working with files
 
 ### Uploading
