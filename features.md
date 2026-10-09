@@ -118,8 +118,7 @@ The Settings screen allows us to modify our server preferences.
 From the Settings screen you can
 - Manage network preferences
 - Change server name
-- Unclaim server
-- Reset Server
+- Unclaim the server, or erase it with System wipe. See [Reset](/features/settings/reset).
 - View notification logs
 - Modify the Dashboard
 - Manage location preferences
