@@ -2,7 +2,7 @@
 title: How starting fresh works
 description: Keep the storage pools already on your server during setup, or let them go and use their drives for new pools
 published: true
-date: 2026-10-08T00:00:00.000Z
+date: 2026-10-09T00:00:00.000Z
 tags: setup, storage, pools, getting started
 editor: markdown
 dateCreated: 2026-10-08T00:00:00.000Z
@@ -104,6 +104,16 @@ The drives of the pools you let go are now ready for new pools. Some special dri
 > **Info:** **Only use imported pools** is only offered when you keep at least one pool. If you choose it, setup makes no new pool, so no pool is erased, not even one you let go.
 {.is-info}
 
+## Choose hardware checks
+
+Before **Almost done!**, choose either, both or neither of **Memory** and **Storage** on **Hardware checks**. Both start unticked. **Memory** restarts the server for a test after setup; **Storage** requests drive checks. See [New server checklist](/getting-started/setup/new-server-checklist#choose-checks-during-setup).
+
+<details>
+<summary> Optional hardware checks </summary>
+
+![hardware-checks.png](/complete-setup/hardware-checks.png){.medium .framed}
+</details>
+
 ## Check what will be erased
 
 The **Almost done!** screen lists every pool that will be erased, with a warning mark. For a pool named Storage, the line reads **The Storage pool on this server now - everything on it will be erased**.
@@ -116,7 +126,7 @@ The box to tick then also says so: **I understand that the pools marked to be er
 ![almost-done-erase.png](/start-fresh/almost-done-erase.png){.medium .framed}
 </details>
 
-If something stays on the server, a line says what, for example **Already on this server: 2 users.** Only what stays is counted. Folders, Time Machine backups, apps and virtual machines on a pool that will be erased go with that pool, and are not counted. Users stay with the server either way. A virtual machine whose disks HexOS cannot locate is counted as kept. When something stays, or something on the server could not be read, a second box asks you to confirm it: **I understand what I'm keeping.** You tick both boxes before you can finish. When nothing stays and everything was read, there is no second box.
+Each pool you keep has an **Imported** badge and lists its own folders, Time Machine backups and apps. A separate line counts the users and virtual machines that stay, for example **Already on this server: 2 users.** Only what stays is counted. Folders, Time Machine backups, apps and virtual machines on a pool that will be erased go with that pool, and are not counted. Users stay with the server either way. A virtual machine whose disks HexOS cannot locate is counted as kept. When something stays, or something on the server could not be read, a second box asks you to confirm it: **I understand what I'm keeping.** You tick both boxes before you can finish. When nothing stays and everything was read, there is no second box.
 
 A pool you let go is erased only when a new pool uses one of its drives. If no new pool uses its drives, the pool stays as it is, and **Almost done!** says so. For a pool named Storage, the line reads **Storage - kept, none of its drives are used**, with its used space and how many drives can fail below it.
 
@@ -128,11 +138,11 @@ A pool you let go is erased only when a new pool uses one of its drives. If no n
 
 When a pool is marked to be erased, **How starting fresh works** on that screen opens this page in a new window. The same link is in the panel of each pool already on this server.
 
-If you want to change something, click **Back**. Nothing has been erased yet.
+If you want to change something, click **Back** to return to **Hardware checks**, then **Back** again to your pool choices. Nothing has been erased yet.
 
 ## Finish setup
 
-Tick the boxes and click **Finish setup**. This is when the pools marked to be erased are erased, and the new pools are built. Each step gets a check mark as it finishes.
+Tick the boxes and click **Finish setup**. This is when the pools marked to be erased are erased, and the new pools are built. Each step gets a check mark as it finishes. If you chose **Memory**, the server restarts for the test when setup finishes. See [Finish setup](/getting-started/setup/CompleteSetup#finish-setup) for the progress screens.
 
 <details>
 <summary> Your server is ready </summary>

@@ -2,7 +2,7 @@
 title: UEFI boot mode
 description: Why HexOS needs your server to start in UEFI mode, how HexOS tells you, and how to switch or reinstall
 published: true
-date: 2026-10-03T00:00:00.000Z
+date: 2026-10-09T00:00:00.000Z
 tags: install, uefi, bios, boot, memory test
 editor: markdown
 dateCreated: 2026-10-03T00:00:00.000Z
@@ -64,16 +64,6 @@ If HexOS has already tested your model of motherboard, the message says which fi
 <summary> The memory test can't run on this server </summary>
 
 ![memory-test-cant-run.png](/uefi-boot-mode/memory-test-cant-run.png){.medium .framed}
-</details>
-
-### On a new server's storage
-
-On a new server, HexOS locks the storage you created during setup until the memory test passes. In legacy mode the test cannot run, so the lock would never open. The memory test notice and the notices on a locked pool show the same message instead, with the **How to switch to UEFI** link and an **I understand** button. The memory test notice also says **Choose I understand to clear the memory lock.** On the **Memory** info panel, click **Skip for now** next to the lock message to see it. Click **I understand**, and the memory test no longer locks your storage.
-
-<details>
-<summary> I understand button </summary>
-
-![memory-lock-i-understand.png](/uefi-boot-mode/memory-lock-i-understand.png){.medium .framed}
 </details>
 
 ## Fix it

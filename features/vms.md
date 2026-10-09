@@ -2,7 +2,7 @@
 title: VMs
 description: Run Windows, Linux, and appliance operating systems on your HexOS server
 published: true
-date: 2026-10-07T00:00:00.000Z
+date: 2026-10-09T00:00:00.000Z
 tags: vm, vms, virtual machine, windows, linux
 editor: markdown
 dateCreated: 2026-08-21T11:37:43.366Z
@@ -131,7 +131,7 @@ HexOS says **Setting up** and the VM's name, and you can follow the progress in 
 
 **Custom install**, on the same page, runs the same automated setup but first asks how you will access the VM. Choose it to hand a graphics card to the VM. See [Passthrough requirements](/features/vms/passthrough-requirements). **Website** opens the system's own site.
 
-> **Info:** If **Install** is grayed out and a notice is shown, the new-server checklist is still checking the pool that holds your virtual disks. The notice says why. You can wait for the check, or click **Enable now** to go ahead. See [New server checklist](/getting-started/setup/new-server-checklist).
+> **Info:** Hardware checks do not lock the pool that holds your virtual disks. You can create a VM while a drive check runs, but a memory test restarts the whole server and makes it unavailable until the test ends. See [New server checklist](/getting-started/setup/new-server-checklist).
 {.is-info}
 
 If the system is already installed, its page shows that VM's controls instead of **Install**. If it is installed more than once, the page asks which one you want to manage. With Expert Mode on, a **New** button sets up another copy.
