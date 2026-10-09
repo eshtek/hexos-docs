@@ -2,7 +2,7 @@
 title: File Browser
 description: Browse, upload, download, and organize the files in your folders from the Command Deck
 published: true
-date: 2026-10-07T00:00:00.000Z
+date: 2026-10-09T00:00:00.000Z
 tags: files, upload, download, usb
 editor: markdown
 dateCreated: 2026-08-20T21:00:00.000Z
@@ -61,6 +61,47 @@ On a phone, press and hold a file to start selecting, then tap others to add the
 
 The panel on the right shows details about whatever you have selected, and the buttons for working with it.
 
+### Using the right-click menu
+
+> **Info:** The right-click menu is being tried out with some accounts first. If right-clicking shows your browser's own menu, it has not reached your account yet. Everything in the panel works as before.
+{.is-info}
+
+Right-click a file or folder to see what you can do with it, right where you clicked. The menu offers the same actions as the panel on the right.
+
+Right-click a file or folder you have not selected. HexOS selects just that item and opens the menu next to it.
+
+<details>
+<summary> Menu for one folder </summary>
+
+![menu-one-item.png](/features/file-browser/menu-one-item.png){.medium .framed}
+</details>
+
+Right-click one of several selected items. The whole selection stays selected, and the menu acts on all of it. **Rename** is not offered, because it works on one item at a time.
+
+<details>
+<summary> Menu for several selected folders </summary>
+
+![menu-several.png](/features/file-browser/menu-several.png){.medium .framed}
+</details>
+
+Right-click the empty space below your files. HexOS clears the selection, and the menu shows what you can do in the folder you are looking at, such as **Upload** and **New folder**.
+
+<details>
+<summary> Menu for the folder you are in </summary>
+
+![menu-blank-space.png](/features/file-browser/menu-blank-space.png){.medium .framed}
+</details>
+
+To open the menu from the keyboard, select an item and press Shift+F10, or the Menu key if your keyboard has one. Use the arrow keys to move through the menu, Enter to choose, and Esc to close it.
+
+<details>
+<summary> Menu opened from the keyboard </summary>
+
+![menu-keyboard.png](/features/file-browser/menu-keyboard.png){.medium .framed}
+</details>
+
+On a tablet, press and hold a file or folder for half a second to open the same menu. On a phone, press and hold still starts selecting files.
+
 ## Working with files
 
 ### Uploading
@@ -87,6 +128,10 @@ Select one or more files and click **Download**.
 - **Rename** — only the name is selected to start with, so the file extension is left alone. If you do change the extension, HexOS asks you to confirm
 - **Copy to** and **Move to** — choose the destination folder, then click **Copy here** or **Move here**
 - **Delete** — asks you to confirm first, because this cannot be undone
+
+**Rename**, **New folder**, and **Delete** stay open until your server answers. If something goes wrong, they stay open with what you entered, so you can try again.
+
+If a file you chose changes or disappears while you decide (for example, someone renames it from another computer), HexOS does nothing and shows **Something changed in this folder**. Choose the items again.
 
 > **Warning:** HexOS never overwrites files silently. If something with the same name already exists, you are asked what to do — **Keep both** saves the new copy with a number added, for example `movie.mp4` becomes `movie (1).mp4`.
 {.is-warning}
