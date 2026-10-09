@@ -148,6 +148,29 @@ Undo never replaces or deletes anything. An item stays where it is, and the mess
 
 If an item could not go back because something else has its old name, rename or move that other item. **Undo** is offered again while the 10 minutes last.
 
+> **Info:** Undo isn't offered for a move into a different storage area (for example a folder an app created). Move the files back yourself.
+{.is-info}
+
+#### Undoing a copy
+
+A copy you made by dragging can be undone too, for 10 minutes after it finishes. Click **Undo** in the message, or **Undo copy** in the bar at the bottom of the file browser. Copies are never deleted: HexOS asks first, then moves them into a new folder named **Set aside by Undo**, in the folder you copied them to. Click **Set aside copies**.
+
+<details>
+<summary> Question before setting a copy aside </summary>
+
+![drag-drop-copy-undo-confirm.png](/features/file-browser/drag-drop-copy-undo-confirm.png){.medium .framed}
+</details>
+
+The originals stay where they were. Delete the **Set aside by Undo** folder when you no longer need the copies, or drag something back out of it.
+
+<details>
+<summary> The Set aside by Undo folder after the Undo </summary>
+
+![drag-drop-copy-undo-done.png](/features/file-browser/drag-drop-copy-undo-done.png){.medium .framed}
+</details>
+
+A copy you changed before clicking **Undo** stays where it is. If a **Set aside by Undo** folder is already there, the new one is numbered, for example **Set aside by Undo (1)**.
+
 > **Info:** Undo isn't offered for a copy, or for a move into a different storage area (for example a folder an app created). Delete the copy, or move the files back yourself.
 {.is-info}
 
