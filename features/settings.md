@@ -37,6 +37,8 @@ Fine-tune your HexOS experience with dashboard controls.
 <summary> Recovery key tile in Settings </summary>
 
 ![settings-recovery-key-tile.png](/features/folders/images/settings-recovery-key-tile.png){.medium .framed}
+</details>
+
 ### Health & Capabilities
 
 Hardware data sharing and diagnostics for the server you have open. See [Health & Capabilities](/features/health-and-capabilities).
@@ -51,11 +53,11 @@ Hardware data sharing and diagnostics for the server you have open. See [Health 
 
 ## Reset
 
-The reset settings allow for rolling back your server to a different state.  
+The reset settings allow for rolling back your server to a different state. See [Reset](/features/settings/reset).
 
-- **Unclaim Server** will remove your server from our database. Nothing happens to the physical server. You will no longer be able to access it through HexOS, but it can be reclaimed.
-- **Wipe everything** will delete all data on all drives and reset your server to defaults.
-- **Restore previous** will let you choose to go back to a previous point in time to undo any recent changes. (Pool data will not be affected)
+- **Unclaim system** removes this server from your HexOS account. Your pools and files stay on it, and you can claim it again.
+- **System wipe** erases every pool on this server and removes HexOS, then the server waits to be claimed again.
+- **Restore previous** will let you choose to go back to a previous point in time to undo any recent changes. (Pool data will not be affected) It is not available yet.
 
 ## Applications
 
