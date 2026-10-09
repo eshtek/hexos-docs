@@ -2,7 +2,7 @@
 title: Deep check
 description: A full health check of a pool's drives and data, run in the background
 published: true
-date: 2026-10-02T00:00:00.000Z
+date: 2026-10-09T00:00:00.000Z
 tags: storage, drives, health, setup
 editor: markdown
 dateCreated: 2026-10-02T00:00:00.000Z
@@ -14,8 +14,8 @@ The deep check is a full health check of a storage pool. It asks each drive to t
 
 ## When it runs
 
-- **After setup.** If a drive in a new pool has been used before, or shows signs of trouble, setup says so in the plan. When you finish setup, the check starts the first time you open your server's dashboard.
-- **For pools you already have.** HexOS never checks an existing pool without asking. If it notices a used or worn drive, a notice asks whether to check the pool, for example **Check the health of Vault?**, and lists the drives and why. Click **Start the check** or **Not now**. If you click **Not now**, HexOS does not ask again for the same reason for a month.
+- **After setup.** Tick **Storage** on **Hardware checks** to request a check of the pools you create, keep or import. A new pool with previously used or worn drives may receive a check even if you leave **Storage** unticked. If you also choose **Memory**, drive checks wait until the server returns from the memory test. See [New server checklist](/getting-started/setup/new-server-checklist#choose-checks-during-setup).
+- **For pools you already have.** Outside the checks you request during setup, HexOS asks before checking an existing pool. If it notices a used or worn drive, a notice asks whether to check the pool, for example **Check the health of Vault?**, and lists the drives and why. Click **Start the check** or **Not now**. If you click **Not now**, HexOS does not ask again for the same reason for a month.
 
 <details>
 <summary> The offer to check an existing pool </summary>
@@ -57,11 +57,11 @@ Open the finished check's notice to see the report. It has a line for each drive
 > **Warning:** If a drive failed, replace it, then click **Run the check again**. See [Drive failure](/troubleshooting/drive-failure).
 {.is-warning}
 
-## If you need the pool sooner
+## Keep using your pool
 
 A deep check cannot be stopped from the Command Deck. It only reads your data, so it is safe to let it finish.
 
-If you need to use the pool before the check finishes, click **Enable now** in a notice about that pool. See [Use a pool before its check finishes](/getting-started/setup/new-server-checklist#use-a-pool-before-its-check-finishes). The pool opens, and the check keeps running and still reports its result.
+A check does not lock your pool. You can create shared folders, install apps and create virtual machine disks while it runs. You do not need to enable the pool or skip the check. Performance may be slower while the drives are busy.
 
 > **Help:** Questions about a check result? Ask in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz).
 {.is-troubleshooting}

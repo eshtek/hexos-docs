@@ -29,6 +29,10 @@ Fine-tune your HexOS experience with dashboard controls.
 - Choose how dates and temperatures are written. See [Personalization](/features/settings/personalization).
 - Enable [experimental features](/features/settings/experimental-features/).
 
+### First-time setup
+
+Show the welcome banner again for the server you have open. See [Show the welcome banner again](/getting-started/setup/CompleteSetup#show-the-welcome-banner-again).
+
 ### Recovery key
 
 "The key that opens this server's encrypted backups." Here you can view and copy this server's recovery key, choose who keeps it (**Managed** or **End-to-end encryption**), rotate it, and download its **Emergency kit**. See [Recovery key and emergency kit](/features/folders/recovery-key).

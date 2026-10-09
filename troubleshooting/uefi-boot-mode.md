@@ -2,7 +2,7 @@
 title: UEFI boot mode
 description: Why HexOS needs your server to start in UEFI mode, how HexOS tells you, and how to switch or reinstall
 published: true
-date: 2026-10-03T00:00:00.000Z
+date: 2026-10-09T00:00:00.000Z
 tags: install, uefi, bios, boot, memory test
 editor: markdown
 dateCreated: 2026-10-03T00:00:00.000Z
@@ -58,22 +58,12 @@ If HexOS has already tested your model of motherboard, the message says which fi
 
 ### When you test memory
 
-**Test memory** is on the **Memory** info panel, and needs Expert mode turned on in **Settings**. If you click **Test memory** on a server installed in legacy mode, HexOS shows **The memory test can't run on this server** and the **Start** button stays off. You can still test the memory with a Memtest86+ USB drive. The message links to [memtest.org](https://memtest.org), where you can download it, and to this page through **How to switch to UEFI**.
+**Test memory** is on the **Memory** info panel. If you click **Test memory** on a server installed in legacy mode, HexOS shows **The memory test can't run on this server** and the **Start** button stays off. You can still test the memory with a Memtest86+ USB drive. The message links to [memtest.org](https://memtest.org), where you can download it, and to this page through **How to switch to UEFI**.
 
 <details>
 <summary> The memory test can't run on this server </summary>
 
 ![memory-test-cant-run.png](/uefi-boot-mode/memory-test-cant-run.png){.medium .framed}
-</details>
-
-### On a new server's storage
-
-On a new server, HexOS locks the storage you created during setup until the memory test has run. In legacy mode the test cannot run, so the lock would never open. Wherever HexOS asks you to run the memory test or explains the lock, it shows the same message instead, with the **How to switch to UEFI** link and an **I understand** button. You also see it when you click **Skip for now** next to the memory test recommendation. Click **I understand**, and the memory test no longer locks your storage.
-
-<details>
-<summary> I understand button </summary>
-
-![memory-lock-i-understand.png](/uefi-boot-mode/memory-lock-i-understand.png){.medium .framed}
 </details>
 
 ## Fix it
@@ -192,7 +182,7 @@ Follow the [Illustrated installation guide](/getting-started/installation/Instal
 
 ## Check that it worked
 
-Open setup again, or the **Health and capabilities** screen if you are still in setup. The **System** card shows **No issues detected**, and the red message is gone.
+If you are still in setup, return to the **Health and capabilities** screen. The **System** card shows **No issues detected**, and the red message is gone.
 
 <details>
 <summary> System card with no issues </summary>
