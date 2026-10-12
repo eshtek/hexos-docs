@@ -52,7 +52,7 @@ Anyone can access these folders. This will include all users you have created. T
 
 Only those with network credentials created in HexOS can access these folders.<br> This means by default only the administrator has access. The administrator grants access to anyone given network credentials. Folder permissions for this type of folder can be modified.
 
-- Anyone with access to your network is able to see private folder names. 
+- Only the users you give access to can see a private folder's name when browsing the network. See [who can see your folders on the network](/features/folders/who-can-see-your-folders). 
 - Anyone with access to the hard drives in your server may be able to read the data, unless the folder is encrypted.
 
 ### Encrypted folders
