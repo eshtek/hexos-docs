@@ -2,7 +2,7 @@
 title: Blog
 description: 
 published: true
-date: 2026-09-23T18:22:37.991Z
+date: 2026-10-13T00:00:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:38:53.875Z
@@ -13,6 +13,7 @@ dateCreated: 2026-06-08T15:38:53.875Z
 Stay up to date with the latest news and updates from the HexOS team.
 
 ## 2026
+- [Meet the Hardware Advisor - October 13, 2026](/blog/2026-10-13)
 - [Virtual Machines: Now In Beta - September 23, 2026](/blog/2026-09-23)
 - [Buddy Backups:  Now in Beta - September 9, 2026](/blog/2026-09-09)
 - [The Biggest HexOS update yet: Buddy Backups, Virtual Machines, and more - September 8, 2026](/blog/2026-09-08)
