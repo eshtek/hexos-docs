@@ -2,7 +2,7 @@
 title: Install Scripts Overview
 description: What install scripts are, what each schema version adds, and how to use them.
 published: true
-date: 2026-08-25T00:00:00.000Z
+date: 2026-10-13T00:00:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:40:06.784Z
@@ -181,6 +181,7 @@ For apps not yet curated or when you need to customize the configuration:
 - **Declare ownership** with the `owner` field for apps that require specific user/group ownership (e.g., `"postgres"`, `"apps"`)
 - **Add `snapshot` config** on data and config directories to enable automatic pre-update ZFS snapshots
 - **Use `$MEMORY()` for dynamic memory allocation** to ensure apps work across different system configurations
+- **Use `$CPUS()` for apps that benefit from more CPUs** (indexing, transcoding, library sync) so they scale with the server instead of being held to a fixed count
 - **Reference TrueNAS app schemas** from the [official apps repository](https://github.com/truenas/apps) for `app_values` structure
 - **Keep hook scripts focused** — each hook should do one thing (health check, configuration, library setup)
 - **Use `optional: true`** on hooks that are nice-to-have but shouldn't block app installation if they fail

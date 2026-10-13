@@ -2,7 +2,7 @@
 title: Install Script Schema
 description: Every field an install script can declare, by schema version.
 published: true
-date: 2026-08-25T00:00:00.000Z
+date: 2026-10-13T00:00:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:40:16.156Z
@@ -43,6 +43,7 @@ Install scripts support various macros that are replaced dynamically during scri
 - **`$LOCATION(locationId)`**: Resolves to configured location path
 - **`$RANDOM_STRING(length)`**: Generates random alphanumeric string
 - **`$MEMORY(percentage, minimum_mb)`**: Calculates memory allocation
+- **`$CPUS(percentage, minimum_cores)`**: Calculates the CPU limit from the server's CPU count
 - **`$HOST_PATH(path)`**: Creates host path configuration object
 - **`$MOUNTED_HOST_PATH(path, mount_point)`**: Creates mounted host path configuration
 

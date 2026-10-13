@@ -2,7 +2,7 @@
 title: Template Variables (Macros)
 description: 
 published: true
-date: 2026-06-09T20:03:08.150Z
+date: 2026-10-13T00:00:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:40:11.501Z
@@ -228,6 +228,34 @@ Dynamically allocates memory based on system resources. Takes the higher value b
 "memory": "$MEMORY(10%, 2048)"
 ```
 *This allocates either 10% of system memory or 2048MB, whichever is higher*
+
+#### `$CPUS(percentage, minimum_cores)`
+Sets the app's CPU limit from the server's CPU count. Takes the given percentage of the server's logical CPUs (threads), rounded down to whole CPUs, and never goes below the minimum. The result is also capped at the number of CPUs the server has, so a minimum larger than a small server can offer still installs.
+
+- `percentage` must include the `%` sign and be above 0 and at most 100.
+- `minimum_cores` must be a whole number of at least 1.
+- A value that is only the macro becomes a number, which is what `cpus` requires.
+
+**Example:**
+```json
+"resources": {
+  "limits": {
+    "cpus": "$CPUS(75%, 2)",
+    "memory": "$MEMORY(10%, 2048)"
+  }
+}
+```
+
+**Resulting values:**
+
+| Server CPUs | `$CPUS(75%, 2)` |
+|-------------|-----------------|
+| 16 | `12` |
+| 6 | `4` |
+| 2 | `2` |
+| 1 | `1` (capped at the server's CPUs) |
+
+*Use this for apps whose heavy work (indexing, transcoding, syncing a library) finishes sooner with more CPUs. A fixed number, such as `"cpus": 2`, is still the right choice for light apps.*
 
 ## `$HOST_PATH(path)`
 Creates a TrueNAS host path configuration object for predefined storage options.
