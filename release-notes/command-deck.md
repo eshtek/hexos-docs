@@ -2,7 +2,7 @@
 title: Command Deck Release Notes
 description: 
 published: true
-date: 2026-09-09T19:58:02.110Z
+date: 2026-10-13T17:12:37.199Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:43:20.245Z
@@ -20,7 +20,7 @@ For users who are actively connected during an update, there may be a brief down
 
 <!-- auto-generated-year-sections-start -->
 ## 2026 Releases
-- [**2026-10-13**](/release-notes/command-deck/2026-10-13) - Private folders stay private, smarter Custom VMs, and more
+- [**2026-10-13**](/release-notes/command-deck/2026-10-13) - Smarter Custom VMs, Safer Graphics Card Sharing & More
 - [**2026-10-09**](/release-notes/command-deck/2026-10-09) - Open beta for Buddy Backups and Virtual Machines, a smarter server setup, and much more
 - [**2026-10-06**](/release-notes/command-deck/2026-10-06) - Pool repair tools, Repair access for folders, and a date format setting
 - [**2026-10-02**](/release-notes/command-deck/2026-10-02) - Clearer storage health, folder encryption improvements, and achievements
