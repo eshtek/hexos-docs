@@ -75,7 +75,6 @@ If you want the technical details, see [How Buddy Backups works](/features/backu
 ## What you need
 
 - **Two servers running HexOS.** Yours and a buddy's, or two of your own.
-- **The hosted Command Deck.** Buddy Backups works on the hosted Command Deck, the one at [deck.hexos.com](https://deck.hexos.com). At home, HexOS may open your server's local deck instead. There, the **Backups** page has a **Continue on Hosted Deck** button that takes you to the hosted one.
 - **Encrypted folders** for anything you send to a buddy. You can [turn on encryption for a folder](/features/folders#turning-on-encryption) at any time, even after it is created. Backups to your own server can include any folder.
 - **Both servers online** while the backup is set up.
 - **Your buddy's HexOS email**, if you back up to a buddy.

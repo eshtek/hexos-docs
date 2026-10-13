@@ -185,7 +185,13 @@ A folder that is backed up can only be deleted together with its backup copies. 
 
 ## Backups are on the hosted deck
 
-On a server's local deck, the **Backups** page shows "Backups are on the hosted deck". Click **Continue on Hosted Deck**. Buddy Backups is managed from the hosted Command Deck, the one at [deck.hexos.com](https://deck.hexos.com). At home, HexOS may open your server's local deck instead.
+Your server is running an older version of HexOS. Its local deck shows "Backups are on the hosted deck" on the **Backups** page. Click **Continue on Hosted Deck** to manage backups there. Once your server updates HexOS, the **Backups** page works on its local deck too.
+
+<details>
+<summary> Backups on an older server's local deck </summary>
+
+![hosted-only-gate.png](/features/backups/images/hosted-only-gate.png){.medium .framed}
+</details>
 
 ## The destination list is empty
 
