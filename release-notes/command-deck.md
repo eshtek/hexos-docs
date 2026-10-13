@@ -20,7 +20,7 @@ For users who are actively connected during an update, there may be a brief down
 
 <!-- auto-generated-year-sections-start -->
 ## 2026 Releases
-- [**2026-10-13**](/release-notes/command-deck/2026-10-13) - Private folders stay private, smarter Custom VMs, and the Raidmaxxing achievement
+- [**2026-10-13**](/release-notes/command-deck/2026-10-13) - Private folders stay private, smarter Custom VMs, and more
 - [**2026-10-09**](/release-notes/command-deck/2026-10-09) - Open beta for Buddy Backups and Virtual Machines, a smarter server setup, and much more
 - [**2026-10-06**](/release-notes/command-deck/2026-10-06) - Pool repair tools, Repair access for folders, and a date format setting
 - [**2026-10-02**](/release-notes/command-deck/2026-10-02) - Clearer storage health, folder encryption improvements, and achievements
