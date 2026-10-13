@@ -23,7 +23,7 @@ Recovering has two parts:
 ## Before you start
 
 - Set up the replacement server and claim it to the **same HexOS account** as the old one. Your HexOS account proves the backups are yours.
-- Use the hosted Command Deck, with the new server selected.
+- Open the new server on the Command Deck: select it on the hosted deck, or use its local deck.
 - The server that stores the backup must be online.
 
 > **Info:** If HexOS manages your folder keys (the default), recovered folders unlock on their own while you are signed in. If you chose to keep the recovery key yourself, have the old server's recovery key ready. HexOS asks for it once. See [Recovery keys](/features/folders#recovery-keys).

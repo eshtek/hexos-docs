@@ -17,15 +17,6 @@ This guide sets up a backup of your folders to another server. A buddy's server 
 
 ## Before you start
 
-> **Requirement:** Use the hosted Command Deck, the one at [deck.hexos.com](https://deck.hexos.com). At home, HexOS may open your server's local deck instead. There, the **Backups** page shows "Backups are on the hosted deck". Click **Continue on Hosted Deck** to go there.
-{.is-success}
-
-<details>
-<summary> Backups on a local deck </summary>
-
-![hosted-only-gate.png](/features/backups/images/hosted-only-gate.png){.medium .framed}
-</details>
-
 - **Both servers must be online** while the backup is set up.
 - **Folders for a buddy must be encrypted.** If a folder is not encrypted yet, you can [turn on encryption](/features/folders#turning-on-encryption) first. You can also add it later: the backup's **Folders** dialog offers to encrypt it. Backups to your own server can include any folder.
 - **Have your buddy's HexOS email ready** if you back up to a buddy.
