@@ -2,7 +2,7 @@
 title: Import Existing Pools to HexOS
 description: For migrating from TrueNAS or reinstalling HexOS without wiping pools
 published: true
-date: 2026-10-07T00:00:00.000Z
+date: 2026-10-13T00:00:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-22T12:46:47.046Z
@@ -878,7 +878,7 @@ Then finish any remaining steps in the [guide](/getting-started/setup/CompleteSe
 
 #### Restore folders HexOS finds on your pools
 
-If your pools hold folders that are not set up in HexOS yet (for example, because you did not upload your config), the **Folders** screen shows a notice such as **Found 3 folder(s) on your pools**, with a **Restore folders** button.
+If your pools hold folders that are not set up in HexOS yet (for example, because you imported the pool in TrueNAS but did not upload your config), the **Folders** screen shows a notice such as **Found 3 folder(s) on your pools**, with a **Restore folders** button.
 
 <details>
 <summary> Restore folders notice </summary>
@@ -892,7 +892,7 @@ Click **Restore folders**. In the dialog, encrypted folders that are locked show
 - A folder with a passphrase asks for it. Typing it selects the folder.
 - A folder encrypted with a key file made in TrueNAS **Cannot be restored** here, because its key was stored on the previous system. Unlock it in TrueNAS first, as described in "Import keys for encrypted data and set up SMB share (if necessary)" above.
 
-Then click **Restore**. "HexOS will take over permissions on restored folders. File permissions from the previous system will be replaced." Set each folder's access afterwards.
+Then click **Restore**. The dialog says: "HexOS gives each restored folder the permissions it needs to be shared. Files and folders inside keep the permissions they had on the previous system. If your computers can't open them, use Repair access on the folder." Set each folder's access afterwards. [Repair access to a folder](/features/folders/repair-access) explains how to fix files your computers can't open.
 
 <details>
 <summary> Restore folders dialog with encrypted folders </summary>
