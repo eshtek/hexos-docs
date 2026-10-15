@@ -2,7 +2,7 @@
 title: Plex Media Server VM
 description: Run Plex Media Server as a VM that reads your HexOS media folders
 published: true
-date: 2026-10-08T00:00:00.000Z
+date: 2026-10-15T00:00:00.000Z
 tags: vm, vms, plex, media, appliance
 editor: markdown
 dateCreated: 2026-10-07T00:00:00.000Z
@@ -92,7 +92,7 @@ If HexOS cannot connect the folders for another reason, it says **Folders couldn
 
 ## Remove it
 
-**Uninstall** removes the VM, the **plexvm** account, and the Plex token HexOS kept. Its disk is deleted only if it is ticked. Your media folders and the files in them are not touched. See [Uninstall](/features/vms#uninstall).
+**Uninstall** removes the VM, the **plexvm** account, and the Plex token HexOS kept. Its disk is deleted only if it is checked. A Plex Media Server VM set up before October 10, 2026 opens with its disk unchecked: check it if you want it deleted. Your media folders and the files in them are not touched. See [Uninstall](/features/vms#uninstall).
 
 ## Known issues
 
