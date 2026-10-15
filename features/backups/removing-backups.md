@@ -2,7 +2,7 @@
 title: Removing backups
 description: What pausing, declining, removing a folder, removing a connection, deleting a folder, and resetting a server each keep and destroy
 published: true
-date: 2026-10-07T00:00:00.000Z
+date: 2026-10-15T00:00:00.000Z
 tags: backups, buddy, pause, delete, remove
 editor: markdown
 dateCreated: 2026-09-07T00:31:08.086Z
@@ -24,8 +24,8 @@ Several actions look alike but do very different things. Read this page before y
 | **Cancel setup** on a new backup | Nothing. Setup never finished. | Yes, set it up again |
 | **Cancel setup** on a backup you recovered | Not offered. Use **Retry now**, or **Remove connection** to delete it. | |
 | **Pause** | Nothing. Copies and the space set aside stay. | Yes, by the person who paused |
-| Remove a folder from a backup | That folder's copy and all its restore points on the other server | **No** |
-| **Remove connection** | Every folder and every restore point on the other server, and the space set aside | **No** |
+| Remove a folder from a backup | That folder's copy and all its restore points on the other server, and its restore points on your server | **No** |
+| **Remove connection** | Every folder and every restore point on the other server, the space set aside, and the backup's restore points on your server | **No** |
 | Delete a folder that is backed up | The folder on your server **and** its backup copies on servers that are online | **No** |
 | **Repair backup** | That folder's copy on the other server, before a fresh copy is sent | **No** |
 | **Change pool** or **Change server** (on a backup you store) | The old copy, once the new copy is checked | Not needed: the backup moves |
@@ -35,6 +35,14 @@ Several actions look alike but do very different things. Read this page before y
 Only deleting a folder deletes your own files. Removing a connection also stops any restore in progress and removes the unfinished copy it left on your server.
 
 HexOS deletes a backup copy only when someone confirms one of the actions on this page. If the other server is offline then, the delete finishes when it is back. On its own, it removes only restore points older than the time you chose to keep them, and the unfinished copy that a stopped restore left on your server.
+
+## Restore points on your own server
+
+Your server keeps the restore points it made too. When you remove a folder or a connection from the server that sends the backup, they are deleted along with the copies on the other server, under the same confirmation. Your folders are not touched.
+
+- If your server is offline when you remove a connection, its restore points are removed once they are older than the time you chose to keep them, instead of right away.
+- If your buddy removes the connection, or their server is reset or unclaimed, the restore points on your server stay.
+- A backup you removed before October 2026, or one between your own servers that ended then, left its restore points on your server with nothing to remove them. They are now removed once they are older than the time you chose to keep them, and never sooner than two weeks after the update reaches your server.
 
 ## Pausing is not removing
 
@@ -59,7 +67,7 @@ You can do this in three places:
 - **The Folders dialog:** uncheck the folder and click **Remove 1 folder and save**, then **Delete and save** to confirm.
 - **The folder's own page:** under **Backing up to**, open the backup's menu and click **Remove backup destination**, then **Remove destination**.
 
-The folder on your server stays. Its copy on the other server, and every restore point of it, is deleted for good.
+The folder on your server stays. Its copy on the other server, and every restore point of it, is deleted for good, and so are its restore points on your server.
 
 > **Info:** If the other server is offline, its copy is deleted when that server is back online. Until then it still uses space there, and you can't add a folder with the same name to that backup.
 {.is-info}
@@ -68,7 +76,7 @@ The folder on your server stays. Its copy on the other server, and every restore
 
 Click the **Remove** tile on the backup's page, or **Remove connection** in the row's menu on the **Backups** page.
 
-The **Remove connection** dialog says "Removing this connection stops all backups between this server and" the other side. A red box says every restore point stored on the other server is permanently deleted, and the space set aside is released. It also suggests: "To stop backups without losing anything, pause the connection instead."
+The **Remove connection** dialog says "Removing this connection stops all backups between this server and" the other side. A red box says every restore point is permanently deleted, on the other server and on this one, and the space set aside is released. Your folders on this server are not touched. It also suggests: "To stop backups without losing anything, pause the connection instead."
 
 To go ahead, check "I understand that removing this connection permanently deletes all of its backups." and click **Remove connection**.
 

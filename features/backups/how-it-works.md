@@ -2,7 +2,7 @@
 title: How Buddy Backups works
 description: The ZFS, WireGuard, and NetBird underneath Buddy Backups, for readers who want to know what is actually happening
 published: true
-date: 2026-10-07T00:00:00.000Z
+date: 2026-10-15T00:00:00.000Z
 tags: backups, buddy, zfs, wireguard, netbird, replication, technical
 editor: markdown
 dateCreated: 2026-09-08T14:00:00.000Z
@@ -104,6 +104,8 @@ If the snapshot the other side depends on is gone from your server, the run stop
 You choose how long restore points are kept: 1 week, 2 weeks (the default), 1 month, or 3 months. Weekly backups need at least 2 weeks, so 1 week is not offered for them.
 
 The receiving side follows your server. A restore point removed on your server is removed on the other side at the next backup.
+
+**When a backup is removed** from your server, the backup's snapshots on your server (`bb<connection>-…`, including the ones **Back up now** took) are deleted when its snapshot tasks are. A snapshot ZFS will not delete at that moment (held by a send, or cloned) gets TrueNAS's removal date instead: its creation time plus the retention time, in the `org.truenas:destroy_at_…` property TrueNAS's own retention reads. If your server is offline when the connection is removed, every snapshot gets that date instead of being deleted. A removal your buddy makes leaves them. Backups removed before October 2026 left their snapshots undated; HexOS dates them the same way, never sooner than two weeks out, and TrueNAS prunes them the next time it runs retention on that server.
 
 Your server normally keeps any snapshot the other side has not received yet, so a backup that could not run does not lose the snapshot it needs next. If that snapshot is lost anyway, the folder shows "Needs a fresh full copy". Shortening the time asks you to confirm first, because it removes restore points on the other server.
 
