@@ -66,7 +66,6 @@ Best practice is to:
 In this section we will complete the following tasks:
 
 -   Log in to TrueNAS and note password
--   Turn off 2FA (if applicable)
 -   Download TrueNAS config file
 -   Download encryption keys (if applicable)
 -   Find the serial numbers of our drives
@@ -123,21 +122,8 @@ Your username and password were set during TrueNAS installation.
 
 The TrueNAS password for this server will be needed again in the future, when the new machine is set up. Make sure to note it down.
 
-### Turn off 2FA
-
-If 2FA is enabled you will not be able to claim your server when installing HexOS. Check that 2FA is disabled. 
-
-Go to **System** > **Advanced Settings** then scroll down to **Global Two Factor Authentication** and check that 2FA is showing as disabled.
-
-You may need to scroll down to see the **System** menu item
-
-<details>
-<summary> Two-factor authentication setting </summary>
-
-![](/2fa-disabled.png){.medium .framed}
-</details>
-
- If it is showing as enabled, click **Configure**, uncheck the **Enable Two Factor Authentication Globally** box and click **Save**
+> **Info:** You don't need to turn off two-factor authentication (2FA) in TrueNAS. If 2FA is on when you claim the server, HexOS asks for the code from your authenticator app, so have it ready.
+{.is-info}
 
 ### Download TrueNAS configuration 
 
