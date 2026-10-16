@@ -2,7 +2,7 @@
 title: Manage your backups
 description: Change which folders are backed up, the schedule and retention, transfer speed, space, pause and resume, names, and read the Backups page and map
 published: true
-date: 2026-10-07T00:00:00.000Z
+date: 2026-10-15T00:00:00.000Z
 tags: backups, buddy, schedule, pause, folders
 editor: markdown
 dateCreated: 2026-08-23T12:07:15.363Z
@@ -68,7 +68,7 @@ Each folder row has a menu with:
 - **Back up now**: back up this folder straight away.
 - **Repair backup**: only shows when the folder's copy needs to start over. See [Backup troubleshooting](/features/backups/troubleshooting).
 - **Restore from this backup**: see [Restore a folder](/features/backups/restore-a-folder).
-- **Remove**: stop backing up this folder here, and delete its copy on the other server.
+- **Remove**: stop backing up this folder here, and delete its copy on the other server and its restore points on this one.
 
 <details>
 <summary> A folder's menu </summary>
@@ -115,7 +115,7 @@ Each folder already in the backup shows how many restore points it has at the de
 
 On a buddy's backup, folders that are not encrypted cannot be added yet. The dialog lists them with an **Encrypt…** button. When encryption finishes, HexOS adds the folder to the backup for you.
 
-> **Danger:** Removing a folder from a backup deletes its copy and every restore point on the other server. It cannot be undone. The folder on your own server is not touched. See [Removing backups](/features/backups/removing-backups).
+> **Danger:** Removing a folder from a backup deletes its copy and every restore point on the other server, and its restore points on your server. It cannot be undone. The folder on your own server is not touched. See [Removing backups](/features/backups/removing-backups).
 {.is-danger}
 
 ## Change the schedule and retention
