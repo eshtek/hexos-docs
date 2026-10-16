@@ -2,7 +2,7 @@
 title: VMs
 description: Run Windows, Linux, and appliance operating systems on your HexOS server
 published: true
-date: 2026-10-09T00:00:00.000Z
+date: 2026-10-15T00:00:00.000Z
 tags: vm, vms, virtual machine, windows, linux
 editor: markdown
 dateCreated: 2026-08-21T11:37:43.366Z
@@ -261,7 +261,7 @@ Sometimes setup stops but keeps the VM and its disks. For example, when the syst
 ![cancel-setup-before-vm.png](/features/vms/images/cancel-setup-before-vm.png){.medium .framed}
 </details>
 
-**Once the VM exists**, it removes the VM. The dialog lists the VM's disks the same way **Uninstall** does, and asks you to type the VM's name. Click **Cancel setup and remove VM**. Ticked disks are deleted for good, and unticked disks are kept. See [Uninstall](/features/vms#uninstall).
+**Once the VM exists**, it removes the VM. The dialog lists the VM's disks the same way **Uninstall** does, and asks you to type the VM's name. The button says what it deletes, for example **Cancel setup and delete 1 disk**. Checked disks are deleted permanently, and unchecked disks are kept. See [Uninstall](/features/vms#uninstall).
 
 <details>
 <summary> Cancel setup once the VM exists </summary>
@@ -436,7 +436,7 @@ The **Options** tab has:
 | **Power** > **Force off** | Cuts power immediately, like holding the power button. Anything unsaved inside the VM is lost |
 | **Rename** | Changes the name the VM is shown under. Stop the VM first |
 | **Run setup** | Runs [VM setup](/features/vms/vm-setup) again, for systems that have it |
-| **Uninstall** | Removes the VM. Deletes only the disks you tick |
+| **Uninstall** | Removes the VM. Deletes only the disks you check |
 
 A running VM shows the **Power** menu. A stopped VM shows **Power on** instead.
 
@@ -453,14 +453,16 @@ If **Rename** says **Old TPM data for this name is still on the server**, choose
 
 ### Uninstall
 
-To uninstall a VM, click **Uninstall**. The **Uninstall VM** dialog lists the VM's disks under **Disks**:
+To uninstall a VM, click **Uninstall**. The **Uninstall VM** dialog lists the VM's disks under **Disks**. Each disk is a virtual disk on one of your pools, where the VM keeps its operating system and files.
 
-- **Disks HexOS made for this VM start ticked.**
-- **A disk HexOS did not make for this VM starts unticked.** It says **Not made by HexOS for this VM. Tick it only if you want it gone.** This covers the disks of [VMs made in TrueNAS](/features/vms#vms-made-in-truenas), a disk you attached yourself, and the disks of a VM set up with an earlier version of HexOS.
-- **Some disks cannot be ticked and are always kept.** Each one says why: another VM uses it, a share or another service uses it, another disk was copied from it or it is protected, or HexOS could not check it.
-- **A disk that is a file** is listed as **File disk, kept**.
+- **Disks HexOS made for this VM start checked.**
+- **A disk HexOS has no record of making starts unchecked.** It says **Unchecked: HexOS has no record of making this disk. Check it only if you want it deleted.** This covers the disks of [VMs made in TrueNAS](/features/vms#vms-made-in-truenas) and a disk you attached yourself.
+- **The disks of a VM set up with an earlier version of HexOS start unchecked.** Versions of HexOS from before October 10, 2026 did not record which disks they made, so HexOS cannot tell those disks apart from a disk you attached. Each one says **Unchecked: an older version of HexOS set up this VM and didn't record which disks it made. Check it only if you want it deleted.** If you leave the VM's own disk unchecked, it stays on your pool and keeps using space.
+- **Some disks cannot be checked and are always kept.** Each one says why: another VM uses it, a share or another service uses it, another disk was copied from it or it is protected, or HexOS could not check it.
+- **A disk stored as a file** instead of as a virtual disk is listed as **Disk image file, always kept**.
+- **The setup files HexOS made for the VM are not listed.** The dialog says **HexOS also deletes the setup files it made for this VM.**
 
-Tick the disks you want deleted, type the VM's name, and click **Remove this VM**. HexOS shuts the VM down, removes it, and deletes each ticked disk with its snapshots. Unticked disks are kept.
+Check the disks you want deleted and type the VM's name. The button says what it deletes, for example **Remove VM and delete 1 disk**, or **Remove VM, keep disks** when no disk is checked. Click it. HexOS shuts the VM down, removes it, and deletes each checked disk with its snapshots. Unchecked disks stay on your server.
 
 <details>
 <summary> Uninstall VM </summary>
@@ -468,10 +470,16 @@ Tick the disks you want deleted, type the VM's name, and click **Remove this VM*
 ![vms-uninstall-confirm](/vms-uninstall-confirm.png){.medium .framed}
 </details>
 
-> **Danger:** Ticked disks are deleted for good, with their snapshots. This cannot be undone. Check every tick before you click **Remove this VM**.
+<details>
+<summary> Uninstall a VM set up with an earlier version of HexOS </summary>
+
+![vms-uninstall-older-hexos](/vms-uninstall-older-hexos.png){.medium .framed}
+</details>
+
+> **Danger:** Checked disks are deleted permanently, with their snapshots. This cannot be undone. Look at every checkbox, and at what the button says it deletes, before you click it.
 {.is-danger}
 
-HexOS checks each ticked disk again just before it deletes it. If another VM or a share started using the disk meanwhile, or another disk was copied from it, the disk is kept and HexOS says **VM removed. Some disks you ticked were kept.**
+Just before it deletes a checked disk, HexOS checks the disk again. If another VM or a share started using the disk meanwhile, or another disk was copied from it, the disk is kept and HexOS says **VM removed. Some disks you checked were kept.**
 
 HexOS asks the VM to shut down and never forces it off. If the VM does not shut down, nothing is removed and HexOS says **The VM did not shut down, so nothing was removed. Turn it off, then try again.** Click **Power** > **Force off**, then click **Uninstall** again.
 
@@ -481,7 +489,7 @@ Uninstall also removes the setup files HexOS made for the VM, its Windows securi
 
 VMs you made in the TrueNAS web interface also show under **Installed VMs**. You can start, stop, and open them from HexOS like any other VM.
 
-> **Info:** **Uninstall** lists the disks of a VM made in TrueNAS with none of them ticked, because HexOS did not make them. A disk you leave unticked is kept, so a disk you attached from an earlier server or a replication stays on your pool.
+> **Info:** **Uninstall** lists the disks of a VM made in TrueNAS with none of them checked, because HexOS did not make them. A disk you leave unchecked is kept, so a disk you attached from an earlier server or a replication stays on your pool.
 {.is-info}
 
 ## Storage and snapshots
