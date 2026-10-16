@@ -2,7 +2,7 @@
 title: Complete server setup
 description: Log in, find your server, check its hardware, choose how to use your drives and finish setup
 published: true
-date: 2026-10-09T00:00:00.000Z
+date: 2026-10-13T00:00:00.000Z
 tags: setup, storage, pools, getting started
 editor: markdown
 dateCreated: 2026-06-08T15:41:10.493Z
@@ -186,7 +186,7 @@ You only see this screen when your drives already hold storage pools. It lists t
 
 ### Pools from another server
 
-Every pool that can be imported starts switched on. Click a pool to see its drives, or to switch it off. A pool you import keeps everything on it: folders, users, apps and virtual machines.
+Every pool that can be imported starts switched on. Click a pool to see its drives, or to switch it off. Your files come with a pool you import. After setup, the **Folders** screen offers to restore the pool's folders, and if your apps ran from this pool, they come back too. Users and virtual machines were saved on the previous server's boot drive and stay behind, so you add your users again after setup.
 
 <details>
 <summary> Import existing pools </summary>
