@@ -42,6 +42,7 @@ Install scripts support various macros that are replaced dynamically during scri
 - **`$SERVER_HOST_ID`**: Server's unique host ID
 - **`$LOCATION(locationId)`**: Resolves to configured location path
 - **`$RANDOM_STRING(length)`**: Generates random alphanumeric string
+- **`$PARTNER_TOKEN([partnerId])`**: A per-install credential for a partner app's API, issued by HexOS (catalog scripts only)
 - **`$MEMORY(percentage, minimum_mb)`**: Calculates memory allocation
 - **`$CPUS(percentage, minimum_cores)`**: Calculates the CPU limit from the server's CPU count
 - **`$HOST_PATH(path)`**: Creates host path configuration object
