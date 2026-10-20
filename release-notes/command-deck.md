@@ -12,6 +12,8 @@ dateCreated: 2026-06-08T15:43:20.245Z
 
 Stay up to date with HexOS Command Deck updates, new features, and improvements.
 
+Subscribe by RSS at [feeds.hexos.com](https://feeds.hexos.com) to get each release note in your feed reader.
+
 ## How Updates Work
 
 Command Deck updates are automatically deployed by the HexOS development team. You don't need to take any action to receive these updates - they will appear automatically when you next visit the Command Deck.
