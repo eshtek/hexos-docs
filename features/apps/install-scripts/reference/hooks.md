@@ -709,6 +709,32 @@ Checkpoints represent progress steps shown to the user in the HexOS activity cen
 | `waitForApp(path, opts?)` | Poll the app's HTTP endpoint until it responds. Uses exponential backoff (40 attempts by default). Options: `{ timeout?, retries?, method?, expectedStatus? }` |
 | `getInstalledAppUrl(appId)` | Base URL of another installed app (e.g. `"http://192.168.1.50:5055"`), or `null` when it isn't installed or has no known port. Resolves on user-fired runs — connect hooks use it to reach the pairing target; lifecycle firings receive `null`. |
 
+#### Partner API
+
+For an app whose API accepts only a credential HexOS issued it (see [`$PARTNER_TOKEN`](/features/apps/install-scripts/reference/macros#partner_tokenpartnerid)). The platform reads the credential from the installed app, checks it, and adds whatever that partner's API expects on the request: signed headers, a token header or a query parameter, depending on the partner. The script chooses the URL, method, headers and body and reads the response itself, as it would with `fetch`; it never sees the credential.
+
+| Method | Description |
+|---|---|
+| `partnerRequest(partnerId, url, init?)` | Send one request to the partner app's API, authenticated. Returns the raw `Response`, for a status that needs handling (a 404 that means "not set up yet"), a stream, or a non-JSON body. The URL must point at the app on this server (`ctx.host`) and the body must be a string or absent; anything else is refused. Rejects when the app has no valid credential for that partner. |
+| `partnerRequestJson<T>(partnerId, url, init?)` | `partnerRequest` for the common case: `init.body` may be any value and is serialised as JSON, the answer is parsed as JSON and returned as `T`, and anything but a 2xx throws an `Error` carrying the status and the partner's own reason text. |
+
+The partner id is the app's own id for an app's own credential.
+
+```ts
+const status = await ctx.partnerRequestJson<{ queue: number }>(ctx.resourceId, `${ctx.baseUrl}/api/status`);
+await ctx.partnerRequestJson(ctx.resourceId, `${ctx.baseUrl}/api/jobs`, {
+  method: "POST",
+  body: { files: paths },
+});
+```
+
+Rules a partner script follows, so the integration stays safe for the user's data:
+
+- Every call to the partner goes through these two methods; no bare `fetch` to the app.
+- A refusal from the partner's API surfaces to the user with the status and reason; it is never turned into an empty result. A 404 from a partner that gates its API behind the credential is explained (version, restart).
+- A file action never deletes, replaces or moves a user's file through the partner. It checks for output collisions and for work the partner is already doing before it queues anything, fails closed when a path cannot be checked, and only ever writes a new file next to the user's media.
+- Anything the partner app must be configured with is written from a definition in the script on every run rather than trusted by name.
+
 #### Error handling
 
 | Method | Description |

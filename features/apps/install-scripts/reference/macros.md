@@ -44,6 +44,20 @@ Generates a random alphanumeric string of specified length. Useful for passwords
 "password": "$RANDOM_STRING(12)"
 ```
 
+## `$PARTNER_TOKEN([partnerId])`
+A per-install credential for a partner app: an app whose API accepts only callers HexOS can vouch for. HexOS mints the value when the app is installed (signed with a HexOS key the partner holds the public half of), writes it into the env entry the macro sits in, keeps it across script updates and restore reinstalls like a generated secret, and never shows it to a script. The partner app checks it once at startup and then treats it as its API credential.
+
+The argument is optional. Empty means the app being installed; a partner id names another registered partner, for a script that bundles one. Only a catalog script may use it: a custom script that asks for a partner token is refused.
+
+**Example:**
+```json
+"additional_envs": [
+  { "name": "PARTNER_API_KEY", "value": "$PARTNER_TOKEN()" }
+]
+```
+
+The env var's name is whatever the partner app reads. A hook or action script then calls the partner's API through [`ctx.partnerRequest`](/features/apps/install-scripts/reference/hooks#partner-api) and never handles the credential itself.
+
 ## `$SERVER_LAN_IP`
 Resolves to the server's LAN IP address. Useful for constructing URLs that point to services running on the TrueNAS server.
 
