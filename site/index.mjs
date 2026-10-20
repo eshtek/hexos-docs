@@ -13,9 +13,16 @@ const listTitle = (t) => t.replace(/^[A-Z][a-z]+ \d{1,2}, \d{4}\s+[-:]\s+/, '');
 
 const SECTION_LABEL = { blog: 'Blog', 'release-notes': 'Release notes' };
 
+// The page already says HexOS; the channel titles keep it for feed readers.
+const CARD = {
+  all: { label: 'Everything', blurb: 'Blog posts and release notes, newest first.' },
+  blog: { label: 'Blog', blurb: 'News and updates from the team.' },
+  'release-notes': { label: 'Release notes', blurb: 'Changes in each Command Deck release.' },
+};
+
 const FORMATS = [
-  { ext: 'xml', label: 'RSS', note: 'Works in every reader' },
-  { ext: 'atom', label: 'Atom', note: 'Standard XML alternative' },
+  { ext: 'xml', label: 'RSS', note: 'Works everywhere' },
+  { ext: 'atom', label: 'Atom', note: 'XML alternative' },
   { ext: 'json', label: 'JSON Feed', note: 'For apps and scripts' },
 ];
 
@@ -36,11 +43,12 @@ const FAVICON = `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www
 const RSS_ICON = `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="18" r="2" fill="currentColor"/><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>`;
 
 function feedCard({ slug, channel, latest }, featured) {
+  const card = CARD[slug] || { label: channel.title, blurb: channel.description };
   const formats = FORMATS.map(({ ext, label, note }) => {
     const url = `${FEEDS_URL}/${slug}.${ext}`;
     return `          <li class="format">
             <div class="format-name"><a href="${url}">${label}</a><span>${note}</span></div>
-            <div class="url-field"><code>${url}</code><button type="button" class="copy" data-copy="${url}" aria-label="Copy ${esc(channel.title)} ${label} link" hidden>Copy</button></div>
+            <div class="url-field"><code>${url}</code><button type="button" class="copy" data-copy="${url}" aria-label="Copy ${esc(card.label)} ${label} link" hidden>Copy</button></div>
           </li>`;
   }).join('\n');
   const recent = latest.length ? `
@@ -55,8 +63,8 @@ ${latest.map((i) => `            <li><a href="${esc(i.url)}">${esc(listTitle(i.t
           <span class="badge">${RSS_ICON}</span>
           <div>
             ${featured ? '<p class="eyebrow">Recommended</p>' : ''}
-            <h2>${esc(channel.title)}</h2>
-            <p class="desc">${esc(channel.description)} <a href="${esc(channel.home)}">Read on docs.hexos.com</a></p>
+            <h2>${esc(card.label)}</h2>
+            <p class="desc">${esc(card.blurb)} <a href="${esc(channel.home)}">Read online</a></p>
           </div>
         </div>
         <ul class="formats">
@@ -109,7 +117,10 @@ ${feeds.map(({ slug, channel }) => `  <link rel="alternate" type="application/rs
 
     main.wrap { margin-top: -4.5rem; position: relative; padding-bottom: 3rem; }
     .grid { display: grid; gap: 1.25rem; }
-    @media (min-width: 760px) { .grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 760px) {
+      .grid { grid-template-columns: 1fr 1fr; row-gap: 0; }
+      .grid .card { display: grid; grid-row: span 3; grid-template-rows: subgrid; align-content: start; }
+    }
 
     .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; box-shadow: 0 1px 2px rgba(0, 0, 0, .04), 0 8px 24px rgba(17, 7, 25, .06); min-width: 0; }
     .card.featured { margin-bottom: 1.25rem; border-color: transparent; background: linear-gradient(var(--card), var(--card)) padding-box, linear-gradient(135deg, var(--accent), var(--primary)) border-box; border: 2px solid transparent; }
@@ -164,8 +175,8 @@ ${feeds.map(({ slug, channel }) => `  <link rel="alternate" type="application/rs
   <header class="hero">
     <div class="wrap">
       <a class="brand" href="https://hexos.com" aria-label="HexOS"><svg viewBox="0 0 234 64" role="img" aria-hidden="true">${MARK_DEFS}${MARK}${WORDMARK}</svg></a>
-      <h1>Stay in the loop with <span>HexOS</span></h1>
-      <p class="lead">Follow new blog posts and Command Deck release notes in any feed reader. Pick a feed, copy its link, and paste it into your reader.</p>
+      <h1>Stay in the <span>loop</span></h1>
+      <p class="lead">Blog posts and release notes, delivered to your feed reader. Copy a link and paste it in.</p>
     </div>
   </header>
   <main class="wrap">
@@ -174,14 +185,14 @@ ${featured ? feedCard(featured, true) : ''}
 ${rest.map((f) => feedCard(f, false)).join('\n')}
     </div>
     <section class="help" aria-label="About feeds">
-      <div><h3>New to feeds?</h3><p>A feed reader such as Feedly, NetNewsWire, Inoreader or Thunderbird checks these links for you and shows each new post as it lands.</p></div>
-      <div><h3>Which format?</h3><p>Choose RSS unless your reader asks for something else. Atom and JSON Feed carry the same posts.</p></div>
-      <div><h3>Always current</h3><p>Feeds rebuild whenever the documentation changes and carry the 30 newest posts, with full content.</p></div>
+      <div><h3>New to feeds?</h3><p>A reader like Feedly, NetNewsWire or Inoreader checks these links and shows new posts as they land.</p></div>
+      <div><h3>Which format?</h3><p>RSS, unless your reader asks otherwise. All three carry the same posts.</p></div>
+      <div><h3>Always current</h3><p>Rebuilt on every docs change, with the 30 newest posts in full.</p></div>
     </section>
   </main>
   <footer>
     <div class="wrap">
-      <span class="mark"><svg viewBox="0 0 56 64" aria-hidden="true">${MARK}</svg>HexOS</span>
+      <span class="mark"><svg viewBox="0 0 56 64" role="img" aria-label="HexOS">${MARK}</svg></span>
       <nav><a href="https://hexos.com">hexos.com</a><a href="https://docs.hexos.com">docs.hexos.com</a></nav>
     </div>
   </footer>
