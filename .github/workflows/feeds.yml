@@ -1,0 +1,80 @@
+# Builds the RSS, Atom and JSON feeds for the blog and Command Deck release
+# notes and publishes them to GitHub Pages at feeds.hexos.com.
+#
+# This is the only non-content file on the wiki branch. Wiki.js imports it as
+# an asset (clutter, not breakage); deleting that asset in Wiki.js deletes this
+# file and stops the feeds. The generator lives on the `feeds` branch so that
+# nothing else lands here.
+name: Feeds
+
+on:
+  push:
+    branches: [wiki]
+    paths:
+      - 'blog.md'
+      - 'blog/**'
+      - 'release-notes/**'
+      - '.github/workflows/feeds.yml'
+  schedule:
+    - cron: '17 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: feeds
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout content (wiki)
+        uses: actions/checkout@v4
+        with:
+          ref: wiki
+          path: content
+
+      - name: Checkout generator (feeds)
+        uses: actions/checkout@v4
+        with:
+          ref: feeds
+          path: tooling
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: tooling/package-lock.json
+
+      - name: Install
+        run: npm ci --prefix tooling
+
+      - name: Test generator
+        run: npm test --prefix tooling
+
+      - name: Build feeds
+        run: node tooling/build.mjs --content content --out dist
+
+      - name: Validate feeds
+        run: node tooling/validate.mjs dist
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
