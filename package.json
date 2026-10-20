@@ -1,0 +1,18 @@
+{
+  "name": "hexos-feeds",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Builds feeds.hexos.com from the hexos-docs wiki branch",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "node build.mjs --content ../hexos-docs --out dist",
+    "validate": "node validate.mjs dist",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "fast-xml-parser": "5.3.4",
+    "markdown-it": "14.1.0",
+    "markdown-it-attrs": "4.3.1"
+  }
+}
