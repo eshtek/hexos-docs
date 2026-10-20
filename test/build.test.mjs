@@ -7,6 +7,7 @@ import os from 'node:os';
 import { loadSection, sortNewestFirst, parseBlogIndex, parseReleaseNotesIndex } from '../lib/sources.mjs';
 import { rss, atom, jsonFeed } from '../lib/feeds.mjs';
 import { SECTIONS } from '../config.mjs';
+import { renderHtml, renderMarkdown } from '../lib/render.mjs';
 
 const here = path.dirname(new URL(import.meta.url).pathname);
 const fixtures = path.join(here, 'fixtures');
@@ -119,4 +120,9 @@ test('validator rejects a feed with a root-relative link or broken XML', () => {
   assert.throws(() => execFileSync('node', [path.join(root, 'validate.mjs'), out], { stdio: 'pipe' }), /root-relative/);
   fs.writeFileSync(file, good.replace('</channel>', ''));
   assert.throws(() => execFileSync('node', [path.join(root, 'validate.mjs'), out], { stdio: 'pipe' }), /well-formed/);
+});
+
+test('inline styles are stripped from item content', () => {
+  assert.equal(renderHtml('<img src="/a.png" style="width:100%; margin:1rem auto;" alt="a">'), '<img src="https://docs.hexos.com/a.png" alt="a">');
+  assert.doesNotMatch(renderMarkdown("<p style='color:red'>hi</p>"), /style=/);
 });
