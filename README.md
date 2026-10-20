@@ -35,12 +35,12 @@ Each feed carries the newest 30 items.
 | Categories | The section (`blog`, `release-notes`) plus the page's tags |
 
 Wiki.js syntax handled: `{.is-info}` style callouts and `{.align-center}` attributes
-(kept as classes), `=750x` image sizes (dropped).
+(kept as classes), `=750x` image sizes (dropped). Inline `style` attributes are dropped too: readers strip them and the W3C validator flags them.
 
 ## Outputs
 
 `blog`, `release-notes` and `all` (both merged), each as `.xml` (RSS), `.atom` and
-`.json`, plus an `index.html` subscribe page that carries the HexOS logo, a copy button per feed link and the three newest items in each feed.
+`.json`, plus an `index.html` subscribe page with the HexOS logo, a copy button and one-click Feedly and Inoreader links for each feed, and the three newest items in each feed.
 
 ## Run locally
 

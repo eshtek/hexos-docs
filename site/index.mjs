@@ -20,12 +20,6 @@ const CARD = {
   'release-notes': { label: 'Release notes', blurb: 'Changes in each Command Deck release.' },
 };
 
-const FORMATS = [
-  { ext: 'xml', label: 'RSS', note: 'Works everywhere' },
-  { ext: 'atom', label: 'Atom', note: 'XML alternative' },
-  { ext: 'json', label: 'JSON Feed', note: 'For apps and scripts' },
-];
-
 // Shapes from the HexOS logo (packages/frontend/public/logos in hexos-platform).
 const MARK = `<path d="M12.1334 22.9759V41.0241L23.3234 47.4184L11.1776 54.3871L0 48V16L28.0002 0L40.1537 6.94483L12.1334 22.9759Z" fill="url(#hx-mark)"/>
 <path d="M27.9998 63.9944L15.8535 57.0537L43.8666 41.0185V22.9703L32.6838 16.5801L44.8296 9.61133L56 15.9944V47.9944L27.9998 63.9944Z" fill="url(#hx-mark)"/>`;
@@ -40,36 +34,44 @@ const WORDMARK = `<g fill="currentColor">
 
 const FAVICON = `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 64">${MARK_DEFS}${MARK}</svg>`)}`;
 
-const RSS_ICON = `<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="18" r="2" fill="currentColor"/><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>`;
+
+const icon = (paths) => `<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths}</svg>`;
+const ICONS = {
+  all: icon('<path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/>'),
+  blog: icon('<path d="M4 20h4L19 9a2.83 2.83 0 0 0-4-4L4 16v4Z"/><path d="m13.5 6.5 4 4"/>'),
+  'release-notes': icon('<path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/>'),
+};
+const COPY_ICON = '<svg class="i-copy" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8"/><path d="M10.5 5.5V4.3A1.8 1.8 0 0 0 8.7 2.5H4.3a1.8 1.8 0 0 0-1.8 1.8v4.4a1.8 1.8 0 0 0 1.8 1.8h1.2"/></svg><svg class="i-done" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7"/></svg>';
+const ARROW = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>';
+
+const READERS = [
+  { name: 'Feedly', href: (u) => `https://feedly.com/i/subscription/feed%2F${encodeURIComponent(u)}` },
+  { name: 'Inoreader', href: (u) => `https://www.inoreader.com/?add_feed=${encodeURIComponent(u)}` },
+];
 
 function feedCard({ slug, channel, latest }, featured) {
   const card = CARD[slug] || { label: channel.title, blurb: channel.description };
-  const formats = FORMATS.map(({ ext, label, note }) => {
-    const url = `${FEEDS_URL}/${slug}.${ext}`;
-    return `          <li class="format">
-            <div class="format-name"><a href="${url}">${label}</a><span>${note}</span></div>
-            <div class="url-field"><code>${url}</code><button type="button" class="copy" data-copy="${url}" aria-label="Copy ${esc(card.label)} ${label} link" hidden>Copy</button></div>
-          </li>`;
-  }).join('\n');
+  const rss = `${FEEDS_URL}/${slug}.xml`;
   const recent = latest.length ? `
         <div class="recent">
-          <h3>Latest</h3>
+          <div class="recent-head"><h3>Latest</h3><a href="${esc(channel.home)}">View all ${ARROW}</a></div>
           <ol>
-${latest.map((i) => `            <li><a href="${esc(i.url)}">${esc(listTitle(i.title))}</a><span class="meta">${slug === 'all' ? `<span class="tag">${SECTION_LABEL[i.section] || esc(i.section)}</span>` : ''}<time datetime="${i.published}">${shortDate(i.published)}</time></span></li>`).join('\n')}
+${latest.map((i) => `            <li><a href="${esc(i.url)}"><span class="item-title">${esc(listTitle(i.title))}</span><span class="meta">${slug === 'all' ? `<span class="section s-${esc(i.section)}">${SECTION_LABEL[i.section] || esc(i.section)}</span>` : ''}<time datetime="${i.published}">${shortDate(i.published)}</time></span></a></li>`).join('\n')}
           </ol>
         </div>` : '';
-  return `      <section class="card${featured ? ' featured' : ''}" id="${slug}">
+  return `      <section class="card${featured ? ' featured' : ''}" id="${slug}" aria-labelledby="${slug}-title">
         <div class="card-head">
-          <span class="badge">${RSS_ICON}</span>
+          <span class="badge">${ICONS[slug] || ICONS.all}</span>
           <div>
-            ${featured ? '<p class="eyebrow">Recommended</p>' : ''}
-            <h2>${esc(card.label)}</h2>
-            <p class="desc">${esc(card.blurb)} <a href="${esc(channel.home)}">Read online</a></p>
+            <h2 id="${slug}-title">${esc(card.label)}${featured ? ' <span class="pill">Recommended</span>' : ''}</h2>
+            <p class="desc">${esc(card.blurb)}</p>
           </div>
         </div>
-        <ul class="formats">
-${formats}
-        </ul>${recent}
+        <div class="subscribe">
+          <div class="url-field"><code title="${rss}"><span class="scheme">https://</span>${rss.replace('https://', '')}</code><button type="button" class="copy" data-copy="${rss}" aria-label="Copy the ${esc(card.label)} feed link" title="Copy link" hidden>${COPY_ICON}</button></div>
+          <p class="options"><span>Add to ${READERS.map((r) => `<a href="${r.href(rss)}" rel="noopener">${r.name}</a>`).join(' · ')}</span><span>Also as <a href="${FEEDS_URL}/${slug}.atom">Atom</a> · <a href="${FEEDS_URL}/${slug}.json">JSON Feed</a></span></p>
+        </div>${recent}${featured ? `
+        <p class="hint"><strong>New to feeds?</strong> A reader like NetNewsWire, Feedly or Inoreader checks these links and shows each new post as it lands. Every feed carries the 30 newest posts in full.</p>` : ''}
       </section>`;
 }
 
@@ -83,100 +85,131 @@ export function indexPage(feeds) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>HexOS Feeds</title>
   <meta name="description" content="Subscribe to HexOS blog posts and Command Deck release notes by RSS, Atom or JSON Feed.">
+  <meta name="theme-color" content="#110719">
   <link rel="icon" href="${FAVICON}">
 ${feeds.map(({ slug, channel }) => `  <link rel="alternate" type="application/rss+xml" title="${esc(channel.title)}" href="${FEEDS_URL}/${slug}.xml">`).join('\n')}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Sora:wght@700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap">
   <style>
     :root {
       color-scheme: light dark;
       --primary: #7F35B2; --accent: #CC30FF; --ink: #110719;
-      --surface: #f5f5f5; --card: #ffffff; --fg: #262626; --muted: #737373;
-      --border: #e5e5e5; --field: #fafafa; --link: #7F35B2; --tag: #f3e8fa;
+      --surface: #f6f5f8; --card: #ffffff; --fg: #1d1a21; --muted: #6b6672; --faint: #9a95a1;
+      --border: #e7e4eb; --field: #f8f7fa; --link: #7F35B2; --hover: #f7f2fb; --pill: #f3e8fa;
+      --blog: #e8701e; --release: #0b8fd0;
+      --shadow: 0 1px 2px rgba(17, 7, 25, .04), 0 12px 32px -12px rgba(17, 7, 25, .12);
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --surface: #121212; --card: #1c1c1c; --fg: #ffffff; --muted: #a3a3a3;
-        --border: #333333; --field: #141414; --link: #d78bff; --tag: #2e1a3d;
+        --surface: #0d0a10; --card: #17141b; --fg: #f5f3f7; --muted: #a9a3b0; --faint: #7d7784;
+        --border: #2a2530; --field: #100d13; --link: #d690ff; --hover: #1f1a25; --pill: #2c1a3b;
+        --blog: #f59a52; --release: #4cc3f5;
+        --shadow: 0 1px 2px rgba(0, 0, 0, .3), 0 12px 32px -12px rgba(0, 0, 0, .6);
       }
     }
     * { box-sizing: border-box; }
     body { margin: 0; background: var(--surface); color: var(--fg); font: 16px/1.55 Figtree, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; -webkit-font-smoothing: antialiased; }
-    a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 2px; }
-    .wrap { max-width: 64rem; margin: 0 auto; padding: 0 16px; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+    .wrap { max-width: 62rem; margin: 0 auto; padding: 0 16px; }
 
-    .hero { position: relative; overflow: hidden; background: var(--ink); color: #fff; padding: 2.5rem 0 7rem; }
-    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(60rem 30rem at 85% -10%, rgba(204, 48, 255, .45), transparent 60%), radial-gradient(40rem 24rem at 0% 110%, rgba(127, 53, 178, .55), transparent 65%); }
+    .hero { position: relative; overflow: hidden; background: var(--ink); color: #fff; padding: 1.25rem 0 6.5rem; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(48rem 26rem at 88% -20%, rgba(204, 48, 255, .42), transparent 62%), radial-gradient(34rem 20rem at -5% 120%, rgba(127, 53, 178, .5), transparent 65%); pointer-events: none; }
     .hero .wrap { position: relative; }
-    .brand { display: inline-flex; color: #fff; }
-    .brand svg { height: 40px; width: auto; display: block; }
-    .hero h1 { font-family: Sora, Figtree, sans-serif; font-weight: 800; font-size: clamp(2.25rem, 6vw, 3.5rem); line-height: 1.05; letter-spacing: -.02em; margin: 3.5rem 0 1rem; }
-    .hero h1 span { background: linear-gradient(91deg, #e6b3ff 0%, #CC30FF 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .hero .lead { font-size: 1.15rem; max-width: 36rem; margin: 0; color: rgba(255, 255, 255, .78); }
+    @media (prefers-color-scheme: dark) { .hero::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 7rem; background: linear-gradient(transparent, var(--surface)); pointer-events: none; } }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .brand { display: inline-flex; color: #fff; border-radius: 6px; }
+    .brand svg { height: 32px; width: auto; display: block; }
+    .topbar nav { display: flex; gap: 1.5rem; font-size: .925rem; font-weight: 500; }
+    .topbar nav a { color: rgba(255, 255, 255, .72); }
+    .topbar nav a:hover { color: #fff; text-decoration: none; }
+    .hero h1 { font-family: Sora, Figtree, sans-serif; font-weight: 700; font-size: clamp(2.25rem, 5.5vw, 3.25rem); line-height: 1.08; letter-spacing: -.025em; margin: 3.5rem 0 .85rem; }
+    .hero h1 span { background: linear-gradient(95deg, #f0c8ff 0%, #CC30FF 70%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero .lead { font-size: 1.125rem; max-width: 32rem; margin: 0; color: rgba(255, 255, 255, .7); }
 
-    main.wrap { margin-top: -4.5rem; position: relative; padding-bottom: 3rem; }
-    .grid { display: grid; gap: 1.25rem; }
+    main.wrap { margin-top: -3.75rem; position: relative; padding-bottom: 4rem; }
+    .grid { display: grid; gap: 1rem; margin-top: 1rem; }
     @media (min-width: 760px) {
       .grid { grid-template-columns: 1fr 1fr; row-gap: 0; }
       .grid .card { display: grid; grid-row: span 3; grid-template-rows: subgrid; align-content: start; }
     }
 
-    .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; box-shadow: 0 1px 2px rgba(0, 0, 0, .04), 0 8px 24px rgba(17, 7, 25, .06); min-width: 0; }
-    .card.featured { margin-bottom: 1.25rem; border-color: transparent; background: linear-gradient(var(--card), var(--card)) padding-box, linear-gradient(135deg, var(--accent), var(--primary)) border-box; border: 2px solid transparent; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 1.5rem; box-shadow: var(--shadow); min-width: 0; }
+    .card.featured { border: 1.5px solid transparent; background: linear-gradient(var(--card), var(--card)) padding-box, linear-gradient(135deg, var(--accent), var(--primary) 60%, var(--border)) border-box; }
     @media (min-width: 760px) {
-      .card.featured { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); column-gap: 2rem; }
-      .card.featured .card-head { grid-column: 1 / -1; }
+      .card.featured { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: 'head recent' 'sub recent' 'hint recent'; grid-template-rows: auto auto 1fr; column-gap: 2.5rem; }
+      .card.featured .card-head { grid-area: head; }
+      .card.featured .subscribe { grid-area: sub; }
+      .card.featured .hint { grid-area: hint; align-self: end; }
+      .card.featured .recent { grid-area: recent; margin: 0; padding: 0 0 0 1.25rem; border: 0; border-left: 1px solid var(--border); margin-left: -1.25rem; }
     }
-    .card-head { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.25rem; }
-    .badge { flex: none; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; color: #fff; background: linear-gradient(315deg, var(--primary), var(--accent)); }
-    .icon { width: 22px; height: 22px; }
-    .eyebrow { margin: 0 0 .15rem; font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--link); }
-    h2 { font-family: Sora, Figtree, sans-serif; font-size: 1.3rem; line-height: 1.25; margin: 0 0 .3rem; letter-spacing: -.01em; }
+    .card > * { min-width: 0; }
+    .card-head { display: flex; gap: .9rem; align-items: flex-start; margin-bottom: 1.1rem; }
+    .badge { flex: none; width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; color: #fff; background: linear-gradient(315deg, var(--primary), var(--accent)); box-shadow: 0 4px 12px -4px rgba(204, 48, 255, .55); }
+    .icon { width: 20px; height: 20px; }
+    h2 { font-family: Sora, Figtree, sans-serif; font-weight: 600; font-size: 1.2rem; line-height: 1.3; margin: 0 0 .15rem; letter-spacing: -.01em; display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
+    .pill { font: 600 .7rem/1 Figtree, system-ui, sans-serif; letter-spacing: .02em; color: var(--link); background: var(--pill); border-radius: 999px; padding: .3rem .55rem; }
     .desc { margin: 0; color: var(--muted); }
 
-    .formats { list-style: none; margin: 0; padding: 0; display: grid; gap: .6rem; }
-    .format { display: grid; gap: .35rem; }
-    .format-name { display: flex; align-items: baseline; gap: .5rem; }
-    .format-name a { font-weight: 700; text-decoration: none; }
-    .format-name a:hover { text-decoration: underline; }
-    .format-name span { color: var(--muted); font-size: .85rem; }
-    .url-field { display: flex; align-items: center; gap: .5rem; background: var(--field); border: 1px solid var(--border); border-radius: 10px; padding: .35rem .35rem .35rem .75rem; min-width: 0; }
-    .url-field code { flex: 1; min-width: 0; font: .85rem/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .copy { flex: none; font: 600 .8rem/1 Figtree, system-ui, sans-serif; color: #fff; background: linear-gradient(315deg, var(--primary), var(--accent)); border: 0; border-radius: 7px; padding: .5rem .8rem; cursor: pointer; }
-    .copy:hover { filter: brightness(1.08); }
-    .copy:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-    .copy.done { background: #059669; }
+    .url-field { display: flex; align-items: center; gap: .5rem; background: var(--field); border: 1px solid var(--border); border-radius: 12px; padding: .3rem .3rem .3rem .85rem; min-width: 0; transition: border-color .15s; }
+    .url-field:hover, .url-field:focus-within { border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); }
+    .url-field code { flex: 1; min-width: 0; font: .84rem/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--fg); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; user-select: all; }
+    .scheme { color: var(--faint); }
+    @media (max-width: 519px) {
+      .card { padding: 1.25rem; }
+      .scheme { display: none; }
+      .url-field code { font-size: .8rem; white-space: normal; overflow-wrap: anywhere; }
+    }
+    .copy { flex: none; width: 36px; height: 36px; display: grid; place-items: center; color: #fff; background: linear-gradient(315deg, var(--primary), var(--accent)); border: 0; border-radius: 9px; padding: 0; cursor: pointer; transition: filter .15s, transform .1s; }
+    .copy svg { width: 16px; height: 16px; grid-area: 1 / 1; transition: opacity .15s, transform .15s; }
+    .copy .i-done, .copy.done .i-copy { opacity: 0; transform: scale(.6); }
+    .copy.done .i-done { opacity: 1; transform: none; }
+    .copy:hover { filter: brightness(1.1); }
+    .copy:active { transform: scale(.97); }
+    .copy.done { background: #0f9d6b; }
+    .options { margin: .7rem 0 0; display: flex; flex-wrap: wrap; justify-content: space-between; gap: .35rem 1rem; font-size: .85rem; color: var(--faint); }
+    .options a { font-weight: 600; }
 
-    .recent { margin-top: 1.25rem; padding-top: 1.1rem; border-top: 1px solid var(--border); }
-    .featured .recent { margin-top: 0; padding-top: 0; border-top: 0; }
-    @media (max-width: 759px) { .featured .recent { margin-top: 1.25rem; padding-top: 1.1rem; border-top: 1px solid var(--border); } }
-    .recent h3 { margin: 0 0 .6rem; font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-    .recent ol { list-style: none; margin: 0; padding: 0; display: grid; gap: .7rem; }
-    .recent li { display: grid; gap: .15rem; }
-    .recent li a { color: var(--fg); font-weight: 600; text-decoration: none; }
-    .recent li a:hover { color: var(--link); text-decoration: underline; }
-    .meta { display: flex; gap: .5rem; align-items: center; color: var(--muted); font-size: .85rem; }
-    .tag { font-size: .72rem; font-weight: 700; color: var(--link); background: var(--tag); border-radius: 999px; padding: .1rem .5rem; }
+    .recent { margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid var(--border); }
+    .recent-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: .4rem; }
+    .recent h3 { margin: 0; font-size: .72rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--faint); }
+    .recent-head a { display: inline-flex; align-items: center; gap: .3rem; font-size: .85rem; font-weight: 600; }
+    .recent-head svg { width: 14px; height: 14px; transition: transform .15s; }
+    .recent-head a:hover svg { transform: translateX(2px); }
+    .recent ol { list-style: none; margin: 0 -.65rem; padding: 0; }
+    .recent li a { display: grid; gap: .15rem; padding: .55rem .65rem; border-radius: 10px; color: var(--fg); transition: background .15s; }
+    .recent li a:hover { background: var(--hover); text-decoration: none; }
+    .recent li a:hover .item-title { color: var(--link); }
+    .item-title { font-weight: 600; line-height: 1.4; }
+    .meta { display: flex; gap: .6rem; align-items: center; color: var(--faint); font-size: .82rem; }
+    .section { display: inline-flex; align-items: center; gap: .35rem; color: var(--muted); }
+    .section::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+    .s-blog::before { background: var(--blog); }
+    .s-release-notes::before { background: var(--release); }
 
-    .help { margin-top: 2.5rem; display: grid; gap: 1.25rem; }
-    @media (min-width: 760px) { .help { grid-template-columns: repeat(3, 1fr); } }
-    .help h3 { font-family: Sora, Figtree, sans-serif; font-size: 1rem; margin: 0 0 .3rem; }
-    .help p { margin: 0; color: var(--muted); font-size: .95rem; }
+    .hint { margin: 1.4rem 0 0; color: var(--muted); font-size: .875rem; }
+    .hint strong { color: var(--fg); font-weight: 600; }
 
-    footer { border-top: 1px solid var(--border); padding: 1.5rem 0 2.5rem; color: var(--muted); font-size: .9rem; }
-    footer .wrap { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; align-items: center; justify-content: space-between; }
-    footer .mark { display: inline-flex; align-items: center; gap: .6rem; }
-    footer .mark svg { height: 24px; width: auto; }
+    footer { padding: 0 0 2.5rem; color: var(--faint); font-size: .875rem; }
+    footer .wrap { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 1.5rem; }
+    footer svg { height: 22px; width: auto; display: block; }
     footer nav { display: flex; gap: 1.25rem; }
+    footer nav a { color: var(--muted); }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   </style>
 </head>
 <body>
   <header class="hero">
     <div class="wrap">
-      <a class="brand" href="https://hexos.com" aria-label="HexOS"><svg viewBox="0 0 234 64" role="img" aria-hidden="true">${MARK_DEFS}${MARK}${WORDMARK}</svg></a>
+      <div class="topbar">
+        <a class="brand" href="https://hexos.com"><svg viewBox="0 0 234 64" role="img" aria-label="HexOS">${MARK_DEFS}${MARK}${WORDMARK}</svg></a>
+        <nav aria-label="HexOS sites"><a href="https://docs.hexos.com">Docs</a><a href="https://hexos.com">hexos.com</a></nav>
+      </div>
       <h1>Stay in the <span>loop</span></h1>
-      <p class="lead">Blog posts and release notes, delivered to your feed reader. Copy a link and paste it in.</p>
+      <p class="lead">New blog posts and release notes, straight to your feed reader.</p>
     </div>
   </header>
   <main class="wrap">
@@ -184,25 +217,23 @@ ${featured ? feedCard(featured, true) : ''}
     <div class="grid">
 ${rest.map((f) => feedCard(f, false)).join('\n')}
     </div>
-    <section class="help" aria-label="About feeds">
-      <div><h3>New to feeds?</h3><p>A reader like Feedly, NetNewsWire or Inoreader checks these links and shows new posts as they land.</p></div>
-      <div><h3>Which format?</h3><p>RSS, unless your reader asks otherwise. All three carry the same posts.</p></div>
-      <div><h3>Always current</h3><p>Rebuilt on every docs change, with the 30 newest posts in full.</p></div>
-    </section>
   </main>
   <footer>
     <div class="wrap">
-      <span class="mark"><svg viewBox="0 0 56 64" role="img" aria-label="HexOS">${MARK}</svg></span>
-      <nav><a href="https://hexos.com">hexos.com</a><a href="https://docs.hexos.com">docs.hexos.com</a></nav>
+      <svg viewBox="0 0 56 64" role="img" aria-label="HexOS">${MARK}</svg>
+      <nav aria-label="Footer"><a href="https://hexos.com">hexos.com</a><a href="https://docs.hexos.com">Docs</a><a href="https://docs.hexos.com/blog">Blog</a><a href="https://docs.hexos.com/release-notes/command-deck">Release notes</a></nav>
     </div>
   </footer>
+  <p class="sr-only" role="status" aria-live="polite" id="copy-status"></p>
   <script>
+    const status = document.getElementById('copy-status');
     for (const b of document.querySelectorAll('.copy')) {
       b.hidden = false;
       b.addEventListener('click', async () => {
         try { await navigator.clipboard.writeText(b.dataset.copy); } catch { return; }
-        b.textContent = 'Copied'; b.classList.add('done');
-        setTimeout(() => { b.textContent = 'Copy'; b.classList.remove('done'); }, 1600);
+        b.classList.add('done'); status.textContent = 'Link copied';
+        clearTimeout(b.timer);
+        b.timer = setTimeout(() => { b.classList.remove('done'); status.textContent = ''; }, 1600);
       });
     }
   </script>
