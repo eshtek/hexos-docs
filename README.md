@@ -40,7 +40,7 @@ Wiki.js syntax handled: `{.is-info}` style callouts and `{.align-center}` attrib
 ## Outputs
 
 `blog`, `release-notes` and `all` (both merged), each as `.xml` (RSS), `.atom` and
-`.json`, plus an `index.html` subscribe page with the HexOS logo, a copy button and one-click Feedly and Inoreader links for each feed, and the three newest items in each feed.
+`.json`, plus an `index.html` subscribe page with the HexOS logo, a copy button for each feed and the three newest items in each feed.
 
 ## Run locally
 

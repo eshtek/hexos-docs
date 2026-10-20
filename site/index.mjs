@@ -44,11 +44,6 @@ const ICONS = {
 const COPY_ICON = '<svg class="i-copy" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.8"/><path d="M10.5 5.5V4.3A1.8 1.8 0 0 0 8.7 2.5H4.3a1.8 1.8 0 0 0-1.8 1.8v4.4a1.8 1.8 0 0 0 1.8 1.8h1.2"/></svg><svg class="i-done" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3.5 8.5 3 3 6-7"/></svg>';
 const ARROW = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>';
 
-const READERS = [
-  { name: 'Feedly', href: (u) => `https://feedly.com/i/subscription/feed%2F${encodeURIComponent(u)}` },
-  { name: 'Inoreader', href: (u) => `https://www.inoreader.com/?add_feed=${encodeURIComponent(u)}` },
-];
-
 function feedCard({ slug, channel, latest }, featured) {
   const card = CARD[slug] || { label: channel.title, blurb: channel.description };
   const rss = `${FEEDS_URL}/${slug}.xml`;
@@ -69,9 +64,9 @@ ${latest.map((i) => `            <li><a href="${esc(i.url)}"><span class="item-t
         </div>
         <div class="subscribe">
           <div class="url-field"><code title="${rss}"><span class="scheme">https://</span>${rss.replace('https://', '')}</code><button type="button" class="copy" data-copy="${rss}" aria-label="Copy the ${esc(card.label)} feed link" title="Copy link" hidden>${COPY_ICON}</button></div>
-          <p class="options"><span>Add to ${READERS.map((r) => `<a href="${r.href(rss)}" rel="noopener">${r.name}</a>`).join(' · ')}</span><span>Also as <a href="${FEEDS_URL}/${slug}.atom">Atom</a> · <a href="${FEEDS_URL}/${slug}.json">JSON Feed</a></span></p>
+          <p class="options"><span>Also as <a href="${FEEDS_URL}/${slug}.atom">Atom</a> · <a href="${FEEDS_URL}/${slug}.json">JSON Feed</a></span></p>
         </div>${recent}${featured ? `
-        <p class="hint"><strong>New to feeds?</strong> A reader like NetNewsWire, Feedly or Inoreader checks these links and shows each new post as it lands. Every feed carries the 30 newest posts in full.</p>` : ''}
+        <p class="hint"><strong>New to feeds?</strong> Paste a link into any feed reader and it shows each new post as it lands. Every feed carries the 30 newest posts in full.</p>` : ''}
       </section>`;
 }
 
