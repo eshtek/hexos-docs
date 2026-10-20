@@ -2,7 +2,7 @@
 title: HexOS Docs
 description: 
 published: true
-date: 2026-10-20T22:39:34.367Z
+date: 2026-10-20T22:39:53.633Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:41:15.127Z
@@ -16,10 +16,10 @@ Want to get involved? Check out our [contribution guide](/community/how-to-contr
 
 ## Quick links
 
+- [**Release Notes**](/release-notes/command-deck/) - Latest features and updates
+- [**Blog**](/blog/) - Stay up to date with the latest news and updates from the HexOS team
 - [**About HexOS**](/about-hexos/) - Learn about HexOS
 - [**Common Issues**](/troubleshooting) - Solutions to frequently encountered problems
 - [**Community Guides**](/community/community-guides/) - User contributed guides and tutorials
-- [**Release Notes**](/release-notes/command-deck/) - Latest features and updates
-- [**Blog**](/blog/) - Stay up to date with the latest news and updates from the HexOS team
 
 <br>
