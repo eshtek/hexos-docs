@@ -36,7 +36,7 @@ for (const [slug, items] of [...Object.entries(bySection), ['all', all]]) {
   write(`${slug}.xml`, rss(channel, items, slug));
   write(`${slug}.atom`, atom(channel, items, slug));
   write(`${slug}.json`, jsonFeed(channel, items, slug));
-  feeds.push({ slug, channel, count: Math.min(items.length, 30), total: items.length });
+  feeds.push({ slug, channel, latest: items.slice(0, 3) });
   console.log(`${slug}: ${items.length} items`);
 }
 write('index.html', indexPage(feeds));
