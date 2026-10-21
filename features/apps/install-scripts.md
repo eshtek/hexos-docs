@@ -2,7 +2,7 @@
 title: Install Scripts Overview
 description: What install scripts are, what each schema version adds, and how to use them.
 published: true
-date: 2026-10-13T00:00:00.000Z
+date: 2026-10-20T00:00:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:40:06.784Z
@@ -101,7 +101,7 @@ One `hooks` array now covers all of it:
 
 #### Widgets alongside
 
-A V6 dictionary also declares dashboard widgets — read-only cached queries — with `widgetsSchema: 2` and a `widgets` array. A widget can reference the app's own user-triggerable hooks by id in its `buttons`, so one hook declaration serves the card and the widget.
+A V6 dictionary also declares dashboard widgets with `widgetsSchema: 3` and a `widgets` array. A widget is the app's dashboard card, drawn from one read-only cached query. A widget can reference the app's own user-triggerable hooks by id in its `buttons`, so one hook declaration serves the card and the widget.
 
 #### Migrating from V5
 

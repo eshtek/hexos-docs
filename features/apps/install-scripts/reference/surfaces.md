@@ -2,7 +2,7 @@
 title: Surfaces Reference
 description: Where a user-triggerable hook renders — the app card, the file browser, the install picker, and dashboard widgets.
 published: true
-date: 2026-08-25T00:00:00.000Z
+date: 2026-10-20T00:00:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-08-25T00:00:00.000Z
@@ -76,6 +76,7 @@ Widgets never define actions. A widget references hook ids:
     {
       "id": "conversions",
       "title": "Conversions",
+      "slots": [{ "type": "list", "field": "converting" }],
       "entrypoint": "run",
       "script": "fileflows/widget_conversions.ts",
       "buttons": ["rescan-library"]
@@ -109,7 +110,7 @@ Practically:
 - Do not use ordering to imply a sequence. If two steps must happen in order, they are one hook.
 - Every action needs a `title` that stands alone. It is the only thing a user sees in the manager list.
 
-Dashboard widgets have their own preferences — widgets are off until a user adds one, and each added widget has a size variant and a position. Widget buttons themselves are not individually hideable; they follow their widget.
+A widget appears on the app's dashboard card automatically. The user chooses what shows on the dashboard in the **Customize** tab of the installed app pane. Widget buttons themselves are not individually hideable; they follow their widget.
 
 ## File-browser contextual suggestions
 
