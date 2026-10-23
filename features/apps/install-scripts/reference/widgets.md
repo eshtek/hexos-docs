@@ -2,7 +2,7 @@
 title: Dashboard Widgets Reference
 description: Declaring app widgets — cached, read-only glances rendered on the server dashboard.
 published: true
-date: 2026-08-25T00:00:00.000Z
+date: 2026-10-20T00:00:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-08-25T00:00:00.000Z
@@ -10,9 +10,9 @@ dateCreated: 2026-08-25T00:00:00.000Z
 
 # Dashboard Widgets Reference
 
-A widget is a **cached, read-only query** an app declares in its dictionary and the user enables on their dashboard. The platform owns the card, the layouts and the renderer; your dictionary owns one script that returns a named-field document, and small declarative slots that say which fields each size shows.
+A widget is the app's **card on the server dashboard**. It is a **cached, read-only query** an app declares in its dictionary. The platform owns the card and the renderer. Your dictionary owns one script that returns a named-field document, the slots that say which fields the card shows, and an optional background behind them.
 
-One widget is **one query**. Sizes are projections of the same result — a second size never adds a second poll. Two different cadences (live sessions vs. nightly library totals) are two widgets, not one widget with two scripts.
+One widget is **one query**. The widget's own slots and the slots of every slide read the same result, so a slide never adds a second poll. Two different cadences (live sessions vs. nightly library totals) are two widgets, not one widget with two scripts.
 
 Widgets are not tasks and not hooks: no checkpoints, no inputs, no retries, no user confirmation. They return data or they say they need setup.
 
@@ -34,11 +34,12 @@ Widgets live at the root of the dictionary, next to `hooks`, behind their own sc
 ```json
 {
   "version": 6,
-  "widgetsSchema": 2,
+  "widgetsSchema": 3,
   "widgets": [
     {
       "id": "queue",
       "title": "Download queue",
+      "slots": [{ "type": "list", "field": "items" }],
       "script": "sonarr/widget_queue.ts",
       "entrypoint": "run"
     }
@@ -46,26 +47,40 @@ Widgets live at the root of the dictionary, next to `hooks`, behind their own sc
 }
 ```
 
-`widgetsSchema` must be `2`. Parsing is forward-compatible and tolerant:
+Set `widgetsSchema` to `3`. Widgets require `"version": 6`. In a dictionary that declares widgets, the catalog validator rejects a `widgetsSchema` other than `3`. It also rejects widgets in a dictionary of any other `version`. Parsing is forward-compatible and tolerant:
 
 - A `widgetsSchema` this platform does not support → the app contributes no widgets. Nothing crashes, nothing half-renders.
 - One invalid widget is dropped with its error logged; the other widgets in the array still load.
 - A field type inside a *result* that the platform doesn't know yet drops alone (future vocabulary); a **known** type with a bad shape fails the whole result loudly.
+
+### Moving from widgetsSchema 2
+
+In widgetsSchema 3 a widget is the app's card. Its `slots` and `background` sit on the declaration itself, and there is one layout. The validator rejects the shapes of schema 2:
+
+| Schema 2 | Schema 3 |
+|---|---|
+| `sizes.small` and `sizes.large`, each with its own `slots` | One `slots` array on the widget. `sizes` is an error |
+| `media`, with a `placement` | `background`, which names an image field or a list. `media` is an error |
+| A slot of type `image` | Name the image field in `background`. An `image` slot is an error |
+
+The `refresh` floor also moved from 10 seconds to 5. A lower value draws a validator warning, and the platform clamps it to 5.
 
 ## Declaration properties
 
 | Property | Type | Required | Description |
 |---|---|---|---|
 | `id` | string | Yes | Stable identifier, `a-z 0-9 _ -` only (see below) |
-| `title` | string | Yes | Widget name — shown under the app name on the card, and in the Add-widget gallery |
-| `description` | string | No | One line explaining the glance; shown in the gallery and the app card's Widgets list |
-| `refresh` | number | No | Seconds between query refreshes. Default `300`, floor `10` |
+| `title` | string | Yes | Title of the card's first view. It must differ from the `title` of every slide |
+| `description` | string | No | One line explaining the glance |
+| `refresh` | number | No | Seconds between query refreshes, as a positive whole number. Default `300`, floor `5` |
 | `timeout` | number | No | Seconds before the query is abandoned. Default `10` |
 | `conditions` | array | No | Same condition vocabulary as hooks (see [Conditions](#conditions)) |
 | `script` | string | No | Path to a `.ts` file in the catalog repo (e.g. `"sonarr/widget_queue.ts"`) |
 | `scriptContent` | string | No | Inline TypeScript embedded in the JSON |
 | `entrypoint` | string | Yes | Name of the exported async function to call |
-| `sizes` | object | No | Per-size slot declarations (see [Sizes](#sizes)) |
+| `slots` | array | Yes | 1 to 3 slots for the card's first view (see [Slots](#slots)) |
+| `background` | object | No | The field drawn behind the card (see [Background](#background)) |
+| `slides` | array | No | Up to 3 more views after the first (see [Slides](#slides)) |
 | `buttons` | string[] | No | Ids of this app's user-triggerable hooks to render as buttons. Max 4, unique |
 
 Exactly one of `script` or `scriptContent` — never both, never neither, same rule as hooks.
@@ -76,17 +91,17 @@ There is no `retries` on a widget. A query runs once per refresh; a failure keep
 
 `id` is matched against `^[a-z0-9_-]+$`. Colons and commas are delimiters elsewhere: the user's preference key is `"<appId>:<widgetId>"` and the dashboard's batch request is a CSV of those keys. Lowercase letters, digits, underscore and hyphen only.
 
-Keep ids **stable and unique within the app**. The id is what the user's enable/size/order choices are stored against, and what a widget button reference resolves through. Renaming an id silently disables the widget for everyone who had it on.
+Keep ids **stable and unique within the app**. The user's preference key holds the id, and the catalog validator rejects a duplicate id.
 
 ### refresh and timeout
 
-`refresh` is the server-side cache TTL, in seconds. Values below the floor are clamped to `10` — declaring `refresh: 1` gets you 10 seconds, not one. There is no ceiling; `3600` for a "most watched this month" roll-up is normal and correct.
+`refresh` is the server-side cache TTL, in seconds. Values below the floor are clamped to `5`. Declaring `refresh: 1` gets you 5 seconds, not one. There is no ceiling; `3600` for a "most watched this month" roll-up is normal and correct.
 
 Match the cadence to the data:
 
 | Data | Sensible `refresh` |
 |---|---|
-| Live sessions, active transfers | `10`–`30` |
+| Live sessions, active transfers | `5` to `30` |
 | Recently added / recently watched | `300` |
 | Library totals, disk health | `900` |
 | 30-day leaderboards | `3600` |
@@ -97,8 +112,8 @@ Match the cadence to the data:
 
 Widgets use the same condition vocabulary as hooks, with the same two roles:
 
-- **`visibility`** — fails → the widget does not exist for the user. It vanishes from the dashboard, the app card's Widgets list, and the Add-widget gallery.
-- **`availability`** — fails → the widget still renders, but shows the reason instead of data, and **fires no query**.
+- **`visibility`** fails → the widget does not exist for the user. It vanishes from the dashboard.
+- **`availability`** fails → the widget still renders, but shows the reason instead of data, and **fires no query**.
 
 ```json
 "conditions": [
@@ -110,86 +125,139 @@ Nearly every widget wants exactly that line: a stopped app has nothing to report
 
 Condition types: `appInstalled`, `appRunning`, `appVersion` (with `range`), `capabilityPresent`, `script`. A condition type this platform version doesn't recognize **fails closed** — the widget hides rather than rendering unguarded.
 
-## Sizes
+## Slots
 
-Two sizes exist, both optional, both sized to the dashboard's own cards:
-
-| Size | Footprint | Slots |
-|---|---|---|
-| `small` | An app tile | 1–3 |
-| `large` | A storage card (double width), same height | 1–4 |
-
-A slot names a field from the query result and the type it expects:
+A slot names a field from the query result and the type it expects. A widget declares 1 to 3 slots in `slots`. These are Scrutiny's:
 
 ```json
-"sizes": {
-  "small": {
-    "slots": [{ "type": "stat", "field": "queued" }]
-  },
-  "large": {
-    "media": { "placement": "left", "field": "art" },
-    "slots": [
-      { "type": "stat", "field": "queued" },
-      { "type": "list", "field": "items" }
-    ]
-  }
-}
+"slots": [
+  { "type": "stat", "field": "passing" },
+  { "type": "list", "field": "disks", "rows": 2 }
+]
 ```
+
+| Property | Required | Description |
+|---|---|---|
+| `type` | Yes | `text`, `stat`, `list`, `progress` or `chart` |
+| `field` | Yes | Name of a field in the query result |
+| `rows` | No | How many rows a `list` slot shows. `1`, `2` or `3`. Allowed on a `list` slot only |
 
 Rules:
 
+- An image is never a slot. A slot of type `image` is an error. Name the image field in [`background`](#background) instead.
 - Every referenced `field` must resolve from **this widget's single query**. Mixed cadences mean a second widget, never a second script.
-- A slot whose field is missing — or whose field is a different type than the slot declared — renders nothing. Projections degrade quietly; the query result is the truth.
+- A slot whose field is missing (or whose field is a different type than the slot declared) renders nothing. Projections degrade quietly; the query result is the truth.
 - Height never grows. Content clips inside the card, so put the number that matters in the first slot.
-- Declare `small` only when the glance survives being one number. A five-row list has no small form; declare `large` alone.
 
-### Media
+## Background
 
-`media` is not a field type — it is a slot on the size that points at an `image` field in the result.
+`background` names the field the card draws behind its slots. It is an object with a `field`:
 
-| Size | `placement` values | Rendered as |
-|---|---|---|
-| `small` | `top`, `bottom` | A strip above or below the text slots |
-| `large` | `left`, `right`, `both` | A column beside the text slots (`both` renders as a full-bleed top strip) |
+```json
+"background": { "field": "sessions" },
+"slots": [{ "type": "list", "field": "sessions", "rows": 1 }]
+```
 
-When a size declares `media`, per-row thumbnails inside its list slots are suppressed — one image per card, not two.
+The field is one of two things:
 
-### No sizes declared
+- A standalone `image` field. The card draws that image.
+- A `list` whose entries carry an `image`. The card draws the image of the entry it has on screen.
 
-A widget with no `sizes` still renders through a default projection: every `stat` field as a row of figures, then the first `list` field, then any `text` fields. It works, but you don't control the emphasis. Declare sizes.
+This is the now-playing card of Plex, Jellyfin and Emby. Each names its `sessions` list in `background` and in its one slot. Each stream's entry carries its own artwork, so the picture behind the card is the one for the stream on screen.
+
+A slide has no `background` of its own. The artwork is the widget's.
+
+## Slides
+
+`slides` adds up to 3 more views after the widget's own title and slots. Each slide has a `title` and 1 to 3 `slots`, with the same slot rules as the widget. This is Tautulli's widget:
+
+```json
+"title": "Recently added",
+"slots": [{ "type": "list", "field": "added", "rows": 3 }],
+"slides": [
+  {
+    "title": "Most active users",
+    "slots": [{ "type": "list", "field": "users", "rows": 3 }]
+  },
+  {
+    "title": "Play count by day of week",
+    "slots": [{ "type": "chart", "field": "days" }]
+  }
+]
+```
+
+One query returns all three fields. Tautulli's script fetches the three sources at once.
+
+Rules:
+
+- `slides` is a non-empty array of at most 3 when it is present.
+- Every view needs its own title. The card tells its views apart by title, so the widget's `title` and the `title` of every slide must differ.
+- A slide has no `background`.
+- The first view must stand on its own. A box from before slides strips `slides` and draws the first view alone.
+- Catalog scripts put every `chart` in a slide, never in the widget's own slots. A box from before slides strips `slides`, so a chart in a slide never reaches it.
+
+Tautulli's script leaves out its `days` field when a week has no plays, so the card passes over that slide.
 
 ## Result fields
 
-A script returns a document of **named fields**. Field names are yours and must be stable — the `sizes` slots reference them by name. Dynamic collections (users, libraries, torrents) ride as `list` entries, never as generated field names.
+A script returns a document of **named fields**. Field names are yours and must be stable. The slots and `background` reference them by name. Dynamic collections (users, libraries, torrents) ride as `list` entries, never as generated field names.
 
-Four field types exist:
+Six field types exist:
 
 | Type | Shape | Renders as |
 |---|---|---|
 | `text` | `{ type, text }` | A muted line of prose. Max 500 chars |
 | `stat` | `{ type, label, value }` | A large figure with a small caption below it. `value` is a pre-formatted string |
 | `list` | `{ type, entries[] }` | Rows of title / subtitle / meta. Max 20 entries |
-| `image` | `{ type, image, alt? }` | A picture — the source a `media` slot points at |
+| `progress` | `{ type, label, value, text? }` | A bounded quantity. `value` is 0 to 100. `text` is the caption beside the label (`"3.2 GB of 5 GB"`), max 60 chars |
+| `chart` | `{ type, points[], unit?, axis?, tone? }` | A few values side by side (see [Charts](#charts)) |
+| `image` | `{ type, image, alt? }` | A picture for [`background`](#background). Never a slot |
 
 Maximum 16 fields per result.
 
 `stat.value` is a string because you own the formatting: `"12"`, `"1.4 TB"`, `"98%"`. The renderer never rounds, never adds units.
+
+### Charts
+
+A chart shows 2 to 7 values side by side. The highest value is labelled.
+
+| Property | Type | Required | Description |
+|---|---|---|---|
+| `points` | array | Yes | 2 to 7 points, each `{ label, value }`. `label` is the short text under the point (`"Mon"`, `"sda"`), at most 12 chars. `value` is 0 or more |
+| `axis` | string | No | `time` for moments in order, drawn as a line. `category` for separate things, drawn as columns. Default `category` |
+| `unit` | string | No | Follows a value where one is spelled out (`"plays"`, `"°C"`). Max 20 chars |
+| `tone` | object | No | `{ good, bad }`. Colors columns by value. Green at `good` and beyond, red at `bad` and beyond, amber halfway. Either may be the larger |
+
+A chart of all zeros says nothing, so leave the field out. Scrutiny draws a column per disk with `tone: { good: 30, bad: 100 }`. It shows the hottest seven disks. When fewer than two disks report a temperature, the script leaves the chart out.
 
 ### List entries
 
 | Property | Type | Required | Description |
 |---|---|---|---|
 | `title` | string | Yes | Row title. Truncates at one line |
-| `subtitle` | string | No | Second line. Hidden at `small` |
-| `meta` | string | No | Right-aligned trailing text. Hidden at `small` |
+| `subtitle` | string | No | Second line. Renderers that ignore `subtitles` show this one, so repeat the first `subtitles` line here |
+| `subtitles` | string[] | No | Lines that take turns under the entry. Up to 4, each at most 80 chars |
+| `meta` | string | No | Right-aligned trailing text |
+| `note` | string | No | A short line of small text under the entry. At most 120 chars (see below) |
 | `elapsed` | object | No | A duration in steady motion (see below) |
-| `image` | string | No | Row thumbnail as a data URI |
+| `progress` | number | No | How far along the entry is, 0 to 100 (see below) |
+| `image` | string | No | The entry's artwork as a data URI. When `background` names this list, the card draws the image of the entry on screen |
 
-List slots render 2 rows at `small` and 3 rows at `large`, so order entries by importance and return the first handful rather than all 20. At `small` a row is its title alone — `subtitle`, `meta` and `image` render at `large` only.
+`rows` on a list slot sets how many rows it shows. Order entries by importance and return the first handful rather than all 20.
+
+The now-playing cards of Plex, Jellyfin and Emby step through the first few streams one at a time, and take turns with each stream's `subtitles`.
+
+### note
+
+`note` is a short line of small text under the entry. Use it to say why an entry failed, or that it is being tried again. A note takes the place of a row, so a list with notes shows fewer entries.
+
+### progress
+
+`progress` says how far along an entry is, from 0 to 100. Use it for a quantity that is not time in motion, such as a download or a conversion. Capable renderers draw a bar. Always put the figure in `meta` too.
 
 ### elapsed
 
-`elapsed` lets a duration keep moving between polls — a playback position that ticks in real time on a 10-second refresh:
+`elapsed` lets a duration keep moving between polls. A playback position ticks in real time on a 5-second refresh:
 
 ```ts
 elapsed: {
@@ -203,7 +271,7 @@ It is an **enrichment, not a replacement**. Always set `meta` to a static repres
 
 ### Images
 
-Images are **data URIs only** — `data:image/png|jpeg|webp|gif;base64,…`, 60 KB maximum, on both `image` fields and list-entry thumbnails.
+Images are **data URIs only** (`data:image/png|jpeg|webp|gif;base64,…`), 60 KB maximum. The cap applies to `image` fields and to the `image` of a list entry.
 
 Never emit an app URL. The browser fetching it would leak the host and any embedded key, break off-LAN, and trip mixed-content. The script fetches and inlines server-side, where the credential already is:
 
@@ -216,6 +284,8 @@ return uri.length <= 60_000 ? uri : undefined;   // over the cap → no image, n
 ```
 
 Ask the app for a small render (Plex's photo transcoder, an app's `?width=` parameter) rather than shrinking a full-size poster.
+
+A background fills the card, so fetch a wide crop near the card's shape, about 660x260. Plex asks its photo transcoder for 660x260 first. When that response is not usable or the picture is over the cap, it asks for 480x190.
 
 ## The script contract
 
@@ -273,13 +343,14 @@ The platform caches per widget and serves stale while it revalidates:
 - A stale entry is returned immediately **and** kicks off a single background refresh — the next poll picks up the new data.
 - Only a cold miss waits on your script.
 
-So a warm dashboard never blocks on a slow app, and a widget that hasn't been enabled has never run. Concurrent requests for the same widget share one in-flight query.
+So a warm dashboard never blocks on a slow app. Concurrent requests for the same widget share one in-flight query.
 
 ### Authoring notes
 
 - **Type imports only.** Each script is compiled standalone; a runtime import of a sibling catalog file will not resolve. Import types from `../_lib/widget_context`, and copy small helpers inline.
-- **Be defensive about shapes.** Wrap file reads and thumbnail fetches in `try`/`catch` and return `undefined` — one missing poster must not fail the widget.
-- **Cap what you return.** Slice lists to a handful of entries before returning; a size template shows two or three rows (five in the default projection).
+- **Be defensive about shapes.** Wrap file reads and artwork fetches in `try`/`catch` and return `undefined`. One missing poster must not fail the widget.
+- **Cap what you return.** Slice lists to a handful of entries before returning. A list slot declares at most 3 `rows`. The now-playing scripts keep the first 5 streams for the card to step through.
+- **Keep slow fetches between runs.** The box reuses a widget script's module between runs until the script changes. The card asks every few seconds, so Plex fetches each stream's artwork once and keeps it in a module-level map.
 - **`scriptContent`** works exactly as it does for hooks: inline TypeScript in the JSON, handy for testing a widget through Custom Install in Expert Mode.
 
 ## Buttons
@@ -297,7 +368,7 @@ A button renders when all of the following hold:
 3. The hook allows the `widget` surface. The derived defaults already include it, so no `surfaces` edit is needed; narrowing `surfaces` to exclude `widget` removes the button.
 4. The hook's `visibility` conditions pass.
 
-A hook whose `availability` conditions fail still renders — greyed out, with its reason on hover. An id that matches nothing is dropped with a warning: a typo must not break the widget.
+A hook whose `availability` conditions fail still renders, greyed out, with its reason on hover. An id that matches nothing is dropped with a warning, because a typo must not break the widget. The catalog validator rejects such an id before it ships.
 
 Maximum 4 buttons, ids unique. Buttons require the app's hooks to be declared in a `version: 6` dictionary — that is where user-triggerable verbs come from.
 
@@ -305,26 +376,13 @@ Firing a button runs the hook exactly as the app card would run it, with the sam
 
 ## On the dashboard
 
-Widgets are **off by default**. Nothing an app declares appears until the user turns it on, and only enabled widgets ever poll — an empty selection makes zero requests.
+A widget shows live details on the app's own dashboard card. When a curated app adds a widget, it appears on the dashboard automatically, with no app update or reinstall. The user chooses what shows on the dashboard in the **Customize** tab of the installed app pane.
 
-**Enabling.** Two places, same switch:
-
-- The **app card's Widgets section** lists that app's widgets with a toggle each.
-- The dashboard's Widgets section **⋯ → Add widget** opens a gallery: installed apps' widgets with checkboxes, then widgets from apps the user hasn't installed yet ("Install Tautulli to get this widget"), each with an inline install.
-
-That second list is why `title` and `description` are worth writing carefully — they are the whole pitch before an app is installed.
-
-**Resizing.** A size control sits in the widget card's header and flips between `small` and `large`. It only appears when the widget declares both. Size is chosen per widget on the dashboard, not on the app card. With no stored choice, `large` wins when declared, otherwise the single declared size; a stored size the widget no longer declares falls back the same way.
-
-**Reordering.** **⋯ → Change order** lists the enabled widgets with up/down controls. User order applies over the server's stable order (app order, then declaration order). The same ⋯ menu switches the whole section between horizontal and grid layout.
-
-All of these are per-user, per-server preferences. Choices for an app that is later removed stay inert and come back if the app is reinstalled.
-
-The deck re-reads enabled widgets every 10 seconds; each widget's own `refresh` TTL gates whether that read actually queries the app.
+The deck re-reads widgets every 5 seconds, which is why `refresh` has a 5-second floor. Each widget's own `refresh` TTL gates whether that read actually queries the app.
 
 ## Complete example
 
-A Sonarr download-queue widget with both sizes and a button referencing a maintenance hook.
+A Sonarr download-queue widget with a figure, a list, and a button referencing a maintenance hook.
 
 **`sonarr.json`**
 
@@ -361,7 +419,7 @@ A Sonarr download-queue widget with both sizes and a button referencing a mainte
       "timeout": 120
     }
   ],
-  "widgetsSchema": 2,
+  "widgetsSchema": 3,
   "widgets": [
     {
       "id": "queue",
@@ -372,17 +430,10 @@ A Sonarr download-queue widget with both sizes and a button referencing a mainte
       "conditions": [
         { "role": "availability", "type": "appRunning", "app": "sonarr" }
       ],
-      "sizes": {
-        "small": {
-          "slots": [{ "type": "stat", "field": "queued" }]
-        },
-        "large": {
-          "slots": [
-            { "type": "stat", "field": "queued" },
-            { "type": "list", "field": "items" }
-          ]
-        }
-      },
+      "slots": [
+        { "type": "stat", "field": "queued" },
+        { "type": "list", "field": "items", "rows": 2 }
+      ],
       "buttons": ["refresh-library"],
       "script": "sonarr/widget_queue.ts",
       "entrypoint": "run"
@@ -473,4 +524,4 @@ export async function run(ctx: WidgetContext): Promise<WidgetQueryResult> {
 }
 ```
 
-`summary` is returned but referenced by no slot — harmless, and useful as the default projection's text line if the sizes are ever removed. Slots pick what they need; the result document can carry more.
+`summary` is returned but referenced by no slot. That is harmless. Slots pick what they need, and the result document can carry more.

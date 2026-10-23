@@ -2,7 +2,7 @@
 title: Install Script Schema
 description: Every field an install script can declare, by schema version.
 published: true
-date: 2026-10-13T00:00:00.000Z
+date: 2026-10-20T00:00:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:40:16.156Z
@@ -30,8 +30,8 @@ Install scripts are JSON objects with the following structure. Scripts can use v
 - **`ensure_directories_exists`** (optional): Array of directory entry objects to create before installation, with optional ownership and snapshot declarations
 - **`app_values`** (required): Configuration object passed directly to TrueNAS API
 - **`hooks`** (optional, V5 and V6): Array of hook declarations. V5 declares lifecycle hooks in the [V5 dialect](#hooks-v5); V6 declares the [melded family](#hooks-v6) — one declaration covers lifecycle automation and user-triggerable actions
-- **`widgetsSchema`** (optional, V6): Widget declaration vocabulary version. Must be `2` — any other value means this platform reads none of the app's widgets
-- **`widgets`** (optional, V6): Array of [widget declarations](#widgets-v6). Requires `widgetsSchema`
+- **`widgetsSchema`** (optional, V6): Widget declaration vocabulary version. Set it to `3`. A platform that does not support the value reads none of the app's widgets, and the catalog validator rejects a declared value other than `3`
+- **`widgets`** (optional, V6): Array of [widget declarations](#widgets-v6). Declare `widgetsSchema` with it
 
 ## Available macros
 
@@ -574,29 +574,21 @@ A hook that fails validation is dropped on its own, with its error reported — 
 
 ## Widgets (V6)
 
-Widgets are read-only dashboard glances: a cached query per widget, rendered by the platform's size templates. They are declared in the same dictionary as hooks, gated by `widgetsSchema`.
+Widgets are read-only dashboard glances. A widget is the app's dashboard card, backed by one cached query. Its `slots` and `background` sit on the declaration itself. Widgets are declared in the same dictionary as hooks, gated by `widgetsSchema`.
 
 ```json
 {
   "version": 6,
-  "widgetsSchema": 2,
+  "widgetsSchema": 3,
   "widgets": [
     {
       "id": "now-playing",
       "title": "Now playing",
       "description": "Active Plex streams right now.",
-      "refresh": 10,
+      "refresh": 5,
       "conditions": [{ "role": "availability", "type": "appRunning", "app": "plex" }],
-      "sizes": {
-        "small": { "slots": [{ "type": "stat", "field": "streams" }] },
-        "large": {
-          "media": { "placement": "left", "field": "art" },
-          "slots": [
-            { "type": "stat", "field": "streams" },
-            { "type": "list", "field": "sessions" }
-          ]
-        }
-      },
+      "background": { "field": "sessions" },
+      "slots": [{ "type": "list", "field": "sessions", "rows": 1 }],
       "script": "plex/widget_now_playing.ts",
       "entrypoint": "run",
       "timeout": 10
@@ -610,28 +602,32 @@ Widgets are read-only dashboard glances: a cached query per widget, rendered by 
 | Property | Type | Required | Description |
 |---|---|---|---|
 | `id` | string | Yes | Unique within the dictionary. Lowercase letters, digits, `-` and `_` only |
-| `title` | string | Yes | Widget name shown on the dashboard |
-| `description` | string | No | Short explanation, shown when adding the widget |
-| `refresh` | number | No | Seconds between query refreshes (default: 300, floor: 10) |
+| `title` | string | Yes | Title of the card's first view. Must differ from the `title` of every slide |
+| `description` | string | No | One line explaining the glance |
+| `refresh` | number | No | Seconds between query refreshes, as a positive whole number (default: 300, floor: 5) |
 | `conditions` | array | No | Same condition vocabulary as hooks — `visibility` hides, `availability` renders the reason instead of data |
 | `script` | string | No | Path to a `.ts` file in the catalog repo |
 | `scriptContent` | string | No | Inline TypeScript embedded directly in the JSON |
 | `entrypoint` | string | Yes | Name of the exported async function to call |
 | `timeout` | number | No | Seconds before the query is abandoned (default: 10) |
-| `sizes` | object | No | Per-size variant declarations (see below). Absent uses default field rendering |
+| `slots` | array | Yes | 1 to 3 slots for the card's first view (see below) |
+| `background` | object | No | `{ "field": ... }`, the field drawn behind the card (see below) |
+| `slides` | array | No | Up to 3 more views after the first (see below) |
 | `buttons` | array | No | Up to 4 ids of this app's user-triggerable hooks, rendered as buttons on the widget. Ids must be unique, and a button renders only if the hook allows the `widget` surface — the derived defaults include it |
 
 Exactly one of `script` or `scriptContent`, same rule as hooks.
 
-### Sizes
+### Slots, background and slides
 
-One widget is one query. Sizes are projections of the same result document — variants never multiply polls, so every `field` a size references must resolve from this widget's single query.
+One widget is one query. The widget's slots, its background and the slots of every slide read the same result document, so every `field` they name must resolve from this widget's single query.
 
-| Size | Slots | Media placement |
-|---|---|---|
-| `small` | 1-3 | `top`, `bottom` |
-| `large` | 1-4 | `left`, `right`, `both` |
+| Property | Rules |
+|---|---|
+| `slots` | 1 to 3. Each slot is `{ "type": ..., "field": ... }`, where `type` is `text`, `stat`, `list`, `progress`, or `chart`, and `field` names a field in the query result |
+| `rows` | Optional, on a `list` slot only. `1`, `2`, or `3` |
+| `background` | `{ "field": ... }`. It names an `image` field, or a `list` whose entries carry images |
+| `slides` | 1 to 3. Each slide is `{ "title": ..., "slots": [...] }`, with the same slot rules and no `background`. The widget's `title` and every slide's `title` must differ |
 
-Each slot is `{ "type": ..., "field": ... }` where `type` is `text`, `stat`, `list`, or `image`, and `field` names a field in the query result. `media` is `{ "placement": ..., "field": ... }`.
+An image is never a slot. Name the image field in `background` instead. The `sizes` and `media` of widgetsSchema 2 are errors in widgetsSchema 3.
 
 The fulfillment script returns a named-field result document that the slots project from. See the [Widgets Reference](/features/apps/install-scripts/reference/widgets) for the result shapes and for writing the query script.

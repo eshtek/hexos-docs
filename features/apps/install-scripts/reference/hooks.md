@@ -2,7 +2,7 @@
 title: Hooks Reference
 description: How hooks are declared, when they run, and where users can fire them
 published: true
-date: 2026-08-25T00:00:00.000Z
+date: 2026-10-20T00:00:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-09T20:03:00.318Z
@@ -193,11 +193,12 @@ Declaring `surfaces` replaces the derivation entirely — it is a narrowing tool
 Because `widget` rides the defaults, a widget can reference an existing card verb by id without any change to the hook:
 
 ```json
-"widgetsSchema": 2,
+"widgetsSchema": 3,
 "widgets": [
   {
     "id": "conversions",
     "title": "Conversions",
+    "slots": [{ "type": "list", "field": "converting" }],
     "buttons": ["convert-to-mp4"],
     "script": "fileflows/widget_conversions.ts",
     "entrypoint": "run"
