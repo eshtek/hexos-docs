@@ -2,7 +2,7 @@
 title: Contributing a New App
 description: 
 published: true
-date: 2026-07-07T18:29:23.389Z
+date: 2026-10-19T00:00:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:39:57.416Z
@@ -86,4 +86,4 @@ Community contributors who don't need separate `.ts` files can embed hook code d
 
 ## Sharing before contributing
 
-Not ready for a PR? Share your install script JSON in the [HexOS Community Forums](https://forums.hexos.com) to get feedback from other users first.
+Not ready for a PR? Share your install script JSON in the [Applications forum on the HexOS Hub](https://hub.hexos.com/forum/8-applications/) to get feedback from other users first.

@@ -2,7 +2,7 @@
 title: Install Script Schema
 description: Every field an install script can declare, by schema version.
 published: true
-date: 2026-10-13T00:00:00.000Z
+date: 2026-10-19T00:00:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:40:16.156Z
@@ -103,7 +103,10 @@ Locations are folder paths configured in HexOS **Settings** > **Locations**. Eac
 - `Videos`: Video library storage
 - `Downloads`: Download directory
 - `Documents`: Document storage
-- `Backups`: Backup storage
+- `VirtualizationPerformance`: High-performance VM storage
+- `VirtualizationCapacity`: High-capacity VM storage
+- `InstallMedia`: Installation media storage
+- `VirtualDisks`: Virtual disk storage
 
 **Important:** Every `$LOCATION()` macro used anywhere in your install script (in `ensure_directories_exists`, `app_values`, etc.) must be listed in the `locations` requirements array.
 
