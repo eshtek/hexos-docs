@@ -17,6 +17,7 @@ Something not working? Find the area below that matches what you are seeing.
 
 ## Setting up
 
+- [**Server identity**](/troubleshooting/server-identity) - How fresh installations, updates and copied system disks keep their identity
 - [**Installation issues**](/troubleshooting/installation) - USB imaging problems and installer failures
 - [**UEFI boot mode**](/troubleshooting/uefi-boot-mode) - Why HexOS needs UEFI mode, and how to switch or reinstall
 - [**Avoid USB drives**](/troubleshooting/usb-drives) - Why USB drives cause problems and what to use instead
