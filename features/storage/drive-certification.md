@@ -84,7 +84,7 @@ A passing quick check can offer **Run thorough test**. Click it to run the drive
 ![Quick check report offering a thorough test](/drive-certification/quick-report.png){.medium .framed}
 </details>
 
-For a hard drive with more recorded use, a passing report may offer **Run full test** instead. A full test attempts an extended self-test, then writes zeros across the drive and reads them back. After a hard drive passes a thorough or full test, **Run burn-in** is an optional deeper check. It writes and verifies four patterns, ending with zeros. These tests can take hours or days.
+For an unused hard drive with more recorded use, a passing report may offer **Run full test** instead. A full test attempts an extended self-test, then writes zeros across the drive and reads them back. After an unused hard drive passes a thorough or full test, **Run burn-in** is an optional deeper check. It writes and verifies four patterns, ending with zeros. These tests can take hours or days.
 
 <details>
 <summary> Full test and burn-in options </summary>
@@ -113,6 +113,18 @@ If you decide to erase an eligible drive, click **Run full test** or **Run burn-
 <summary> Burn-in erase confirmation </summary>
 
 ![Burn-in erase confirmation](/drive-certification/burn-in-confirmation.png){.medium .framed}
+</details>
+
+## Tests for a drive already in a pool
+
+Quick and Thorough tests do not erase data. Full and Burn-in tests do, so HexOS does not offer them for a drive in a pool, a spare, a boot drive, or a drive holding an exported pool. It also hides them when it cannot confirm that the hard drive is available.
+
+A passing Quick check can still offer **Run thorough test** for a pool drive. After a Thorough test passes, the report keeps its result and findings. Use **Close** when you have finished reading it. You do not need to remove the drive from its pool or repeat the test to clear the message about unavailable tests.
+
+<details>
+<summary> Completed Thorough test on a pool drive </summary>
+
+![A pool drive report with its findings and no destructive test offer](/drive-certification/pool-drive-report.png){.medium .framed}
 </details>
 
 ## Stop a test
