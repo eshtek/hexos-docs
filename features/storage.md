@@ -2,13 +2,14 @@
 title: Storage
 description: 
 published: true
-date: 2026-09-29T21:00:00.000Z
+date: 2026-10-27T19:09:38.785Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:40:57.001Z
 ---
 
 # Storage
+
 
 This is where you'll find your pools, drives and handle storage related tasks.
 This screen allows you to
