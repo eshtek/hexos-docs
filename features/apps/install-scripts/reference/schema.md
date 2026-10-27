@@ -103,7 +103,10 @@ Locations are folder paths configured in HexOS **Settings** > **Locations**. Eac
 - `Videos`: Video library storage
 - `Downloads`: Download directory
 - `Documents`: Document storage
-- `Backups`: Backup storage
+- `VirtualizationPerformance`: High-performance VM storage
+- `VirtualizationCapacity`: High-capacity VM storage
+- `InstallMedia`: Installation media storage
+- `VirtualDisks`: Virtual disk storage
 
 **Important:** Every `$LOCATION()` macro used anywhere in your install script (in `ensure_directories_exists`, `app_values`, etc.) must be listed in the `locations` requirements array.
 

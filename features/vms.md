@@ -2,7 +2,7 @@
 title: VMs
 description: Run Windows, Linux, and appliance operating systems on your HexOS server
 published: true
-date: 2026-10-15T00:00:00.000Z
+date: 2026-10-22T01:20:00.000Z
 tags: vm, vms, virtual machine, windows, linux
 editor: markdown
 dateCreated: 2026-08-21T11:37:43.366Z
@@ -309,7 +309,7 @@ Clicking the **IP Address** of a running Windows VM also downloads a Remote Desk
 ![vms-connect-menu](/vms-connect-menu.png){.medium .framed}
 </details>
 
-> **Info:** The console and **Web UI** run on your server, so opening them needs a connection from your own network.
+> **Info:** The console and **Web UI** run on your server. Your browser needs a route to the server, such as your local network, a VPN, or a reverse proxy you manage. The hosted Command Deck does not relay the console video. See [VM console and remote access](/features/vms/remote-access) for local UI ports, proxy requirements, and console links.
 {.is-info}
 
 ### The console
