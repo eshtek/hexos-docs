@@ -2,7 +2,7 @@
 title: Host a buddy's backup
 description: Respond to a backup request, choose where the copies live, and understand what you are agreeing to when you store a buddy's encrypted data
 published: true
-date: 2026-10-07T00:00:00.000Z
+date: 2026-10-27T00:00:00.000Z
 tags: backups, buddy, host, request
 editor: markdown
 dateCreated: 2026-08-23T12:07:11.349Z
@@ -161,6 +161,77 @@ Every few hours, while your buddy's server is online, HexOS checks whether their
 If your own pool is full, the notice says so, because more space set aside would not help until you free some.
 
 When the space set aside is 90% used, you get the notice "Space you share with" your buddy "is nearly full". See [Backup troubleshooting](/features/backups/troubleshooting).
+
+## Hide a warning about reserved space
+
+When you host a backup, HexOS keeps the agreed space available for that backup. The pool can look nearly full even before the backup fills that space.
+
+<details>
+<summary> Space kept for a backup </summary>
+
+![Space kept for a backup](/host-a-buddys-backup/reserved-backup-space.jpeg){.medium}
+</details>
+
+**Hide reserved-space warning** hides the capacity warning caused by the unused part of that reservation. It starts turned off. Only the owner of the server storing the backup can change it.
+
+Your backup keeps its reserved space. The pool's used and free amounts stay the same. Stored backup data, restore points, and your other files still count toward capacity warnings.
+
+For example, a pool has 1 TB of usable space. Your files use 200 GB, and you reserve 700 GB for a buddy. HexOS shows 900 GB used or reserved. If the backup has used 100 GB of its reservation, this setting can exclude the remaining 600 GB from the warning. The 300 GB of stored data still counts.
+
+### Change an existing backup
+
+1. Click **Backups** in the sidebar, then open the backup under **Hosted backups**.
+
+<details>
+<summary> Find the hosted backup </summary>
+
+![Hosted backup](/host-a-buddys-backup/hosted-backup.png){.medium .framed}
+</details>
+
+2. Click **Quota**. The **Storage quota** dialog opens.
+
+<details>
+<summary> Open the Storage quota dialog </summary>
+
+![Storage settings](/host-a-buddys-backup/storage-settings.png){.medium .framed}
+</details>
+
+3. Turn on **Hide reserved-space warning**, then click **Save changes**. You can leave the reserved amount unchanged.
+
+<details>
+<summary> Hide the reserved-space warning </summary>
+
+![Warning setting turned on](/host-a-buddys-backup/warning-switch-on.png){.medium .framed}
+</details>
+
+HexOS checks the reservation before changing the warning. Turning the switch on or off can take up to five minutes to change the warning. To restore the warning, open the same settings, turn the switch off, and click **Save changes**.
+
+### Choose during setup
+
+When a new reservation would make the pool show a capacity warning, the switch appears before you accept a backup request or finish setting up a backup to another server you own. You can leave it off. If you want to hide that reservation's warning, turn it on before completing setup.
+
+<details>
+<summary> Choose while accepting a request </summary>
+
+![Warning choice during setup](/host-a-buddys-backup/setup-warning-choice.png){.medium .framed}
+</details>
+
+If you later give the backup more space, review the setting again. An earlier choice does not automatically cover the larger reservation.
+
+### If the warning stays or returns
+
+- Stored files or restore points may be filling the pool. This switch does not hide that warning.
+- Another backup or a virtual machine may hold space. Your choice applies only to this backup.
+- Setup or a storage move may still be running. HexOS keeps the warning visible until it can verify the reservation.
+- A disconnected server, changed pool, or recreated backup location may need a fresh check or a new choice.
+
+In the sidebar, click **Storage**, then click the pool that stores the backup. When this setting applies, the pool's info panel says how much unused backup space is excluded from warnings. The space remains reserved for the backup.
+
+<details>
+<summary> The pool's reserved-space explanation </summary>
+
+![Unused backup reservation excluded from warnings](/host-a-buddys-backup/pool-warning-explanation.png){.medium .framed}
+</details>
 
 ## Before you unclaim or reset your server
 
