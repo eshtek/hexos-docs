@@ -2,7 +2,7 @@
 title: Release Notes
 description: 
 published: true
-date: 2026-10-16T16:32:58.276Z
+date: 2026-10-27T20:52:35.527Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:43:24.662Z
@@ -18,7 +18,7 @@ The Command Deck is the HexOS web interface. Updates are automatically deployed 
 
 ### Recent updates
 
-- [**2026-10-27**](/release-notes/command-deck/2026-10-27) - Bring over for everyone, UPS monitoring, six new apps, and more
+<!--- [**2026-10-27**](/release-notes/command-deck/2026-10-27) - Bring over for everyone, UPS monitoring, six new apps, and more-->
 - [**2026-10-16**](/release-notes/command-deck/2026-10-16) - Rename your server, cleaner app details, live backup speeds, and more
 - [**2026-10-13**](/release-notes/command-deck/2026-10-13) - Private folders stay private, smarter Custom VMs, and more
 - [**2026-10-09**](/release-notes/command-deck/2026-10-09) - Open beta for Buddy Backups and Virtual Machines, a smarter server setup, and much more
