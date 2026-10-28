@@ -291,7 +291,7 @@ The top of the details shows a **Preview** of the VM's screen while it runs, its
 ![vms-vm-details-live-metrics](/vms-vm-details-live-metrics.png){.medium .framed}
 </details>
 
-On some servers, your server's usual address does not work from inside its own VMs. On those servers each VM also shows **Address inside this VM**. Use that address from inside the VM to reach your server's shared folders and apps. From any other device, use the server's usual address.
+On some servers, your server's usual address does not work from inside its own VMs. On those servers each VM also shows **Address inside this VM**. Use that address from inside the VM to reach your server's shared folders and apps. From any other device, use the server's usual address. For step-by-step Windows, Linux Mint, Ubuntu, and Mac examples, see [Open shared folders from a Virtual Machine](/features/vms/network-shares).
 
 ### Connecting
 

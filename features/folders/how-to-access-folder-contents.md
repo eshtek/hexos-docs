@@ -10,7 +10,7 @@ dateCreated: 2026-06-08T15:40:29.773Z
 
 # How to access files and folders over the network
 
-Connect an existing HexOS folder to your device's file manager to open, copy, and save files over your home network. Each device needs its own connection to the folder.
+Connect an existing HexOS folder to your device's file manager to open, copy, and save files over your home network. Each device needs its own connection to the folder. If you are connecting from inside a VM, start with [Open shared folders from a Virtual Machine](/features/vms/network-shares) to choose the right address.
 
 You can also browse and manage files directly in Command Deck with the [File Browser](/features/file-browser). **Browse** opens that file browser; the network-connection instructions are inside it.
 
