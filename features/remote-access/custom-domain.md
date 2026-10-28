@@ -13,18 +13,22 @@ dateCreated: 2026-10-28T00:00:00.000Z
 > **Info:** Remote access is being tested inside HexOS and isn't available to everyone yet. Screens may change before it is.
 {.is-info}
 
-With remote access on, each app you share gets its own HexOS address. If you own a domain, you can use it instead, so Jellyfin answers at `jellyfin.example.com`. Your connection stays encrypted all the way to your server: HexOS passes it along without reading it.
+With remote access on, each app you share gets its own HexOS address. If you own a domain, you can use it instead, so Jellyfin answers at `jellyfin.example.com`. Your connection stays encrypted all the way to your server: we pass it along without reading it.
 
 To use your domain, you add one DNS record where you manage it. A second, optional record keeps your app names private.
+
+New to remote access? [Remote access](/features/remote-access) covers the rest: turning it on for an app, sign-in, TV and phone apps, and invites.
 
 ## Add your domain
 
 1. In the Command Deck, open **Settings** > **Remote access** > **Custom domain**.
 2. Type your domain, such as `example.com`, and select **Continue**.
 3. The Command Deck shows the record to add. Add it at your DNS provider, as described below.
-4. Back in the Command Deck, select **Re-check**. The badge changes from **Pending** to **Verified** once HexOS finds the record.
+4. Back in the Command Deck, select **Re-check**. The badge changes from **Pending** to **Verified** once we find the record.
 
 Most providers publish a change within minutes, but some take an hour or more (see [your provider](#notes-for-common-providers) below). If the check can't find the record yet, wait a little and select **Re-check** again.
+
+Once your domain is verified, your apps answer only at their addresses on it, and their relay addresses stop working. Update your bookmarks and the addresses in TV and phone apps. If you remove the domain, your apps go back to their relay addresses.
 
 ## The records
 
@@ -37,19 +41,19 @@ Copy each value with its copy button in the Command Deck. They are unique to you
 
 ### Type only the first part of the host
 
-The Command Deck shows the full name, such as `*.example.com`, but most providers add your domain to the host for you. Type only `*` (and `_acme-challenge` for the optional record). If you type the full name, the record ends up at `*.example.com.example.com` and HexOS won't find it.
+The Command Deck shows the full name, such as `*.example.com`, but most providers add your domain to the host for you. Type only `*` (and `_acme-challenge` for the optional record). If you type the full name, the record ends up at `*.example.com.example.com` and we won't find it.
 
 ### Turn off any proxy or CDN
 
-The record must point straight at HexOS. A provider setting that sends your traffic through its own servers (Cloudflare's orange cloud, Namecheap's HTTPS toggle) breaks the encrypted connection to your server. Set the record to **DNS only**.
+The record must point straight at us. A provider setting that sends your traffic through its own servers (Cloudflare's orange cloud, Namecheap's HTTPS toggle) breaks the encrypted connection to your server. Set the record to **DNS only**.
 
 ### What the `*` record covers
 
-The `*` record sends every name under your domain to HexOS, except names that already have their own records. Your website at `www.example.com`, your email and anything else you set up keep working as they are. Those names can't be used for apps, though: an app named `www` wouldn't be reachable while `www` has its own record.
+The `*` record sends every name under your domain to us, except names that already have their own records. Your website at `www.example.com`, your email and anything else you set up keep working as they are. Those names can't be used for apps, though: an app named `www` wouldn't be reachable while `www` has its own record.
 
 ### Optional: keep your app names private
 
-Without the second record, your server gets a separate certificate for each app, and every certificate is listed in public logs that anyone can search. That reveals names like `jellyfin.example.com`, though not what's behind them. With `_acme-challenge` handed to HexOS, your server gets one certificate that covers all your apps, and their names stay out of those logs.
+Without the second record, your server gets a separate certificate for each app, and every certificate is listed in public logs that anyone can search. That reveals names like `jellyfin.example.com`, though not what's behind them. With `_acme-challenge` handed to us, your server gets one certificate that covers all your apps, and their names stay out of those logs.
 
 ### If your domain has CAA records
 
@@ -57,12 +61,21 @@ A CAA record says which certificate authorities may issue certificates for your 
 
 ## Command Deck
 
-If you sign in to your server's Command Deck through your own reverse proxy, you can give it an address on your domain, such as `nas.example.com`.
+Once your domain is **Verified**, you can open your server's Command Deck from anywhere at an address on it, such as `deck.example.com`. We serve it through our relay the same way we serve your apps, so the connection stays encrypted all the way to your server.
 
-1. Under **Command Deck** in the same tab, type a name, such as `nas`, and select **Apply**. The name can't be `join` or a name one of your apps uses.
-2. At your DNS provider, point that name at your proxy with an A record (your proxy's public IP address) or a CNAME. A record for one name takes precedence over the `*` record, so only that name goes to your proxy.
-3. Add the TXT record the Command Deck shows. Its host is `_hexos-dashboard.nas` (with your name in place of `nas`), and its value starts with `hexos-dashboard=`.
-4. Select **Re-check**. Leave the TXT record in place: HexOS checks it again when you sign in through this address, and stops approving the address once the record is gone.
+1. Under **Command Deck** in the same tab, type a name, such as `deck`. Your domain is already filled in beside it.
+2. Select **Apply**. The name can't be `join` or a name one of your apps uses.
+3. Open the address, such as `https://deck.example.com`, and sign in with your HexOS account as usual.
+
+You don't need another DNS record: the `*` record you added already sends the name to us. If the name has a record of its own at your DNS provider, delete it, because a record for one name takes precedence over the `*` record. Like an app's address, a new Command Deck address can take a few minutes to start working.
+
+### Advanced: your own reverse proxy
+
+If you run a reverse proxy, you can instead give the Command Deck an address on another domain and serve it from your proxy:
+
+1. At your DNS provider, point the address at your proxy with an A record (your proxy's public IP address) or a CNAME.
+2. Add the TXT record the Command Deck shows. For `nas.example.net`, its host is `_hexos-dashboard.nas`, and its value starts with `hexos-dashboard=`.
+3. Select **Re-check**. Leave the TXT record in place: we check it again when you sign in through this address, and stop approving the address once the record is gone.
 
 To set up the proxy itself, see [VM console and remote access](/features/vms/remote-access#local-hexos-interface-ports) for the ports your server's own interface uses.
 
@@ -70,9 +83,9 @@ To set up the proxy itself, see [VM console and remote access](/features/vms/rem
 
 ### Cloudflare
 
-- Set **Proxy status** to **DNS only** (the grey cloud) on every record you add for HexOS. A proxied record won't work.
+- Set **Proxy status** to **DNS only** (the gray cloud) on every record you add for remote access. A proxied record won't work.
 - Name: `*`, and `_acme-challenge` for the optional record.
-- If you turned on **CNAME flattening** for all records, turn it off, or at least don't flatten `_acme-challenge`: a flattened record hides the CNAME HexOS looks for.
+- If you turned on **CNAME flattening** for all records, turn it off, or at least don't flatten `_acme-challenge`: a flattened record hides the CNAME we look for.
 - An older SSL setup can leave `_acme-challenge` TXT records behind that don't always appear in the dashboard. If the optional record won't verify, check for them.
 - Changes take effect within about 5 minutes.
 
@@ -138,3 +151,5 @@ To set up the proxy itself, see [VM console and remote access](/features/vms/rem
 | We couldn't find the record yet | Check that the host is only `*`, then give it time: some providers take an hour or more. |
 | The record points somewhere else | Copy the value again with the copy button, and check that the record isn't proxied. |
 | This domain is already connected to HexOS somewhere else | Remove it where it's connected, then select **Re-check**. |
+
+[Back to Remote access](/features/remote-access#use-your-own-domain)
