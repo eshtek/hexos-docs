@@ -22,7 +22,7 @@ For users who are actively connected during an update, there may be a brief down
 
 <!-- auto-generated-year-sections-start -->
 ## 2026 Releases
-- [**2026-10-30**](/release-notes/command-deck/2026-10-30) - Network UPS setup, Mac drives in Bring over, and more
+- [**2026-10-30**](/release-notes/command-deck/2026-10-30) - Network UPS setup, a Valheim server, Mac drives in Bring over, and more
 - [**2026-10-28**](/release-notes/command-deck/2026-10-28) - Bring over for everyone, UPS monitoring, nine new apps, and more
 - [**2026-10-16**](/release-notes/command-deck/2026-10-16) - Rename your server, a tabbed app pane, live backup speeds, and more
 - [**2026-10-13**](/release-notes/command-deck/2026-10-13) - Smarter Custom VMs, Safer Graphics Card Sharing & More
