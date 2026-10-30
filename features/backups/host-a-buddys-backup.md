@@ -103,15 +103,27 @@ You can also manage hosted backups from the **Storage** page. Open a pool to see
 
 ## When your buddy asks for more space
 
-Your buddy can ask for more space. Their request shows on your **Pending requests** page as "Storage change request from" their email, with the old and new limit.
+Your buddy can ask for more space. Open **Backups**, then **Requests**. The request shows who is asking and the old and new allowance.
 
-Click **Approve** to set aside the new amount, or **Decline** to keep the current one.
+1. Click **Approve** to give them the new amount, or **Decline** to keep the current amount. After a successful approval, the request disappears.
 
 <details>
-<summary> A storage change request </summary>
+<summary> Approve the extra backup space </summary>
 
-![quota-change-request.png](/features/backups/images/quota-change-request.png){.medium .framed}
+![Request for more backup space](/host-a-buddys-backup/quota-request.png){.medium .framed}
 </details>
+
+2. If the new reservation would trigger a capacity warning, a separate **Hide reserved-space warnings?** question opens. The storage increase is already approved. Click **Approve** to hide warnings caused by its unused reserved space. Click **Decline** or close the question to keep those warnings on.
+
+<details>
+<summary> Choose whether to hide reserved-space warnings </summary>
+
+![Separate warning question](/host-a-buddys-backup/quota-warning-question.png){.medium .framed}
+</details>
+
+Declining this second question does not cancel the storage increase. Warnings for actual stored data stay on either way. If the warning setting cannot be saved, the question stays open so you can retry or decline; you do not need to approve the storage increase again.
+
+If you previously hid this backup's warning, a larger allowance needs a new choice. You can also change the warning setting later on the hosted backup's storage card.
 
 ## Move a backup to another pool
 
@@ -172,7 +184,7 @@ When you host a backup, HexOS keeps the agreed space available for that backup. 
 ![Space kept for a backup](/host-a-buddys-backup/reserved-backup-space.jpeg){.medium}
 </details>
 
-**Hide reserved-space warning** hides the capacity warning caused by the unused part of that reservation. It starts turned off. Only the owner of the server storing the backup can change it.
+**Hide capacity warnings for reserved backup space** hides the capacity warning caused by the unused part of that reservation. It starts turned off. Only the owner of the server storing the backup can change it.
 
 Your backup keeps its reserved space. The pool's used and free amounts stay the same. Stored backup data, restore points, and your other files still count toward capacity warnings.
 
@@ -188,23 +200,17 @@ For example, a pool has 1 TB of usable space. Your files use 200 GB, and you res
 ![Hosted backup](/host-a-buddys-backup/hosted-backup.png){.medium .framed}
 </details>
 
-2. Click **Quota**. The **Storage quota** dialog opens.
+2. On the card named after the storage pool, turn on **Hide capacity warnings for reserved backup space**. The change saves immediately. You do not need to open **Quota** or change the allowance.
 
 <details>
-<summary> Open the Storage quota dialog </summary>
+<summary> Change the warning setting on the storage card </summary>
 
-![Storage settings](/host-a-buddys-backup/storage-settings.png){.medium .framed}
+![Warning switch on the hosted backup's storage card](/host-a-buddys-backup/hosted-card-warning-on.png){.medium .framed}
 </details>
 
-3. Turn on **Hide reserved-space warning**, then click **Save changes**. You can leave the reserved amount unchanged.
+HexOS checks the reservation before changing the warning. The switch shows your saved choice immediately, but the warning can take up to five minutes to change. To restore the warning, turn the same switch off.
 
-<details>
-<summary> Hide the reserved-space warning </summary>
-
-![Warning setting turned on](/host-a-buddys-backup/warning-switch-on.png){.medium .framed}
-</details>
-
-HexOS checks the reservation before changing the warning. Turning the switch on or off can take up to five minutes to change the warning. To restore the warning, open the same settings, turn the switch off, and click **Save changes**.
+If settings cannot load, click **Retry** when the server is connected. If a save fails, the previous setting remains selected. You can try again.
 
 ### Choose during setup
 
