@@ -18,11 +18,11 @@ The Command Deck is the HexOS web interface. Updates are automatically deployed 
 
 ### Recent updates
 
+- [**2026-11-03**](/release-notes/command-deck/2026-11-03) - Buddy Backups protect your history, hardware transcoding for Jellyfin, more ways to set up your UPS, and more
 - [**2026-10-30**](/release-notes/command-deck/2026-10-30) - Network UPS setup, a Valheim server, Mac drives in Bring over, and more
 - [**2026-10-28**](/release-notes/command-deck/2026-10-28) - Bring over for everyone, UPS monitoring, nine new apps, and more
 - [**2026-10-16**](/release-notes/command-deck/2026-10-16) - Rename your server, cleaner app details, live backup speeds, and more
 - [**2026-10-13**](/release-notes/command-deck/2026-10-13) - Private folders stay private, smarter Custom VMs, and more
-- [**2026-10-09**](/release-notes/command-deck/2026-10-09) - Open beta for Buddy Backups and Virtual Machines, a smarter server setup, and much more
 
 **[View all Command Deck release notes →](/release-notes/command-deck/)**
 
