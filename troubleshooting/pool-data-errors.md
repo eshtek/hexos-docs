@@ -64,18 +64,12 @@ When every damaged file is part of the TrueNAS app catalog, the pool's info pane
 ![truenas-file-damaged.png](/pool-data-errors/truenas-file-damaged.png){.medium .framed}
 </details>
 
-Click **Show file** to see which file it is. Hover over the info icon next to the title to read why it is safe to remove.
+Under the title, the message says why the file is safe to remove: TrueNAS downloads its app list from the internet, so a damaged copy can be removed. Click **Show file** to see which file it is.
 
 <details>
 <summary> The damaged file, shown </summary>
 
 ![truenas-file-shown.png](/pool-data-errors/truenas-file-shown.png){.medium .framed}
-</details>
-
-<details>
-<summary> Why it is safe to remove </summary>
-
-![truenas-file-tip.png](/pool-data-errors/truenas-file-tip.png){.medium .framed}
 </details>
 
 ### Repair the pool
@@ -244,13 +238,7 @@ Otherwise, for example after a restart, the info panel says **The pool still sho
 ![old-errors-check-first.png](/pool-data-errors/old-errors-check-first.png){.medium .framed}
 </details>
 
-<details>
-<summary> What Reset error count does </summary>
-
-![reset-error-count-tip.png](/pool-data-errors/reset-error-count-tip.png){.medium .framed}
-</details>
-
-**Reset error count** only resets the displayed error counts. It doesn't repair anything.
+The message also says what the button does: **Reset error count** only resets the displayed error counts. It doesn't repair anything.
 
 > **Info:** A restart of the server between **Check pool** and **Reset error count** means you need to run **Check pool** again first. The memory test restarts the server too.
 {.is-info}

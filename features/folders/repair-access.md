@@ -65,7 +65,7 @@ HexOS doesn't turn sharing off or stop your apps during the repair. Your compute
 
 HexOS checks every file right before it changes anything. If an app changes the permissions on a file while the repair is running, that change can be replaced. Your files themselves are safe: only permissions change.
 
-If an app uses the folder, the dialog says **Stop the app that uses this folder first, if you can.** Hold the pointer over the info icon to see which apps use it. To stop an app, click it on the **Apps** screen, then click **Stop**. Start it again when the repair is done.
+If an app uses the folder, the dialog says **Stop the app that uses this folder first, if you can.** The line under it names the apps that use the folder. To stop an app, click it on the **Apps** screen, then click **Stop**. Start it again when the repair is done.
 
 ## Repair access
 
@@ -79,9 +79,9 @@ If an app uses the folder, the dialog says **Stop the app that uses this folder 
 </details>
 
 3. Wait while the dialog shows **Checking the files in this folder…**.
-4. Read the dialog. Hold the pointer over an info icon to read more about a line.
-   - **HexOS saves a snapshot first.** The snapshot keeps a copy of the old permissions.
-   - **Stop the app that uses this folder first, if you can.** This line shows only when an app uses the folder. The section above, "Your folder stays in use", explains why.
+4. Read the dialog. Each line has a short note under it that says more.
+   - **HexOS saves a snapshot first.** The note says that permissions set outside HexOS are replaced, and the snapshot keeps the old ones.
+   - **Stop the app that uses this folder first, if you can.** This line shows only when an app uses the folder. The note names the apps. The section above, "Your folder stays in use", explains why.
    - **Removes 1 old account.** Some files still name an account that isn't on this server, usually one from an old server. Repair access removes it.
 5. If the dialog shows a box that starts with **Let my apps**, read the next section, then check the box.
 6. Click **Repair access**.
@@ -130,7 +130,7 @@ If you don't want to give your apps the whole folder, close the dialog. Nothing 
 
 Sometimes a person's account has its own access to some files in the folder, for example a folder that only one family member can change. Repair access would take that away, so HexOS doesn't run it.
 
-The dialog shows **Some accounts would lose access, so this can't run**, and lists each account with the number of files it would lose. The **Repair access** button stays off. Nothing changes.
+The dialog shows **Some accounts would lose access, so this can't run**, and lists each account with the number of files it would lose. Under the list, it says that these accounts have their own access to files in the folder, and that Repair access would replace it. The **Repair access** button stays off. Nothing changes.
 
 <details>
 <summary> An account would lose access </summary>
