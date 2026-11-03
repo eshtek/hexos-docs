@@ -22,7 +22,7 @@ For users who are actively connected during an update, there may be a brief down
 
 <!-- auto-generated-year-sections-start -->
 ## 2026 Releases
-- [**2026-11-03**](/release-notes/command-deck/2026-11-03) - Buddy Backups protect your history, hardware transcoding for Jellyfin, more ways to set up your UPS, and more
+- [**2026-11-03**](/release-notes/command-deck/2026-11-03) - Restore points, Recently deleted folders, multiple app copies, and more
 - [**2026-10-30**](/release-notes/command-deck/2026-10-30) - Network UPS setup, a Valheim server, Mac drives in Bring over, and more
 - [**2026-10-28**](/release-notes/command-deck/2026-10-28) - Bring over for everyone, UPS monitoring, nine new apps, and more
 - [**2026-10-16**](/release-notes/command-deck/2026-10-16) - Rename your server, a tabbed app pane, live backup speeds, and more
