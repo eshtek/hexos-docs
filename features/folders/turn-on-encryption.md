@@ -22,6 +22,15 @@ HexOS picks one of two ways, depending on the free space on the pool:
 - **Copy:** when there is room for a second copy of the folder, HexOS builds an encrypted copy, including the folder's snapshots, while you keep using the folder. At the end the folder goes offline for a few minutes while HexOS copies the last changes, checks that every snapshot arrived intact, and swaps the encrypted folder into place.
 - **Move:** when there is no room for a copy, HexOS moves your files into the encrypted folder a batch at a time, freeing space as it goes. The folder is offline for the whole conversion, and it takes longer. This is only possible for a folder with no snapshots and no datasets inside it.
 
+A move is the riskier way, because there is never a second copy of your files:
+
+- Each file is in one place only: in the original folder until it moves, then in the encrypted folder.
+- The folder and its share stay offline from the start until the move finishes. For a large folder this can take a day or more. The **Turn on encryption** dialog shows how long to expect.
+- If the move stops, the folder stays offline until you click **Retry** and it finishes. **Discard attempt** is only offered while no file has moved.
+
+> **Danger:** Before a move, back up the folder to another server or drive. If the pool has a problem during a move, there is no other copy of the files to restore from. If you can, free up space on the pool instead, so HexOS can copy the folder: a copy keeps the original untouched until the end.
+{.is-danger}
+
 Datasets inside the folder that are not encrypted, such as an app's own data, are converted with it.
 
 ## Start the conversion
@@ -86,6 +95,7 @@ If something stops the conversion from starting, the folder's page shows the rea
 | This folder is a child of {parent}, and cannot be converted by itself. | The folder sits inside another dataset. "To encrypt the contents of this folder, you will need to convert the parent dataset instead." |
 | This server needs a HexOS update before it can encrypt folders. It updates itself, so check back soon. | Wait for the update, then try again. |
 | We couldn't determine how much free space is required to encrypt this folder. Try again in a moment. | Close the dialog and open it again. |
+| HexOS can't move this folder's files on this server right now. Try again in a few minutes. If this keeps happening, contact support. | This shows only when the pool is too full for a copy. HexOS could not confirm that the server has what it needs to move the files. Wait a few minutes and open the folder's page again. If the message stays, contact HexOS support. |
 
 ## While it runs
 
