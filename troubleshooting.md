@@ -24,6 +24,7 @@ Something not working? Find the area below that matches what you are seeing.
 - [**Connection issues**](/troubleshooting/connection) - Server not getting an IP address, discovery problems
 - [**Network ports**](/troubleshooting/network-ports) - What ports 43705 and 43706 are for, and whether it is safe to block them
 - [**DNS rebind protection**](/troubleshooting/dns-rebind-protection) - Your router is blocking local access to your server
+- [**Local access to your server**](/troubleshooting/local-access) - Find your server's own address on your home network, and let the Command Deck open it for you
 
 ## Signing in
 
