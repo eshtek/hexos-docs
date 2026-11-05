@@ -46,6 +46,7 @@ Something not working? Find the area below that matches what you are seeing.
 
 - [**Ryzen idle freezes**](/troubleshooting/ryzen-idle-freeze) - Fix random idle freezes on Ryzen 1000–3000 systems with one BIOS setting
 - [**Network cards with known issues**](/troubleshooting/network-cards) - What the network warning means and which cards work well with TrueNAS
+- [**Intel I225 and I226 cards that drop off the network**](/troubleshooting/intel-i225-i226-link-loss) - Stop a 2.5 gigabit Intel card from disconnecting when idle
 - [**USB network adapters**](/troubleshooting/usb-network-adapters) - Why a USB adapter is a poor fit for a server and what to use instead
 - [**SSDs for pool data**](/troubleshooting/ssds-for-pool-data) - Why QLC and DRAM-less SSDs are flagged as pool data and which SSDs to choose
 
