@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-description: 
+description: Find help with installation, connections, apps, and storage.
 published: true
 date: 2026-08-20T19:30:00.000Z
 tags: 
@@ -22,6 +22,7 @@ Something not working? Find the area below that matches what you are seeing.
 - [**Avoid USB drives**](/troubleshooting/usb-drives) - Why USB drives cause problems and what to use instead
 - [**UGREEN NAS keeps restarting**](/troubleshooting/ugreen-watchdog) - Turn off the BIOS watchdog that restarts a UGREEN NAS every few minutes
 - [**Connection issues**](/troubleshooting/connection) - Server not getting an IP address, discovery problems
+- [**TrueNAS access restrictions**](/troubleshooting/truenas-access-restrictions) - Check an existing allowed list that may block HexOS discovery
 - [**Network ports**](/troubleshooting/network-ports) - What ports 43705 and 43706 are for, and whether it is safe to block them
 - [**DNS rebind protection**](/troubleshooting/dns-rebind-protection) - Your router is blocking local access to your server
 - [**Local access to your server**](/troubleshooting/local-access) - Find your server's own address on your home network, and let the Command Deck open it for you
