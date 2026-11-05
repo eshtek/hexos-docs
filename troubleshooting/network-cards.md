@@ -47,11 +47,14 @@ This page explains each of those warnings. A warning does not mean your server i
 
 ## Intel I225 early revisions
 
-**Which cards:** Intel I225-V, revisions 1 and 2. Revision 3 and the newer I226-V fixed the problem and are not affected.
+**Which cards:** Intel I225-V, revisions 1 and 2. Revision 3 and the newer I226-V fixed this problem.
 
 **The problem:** Early revisions of this chipset are known to drop their connection. Intel itself has confirmed this problem, not only community reports.
 
 **The recommended fix:** If you see disconnects, consider replacing it with an Intel I226-based network card. If your connection is stable, there is nothing to do. See [what to buy instead](#what-to-buy-instead).
+
+> **Tip:** Any I225 or I226 card, including revision 3 and the I226, can also drop off the network when PCIe power saving is on. A setting fixes that one. See [Intel I225 and I226 cards that drop off the network](/troubleshooting/intel-i225-i226-link-loss).
+{.is-tip}
 
 ## No driver on your TrueNAS version
 
@@ -83,7 +86,7 @@ TrueNAS documentation names Intel and Chelsio network cards as the best-supporte
 | Speed | Look for | Notes |
 |---|---|---|
 | 1 gigabit | Intel I210 or I350 (for example the I350-T2 dual-port card) | Uses the igb driver, built into TrueNAS |
-| 2.5 gigabit | Intel I226-V | Uses the igc driver, built into TrueNAS. Choose I226 over I225 |
+| 2.5 gigabit | Intel I226-V | Uses the igc driver, built into TrueNAS. Choose I226 over I225. If it drops off the network, see [this fix](/troubleshooting/intel-i225-i226-link-loss) |
 | 10 gigabit | Intel X520, X550 or X710 (for example the X710-DA2 SFP+ card), or Chelsio T520 | Built-in drivers. SFP+ cards need a matching module or direct-attach cable |
 
 Before you buy, check that the card fits a free slot in your server. A 1 or 2.5 gigabit card needs one PCIe lane; a 10 gigabit card usually needs a slot with four or more lanes.
