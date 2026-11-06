@@ -18,7 +18,7 @@ The Command Deck is the HexOS web interface. Updates are automatically deployed 
 
 ### Recent updates
 
-- [**2026-11-06**](/release-notes/command-deck/2026-11-06) - Guided tours, branded emails, TrueNAS 27, and more
+- [**2026-11-06**](/release-notes/command-deck/2026-11-06) - Branded emails, TrueNAS 27, The Lounge and Minecraft, and more
 - [**2026-11-03**](/release-notes/command-deck/2026-11-03) - Restore points, Recently deleted folders, Jellyfin hardware transcoding, and more
 - [**2026-10-30**](/release-notes/command-deck/2026-10-30) - Network UPS setup, a Valheim server, Mac drives in Bring over, and more
 - [**2026-10-28**](/release-notes/command-deck/2026-10-28) - Bring over for everyone, UPS monitoring, nine new apps, and more
