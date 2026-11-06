@@ -50,6 +50,10 @@ When setup is done, go to **VMs** > **Installed VMs**, click the VM, and click *
 
 If you left **Sign in to Plex** off, Plex's own setup page asks you to sign in and claim the server, and to add your libraries.
 
+## Add more media folders
+
+Use **Disks** > **Shared folders** in an installed Plex VM to connect more folders, including folders on another pool. Follow [Add folders to a Plex VM](/features/vms/shared-folders).
+
 ## The media folders row
 
 While the VM is running, its details show a **Media folders** row. A VM with [direct folder access](#direct-folder-access) has no **Media folders** row. HexOS checks it about once a minute while the details are open:
