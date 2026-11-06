@@ -18,7 +18,7 @@ The Command Deck is the HexOS web interface. Updates are automatically deployed 
 
 ### Recent updates
 
-- [**2026-11-06**](/release-notes/command-deck/2026-11-06) - Live GPU usage, spare drives without setup, The Lounge and Minecraft, and more
+- [**2026-11-06**](/release-notes/command-deck/2026-11-06) - Local AI and app collections, more folders for Plex VMs, live GPU usage, and more
 - [**2026-11-03**](/release-notes/command-deck/2026-11-03) - Restore points, Recently deleted folders, Jellyfin hardware transcoding, and more
 - [**2026-10-30**](/release-notes/command-deck/2026-10-30) - Network UPS setup, a Valheim server, Mac drives in Bring over, and more
 - [**2026-10-28**](/release-notes/command-deck/2026-10-28) - Bring over for everyone, UPS monitoring, nine new apps, and more
