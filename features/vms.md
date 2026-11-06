@@ -521,6 +521,7 @@ If your server has not reached HexOS in the last 30 days, or has not reached it 
 | Hand a graphics card or USB devices to a VM | [Passthrough requirements](/features/vms/passthrough-requirements) |
 | Let HexOS finish setting up Plex or Home Assistant | [VM setup](/features/vms/vm-setup) |
 | Run Plex Media Server as a VM | [Plex Media Server VM](/features/vms/plex-media-server) |
+| Add folders from another pool to Plex | [Add folders to a Plex VM](/features/vms/shared-folders) |
 | Use a VM's screen from my phone | [Using a VM's console from a phone or tablet](/features/vms/console-on-a-phone) |
 | Keep a nightly copy of a VM | [App backups](/features/storage/app-backups#virtual-machines) |
 | Bring VMs back after the apps drive fails | [When the apps drive fails](/features/storage/apps-drive-failed#step-4-restore-your-apps) |
