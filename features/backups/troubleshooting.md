@@ -2,7 +2,7 @@
 title: Backup troubleshooting
 description: What every backup status and notice means, and what to do about the common stuck states
 published: true
-date: 2026-10-07T00:00:00.000Z
+date: 2026-11-03T00:00:00.000Z
 tags: backups, buddy, troubleshoot, status
 editor: markdown
 dateCreated: 2026-08-21T12:00:00.000Z
@@ -105,6 +105,16 @@ If the other server's pool is full, the notice says so, because more space set a
 
 **Nearly full:** when 90% of the space is used, you get "Backup space at" the other server "is" a percentage "full", and the server storing it gets "Space you share with" your name "is nearly full". When the space is full or almost full, both of you also get one email.
 
+### A first backup keeps pausing
+
+During the first backup, the receiving server may already hold part of the copy. A whole-folder estimate does not say how much is still left to send.
+
+When HexOS can confirm a partial receive, it treats that estimate as an upper limit instead of counting the entire folder as new data still needed. The reserved-space limit still applies. The backup can stop if the remaining data does not fit.
+
+An existing space pause may still need a manual resume. Follow [Pause and resume](/features/backups/manage-your-backups#pause-and-resume). The folder menu may stay unavailable until its status refreshes. Once the menu returns, you can use [Back up now](/features/backups/manage-your-backups#back-up-now).
+
+Keep the received data and the backup connection in place. Received bytes alone do not confirm that a restore point is ready. If the backup continues to pause, contact [HexOS support](https://discord.gg/fCW2htvYdz) before deleting it or starting over.
+
 ## Notices you may receive
 
 | Notice | What it means |
@@ -200,7 +210,7 @@ Only online servers can be chosen as a destination. Turn on the other server, wa
 ## Resume is refused
 
 - If your buddy paused the backup, only they can resume it. The page says "Backups were paused from the other side of this connection, and only they can resume them." Ask them.
-- If HexOS paused it for space, free up space first. It also resumes on its own when there is room.
+- For a partially received first backup, see [A first backup keeps pausing](#a-first-backup-keeps-pausing). Other space pauses may need more reserved space before the next backup can run.
 - If resuming fails, HexOS says "Backups couldn't be resumed. Try again in a moment". Wait a minute and try again.
 
 ## A restore is waiting for a passphrase
