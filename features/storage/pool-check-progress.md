@@ -36,7 +36,7 @@ A pool check, also called a scrub, reads stored data to check its integrity. You
 ![Pool check progress and time estimate.](/pool-check-progress/checking-pool.png){.medium .framed}
 </details>
 
-You do not need to start another check to see the estimate. The panel refreshes while the current check runs. **About this estimate** opens this guide in a new tab.
+You do not need to start another check to see the estimate. The panel refreshes while the current check runs. Click the time estimate to open this guide in a new tab.
 
 ## Why the estimate changes
 
