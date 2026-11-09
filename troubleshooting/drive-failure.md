@@ -24,36 +24,45 @@ When you replace a drive, HexOS copies your data onto the new drive from the oth
 
 Check how much protection your pool has left:
 
-1. Click the pool that shows **Unhealthy**. Its info panel opens.
-2. Read the protection line. It says how many more drives can fail without data loss.
+1. Click **Storage** in the menu.
+2. Click the pool that shows **Unhealthy** or **Drive errors**. Its info panel opens.
+3. Read the protection card. It says how many more drives can fail without data loss.
 
-> **Danger:** If the info panel says **This pool is not protected from drive failure**, one more failure during the rebuild would lose the data on this pool. Copy anything you cannot replace to another device first, if you can.
+<details>
+<summary> Pool info panel with the protection card </summary>
+
+![pool-info-panel.png](/drive-failure/pool-info-panel.png){.medium .framed}
+</details>
+
+> **Danger:** If the card says **No more drives can fail right now without data loss** or **This pool is not protected from drive failure**, one more failure during the rebuild would lose the data on this pool. Copy anything you cannot replace to another device first, if you can.
 {.is-danger}
 
 ## Step 1: Find the failed drive
 
-In the pool's info panel, click **View drives**.
+On the **Storage** screen, the pool with the failed drive shows **Unhealthy** or **Drive errors**.
 
 <details>
-<summary> Pool info panel with the View drives button </summary>
+<summary> Unhealthy pool on the Storage screen </summary>
 
-![step-2.png](/drive-failure/step-2.png){.medium .framed}
+![unhealthy-pool.png](/drive-failure/unhealthy-pool.png){.medium .framed}
 </details>
 
-Click the drive that shows a problem. A drive that does not work at all shows as missing. Its info panel says **This drive is missing and needs to be replaced.**
+Click the pool, then click **View drives** in its info panel.
+
+Click the drive that shows a problem. A drive that does not work at all shows as **Missing**, with a **Faulty** badge. Its info panel says **This drive is missing and needs to be replaced.**
 
 <details>
-<summary> Missing drive in the drive list </summary>
+<summary> Missing drive and its info panel </summary>
 
-![step-1.png](/drive-failure/step-1.png){.medium .framed}
+![missing-drive.png](/drive-failure/missing-drive.png){.medium .framed}
 </details>
 
-If the failed drive still shows, write down its **Serial** number from its info panel. The same number is printed on the drive's label, so you can find the right drive inside the server. If the drive is missing, write down the serial numbers of the drives that still work instead. The drive that is not on your list is the failed one.
+Write down the **Serial number** from the failed drive's info panel. The same number is printed on the drive's label, so you can find the right drive inside the server. If no serial number shows, write down the serial numbers of the drives that still work instead. The drive that is not on your list is the failed one.
 
 <details>
 <summary> Drive info panel with the serial number </summary>
 
-![step-3.png](/drive-failure/step-3.png){.medium .framed}
+![healthy-drive-serial.png](/drive-failure/healthy-drive-serial.png){.medium .framed}
 </details>
 
 ## Step 2: Choose how to connect the new drive
@@ -71,46 +80,35 @@ There are two ways to do this. Pick the one that fits your server.
 5. Check that the power and SATA cables on every drive are firmly connected.
 6. Plug the server back in and turn it on.
 
-After the server starts, the old drive shows as missing in the pool. This is expected.
-
-<details>
-<summary> Unhealthy pool after the drive is removed </summary>
-
-![step-4.png](/drive-failure/step-4.png){.medium .framed}
-</details>
+After the server starts, the old drive shows as **Missing** in the pool. This is expected.
 
 ## Step 3: Replace the drive in HexOS
 
-Click the pool, then click **View drives**. Click the failed or missing drive, then click **Replace**.
-
-<details>
-<summary> Replace button on the missing drive </summary>
-
-![step-5.png](/drive-failure/step-5.png){.medium .framed}
-</details>
+Click the pool, then click **View drives**. Click the failed or missing drive, then click **Replace** in its info panel.
 
 The **Replace Drive** dialog opens. Read any message it shows:
 
 - A red or amber message means the pool has little or no protection left, or another drive is also failing. The rebuild reads every drive for hours, so copy anything you cannot replace off the pool first, if you can.
+- If the pool has no protection left, the dialog also shows a box that says **I understand that this pool has no protection during the rebuild**. Click it to continue.
 - If the failed drive is still connected, the dialog says to leave it connected until the rebuild finishes.
+
+<details>
+<summary> Replace Drive dialog </summary>
+
+![replace-dialog.png](/drive-failure/replace-dialog.png){.medium .framed}
+</details>
 
 Click the **Replacement Drive** list and pick your new drive.
 
 <details>
 <summary> Replacement Drive list </summary>
 
-![step-6.png](/drive-failure/step-6.png){.medium .framed}
+![replacement-drive-list.png](/drive-failure/replacement-drive-list.png){.medium .framed}
 </details>
 
 Click **Replace Drive**.
 
-<details>
-<summary> Replace Drive button </summary>
-
-![step-7.png](/drive-failure/step-7.png){.medium .framed}
-</details>
-
-> **Tip:** If the dialog says **You need to have a suitable unused drive candidate available to replace a drive**, HexOS did not find a drive it can use. Check that the new drive is connected, is the same size as the failed drive or bigger, and is not part of another pool. On the **Storage** screen, the new drive should show under unused drives.
+> **Tip:** If the dialog says **You need to have a suitable unused drive candidate available to replace a drive**, HexOS did not find a drive it can use. Check that the new drive is connected, is the same size as the failed drive or bigger, and is not part of another pool. On the **Storage** screen, the new drive should show under **Available drives**.
 {.is-tip}
 
 ## Step 4: Wait for the rebuild to finish
