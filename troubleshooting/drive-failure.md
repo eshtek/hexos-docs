@@ -69,7 +69,7 @@ Write down the **Serial number** from the failed drive's info panel. The same nu
 
 There are two ways to do this. Pick the one that fits your server.
 
-**If your server has a free drive connection** (a free SATA port and power cable, or an empty drive bay): connect the new drive and leave the failed drive connected for now. ZFS can still read from the failed drive during the rebuild, which is safer. If your server cannot swap drives while it is running, shut it down first (see below), connect the new drive, then turn it back on. Go to Step 3.
+**If your server has a free drive connection** (a free SATA port and power cable, or an empty drive bay): connect the new drive. If the failed drive's **Status** in its info panel is **Online** or **Degraded**, leave it connected for now: ZFS can still read from it during the rebuild, which is safer. If its **Status** is **Faulted** or **Removed**, ZFS no longer reads from it, so keeping it connected does not help. You can remove it when you connect the new drive. If your server cannot swap drives while it is running, shut it down first (see below), connect the new drive, then turn it back on. Go to Step 3.
 
 **If every drive connection is in use:** you must remove the failed drive first.
 
