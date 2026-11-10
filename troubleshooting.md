@@ -35,6 +35,7 @@ Something not working? Find the area below that matches what you are seeing.
 ## Apps
 
 - [**Application errors**](/troubleshooting/apps) - Installation, update, and startup failures, GPU pass-through, app curation resets
+- [**App stuck starting**](/troubleshooting/app-stuck-starting) - Update an app that keeps showing Deploying or Crashed
 
 ## Storage and drives
 
