@@ -24,3 +24,4 @@ Install and manage applications on your HexOS server with multiple options to fi
 - Browse [curated scripts](/features/apps/install-scripts/curated/) for easy installations
 - Learn about [install scripts](/features/apps/install-scripts) for custom setups
 - [Contribute](/features/apps/install-scripts/contributing) your own app curations
+- Check which [graphics cards can run Local AI](/features/apps/local-ai-graphics-cards)
