@@ -57,9 +57,26 @@ Open the finished check's notice to see the report. It has a line for each drive
 > **Warning:** If a drive failed, replace it, then click **Run the check again**. See [Drive failure](/troubleshooting/drive-failure).
 {.is-warning}
 
-## Keep using your pool
+## Stop a check
 
-A deep check cannot be stopped from the Command Deck. It only reads your data, so it is safe to let it finish.
+A deep check only reads your data, so it is safe to let it finish. To stop it anyway:
+
+1. Open the activity center and find the **Checking storage health** row.
+2. Under its steps, click **Stop the check**.
+3. In the **Stop this check?** dialog, click **Stop the check**.
+
+<details>
+<summary> Stop this check dialog </summary>
+
+![deep-check-stop.png](/deep-check/deep-check-stop.png){.medium .framed}
+</details>
+
+The drives stop testing and the data check stops. The check gives no result, and your files are not touched. A data check that you or a schedule started in TrueNAS keeps running. HexOS only stops a check it started.
+
+> **Info:** If the data step says **Paused in TrueNAS**, the data check was paused in TrueNAS. HexOS does not resume it for you. Resume it in TrueNAS, or stop the check.
+{.is-info}
+
+## Keep using your pool
 
 A check does not lock your pool. You can create shared folders, install apps and create virtual machine disks while it runs. You do not need to enable the pool or skip the check. Performance may be slower while the drives are busy.
 
