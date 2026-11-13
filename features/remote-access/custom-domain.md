@@ -1,7 +1,7 @@
 ---
 title: Use your own domain with HexOS Anywhere
 description: The DNS records your own domain needs for HexOS Anywhere, and what to watch for at common DNS providers
-published: false
+published: true
 date: 2026-10-28T00:00:00.000Z
 tags: hexos anywhere, remote access, custom domain, dns, cname, cloudflare, namecheap, godaddy, porkbun, squarespace, route 53
 editor: markdown
@@ -10,14 +10,14 @@ dateCreated: 2026-10-28T00:00:00.000Z
 
 # Use your own domain with HexOS Anywhere
 
-> **Info:** HexOS Anywhere is being tested inside HexOS and isn't available to everyone yet. Screens may change before it is.
+> **Info:** A custom domain is part of HexOS Anywhere, an add-on for HexOS Lifetime. See [Get HexOS Anywhere](/features/remote-access#get-hexos-anywhere).
 {.is-info}
 
 With HexOS Anywhere on, each app you share gets its own HexOS address. If you own a domain, you can use it instead, so Jellyfin answers at `jellyfin.example.com`. Your connection stays encrypted all the way to your server: we pass it along without reading it.
 
 To use your domain, you add one DNS record where you manage it. A second, optional record keeps your app names private.
 
-New to HexOS Anywhere? [HexOS Anywhere](/features/remote-access) covers the rest: turning it on for an app, sign-in, TV and phone apps, and invites.
+New to HexOS Anywhere? [HexOS Anywhere](/features/remote-access) covers the rest: turning it on for an app, sign-in, TV and phone apps, and limiting where visitors come from.
 
 ## Add your domain
 
