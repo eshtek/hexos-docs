@@ -152,4 +152,8 @@ When copying data to a system, some users will notice a discrepancy between the 
 | Understand a notice about drive errors | [Drive errors](/features/storage/drive-errors) |
 | Keep a nightly copy of apps on a single drive | [App backups](/features/storage/app-backups) |
 | Get my apps back after the apps drive fails | [When the apps drive fails](/features/storage/apps-drive-failed) |
+
+## Checking a pool
+
+- [**Pool check progress**](/features/storage/pool-check-progress) - Find the estimated time remaining and understand paused or unavailable estimates.
 | Grow a two-drive mirror into a three-drive pool or reclaim space after expanding | [Grow a mirror and reclaim space](/features/storage/growing-a-mirror) |
