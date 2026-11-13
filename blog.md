@@ -2,7 +2,7 @@
 title: Blog
 description: 
 published: true
-date: 2026-10-20T00:00:00.000Z
+date: 2026-11-13T17:02:39.936Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:38:53.875Z
@@ -15,6 +15,7 @@ Stay up to date with the latest news and updates from the HexOS team.
 Subscribe by RSS at [feeds.hexos.com](https://feeds.hexos.com) to get new posts in your feed reader.
 
 ## 2026
+- [Introducing HexOS Anywhere - November 13, 2026](/blog/2026-11-13)
 - [Meet the Hardware Advisor - October 20, 2026](/blog/2026-10-20)
 - [Virtual Machines: Now In Beta - September 23, 2026](/blog/2026-09-23)
 - [Buddy Backups:  Now in Beta - September 9, 2026](/blog/2026-09-09)

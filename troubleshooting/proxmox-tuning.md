@@ -1,9 +1,9 @@
 ---
 title: Running HexOS on Proxmox
-description: Proxmox settings that make VMs inside a HexOS virtual machine run up to twice as fast
+description: Proxmox settings that make VMs inside a HexOS virtual machine run up to twice as fast, and the fix for a HexOS that hangs at startup with an Intel Arc card
 published: true
 date: 2026-09-21T00:00:00.000Z
-tags: troubleshoot, proxmox, virtualization, vms, performance
+tags: troubleshoot, proxmox, virtualization, vms, performance, gpu, intel-arc
 editor: markdown
 dateCreated: 2026-09-21T00:00:00.000Z
 ---
@@ -146,6 +146,47 @@ Change the `flags` line of the `hexos` model to:
 Save with `Ctrl+O`, `Enter`, then exit with `Ctrl+X`. Shut down and start the HexOS virtual machine again.
 
 > **Info:** If the virtual machine refuses to start after this change, your Proxmox version is too old to know these features. Change the line back to `flags +invtsc` and start it again.
+{.is-info}
+
+## HexOS doesn't finish starting with an Intel Arc card passed through
+
+When an Intel Arc graphics card is passed through to the HexOS virtual machine, HexOS can hang while it starts. The virtual machine shows as running in Proxmox, but the Deck never finds the server.
+
+This happens when the virtual machine has both the Arc card and Proxmox's emulated display. HexOS tries to draw its console on a display that never answers, and startup waits there forever.
+
+The fix has two parts. We have tested it on one server so far, with an Arc A380 on Proxmox VE 9.
+
+### 1. Replace the emulated display with a serial terminal
+
+In the Proxmox shell, replace `100` with your VM ID:
+
+```
+qm set 100 --serial0 socket --vga serial0
+```
+
+Shut down the HexOS virtual machine completely and start it again. The **Console** tab in Proxmox now shows a text terminal instead of a screen.
+
+### 2. Tell HexOS not to use the Arc card as a screen
+
+Open the TrueNAS shell as described in [Check whether you are affected](#check-whether-you-are-affected). First check whether any extra kernel options are already set:
+
+```
+midclt call system.advanced.config | jq -r .kernel_extra_options
+```
+
+- If that prints **nothing**, run:
+
+```
+midclt call system.advanced.update '{"kernel_extra_options": "i915.disable_display=1"}'
+```
+
+- If it prints options, keep them and add the new one to the end. For example, if it printed `something=1`, run `midclt call system.advanced.update '{"kernel_extra_options": "something=1 i915.disable_display=1"}'`.
+
+Then restart HexOS.
+
+The card still works for video transcoding in apps such as Jellyfin and Plex. Only its use as a screen is turned off.
+
+> **Info:** If HexOS still hangs after part 1, remove the Arc card from the virtual machine's **Hardware** list, start HexOS, do part 2, shut down, then add the card back.
 {.is-info}
 
 ## What doesn't make a difference

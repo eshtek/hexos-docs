@@ -22,6 +22,8 @@ For users who are actively connected during an update, there may be a brief down
 
 <!-- auto-generated-year-sections-start -->
 ## 2026 Releases
+- [**2026-11-13**](/release-notes/command-deck/2026-11-13) - HexOS Anywhere, Sign in with TrueNAS, picture previews, and more
+- [**2026-11-10**](/release-notes/command-deck/2026-11-10) - Automatic app updates, fan curves, game servers, and more
 - [**2026-11-06**](/release-notes/command-deck/2026-11-06) - Local AI and app collections, more folders for Plex VMs, live GPU usage, and more
 - [**2026-11-03**](/release-notes/command-deck/2026-11-03) - Restore points, Recently deleted folders, Jellyfin hardware transcoding, and more
 - [**2026-10-30**](/release-notes/command-deck/2026-10-30) - Network UPS setup, a Valheim server, Mac drives in Bring over, and more

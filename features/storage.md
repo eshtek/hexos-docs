@@ -2,7 +2,7 @@
 title: Storage
 description: 
 published: true
-date: 2026-10-27T19:10:10.547Z
+date: 2026-11-08T20:30:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:40:57.001Z
@@ -156,3 +156,4 @@ When copying data to a system, some users will notice a discrepancy between the 
 ## Checking a pool
 
 - [**Pool check progress**](/features/storage/pool-check-progress) - Find the estimated time remaining and understand paused or unavailable estimates.
+| Grow a two-drive mirror into a three-drive pool or reclaim space after expanding | [Grow a mirror and reclaim space](/features/storage/growing-a-mirror) |
