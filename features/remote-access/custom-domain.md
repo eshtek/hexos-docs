@@ -1,27 +1,27 @@
 ---
-title: Use your own domain for remote access
-description: The DNS records your own domain needs for remote access, and what to watch for at common DNS providers
+title: Use your own domain with HexOS Anywhere
+description: The DNS records your own domain needs for HexOS Anywhere, and what to watch for at common DNS providers
 published: false
 date: 2026-10-28T00:00:00.000Z
-tags: remote access, custom domain, dns, cname, cloudflare, namecheap, godaddy, porkbun, squarespace, route 53
+tags: hexos anywhere, remote access, custom domain, dns, cname, cloudflare, namecheap, godaddy, porkbun, squarespace, route 53
 editor: markdown
 dateCreated: 2026-10-28T00:00:00.000Z
 ---
 
-# Use your own domain for remote access
+# Use your own domain with HexOS Anywhere
 
-> **Info:** Remote access is being tested inside HexOS and isn't available to everyone yet. Screens may change before it is.
+> **Info:** HexOS Anywhere is being tested inside HexOS and isn't available to everyone yet. Screens may change before it is.
 {.is-info}
 
-With remote access on, each app you share gets its own HexOS address. If you own a domain, you can use it instead, so Jellyfin answers at `jellyfin.example.com`. Your connection stays encrypted all the way to your server: we pass it along without reading it.
+With HexOS Anywhere on, each app you share gets its own HexOS address. If you own a domain, you can use it instead, so Jellyfin answers at `jellyfin.example.com`. Your connection stays encrypted all the way to your server: we pass it along without reading it.
 
 To use your domain, you add one DNS record where you manage it. A second, optional record keeps your app names private.
 
-New to remote access? [Remote access](/features/remote-access) covers the rest: turning it on for an app, sign-in, TV and phone apps, and invites.
+New to HexOS Anywhere? [HexOS Anywhere](/features/remote-access) covers the rest: turning it on for an app, sign-in, TV and phone apps, and invites.
 
 ## Add your domain
 
-1. In the Command Deck, open **Settings** > **Remote access** > **Custom domain**.
+1. In the Command Deck, open **Settings** > **Anywhere** > **Custom domain**.
 2. Type your domain, such as `example.com`, and select **Continue**.
 3. The Command Deck shows the record to add. Add it at your DNS provider, as described below.
 4. Back in the Command Deck, select **Re-check**. The badge changes from **Pending** to **Verified** once we find the record.
@@ -83,7 +83,7 @@ To set up the proxy itself, see [VM console and remote access](/features/vms/rem
 
 ### Cloudflare
 
-- Set **Proxy status** to **DNS only** (the gray cloud) on every record you add for remote access. A proxied record won't work.
+- Set **Proxy status** to **DNS only** (the gray cloud) on every record you add for HexOS Anywhere. A proxied record won't work.
 - Name: `*`, and `_acme-challenge` for the optional record.
 - If you turned on **CNAME flattening** for all records, turn it off, or at least don't flatten `_acme-challenge`: a flattened record hides the CNAME we look for.
 - An older SSL setup can leave `_acme-challenge` TXT records behind that don't always appear in the dashboard. If the optional record won't verify, check for them.
@@ -152,4 +152,4 @@ To set up the proxy itself, see [VM console and remote access](/features/vms/rem
 | The record points somewhere else | Copy the value again with the copy button, and check that the record isn't proxied. |
 | This domain is already connected to HexOS somewhere else | Remove it where it's connected, then select **Re-check**. |
 
-[Back to Remote access](/features/remote-access#use-your-own-domain)
+[Back to HexOS Anywhere](/features/remote-access#use-your-own-domain)
