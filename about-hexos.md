@@ -1,6 +1,6 @@
 ---
 title: About HexOS
-description: 
+description: Learn about HexOS and how to get a license.
 published: true
 date: 2026-06-09T20:01:21.290Z
 tags: 
@@ -43,6 +43,4 @@ Running HexOS on top of TrueNAS Scale allows us to focus completely on improving
 
 ## How to get HexOS
 
-HexOS is currently in its beta phase.
-
-You can get early access by purchasing a [**HexOS lifetime license here**](https://hexos.com/#earlyaccess). 
+You can purchase a [**HexOS lifetime license**](https://hexos.com/).

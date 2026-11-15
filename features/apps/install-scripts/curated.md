@@ -1,6 +1,6 @@
 ---
-title: Apps (Curated Scripts)
-description: 
+title: Curated app scripts
+description: Find the install scripts used to configure apps in HexOS.
 published: true
 date: 2026-07-07T18:22:57.737Z
 tags: 
@@ -8,11 +8,11 @@ editor: markdown
 dateCreated: 2026-06-08T15:40:02.168Z
 ---
 
-# Apps (curated scripts)
+# Curated app scripts
 
-Curated install scripts are maintained in the [hexos-app-catalog](https://github.com/eshtek/hexos-app-catalog) repository. This is the single source of truth — scripts are synced from this repo to HexOS automatically.
+Curated install scripts are maintained in the [hexos-app-catalog](https://github.com/eshtek/hexos-app-catalog) repository. HexOS reads the configured catalog branch during its catalog sync. A merged change is available after that sync reaches the server.
 
-> **Repository migration:** Install scripts have moved from this documentation site to the dedicated [hexos-app-catalog](https://github.com/eshtek/hexos-app-catalog) repository. All contributions, bug fixes, and new scripts should be submitted there. See [Contributing](/features/apps/install-scripts/contributing) for details.
+> **Info:** Install scripts have moved from this documentation site to the dedicated [hexos-app-catalog](https://github.com/eshtek/hexos-app-catalog) repository. All contributions, bug fixes, and new scripts should be submitted there. See [Contributing](/features/apps/install-scripts/contributing) for details.
 {.is-info}
 
 
@@ -21,7 +21,7 @@ Curated install scripts are maintained in the [hexos-app-catalog](https://github
 
 **[Browse hexos-app-catalog on GitHub](https://github.com/eshtek/hexos-app-catalog)**
 
-Each `.json` file in the repository root is an install script. Apps with hooks (V5 or V6) also have a subdirectory containing their hook `.ts` files (e.g., `plex/plex_hook.ts`).
+Each `.json` file in the repository root is an install script. Apps that use external hooks store their `.ts` files in a subdirectory, such as `plex/plex_hook.ts`. A hook can instead use inline `scriptContent`.
 
 ## Want to contribute?
 

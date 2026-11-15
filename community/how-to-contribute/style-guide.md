@@ -1,6 +1,6 @@
 ---
-title: HexOS Documentation Style Guide
-description: 
+title: HexOS documentation style guide
+description: Write clear guides with consistent headings, instructions and screenshots.
 published: true
 date: 2026-08-20T15:46:29.254Z
 tags: 
@@ -8,341 +8,126 @@ editor: markdown
 dateCreated: 2026-07-18T09:49:27.262Z
 ---
 
-# HexOS documentation style guide
-
-## Language
-
-HexOS docs are written to be:
-
--   Friendly
--   Clear
--   Accessible to a wide variety of people including those with:
-
-    -  a different first language to English
-    -  different preferences for accessing information
-    -  disabilities
-    -  little or no experience of the subject matter
-
-### Writing accessibly
-
-Some ways of writing are much simpler to translate and easier to understand for non-native English speakers. We can avoid phrases which, while feeling natural to native English speakers, can be confusing when translated literally or read by people with a different language background or cultural references.
-
-#### Metaphors
-
-"HexOS is your gateway to self-hosting" > "HexOS makes self-hosting easier"
-
-The word "gateway" is being used figuratively and the reader may understand the individual words but not the intended meaning.
-
-#### Turns of phrase and idioms
-
-“HexOS is running TrueNAS under the hood” > “HexOS runs on top of TrueNAS”
-
-The phrase "under the hood" is an idiom borrowed from cars meaning something hidden or working in the background. This meaning may not be obvious to all readers.
-
-#### Pop culture references
-
-"Type the password and open sesame! Your files will appear." > "Type the password and you will see your files."
-
-"Open sesame", from *Ali Baba and the Forty Thieves*, is often used to describe something magically opening. However, readers unfamiliar with this cultural reference may be wondering why sesame seeds are involved in their NAS setup!
-
-## Referring to the user interface
-
-When directly quoting from the HexOS user interface please follow the exact wording and capitalization. Use bold for the words quoted. For example:
-
-Click **Continue**
-
-When describing navigation through a menu, each item should be in **bold** with a non-bold > between. For example: 
-
-**Apps** > **Immich**
-
-### Capitalization
-
-HexOS and TrueNAS are capitalized like this. When directly quoting from the UI please follow the exact wording and capitalization.
-
-For headings, sentence case is used: the first letter of the first word is capitalized and otherwise only proper nouns are capitalized. Even if quoting from the UI in a heading, sentence case is used. 
-
-#### Examples
-
--   **Import pools to HexOS** - the first letter and HexOS are capitalized but “pools” and “to” are not.
--   **Preparing server hardware** - only the first letter is capitalized
--   **The folders screen** \- “Folders” would usually be capitalized to follow UI, however headings are easier to read when they are consistent, so even in this case lower case f is used.
-
-### Terminology
-
-Here are the words used to describe the HexOS user interface and the methods of interacting with it.
-
--   Click
--   Screen
--   Menu
--   Card
--   System Tray
--   Tiles
--   Info panel
--   Button
--   Dialog
-- 	Tab (not tap, press, select)
-
-#### Examples
-
-Below is the **Processor card** in the **System tray.** 
-
-Cards display extra information, in this case CPU usage and temperature. If there is only a single action with no additional information, then the element is called a button, not a card.
-<details>
-  <summary> System tray and tiles </summary>
-  
-![Image showing the system tray and tiles](/card-in-system-tray.png){.medium .framed}
-  </details>
-
-Clicking the **Processor card** opens the **Processor info panel**
-
-<details>
-  <summary> Processor info panel</summary>
-  
-![Processor info panel](/processor-info-pannel.png){.medium .framed}
-
-  </details>
-  
-Click the **New Folder** button
-<details>
-  <summary> New folder button </summary>
-  
-![Image showing the new folder button being clicked](/new-folder-button.png){.medium .framed}
-
-  </details>
-
-This opens the **Create folder** dialog. Click the **Access** tab.
-<details>
-  <summary> Dialog and tab </summary>
-
-![create-folder-dialogue.png](/create-folder-dialogue.png){.medium .framed}
-
-</details>
-
-### Use American English spelling
-
-The HexOS docs use American English and spelling, for example: 
-- organise > organize
-- colour > color
-- behaviour > behavior
-
-### Referring to typed commands
-
-On the rare occasions when a command is described, please use the inline code format `curl ipinfo.io/ip`
-
-
-## Callouts
-
-Here are a range of standard callouts for use within documentation with examples of their use. These are important for consistency for the reader. To add a callout to the docs use the blockquote feature of the editor.
-
-Callout text is usually formatted as "**bold word:** text explanation" 
-
-To create a **Warning** callout select the Warning blockquote from the editor drop down. It looks like this in markdown:
-
-``` 
-> **Warning:** text is here
+<h1 id="hexos-documentation-style-guide" class="toc-header"><a class="toc-anchor" href="#hexos-documentation-style-guide">¶</a> HexOS documentation style guide</h1>
+<p>Use this guide when writing or updating HexOS documentation. A reader should be able to follow the steps without already knowing the feature.</p>
+<h2 id="language" class="toc-header"><a class="toc-anchor" href="#language">¶</a> Language</h2>
+<p>Use short sentences and familiar words. Explain a technical term when the reader first needs it. Write in American English: <strong>organize</strong>, <strong>color</strong> and <strong>behavior</strong>.</p>
+<p>Avoid metaphors, idioms and cultural references. Write “HexOS runs on top of TrueNAS.” Describe results directly, such as “Your files appear.”</p>
+<h2 id="page-structure" class="toc-header"><a class="toc-anchor" href="#page-structure">¶</a> Page structure</h2>
+<p>Give each page one clear purpose. Start with what the reader will accomplish, followed by anything they need before starting. For a procedure, include the starting screen, the exact controls, the expected result and how to check that it worked.</p>
+<p>Use the same text for the page title and its first heading. Write a short description explaining what the page helps the reader do. The description appears below the title.</p>
+<p>Use sentence case for headings. Capitalize the first word and proper names, including feature names such as <strong>Buddy Backups</strong>, <strong>Command Deck</strong> and <strong>Activity Center</strong>. Write <strong>HexOS</strong> and <strong>TrueNAS</strong> exactly this way.</p>
+<p>Keep existing page addresses when updating a guide so that links to it continue to work. Link to other documentation with a page path, such as <code>/features/folders</code>, without <code>.md</code>.</p>
+<h2 id="referring-to-the-interface" class="toc-header"><a class="toc-anchor" href="#referring-to-the-interface">¶</a> Referring to the interface</h2>
+<p>Quote each control's wording and capitalization exactly, in bold. For example: Click <strong>Continue</strong>.</p>
+<p>For navigation, put each item in bold with a plain <code>&gt;</code> between them: <strong>Settings</strong> &gt; <strong>Notifications</strong>.</p>
+<p>Use <strong>click</strong> for buttons and menu items. Use <strong>screen</strong>, <strong>menu</strong>, <strong>card</strong>, <strong>tile</strong>, <strong>info panel</strong>, <strong>button</strong>, <strong>dialog</strong> and <strong>tab</strong> consistently. A card displays information; a button performs an action. A tab changes the visible section. Use “press” when describing a keyboard key, such as <strong>Escape</strong>.</p>
+<p>Write an instruction before its screenshot. Explain what appears after the action. Do not use a screenshot as a substitute for the instruction.</p>
+<p>Use inline code for values and short commands. Use a fenced code block for a longer example. State whether an example is complete or is a fragment to add to another file. Test commands before giving them to readers, and explain any value they need to replace.</p>
+<h2 id="callouts" class="toc-header"><a class="toc-anchor" href="#callouts">¶</a> Callouts</h2>
+<p>Use a callout for a risk, prerequisite or useful note. Start with a bold lead word and put its class on the next line:</p>
+<pre class="prismjs line-numbers" v-pre="true"><code class="language-markdown">&gt; **Warning:** Keep the original files until you have checked the restored copy.
 {.is-warning}
-```
-
-and this is what the reader sees:
-> **Warning:** text is here
-> {.is-warning}
-
-### Danger callout
-
-The error callout is used for danger, and is the most critical and is used mainly for situations which could cause data loss and other critical outcomes. For example:
-
-> **Danger:** You must have backups of your data. Without adequate backups you could permanently lose data at several points during this process.
-> {.is-danger}
-
-### Warning callout
-
-This is for important risks or common pitfalls where, for example, time could be wasted or permanent changes made. For example
-
-> **Warning:** Encryption can only be enabled during folder creation and cannot be disabled once the folder is created.
-{.is-warning}
-
-### Requirement callout 
-
-The success callout is used for requirements. This is when an earlier stage or task is required for the next step to work correctly, but where danger or warning are not needed. For example:
-
-> **Requirement:** Make sure you have updated TrueNAS to the correct version before proceeding.
-{.is-success}
-
-### Info callout
-This is for additional context or information that needs to be highlighted to users. Perhaps something they should know before starting a task or a common issue that is non-critical. For example:
-
-> **Info:** System folder locations can only be modified if no apps are using them.
-{.is-info}
-
-### Tip callout
-
-This is for a helpful pointer for the reader. It may be in response to a common problem, misunderstanding or pre-emptive troubleshooting step. For example:
-
-> **Tip:** If boot fails, check that HexOS is at the top in your BIOS boot device order. The instructions are at the top of this guide.
-{.is-tip}
-
-### Get help callout (troubleshooting callout)
-
-This is for direct references to troubleshooting pages or links to get support directly. For example:
-
-> **Help:** If you have any doubts or questions, please [contact HexOS support](https://discord.com/invite/DjEp3WRHKz): this step is critical to get right.
-{.is-troubleshooting}
-
-### Contribute callout
-
-This callout is used to thank community members who worked on a guide, or to encourage readers to get involved in working on HexOS documentation writing. 
-
-For example a thank you should be added at the top of each community guide:
-
-> **Thank you:** lnkd and ShinobiRen for the original guide
-{.is-contribute}
-
-And the following should be added to the bottom of each page:
-
-> **Contribute:** to help to improve HexOS documentation [join the #Docs channel on Discord](https://discord.com/invite/DjEp3WRHKz) today! Send feedback, suggestions or contribute a guide.
-{.is-contribute}
-
-## Screenshots
-
-In HexOS docs each instruction/action is provided as text, followed by a screenshot in a dropdown box. 
-
-The screenshots are taken with surrounding UI elements included, to help orient the user.
-
-Filenames are carefully chosen both to keep the wiki organized and to serve as acceptable alt-text for those accessing the docs with a screen reader.
-
-Together, these make the docs accessible to a wide variety of HexOS users.
-
-
-### Image style
-
-Please take screenshots as follows:
-
--   On a desktop/laptop (not mobile)
-- 	In light mode (white background, not black)
--   Include surrounding UI elements to help orient the user. For example:
-    - logo
-    - menu
-    - side bar
-- A brief, descriptive filename, which:
-    - can serve as the alt-text for screen reader users
-    - helps other editors find images more easily
-
-#### Example screenshots
-
-1) In this example, the user is being asked to click on the **Installed apps** button. The menu to the left is included in the screenshot too. This shows the user:
-
-- which screen they need to be on, as **Apps** is highlighted in the menu.
-- where the button is on the screen relative to the menu, but also, 
-
-<details>
-<summary> Example of including menu in a screenshot </summary>
-  
-![include-other-ui-elements-in-screenshot.png](/style-guide/include-other-ui-elements-in-screenshot.png){.medium .framed}
-</details>
-     
-2) In the next example, the user is being asked to look at the HDDs system tray. The screenshot includes the Storage screen showing in the background, with the cursor left on the HDDs button that was just clicked to open the system tray.
-
-<details>
-<summary> Example of including background in a screenshot </summary>
-  
-![include-background-to-system-tray.png](/style-guide/include-background-to-system-tray.png){.medium .framed}
-</details>
-
-### Things to pixelize
-
-When taking screenshots for HexOS documentation you *may* wish to hide the following:
-
-- Your HexOS username
-- Your LAN IP address
-
-You **must** not show any of the following in HexOS documentation:
-
-- Passwords, encryption keys and API keys
-- App-specific tokens/passes that are paid (e.g. Plex Pass)
-- Copyrighted media, if documenting e.g. Jellyfin or Plex
-- Personal photographs of people
-
-In the latter two cases, please use copyright free content as placeholders or blur any images.
-
-
-### Image sizing
-
-By default images display at their full width, which can make large screenshots overwhelm a page. Add a size class in curly braces directly after the image markdown to cap its width and center it:
-
-```markdown
-![storage-pools.png](/features/storage-pools.png){.medium .framed}
-```
-
-Available classes:
-
-| Class | Effect |
-|---|---|
-| `{.small}` | Max width 320px, centered |
-| `{.medium}` | Max width 560px, centered |
-| `{.large}` | Max width 800px, centered |
-| `{.framed}` | Border, rounded corners, and drop shadow |
-
-Classes combine inside a single set of braces — `{.medium .framed}` is the recommended style for UI screenshots. Note that a second set of braces will not work: write `{.medium .framed}`, not `{.medium}{.framed}`.
-
-You don't need to remember the class names: the markdown editor toolbar has an **image size menu** (the image icon between the blockquote menu and the bullet list button). Place your cursor immediately after the image markdown, open the menu, and pick a size — with or without a frame — and it inserts the classes for you.
-
-<details>
-<summary> Example of the same image at each size </summary>
-
-Small, framed:
-
-![card-in-system-tray.png](/card-in-system-tray.png){.small .framed}
-
-Medium, framed:
-
-![card-in-system-tray.png](/card-in-system-tray.png){.medium .framed}
-
-</details>
-
-
-### Screenshot folder names
-
-When adding a screenshot, please add the image to the correct folder. 
-
-Folders can be identified by their name, which should be the same as the page name (or similar)
-
-<details>
-<summary> Choose the correct folder </summary>
-  
-![screenshots-choose-folder.png](/style-guide/screenshots-choose-folder.png){.medium .framed}
-</details>
-
-If you are writing a new guide please create a matching folder for the images. Hyphens between words must be used (instead of spaces) as otherwise images in the folder will not show in the documentation. Please name the folder carefully as folder names cannot be easily edited.
-
-### Screenshot filename and alt-text
-
-The filename of the screenshot is important as it:
-
-- allows future editors to be able to find or identify the image, for example to re-use or replace it
-- is used by the wiki as the default alt-text for the image
-
-Screenshot filenames should be all lower case with hyphens between words.
-
-They should be short, descriptive, and specific enough to work as both a filename and default alt text.
-
-For example, use **new-folder-button.png** rather than **screenshot3.png**. Not every detail included is needed, for example **select-storage-folder.png** is more useful than **storage-screen-with-menu-and-cursor.png**.
-
-If needed the alt-text may be edited further by changing the text within the square brackets
-
-```
-![screenshots-choose-folder.png](/style-guide/screenshots-choose-folder.png)
-```
-### Placing the screenshot in the dropdown
-
-The html needed to put the screenshot in the dropdown is as follows:
-
-```<details>
-<summary> Choose folder </summary>
-
-![screenshots-choose-folder.png](/style-guide/screenshots-choose-folder.png)
-</details>
-```
-the central element `![alt-text](/url/of-image.png){.medium .framed}` is automatically generated by the editor when adding an image to the page. The space after `</summary>` is important, without it the image will not display. Check that the image is displaying inside the dropdown each time, with even a small error, only the url will display.
-
-## License
-By contributing you are agreeing to make your work available to the public under CC BY-SA 4.0 and to grant Eshtek, Inc. a perpetual, worldwide, non-exclusive, royalty-free, irrevocable license to it. Read all about the [license here](/docs-licensing). 
+</code></pre>
+<blockquote class="is-warning">
+<p><strong>Warning:</strong> Keep the original files until you have checked the restored copy.</p>
+</blockquote>
+<div class="table-container"><table>
+<thead>
+<tr>
+<th>Lead word</th>
+<th>Class</th>
+<th>When to use it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Danger:</strong></td>
+<td><code>{.is-danger}</code></td>
+<td>An action can erase data or cause another critical outcome.</td>
+</tr>
+<tr>
+<td><strong>Warning:</strong></td>
+<td><code>{.is-warning}</code></td>
+<td>A risk or a common mistake needs attention before continuing.</td>
+</tr>
+<tr>
+<td><strong>Requirement:</strong></td>
+<td><code>{.is-success}</code></td>
+<td>Something must be ready before the next step.</td>
+</tr>
+<tr>
+<td><strong>Info:</strong></td>
+<td><code>{.is-info}</code></td>
+<td>Context helps the reader understand the step.</td>
+</tr>
+<tr>
+<td><strong>Tip:</strong></td>
+<td><code>{.is-tip}</code></td>
+<td>A short suggestion makes the task easier.</td>
+</tr>
+<tr>
+<td><strong>Help:</strong></td>
+<td><code>{.is-troubleshooting}</code></td>
+<td>The reader needs a troubleshooting guide or a way to ask for help.</td>
+</tr>
+<tr>
+<td><strong>Thank you:</strong></td>
+<td><code>{.is-contribute}</code></td>
+<td>Credit community authors at the top of their guide.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Keep community attribution when revising a page. Do not add a <strong>Contribute</strong> footer to a new guide. Existing credits should remain with the guide.</p>
+<h2 id="screenshots" class="toc-header"><a class="toc-anchor" href="#screenshots">¶</a> Screenshots</h2>
+<p>Show each action with a screenshot of the matching screen. Take screenshots on a desktop in light mode. Include enough surrounding interface, such as the sidebar and the screen behind a dialog, to help the reader find the control.</p>
+<p>Before capturing a screen, wait for loading and animations to finish. Check that the intended tab, menu or dialog is open. Close unrelated overlays and remove development controls. Keep text readable and leave important controls inside the frame.</p>
+<h3 id="protect-private-information" class="toc-header"><a class="toc-anchor" href="#protect-private-information">¶</a> Protect private information</h3>
+<p>Never include passwords, recovery keys, API keys, paid access tokens, personal photographs or private customer information. Use a test account and non-sensitive sample files. Use your own media or media you have permission to share. A test image can illustrate a screen, but it does not prove that an operation succeeded.</p>
+<h3 id="names-and-folders" class="toc-header"><a class="toc-anchor" href="#names-and-folders">¶</a> Names and folders</h3>
+<p>Store images in a folder named for the guide. Use lowercase names with hyphens, such as <code>create-a-new-folder/encryption-options.png</code>. Avoid spaces and names such as <code>screenshot3.png</code>.</p>
+<p>Write alt text that describes the useful content of the image. The filename can be a starting point, but a screen reader needs a meaningful description.</p>
+<h3 id="screenshot-markup" class="toc-header"><a class="toc-anchor" href="#screenshot-markup">¶</a> Screenshot markup</h3>
+<p>Put exactly one image in each screenshot dropdown, with a short caption in its summary. Leave a blank line after <code>&lt;/summary&gt;</code>:</p>
+<pre class="prismjs line-numbers" v-pre="true"><code class="language-markdown">&lt;details&gt;
+&lt;summary&gt; New folder button &lt;/summary&gt;
+
+![New folder button on the Folders screen](/create-a-new-folder/new-folder-button.png){.medium .framed}
+&lt;/details&gt;
+</code></pre>
+<p>The current site displays this simple pattern as an inline figure with a caption and click-to-enlarge. Extra text or a second image inside the dropdown prevents that conversion. Put explanations outside the dropdown and give each screenshot its own caption.</p>
+<p>Use <code>{.medium .framed}</code> after the image. Keep all classes in one pair of braces. Do not write <code>{.medium}{.framed}</code>.</p>
+<div class="table-container"><table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Width limit in the standard image markup</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.small</code></td>
+<td>320 pixels</td>
+</tr>
+<tr>
+<td><code>.medium</code></td>
+<td>560 pixels</td>
+</tr>
+<tr>
+<td><code>.large</code></td>
+<td>800 pixels</td>
+</tr>
+<tr>
+<td><code>.framed</code></td>
+<td>Adds a border, rounded corners and a shadow</td>
+</tr>
+</tbody>
+</table></div>
+<p>The current site's inline-figure layout controls its own display size. Keep the classes so the source also works with the standard renderer.</p>
+<h3 id="check-the-finished-page" class="toc-header"><a class="toc-anchor" href="#check-the-finished-page">¶</a> Check the finished page</h3>
+<p>Open the saved page and check every screenshot at its displayed size and enlarged. Confirm that it loads, matches the instruction, shows the current interface and contains no private information. Check captions and alt text too. A successful file upload alone is not enough.</p>
+<h2 id="verify-the-instructions" class="toc-header"><a class="toc-anchor" href="#verify-the-instructions">¶</a> Verify the instructions</h2>
+<p>Follow the complete procedure on a test server using the software version described. Check the final result, not only that a button can be clicked. Verify warnings, limits and alternative paths against the implementation or a relevant test. Keep a record of what was tested and what still needs verification.</p>
+<p>Ask another reviewer to follow the written steps. Check every link and resolve missing screenshots before asking for publication. Keep an old version in the review archive when replacing a guide; do not leave contradictory instructions in the active page.</p>
+<h2 id="license" class="toc-header"><a class="toc-anchor" href="#license">¶</a> License</h2>
+<p>Read the <a href="/docs-licensing" class="is-internal-link is-valid-page">documentation license</a> before contributing. It explains the permissions you grant and how the documentation may be reused.</p>

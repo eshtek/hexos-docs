@@ -1,6 +1,6 @@
 ---
-title: Different ways to contribute
-description: 
+title: How to contribute
+description: Help improve HexOS through documentation, translations, app scripts and community support.
 published: true
 date: 2026-08-20T15:36:38.631Z
 tags: 
@@ -10,54 +10,26 @@ dateCreated: 2026-06-08T15:39:39.407Z
 
 # How to contribute
 
-Help make HexOS better for everyone! Here are the ways you can contribute:
+Choose an area below to get started. You can report a problem, suggest a correction or contribute your own work.
 
-## Getting started
+## Documentation
 
-New to contributing? Start small:
-1. Join the [HexOS Discord Community](https://discord.gg/fCW2htvYdz)
-2. Look for simple documentation fixes
-3. Test existing app scripts and report feedback
-4. Share your own setup guides
+- [**Contribute to the documentation**](/community/how-to-contribute/documentation) - Report an issue, edit a page or write a guide.
+- [**Documentation style guide**](/community/how-to-contribute/style-guide) - Follow the same writing and screenshot rules as the other guides.
+- [**Community guides**](/community/community-guides) - Read guides contributed by other HexOS users.
 
-## Translate HexOS
+## Translations
 
-Speak a language other than English? Help HexOS speak it too:
+- [**Translate HexOS**](/community/translating-hexos) - Learn how to contribute translations through Weblate.
+- [**Find a translation key**](/community/translating-hexos/key-inspector) - Find the key behind text shown in the Command Deck.
 
-- [Join the translation program](/community/translating-hexos) at [translate.hexos.com](https://translate.hexos.com)
-- Translate at your own pace — no deadlines, no minimum commitment
-- [Use the key inspector](/community/translating-hexos/key-inspector) to jump from any text in HexOS straight to its string in Weblate
+## Apps
 
-## Improve documentation
+- [**Contribute app install scripts**](/features/apps/install-scripts/contributing) - Prepare an app script for review.
+- [**Debug an install script**](/features/apps/install-scripts/advanced/debugging) - Check a script and collect useful information when it fails.
 
-[Contribute to HexOS documentation](/community/how-to-contribute/documentation)
+## Community support
 
-You can help to keep our docs accurate and useful:
+Join the [HexOS Discord Community](https://discord.gg/fCW2htvYdz) to ask questions, report problems or help other users. When reporting a problem, describe what you expected, what happened and the steps that led to it. Keep passwords and private information out of screenshots.
 
-- Fix errors or outdated information
-- Add missing guides or examples
-- Clarify confusing sections
-- Share real-world use cases
-
-[Getting started](/community/how-to-contribute/documentation)
-
-[Documentation Style Guide
-](/community/how-to-contribute/style-guide)
-
-## Support other users
-
-Build our community by helping others:
-
-- Answer questions on the [HexOS Discord Community](https://discord.gg/fCW2htvYdz)
-- Share working configurations
-- Help debug issues
-- Welcome newcomers
-
-## Create app install scripts
-
-The most valuable contribution is expanding the available applications.
-
-- [Learn how to contribute apps](/features/apps/install-scripts/contributing)
-- Test community scripts and provide feedback
-- Create install scripts for new applications
-- Improve documentation with setup guides
+Contributions are covered by the [documentation license](/docs-licensing).

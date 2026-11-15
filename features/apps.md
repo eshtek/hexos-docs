@@ -1,6 +1,6 @@
 ---
 title: Apps
-description: 
+description: Choose how to install and manage apps on your HexOS server.
 published: true
 date: 2026-08-29T02:14:38.819Z
 tags: 
@@ -14,10 +14,10 @@ Install and manage applications on your HexOS server with multiple options to fi
 
 ## App installation options
 
-- **Curated Apps** - One-click installs with automatic configuration
+- **Curated Apps** - Install apps with a prepared configuration. Some apps ask you to choose settings or sign in during installation.
 - **Community Contributions** - Apps curated by community members
-- **Install Scripts** - Custom scripts for advanced setups (requires [experimental features](/features/settings/#preferences))
-- **TrueNAS Catalog** - Full catalog access for maximum flexibility
+- **Install Scripts** - Use **Custom Install** in **Expert Mode** to supply an app configuration script.
+- **TrueNAS Catalog** - Browse additional apps available through TrueNAS.
 
 ## Getting started
 

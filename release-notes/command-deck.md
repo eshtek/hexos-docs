@@ -1,6 +1,6 @@
 ---
-title: Command Deck Release Notes
-description: 
+title: Command Deck release notes
+description: Find changes, fixes and new features by release date.
 published: true
 date: 2026-10-13T17:12:37.199Z
 tags: 
@@ -8,20 +8,18 @@ editor: markdown
 dateCreated: 2026-06-08T15:43:20.245Z
 ---
 
-# Command Deck Release Notes
+# Command Deck release notes
 
 Stay up to date with HexOS Command Deck updates, new features, and improvements.
 
 Subscribe by RSS at [feeds.hexos.com](https://feeds.hexos.com) to get each release note in your feed reader.
 
-## How Updates Work
+## How updates work
 
-Command Deck updates are automatically deployed by the HexOS development team. You don't need to take any action to receive these updates - they will appear automatically when you next visit the Command Deck.
-
-For users who are actively connected during an update, there may be a brief downtime of a minute or two as the new version is deployed.
+The hosted Command Deck is updated by the HexOS team. Reload the page if you have kept it open during an update. Updates to the software running on your server are separate from the hosted interface.
 
 <!-- auto-generated-year-sections-start -->
-## 2026 Releases
+## 2026 releases
 - [**2026-11-13**](/release-notes/command-deck/2026-11-13) - HexOS Anywhere, Sign in with TrueNAS, picture previews, and more
 - [**2026-11-10**](/release-notes/command-deck/2026-11-10) - Automatic app updates, fan curves, game servers, and more
 - [**2026-11-06**](/release-notes/command-deck/2026-11-06) - Local AI and app collections, more folders for Plex VMs, live GPU usage, and more
@@ -66,7 +64,7 @@ For users who are actively connected during an update, there may be a brief down
 - [**2026-01-13**](/release-notes/command-deck/2026-01-13) - UI Improvements & Goldeye System Updates
 - [**2026-01-08**](/release-notes/command-deck/2026-01-08) - HexOS Curated Apps & Enhanced Diagnostics
 
-## 2025 Releases
+## 2025 releases
 
 - [**2025-12-30**](/release-notes/command-deck/2025-12-30) - Hotfix : App Configuration Updates
 - [**2025-12-28**](/release-notes/command-deck/2025-12-28) - Hotfix : Apps Overhaul
@@ -84,12 +82,12 @@ For users who are actively connected during an update, there may be a brief down
 - [**2025-02-07**](/release-notes/command-deck/2025-02-07) - Improved Setup wizard w/ existing data detection
 - [**2025-01-08**](/release-notes/command-deck/2025-01-08) - Manual WAN IP Specification, Additional Confirmations for Destructive Actions
 
-## 2024 Releases
+## 2024 releases
 
 - [**2024-11-29**](/release-notes/command-deck/2024-11-29) - Beta Launch - Road to 1.0
 <!-- auto-generated-year-sections-end -->
 
-## Need Help?
+## Get help
 
 If you encounter any issues after an update:
 - Try [clearing your browser cache](/troubleshooting/browser-cache) first

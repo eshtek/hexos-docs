@@ -1,6 +1,6 @@
 ---
-title: Contributing a New App
-description: 
+title: Contribute an app install script
+description: Prepare, test and submit an app install script for the HexOS catalog.
 published: true
 date: 2026-10-19T00:00:00.000Z
 tags: 
@@ -8,13 +8,13 @@ editor: markdown
 dateCreated: 2026-06-08T15:39:57.416Z
 ---
 
-# Contributing a New App
+# Contribute an app install script
 
 Want to add your app curation to the official HexOS catalog? Install scripts now live in the [hexos-app-catalog](https://github.com/eshtek/hexos-app-catalog) repository — this is the single source of truth for all curated and community install scripts.
 
 ## Contribution steps
 
-1. **Test your install script** in HexOS using Custom Install (Expert Mode) and verify it works reliably
+1. Test your install script in HexOS using **Custom Install** in **Expert Mode**, and check the resulting app.
 2. **Fork** the [hexos-app-catalog](https://github.com/eshtek/hexos-app-catalog) repository
 3. **Add your install script** as a JSON file named after the TrueNAS app (e.g., `myapp.json`)
 4. **If your script includes hooks** (V5 or V6), add the hook `.ts` files in a subdirectory (e.g., `myapp/myapp_hook.ts`) — or use inline `scriptContent` for simpler hooks
@@ -24,6 +24,8 @@ Want to add your app curation to the official HexOS catalog? Install scripts now
    - What the hooks do (if any)
 
 ## Repository structure
+
+This example shows where files belong. The `myapp` files are placeholders.
 
 ```
 hexos-app-catalog/
@@ -35,7 +37,7 @@ hexos-app-catalog/
 ├── plex.json                  # Example: first-party script with hooks
 ├── plex/
 │   └── plex_hook.ts
-├── jellyfin.json              # Example: V4 script (no hooks)
+├── jellyfin.json              # Example: V6 script with hooks
 └── ...
 ```
 
@@ -49,31 +51,22 @@ All three are fully supported. Add hooks only if your app benefits from post-ins
 
 ## Using inline hooks (`scriptContent`)
 
-Community contributors who don't need separate `.ts` files can embed hook code directly in the JSON using the `scriptContent` field. This keeps everything in a single file:
+The following is one declaration to add to the `hooks` array of a complete V5 install script. It is not a complete app configuration. Keep the required `script`, `requirements` and `app_values` fields. Replace `/health` with the health endpoint the app actually provides.
 
 ```json
 {
-  "version": 5,
-  "custom": true,
-  "metadata": { "name": "My App", "description": "...", "icon": "...", "version": "1.0.0" },
-  "hooks": [
-    {
-      "id": "health-check",
-      "event": "onAfterInstall",
-      "scriptContent": "export async function setup(ctx) {\n  await ctx.waitForApp('/health');\n  await ctx.emitCheckpoint('ready');\n}",
-      "entrypoint": "setup",
-      "timeout": 60,
-      "description": "Post-install health check",
-      "optional": true
-    }
-  ]
+  "id": "health-check",
+  "event": "onAfterInstall",
+  "scriptContent": "export async function setup(ctx) {\n  await ctx.registerCheckpoints([{ id: 'ready', message: 'Waiting for app' }]);\n  await ctx.waitForApp('/health');\n  await ctx.emitCheckpoint('ready');\n}",
+  "entrypoint": "setup",
+  "timeout": 120,
+  "description": "Checking app health",
+  "optional": true
 }
 ```
 
-> **Testing with Custom Install:** You can test inline hook scripts using **Custom Install in Expert Mode** — paste your JSON with `scriptContent` hooks directly into the editor and run it. This is useful for development and testing before submitting a PR. Inline scripts for testing purposes only should not be part of a PR submission — submit them when they're ready for production use.
+> **Info:** Test the complete install script through **Custom Install** in **Expert Mode**. Test both installation and upgrades with a disposable app before submitting it. Inline and file-based hooks both need review.
 {.is-info}
-
-
 
 ## Best practices
 

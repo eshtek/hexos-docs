@@ -1,6 +1,6 @@
 ---
-title: Hooks Reference
-description: How hooks are declared, when they run, and where users can fire them
+title: Hooks reference
+description: Declare app hooks and understand their events, inputs, actions and execution limits.
 published: true
 date: 2026-10-20T00:00:00.000Z
 tags: 
@@ -8,13 +8,13 @@ editor: markdown
 dateCreated: 2026-06-09T20:03:00.318Z
 ---
 
-# Hooks Reference
+# Hooks reference
 
 A hook is a TypeScript function the platform runs on behalf of an app: health checks, service configuration, OAuth login, library creation, cross-app links, file conversion. Each hook is declared in the install script's `hooks` array, and each declaration names a script, an entrypoint, and the circumstances under which it runs.
 
 There is **one** declaration type. A hook's `events` decide **when** it runs. A hook whose events include `userAction` can be fired by a person, and its `surfaces` decide **where** they can fire it.
 
-> A card button, a file-browser verb, an install-picker pairing, and a post-install ceremony are all the same declaration shape — they differ only in their `events`, `surfaces` and `conditions`. Users see the user-triggerable ones as the app's **Actions**.
+> **Info:** A card button, a file-browser verb, an install-picker pairing, and a post-install ceremony are all the same declaration shape — they differ only in their `events`, `surfaces` and `conditions`. Users see the user-triggerable ones as the app's **Actions**.
 {.is-info}
 
 ## Dictionary dialects
@@ -31,11 +31,11 @@ The two dialects never mix inside one dictionary — the `version` field selects
 
 ---
 
-# V6 melded declarations
+## V6 melded declarations
 
 Set `"version": 6` and add a `hooks` array. Every entry is a `HookDeclarationV6`.
 
-## The declaration
+### The declaration
 
 ```json
 {
@@ -58,13 +58,16 @@ Set `"version": 6` and add a `hooks` array. Every entry is a `HookDeclarationV6`
 
 That declaration has no `events`, so it is a user action — a button on the Plex card and a pairing offered in the install picker.
 
-### Declaration properties
+#### Declaration properties
 
 | Property | Type | Required | Description |
 |---|---|---|---|
 | `id` | string | Yes | Unique within the dictionary. Load-bearing: consent state, task history, rerun keys, and widget button references all key off it. |
 | `title` | string | Yes | User-facing name. Button label on a surface, checkbox label for consent, and the progress label when `description` is absent. |
 | `description` | string | No | One line of explanation. Also the running-task progress label. |
+| `summary` | string | No | Idle explanation. Surfaces use it before `description`; a running task still uses `description` or `title`. |
+| `rerunsOn` | array | No | Accepts `"local-ai-model"` for links to rerun after that model changes. |
+| `copies` | `"each"` or `"one"` | No | How a link handles several installed copies of its target app. |
 | `kind` | `connect` \| `maintain` \| `custom` | No | Descriptive taxonomy for icons and grouping. Nothing in the runtime branches on it. |
 | `events` | array | No | When the hook fires. Absent means `["userAction"]`. See [events](#events). |
 | `optional` | boolean | No | Lifecycle firings only: skip on failure or input timeout instead of blocking the ceremony. |
@@ -75,18 +78,22 @@ That declaration has no `events`, so it is a user action — a button on the Ple
 | `requiresHooks` | string[] | No | Up to 8 same-app hook ids whose collected inputs this hook inherits. See [requiresHooks](#inheriting-inputs-with-requireshooks). |
 | `target` | object | No | File selection contract. User-fired only. See [target](#file-targets). |
 | `rerun` | `idempotent` \| `converge` \| `refuse` | Iff user-triggerable | What a second press does. See [rerun](#rerun-policy). |
-| `script` | string | One of | Path to a `.ts` file in the catalog repo. |
+| `script` | string | One of | Path to the TypeScript file to execute. |
 | `scriptContent` | string | One of | Inline TypeScript embedded in the JSON. |
 | `entrypoint` | string | Yes | Name of the exported async function to call. |
-| `timeout` | number | No | Maximum execution time in seconds (default: 300). |
+| `timeout` | number | No | Maximum execution time in seconds; normally 300, with shorter limits for `onBeforeStop`. |
 | `retries` | number | No | Automatic retry attempts on failure (default: 0). |
 
 Exactly one of `script` or `scriptContent` — never both, never neither.
 
-> A V6 entry must not carry V5's singular `event`. It is not silently ignored: the parser rejects the declaration with *"V6 melded entries use `events` (array) — found V5-style singular `event`"*, because a stripped `event` would turn a lifecycle hook into a card button. Other unrecognized keys (for example a leftover V5 `condition` object) are dropped silently, so move version gates onto the trigger entry rather than leaving them behind.
+> **Warning:** A V6 entry must not carry V5's singular `event`. It is not silently ignored: the parser rejects the declaration with *"V6 melded entries use `events` (array) — found V5-style singular `event`"*, because a stripped `event` would turn a lifecycle hook into a card button. Other unrecognized keys (for example a leftover V5 `condition` object) are dropped silently, so move version gates onto the trigger entry rather than leaving them behind.
 {.is-warning}
 
-## Events
+#### Before-stop limits
+
+Before-stop hooks have a 30-second default per hook within a 60-second limit for the save phase. A failure or timeout does not cancel the requested stop. They cannot collect inputs, wait for checkpoint retry, restart the app or update its values. Stops made directly by TrueNAS and operations that stop apps in bulk do not necessarily run these hooks.
+
+### Events
 
 `events` is an array of trigger entries. When absent it defaults to `["userAction"]`, so a plain verb writes nothing.
 
@@ -97,11 +104,12 @@ Exactly one of `script` or `scriptContent` — never both, never neither.
 | `"onAfterInstall"` | After `app.create` completes successfully. |
 | `"onBeforeUpgrade"` | Before `app.upgrade` is called on TrueNAS. |
 | `"onAfterUpgrade"` | After `app.upgrade` completes successfully. |
+| `onBeforeStop` | Gives a running app a chance to save before a supported HexOS operation stops its containers. |
 | `{ "event": ..., "from": ..., "to": ... }` | A lifecycle event with per-trigger configuration. |
 
 A hook can carry several entries. `["onAfterInstall", "userAction"]` is a post-install ceremony that the user can also re-run later from the app card.
 
-### Version-gated upgrade triggers
+#### Version-gated upgrade triggers
 
 The object form gates an upgrade trigger on the version transition:
 
@@ -117,12 +125,12 @@ The object form gates an upgrade trigger on the version transition:
 }
 ```
 
-- `from` and `to` are [semver ranges](https://www.npmjs.com/package/semver#ranges). `from` matches the version being departed; `to` matches the version being installed. Both must match when both are given.
+- `from` and `to` are [semver ranges](https://github.com/npm/node-semver#ranges). `from` matches the version being departed; `to` matches the version being installed. Both must match when both are given.
 - `from`/`to` are legal on `onBeforeUpgrade` and `onAfterUpgrade` only — on an install event the declaration is rejected.
 - The object form itself is legal for any lifecycle event, so future per-trigger configuration lands without a dialect change.
-- A version-gated trigger cannot share a declaration with `"userAction"`: a one-time migration must not double as a forever-button. Split the manual escape hatch into its own declaration gated by an `appVersion` availability condition.
+- A version-gated trigger cannot share a declaration with `"userAction"`: a one-time migration must not double as a forever-button. Keep a manually run action in a separate declaration. Use supported availability conditions for an action people must be able to run. `appVersion`, `capabilityPresent` and `script` currently fail closed.
 
-### Trigger rules
+#### Trigger rules
 
 | Rule | Why |
 |---|---|
@@ -135,7 +143,7 @@ The object form gates an upgrade trigger on the version transition:
 
 Unrecognized trigger entries are dropped individually and reported, so a dictionary written against a newer vocabulary still runs its known firings. A declaration whose entries **all** drop is dropped entirely — a typo'd event name never silently becomes a card button.
 
-## Conditions
+### Conditions
 
 Every condition carries a `role` that decides what failing it costs:
 
@@ -146,30 +154,32 @@ Every condition carries a `role` that decides what failing it costs:
 
 Availability is always re-checked server-side when the hook is invoked; the state a surface renders is advisory.
 
-### Condition kinds
+#### Condition kinds
 
 | `type` | Fields | Passes when |
 |---|---|---|
 | `appInstalled` | `app` | The named app is installed. |
 | `appRunning` | `app` | The named app is running. |
-| `appVersion` | `app`, `range` | The named app's version satisfies the semver `range`. |
-| `capabilityPresent` | `capability` | Reserved for the capability registry. |
-| `script` | `script`, `entrypoint?` | A local-side script predicate returns true. |
+| `appVersion` | `app`, `range` | Accepted vocabulary; currently evaluates false. |
+| `capabilityPresent` | `capability` | Accepted vocabulary; currently evaluates false. |
+| `script` | `script`, `entrypoint?` | Accepted vocabulary; currently evaluates false. |
 
 ```json
+{
 "conditions": [
   { "role": "visibility", "type": "appInstalled", "app": "jellystat" },
   { "role": "availability", "type": "appRunning", "app": "jellystat" },
   { "role": "availability", "type": "appRunning", "app": "jellyfin" }
 ]
+}
 ```
 
 Conditions are also how cross-app links are discovered: a user-triggerable hook whose conditions name an app other than its own becomes an install-time pairing for both apps, derived from the declaration alone — no catalog code runs to build that list — see [App Pairings](/features/apps/install-scripts/reference/pairings).
 
-> The evaluator implements `appInstalled` and `appRunning`. Every other kind — `appVersion`, `capabilityPresent`, `script`, and any `type` a given platform version does not recognize — **fails closed**: the condition evaluates false, so a `visibility` one hides the hook and an `availability` one permanently disables it. Gate on `appInstalled` / `appRunning` for hooks you want users to be able to run.
+> **Warning:** The evaluator implements `appInstalled` and `appRunning`. Every other kind — `appVersion`, `capabilityPresent`, `script`, and any `type` a given platform version does not recognize — **fails closed**: the condition evaluates false, so a `visibility` one hides the hook and an `availability` one permanently disables it. Gate on `appInstalled` / `appRunning` for hooks you want users to be able to run.
 {.is-warning}
 
-## Surfaces
+### Surfaces
 
 `surfaces` applies to user-triggerable hooks only; a lifecycle-only hook never becomes a verb. For what each surface renders and how it behaves, see the [Surfaces Reference](/features/apps/install-scripts/reference/surfaces).
 
@@ -179,6 +189,8 @@ Conditions are also how cross-app links are discovered: a user-triggerable hook 
 | `fileBrowser` | A verb on a file selection in the file browser. Requires `target`. |
 | `installPicker` | A pairing row offered while installing either app. Selected rows run as child tasks of the install once the app's own lifecycle hooks settle. |
 | `widget` | A button on a dashboard widget that lists this hook's id in its `buttons` array (up to 4 per widget). The button renders only if the hook allows the widget surface. |
+
+The accepted `surfaces` vocabulary also includes `settings`. It is not a default placement.
 
 **Omitting `surfaces` is the normal case.** The platform derives the list:
 
@@ -193,6 +205,7 @@ Declaring `surfaces` replaces the derivation entirely — it is a narrowing tool
 Because `widget` rides the defaults, a widget can reference an existing card verb by id without any change to the hook:
 
 ```json
+{
 "widgetsSchema": 3,
 "widgets": [
   {
@@ -204,11 +217,12 @@ Because `widget` rides the defaults, a widget can reference an existing card ver
     "entrypoint": "run"
   }
 ]
+}
 ```
 
 A button referencing an unknown hook id is skipped and logged; a button whose hook fails its visibility conditions is omitted, and one that fails availability renders greyed with its reason. See the [Dashboard Widgets Reference](/features/apps/install-scripts/reference/widgets) for the widget declaration itself.
 
-## Inheriting inputs with requiresHooks
+### Inheriting inputs with requiresHooks
 
 `requiresHooks` lists up to 8 **same-app** hook ids this hook depends on. It does two things:
 
@@ -242,7 +256,7 @@ Carry-over rules:
 - Coverage is all-or-nothing per run: if any **required** declared input is still uncovered, the hook prompts for its inputs as usual. Uncovered optional inputs do not block.
 - Fired manually later (from the card, with no install to inherit from), the hook simply prompts.
 
-## Install-time consent with userOptional
+### Install-time consent with userOptional
 
 A hook with `userOptional` renders a consent checkbox in the install dialog. The user decides whether the ceremony runs.
 
@@ -261,7 +275,7 @@ A hook with `userOptional` renders a consent checkbox in the install dialog. The
       "label": "Plex Terms of Service"
     }
   },
-  "inputs": [ ... ],
+  "inputs": [],
   "script": "plex/plex_hook.ts",
   "entrypoint": "afterInstall"
 }
@@ -280,7 +294,7 @@ A hook with `userOptional` renders a consent checkbox in the install dialog. The
 - Consent is collected at install time only. Upgrade ceremonies run non-consent hooks and skip every `userOptional` hook — in both dialects.
 - `optional` is a different field: it governs what happens when the hook *fails*, and it requires a lifecycle trigger (user firings are always terminal).
 
-## Rerun policy
+### Rerun policy
 
 `rerun` is **required on every user-triggerable hook** and **forbidden on lifecycle-only hooks**. There is one spelling, so no declaration carries a value that means nothing.
 
@@ -294,7 +308,7 @@ A hook with `userOptional` renders a consent checkbox in the install dialog. The
 
 Independently of `rerun`, the same app + hook + file selection cannot run twice concurrently — a press while a run is in flight returns `APP_HOOK_ALREADY_RUNNING`. Different file selections of the same hook run in parallel.
 
-## Last run status
+### Last run status
 
 Each hook tracks whether its last completed run succeeded or failed. HexOS uses this to decide the button state on the app card:
 
@@ -302,7 +316,7 @@ Each hook tracks whether its last completed run succeeded or failed. HexOS uses 
 - **Run again** — the hook previously succeeded and has `rerun` set to `converge`.
 - **Connected** (check icon, no button) — the hook has `rerun` set to `refuse` and its last run succeeded, so re-running is blocked.
 
-## File targets
+### File targets
 
 A `target` makes the hook act on user-selected files, and surfaces it in the file browser instead of on the app card.
 
@@ -351,7 +365,7 @@ export async function run(ctx: HookContext) {
 
 A file-targeted hook is user-fired only — adding a lifecycle event is rejected, because a lifecycle firing has no file selection.
 
-## What the schema rejects
+### What the schema rejects
 
 Every rule below fails the individual declaration (with a reported error) rather than the whole dictionary.
 
@@ -372,7 +386,7 @@ Every rule below fails the individual declaration (with a reported error) rather
 | Pairing-target-referencing conditions plus a lifecycle trigger | `cross-app connects fire from the install picker automatically` |
 | Duplicate `id` within the dictionary | `Duplicate hook id` |
 
-## The four canonical shapes
+### The four canonical shapes
 
 **Install ceremony with consent** — runs during install, user can decline:
 
@@ -384,7 +398,7 @@ Every rule below fails the individual declaration (with a reported error) rather
   "events": ["onAfterInstall"],
   "optional": false,
   "userOptional": { "default": true, "description": "Automatically set up your server, apply preferences, and create media libraries." },
-  "inputs": [ ... ],
+  "inputs": [],
   "script": "jellyfin/jellyfin_hook.ts",
   "entrypoint": "afterInstall",
   "timeout": 300
@@ -434,7 +448,7 @@ Every rule below fails the individual declaration (with a reported error) rather
 }
 ```
 
-## Migrating a V5 script to V6
+### Migrating a V5 script to V6
 
 Everything V6 adds is additive — the execution contract is field for field identical.
 
@@ -450,11 +464,11 @@ Existing hook scripts need no changes.
 
 ---
 
-# V5 lifecycle hooks
+## V5 lifecycle hooks
 
 Lifecycle hooks are a **V5** feature. To use them, set `"version": 5` in your install script and add a `hooks` array. V5 dictionaries parse unchanged and remain fully supported. V5 hooks are lifecycle-only: no user-triggerable firings, no condition predicates, no surfaces, and no file targets. V5's `condition` field is a version gate for upgrades, not a predicate — see [Version conditions](#version-conditions).
 
-## Hook events
+### Hook events
 
 | Event | When it fires |
 |---|---|
@@ -462,8 +476,9 @@ Lifecycle hooks are a **V5** feature. To use them, set `"version": 5` in your in
 | `onAfterInstall` | After `app.create` completes successfully |
 | `onBeforeUpgrade` | Before `app.upgrade` is called on TrueNAS |
 | `onAfterUpgrade` | After `app.upgrade` completes successfully |
+| `onBeforeStop` | Gives a running app a chance to save before a supported HexOS operation stops its containers. |
 
-## Hook declaration
+### Hook declaration
 
 Each entry in the `hooks` array is a hook declaration:
 
@@ -480,16 +495,16 @@ Each entry in the `hooks` array is a hook declaration:
 }
 ```
 
-### Declaration properties
+#### Declaration properties
 
 | Property | Type | Required | Description |
 |---|---|---|---|
 | `id` | string | Yes | Unique identifier within the script |
 | `event` | string | Yes | One of the [hook events](#hook-events) above |
-| `script` | string | No | Path to a `.ts` file in the catalog repo (e.g., `"myapp/myapp_hook.ts"`) |
+| `script` | string | No | Path to the TypeScript file to execute. |
 | `scriptContent` | string | No | Inline TypeScript code embedded directly in the JSON |
 | `entrypoint` | string | Yes | Name of the exported async function to call |
-| `timeout` | number | No | Maximum execution time in seconds (default: 300) |
+| `timeout` | number | No | Maximum execution time in seconds; normally 300, with shorter limits for `onBeforeStop` |
 | `description` | string | No | Human-readable label shown in the HexOS activity center |
 | `optional` | boolean | No | If `true`, hook failure is non-blocking — the app install continues |
 | `retries` | number | No | Number of automatic retry attempts on failure (default: 0) |
@@ -497,7 +512,7 @@ Each entry in the `hooks` array is a hook declaration:
 | `inputs` | array | No | OAuth or question inputs to collect from the user before execution (see [Inputs](#hook-inputs)) |
 | `userOptional` | object | No | Allows the user to opt out of this hook during install (see [User Optional](#user-optional-hooks)) |
 
-## Version conditions
+### Version conditions
 
 Hooks can be restricted to specific version transitions during upgrades:
 
@@ -515,9 +530,9 @@ Hooks can be restricted to specific version transitions during upgrades:
 }
 ```
 
-Both `fromVersionRange` and `toVersionRange` use [semver range syntax](https://www.npmjs.com/package/semver#ranges). The hook only fires if both conditions match (when both are specified).
+Both `fromVersionRange` and `toVersionRange` use [semver range syntax](https://github.com/npm/node-semver#ranges). The hook only fires if both conditions match (when both are specified).
 
-## User optional hooks
+### User optional hooks
 
 Hooks with `userOptional` show a toggle switch in the install dialog, letting the user decide whether to run the hook:
 
@@ -533,7 +548,7 @@ Hooks with `userOptional` show a toggle switch in the install dialog, letting th
 }
 ```
 
-### userOptional properties
+#### userOptional properties
 
 | Property | Type | Required | Description |
 |---|---|---|---|
@@ -542,7 +557,7 @@ Hooks with `userOptional` show a toggle switch in the install dialog, letting th
 | `default` | boolean | No | Whether the toggle is on by default (default: `true`) |
 | `link` | object | No | A link rendered inline at the end of the description (see below) |
 
-### Adding a link
+#### Adding a link
 
 Use the `link` property to display a clickable link after the description text. This is useful when your hook performs an action that requires the user to acknowledge external terms of service or documentation.
 
@@ -575,22 +590,22 @@ During upgrades, `userOptional` hooks are automatically excluded — only non-op
 
 ---
 
-# The script contract
+## The script contract
 
 Everything below applies to both dialects. A hook script is the same file whether its declaration fires it from a ceremony or from a button.
 
-## Script vs scriptContent
+### Script vs scriptContent
 
 Every hook must have exactly one of `script` or `scriptContent` — never both, never neither. The schema enforces this with a validation rule.
 
 - **`script`** — references an external `.ts` file in the [hexos-app-catalog](https://github.com/eshtek/hexos-app-catalog) repo. Used by first-party curated hooks.
 - **`scriptContent`** — embeds the TypeScript code directly in the JSON. Used by community contributions for self-contained simplicity.
 
-## Writing a hook script
+### Writing a hook script
 
 Hook scripts are TypeScript files that export an async function. The function receives a `HookContext` object with methods for interacting with the app and reporting progress.
 
-### File-based hook (first-party)
+#### File-based hook (first-party)
 
 Create a directory for your app in the catalog repo with a `.ts` file:
 
@@ -638,46 +653,39 @@ Reference it in the install script JSON:
 }
 ```
 
-### Inline hook (community `scriptContent`)
+#### Inline hook (community `scriptContent`)
 
-Embed the code directly in the JSON — no external files needed:
+The following is one declaration to add to the `hooks` array of a complete V5 install script. It is not a complete app configuration. Keep the required `script`, `requirements` and `app_values` fields. Replace `/health` with the health endpoint the app actually provides.
 
 ```json
 {
-  "version": 5,
-  "custom": true,
-  "metadata": {
-    "name": "My App",
-    "description": "A custom community app",
-    "icon": "https://example.com/icon.svg",
-    "version": "1.0.0"
-  },
-  "hooks": [
-    {
-      "id": "health-check",
-      "event": "onAfterInstall",
-      "scriptContent": "export async function setup(ctx) {\n  await ctx.waitForApp('/health');\n  ctx.log('App is ready');\n  await ctx.emitCheckpoint('ready');\n}",
-      "entrypoint": "setup",
-      "timeout": 60,
-      "description": "Post-install health check"
-    }
-  ]
+  "id": "health-check",
+  "event": "onAfterInstall",
+  "scriptContent": "export async function setup(ctx) {\n  await ctx.registerCheckpoints([{ id: 'ready', message: 'Waiting for app' }]);\n  await ctx.waitForApp('/health');\n  await ctx.emitCheckpoint('ready');\n}",
+  "entrypoint": "setup",
+  "timeout": 120,
+  "description": "Checking app health",
+  "optional": true
 }
 ```
 
-#### Testing inline hooks
-The `scriptContent` field is useful for **testing hooks via Custom Install in Expert Mode** — you can paste a JSON with inline hooks directly into the editor and run it immediately. This is a development and testing workflow only; inline scripts submitted via PR go through the same review process as file-based hooks.
+##### Testing inline hooks
 
-## HookContext API
+Paste the complete install script into **Custom Install** in **Expert Mode**, including its `scriptContent` hook. Test a disposable app through installation and upgrades. Inline scripts receive the same review as file-based hooks.
+
+### HookContext API
 
 The `HookContext` object is passed to your hook function. It provides everything needed to interact with the installed app, report progress, and handle errors.
 
-### Properties
+#### Properties
 
 | Property | Type | Description |
 |---|---|---|
-| `resourceType` | `string` | Always `"app"` (future: `"vm"`, etc.) |
-| `resourceId` | `string` | The app ID (e.g., `"plex"`) |
+| `resourceType` | `string` | For app hooks, `"app"` |
+| `resourceId` | `string` | The installed app or copy ID. |
+| `catalogAppId` | `string` | The catalog app ID, distinct from a later copy's ID. |
+| `configPath` | `string?` | Optional configuration path. |
+| `signIn`, `keptApps`, `existingSignIns`, `refusedSignIns` | context | Account context for an install or collection run. Never log credential values. |
 | `event` | `string` | The triggering event (e.g., `"onAfterInstall"`). User-fired runs report `"action"`. |
 | `fromVersion` | `string?` | Previous app version (upgrade only) |
 | `toVersion` | `string?` | Target app version (upgrade only) |
@@ -686,11 +694,11 @@ The `HookContext` object is passed to your hook function. It provides everything
 | `baseUrl` | `string` | `http://{host}:{port}` — empty string if unavailable |
 | `inputs` | `Record<string, unknown>` | User-collected input values from [hook inputs](#hook-inputs) |
 | `target` | `object?` | File-targeted hooks only: `{ type: "files", files: [{ path, containerPath, name, extension, size? }] }` |
-| `mounts` | `array` | User-fired runs: the app's live mounts as `{ hostPath, containerPath, localPath }`. Empty on lifecycle firings and whenever mount discovery fails — always tolerate an empty list. |
+| `mounts` | `array` | The app's mounts as `{ hostPath, containerPath, localPath }`. Lifecycle hooks receive live mounts when available, or planned install mounts before installation. Always handle an empty list. |
 
-### Methods
+#### Methods
 
-#### Checkpoint management
+##### Checkpoint management
 
 Checkpoints represent progress steps shown to the user in the HexOS activity center.
 
@@ -701,16 +709,35 @@ Checkpoints represent progress steps shown to the user in the HexOS activity cen
 | `updateCheckpointMessage(id, message)` | Update a checkpoint's message without completing it. |
 | `skipCheckpoint(id, message?)` | Mark a checkpoint as skipped. |
 
-#### Utilities
+##### Utilities
 
 | Method | Description |
 |---|---|
 | `log(message)` | Log a message to the backend logger (not shown to the user). |
 | `sleep(ms)` | Async delay for the given number of milliseconds. |
-| `waitForApp(path, opts?)` | Poll the app's HTTP endpoint until it responds. Uses exponential backoff (40 attempts by default). Options: `{ timeout?, retries?, method?, expectedStatus? }` |
+| `waitForApp(path, opts?)` | Sends GET requests to `baseUrl + path` until the exact expected status is returned. Options: `expectedStatus` (200), `maxAttempts` (40), `initialDelayMs` (5000), `maxDelayMs` (15000), `timeoutMs` (5000) and `headers` (empty object). Between failed attempts the delay increases by 2000 ms up to the maximum. Returns the successful `Response`; throws after the final attempt. |
 | `getInstalledAppUrl(appId)` | Base URL of another installed app (e.g. `"http://192.168.1.50:5055"`), or `null` when it isn't installed or has no known port. Resolves on user-fired runs — connect hooks use it to reach the pairing target; lifecycle firings receive `null`. |
 
-#### Partner API
+##### App state and progress
+
+| Method | Description |
+|---|---|
+| `setProgress(percent)` | Sets task progress, rounded and clamped to 0–99. A later checkpoint without explicit progress returns to checkpoint-based progress. |
+| `skip(message, context?)` | Ends with a skip marker; collection execution can skip the step, while other runs handle the failure. |
+| `askForInputs(inputs, prompt?)` | Collects another set of hook inputs during the run; the execution clock pauses while waiting. Not available before a stop. |
+| `getAppValues()` | Reads this app's current TrueNAS configuration. |
+| `updateAppValues(change)` | Applies changes to a copy of this app's values; returns false when unchanged and otherwise updates the app. Not available before a stop. |
+| `restartApp()` | Restarts this app. Refuses after the attempt ends and from a before-stop hook. |
+| `appContainers()` | Reads this app's running containers and addresses through Docker. |
+| `writeAppStdin(text, options?)` | Sends text to the selected app container's standard input. Include any newline required by its console. `options.service` selects a service. |
+| `installedCopies(appId)` | Returns installed copy names when a resolver is available; otherwise returns `[appId]`. |
+| `linkedApp(appId)` | Returns the selected linked copy's name/displayName, or null. |
+| `getInstalledAppMounts(appId)` | Reads the linked copy's mounts; returns an empty list if unavailable. |
+| `prepareHardwareVideo(options?)` | Asks HexOS to prepare hardware video. `rerunHook` names a hook to rerun after a required restart. |
+| `videoCard()` | Reads the graphics-card selection HexOS holds for this app, or null. |
+| `readLocalAiHardware()` | Reads hardware information used to choose a Local AI model. |
+
+##### Partner API
 
 For an app whose API accepts only a credential HexOS issued it (see [`$PARTNER_TOKEN`](/features/apps/install-scripts/reference/macros#partner_tokenpartnerid)). The platform reads the credential from the installed app, checks it, and adds whatever that partner's API expects on the request: signed headers, a token header or a query parameter, depending on the partner. The script chooses the URL, method, headers and body and reads the response itself, as it would with `fetch`; it never sees the credential.
 
@@ -736,24 +763,24 @@ Rules a partner script follows, so the integration stays safe for the user's dat
 - A file action never deletes, replaces or moves a user's file through the partner. It checks for output collisions and for work the partner is already doing before it queues anything, fails closed when a path cannot be checked, and only ever writes a new file next to the user's media.
 - Anything the partner app must be configured with is written from a definition in the script on every run rather than trusted by name.
 
-#### Error handling
+##### Error handling
 
 | Method | Description |
 |---|---|
 | `fail(message, context?)` | Throw a structured error. `context` is an array of `{ label, value }` pairs for diagnostic display. |
-| `awaitCheckpointRetry(checkpointId, error, context?)` | Pause the hook at a failed checkpoint and wait for the user to click **Retry** or **Skip**. Returns `"retry"` or `"skip"`. Lifecycle firings only — a user-fired run has no interactive retry. |
+| `awaitCheckpointRetry(checkpointId, error, context?)` | Pause the hook at a failed checkpoint and wait for the user to click **Retry** or **Skip**. Returns `"retry"` or `"skip"`. Lifecycle firings except `onBeforeStop`; user-fired runs have no interactive retry. |
 
-#### Input access
+##### Input access
 
 | Method | Description |
 |---|---|
 | `getInput<T>(inputId, schema?)` | Type-safe accessor for user-collected inputs. Throws if the input is missing. |
 
-## Hook inputs
+### Hook inputs
 
 Hooks can declare inputs that are collected from the user before the hook runs. The HexOS UI shows an input dialog when the hook enters the `AWAITING_INPUT` state.
 
-### OAuth input
+#### OAuth input
 
 ```json
 {
@@ -778,7 +805,7 @@ Hooks can declare inputs that are collected from the user before the hook runs. 
 }
 ```
 
-### Question input
+#### Question input
 
 ```json
 {
@@ -805,9 +832,9 @@ const { authToken } = ctx.getInput<{ authToken: string }>("plex_login");
 const libraryName = ctx.getInput<string>("library_name");
 ```
 
-## Hook execution flow
+### Hook execution flow
 
-### Install
+#### Install
 
 1. User confirms install (with optional hook opt-ins)
 2. `onBeforeInstall` hooks run sequentially (blocks app creation)
@@ -816,15 +843,17 @@ const libraryName = ctx.getInput<string>("library_name");
 5. Parent install task completes when all required hooks finish
 6. Any install-picker links the user selected run as child tasks once the lifecycle hooks settle
 
-### Upgrade
+#### Upgrade
 
 Same pattern with `onBeforeUpgrade` and `onAfterUpgrade`. Only hooks whose triggers match the version transition run — via [V6 trigger gates](#version-gated-upgrade-triggers) or [V5 conditions](#version-conditions). `userOptional` hooks are excluded.
 
-### User-fired runs
+#### User-fired runs
 
 A user-triggered hook runs as its own task with `event: "action"`. Availability conditions are re-checked server-side before it starts, the [rerun policy](#rerun-policy) is enforced, and the target selection is re-validated. Failure is terminal — the task ends `FAILED` with the script's error context, and the user re-runs it from the surface rather than answering a retry prompt.
 
-### Failure handling
+#### Failure handling
+
+Before-stop hooks use the time limits described above. A failure does not cancel the stop. The retry flow below applies to other lifecycle hooks.
 
 When a non-optional lifecycle hook fails after all auto-retries:
 
@@ -835,36 +864,41 @@ When a non-optional lifecycle hook fails after all auto-retries:
 
 Optional hooks (`optional: true`) are automatically skipped on failure without blocking the install.
 
-## Checkpoint retry pattern
+### Checkpoint retry pattern
 
 For hooks with multiple steps, use `awaitCheckpointRetry` to let users retry individual steps without restarting the entire hook:
 
+This example requires your own `createLibrary` function. Make it safe to retry by checking whether the library already exists before creating it.
+
 ```typescript
 export async function afterInstall(ctx: HookContext) {
-  await ctx.registerCheckpoints([
-    { id: "movies", message: "Creating Movies library" },
-    { id: "shows", message: "Creating Shows library" },
-  ]);
-
-  // Create Movies library
-  try {
-    await createLibrary("Movies");
-    await ctx.emitCheckpoint("movies");
-  } catch (err) {
-    const action = await ctx.awaitCheckpointRetry("movies", err.message, [
-      { label: "Endpoint", value: "POST /library/sections" },
-      { label: "Status", value: err.status },
-    ]);
-    if (action === "skip") {
-      await ctx.skipCheckpoint("movies", "Skipped by user");
-    } else {
-      // Retry logic...
+  const steps = [
+    { id: "movies", name: "Movies" },
+    { id: "shows", name: "Shows" },
+  ];
+  await ctx.registerCheckpoints(
+    steps.map(step => ({ id: step.id, message: `Creating ${step.name} library` })),
+  );
+  for (const step of steps) {
+    while (true) {
+      try {
+        await createLibrary(step.name);
+        await ctx.emitCheckpoint(step.id);
+        break;
+      } catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        const action = await ctx.awaitCheckpointRetry(step.id, message);
+        if (action === "skip") {
+          await ctx.skipCheckpoint(step.id, "Skipped by user");
+          break;
+        }
+      }
     }
   }
 }
 ```
 
-## Custom app metadata
+### Custom app metadata
 
 When `custom: true`, the `metadata` field is required:
 
@@ -875,15 +909,19 @@ When `custom: true`, the `metadata` field is required:
   "metadata": {
     "name": "My Custom App",
     "description": "A brief description of what the app does",
-    "icon": "https://example.com/icon.svg",
+    "icon": "myapp/icon.svg",
     "version": "1.0.0"
   }
 }
 ```
 
-Custom apps appear in the HexOS app store alongside standard TrueNAS catalog apps. The `internal: true` flag hides them in production (useful for test apps).
+Include the icon asset at the catalog-relative path shown above. Catalog screenshot paths follow the same rule.
 
-## Complete V5 example
+Custom apps added to the app catalog can appear alongside TrueNAS catalog apps after catalog sync. Running a script through Custom Install does not publish it to the catalog. The catalog sync omits internal custom entries on its production branch.
+
+### V5 structure example
+
+This illustrates the structure, not a tested app. Replace MyApp values and `/health` with the configuration and endpoint of the app you are testing.
 
 ```json
 {
@@ -932,7 +970,9 @@ Custom apps appear in the HexOS app store alongside standard TrueNAS catalog app
 }
 ```
 
-## Complete V6 example
+### V6 structure example
+
+This illustrates the structure, not a tested app. Replace MyApp values and `/health` with the configuration and endpoint of the app you are testing.
 
 The same app, plus a user-triggerable re-run of the health check:
 

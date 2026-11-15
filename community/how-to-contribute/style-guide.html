@@ -1,88 +1,133 @@
 <!--
-title: HexOS Documentation Style Guide
-description: 
-published: false
-date: 2026-07-29T13:03:38.515Z
+title: HexOS documentation style guide
+description: Write clear guides with consistent headings, instructions and screenshots.
+published: true
+date: 2026-08-20T15:46:29.254Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-07-18T09:49:27.262Z
 -->
 
-<h1>HexOS Documentation Style Guide</h1>
-<h3>Language</h3>
-<p>HexOS docs are written to be:</p>
-<ul>
-  <li>Friendly and Open</li>
-  <li>Clear</li>
-  <li>Accessible to a wide variety of people including people who:<ul>
-      <li>have a wide range of technical skills and interests</li>
-      <li>their first language is not English</li>
-      <li>have different learning styles</li>
-      <li>have a disability</li>
-    </ul>
-  </li>
-</ul>
-<h3><strong>Referring to user interface</strong></h3>
-<p>When directly quoting from the HexOS user interface please follow the exact wording and capitalisation with the bold the words quoted. For example</p>
-<p>Click <strong>Continue</strong></p>
-<p>When describing a navigation process, each item should be in <strong>bold</strong> with a non-bold &gt; between. For example:&nbsp;</p>
-<p><strong>Apps</strong> &gt; <strong>Immich</strong></p>
-<h3><strong>Terminology</strong></h3>
-<p>Here are some quick key terms to use, instead of their various alternatives. For example click is used over tap and screen is used rather than page.</p>
-<ul>
-  <li>Click</li>
-  <li>Screen</li>
-  <li>Dialogue</li>
-  <li>Menu</li>
-  <li>Card and tray</li>
-  <li>Info panel</li>
-  <li>Button</li>
-</ul>
-<h4>Examples</h4>
-<p>Below is the <strong>Processor card</strong> in the <strong>System tray.&nbsp;</strong></p>
-<p>Cards display extra information, in this case CPU usage and temperature. If it's just static text it's a button, not a card.</p>
-<figure class="image"><img src="/card-in-system-tray.png" alt="Image showing the system tray and tiles"></figure>
-<p>Clicking the <strong>Processor card</strong> opens the <strong>Processor info panel</strong></p>
-<figure class="image"><img src="/processor-info-pannel.png" alt="Processor info panel"></figure>
-<p>Click the <strong>New Folder</strong> button</p>
-<figure class="image"><img src="/new-folder-button.png" alt="Image showing the new folder button being clicked"></figure>
-<p>This opens the<strong> Create folder </strong>dialogue. Click the <strong>Access</strong> tab.</p>
-<figure class="image"><img src="/new-user-dialogue.png" alt="Create Folder dialogue and Access tab being clicked"></figure>
-<h3>Capitalisation</h3>
-<p>HexOS and TrueNAS are capitalised like this.&nbsp;</p>
-<p>For headings in the documentation, sentence case is used: the first letter of the first word is capitalised and otherwise only proper nouns are capitalised.&nbsp;</p>
-<ul>
-  <li><strong>Import pools to HexOS</strong> - the first letter and HexOS are capitalised but “pools” and “to” are not.</li>
-  <li><strong>Preparing server hardware</strong> - only the first letter is capitalised</li>
-  <li><strong>The folders screen </strong>- in this example the word “Folders” would usually be capitalised as it is capitalised in the UI. However the headings are easier to read when capitalisation is very consistent, so even in this case lower case is used.</li>
-</ul>
-<h3>Writing accessibly</h3>
-<p>Some ways of writing are much simpler to translate and easier to understand for non-native English speakers. We can avoid phrases which, while feeling natural to native English speakers, can be confusing when translated literally or read by people with a different language background or cultural references.</p>
-<h4><strong>Metaphors</strong></h4>
-<p>"HexOS is your gateway to self-hosting" &gt; "HexOS makes self-hosting easier"</p>
-<p>The word "gateway" is being used figuratively and reader may understand the individual words but not the intended meaning.</p>
-<h4><strong>Turns of phrase and idioms</strong></h4>
-<p>“HexOS is running TrueNAS under the hood” &gt; “HexOS runs on top of TrueNAS”</p>
-<p>The phrase "under the hood" is an idiom borrowed from cars meaning something hidden/working the background. This meaning may not be obvious to all readers.</p>
-<h4><strong>Pop culture references</strong></h4>
-<p>"Type the password and open sesame! Your files will appear." &gt; "Type the password and you will see your files."</p>
-<p>"Open sesame", from <i>Ali Baba and the Forty Thieves</i>, is often used to decisive something magically opening. However, readers unfamiliar with this cultural reference may be wondering why sesame seeds are involved in their NAS setup!</p>
-<h2>Screenshots</h2>
-<h3>Alt txt</h3>
-<p>Always set an Alt Text for each image. This should be written in a concise and simple way:</p>
-<p>“Create Folder dialogue and Access tab being clicked” is preferable to than “Image showing the create folder dialogue and the user is clicking on the access tab”</p>
-<p>The Alt Txt allows people with visual impairments to understand what is in the image. With no alt text, screen readers will either skip the image or say “image”.&nbsp;</p>
-<p>To add the Alt Text, insert the image and then right click it and click the Change image text alternative button (eyeball icon). Then enter the text and hit enter.</p>
-<figure class="image"><img src="/alt-text-adding.png" alt="Alt text button"></figure>
-<h4><strong>Image styles</strong></h4>
-<ul>
-  <li>Light mode</li>
-  <li>Include something to orient the user e.g. menu, logo, side bar - especially in screenshots where the user is navigating</li>
-  <li>What to pixelise?</li>
-  <li>How to place in docs</li>
-  <li>&nbsp;</li>
-</ul>
-<p><strong>Licence&nbsp;</strong></p>
-<p>What licence is it published under etc, that would be applied to the contributions</p>
-<p><strong>Licence</strong> that would be applied to the contributions</p>
-<p>&nbsp;</p>
+<h1 id="hexos-documentation-style-guide" class="toc-header"><a class="toc-anchor" href="#hexos-documentation-style-guide">¶</a> HexOS documentation style guide</h1>
+<p>Use this guide when writing or updating HexOS documentation. A reader should be able to follow the steps without already knowing the feature.</p>
+<h2 id="language" class="toc-header"><a class="toc-anchor" href="#language">¶</a> Language</h2>
+<p>Use short sentences and familiar words. Explain a technical term when the reader first needs it. Write in American English: <strong>organize</strong>, <strong>color</strong> and <strong>behavior</strong>.</p>
+<p>Avoid metaphors, idioms and cultural references. Write “HexOS runs on top of TrueNAS.” Describe results directly, such as “Your files appear.”</p>
+<h2 id="page-structure" class="toc-header"><a class="toc-anchor" href="#page-structure">¶</a> Page structure</h2>
+<p>Give each page one clear purpose. Start with what the reader will accomplish, followed by anything they need before starting. For a procedure, include the starting screen, the exact controls, the expected result and how to check that it worked.</p>
+<p>Use the same text for the page title and its first heading. Write a short description explaining what the page helps the reader do. The description appears below the title.</p>
+<p>Use sentence case for headings. Capitalize the first word and proper names, including feature names such as <strong>Buddy Backups</strong>, <strong>Command Deck</strong> and <strong>Activity Center</strong>. Write <strong>HexOS</strong> and <strong>TrueNAS</strong> exactly this way.</p>
+<p>Keep existing page addresses when updating a guide so that links to it continue to work. Link to other documentation with a page path, such as <code>/features/folders</code>, without <code>.md</code>.</p>
+<h2 id="referring-to-the-interface" class="toc-header"><a class="toc-anchor" href="#referring-to-the-interface">¶</a> Referring to the interface</h2>
+<p>Quote each control's wording and capitalization exactly, in bold. For example: Click <strong>Continue</strong>.</p>
+<p>For navigation, put each item in bold with a plain <code>&gt;</code> between them: <strong>Settings</strong> &gt; <strong>Notifications</strong>.</p>
+<p>Use <strong>click</strong> for buttons and menu items. Use <strong>screen</strong>, <strong>menu</strong>, <strong>card</strong>, <strong>tile</strong>, <strong>info panel</strong>, <strong>button</strong>, <strong>dialog</strong> and <strong>tab</strong> consistently. A card displays information; a button performs an action. A tab changes the visible section. Use “press” when describing a keyboard key, such as <strong>Escape</strong>.</p>
+<p>Write an instruction before its screenshot. Explain what appears after the action. Do not use a screenshot as a substitute for the instruction.</p>
+<p>Use inline code for values and short commands. Use a fenced code block for a longer example. State whether an example is complete or is a fragment to add to another file. Test commands before giving them to readers, and explain any value they need to replace.</p>
+<h2 id="callouts" class="toc-header"><a class="toc-anchor" href="#callouts">¶</a> Callouts</h2>
+<p>Use a callout for a risk, prerequisite or useful note. Start with a bold lead word and put its class on the next line:</p>
+<pre class="prismjs line-numbers" v-pre="true"><code class="language-markdown">&gt; **Warning:** Keep the original files until you have checked the restored copy.
+{.is-warning}
+</code></pre>
+<blockquote class="is-warning">
+<p><strong>Warning:</strong> Keep the original files until you have checked the restored copy.</p>
+</blockquote>
+<div class="table-container"><table>
+<thead>
+<tr>
+<th>Lead word</th>
+<th>Class</th>
+<th>When to use it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Danger:</strong></td>
+<td><code>{.is-danger}</code></td>
+<td>An action can erase data or cause another critical outcome.</td>
+</tr>
+<tr>
+<td><strong>Warning:</strong></td>
+<td><code>{.is-warning}</code></td>
+<td>A risk or a common mistake needs attention before continuing.</td>
+</tr>
+<tr>
+<td><strong>Requirement:</strong></td>
+<td><code>{.is-success}</code></td>
+<td>Something must be ready before the next step.</td>
+</tr>
+<tr>
+<td><strong>Info:</strong></td>
+<td><code>{.is-info}</code></td>
+<td>Context helps the reader understand the step.</td>
+</tr>
+<tr>
+<td><strong>Tip:</strong></td>
+<td><code>{.is-tip}</code></td>
+<td>A short suggestion makes the task easier.</td>
+</tr>
+<tr>
+<td><strong>Help:</strong></td>
+<td><code>{.is-troubleshooting}</code></td>
+<td>The reader needs a troubleshooting guide or a way to ask for help.</td>
+</tr>
+<tr>
+<td><strong>Thank you:</strong></td>
+<td><code>{.is-contribute}</code></td>
+<td>Credit community authors at the top of their guide.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Keep community attribution when revising a page. Do not add a <strong>Contribute</strong> footer to a new guide. Existing credits should remain with the guide.</p>
+<h2 id="screenshots" class="toc-header"><a class="toc-anchor" href="#screenshots">¶</a> Screenshots</h2>
+<p>Show each action with a screenshot of the matching screen. Take screenshots on a desktop in light mode. Include enough surrounding interface, such as the sidebar and the screen behind a dialog, to help the reader find the control.</p>
+<p>Before capturing a screen, wait for loading and animations to finish. Check that the intended tab, menu or dialog is open. Close unrelated overlays and remove development controls. Keep text readable and leave important controls inside the frame.</p>
+<h3 id="protect-private-information" class="toc-header"><a class="toc-anchor" href="#protect-private-information">¶</a> Protect private information</h3>
+<p>Never include passwords, recovery keys, API keys, paid access tokens, personal photographs or private customer information. Use a test account and non-sensitive sample files. Use your own media or media you have permission to share. A test image can illustrate a screen, but it does not prove that an operation succeeded.</p>
+<h3 id="names-and-folders" class="toc-header"><a class="toc-anchor" href="#names-and-folders">¶</a> Names and folders</h3>
+<p>Store images in a folder named for the guide. Use lowercase names with hyphens, such as <code>create-a-new-folder/encryption-options.png</code>. Avoid spaces and names such as <code>screenshot3.png</code>.</p>
+<p>Write alt text that describes the useful content of the image. The filename can be a starting point, but a screen reader needs a meaningful description.</p>
+<h3 id="screenshot-markup" class="toc-header"><a class="toc-anchor" href="#screenshot-markup">¶</a> Screenshot markup</h3>
+<p>Put exactly one image in each screenshot dropdown, with a short caption in its summary. Leave a blank line after <code>&lt;/summary&gt;</code>:</p>
+<pre class="prismjs line-numbers" v-pre="true"><code class="language-markdown">&lt;details&gt;
+&lt;summary&gt; New folder button &lt;/summary&gt;
+
+![New folder button on the Folders screen](/create-a-new-folder/new-folder-button.png){.medium .framed}
+&lt;/details&gt;
+</code></pre>
+<p>The current site displays this simple pattern as an inline figure with a caption and click-to-enlarge. Extra text or a second image inside the dropdown prevents that conversion. Put explanations outside the dropdown and give each screenshot its own caption.</p>
+<p>Use <code>{.medium .framed}</code> after the image. Keep all classes in one pair of braces. Do not write <code>{.medium}{.framed}</code>.</p>
+<div class="table-container"><table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Width limit in the standard image markup</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.small</code></td>
+<td>320 pixels</td>
+</tr>
+<tr>
+<td><code>.medium</code></td>
+<td>560 pixels</td>
+</tr>
+<tr>
+<td><code>.large</code></td>
+<td>800 pixels</td>
+</tr>
+<tr>
+<td><code>.framed</code></td>
+<td>Adds a border, rounded corners and a shadow</td>
+</tr>
+</tbody>
+</table></div>
+<p>The current site's inline-figure layout controls its own display size. Keep the classes so the source also works with the standard renderer.</p>
+<h3 id="check-the-finished-page" class="toc-header"><a class="toc-anchor" href="#check-the-finished-page">¶</a> Check the finished page</h3>
+<p>Open the saved page and check every screenshot at its displayed size and enlarged. Confirm that it loads, matches the instruction, shows the current interface and contains no private information. Check captions and alt text too. A successful file upload alone is not enough.</p>
+<h2 id="verify-the-instructions" class="toc-header"><a class="toc-anchor" href="#verify-the-instructions">¶</a> Verify the instructions</h2>
+<p>Follow the complete procedure on a test server using the software version described. Check the final result, not only that a button can be clicked. Verify warnings, limits and alternative paths against the implementation or a relevant test. Keep a record of what was tested and what still needs verification.</p>
+<p>Ask another reviewer to follow the written steps. Check every link and resolve missing screenshots before asking for publication. Keep an old version in the review archive when replacing a guide; do not leave contradictory instructions in the active page.</p>
+<h2 id="license" class="toc-header"><a class="toc-anchor" href="#license">¶</a> License</h2>
+<p>Read the <a href="/docs-licensing" class="is-internal-link is-valid-page">documentation license</a> before contributing. It explains the permissions you grant and how the documentation may be reused.</p>

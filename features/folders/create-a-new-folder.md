@@ -1,14 +1,14 @@
 ---
-title: How to Create a New Folder
-description: 
+title: Create a new folder
+description: Choose a folder location, access rules, storage options and encryption.
 published: true
 date: 2026-10-07T00:00:00.000Z
-tags: 
+tags:
 editor: markdown
 dateCreated: 2026-06-08T15:40:20.899Z
 ---
 
-# How to create a new folder
+# Create a new folder
 
 1. Log in to the [Command Deck](https://deck.hexos.com).
 2. Go to the **Folders** screen in the side menu.
@@ -16,15 +16,15 @@ dateCreated: 2026-06-08T15:40:20.899Z
 <details>
 <summary> Folders screen </summary>
 
-![folders-screen-hexos.png](/features/folders/images/folders-screen-hexos.png){.medium .framed}
+![folders-screen-hexos.png](/create-a-new-folder/folders-current.png){.medium .framed}
 </details>
 
-3. Click the **New Folder** button.
+3. Click the **New folder** button.
 
 <details>
-<summary> New Folder button </summary>
+<summary> New folder button </summary>
 
-![click-add-new-folder.png](/features/folders/images/click-add-new-folder.png){.medium .framed}
+![New folder button](/create-a-new-folder/folders-current.png){.medium .framed}
 </details>
 
 This opens the **Create Folder** dialog. It has five steps: **General**, **Access**, **Options**, **Encryption** and **Review**. Click **Continue** to go to the next step and **Back** to go back.
@@ -32,11 +32,10 @@ This opens the **Create Folder** dialog. It has five steps: **General**, **Acces
 <details>
 <summary> Create Folder dialog </summary>
 
-![create-folder-1.png](/features/folders/images/create-folder-1.png){.medium .framed}
+![create-folder-1.png](/create-a-new-folder/folder-general.png){.medium .framed}
 </details>
 
-> **Info:** Make new folders from the **Folders** screen. The **New folder** button in **Settings** > **Locations** opens an older dialog, where encryption is off by default and only a passphrase is offered. See [Known issues](/features/folders/encryption#known-issues).
-{.is-info}
+You can also start the same folder wizard from **Settings** > **Locations** when choosing a location. The encryption choices depend on your sign-in and available features. This guide shows the HexOS-account flow with managed encryption available.
 
 ## General
 
@@ -47,7 +46,7 @@ This opens the **Create Folder** dialog. It has five steps: **General**, **Acces
 {.is-warning}
 
 
-### Location
+### Folder location
 - Choose the pool you would like your folder to be in.
   - If you only have one pool then it will automatically be selected for you.
 
@@ -58,24 +57,24 @@ This opens the **Create Folder** dialog. It has five steps: **General**, **Acces
 <details>
 <summary> Folder location pool selection </summary>
 
-![location.png](/features/folders/images/location.png){.medium .framed}
+![location.png](/create-a-new-folder/folder-general.png){.medium .framed}
 </details>
 
 ## Access
-This step is optional. In the **Access** step you can choose which users have access to this folder and which permissions they are granted. This is covered in more detail in [Folder permissions](/features/folders#folder-permissions). 
+The **Access** step starts with **Public**, which allows people on your network to use the folder. Choose **Private** to limit access to selected local users, then choose **View Only** to allow reading or **Full Access** to allow writing as well. If there are no local users, use **New user**. See [Folder permissions](/features/folders#folder-permissions).
 
 <details>
 <summary> Access step </summary>
 
-![access.png](/features/folders/images/access.png){.medium .framed}
+![access.png](/create-a-new-folder/folder-access-private.png){.medium .framed}
 </details>
 
-In this example a user has been selected and given permission only to view the files.
+The example below shows **View Only**. A Time Machine destination needs **Full Access** so the Mac can write backups.
 
 <details>
 <summary> User with view-only access </summary>
 
-![private-view-only.png](/features/folders/images/private-view-only.png){.medium .framed}
+![private-view-only.png](/create-a-new-folder/folder-view-only.png){.medium .framed}
 </details>
 
 ## Options
@@ -83,51 +82,56 @@ In this example a user has been selected and given permission only to view the f
 ### Folder storage limit
 Optional. In this section you can set a maximum amount of disk space the folder may use. This helps manage disk usage when multiple people or applications share your server.
 
-### Backup
-Optional. You can enable Time Machine by clicking the checkbox. Enabling this feature sets up the folder with the proper configuration for Apple's Time Machine backup system.
+### What the folder will hold
+
+Under **What will this folder hold?**, choose **Everyday files** for documents, downloads and app data, or **Large media** for movies, shows and videos. The default is **Everyday files**.
+
+### Backup for macOS
+
+Turn on **Enable Time Machine** if this folder will receive Mac backups. If you also set a storage limit, check the effective limit shown here. Continue with the [Time Machine guide](/community/community-guides/TimeMachineInstall) to connect the Mac.
 
 <details>
 <summary> Storage limit and backup options </summary>
 
-![options.png](/features/folders/images/options.png){.medium .framed}
+![options.png](/create-a-new-folder/folder-time-machine.png){.medium .framed}
 </details>
 
 ## Encryption
 
-New folders are encrypted by default. The **Encryption** step offers three choices, and **Autogenerated (recommended)** is already selected:
+With managed encryption available for your signed-in HexOS account, **Autogenerated (recommended)** is selected. Check the available choices before continuing:
 
 - **Autogenerated (recommended):** "HexOS keeps a copy of the key that only your sign-in can open." With **End-to-end encryption**, that copy also needs your recovery key. The folder unlocks by itself when your server starts, and there is nothing to remember.
-- **Manual:** "Enter it after every restart. If it's lost, nobody can open the folder." Type a passphrase of at least 8 characters in **Passphrase** and again in **Confirm passphrase**.
-- **Don't encrypt:** "Can only back up to your own servers." The folder cannot be backed up to another person's server until you encrypt it.
+- **Passphrase:** "Enter it after every restart. If it's lost, nobody can open the folder." Type a passphrase of at least 8 characters in **Passphrase** and again in **Confirm passphrase**.
+- **Don't encrypt:** **Leave encryption off for this folder**. The folder cannot be backed up to another person's server until you encrypt it.
 
 <details>
 <summary> Encryption step with Autogenerated selected </summary>
 
-![encryption.png](/features/folders/images/encryption.png){.medium .framed}
+![Autogenerated encryption choice](/create-a-new-folder/folder-encryption.png){.medium .framed}
 </details>
 
 <details>
-<summary> Encryption step with Manual selected </summary>
+<summary> Encryption step with Passphrase selected </summary>
 
-![encryption-manual.png](/features/folders/images/encryption-manual.png){.medium .framed}
+![Passphrase encryption choice](/create-a-new-folder/encryption-passphrase.png){.medium .framed}
 </details>
 
-> **Danger:** If you choose **Manual** and lose the passphrase, nobody can open the folder or its backups. HexOS does not store your passphrase on its servers and cannot get it back. Write it down and keep it somewhere safe.
+> **Danger:** If you choose **Passphrase** and lose the passphrase, nobody can open the folder or its backups. HexOS does not store your passphrase on its servers and cannot get it back. Write it down and keep it somewhere safe.
 {.is-danger}
 
-> **Warning:** An autogenerated key unlocks the folder for anyone who starts your server, because the key is kept on the server's boot drive. If the folder must stay unreadable when someone takes the whole server, choose **Manual**.
+> **Warning:** An autogenerated key unlocks the folder for anyone who starts your server, because the key is kept on the server's boot drive. If the folder must stay unreadable when someone takes the whole server, choose **Passphrase**.
 {.is-warning}
 
 You can change an encrypted folder between **Autogenerated** and **Manual** later from the folder's page, and a folder you did not encrypt can be encrypted later. What each choice protects is explained in [Encrypted folders](/features/folders/encryption).
 
-## Finalizing new folder creation
+## Review and create the folder
 
-The **Review** step shows your choices. Its **Encryption** card shows **Autogenerated key**, **Manual passphrase** or **Not encrypted**.
+The **Review** step shows your choices. Its **Encryption** card shows **Autogenerated key**, **Manual passphrase** or **Not encrypted**. This example uses **Full Access**, Time Machine and **Don't encrypt**; choose the protection your folder needs.
 
 <details>
 <summary> Review step </summary>
 
-![overview.png](/features/folders/images/overview.png){.medium .framed}
+![overview.png](/create-a-new-folder/folder-review.png){.medium .framed}
 </details>
 
 If you wish to adjust any settings, click **Back**, or click the edit button at the top right of a card to go back to its step. When you are ready, click **Create** and the folder will be created. When a folder is created you will see it on the **Folders** screen.
@@ -139,7 +143,7 @@ To edit the settings of a folder go to the **Folders** screen and click the fold
 <details>
 <summary> Selecting a folder to edit </summary>
 
-![click-folder.png](/features/folders/images/click-folder.png){.medium .framed}
+![click-folder.png](/create-a-new-folder/folders-with-example.png){.medium .framed}
 </details>
 
 Then click **Edit**.
@@ -147,7 +151,7 @@ Then click **Edit**.
 <details>
 <summary> Edit button </summary>
 
-![edit-button.png](/features/folders/images/edit-button.png){.medium .framed}
+![edit-button.png](/create-a-new-folder/folder-created.png){.medium .framed}
 </details>
 
 The **Edit Folder** dialog shows what may be edited. Folders cannot be renamed after creation. The **Encryption** step only shows the folder's current state and says "Change encryption from the folder's page." To change encryption, use the **Encryption** tile or the **Turn on** button on the folder's page (see [Encrypted folders](/features/folders/encryption#change-how-a-folders-key-is-kept) and [Turn on encryption for a folder](/features/folders/turn-on-encryption)).
@@ -155,13 +159,13 @@ The **Edit Folder** dialog shows what may be edited. Folders cannot be renamed a
 <details>
 <summary> Edit Folder dialog, Encryption step </summary>
 
-![edit.png](/features/folders/images/edit.png){.medium .framed}
+![edit.png](/create-a-new-folder/folder-edit-encryption.png){.medium .framed}
 </details>
 
-In this example, a new user has been added and the folder permissions are set to allow the new user to view the folder. Click **Save changes** to save.
+Check every card in **Review**. This example keeps the local user on **Full Access** for Time Machine. Click **Save changes** to save.
 
 <details>
 <summary> Saving updated folder permissions </summary>
 
-![save-edit.png](/features/folders/images/save-edit.png){.medium .framed}
+![save-edit.png](/create-a-new-folder/folder-edit-review.png){.medium .framed}
 </details>

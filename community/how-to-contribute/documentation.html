@@ -1,31 +1,70 @@
 <!--
-title: Documentation How To Contribute
-description: 
-published: false
-date: 2026-07-29T12:18:04.865Z
+title: Contribute to the documentation
+description: Report a problem, edit a page or prepare a community guide for review.
+published: true
+date: 2026-09-12T14:56:15.991Z
 tags: 
 editor: ckeditor
 dateCreated: 2026-07-18T09:51:14.516Z
 -->
 
-<h1>HexOS Documentation: how to contribute</h1>
-<p>There are two main ways to help improve the HexOS docs.</p>
-<ul>
-  <li>Feedback, corrections and tweaks</li>
-  <li>Writing guides for the HexOS community</li>
-</ul>
-<p>&nbsp;</p>
-<h2>Feedback, corrections and tweaks</h2>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<h2>Writing a guide</h2>
-<p>Join the #docs channel on the <a href="https://discord.com/invite/fCW2htvYdz">HexOS Discord server&nbsp;</a></p>
-<ul>
-  <li>describe the guide you would like to contribute</li>
-  <li>ask for edit access to the docs site - this is usually given same day but can take a few days</li>
-</ul>
-<p>Read through the documentation the style guide [TODO - link]</p>
-<p>&nbsp;</p>
-<p>Save it not publish it and let the discord know it's done&nbsp;</p>
-<p>Give time for others to review it and test it out?</p>
+<h1 id="contribute-to-the-documentation" class="toc-header"><a class="toc-anchor" href="#contribute-to-the-documentation">¶</a> Contribute to the documentation</h1>
+<p>You can help by reporting a problem, correcting an existing page or writing a guide. Read the <a href="/community/how-to-contribute/style-guide" class="is-internal-link is-valid-page">style guide</a> and <a href="/docs-licensing" class="is-internal-link is-valid-page">documentation license</a> before contributing text or images.</p>
+<h2 id="report-a-problem" class="toc-header"><a class="toc-anchor" href="#report-a-problem">¶</a> Report a problem</h2>
+<p>Join the <a href="https://discord.gg/fCW2htvYdz" class="is-external-link">HexOS Discord Community</a> and use the <strong>#Docs</strong> channel. Include the page link, the step that needs attention, what you expected and what happened. Include your HexOS or TrueNAS version when it affects the instructions. Keep passwords and personal information out of screenshots.</p>
+<h2 id="get-editing-access" class="toc-header"><a class="toc-anchor" href="#get-editing-access">¶</a> Get editing access</h2>
+<p>Ask the documentation team for editing access and explain the page or guide you want to work on. Wait for access to be granted, then sign in to the documentation site. If the editing controls are missing, confirm your access with the team before continuing.</p>
+<h2 id="edit-an-existing-page" class="toc-header"><a class="toc-anchor" href="#edit-an-existing-page">¶</a> Edit an existing page</h2>
+<p>Open the page and click <strong>Edit Page</strong>, the pencil control. The editor opens with the page's current contents.</p>
+<details>
+<summary> Page editing and new-page controls </summary>
+
+<p><img src="/documentation-contributions/page-controls.png" alt="Page controls above a saved documentation draft" class="medium framed"></p>
+</details>
+<p>Make the correction in the Markdown editor. Check the preview alongside it. Keep the page's address and community credits unless the documentation team agrees to change them.</p>
+<p>Click <strong>Save</strong>, the checkmark control at the top, and wait for <strong>Saved</strong>. Click <strong>Close</strong> to return to the page and check the saved result.</p>
+<details>
+<summary> Markdown editor and save control </summary>
+
+<p><img src="/documentation-contributions/save-page.png" alt="Markdown source and preview with the save checkmark above" class="medium framed"></p>
+</details>
+<blockquote class="is-warning">
+<p><strong>Warning:</strong> Do not assume an unsaved edit is protected. Save explicitly and check the result before closing the editor. Saving a published page updates that page; arrange review before making a substantial change to it.</p>
+</blockquote>
+<p>Tell the documentation team which page you changed and what you checked.</p>
+<h2 id="create-a-community-guide" class="toc-header"><a class="toc-anchor" href="#create-a-community-guide">¶</a> Create a community guide</h2>
+<p>Describe your proposed guide in <strong>#Docs</strong> before starting. Agree on its subject and location so it does not duplicate an existing guide.</p>
+<h3 id="choose-the-page-address" class="toc-header"><a class="toc-anchor" href="#choose-the-page-address">¶</a> Choose the page address</h3>
+<p>Click <strong>New Page</strong>, the page-with-plus control at the top of the site. In <strong>Select New Page Location</strong>, enter the agreed path. Community guides normally use <code>community/community-guides/</code> followed by a short lowercase name with hyphens, such as <code>my-guide</code>. Do not include a leading or trailing slash in the path field.</p>
+<details>
+<summary> New page location </summary>
+
+<p><img src="/documentation-contributions/page-location.png" alt="Community guide path in the page location dialog" class="medium framed"></p>
+</details>
+<p>Click <strong>Select</strong>. The next screen asks which editor to use. Click <strong>Markdown</strong> so the guide can use the callouts and screenshot markup in the style guide.</p>
+<details>
+<summary> Markdown editor choice </summary>
+
+<p><img src="/documentation-contributions/choose-markdown.png" alt="Markdown among the available page editors" class="medium framed"></p>
+</details>
+<h3 id="set-the-title-and-description" class="toc-header"><a class="toc-anchor" href="#set-the-title-and-description">¶</a> Set the title and description</h3>
+<p>In <strong>Page Properties</strong> &gt; <strong>Info</strong>, enter the page's <strong>Title</strong> and a one-sentence <strong>Short Description</strong>. Use the same title for the first heading in your Markdown. The path is the page address; it does not need to match the title's capitalization.</p>
+<details>
+<summary> Page title, description and path </summary>
+
+<p><img src="/documentation-contributions/page-properties.png" alt="Page Properties with title, description and path fields" class="medium framed"></p>
+</details>
+<h3 id="keep-the-draft-unpublished" class="toc-header"><a class="toc-anchor" href="#keep-the-draft-unpublished">¶</a> Keep the draft unpublished</h3>
+<p>Open <strong>Scheduling</strong> and turn <strong>Published</strong> off. An unpublished page is still visible to people with write permission for that page, so it is not a place for secrets. Click <strong>OK</strong> to return to the editor.</p>
+<details>
+<summary> Published switched off </summary>
+
+<p><img src="/documentation-contributions/keep-unpublished.png" alt="Scheduling tab with Published switched off" class="medium framed"></p>
+</details>
+<p>Write the guide and add screenshots using the <a href="/community/how-to-contribute/style-guide" class="is-internal-link is-valid-page">style guide</a>. Include the starting point, every action, the expected result and a way to check success. Credit the people whose work informed the guide.</p>
+<p>Click <strong>Create</strong> to save a new page. Later edits use <strong>Save</strong>. Wait for the saved result, then reopen the page to check its text, links and images.</p>
+<h2 id="review-and-publication" class="toc-header"><a class="toc-anchor" href="#review-and-publication">¶</a> Review and publication</h2>
+<p>Share the unpublished page link with the documentation team and ask for review. Keep <strong>Published</strong> off until the guide is approved. Review should include following the steps on the stated software version and checking every screenshot at full size.</p>
+<p>Fix missing steps, broken links and outdated images before requesting publication. A documentation administrator can arrange publication and add the guide to the <a href="/community/community-guides" class="is-internal-link is-valid-page">Community guides</a> list.</p>
+<h2 id="documentation-license" class="toc-header"><a class="toc-anchor" href="#documentation-license">¶</a> Documentation license</h2>
+<p>Read the <a href="/docs-licensing" class="is-internal-link is-valid-page">documentation license</a> for the terms that apply to your contribution.</p>

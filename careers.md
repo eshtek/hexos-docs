@@ -1,6 +1,6 @@
 ---
 title: Careers
-description: 
+description: Contact the HexOS team about working with us.
 published: true
 date: 2026-07-07T18:24:25.467Z
 tags: 
@@ -10,14 +10,9 @@ dateCreated: 2026-06-08T15:39:03.122Z
 
 # Careers
 
-HexOS is growing, and we're actively working on defining new roles. Check back here regularly for open positions. We're always interested in connecting with talented people who are passionate about home servers and self-hosting and HexOS in general.
+For current opportunities, contact [join@hexos.com](mailto:join@hexos.com). Include your background and the kind of work you are interested in.
 
-## Open positions
+## Related pages
 
-<span style="opacity: 0.6;">We don't currently have any open positions.</span>
-
-> Interested in working with us?
-> Feel free to reach out at **join@hexos.com** with your background and what you're passionate about. We'd love to hear from you.
-{.is-info}
-
-
+- [**About HexOS**](/about-hexos) - Learn about the product.
+- [**Ways to contribute**](/community/how-to-contribute) - Help with documentation, translations or app install scripts.

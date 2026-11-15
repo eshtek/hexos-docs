@@ -1,6 +1,6 @@
 ---
-title: Finding the key behind a string
-description: Use the key inspector to jump from any text in Command Deck straight to the string in Weblate
+title: Find a translation key
+description: Find the translation key for text in the Command Deck and open it in Weblate.
 published: true
 date: 2026-09-03T20:30:23.286Z
 tags: 
@@ -8,11 +8,11 @@ editor: markdown
 dateCreated: 2026-09-03T17:05:21.637Z
 ---
 
-# Finding the key behind a string
+# Find a translation key
 
-When you spot a translation that reads badly, the hard part is usually finding it again in Weblate. Command Deck holds thousands of strings, and short labels repeat across the interface. Searching for a word like "Settings" returns every string that happens to use it, with nothing to show which one you saw on screen.
+Short labels can appear in several places in the Command Deck. The key inspector helps identify the translation key for the text you are looking at.
 
-The key inspector solves this. Switch it on, point at any text on screen, and it names the string behind it. Click, and Weblate opens on that exact string in your language.
+Switch it on and point at translated text to see its key. Click the outline to open the matching Weblate entry. If the inspector reports a text-only match, check the result before editing it.
 
 ## Turning on developer mode
 
@@ -25,7 +25,7 @@ The version number now has **[DEV MODE]** next to it.
 <details>
 <summary> Sidebar footer with developer mode enabled </summary>
 
-![dev-mode-enabled.png](/translating-hexos/dev-mode-enabled.png){.small .framed}
+![dev-mode-enabled.png](/translating-hexos/key-inspector-control.png){.medium .framed}
 </details>
 
 To leave developer mode, click the version number 10 times again and click **Disable**.
@@ -33,7 +33,7 @@ To leave developer mode, click the version number 10 times again and click **Dis
 <details>
 <summary> The Developer Mode dialog </summary>
 
-![developer-mode-dialog.png](/translating-hexos/developer-mode-dialog.png){.medium .framed}
+![developer-mode-dialog.png](/translating-hexos/developer-mode-enable.png){.medium .framed}
 </details>
 
 > **Info:** Developer mode is saved to your account, so it follows you between browsers and devices. It does not change anything about how your server runs.
@@ -46,7 +46,7 @@ With developer mode on, a small control appears at the bottom of every screen.
 <details>
 <summary> The i18n keys control </summary>
 
-![key-inspector-bar.png](/translating-hexos/key-inspector-bar.png){.medium .framed}
+![key-inspector-bar.png](/translating-hexos/key-inspector-control.png){.medium .framed}
 </details>
 
 There are two ways to look at a screen:
@@ -57,9 +57,9 @@ There are two ways to look at a screen:
 Every translated string on screen is outlined. The control also shows how many strings are on the current screen.
 
 <details>
-<summary> Dashboard with every translated string outlined </summary>
+<summary> Folders screen with translated strings outlined </summary>
 
-![key-inspector-boxes.png](/translating-hexos/key-inspector-boxes.png){.large .framed}
+![key-inspector-boxes.png](/translating-hexos/key-inspector-outlines.png){.large .framed}
 </details>
 
 ## Reading the outlines
@@ -76,9 +76,9 @@ Dashed blue outlines cover the strings that are easy to miss: screen reader labe
 Hover over an outline to see the key. For text that is not shown on screen, the inspector also names where the text lives, such as **aria-label** or **tooltip**.
 
 <details>
-<summary> Key for a screen reader label </summary>
+<summary> Key for a toolbar tooltip </summary>
 
-![key-inspector-hidden-label.png](/translating-hexos/key-inspector-hidden-label.png){.medium .framed}
+![key-inspector-hidden-label.png](/translating-hexos/key-inspector-hidden.png){.medium .framed}
 </details>
 
 An outline can hold more than one key. The inspector lists up to six, then tells you how many more there are.
@@ -90,7 +90,7 @@ Click any outline to open that string in Weblate, already filtered to the right 
 <details>
 <summary> Key for text on screen </summary>
 
-![key-inspector-key-tooltip.png](/translating-hexos/key-inspector-key-tooltip.png){.large .framed}
+![key-inspector-key-tooltip.png](/translating-hexos/key-inspector-visible.png){.large .framed}
 </details>
 
 ## When the inspector is not sure
