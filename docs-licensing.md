@@ -1,5 +1,5 @@
 ---
-title: Documentation Licensing
+title: Documentation licensing
 description: Licensing for the HexOS product documentation
 published: true
 date: 2026-08-20T15:47:25.856Z
@@ -8,7 +8,7 @@ editor: markdown
 dateCreated: 2026-08-11T14:21:00.545Z
 ---
 
-# HexOS Documentation License
+# Documentation licensing
 
 **Last updated: August 20, 2026**
 
@@ -16,7 +16,7 @@ The HexOS documentation is developed and maintained by **Eshtek, Inc.** with con
 
 We want the HexOS documentation to be freely available for people to use, improve, translate, and share, while also allowing contributions to be reused under different licenses where appropriate. This allows HexOS documentation to benefit the wider HexOS community in as many ways as possible.
 
-## Documentation License
+## Documentation license
 
 Except where otherwise noted, the content of the HexOS documentation is licensed under the **Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)**.
 
@@ -25,15 +25,15 @@ https://creativecommons.org/licenses/by-sa/4.0/
 
 Under this license, you may:
 
-* **Share** — copy and redistribute the documentation in any medium or format.
-* **Adapt** — remix, transform, translate, and build upon the documentation.
-* **Use it commercially** — the license does not prohibit commercial use.
+* **Share**: copy and redistribute the documentation in any medium or format.
+* **Adapt**: remix, transform, translate, and build upon the documentation.
+* **Use it commercially**: the license does not prohibit commercial use.
 
 These permissions are subject to the requirements of CC BY-SA 4.0, including:
 
-* **Attribution** — You must provide appropriate credit, provide a link to the license, and indicate whether changes were made.
-* **ShareAlike** — If you distribute adapted documentation, you must license your contributions under CC BY-SA 4.0 or another license permitted by CC BY-SA 4.0.
-* **No additional restrictions** — You may not impose legal or technological restrictions that prevent others from exercising the rights granted by the license.
+* **Attribution**: You must provide appropriate credit, provide a link to the license, and indicate whether changes were made.
+* **ShareAlike**: If you distribute adapted documentation, you must license your contributions under CC BY-SA 4.0 or another license permitted by CC BY-SA 4.0.
+* **No additional restrictions**: You may not impose legal or technological restrictions that prevent others from exercising the rights granted by the license.
 
 The complete and legally controlling terms are contained in the Creative Commons Attribution-ShareAlike 4.0 International Public License:
 
@@ -61,7 +61,7 @@ Individual contributors do not need to be separately listed where attribution to
 
 ---
 
-## Community Contributions
+## Community contributions
 
 By submitting documentation, edits, images, diagrams, examples, or other copyrightable material ("Contributions") to the HexOS documentation project, you represent that:
 
@@ -69,7 +69,7 @@ By submitting documentation, edits, images, diagrams, examples, or other copyrig
 2. The Contribution does not knowingly violate the copyright or other intellectual property rights of another party; and
 3. You agree that the Contribution may be incorporated into and publicly distributed as part of the HexOS documentation under CC BY-SA 4.0.
 
-### License Granted to Eshtek
+### License granted to Eshtek
 
 In addition to making your Contribution available to the public under CC BY-SA 4.0, by submitting a Contribution you grant **Eshtek, Inc.** a perpetual, worldwide, non-exclusive, royalty-free, irrevocable license to:
 
@@ -94,7 +94,7 @@ Submitting a Contribution does **not** transfer ownership of your copyright to E
 
 ---
 
-## Code and Code Examples
+## Code and code examples
 
 Unless otherwise specifically indicated, the CC BY-SA 4.0 license applies to the **documentation content** and should not be interpreted as changing the license applicable to the HexOS software itself.
 
@@ -106,7 +106,7 @@ If no separate license is identified for a documentation code example, its inclu
 
 ---
 
-## Third-Party Content
+## Third-party content
 
 Some portions of the HexOS documentation may include or reference third-party content, software, trademarks, screenshots, images, or other materials that are subject to separate licenses or terms.
 
@@ -116,7 +116,7 @@ CC BY-SA 4.0 applies only to material for which Eshtek, Inc. or the applicable c
 
 ---
 
-## HexOS Trademarks and Branding
+## HexOS trademarks and branding
 
 The CC BY-SA 4.0 license applies to copyrightable documentation content. It does **not** grant permission to use HexOS trademarks, trade names, logos, product branding, or other brand identifiers except as necessary for reasonable attribution or otherwise permitted by applicable law.
 
@@ -128,7 +128,7 @@ Nothing in this license grants the right to represent modified or third-party do
 
 ---
 
-## Official and Modified Documentation
+## Official and modified documentation
 
 Only documentation published or expressly approved by **Eshtek, Inc.** should be represented as **official HexOS documentation**.
 
@@ -136,7 +136,7 @@ If you redistribute a modified version of the HexOS documentation, you should cl
 
 ---
 
-## No Warranty
+## No warranty
 
 The HexOS documentation is provided for informational purposes and is made available without warranties of any kind to the extent permitted by applicable law.
 

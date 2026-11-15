@@ -1,6 +1,6 @@
 ---
-title: Install Script Schema
-description: Every field an install script can declare, by schema version.
+title: Install script schema
+description: Understand install-script fields, supported versions and validation limits.
 published: true
 date: 2026-10-20T00:00:00.000Z
 tags: 
@@ -8,7 +8,7 @@ editor: markdown
 dateCreated: 2026-06-08T15:40:16.156Z
 ---
 
-# Install Script Schema
+# Install script schema
 
 Install scripts are JSON objects with the following structure. Scripts can use various macros (template variables) that are dynamically replaced during processing.
 
@@ -23,11 +23,12 @@ Install scripts are JSON objects with the following structure. Scripts can use v
 - **`metadata`** (required if `custom: true`): Custom app metadata (see [Custom App Metadata](#custom-app-metadata))
 - **`script`** (required): Metadata about the install script itself
   - **`version`** (required): Semantic version of this install script (e.g., "1.0.0", "2.1.3")
-  - **`updateCompatibility`** (optional): Semver range expression defining which script versions can update to this version (e.g., ">=1.0.0" allows updates from any version 1.0.0 or higher, "^2.0.0" allows updates from 2.x.x versions). Supports all [semver range syntax](https://www.npmjs.com/package/semver#ranges) including `>=`, `>`, `<`, `<=`, `^`, `~`, and complex ranges like `">=1.0.0 <3.0.0"`
+  - **`updateCompatibility`** (optional): Semver range expression defining which script versions can update to this version (e.g., ">=1.0.0" allows updates from any version 1.0.0 or higher, "^2.0.0" allows updates from 2.x.x versions). Supports all [semver range syntax](https://github.com/npm/node-semver#ranges) including `>=`, `>`, `<`, `<=`, `^`, `~`, and complex ranges like `">=1.0.0 <3.0.0"`
   - **`changeLog`** (optional): Description of changes in this version of the script
-- **`requirements`** (required): System requirements that are validated before installation
+- **`requirements`** (required): Declared locations, resources, permissions and ports; see the validation limits below
 - **`installation_questions`** (optional): Array of questions to ask the user during installation
 - **`ensure_directories_exists`** (optional): Array of directory entry objects to create before installation, with optional ownership and snapshot declarations
+- **`ensure_files_exist`** (optional): Persistent settings files prepared for the app; see [Persistent settings files](#persistent-settings-files)
 - **`app_values`** (required): Configuration object passed directly to TrueNAS API
 - **`hooks`** (optional, V5 and V6): Array of hook declarations. V5 declares lifecycle hooks in the [V5 dialect](#hooks-v5); V6 declares the [melded family](#hooks-v6) — one declaration covers lifecycle automation and user-triggerable actions
 - **`widgetsSchema`** (optional, V6): Widget declaration vocabulary version. Set it to `3`. A platform that does not support the value reads none of the app's widgets, and the catalog validator rejects a declared value other than `3`
@@ -71,16 +72,25 @@ When `custom: true`, the `metadata` object is required:
 |---|---|---|---|
 | `name` | string | Yes | Display name in the HexOS app store |
 | `description` | string | Yes | Brief description of what the app does |
-| `icon` | string | Yes | URL to the app's icon (SVG or PNG) |
+| `icon` | string | Yes | Path to the app's icon inside the catalog repository, such as `myapp/icon.svg` |
 | `version` | string | Yes | Semantic version of the custom app |
+| `categories`, `keywords`, `screenshots`, `sources` | string arrays | No | Additional catalog metadata. Screenshot paths are relative to the catalog repository. |
+| `homepage` | string | No | App website |
+| `maintainers` | object array | No | Objects with `name` and `email` |
+
+### Catalog sign-in declarations
+
+Catalog scripts can declare how an app receives a sign-in. `sign_in` accepts `username` (defaults to true), `email` and `existing`. `existing: true` identifies an installed app whose setup must use its existing account. The older `adds_user` field is ignored.
+
+`generated_sign_in` identifies an app-created credentials file with `file`, `username`, `password` and optional `change_hook` keys. These declarations are read separately from the general install-script schema; do not assume every custom-install path preserves them.
 
 ## Example structure
 
-For complete, working examples of install scripts, browse the [hexos-app-catalog](https://github.com/eshtek/hexos-app-catalog) repository. These production-ready scripts demonstrate best practices and real-world usage patterns for popular applications like Plex, Jellyfin, Immich, and more.
+Browse the [hexos-app-catalog](https://github.com/eshtek/hexos-app-catalog) for app-specific examples. The JSON snippets on this page illustrate individual fields unless stated otherwise. They are not complete install scripts. Match `app_values` and endpoints to the version of the app you are testing.
 
 ## Requirements
 
-The `requirements` object defines system requirements that HexOS validates before allowing app installation. This ensures users have properly configured their system with the necessary locations, resources, and permissions.
+The `requirements` object declares the locations, resources, permissions and ports the app uses. Include `locations`, `specifications`, `permissions` and `ports` as arrays, even when an array is empty. Declaring a requirement does not establish that it has been checked; see [Requirements validation](#requirements-validation).
 
 **Requirements Object Properties:**
 - **`locations`** (array): Required folder locations that must be configured in HexOS Settings
@@ -134,12 +144,13 @@ Locations are folder paths configured in HexOS **Settings** > **Locations**. Eac
 
 ### Specifications
 
-Hardware and resource specifications ensure the system meets minimum requirements:
+These values describe the app's requirements. The general requirements check does not currently validate them against the server.
 
-**Available Specifications:**
-- `100MB`, `200MB`, `500MB`, `1GB`, `2GB`: Minimum storage space needed
-- `1CORE`, `2CORE`, `4CORE`, `8CORE`: Minimum CPU cores required
-- `GPU`: Requires GPU hardware (for transcoding, ML, etc.)
+- `MB`, `GB`: Storage declarations prefixed by a number, such as `200MB`.
+- `CORE`: CPU-core declarations, such as `2CORE`.
+- `MBRAM`, `GBRAM`: System-memory declarations, such as `8GBRAM`.
+- `GBVRAM`: Graphics-memory declarations, such as `8GBVRAM`.
+- `GPU`, `DISPLAY`: Graphics and display requirements.
 
 **Example:**
 ```json
@@ -204,32 +215,39 @@ Network ports that the application will use. HexOS can validate port availabilit
 
 ### Requirements validation
 
-When users attempt to install an app, HexOS performs the following checks:
+The requirements check verifies that each listed location has a configured path. It reports declared specifications and permissions as met without checking the hardware or granting access. Those declarations are not proof that the app can run or read its folders.
 
-1. **Location Validation**: Verifies that all required locations are configured in **Settings** > **Locations**
-   - If a location is not configured, it will be marked as "unmet"
-   - Users must configure missing locations before installation can proceed
-   - The install script's `ensure_directories_exists` will create subdirectories within configured locations
+Port allocation is active. During installation, HexOS checks the ports it can read, moves ports that the script allows to move and refuses known conflicts on fixed or reserved ports. If current ports cannot be read, it leaves the script's numbers unchanged. It does not guarantee they are free.
 
-2. **Specifications Check**: Validates system meets minimum hardware requirements (coming soon)
+`ensure_directories_exists` declares directories, not files. Use `ensure_files_exist` for persistent settings files. Configure base locations in **Settings** > **Locations** before installation.
 
-3. **Permissions Check**: Confirms the app has necessary permissions (coming soon)
+### Optional requirement fields
 
-4. **Port Availability**: Validates required ports are available (coming soon)
+These are the additional fields accepted by the requirements schema:
 
-**Important**: The `ensure_directories_exists` section of your install script will only create subdirectories and files. It does **not** create the base location paths themselves. Users must configure these locations in HexOS Settings first, and your requirements validation ensures this happens before installation begins.
+| Field | Accepted value |
+|---|---|
+| `game_port` | A positive game connection port number through 65535. |
+| `reserved_ports` | Ports or inclusive objects such as `{ "start": 27015, "end": 27020 }`. |
+| `instances` | `"many"` for multiple app copies. |
+| `shared_folders` | Folder expressions shared by those copies. |
+| `copy_libraries` | Locations whose later copies receive separate folders. |
+| `contained` | An object with optional `partner`, declaring a restricted app network. |
+| `local_only` | A boolean declaring that the app must not receive an external address. |
+| `gpu` | `"one"` to request one graphics card for a new installation. |
+| `gpu_hook` | The hook ID used to apply video settings after a graphics-card selection. |
 
 ## Installation questions
 
 Installation questions allow you to prompt users for configuration values during app installation. Question responses can be referenced in `app_values` using the `$QUESTION(key)` syntax.
 
 <details>
-<summary> Installation questions dialogue </summary>
+<summary> Installation questions dialog </summary>
 
-![installation-questions-example.png](/installation-questions-example.png =750x){.align-center}
+![Current installation questions](/app-install-script-schema/installation-questions.png){.medium .framed}
 </details>
 
-*Example of installation questions displayed during app installation*
+This example shows the **Configuration** step for the current Plex custom install script. Its questions and optional configuration come from that script. Opening this screen does not install the app.
 
 **Question Object Properties:**
 - **`question`** (required): The question text shown to the user
@@ -242,10 +260,12 @@ Installation questions allow you to prompt users for configuration values during
   - `"boolean"`: True/false toggle
   - `"password"`: Masked text input. A `$RANDOM_STRING(n)` default offers a generated value
 - **`key`** (required): Unique identifier used to reference the answer with `$QUESTION(key)`
-- **`options`** (required for `select` type): Array of option objects with `text` and `value` properties
-- **`required`** (optional): Whether the question must be answered (default: false)
+- **`options`** (optional): Options for a fixed `select` question, with `text` and `value` properties
+- **`source`** (optional): `"local-ai-models"` for a model-selection question
+- **`attestation`** (optional): Marks a boolean question as a confirmation the user must review
+- **`required`** (optional): Whether the question must be answered. Only `false` makes it optional.
 - **`default`** (optional): Default value or special syntax like `$RANDOM_STRING(16)`
-- **`installonly`** (optional): Set to `true` for values the app only consumes on first boot (e.g. initial admin credentials). The question is still asked during install (including custom install and reinstall), but is hidden from the post-install Options/Configure dialog, where changing it would have no effect. The question's `$QUESTION(key)` reference should appear in `app_values` so the current value stays recoverable from the installed app's configuration during updates.
+- **`installonly`** (optional): Set to `true` for values the app only consumes on first boot (e.g. initial admin credentials). The question is still asked during install (including custom install and reinstall), but is omitted from the app's later settings, where changing it would have no effect. The question's `$QUESTION(key)` reference should appear in `app_values` so the current value stays recoverable from the installed app's configuration during updates.
 - **`group`** (optional): Splits a long list of questions into steps and sections in the install workflow. Without it, every question appears on one screen. With it, the workflow shows one dot per step, and each screen holds a handful of inputs, so an app with dozens of questions reads as a short flow instead of one long form.
 
 **Grouping format:**
@@ -253,10 +273,12 @@ Installation questions allow you to prompt users for configuration values during
 The value is `"Step"` or `"Step / Section"`. The text before the spaced slash names the step; the text after it names a section within that step. Questions with the same step text share a step, and questions with the same full value share a section.
 
 ```json
+[
 { "question": "Admin username", "type": "text", "key": "admin_user", "group": "Server / Access" },
 { "question": "Admin password", "type": "password", "key": "admin_pass", "group": "Server / Access" },
 { "question": "Web port", "type": "number", "key": "web_port", "group": "Server / Network" },
 { "question": "Library path", "type": "text", "key": "library", "group": "Storage" }
+]
 ```
 
 This produces two steps. The first holds two sections, **Access** (username and password) and **Network** (port), shown in a clickable rail beside the form. The second, from the plain `"Storage"` value, has a single section, so the form fills the screen with no rail.
@@ -269,7 +291,7 @@ What the user sees:
 
 Steps and sections appear in the order their first question is listed. Only the first ` / ` in a value splits it, and the slash must have a space on each side, so `"TCP/IP settings"` stays one name.
 
-Grouping is presentational only. It has no effect on the install payload or on `$QUESTION()` references. It applies to the standard install flow; the custom install dialog and the post-install **Options** dialog show every question on one screen regardless of `group`.
+Grouping is presentational only. It has no effect on the install payload or on `$QUESTION()` references. It applies to the standard install flow; Custom Install presents its configuration together. In app settings, users can change the settings the app exposes after installation.
 
 **Using Question Responses:**
 
@@ -304,10 +326,11 @@ Each entry in `ensure_directories_exists` is an object with the following proper
 
 - `path` (required): Directory path, typically using `$LOCATION()` macros
 - `network_share` (optional): Boolean, whether to expose as a network share
-- `owner` (optional): Object specifying the TrueNAS user and group that should own this directory
+- `owner` (optional): A username string, or an object specifying the TrueNAS user and group that should own this directory
   - `user` (required): TrueNAS username (e.g., `"apps"`, `"netdata"`)
   - `group` (optional): TrueNAS group name (e.g., `"docker"`). If omitted, uses the user's default group
-- `snapshot` (optional): Object with an `id` field. When present, HexOS snapshots this dataset before app updates so support can assist with restoring your application and data if something goes wrong
+- `start_mount` (optional): Absolute container path where HexOS adds this directory as a mount after preparation. Keep this mount out of the script's `additional_storage` list.
+- `snapshot` (optional): Object with an `id` field requesting an app snapshot during updates
   - `id` (required): Identifier included in the snapshot name and metadata (e.g., `"db"`, `"config"`)
 
 **Example:**
@@ -327,14 +350,20 @@ Each entry in `ensure_directories_exists` is an object with the following proper
 - HexOS calls `user.get_user_obj` and optionally `group.get_group_obj` on the TrueNAS system to resolve usernames and group names to numeric uid/gid
 - After `app.update` completes, HexOS verifies and repairs ownership on declared paths if TrueNAS changed it
 - If a path has a POSIX1E ACL (legacy), HexOS automatically migrates it to NFS4 with `aclmode: PASSTHROUGH`, snapshots the dataset first as a rollback point, then applies the canonical ACL with the declared uid/gid
-- Only applies to app-specific paths (4+ path segments, e.g., `/mnt/pool/location/app/data`) — location roots are never modified
+- HexOS checks configured application roots and the resolved path before changing ownership. Shared, external or uncertain paths are left alone. More path segments do not make a path safe to change.
 - Paths without `owner` are created with default permissions and not tracked for repair
 
 **How `snapshot` works:**
-- Before any app update, HexOS snapshots each dataset with a `snapshot` config so support can assist with restoring your application and data if something goes wrong
+- The update flow attempts to create declared snapshots. Recovery flows can require a successful restore point before continuing.
 - Snapshots are named `hexos-app-{appId}-{id}-{timestamp}` and stamped with metadata: `hexos:purpose`, `hexos:app`, `hexos:snapshot_id`, `hexos:path`
-- Only the latest 3 snapshots per app per dataset are kept — older snapshots are automatically pruned after each new snapshot
-- Only applies to app-specific paths (4+ path segments) — location roots are never snapshotted
+- The normal declared app-snapshot series keeps the two newest matching snapshots after a successful new snapshot. Some recovery snapshots are deliberately retained instead of pruned.
+- The per-directory snapshot selection also requires a path with more than three segments. This is separate from the ownership path checks. App snapshots are not a substitute for a backup.
+
+### Persistent settings files
+
+`ensure_files_exist` is an optional array. Each entry requires `path` for the host file, `mount_path` for its absolute container path, and nonnegative integer `uid` and `gid` values. The parent directory must exist.
+
+HexOS keeps an existing file. When it must make a file, it copies the app's existing container file when present. Failure to read that file stops the operation rather than replacing it with an empty file.
 
 ## App values
 This object is passed directly to TrueNAS's app installation API. The structure varies by application and corresponds to the app's configuration schema in the [TrueNAS apps repository](https://github.com/truenas/apps). For example, you can see Plex's schema for the `storage` property [here](https://github.com/truenas/apps/blob/1d2a6e9811f9af2ceae6529cc094a432a7da4e96/trains/stable/plex/app_versions.json#L422).
@@ -348,7 +377,7 @@ Install scripts support conditional logic to customize app configuration based o
 
 ## Hooks (V5)
 
-In V5, each entry in `hooks` declares one lifecycle hook keyed by a singular `event` — one of `onBeforeInstall`, `onAfterInstall`, `onBeforeUpgrade`, or `onAfterUpgrade`.
+In V5, each entry in `hooks` declares one lifecycle hook keyed by a singular `event` — one of `onBeforeInstall`, `onAfterInstall`, `onBeforeUpgrade`, `onAfterUpgrade`, or `onBeforeStop`.
 
 ```json
 {
@@ -373,7 +402,7 @@ Fields: `id`, `event`, `script` / `scriptContent`, `entrypoint`, `condition`, `t
 
 V6 declares everything through one shape — a hook. Its `events` decide *when* it runs; a hook whose events include `userAction` is user-triggerable, and its `surfaces` decide *where* the user can fire it.
 
-> Users see user-triggerable hooks as the app's **Actions** in the interface.
+> **Info:** Users see user-triggerable hooks as the app's **Actions** in the interface.
 {.is-info}
 
 ```json
@@ -407,6 +436,9 @@ V6 declares everything through one shape — a hook. Its `events` decide *when* 
 | `id` | string | Yes | Unique within the dictionary. Load-bearing — consent opt-ins, task history, rerun keys, and widget button references all key off it |
 | `title` | string | Yes | User-facing name: the button label, the install-picker row, the consent checkbox label |
 | `description` | string | No | Explanatory text. Also the progress label while the hook runs, falling back to `title` |
+| `summary` | string | No | Idle explanation. Surfaces use it before `description`; a running task still uses `description` or `title`. |
+| `rerunsOn` | array | No | Accepts `"local-ai-model"` for links to rerun after that model changes. |
+| `copies` | `"each"` or `"one"` | No | How a link handles several installed copies of its target app. |
 | `kind` | string | No | `connect`, `maintain`, or `custom`. Descriptive only — used for icons and grouping, never for behavior |
 | `events` | array | No | When the hook fires (see [Events](#events)). Absent means `["userAction"]` |
 | `optional` | boolean | No | Lifecycle firings only: skip on failure or input timeout instead of blocking the ceremony |
@@ -417,15 +449,19 @@ V6 declares everything through one shape — a hook. Its `events` decide *when* 
 | `requiresHooks` | array | No | Up to 8 same-app hook ids this hook depends on. The install dialog gates this hook's row on those hooks' consent toggles, and their collected inputs carry over so matching input keys never re-prompt |
 | `target` | object | No | File selection contract (see [Targets](#targets)). User-fired only |
 | `rerun` | string | Conditional | `idempotent`, `converge`, or `refuse`. Required if the hook is user-triggerable, rejected if it isn't |
-| `script` | string | No | Path to a `.ts` file in the catalog repo (e.g., `"plex/connect_seer.ts"`) |
+| `script` | string | No | Path to the TypeScript file to execute. |
 | `scriptContent` | string | No | Inline TypeScript embedded directly in the JSON |
 | `entrypoint` | string | Yes | Name of the exported async function to call |
-| `timeout` | number | No | Maximum execution time in seconds (default: 300) |
+| `timeout` | number | No | Maximum execution time in seconds; normally 300, with shorter limits for `onBeforeStop` |
 | `retries` | number | No | Automatic retry attempts on failure (default: 0) |
 
 Every hook must have exactly one of `script` or `scriptContent` — never both, never neither.
 
 `rerun` describes what a second run means: `refuse` blocks a run while a completed run already exists for the same app, hook, and target; `idempotent` and `converge` always allow one. Failed and dismissed runs never block — `refuse` protects a successful one-time setup from running twice, not the user from retrying a failure.
+
+### Before-stop limits
+
+Before-stop hooks have a 30-second default per hook within a 60-second limit for the save phase. A failure or timeout does not cancel the requested stop. They cannot collect inputs, wait for checkpoint retry, restart the app or update its values. Stops made directly by TrueNAS and operations that stop apps in bulk do not necessarily run these hooks.
 
 ### Events
 
@@ -438,17 +474,20 @@ Each entry in `events` is either a string or an object.
 | `onAfterInstall` | After `app.create` completes successfully |
 | `onBeforeUpgrade` | Before `app.upgrade` is called on TrueNAS |
 | `onAfterUpgrade` | After `app.upgrade` completes successfully |
+| `onBeforeStop` | Gives a running app a chance to save before a supported HexOS operation stops its containers. |
 
 The object form is legal for any lifecycle event and carries per-trigger configuration:
 
 | Property | Type | Required | Description |
 |---|---|---|---|
-| `event` | string | Yes | One of the four lifecycle events above |
+| `event` | string | Yes | One of the lifecycle events above |
 | `from` | string | No | Semver range matching the version being departed. Upgrade events only |
 | `to` | string | No | Semver range matching the version being installed. Upgrade events only |
 
 ```json
+{
 "events": [{ "event": "onBeforeUpgrade", "from": "< 2.0.0", "to": ">= 2.0.0" }]
+}
 ```
 
 Trigger rules:
@@ -467,9 +506,9 @@ Conditions gate a hook against live system state. Every condition carries a `rol
 |---|---|---|
 | `appInstalled` | `app` (string) | That app is installed |
 | `appRunning` | `app` (string) | That app is installed and running |
-| `appVersion` | `app` (string), `range` (semver range) | The installed app's version satisfies the range |
-| `capabilityPresent` | `capability` (string) | The named capability is present |
-| `script` | `script` (string), `entrypoint` (string, optional) | A local-side script predicate returns true |
+| `appVersion` | `app` (string), `range` (semver range) | Accepted vocabulary; currently evaluates false. |
+| `capabilityPresent` | `capability` (string) | Accepted vocabulary; currently evaluates false. |
+| `script` | `script` (string), `entrypoint` (string, optional) | Accepted vocabulary; currently evaluates false. |
 
 Every predicate must pass. A failing `visibility` condition hides the hook; a failing `availability` condition disables it with a reason. Hidden implies unavailable.
 
@@ -478,6 +517,8 @@ Condition evaluation fails closed: any predicate the platform cannot evaluate �
 Two combinations are rejected outright:
 - An `appVersion` condition on the *declaring* app, on a hook with an upgrade trigger. Conditions evaluate the post-upgrade version, so it would never fire — put the gate on the trigger entry (`{ "event": ..., "from": ..., "to": ... }`) instead
 - A condition referencing *another* app, on a hook with any lifecycle trigger. Cross-app connects run from the install picker; remove the lifecycle trigger
+
+The accepted `surfaces` vocabulary also includes `settings`. It is not a default placement.
 
 ### Targets
 
@@ -609,7 +650,7 @@ Widgets are read-only dashboard glances. A widget is the app's dashboard card, b
 | `description` | string | No | One line explaining the glance |
 | `refresh` | number | No | Seconds between query refreshes, as a positive whole number (default: 300, floor: 5) |
 | `conditions` | array | No | Same condition vocabulary as hooks — `visibility` hides, `availability` renders the reason instead of data |
-| `script` | string | No | Path to a `.ts` file in the catalog repo |
+| `script` | string | No | Path to the TypeScript file to execute. |
 | `scriptContent` | string | No | Inline TypeScript embedded directly in the JSON |
 | `entrypoint` | string | Yes | Name of the exported async function to call |
 | `timeout` | number | No | Seconds before the query is abandoned (default: 10) |

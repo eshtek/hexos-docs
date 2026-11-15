@@ -1,6 +1,6 @@
 ---
-title: Release Notes
-description: 
+title: Release notes
+description: Read about updates to the Command Deck and supported TrueNAS releases.
 published: true
 date: 2026-10-28T19:28:05.316Z
 tags: 
@@ -14,7 +14,7 @@ Stay up to date with the latest changes to HexOS and the underlying TrueNAS plat
 
 ## HexOS Command Deck
 
-The Command Deck is the HexOS web interface. Updates are automatically deployed — no action needed on your part.
+The Command Deck is the HexOS web interface. The hosted interface is updated by the HexOS team. Server software updates are separate.
 
 ### Recent updates
 
@@ -24,13 +24,13 @@ The Command Deck is the HexOS web interface. Updates are automatically deployed 
 - [**2026-11-03**](/release-notes/command-deck/2026-11-03) - Restore points, Recently deleted folders, Jellyfin hardware transcoding, and more
 - [**2026-10-30**](/release-notes/command-deck/2026-10-30) - Network UPS setup, a Valheim server, Mac drives in Bring over, and more
 
-**[View all Command Deck release notes →](/release-notes/command-deck/)**
+**[View all Command Deck release notes](/release-notes/command-deck/)**
 
 ## TrueNAS
 
 HexOS is built on TrueNAS. You will be prompted to update as future compatibility with TrueNAS becomes available.
 
-**[View TrueNAS Version Notes →](https://www.truenas.com/docs/scale/25.10/gettingstarted/versionnotes/)**
+**[View TrueNAS Version Notes](https://www.truenas.com/docs/scale/25.10/gettingstarted/versionnotes/)**
 
 | Train | Version | TrueNAS Docs |
 |-------|---------|-------------|

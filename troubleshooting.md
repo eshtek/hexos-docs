@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-description: Find help with installation, connections, apps, and storage.
+description: Find help with installation, connections, apps and storage.
 published: true
 date: 2026-08-20T19:30:00.000Z
 tags: 
@@ -12,7 +12,7 @@ dateCreated: 2026-06-08T15:44:02.077Z
 
 Something not working? Find the area below that matches what you are seeing.
 
-> **Help:** If your problem is not covered here, ask in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz) — other users and the team are there.
+> **Help:** If your problem is not covered here, ask in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz); other users and the team are there.
 {.is-troubleshooting}
 
 ## Setting up
@@ -40,7 +40,7 @@ Something not working? Find the area below that matches what you are seeing.
 ## Storage and drives
 
 - [**Storage and drive issues**](/troubleshooting/storage-and-drives) - Drives not recognized, pool creation problems
-- [**Drive failure**](/troubleshooting/drive-failure) - Replace a failed or failing drive without losing data
+- [**Drive failure**](/troubleshooting/drive-failure) - Check a failed or failing drive and follow the replacement guidance
 - [**Files that can't be read**](/troubleshooting/pool-data-errors) - Damaged files on a pool, Repair for a damaged TrueNAS file, Check pool and Reset error count
 - [**Why your pool size changes**](/troubleshooting/pool-size) - How HexOS calculates a pool's size, and why it can grow past your drives or shrink when you delete files
 
@@ -58,17 +58,17 @@ Something not working? Find the area below that matches what you are seeing.
 
 ## Migrating and upgrading
 
-Planned changes to a working server — moving hardware, restructuring storage, or running a required upgrade. See [Migrating and upgrading](/troubleshooting/migrating) for all of these together.
+Planned changes to a working server; moving hardware, restructuring storage, or running a required upgrade. See [Migrating and upgrading](/troubleshooting/migrating) for all of these together.
 
 - [**Import existing pools**](/troubleshooting/migrating/import-existing-pools) - Move drives from TrueNAS or a previous install without wiping them
 - [**Move to new hardware**](/troubleshooting/migrating/new-hardware) - Move apps, VMs, and data to a different machine
 - [**Immich storage migration**](/troubleshooting/migrating/immich-storage) - Move Immich photos to a new storage configuration
-- [**Update HexOS 24.10 to 25.10**](/troubleshooting/migrating/truenas-24-to-25) - Bring an early-adopter server onto the current release
+- [**Update HexOS 24.10 to 25.10**](/troubleshooting/migrating/truenas-24-to-25) - Bring an early-adopter server from the specified older TrueNAS train
 - [**Update Immich to Postgres 18**](/troubleshooting/migrating/immich-postgres-18) - Required database upgrade for Immich
 
 ## Stuck tasks
 
-If a task is taking too long or appears stuck in the Activities panel, you can dismiss it manually by enabling [Experimental Features](/features/settings/experimental-features/) and clicking the X icon next to the task.
+Open the bell and check **Jobs** for the task's status and error. A slow task is not necessarily stuck. Dismissing a notification does not repair the underlying operation. Save the error and ask for help before interrupting storage work.
 
 > **Warning:** Always back up important data before making system changes or troubleshooting storage issues.
 {.is-warning}

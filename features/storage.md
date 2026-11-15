@@ -1,6 +1,6 @@
 ---
 title: Storage
-description: 
+description: Review pools and drives, replace a drive and understand storage growth.
 published: true
 date: 2026-11-08T20:30:00.000Z
 tags: 
@@ -18,15 +18,54 @@ This screen allows you to
 
 ## Creating storage pools
 
-When first setting up your server, you likely created at least one storage pool. Pools are groups of drives that will work together as one, allowing a larger amount of storage space than a single drive and may also give additional “redundancy” in case of drive failure.
+A pool combines drives into storage. Its layout determines how much space is available and how many drive failures it can tolerate. A single drive has no redundancy; a mirror adds protection, while supported RAIDZ layouts also allow later capacity growth.
 
-If you have unused drives, you can create a new pool by clicking the create pool button.
+> **Danger:** Creating a pool erases the selected drives. Check their identities and keep a separate backup of anything you need before continuing.
+{.is-danger}
 
-It’s important to create pools with an appropriate number of drives. Any pools with fewer than three drives cannot be expanded with additional drives.<br> [Read more about drives and pools here](/getting-started/overview#get-yourself-some-storage)
+1. Open **Storage** and click **New pool**. Choose a configuration offered for the unused drives, then click **Continue**.
+
+<details>
+<summary> Choose a pool configuration </summary>
+
+![Choose a pool configuration](/storage/pool-create-configuration.png){.medium .framed}
+</details>
+
+2. In **Drives**, check the drives you want to use. Read the usable-capacity and protection summary. Review the drive-test warning; an offered drive is not necessarily tested or healthy. Click **Continue**.
+
+<details>
+<summary> Select drives and review protection </summary>
+
+![Select drives and review protection](/storage/pool-create-drives.png){.medium .framed}
+</details>
+
+3. Enter a display name in **Pool name (optional)**, then click **Continue**.
+
+<details>
+<summary> Name the pool </summary>
+
+![Name the pool](/storage/pool-create-name.png){.medium .framed}
+</details>
+
+4. Review every listed drive. Check **I understand that any existing data on the selected drives will be permanently deleted.** only after confirming the selection, then click **Create pool**.
+
+<details>
+<summary> Confirm the drives that will be erased </summary>
+
+![Confirm the drives that will be erased](/storage/pool-create-review.png){.medium .framed}
+</details>
+
+5. Wait for creation to finish. Open the resulting pool and check the drive count, layout, capacity and protection. A submitted request alone is not a completed pool.
+
+<details>
+<summary> The completed three-drive RAIDZ1 sample pool </summary>
+
+![The completed three-drive RAIDZ1 sample pool](/storage/pool-created-details.png){.medium .framed}
+</details>
 
 ## Replacing drives
 
-Eventually every drive will fail. Storage pools with [parity](https://en.wikipedia.org/wiki/Parity_drive), like the ones that HexOS suggests, allow for failing drives to be replaced without losing the data.
+Drives can fail. A redundant pool can rebuild a replacement drive when enough working copies or parity remain. Check the actual pool health and keep a backup before starting a replacement.
 
 The storage interface will show an alert when there are problems relating to your pools and drives. When drives start showing errors on [SMART](https://www.truenas.com/docs/scale/25.10/scaletutorials/storage/disks/drivehealthmanagement/index.html#smart-tests-options-for-community-edition) tests, having I/O problems, or go missing entirely, you'll see visual indicators right in the interface. 
 
@@ -36,61 +75,120 @@ If you don't yet have a replacement drive, check out our guide before buying [se
 
 ### How to replace a drive
 
-- First install the drive in the machine
-- Next go to [deck.hexos.com](https://deck.hexos.com) and open the **Storage** screen
-- Then click on your storage pool
-<details>
-<summary> Storage pool </summary>
+1. Connect a suitable replacement drive. Open **Storage**, click the affected pool, then click **View drives**.
 
-![Screenshot From 2025-10-01 11-26-58](https://github.com/user-attachments/assets/756974b0-e517-4fcb-a9dc-2a1c56b357ad){.medium .framed}
+<details>
+<summary> Open the pool and its drives </summary>
+
+![Open the pool and its drives](/storage/pool-expanded.png){.medium .framed}
 </details>
 
-- Click the **View Drives** button
-<details>
-<summary> View Drives button </summary>
+2. Click the drive being replaced. Check its device and serial number, then click **Replace**. Do not identify a physical drive by its position in the list alone.
 
-![Screenshot From 2025-10-01 11-32-46](https://github.com/user-attachments/assets/b80c4171-dc87-43f3-a15d-643cf9b64f55){.medium .framed}
+<details>
+<summary> Identify the drive before replacing it </summary>
+
+![Identify the drive before replacing it](/storage/pool-replace-source.png){.medium .framed}
 </details>
 
-- Then click on the drive you want to replace
-<details>
-<summary> Drive selection in pool </summary>
+3. Choose the unused target under **Select Replacement Drive**. Read every warning. If the pool has no protection during rebuilding, you must acknowledge that warning before continuing.
 
-![Screenshot From 2025-10-01 11-33-37](https://github.com/user-attachments/assets/236667b6-f4e5-464a-910d-4cd87da538c3){.medium .framed}
+> **Danger:** The replacement drive's existing contents will be erased. Keep the old connected drive in place until rebuilding finishes. A degraded pool may not survive another drive failure.
+{.is-danger}
+
+4. Check the target again, then click **Replace Drive**.
+
+<details>
+<summary> Confirm the unused replacement drive </summary>
+
+![Confirm the unused replacement drive](/storage/pool-replace-confirm.png){.medium .framed}
 </details>
 
-- Next click the **Replace** button
-<details>
-<summary> Replace button </summary>
+5. Open the bell, then **Jobs**, to monitor replacement activity. Wait for the activity and rebuilding to finish. Reopen the pool and check that the replacement is present and the pool has no unresolved errors. Check that sample files still open before removing the old drive.
 
-![Screenshot From 2025-10-01 11-33-46](https://github.com/user-attachments/assets/436f9a2e-1246-482c-9942-c012b4e8e874){.medium .framed}
+<details>
+<summary> The sample pool after a completed replacement </summary>
+
+![The sample pool after a completed replacement](/storage/pool-replaced.png){.medium .framed}
 </details>
 
 ## Growing your storage
 
 As your server usage grows, you might need more storage capacity. HexOS gives you options to expand your storage.
 
-### Extending drives
+### Add a drive to a RAIDZ pool
 
-This is how you can add more drives to your existing pool for more storage space.
+This procedure applies to a supported RAIDZ pool with **Add drive** available. Adding a mirror to a single-drive pool is a different action, described below. If an action is unavailable, read its reason before continuing.
 
-To add another drive to your pool:
+1. Connect a suitable unused drive. Open the pool from **Storage**, then click **Add drive**.
 
-- First install the drive in the machine 
-- Then go to [deck.hexos.com](https://deck.hexos.com) and open the **Storage** screen.
--   You should see the drive appear under Unused Drives
-- Click on the pool
 <details>
-<summary> Storage pool </summary>
+<summary> Add drive on the sample RAIDZ1 pool </summary>
 
-![Screenshot From 2025-10-01 11-26-58](https://github.com/user-attachments/assets/7287e9a1-0112-4ad6-8210-6be6c35e5448){.medium .framed}
+![Add drive on the sample RAIDZ1 pool](/storage/pool-created-details.png){.medium .framed}
 </details>
 
-- Click **Add drive**
-<details>
-<summary> Add drive button </summary>
+2. Select one candidate. Check its serial number and capacity, then click **Continue**.
 
-![Screenshot From 2025-10-01 11-46-33](https://github.com/user-attachments/assets/2548c137-773d-4583-baa4-001bfebea986){.medium .framed}
+<details>
+<summary> Choose one drive to add </summary>
+
+![Choose one drive to add](/storage/pool-expand-drive.png){.medium .framed}
+</details>
+
+3. Review the pool and selected drive. Check **I understand that this will permanently modify my pool and cannot be undone.** only after reviewing the change, then click **Add Drive**. Any existing data on the added drive will be erased.
+
+<details>
+<summary> Review the permanent pool change </summary>
+
+![Review the permanent pool change](/storage/pool-expand-review.png){.medium .framed}
+</details>
+
+4. Open the bell, then **Jobs**, to monitor expansion activity. Wait for it to finish. Check the resulting drive count, protection and capacity. Open sample files to confirm they are still accessible. The example below has expanded from three drives to four; the capacity figures can differ from TrueNAS because HexOS explains usable capacity separately.
+
+<details>
+<summary> The expanded four-drive sample pool </summary>
+
+![The expanded four-drive sample pool](/storage/pool-expanded.png){.medium .framed}
+</details>
+
+### Add protection to a single-drive pool
+
+A single-drive pool has no redundancy. Where offered, **Add redundancy** opens **Mirror this drive**. This adds another copy of the data rather than increasing usable capacity. The pool gains that protection only after rebuilding completes.
+
+> **Danger:** The added drive will be erased. Confirm its serial number and keep a separate backup before continuing.
+{.is-danger}
+
+1. Open the single-drive pool from **Storage**. Click **Add redundancy**.
+
+<details>
+<summary> Add redundancy on a single-drive pool </summary>
+
+![Add redundancy on a single-drive pool](/storage/single-pool-details.png){.medium .framed}
+</details>
+
+2. In **Mirror this drive**, check the unused drive you want to add. Confirm its serial number and capacity, then click **Continue**.
+
+<details>
+<summary> Choose the drive for the mirror </summary>
+
+![Choose the drive for the mirror](/storage/pool-mirror-drive.png){.medium .framed}
+</details>
+
+3. Review the pool and added drive. Check **I understand that this will permanently modify my pool and cannot be undone.** after reviewing the change. Click **Add redundancy**.
+
+<details>
+<summary> Review the mirror change </summary>
+
+![Review the mirror change](/storage/pool-mirror-review.png){.medium .framed}
+</details>
+
+4. Open the bell, then **Jobs**, to monitor the activity. Wait for the activity and rebuild to finish. Open the pool again. Confirm that it reports two drives in a mirror and one-drive protection. Check that your files are accessible. The usable capacity should remain about the same.
+
+<details>
+<summary> The completed two-drive mirror </summary>
+
+![The completed two-drive mirror](/storage/pool-mirrored.png){.medium .framed}
 </details>
 
 ### Expanding drives 
@@ -99,9 +197,9 @@ This is how you can upgrade individual drives one at a time. The process for thi
 
 ### Using drives of different sizes
 
-You can add or swap in a drive that is larger than the other drives in the pool. HexOS lists the unused drives of a suitable type that are at least as large as the smallest drive in the pool.
+You can add or swap in a drive that is larger than the other drives in the pool. Choose a suitable replacement offered by HexOS. Check its identity and warnings; an offered drive is not necessarily tested or healthy.
 
-A pool gives every drive the capacity of its smallest drive. When you pick a larger drive, HexOS shows this message:
+Within a mirror or RAIDZ drive group, the smallest member limits how much space each member contributes. A pool can contain more than one group. When you pick a larger drive, HexOS shows this message:
 
 **You can use this disk, but some capacity won’t be available until all disks are replaced with larger ones.**
 
@@ -109,39 +207,37 @@ What this means for each option:
 
 | Option | What happens | What you get |
 |---|---|---|
-| **Add drive** | The larger drive joins the pool. | The larger drive is used as if it were the size of the smallest drive in the pool. The remaining space on it is not used. |
-| **Replace** | HexOS copies the data from one drive to the larger drive. The old drive becomes an unused drive. | The pool stays the same size until every drive has been replaced with a larger one. |
+| **Add drive** | The larger drive joins the pool. | The larger drive is used as if it were the size of the smallest drive in that drive group. The remaining space on it is not used. |
+| **Replace** | HexOS copies the data from one drive to the larger drive. The old drive becomes an unused drive. | The smallest member limits the extra capacity. Upgrade the limiting members, then check the growth result. |
 
 To use the full capacity of larger drives:
 
 - Replace one drive in the pool with a larger drive. Follow the steps in [How to replace a drive](#how-to-replace-a-drive).
 - Wait for the replacement to finish.
-- Repeat for each remaining drive in the pool.
+- Repeat for the remaining smaller members that limit the affected drive group.
 
-After the last replacement finishes, HexOS expands the pool for you. You do not need to click anything. The Activity Center shows **Growing pool into its bigger drives** and then **Pool grown to use its bigger drives**.
+After replacement finishes, HexOS checks for unused capacity when the pool is healthy and no other pool operation is active. It can then grow the pool automatically. Check the activity result rather than assuming growth has finished. The Activity Center shows **Growing pool into its bigger drives** and then **Pool grown to use its bigger drives**.
 
-> **Info:** Expanding the pool only adds space. It does not delete or move your data.
+> **Info:** Capacity growth is designed to preserve your files. Keep a separate backup before changing the pool.
 {.is-info}
 
-> **Tip:** You can replace a healthy drive. The pool keeps its protection during the replacement.
-{.is-tip}
+> **Warning:** When replacing a connected drive, leave the old drive connected until the replacement finishes. Check the pool's actual remaining protection; do not assume a degraded pool can tolerate another failed drive.
+{.is-warning}
 
 
 ## Critical errors
 
-Sometimes storage issues are more serious than a single drive failure. Before assuming the worst, try restarting your server and checking if any of the errors go away.<br> If the errors persist, here's a quick overview of what you may see.
+Read the pool's status and error before changing drives or restarting the server.
 
-**Pool degradation**: Your pool is running in a weakened state. Check if all drives are properly connected and look for drive errors. Usually this means a drive needs replacement, but your data is still safe.
+- **Degraded:** Protection is reduced. Check the affected drives and preserve accessible important files. The status alone does not prove that all files are intact.
+- **Offline:** The pool is unavailable. Check the reported drive and connection state. Do not format or initialize drives to try to bring an existing pool back.
+- **Multiple drive problems:** Stop unnecessary writes and seek help if failures exceed the layout's protection. For irreplaceable data, consider professional recovery before attempting further changes.
 
-**Pool offline**: Your pool isn't accessible right now. This often happens when too many drives fail at once or there's a connection issue. Check drive connections first, then look for multiple drive failures.
-
-**Multiple drive problems**: If you lose more drives than your redundancy can handle, by default 1 drive, you are at risk of data loss. <span style="color: red;">**Stop using the system immediately**</span> and consider professional data recovery if the data is critical.
-
-The key is acting quickly when you see alerts. Most pool problems start small and get worse if ignored.
+See [drive failure troubleshooting](/troubleshooting/drive-failure) and [storage and drive issues](/troubleshooting/storage-and-drives).
 
 ## Understanding capacity usage
 
-When copying data to a system, some users will notice a discrepancy between the size of the files they are copying and the capacity in use on the given storage pool/folder.  This is due to ZFS compression, which reduces the total space needed to store some files.  This is a completely normal observation.  Example:  Storage pool with one 700MB file in it could report back only 300MB of capacity in use.  This means that ZFS compression conserved 400MB of capacity for you automatically.  Just another silent benefit of ZFS and HexOS!
+File sizes and pool usage can differ because of compression, redundancy, metadata, restore points and shared blocks. A single number does not identify the cause. See [Why your pool size changes](/troubleshooting/pool-size) for the measurements HexOS shows.
 
 ## Where to go next
 
@@ -152,8 +248,8 @@ When copying data to a system, some users will notice a discrepancy between the 
 | Understand a notice about drive errors | [Drive errors](/features/storage/drive-errors) |
 | Keep a nightly copy of apps on a single drive | [App backups](/features/storage/app-backups) |
 | Get my apps back after the apps drive fails | [When the apps drive fails](/features/storage/apps-drive-failed) |
+| Grow a two-drive mirror into a three-drive pool or reclaim space after expanding | [Grow a mirror and reclaim space](/features/storage/growing-a-mirror) |
 
 ## Checking a pool
 
 - [**Pool check progress**](/features/storage/pool-check-progress) - Find the estimated time remaining and understand paused or unavailable estimates.
-| Grow a two-drive mirror into a three-drive pool or reclaim space after expanding | [Grow a mirror and reclaim space](/features/storage/growing-a-mirror) |

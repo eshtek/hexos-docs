@@ -1,6 +1,6 @@
 ---
-title: Getting Started
-description: 
+title: Getting started
+description: Check your hardware and storage plan before installing HexOS.
 published: true
 date: 2026-07-22T12:52:26.058Z
 tags: 
@@ -10,72 +10,67 @@ dateCreated: 2026-06-08T15:41:06.152Z
 
 # Getting started
 
-Congratulations on getting started with HexOS and self-hosting! This article will guide you through choosing hardware, and getting HexOS installed and set up. If you want to know more about HexOS first then you can [read about it here](/about-hexos/).
+Start by checking the hardware you want to use and deciding how to protect your files. Then follow the [installation guide](/getting-started/installation/InstallGuide) and [server setup guide](/getting-started/setup/CompleteSetup).
 
 ## System requirements
 
-For basic storage and folder capabilities, HexOS has the same underlying system requirements as TrueNAS SCALE:
+These are starting requirements for basic storage. Apps and Virtual Machines can need more memory, processor capacity or graphics hardware.
 
-| Component | Minimum requirements | 
+| Component | What to check |
 |---|---|
-| Processor | 2-Core Intel 64-Bit or AMD x86_64 processor <br><small>**HexOS** requires CPU support for: SSSE3, SSE4.1, SSE4.2, POPCNT</small> |
-| Memory | 8 GB memory |
-| Boot Drive | 20 GB SSD boot device |
-| Storage |  - One storage drive for testing purposes*<br> - Two storage drives for a mirrored pool**<br> - Three storage drives for an expandable pool |
+| Processor | A 64-bit Intel or AMD processor with at least two cores and support for SSSE3, SSE4.1, SSE4.2 and POPCNT. |
+| Memory | At least 8 GB. Check each app's requirements before choosing the final amount. |
+| Boot device | Use a dedicated SSD of at least 20 GB. It is separate from the drives used for your files. |
+| Data storage | At least one data drive. A single drive has no redundancy; use a redundant layout for protection against a drive failure. |
+| Network | A supported wired network connection. |
 
-<small>\* *single drive configurations offer no redundancy and should be used for testing purposes only*  
-** *mirrored pools cannot be expanded by adding additional storage devices*</small>
+The [TrueNAS hardware guide](https://www.truenas.com/docs/scale/25.10/gettingstarted/scalehardwareguide/) explains the underlying hardware requirements. The [installation guide](https://www.truenas.com/docs/scale/25.10/gettingstarted/install/installingscale/) covers boot-device sizing and installation.
 
-However, the apps you install on your server can significantly increase these requirements. [Read more about apps on HexOS here](/features/apps/). Consult the documentation of the apps you are interested in to see their recommended specifications.
+> **Danger:** Installation erases the selected boot device. Keep it separate from drives holding files you need, and check the selected device before confirming.
+{.is-danger}
 
 ## Preparing server hardware
 
-When it comes to the physical hardware of the NAS you have two choices:
-
-1. Bring your own hardware
-2. Buy something pre-built
-
 ### Bring your own hardware
 
-Do you have an old PC or gaming rig lying around? Can you get your hands on a decommissioned or refurbished server? Or do you want to build something new? One of the best things about HexOS is the ability to take almost any hardware that meets the system requirements and turn it into a home server.  
+Check the processor, memory, network controller and storage connections before reusing or buying a computer. Meeting a minimum does not establish that every app will run well. Check the requirements of the apps you intend to install.
 
-TrueNAS provides a [comprehensive hardware guide](https://www.truenas.com/docs/scale/gettingstarted/tnhardwareguide/) that covers all aspects of selecting hardware including minimum system requirements, storage devices/controllers, etc.  However, to build an energy efficient server additional research may be required. 
+For questions about a particular hardware configuration, include the exact part models when asking in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz).
 
-You are welcome to introduce yourself to the HexOS community in [Discord](https://discord.gg/fCW2htvYdz), where you can get further guidance and support on your hardware choices.
+### Buy a prebuilt server
 
-### Buy pre-built
-
-There are many pre-built NAS devices available for purchase in the hardware market. For the best support, TrueNAS servers including their [Mini-R series](https://www.truenas.com/truenas-mini/) are tested to ensure smooth running of HexOS.  For non-TrueNAS based systems, make sure to seek community guidance and avoid proprietary hardware vendors like Synology or QNAP. Proprietary NAS hardware can be locked down and may be unable to run other operating systems such as HexOS.
+Before buying, confirm that the device can boot another operating system and exposes its storage and network hardware to TrueNAS. Do not assume that a device marketed as a NAS supports installing HexOS. Check the exact model's specifications and installation restrictions.
 
 ## Storage considerations
-  
-There are various factors to consider when selecting storage for a server. The table below will give a quick overview on the basic differences between Hard Disk Drive (HDD) and Solid State Drive (SSD).
 
-| Factors | HDD | SSD |
+HDDs and SSDs can serve different purposes. Check the actual model, interface and workload instead of treating a technology label as a compatibility guarantee.
+
+| Drive type | Common use | What to check |
 |---|---|---|
-| Budget | Lower cost per Terabyte (TB) | Higher cost per Terabyte (TB) |
-| Storage Capacity | Readily available drives in sizes up to 30 TB| Readily available drives in sizes up to 8 TB |
-| Storage Speed* | ~80 - 300 MB/s | ~500-8000 MB/s |
-| Port Availability <br> (Per drive) | - SATA or SAS data port <br> - SATA power | SATA data and power port<br> or M.2 port |
-| Recommended<br> Use-case | Large data storage | High performance applications |
-| Other Factors | - CMR HDDs are recommended <br> - [SMR HDDs aren't recommended](https://www.xda-developers.com/smr-hdds-are-fine-for-your-nas-until-you-try-to-resilver/)<br> - Can make audible noise | - SLC, MLC, TLC SSDs are recommended**<br> - QLC SSDs are not recommended<br> - silent operation | 
+| HDD | Larger media and file collections | Recording technology, controller compatibility, available bays, power and cooling. |
+| SSD | App databases and workloads that need faster access | Interface, endurance, controller compatibility and the requirements of the workload. |
 
-<small>\* *Storage speeds vary based on drive model and technology.*  
-** *SLC and MLC SSDs are uncommon and may be difficult to procure*</small>
+There is no fixed drive-capacity ceiling in this guide. Check current hardware specifications and the [drive selection guide](/articles/selectingDrives) for the models you are considering.
 
-### Recommended storage templates
+## Plan protection and growth
 
-While you can create as many pools in whatever configurations you want using HexOS, most users will benefit from one of the following templates.
+A pool combines drives. Its layout determines usable capacity, protection and the growth actions available in HexOS.
 
-#### The minimalist
+| Starting layout | Protection and growth |
+|---|---|
+| One data drive | No redundancy. Adding a mirror can add protection, not usable capacity. |
+| Two-drive mirror | Keeps duplicate data across two drives. An eligible mirror may offer a separate conversion to a three-drive pool when that feature is enabled. |
+| RAIDZ pool | Uses parity for drive-failure protection. Supported single-group layouts can add capacity through the pool's expansion action. |
 
-- 3 or more HDDs of the same capacity
+Check the action offered for the actual pool rather than assuming any extra drive can be added. Choose a suitable drive offered by HexOS, then check its health and any warnings. An offered candidate is not a certification that the drive is healthy. See [Storage](/features/storage) and [Grow a mirror and reclaim space](/features/storage/growing-a-mirror).
 
-A pool consisting of 3 HDDs is the most cost efficient method to create a pool that can later be expanded with additional storage drives. In this configuration your data and applications will stay on the same storage pool. This is sufficient if high speed performance is unnecessary.
+Separate HDD and SSD pools can be useful when files and app databases have different needs. Check **Settings** > **Locations** to see where app data and media are assigned. A location assignment is not proof that existing files have moved.
 
-#### The enthusiast
+> **Warning:** Redundancy is not a backup. Keep another recoverable copy of files you cannot replace, including a copy away from the server when protection from theft or physical damage matters.
+{.is-warning}
 
-- 3 or more HDDs of the same capacity
-- 2 or more SSDs of the same capacity
+## Next steps
 
-If both HDD and SSD pools are available, HexOS will automatically optimize their usage. Functionality that may benefit from higher performance storage will be installed to the SSD pool. While having 3 or more drives is recommended for HDDs for the option to expand the HDD pool in the future, a pool of 2 SSDs can be acceptable. If you would like to keep the option of SSD pool expansion available then make sure to use 3 or more SSDs when creating the pool.
+- [**Install HexOS**](/getting-started/installation/InstallGuide) - Prepare the installer and install it on the boot device.
+- [**Complete server setup**](/getting-started/setup/CompleteSetup) - Find the server, review its hardware and choose storage.
+- [**Buddy Backups**](/features/backups) - Learn how to keep a copy on another HexOS server.

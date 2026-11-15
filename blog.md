@@ -1,6 +1,6 @@
 ---
 title: Blog
-description: 
+description: Read news and announcements from the HexOS team.
 published: true
 date: 2026-11-13T17:02:39.936Z
 tags: 
