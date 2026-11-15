@@ -19,10 +19,13 @@ These are starting requirements for basic storage. Apps and Virtual Machines can
 | Component | What to check |
 |---|---|
 | Processor | A 64-bit Intel or AMD processor with at least two cores and support for SSSE3, SSE4.1, SSE4.2 and POPCNT. |
-| Memory | At least 8 GB. Check each app's requirements before choosing the final amount. |
+| Memory | At least 8 GB. Apps and Virtual Machines can need more. |
 | Boot device | Use a dedicated SSD of at least 20 GB. It is separate from the drives used for your files. |
-| Data storage | At least one data drive. A single drive has no redundancy; use a redundant layout for protection against a drive failure. |
+| Data storage | At least one data drive, separate from the boot SSD. One drive has no redundancy. Two drives can form a mirror; start with at least three for an expandable RAIDZ pool. |
+| Installer | An 8 GB or larger USB drive that you can erase. |
 | Network | A supported wired network connection. |
+
+These requirements follow the [HexOS hardware page](https://hexos.com/hardware). ARM processors are not supported. Virtual Machines require at least four processor cores; check the requirements for each VM before installing it.
 
 The [TrueNAS hardware guide](https://www.truenas.com/docs/scale/25.10/gettingstarted/scalehardwareguide/) explains the underlying hardware requirements. The [installation guide](https://www.truenas.com/docs/scale/25.10/gettingstarted/install/installingscale/) covers boot-device sizing and installation.
 
