@@ -2,7 +2,7 @@
 title: Restore a folder
 description: Bring a backed-up folder back onto your server as a new folder, from the latest copy or any restore point
 published: true
-date: 2026-10-07T00:00:00.000Z
+date: 2026-11-15T00:00:00.000Z
 tags: backups, buddy, restore, passphrase
 editor: markdown
 dateCreated: 2026-08-23T12:07:27.379Z
@@ -10,91 +10,164 @@ dateCreated: 2026-08-23T12:07:27.379Z
 
 # Restore a folder
 
-> **Info:** Buddy Backups is in beta. Everyone can use it, and every backup it makes is a real copy you can restore. Beta means we are still finishing it, so screens may change and you may find a rough edge. Keep any backup you already rely on running alongside it. [What beta means](/features/backups#what-beta-means)
+> **Info:** Buddy Backups is in beta. A completed backup provides restore points. Test a restore to check that your files are available. Beta means we are still finishing it, so screens may change and you may find a rough edge. Keep any backup you already rely on running alongside it. [What beta means](/features/backups#what-beta-means)
 {.is-info}
 
-A restore brings a backed-up folder back onto your server as a folder. It never overwrites a folder you already have. You can restore to check a file, compare versions, or undo a mistake without risk to the current folder.
+A restore brings a backed-up folder back onto your server as a folder. It never overwrites a folder you already have. You can restore to check a file, compare versions, or undo a mistake without replacing the current folder.
 
 Only you can restore your own backups. The buddy who stores your copy cannot open or restore it.
 
 ## Before you start
 
 - Restore from the server whose folder it is: the one that sends the backup.
-- The backup must not be paused. A paused backup has no **Restore**. Resume it first.
+- You can restore from a backup you or your buddy paused. The pause still stops new backups. A maintenance hold or a missing license on the sending server can prevent a restore.
 - The server that stores the backup must be online. If it is offline, the dialog says it cannot list restore points yet.
 - The pool you restore to needs room for the whole folder.
 - If the folder uses a passphrase, have it ready. The restore cannot finish without it.
 
-> **Info:** If HexOS manages your folder keys (the default), restored folders unlock on their own while you are signed in. See [Recovery keys](/features/folders#recovery-keys).
+> **Info:** If HexOS manages your folder keys, restored folders unlock on their own while you are signed in. See [Recovery keys](/features/folders#recovery-keys).
 {.is-info}
 
 ## Start a restore
 
-1. Open the backup that holds the folder: click its row on the **Backups** page, or its card in the dashboard's **Backups** section.
-2. Open the folder's menu and click **Restore from this backup**. You can also click the **Restore** tile and pick the folder.
+1. Open **Backups** on the server whose folder you want to restore. Click the backup under **Backup destinations**.
+2. Click **Restore** at the bottom of its details panel. You can also open a folder's menu and click **Restore from this backup**.
 
 <details>
-<summary> The folder's menu </summary>
+<summary> The Restore tile in the backup details </summary>
 
-![folder-actions-menu.png](/features/backups/images/folder-actions-menu.png){.medium .framed}
+![restore-backup-details.png](/features/backups/images/restore-backup-details.png){.medium .framed}
 </details>
 
-3. **Restore a folder** opens on a review once it has everything it needs: the folder and its name, the restore point, the pool, and who can open the folder. Check each card.
+3. In **Folder**, choose the folder and a **Restore point**. **Latest backup** uses the newest available copy. Enter a name in **Restore as**. HexOS creates a new folder and leaves your current folder unchanged. If **Passphrase (optional)** appears, you can enter the backup's passphrase now or leave it blank to enter later. Click **Continue**.
 
 <details>
-<summary> The review </summary>
+<summary> Choose the folder, restore point and new name </summary>
+
+![restore-folder-step.png](/features/backups/images/restore-folder-step.png){.medium .framed}
+</details>
+
+4. In **Location**, choose the pool for the restored folder. It needs enough room for the whole folder. Click **Continue**.
+
+<details>
+<summary> Choose where to restore the folder </summary>
+
+![restore-location-step.png](/features/backups/images/restore-location-step.png){.medium .framed}
+</details>
+
+5. In **Access**, check who can open the restored folder. If the original folder still exists, HexOS starts with its current access. Choose **Private** to select users and give each **Full Access** or **View Only**. Choose **Public (Everyone)** only if everyone on your network should have access. Click **Continue**.
+
+If the original folder no longer exists, the restore starts with no users assigned. HexOS may also leave users unselected if it cannot read or copy the original permissions. Check the selected users and their access before continuing.
+
+<details>
+<summary> Check access to the restored folder </summary>
+
+![restore-access-step.png](/features/backups/images/restore-access-step.png){.medium .framed}
+</details>
+
+6. Check the **Review** cards. Use a card's pencil button to change it. Click **Restore**.
+
+<details>
+<summary> Review the new folder before starting </summary>
 
 ![restore-folder-review.png](/features/backups/images/restore-folder-review.png){.medium .framed}
 </details>
 
-4. **Who can open it.** If the original folder is still on this server, HexOS copies its access: "Based on" the folder's "current access". If it is not, nobody can open the restored folder over the network until you add people: the card says "No users assigned. Add users to give them access." To change it, click the pencil on the **Access** card, choose **Public (Everyone)** or **Private**, tick the people who can open it and pick **Full Access** or **View Only** for each, then click **Continue**.
+If HexOS already has all the choices it needs, the dialog opens at **Review**. Use the pencil buttons to check or change those choices.
 
-<details>
-<summary> The Access step </summary>
+The restored folder keeps the encryption used by the backup you selected. This can differ from the original folder's current encryption setting.
 
-![restore-folder-access.png](/features/backups/images/restore-folder-access.png){.medium .framed}
-</details>
+HexOS confirms with **Restore started**. Follow the restore in the **Activity Center**. Wait for completion before opening the restored folder; copying the data is only part of the restore.
 
-5. **Something else to change?** Click the pencil on the **Folder** card to pick another restore point, change the name under **Restore as**, or type the folder's passphrase. "Latest backup" is the newest restore point, with its date. HexOS suggests the folder's own name if you have no folder by that name; if you do, it adds the restore point's date, for example "Photos-20261005". If the folder uses a passphrase and is still on this server, you can type it under **Passphrase (optional)**, or leave it empty and type it later. Click the pencil on the **Location** card to pick another pool; a pool without enough room is marked "not enough space" and cannot be chosen.
-
-<details>
-<summary> The Folder step </summary>
-
-![restore-folder-dialog.png](/features/backups/images/restore-folder-dialog.png){.medium .framed}
-</details>
-
-6. Click **Restore**.
-
-If something is still loading when the dialog opens, it starts on the first step instead. Click **Continue** through the steps to reach the review.
-
-HexOS confirms with "Restore started" and closes the dialog. Follow the restore in the activity center.
-
-> **Warning:** A restore point marked **Damaged** cannot be fully read on the other server, so its restore may stop partway. Pick another restore point, or repair the backup first. See [Backup troubleshooting](/features/backups/troubleshooting).
+> **Warning:** A restore point marked **Damaged** cannot be fully read on the other server, so its restore may stop partway. Choose another restore point, or repair the backup first. See [Backup troubleshooting](/features/backups/troubleshooting).
 {.is-warning}
 
-You can also restore from a folder's own page: under **Backing up to**, open the backup's menu and click **Restore from this backup**.
+You can also start from the original folder's page. Open its **Backups** tab, open the backup's menu, then click **Restore from this backup**.
+
+<details>
+<summary> Restore from the original folder's Backups tab </summary>
+
+![restore-folder-menu.png](/features/backups/images/restore-folder-menu.png){.medium .framed}
+</details>
 
 ## Unlocking the restored folder
 
 A restored encrypted folder arrives locked.
 
-**Key managed by HexOS:** the folder unlocks on its own while you are signed in. If it cannot unlock on its own, the restore says "Couldn't unlock automatically". Click **Continue**, then **Continue restore** in "Continue the restore".
+**Key managed by HexOS:** the folder unlocks on its own while you are signed in. If it cannot unlock on its own, the restore says **Couldn't unlock automatically.** Click **Continue**.
+
+<details>
+<summary> Continue when automatic unlocking needs your help </summary>
+
+![restore-managed-continue.png](/features/backups/images/restore-managed-continue.png){.medium .framed}
+</details>
+
+In **Continue the restore**, click **Continue restore**. HexOS uses your signed-in account to unlock the copy. You do not need to type a folder passphrase.
+
+<details>
+<summary> Confirm that HexOS should finish the restore </summary>
+
+![restore-managed-confirm.png](/features/backups/images/restore-managed-confirm.png){.medium .framed}
+</details>
 
 **Passphrase:** if you typed the passphrase in the dialog, the restore copies the data and unlocks the folder in one go. If you left it empty, the restore copies the data first, then waits. You get a notice that the folder "is waiting for its passphrase".
 
 To finish a restore that is waiting:
 
-1. Open the restore in the activity center and click **Enter passphrase**. Or, on the backup's page under **Restores needing attention**, click **Unlock**.
+1. Click the notification bell at the top of the Command Deck. Open the restore under **Jobs**, then click **Enter passphrase**. Or, on the backup's page under **Restores needing attention**, click **Unlock**.
+
+<details>
+<summary> A restore waiting for a passphrase in Backup activity </summary>
+
+![restore-activity-passphrase.png](/features/backups/images/restore-activity-passphrase.png){.medium .framed}
+</details>
 2. Type the passphrase and click **Unlock and finish**.
 
-If the passphrase is wrong, you can try again. If you cannot find it, click **Discard restore**, then **Discard restore** again in "Discard this restore?". That removes the locked copy from your server; anything left behind shows under **Restores needing attention**. The backup itself stays, so you can restore again later.
+<details>
+<summary> Enter the passphrase after the copy arrives </summary>
+
+![restore-passphrase-dialog.png](/features/backups/images/restore-passphrase-dialog.png){.medium .framed}
+</details>
+
+
+If the passphrase is wrong, the restore stays locked. If the dialog closes, click **Unlock** again to retry. If you cannot find it, click **Discard restore**, then **Discard restore** again in "Discard this restore?". That removes the locked copy from your server; anything left behind shows under **Restores needing attention**. The backup itself stays, so you can restore again later.
+
+<details>
+<summary> Discard a restore whose main folder is still locked </summary>
+
+![restore-discard-confirm.png](/features/backups/images/restore-discard-confirm.png){.medium .framed}
+</details>
 
 > **Tip:** For a large folder with a passphrase, start the restore without it. The data copies while you look for the passphrase, and HexOS asks for it when the data has arrived.
 {.is-tip}
 
+### A folder inside the backup has its own passphrase
+
+A folder inside the restored copy can have a different passphrase. HexOS names that inner folder when it asks you to unlock it. Enter the passphrase for the named folder. The outer folder's passphrase may not open it.
+
+<details>
+<summary> HexOS names the inner folder that needs a passphrase </summary>
+
+![restore-inner-passphrase.png](/features/backups/images/restore-inner-passphrase.png){.medium .framed}
+</details>
+
+HexOS waits until the inner folders are unlocked before sharing the restored folder. If the outer folder is already readable, click **Stop restore**, then **Stop restore** in **Stop this restore?** to stop without deleting the received copy. Only **Remove copy** deletes that leftover copy.
+
+<details>
+<summary> Stop the restore while keeping the received copy </summary>
+
+![restore-inner-stop.png](/features/backups/images/restore-inner-stop.png){.medium .framed}
+</details>
+
 ## While it runs
 
-The activity center shows the progress. A large folder can take a long time. To stop a restore, open it in the activity center and click **Stop restore**.
+The Activity Center shows the progress. A large folder can take a long time. Click the notification bell, then open the restore under **Jobs**. Click **Stop restore** to stop an unfinished transfer.
+
+<details>
+<summary> Follow or stop a restore in Backup activity </summary>
+
+![restore-running.png](/features/backups/images/restore-running.png){.medium .framed}
+</details>
 
 > **Warning:** Let a restore finish before you remove the folder from the backup or remove the connection. Removing either deletes the copy the restore reads from.
 {.is-warning}
@@ -103,6 +176,12 @@ The activity center shows the progress. A large folder can take a long time. To 
 
 You get a notice that the folder was restored. It says who can open it, for example "Your folder is back. Sharing access was granted to" the people you chose. If someone you chose is no longer on this server, the notice says they "could not be matched to the accounts you selected, so they were left out." The folder shows with your other folders, on the pool you chose. Your original folder, if it still exists, is unchanged.
 
+<details>
+<summary> The restored folder appears with your other folders </summary>
+
+![restore-completed-folder.png](/features/backups/images/restore-completed-folder.png){.medium .framed}
+</details>
+
 To change who can open the folder later, see [Folder permissions](/features/folders#folder-permissions).
 
 > **Warning:** Folders restored before restores asked who can open them came back open to everyone on your network, with no password. If you restored a folder before then, set who can open it. See [Folder permissions](/features/folders#folder-permissions).
@@ -110,16 +189,32 @@ To change who can open the folder later, see [Folder permissions](/features/fold
 
 ## If sharing could not be finished
 
-Your files are restored, but the folder is not shared yet. The restore says one of these:
+Your files are restored, but HexOS could not finish or verify sharing. The restore says one of these:
 
 - "Your files are restored, but HexOS could not finish setting up sharing. Try again." On the backup's page, under **Restores needing attention**, click **Try again**. Nobody can open the folder over the network until it finishes.
 - "Update this server, then press Try again to finish sharing the folder." Update HexOS on this server, then click **Try again**.
-- "Your files are restored, but HexOS could not verify the network share settings. It has stopped setting up sharing. Contact support." HexOS found a network share for the folder that it did not set up, and changed nothing. Ask in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz).
+- "Your files are restored, but HexOS could not verify the network share settings. It has stopped setting up sharing. Contact support." HexOS cannot verify the share settings. Ask for help in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz).
 
 <details>
 <summary> A restore waiting for Try again </summary>
 
 ![restore-held-try-again.png](/features/backups/images/restore-held-try-again.png){.medium .framed}
+</details>
+
+If HexOS asks for a server update, finish the update before retrying.
+
+<details>
+<summary> Update the server before retrying sharing </summary>
+
+![restore-update-needed.png](/features/backups/images/restore-update-needed.png){.medium .framed}
+</details>
+
+If HexOS cannot verify the share settings, contact support before changing them.
+
+<details>
+<summary> Sharing has stopped for a settings review </summary>
+
+![restore-share-review.png](/features/backups/images/restore-share-review.png){.medium .framed}
 </details>
 
 **Cancel** on a restore like this keeps the restored files.
@@ -129,7 +224,20 @@ Your files are restored, but the folder is not shared yet. The restore says one 
 A restore that failed or was stopped can leave a copy behind. The backup's page then shows it under **Restores needing attention**: "Left a copy on this server as" and the name, "that never became a folder."
 
 1. Click **Remove copy**.
-2. In "Remove the leftover copy?", click **Remove copy**.
+
+<details>
+<summary> A stopped restore with a leftover copy </summary>
+
+![restore-leftover-copy.png](/features/backups/images/restore-leftover-copy.png){.medium .framed}
+</details>
+
+2. In **Remove the leftover copy?**, click **Remove copy**.
+
+<details>
+<summary> Confirm removal of the leftover copy </summary>
+
+![restore-remove-copy.png](/features/backups/images/restore-remove-copy.png){.medium .framed}
+</details>
 
 This frees the space. The backup itself stays where it is.
 
@@ -137,7 +245,7 @@ This frees the space. The backup itself stays where it is.
 
 **Whole folders only.** You cannot pull back a single file. Restore the folder, copy out what you need, then delete the restored folder if you no longer want it.
 
-**Any restore point you still keep.** You choose how long restore points are kept in **Schedule & Retention**: 1 week, 2 weeks, 1 month, or 3 months. Older ones are removed at each backup.
+**Any restore point you still keep.** You choose how long restore points are kept in **Schedule & Retention**: 1 week, 2 weeks, 1 month, or 3 months. Restore points become eligible for removal under the retention period you choose.
 
 > **Warning:** Restore points are not an archive. If you need a version for longer than you keep restore points, restore it now and keep it as its own folder.
 {.is-warning}

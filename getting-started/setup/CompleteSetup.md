@@ -11,7 +11,7 @@ dateCreated: 2026-06-08T15:41:10.493Z
 
 # Complete server setup
 
-Now that HexOS is installed, it is time to set up your server. Setup takes a few short steps: you find your server, give it a name, check its hardware, and choose how to use your drives. Nothing on your drives changes until the last screen, after you tick a box and click **Finish setup**.
+After installation, find your server, give it a name, assign a license, review its hardware and choose how to use its drives. New pool creation waits for **Finish setup**. Drive formatting is different: clicking **Format all drives** immediately starts erasing the eligible drives shown, without another confirmation dialog.
 
 ## Before you start
 
@@ -37,7 +37,7 @@ Go to [deck.hexos.com](https://deck.hexos.com). Enter your email and password, a
 
 ## What every screen looks like
 
-- The top of the screen shows **Server setup** and a bar that fills as you go. **Exit** takes you back to the dashboard.
+- Setup shows progress after the initial discovery screens. **Exit** is offered when your account already has a configured server; a first-time owner does not see it.
 - On a wide screen, the title, explanation and **Continue** button are on the left, with cards on the right. On a narrower screen, they stack in one column.
 - A card with an arrow opens an info panel with more details.
 
@@ -100,7 +100,7 @@ If a server finishes its setup somewhere else while you are on this screen, for 
 
 ## Server basics
 
-Enter a name for your server, pick your time zone, and type the admin password you chose when you installed HexOS.
+Enter a name for your server, pick your time zone, and type the admin password you chose when you installed HexOS. Use 2 to 15 characters for the name: letters, numbers or hyphens, without spaces. Start with a letter and end with a letter or number, for example **HexOS-Server**.
 
 <details>
 <summary> Server basics </summary>
@@ -114,6 +114,16 @@ If the password is refused, click **Change keyboard layout**, choose the keyboar
 <summary> Change keyboard layout </summary>
 
 ![change-keyboard-layout.png](/complete-setup/change-keyboard-layout.png){.medium .framed}
+</details>
+
+## License
+
+After claiming the server, review the license shown for it. If a suitable license is available in your account, choose it and click **Continue**. Setup checks the server's coverage before moving on. A Buddy Backup-only license does not provide the server controls needed for storage setup. If the license information cannot be read, use the retry control and wait for a confirmed result.
+
+<details>
+<summary> A license assigned to this server </summary>
+
+![license.png](/complete-setup/license.png){.medium .framed}
 </details>
 
 ## Health and capabilities
@@ -161,7 +171,7 @@ Problems with the whole server are listed first in the **System** panel, for exa
 ![health-system-reason.png](/complete-setup/health-system-reason.png){.medium .framed}
 </details>
 
-When Hardware Advisor is available for your server and the server shares hardware data with HexOS, the panels also show Hardware Advisor warnings about parts with known problems. When a part is marked but its details did not arrive, the part says **Hardware Advisor details are unavailable.** and its card says **Details unavailable** instead of **No issues detected**. Nothing is wrong that HexOS can show you. See [Health & Capabilities](/features/health-and-capabilities) for hardware data sharing.
+When Hardware Advisor is available for your server and the server shares hardware data with HexOS, the panels also show Hardware Advisor warnings about parts with known problems. When a part is marked but its details did not arrive, the part says **Hardware Advisor details are unavailable.** and its card says **Details unavailable** instead of **No issues detected**. Missing details do not establish that the part has no known issue. See [Health & Capabilities](/features/health-and-capabilities) for hardware data sharing.
 
 <details>
 <summary> Details unavailable </summary>
@@ -186,7 +196,7 @@ You only see this screen when your drives already hold storage pools. It lists t
 
 ### Pools from another server
 
-Every pool that can be imported starts switched on. Click a pool to see its drives, or to switch it off. Your files come with a pool you import. After setup, the **Folders** screen offers to restore the pool's folders, and if your apps ran from this pool, they come back too. Users and virtual machines were saved on the previous server's boot drive and stay behind, so you add your users again after setup.
+Every pool that can be imported starts switched on. Click a pool to see its drives, or to switch it off. Your files come with a pool you import. After setup, the **Folders** screen offers to restore the pool's folders. If the pool holds compatible Apps storage, its installed apps can return too. Check them after setup. Users and virtual machines were saved on the previous server's boot drive and stay behind, so you add your users again after setup.
 
 <details>
 <summary> Import existing pools </summary>
@@ -219,7 +229,7 @@ Click **Import** to keep the pools that are switched on. Click **Skip** to keep 
 > **Danger:** A pool you switch off or skip is not kept. Its drives are offered for new pools. If you put them in a new pool and finish setup, they are erased. For a pool already on this server, the whole pool is erased.
 {.is-danger}
 
-When a pool is left out, HexOS asks you to confirm in the **Skip import** dialog. Tick the box and click **Confirm**. Nothing is erased until you click **Finish setup**.
+When a pool is left out, HexOS asks you to confirm in the **Skip import** dialog. Tick the box and click **Confirm**. Skipping an import does not itself erase the pool. Later formatting or confirming a new pool can erase selected drives; read each warning before continuing.
 
 <details>
 <summary> Skip import </summary>
@@ -264,13 +274,54 @@ If setup cannot tell yet how an import went, for example because the connection 
 ![import-check-again.png](/complete-setup/import-check-again.png){.medium .framed}
 </details>
 
+## Drives that need formatting
+
+Setup can show **Some drives need to be reformatted** before storage planning.
+
+<details>
+<summary> Drives that need formatting </summary>
+
+![format-initial.png](/complete-setup/format-initial.png){.medium .framed}
+</details>
+
+> **Danger:** **Format all drives** immediately starts erasing every eligible drive shown. There is no separate drive selector or second confirmation. Read the full list first and stop if it includes data you need.
+{.is-danger}
+
+Before formatting starts, **Skip** leaves these drives out of the pool plan. Drives requiring this format cannot be used in pools until it finishes. While formatting is running, **Skip** is disabled. Formatting continues on the server even if you leave the page.
+
+<details>
+<summary> Formatting in progress </summary>
+
+![format-running.png](/complete-setup/format-running.png){.medium .framed}
+</details>
+
+Watch each drive's status: **Formatting…**, **Done**, **Format failed** or **Status unavailable**. **Continue** becomes available when all drives are done and the page says **All drives have been reformatted.** Do not treat an unavailable status as completion.
+
+<details>
+<summary> Formatting failed </summary>
+
+![format-failed.png](/complete-setup/format-failed.png){.medium .framed}
+</details>
+
+<details>
+<summary> Formatting status unavailable </summary>
+
+![format-unavailable.png](/complete-setup/format-unavailable.png){.medium .framed}
+</details>
+
+<details>
+<summary> Formatting completed </summary>
+
+![format-done.png](/complete-setup/format-done.png){.medium .framed}
+</details>
+
 ## New storage pools
 
 Choose how to use the drives that are free:
 
-- **Recommended:** HexOS plans the pools for you, asking what matters most when more than one drive is free.
-- **Custom:** choose the drives and the layout yourself.
-- **Only use imported pools:** create nothing new. You only see this when you kept a pool.
+- **Let HexOS decide:** HexOS plans the pools for you, asking what matters most when more than one drive is free.
+- **I'll configure myself:** choose the drives and the layout yourself.
+- **Use imported pools only:** create nothing new. You only see this when you kept a pool.
 
 <details>
 <summary> New storage pools </summary>
@@ -409,32 +460,6 @@ Hard drives and SSDs (including NVMe drives) are different kinds of drive. Once 
 ![layout-warning.png](/complete-setup/layout-warning.png){.medium .framed}
 </details>
 
-## Choose hardware checks
-
-After choosing your pools, **Hardware checks** asks **What tests would you like to run?** **Memory** and **Storage** both start unticked. Choose either, both or neither.
-
-<details>
-<summary> Hardware checks </summary>
-
-![hardware-checks.png](/complete-setup/hardware-checks.png){.medium .framed}
-</details>
-
-- **Memory** restarts the server into a memory test after setup finishes. The Command Deck and TrueNAS cannot reach the server during the test.
-- **Storage** requests a deep check of every new, kept and imported pool. You can keep using the server while it runs, with possibly slower performance.
-
-> **Info:** Kept and imported pools need current HexOS server software for their setup checks. An older server build does not start these checks. See [New server checklist](/getting-started/setup/new-server-checklist) for what to look for.
-{.is-info}
-
-Click the info button beside **Memory** to read **About memory tests**, then click **Okay**. Opening the info dialog does not tick **Memory**.
-
-<details>
-<summary> About memory tests </summary>
-
-![about-memory-tests.png](/complete-setup/about-memory-tests.png){.medium .framed}
-</details>
-
-Click **Continue** when you have made your choices. Tests are recommended; leaving both boxes unticked does not lock your storage.
-
 ## Finish setup
 
 The **Almost done!** screen is your last look. It lists the server's name and time zone. Each pool has its own card with a drive icon, usable space, protection and a **New** or **Imported** badge. Pools you kept on the same server also use **Imported**.
@@ -455,7 +480,7 @@ If a new pool uses drives from a pool already on this server, **Almost done!** m
 
 Each pool you kept shows its used space, how many drives can fail, and its own folders, Time Machine backups and apps when that pool holds them. A pool that needs a look has another line, for example **This pool is not healthy (DEGRADED).** A separate **Already on this server** line counts users and virtual machines that stay. Contents on a pool that will be erased are not counted as kept.
 
-When you keep anything, a pool or anything already on the server, a second box asks you to confirm it: **I understand what I'm keeping.** It is separate from the erase box, and you tick both. If what you keep changes before you finish, the box is cleared and asked again. It also shows when something on the server could not be read. When nothing is kept and everything was read, there is no second box.
+When you keep anything, a pool or anything already on the server, a second box asks you to confirm it: **I understand what I'm keeping.** It is separate from the erase box, and you tick each box that applies. An imported-only plan does not need an erase consent. If what you keep changes before you finish, the box is cleared and asked again. It also shows when something on the server could not be read. When nothing is kept and everything was read, there is no second box.
 
 <details>
 <summary> Almost done with pools you keep </summary>
@@ -466,15 +491,7 @@ When you keep anything, a pool or anything already on the server, a second box a
 > **Danger:** When you click **Finish setup**, the drives in the new pools are erased, and so are the pools marked to be erased. Make sure nothing on them is still needed.
 {.is-danger}
 
-If you chose tests, a **Hardware checks** card lists them: **Memory - tested when setup finishes** and **Storage - every pool is checked**.
-
-<details>
-<summary> Almost done with hardware checks </summary>
-
-![almost-done-hardware-checks.png](/complete-setup/almost-done-hardware-checks.png){.medium .framed}
-</details>
-
-Tick any consent boxes shown, then click **Finish setup**. **Finish setup** waits until the pools on the server have been read. Each step gets a check mark as it finishes. If you did not choose **Memory**, click **Go to the dashboard** when setup is done.
+Tick any consent boxes shown, then click **Finish setup**. **Finish setup** waits until the pools on the server have been read. Each step gets a check mark as it finishes. Click **Go to the dashboard** when setup is done. Hardware tests are selected after setup from the checklist or the relevant settings, not from a test-selection step in this wizard.
 
 <details>
 <summary> Working on it </summary>
@@ -486,22 +503,6 @@ Tick any consent boxes shown, then click **Finish setup**. **Finish setup** wait
 <summary> Your server is ready </summary>
 
 ![your-server-is-ready.png](/complete-setup/your-server-is-ready.png){.medium .framed}
-</details>
-
-If you chose **Memory**, **Working on it!** warns that the server will restart. When the test starts, it says the server is restarting and cannot be reached until the test finishes. If you chose **Storage** too, the last step says **Initiating hardware tests**, and the drive checks wait until the server returns.
-
-<details>
-<summary> The server restarting for its memory test </summary>
-
-![working-memory-started.png](/complete-setup/working-memory-started.png){.medium .framed}
-</details>
-
-If the memory test cannot start, setup still finishes. The step says **The memory test couldn't start. You can run it from Memory on the dashboard.**
-
-<details>
-<summary> The memory test could not start </summary>
-
-![working-memory-refused.png](/complete-setup/working-memory-refused.png){.medium .framed}
 </details>
 
 > **Info:** If a drive for a new pool is unplugged or swapped after you saw the summary, setup stops before it changes anything and asks you to check the plan again.
@@ -516,6 +517,18 @@ If your apps run on a single drive, HexOS can keep a nightly copy of them on a p
 > **Help:** Something not working during setup? See [Troubleshooting](/troubleshooting) or ask in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz).
 {.is-troubleshooting}
 
+## Check apps from an imported pool
+
+Click **Apps** > **Installed apps**. Open each retained app and check its status. If it says **Stopped**, click **Start**. Wait for **Running**, then click **Launch**. Sign in and check the files and settings you expect before relying on the app.
+
+<details>
+<summary> Start an imported app if it is stopped </summary>
+
+![imported-app-start.png](/complete-setup/imported-app-start.png){.medium .framed}
+</details>
+
+If an expected app is missing or cannot start, contact [HexOS support](mailto:support@hexos.com) before reinstalling it or changing its storage paths. Keep the original data and backups.
+
 ## Show the welcome banner again
 
 After setup, the welcome offers shortcuts to storage, hardware checks, users, folders and apps. If you dismissed it, you can show it again for the server you have open.
@@ -528,7 +541,7 @@ Click **Settings**, then the **First-time setup** tile.
 ![first-time-setup-tile.png](/complete-setup/first-time-setup-tile.png){.medium .framed}
 </details>
 
-The dialog asks **Would you like to re-enable the welcome banner?** Click **Re-enable**.
+The dialog asks **Would you like to see the welcome again?** Click **Re-enable**.
 
 <details>
 <summary> Re-enable the welcome banner </summary>

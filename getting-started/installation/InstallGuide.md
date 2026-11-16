@@ -1,6 +1,6 @@
 ---
-title: Illustrated Installation Guide
-description: Create a bootable USB with HexOS Imager, install HexOS on your server, and reach the Command Deck for the first time
+title: Install HexOS
+description: Create an installation USB, install HexOS and open the Command Deck.
 published: true
 date: 2026-09-04T12:00:00.000Z
 tags: install, installation, usb, imager, iso
@@ -8,14 +8,17 @@ editor: markdown
 dateCreated: 2026-06-08T15:41:01.586Z
 ---
 
-# Illustrated installation guide
+# Install HexOS
+
+> **Thank you:** @Mawson for the original guide, with edits by @gingerling
+{.is-contribute}
 
 ## Before you begin
 
 You will need:
 
-- [To purchase a HexOS license](https://hub.hexos.com/store/product/1-lifetime/)
-- [Server hardware](/getting-started/overview#getting-started)
+- [To purchase a HexOS license](https://hexos.com/store)
+- [Server hardware](/getting-started/overview#system-requirements)
 - An 8 GB or larger USB drive that can be safely erased
 - An ethernet cable to connect your server to your router or network switch
 - A display, keyboard and optionally a mouse to connect to your server
@@ -44,21 +47,64 @@ Download the version for your computer. These are all the same release, built fo
 
 All downloads, including a `SHA256SUMS.txt` file for checking them, are on the [HexOS Imager release page](https://github.com/eshtek/etcher/releases/tag/v2.1.6%2B20261011). HexOS Imager does not update itself yet, so check that page for newer versions.
 
-> **Info:** On Windows, the installer is signed by Eshtek Inc. Because the signing certificate is new, Windows may still show a "Windows protected your PC" message. Click **More info** and check that the publisher reads **Eshtek Inc.**, then click **Run anyway**. This message will stop appearing as the certificate builds a reputation.
+> **Info:** On Windows, the installer is signed by Eshtek Inc. Because the signing certificate is new, Windows may still show a "Windows protected your PC" message. Click **More info** and check that the publisher reads **Eshtek Inc.**, then click **Run anyway**. Do not continue if the publisher does not match.
 {.is-info}
 
-> **Info:** On a Mac, the app is signed and notarized by Apple, so it opens without a security prompt.
+> **Info:** On a Mac, the app is signed and notarized. macOS can still ask you to confirm opening a downloaded app the first time.
 {.is-info}
 
 ### Write HexOS to the USB drive
 
-1. Plug the USB drive into your computer.
-2. Open **HexOS Imager**.
-3. Click **Download HexOS**. The latest installer is downloaded to your Downloads folder and checked automatically. If you have already downloaded and verified it before, this step is skipped.
-4. Select your USB drive as the target.
-5. Click **Flash!**
+1. Plug the USB drive into your computer. Open **HexOS Imager**.
 
-HexOS Imager writes the installer and then reads it back to confirm the copy is exact. When it reports success, remove the USB drive. It is ready to use in the next section.
+<details>
+<summary> Open HexOS Imager </summary>
+
+![imager-start.png](/installation-guide/imager-start.png){.medium .framed}
+</details>
+
+2. Click **Download HexOS**, then **Download and verify**. Wait for the download and checksum check to finish. If a matching installer is already saved, HexOS Imager uses that copy.
+
+<details>
+<summary> Download and verify the HexOS installer </summary>
+
+![imager-download.png](/installation-guide/imager-download.png){.medium .framed}
+</details>
+
+3. Click **Select target**. If a drive is already selected, click **Change** to check it. Click the checkbox beside your USB drive, then **Select 1**. Check its name and size carefully. The test drive shown below has a different name from your USB drive.
+
+<details>
+<summary> Choose only the USB drive you intend to erase </summary>
+
+![imager-target.png](/installation-guide/imager-target.png){.medium .framed}
+</details>
+
+4. Check the installer and target drive once more. Click **Flash!**. Everything on that USB drive will be erased.
+
+<details>
+<summary> Check the target before clicking Flash </summary>
+
+![imager-ready.png](/installation-guide/imager-ready.png){.medium .framed}
+</details>
+
+5. Wait while HexOS Imager writes and checks the USB drive. Leave the drive connected until this finishes.
+
+<details>
+<summary> Wait for writing and verification to finish </summary>
+
+![imager-writing.png](/installation-guide/imager-writing.png){.medium .framed}
+</details>
+
+6. Check that **Flash Completed!** shows **1 Successful target**. Remove the USB drive. It is ready to use in the next section. If flashing or verification fails, leave the server running its existing system and try writing the USB again.
+
+<details>
+<summary> The installation USB is ready </summary>
+
+![imager-complete.png](/installation-guide/imager-complete.png){.medium .framed}
+</details>
+
+> **Warning:** If Windows asks to format the USB drive after flashing, cancel. Formatting it would erase the installer.
+{.is-warning}
 
 > **Tip:** If you already have a HexOS ISO file, you can use **Flash from file** instead of **Download HexOS**. The rest of the steps are the same.
 {.is-tip}
@@ -111,7 +157,7 @@ The output should include `Good signature from "IX SecTeam <security-officer@ixs
 
 ## Installation process
 
-- Insert the USB into your server and power it on
+- Insert the USB into your server and power it on.
 
 ### Getting to the boot screen
 
@@ -125,11 +171,11 @@ Then in the BIOS, change the order of boot drives so your USB drive is at the to
 
 #### UGREEN NAS: turn off the watchdog
 
-UGREEN NAS models restart about 3 minutes after they turn on unless the watchdog in the BIOS is turned off, and that can interrupt the installation. While you are in the BIOS, follow [UGREEN NAS keeps restarting](/troubleshooting/ugreen-watchdog) to turn it off.
+Some UGREEN configurations have a watchdog that can interrupt installation by restarting the system. If yours repeatedly restarts, check the model-specific guidance in [UGREEN NAS keeps restarting](/troubleshooting/ugreen-watchdog) to turn it off.
 
 #### Disabling Secure Boot
 
-If you see an error message about a "security policy violation" after booting, this is caused by [Secure Boot](https://en.wikipedia.org/wiki/UEFI#Secure_Boot).
+If the installer reports a "security policy violation", check the firmware's Secure Boot setting and your motherboard's boot instructions. The message alone does not establish the cause.
 
 For instructions on how to disable Secure Boot, search for "[your motherboard model here] disable secure boot". You can also search for the motherboard user manual, and search within that for "secure boot".
 
@@ -143,8 +189,8 @@ If you use your motherboard's boot menu, it often shows the USB drive twice. Cho
 
 Once you see this screen, you are ready to boot into HexOS and install it:
 
-- Select **Start HexOS Installation** (default)
-- This screen will pass automatically after a moment
+- Choose **Start HexOS Installation** (the default option).
+- The installer continues automatically if you leave this option selected.
 
 <details>
 <summary> HexOS installer boot screen </summary>
@@ -154,115 +200,108 @@ Once you see this screen, you are ready to boot into HexOS and install it:
 
 ### Installation menu
 
-- Once the system loads, select option 1: **Install/Upgrade**
+- Once the system loads, use the arrow keys to choose **Install/Upgrade**, then press `Enter`.
 
 <details>
 <summary> Install/Upgrade menu option </summary>
 
-![2.png](/installation-guide/2.png){.medium .framed}
+![install-menu.png](/installation-guide/install-menu.png){.medium .framed}
 </details>
 
 ### Select installation drive
 
 What you see now will depend on how many drives you have in your server. The drive or drives you choose to install HexOS on will not be available to store data on.
 
-- Use the arrow keys to navigate and the space bar to select your installation drive or drives
-- **[*]** in the first column indicates the device is selected
+- Use the arrow keys to choose your installation drive or drives. Press the space bar to select each drive.
+- **[*]** in the first column indicates the device is selected.
+- Check the selected drives, then press `Tab` to highlight **OK** and press `Enter`.
 
 <details>
 <summary> Installation drive selection </summary>
 
-![3.png](/installation-guide/3.png){.medium .framed}
+![select-boot-drive.png](/installation-guide/select-boot-drive.png){.medium .framed}
 </details>
 
 ### Confirm drive erasure
 
-- Confirm you understand the selected drive or drives will be **FULLY ERASED**
+Check the drive names in the warning. Use the arrow keys to choose **Yes** only if every listed drive can be erased, then press `Enter`.
+
+> **Danger:** Installation erases every partition and file on the selected drives. These drives will not be available for your storage pools.
+{.is-danger}
 
 <details>
 <summary> Drive erasure confirmation </summary>
 
-![4.png](/installation-guide/4.png){.medium .framed}
+![erase-boot-drive.png](/installation-guide/erase-boot-drive.png){.medium .framed}
 </details>
 
 ### User account setup
 
-- Set the password for the administrative user `truenas_admin`
+Enter a password for the administrative user `truenas_admin`. Press `Tab` to move to **Confirm Password** and enter it again. Press `Tab` to highlight **OK**, then press `Enter`.
 
 > **Danger:** Save this password. You will need it later to reach the TrueNAS interface and to recover the server.
 {.is-danger}
 
-> **Info:** If you use a non-US keyboard, be careful with special characters in the password. The installer uses a [US keyboard layout](https://en.wikipedia.org/wiki/British_and_American_keyboards#/media/File:KB_United_States-NoAltGr.svg), so some symbols may not be the ones printed on your keys. [See details here](https://hub.hexos.com/topic/103-illustrated-installation-guide-start-here/page/2/#findComment-8073). <!-- TODO: migrate this hub forum link -->
+> **Info:** If you use a non-US keyboard, be careful with special characters in the password. The installer uses a [US keyboard layout](https://en.wikipedia.org/wiki/British_and_American_keyboards#/media/File:KB_United_States-NoAltGr.svg), so some symbols may not be the ones printed on your keys.
 {.is-info}
 
 <details>
-<summary> Root password entry </summary>
+<summary> Administrative password entry </summary>
 
-![5.png](/installation-guide/5.png){.medium .framed}
+![admin-password.png](/installation-guide/admin-password.png){.medium .framed}
 </details>
 
 ### Installation progress
 
-- The installer will run for a few minutes
+Wait for the installation to finish. The screen shows progress as HexOS copies files and configures the system.
 
 <details>
 <summary> Installation progress screen </summary>
 
-![6.png](/installation-guide/6.png){.medium .framed}
+![installation-progress.png](/installation-guide/installation-progress.png){.medium .framed}
 </details>
 
 ### Installation complete
 
-- Remove the install USB
+When **Installation Succeeded** appears, press `Enter` with **OK** selected. Remove the installation USB drive.
 
 <details>
 <summary> Installation complete prompt </summary>
 
-![7.png](/installation-guide/7.png){.medium .framed}
+![installation-complete.png](/installation-guide/installation-complete.png){.medium .framed}
 </details>
 
-- Restart your machine
+Use the arrow keys to choose **Reboot System**, then press `Enter`.
 
 <details>
 <summary> Reboot menu option </summary>
 
-![8.png](/installation-guide/8.png){.medium .framed}
+![reboot-system.png](/installation-guide/reboot-system.png){.medium .framed}
 </details>
 
 ## First boot
 
 ### Boot screen
 
-- The boot select screen will appear again. Ignore it
-- The default option is correct and will auto-select
+The installed system’s boot menu appears. Leave the first **HexOS GNU/Linux** entry selected. It starts automatically.
 
 <details>
 <summary> Boot selection screen </summary>
 
-![9.png](/installation-guide/9.png){.medium .framed}
+![first-boot-menu.png](/installation-guide/first-boot-menu.png){.medium .framed}
 </details>
 
-### System startup
+### Wait for startup to finish
 
-- The console will display startup information
+The console shows startup messages. Wait for the **Console setup** screen to list the server's web addresses.
 
 > **Tip:** If boot fails, check that HexOS is at the top in your BIOS boot device order. The instructions are at the top of this guide.
 {.is-tip}
 
 <details>
-<summary> Console startup output </summary>
-
-![10.png](/installation-guide/10.png){.medium .framed}
-</details>
-
-### Success
-
-- The **Console Setup** screen shows when your server has fully booted
-
-<details>
 <summary> Console setup screen </summary>
 
-![11.png](/installation-guide/11.png){.medium .framed}
+![console-setup.png](/installation-guide/console-setup.png){.medium .framed}
 </details>
 
 **Installation complete!**
@@ -274,8 +313,6 @@ What you see now will depend on how many drives you have in your server. The dri
 > **Help:** Installer will not boot, or stuck partway? See [Installation issues](/troubleshooting/installation) or ask in the [HexOS Discord Community](https://discord.gg/fCW2htvYdz).
 {.is-troubleshooting}
 
-> **Thank you:** @Mawson for the original guide, with edits by @gingerling
-{.is-contribute}
 
 > **Contribute:** to help to improve HexOS documentation [join the #Docs channel on Discord](https://discord.com/invite/DjEp3WRHKz) today! Send feedback, suggestions or contribute a guide.
 {.is-contribute}

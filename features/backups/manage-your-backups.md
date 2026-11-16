@@ -10,7 +10,7 @@ dateCreated: 2026-08-23T12:07:15.363Z
 
 # Manage your backups
 
-> **Info:** Buddy Backups is in beta. Everyone can use it, and every backup it makes is a real copy you can restore. Beta means we are still finishing it, so screens may change and you may find a rough edge. Keep any backup you already rely on running alongside it. [What beta means](/features/backups#what-beta-means)
+> **Info:** Buddy Backups is in beta and requires access to the Buddy Backups feature. Keep an independent backup you already rely on while testing it. See [what beta means](/features/backups#what-beta-means).
 {.is-info}
 
 A backup looks after itself once it is set up. This page shows where to find your backups and how to change them: which folders, how often, how fast, and how much space.
@@ -38,7 +38,21 @@ The dashboard also has a **Backups** section, with one card for each place this 
 ![dashboard-backups-section.png](/features/backups/images/dashboard-backups-section.png){.medium .framed}
 </details>
 
-To remove the section from the dashboard, open its menu and click **Hide from dashboard**. To show it again, go to **Settings** > **Preferences** > **Customize dashboard**.
+To remove the section from the dashboard, open its menu and click **Hide from dashboard**.
+
+<details>
+<summary> Hide the Backups section </summary>
+
+![dashboard-hide-menu.png](/features/backups/images/dashboard-hide-menu.png){.medium .framed}
+</details>
+
+To show it again, go to **Settings** > **Preferences** > **Customize dashboard**. Turn on **Backups**.
+
+<details>
+<summary> Show the Backups section again </summary>
+
+![customize-dashboard.png](/features/backups/images/customize-dashboard.png){.medium .framed}
+</details>
 
 ## A backup's page
 
@@ -57,7 +71,13 @@ Opening a backup you send shows four cards:
 
 Below the cards is a row for each folder. It shows the folder's state, for example "Latest changes backed-up:" and a time, or "Backing up…" with a percentage. A folder with a problem shows what went wrong and **Show details**. See [Backup troubleshooting](/features/backups/troubleshooting).
 
-Along the bottom are the tiles: **Folders**, **Pause** (or **Resume**), **Schedule**, **Restore**, **Quota** when you own the other server, **Transfer speed**, **Rename** on a buddy's backup, and **Remove**.
+Along the bottom are **Folders**, **Pause** (or **Resume**), **Schedule**, **Restore**, and **Remove**. Open the **Settings** tab to change **Transfer speed** or **Reserved space**. A backup shared with a buddy also has a name setting.
+
+<details>
+<summary> Backup settings </summary>
+
+![backup-settings.png](/features/backups/images/backup-settings.png){.medium .framed}
+</details>
 
 For a backup you store for someone else, see [Host a buddy's backup](/features/backups/host-a-buddys-backup).
 
@@ -80,6 +100,12 @@ Each folder row has a menu with:
 
 1. Open the folder's menu and click **Back up now**.
 2. HexOS asks "Back up now?". Click **Back up now** again.
+
+<details>
+<summary> Start a backup now </summary>
+
+![back-up-now-confirm.png](/features/backups/images/back-up-now-confirm.png){.medium .framed}
+</details>
 
 The folder's row and the activity center show the progress. A backup cannot start while the other server is offline.
 
@@ -106,6 +132,14 @@ The activity item then says "Stopped. The next backup picks up from here." What 
 <summary> The Folders dialog </summary>
 
 ![edit-folders-dialog.png](/features/backups/images/edit-folders-dialog.png){.medium .framed}
+</details>
+
+Click the folder picker to see the available folders.
+
+<details>
+<summary> Choose folders to back up </summary>
+
+![add-folders.png](/features/backups/images/add-folders.png){.medium .framed}
 </details>
 
 Each folder already in the backup shows how many restore points it has at the destination.
@@ -136,15 +170,15 @@ One schedule covers every folder in the backup. Folders do not have separate sch
 
 Weekly backups need at least 2 weeks, so **1 week** is not offered for them. When you change how often backups run, choose how long to keep restore points again.
 
-Each restore point stores only what changed since the one before. Restore points older than your choice are removed at each backup.
+Each restore point stores only what changed since the one before. Restore points become eligible for cleanup after the time you choose. Some may stay longer while needed for backup history.
 
-Keeping restore points for longer saves straight away. Keeping them for less time asks "Remove older restore points?" and says how many go. Click **Shorten and remove** to confirm.
+Keeping restore points for longer saves straight away. Keeping them for less time asks "Remove older restore points?" and previews how many go. The count is unavailable while the other server cannot be reached. Click **Shorten and remove** to confirm.
 
-While a backup is paused, **Folders**, **Schedule**, **Restore**, **Back up now** and **Restore from this backup** are unavailable until you resume it. If your server is offline, the dialog cannot read the current schedule and asks you to try again later.
+While a backup is paused, **Folders**, **Schedule** and **Back up now** are unavailable until you resume it. A pause made by you or your buddy still allows **Restore** and **Restore from this backup**. If your server is offline, the dialog cannot read the current schedule and asks you to try again later.
 
 ## Change the transfer speed
 
-1. Click the **Transfer speed** tile.
+1. Open the backup's **Settings** tab and click **Change** beside **Transfer speed**.
 2. Choose **Full speed**, **Smart**, or **Custom**. For **Custom**, type a limit in Mbps.
 3. Click **Save changes**.
 
@@ -162,6 +196,12 @@ While a backup is paused, **Folders**, **Schedule**, **Restore**, **Back up now*
 
 To measure your connection, choose **Smart**, then click **Run speedtest** (or **Test again**). These buttons show only with **Smart** chosen. The dialog shows "Testing your internet connection…", then "Measured transfer speed:" and the result in Mbps.
 
+<details>
+<summary> Smart transfer speed and the measured result </summary>
+
+![smart-transfer-speed.png](/features/backups/images/smart-transfer-speed.png){.medium .framed}
+</details>
+
 On a buddy's backup, each side sets its own limit and transfers run at the lower of the two. Once it is known, the dialog also says how fast transfers currently run. Between your own servers, the dialog says "You own both servers, so this limit applies to both of them."
 
 ## Space for your backup
@@ -170,19 +210,39 @@ The server that stores a backup decides how much space it gets. That space is se
 
 **If you own the other server:**
 
-1. Click the **Quota** tile.
+1. Open the backup's **Settings** tab and click **Change** beside **Reserved space**.
 2. In **Storage quota**, enter the new amount under **Quota**.
 3. Click **Save changes**.
 
-It cannot go below what is already used, or above the free space on the pool.
+<details>
+<summary> Storage quota </summary>
+
+![storage-quota-dialog.png](/features/backups/images/storage-quota-dialog.png){.medium .framed}
+</details>
+
+It cannot go below the space already used or still reserved for retained copies. Any increase must fit the pool’s remaining free space.
+
+The dialog also offers **Hide capacity warnings for reserved backup space**. This affects warnings about space set aside for backups. Warnings for actual stored data stay on.
 
 **If a buddy stores your backup**, only they can change it. You can ask them for more:
 
-1. Click **Folders** in the sidebar and open any folder in this backup. Under **Backing up to**, open the backup's menu and click **Storage reservation**. If a backup already failed for lack of space, you can also click **Request more space** in its **Backup failed** dialog.
+1. Click **Folders** in the sidebar and open any folder in this backup. In the **Backups** tab, open the backup's menu and click **Storage reservation**. If a backup already failed for lack of space, you can also click **Request more space** in its **Backup failed** dialog.
 2. Enter the amount you need.
 3. Click **Request change**. The dialog notes "The owner of the destination server must approve the change."
 
+<details>
+<summary> Request more backup space </summary>
+
+![request-more-space.png](/features/backups/images/request-more-space.png){.medium .framed}
+</details>
+
 Your request waits on the **Backups** page under **Requests** > **Outgoing requests**, as "Awaiting approval for a storage change on" your buddy's name. You can withdraw it there. Your buddy approves or declines it. See [Host a buddy's backup](/features/backups/host-a-buddys-backup).
+
+<details>
+<summary> A storage request awaiting approval </summary>
+
+![pending-storage-request.png](/features/backups/images/pending-storage-request.png){.medium .framed}
+</details>
 
 HexOS also checks ahead of time, every few hours while your server is online. If the next backup will not fit, both of you get a notice that says how much is needed. If HexOS is sure it will not fit, it also pauses the backup for space. It resumes on its own when there is room. A backup can still stop if the space fills before the check runs. See [Backup troubleshooting](/features/backups/troubleshooting).
 
@@ -190,6 +250,12 @@ HexOS also checks ahead of time, every few hours while your server is online. If
 
 1. Click the **Pause** tile.
 2. HexOS asks "Pause this backup?". Click **Pause**.
+
+<details>
+<summary> Confirm a pause </summary>
+
+![pause-confirm.png](/features/backups/images/pause-confirm.png){.medium .framed}
+</details>
 
 The tile becomes **Resume**, and the page says "Backups are paused. Nothing new will back up until you resume them."
 
@@ -206,17 +272,31 @@ The tile becomes **Resume**, and the page says "Backups are paused. Nothing new 
 - You cannot pause while a restore is running. The page says "A restore is running. Pausing is unavailable until it finishes."
 - If the server that sends a paused backup is lost, recover the backup onto your new server. It stays paused there, and you can resume it from the new server. See [Recover a failed server](/features/backups/recover-a-failed-server).
 
+To resume, click **Resume**, then confirm in **Resume this backup?**.
+
+<details>
+<summary> Confirm resuming a backup </summary>
+
+![resume-confirm.png](/features/backups/images/resume-confirm.png){.medium .framed}
+</details>
+
 Pausing does not free space on the other server. To give the space back, remove the backup instead, which deletes the copy.
 
 ## Rename a buddy's backup
 
 You and your buddy each keep your own name for each other. The other side never sees yours.
 
-1. Click the **Rename** tile.
+1. Open the backup's **Settings** tab and click **Rename** beside **Name**.
 2. In **Rename this backup**, type a name under **Display name (optional)**. Leave it empty to use their server name or account email.
 3. Click **Save**.
 
-Backups between your own servers are always named after the server, so they have no **Rename**.
+<details>
+<summary> Rename a backup </summary>
+
+![rename-backup.png](/features/backups/images/rename-backup.png){.medium .framed}
+</details>
+
+Backups between your own servers use the server name, so they have no name setting.
 
 ## The row menu on the backups page
 
@@ -230,7 +310,15 @@ Each row on the **Backups** page has a menu, so you can act without opening the 
 
 ## On a folder's page
 
-A folder's page lists every place it is backed up to under **Backing up to**, with the state of each. Each one has a menu with **Back up now** and **Restore from this backup** (not while the backup is paused), **Transfer speed**, **Schedule & Retention**, **Storage reservation**, **Remove backup destination**, and **Remove connection**.
+A folder's page lists every place it is backed up to in the **Backups** tab, with the state of each. Each one has a menu with **Back up now**, **Restore from this backup**, **Transfer speed**, **Schedule & Retention**, **Storage reservation**, **Remove backup destination**, and **Remove connection**. **Back up now** is unavailable while paused. You can restore a stored copy while you or your buddy has paused the backup. Restoring does not resume scheduled backups.
+
+
+
+<details>
+<summary> Backup actions on a folder </summary>
+
+![folder-backups-menu.png](/features/backups/images/folder-backups-menu.png){.medium .framed}
+</details>
 
 To add the folder to another backup, click **Backup**. See [Set up a backup](/features/backups/set-up-a-backup#back-up-from-a-folders-page).
 
@@ -245,7 +333,7 @@ On the **Backups** page, click **View map**. The **Backup map** draws your serve
 </details>
 
 - **This server** shows the server you are viewing. **All servers** shows every server on your account.
-- **Filter by folder** shows only the backups of one folder.
+
 - Each server shows whether it is online, partly connected, not responding, or offline. A server that is down looks faded.
 - A line between two servers shows when a backup is paused, its last backup failed, or it is waiting for a server to come back.
 - The map also lists your pending requests.
