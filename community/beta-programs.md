@@ -1,7 +1,7 @@
 ---
 title: Beta programs
 description: Get new HexOS features before they ship. What a beta involves, which programs are running now, and how to request a place
-published: false
+published: true
 date: 2026-10-07T00:00:00.000Z
 tags: community, beta
 editor: markdown
