@@ -1,7 +1,7 @@
 ---
 title: Buddy Backups and Virtual Machines beta
 description: Buddy Backups and Virtual Machines are open betas for everyone. What beta means and what we ask of you
-published: false
+published: true
 date: 2026-10-07T00:00:00.000Z
 tags: community, beta, buddy backups, virtual machines
 editor: markdown
