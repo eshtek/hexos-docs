@@ -28,9 +28,9 @@ Buddy Backups keeps a copy of your folders on a buddy's server or on a second se
 
 Each finished backup is a restore point you can restore. A backup that is still running or stopped early is not one yet. It uses the same replication that TrueNAS itself uses.
 
-Folders sent to a buddy stay encrypted, and your buddy cannot open them. HexOS keeps your recovery key by default, so it can unlock a restored folder for you. You can keep the key yourself in **Settings** instead.
+Folders sent to a buddy stay encrypted, and your buddy cannot open them. HexOS keeps your recovery key by default, so it can unlock a restored folder for you. A folder locked with your own passphrase still asks for it. You can keep the key yourself in **Settings** > **Recovery key**.
 
-Backup copies are deleted only when you or your buddy confirm an action that removes them. Restore points older than the time you chose to keep are removed automatically.
+Backup copies are deleted only when you or your buddy confirm an action that removes them. Restore points older than the time you chose to keep are removed automatically, except the newest three.
 
 > **Warning:** While Buddy Backups is in beta, keep any backup you already rely on running alongside it.
 {.is-warning}
@@ -47,7 +47,9 @@ Before you remove anything, read [Removing backups](/features/backups/removing-b
 
 Virtual Machines lets you run Windows, Linux, and small appliance systems such as Home Assistant OS on your HexOS server. There is nothing to sign up for and nothing to install. Creating and running a VM needs a license that covers VM controls. Click **VMs** in the sidebar to start.
 
-Every VM is a real computer on your server. It runs on the same virtualization that TrueNAS uses, and its disks are stored on your own pools.
+Every VM is a real computer on your server. It runs on the same virtualization that TrueNAS uses, and its disks are stored on your own pools. With VM controls you can start it, stop it and take snapshots.
+
+If setup stops after the VM is created, the VM and its disks are kept. Disks are deleted only when you remove the VM and choose to delete them.
 
 VM setup is part of the same beta. For Plex Media Server and Home Assistant OS, HexOS can finish setting the system up after it starts, if you allow it. See [VM setup](/features/vms/vm-setup).
 
