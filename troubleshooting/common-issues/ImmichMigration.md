@@ -2,8 +2,8 @@
 title: Immich storage migration
 description: Find the replacement guide for an older Immich storage layout.
 published: true
-date: 2026-11-15T00:00:00.000Z
-tags: apps, immich, migration
+date: 2026-11-16T05:50:01.886Z
+tags: apps, migration, immich
 editor: markdown
 dateCreated: 2026-06-08T15:43:42.835Z
 ---
