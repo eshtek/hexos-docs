@@ -21,7 +21,7 @@ Folders you send to a buddy are encrypted. Your files sit on their server, but t
 
 Buddy Backups is in beta. Feature access and a connection to HexOS services are required. The Command Deck shows a **Beta** badge next to **Backups**. Click it to read a short note about the beta.
 
-> **Info:** Some wording in the current beta note is too broad. Feature access is required. Wait for a completed backup and test a restore before relying on it. With managed recovery, HexOS can recover your key while you are signed in. Confirmed removal can delete stored copies. Retention settings can remove older restore points.
+> **Info:** Each server in a backup needs a license that covers Buddy Backup. Wait for a completed backup and test a restore before relying on it. With managed recovery, HexOS can recover your key while you are signed in. Confirmed removal can delete stored copies. Retention settings can remove older restore points.
 {.is-info}
 
 <details>

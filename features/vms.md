@@ -19,7 +19,7 @@ HexOS does most of the work. Choose a system from the catalog, and HexOS creates
 
 ## What beta means
 
-Virtual Machines is an open beta. It is on for everyone, with no sign-up. The **VMs** screens show a **Beta** badge. Click it to read a short note about the beta.
+Virtual Machines is in beta. There is no sign-up. Creating and running a VM needs a license that covers VM controls. The **VMs** screens show a **Beta** badge. Click it to read a short note about the beta.
 
 <details>
 <summary> The Beta badge's note </summary>
