@@ -250,7 +250,7 @@ For everyday file work, and for moving large amounts of data, connecting your co
 
 Uploading and downloading move file data between your computer and your server directly, so they are only available when you are on the same network as your server.
 
-If you are away from home, the **Upload** and **Download** buttons show a warning and explain how to switch to local access. Everything else — browsing, renaming, moving, deleting, downloading from the internet, and burning a USB stick — happens on the server itself and works from anywhere.
+At home, the Command Deck at deck.hexos.com reaches your server on its own, shown by the purple **Direct** badge beside the server's name, and the buttons work there. If you are away from home, or the badge is missing, the **Upload** and **Download** buttons show a warning and explain how to open your server's local deck. See [Local access to your server](/troubleshooting/local-access). Everything else (browsing, renaming, moving, deleting, downloading from the internet, and burning a USB stick) happens on the server itself and works from anywhere.
 
 > **Info:** If file actions are missing entirely, your server may need a HexOS update before they become available. Browsing still works in the meantime.
 {.is-info}
