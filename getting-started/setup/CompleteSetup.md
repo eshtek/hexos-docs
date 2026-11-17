@@ -199,7 +199,7 @@ A pool that is not imported yet shows an estimate, such as **About 16.28 GB usab
 <details>
 <summary> A pool whose size will be shown after import </summary>
 
-![import-size-unknown.png](/complete-setup/import-size-unknown.png){.medium .framed}
+![import-size-unknown.png](/complete-setup/import-size-unknown.png?v=20261117){.medium .framed}
 </details>
 
 ### Pools from another server
