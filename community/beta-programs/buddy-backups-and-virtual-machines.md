@@ -1,6 +1,6 @@
 ---
 title: Buddy Backups and Virtual Machines beta
-description: Buddy Backups and Virtual Machines are open betas for everyone. What beta means and what we ask of you
+description: Buddy Backups and Virtual Machines are in beta. What beta means, what you need, and what we ask of you
 published: true
 date: 2026-10-07T00:00:00.000Z
 tags: community, beta, buddy backups, virtual machines
@@ -10,7 +10,7 @@ dateCreated: 2026-09-08T12:00:00.000Z
 
 # Buddy Backups and Virtual Machines beta
 
-Buddy Backups and Virtual Machines are both open betas. Everyone has them, with no sign-up and nothing to install.
+Buddy Backups and Virtual Machines are both in beta. There is no sign-up and nothing to install. Each one needs a license that covers it.
 
 For the other programs running now, see [Beta programs](/community/beta-programs).
 
@@ -24,9 +24,13 @@ What you tell us shapes what reaches everyone. The beta channel on Discord is re
 
 ## Buddy Backups: open beta
 
-Buddy Backups keeps a copy of your folders on a buddy's server or on a second server of your own. It is on for every HexOS account. There is nothing to sign up for and nothing to install. Click **Backups** in the sidebar of the hosted Command Deck to start.
+Buddy Backups keeps a copy of your folders on a buddy's server or on a second server of your own. There is nothing to sign up for and nothing to install. Each server in a backup needs a license that covers Buddy Backup. Without one, its backups pause, and everything already stored stays. Click **Backups** in the sidebar of the hosted Command Deck to start.
 
-Every backup it makes is a real copy you can restore. It uses the same replication that TrueNAS itself uses.
+Each finished backup is a restore point you can restore. A backup that is still running or stopped early is not one yet. It uses the same replication that TrueNAS itself uses.
+
+Folders sent to a buddy stay encrypted, and your buddy cannot open them. HexOS keeps your recovery key by default, so it can unlock a restored folder for you. A folder locked with your own passphrase still asks for it. You can keep the key yourself in **Settings** > **Recovery key**.
+
+Backup copies are deleted only when you or your buddy confirm an action that removes them. Restore points older than the time you chose to keep are removed automatically, except the newest three.
 
 > **Warning:** While Buddy Backups is in beta, keep any backup you already rely on running alongside it.
 {.is-warning}
@@ -41,9 +45,11 @@ Before you remove anything, read [Removing backups](/features/backups/removing-b
 
 ## Virtual Machines: open beta
 
-Virtual Machines lets you run Windows, Linux, and small appliance systems such as Home Assistant OS on your HexOS server. It is on for every HexOS account. There is nothing to sign up for and nothing to install. Click **VMs** in the sidebar to start.
+Virtual Machines lets you run Windows, Linux, and small appliance systems such as Home Assistant OS on your HexOS server. There is nothing to sign up for and nothing to install. Creating and running a VM needs a license that covers VM controls. Click **VMs** in the sidebar to start.
 
-Every VM is a real computer on your server. It runs on the same virtualization that TrueNAS uses, and its disks are stored on your own pools.
+Every VM is a real computer on your server. It runs on the same virtualization that TrueNAS uses, and its disks are stored on your own pools. With VM controls you can start it, stop it and take snapshots.
+
+If setup stops after the VM is created, the VM and its disks are kept. Disks are deleted only when you remove the VM and choose to delete them.
 
 VM setup is part of the same beta. For Plex Media Server and Home Assistant OS, HexOS can finish setting the system up after it starts, if you allow it. See [VM setup](/features/vms/vm-setup).
 

@@ -16,7 +16,7 @@ This page lists the programs running now and explains how to take part.
 
 ## What being in a beta means
 
-In an invite-only beta, the feature is switched on for your account. In an open beta, it is on for everyone. Either way there is nothing extra to install. You use it as you normally would, and you tell us what you expected and what actually happened.
+In an invite-only beta, the feature is switched on for your account. In an open beta, there is no invite and no sign-up, but the feature can still need a license that covers it. Either way there is nothing extra to install. You use it as you normally would, and you tell us what you expected and what actually happened.
 
 A feature in beta works on your real data. Beta means we are still finishing it: screens may change, and you may find a rough edge. What we learn from you shapes how it reaches everyone. There is no minimum commitment and no deadline.
 
@@ -33,11 +33,11 @@ If you have a question before you sign up, ask in the [HexOS Discord Community](
 
 ### Buddy Backups: open beta
 
-Back up your folders to a friend's server or a second server of your own. Buddy Backups is open to everyone while we finish it. There is no sign-up: click **Backups** in the sidebar of the hosted Command Deck to start. See [what the Buddy Backups beta means](/community/beta-programs/buddy-backups-and-virtual-machines) and the [Buddy Backups](/features/backups) guide.
+Back up your folders to a friend's server or a second server of your own. Buddy Backups is in beta while we finish it. Each server in a backup needs a license that covers Buddy Backup. There is no sign-up: click **Backups** in the sidebar of the hosted Command Deck to start. See [what the Buddy Backups beta means](/community/beta-programs/buddy-backups-and-virtual-machines) and the [Buddy Backups](/features/backups) guide.
 
 ### Virtual Machines: open beta
 
-Run Windows, Linux, and small appliance systems such as Home Assistant OS on your HexOS server. Virtual Machines is open to everyone while we finish it, and so is VM setup, where HexOS finishes setting up some systems after they start. There is no sign-up: click **VMs** in the sidebar to start. See [what the Virtual Machines beta means](/community/beta-programs/buddy-backups-and-virtual-machines#virtual-machines-open-beta) and the [VMs](/features/vms) guide.
+Run Windows, Linux, and small appliance systems such as Home Assistant OS on your HexOS server. Virtual Machines is in beta while we finish it, and so is VM setup, where HexOS finishes setting up some systems after they start. Creating and running a VM needs a license that covers VM controls. There is no sign-up: click **VMs** in the sidebar to start. See [what the Virtual Machines beta means](/community/beta-programs/buddy-backups-and-virtual-machines#virtual-machines-open-beta) and the [VMs](/features/vms) guide.
 
 ### App curation
 

@@ -85,7 +85,7 @@ From the Apps screen you can
 
 ## Backups
 
-The Backups screen keeps a copy of your folders on a buddy's server or on another server you own. Buddy Backups is in beta and open to everyone. It works on the hosted Command Deck at [deck.hexos.com](https://deck.hexos.com).
+The Backups screen keeps a copy of your folders on a buddy's server or on another server you own. Buddy Backups is in beta. Each server in a backup needs a license that covers Buddy Backup. It works on the hosted Command Deck at [deck.hexos.com](https://deck.hexos.com).
 
 From the Backups screen you can
 - Set up a new backup
@@ -99,7 +99,7 @@ From the Backups screen you can
 
 ## Virtual Machines
 
-The VMs screen runs other computers inside your server: Windows, a Linux desktop, or a small appliance system such as Home Assistant OS or Plex Media Server. Virtual Machines is in beta and open to everyone. Your server needs at least 4 processor cores, 8 GB of memory, and 32 GB of free space on a pool.
+The VMs screen runs other computers inside your server: Windows, a Linux desktop, or a small appliance system such as Home Assistant OS or Plex Media Server. Virtual Machines is in beta. Creating and running a VM needs a license that covers VM controls. Your server needs at least 4 processor cores, 8 GB of memory, and 32 GB of free space on a pool.
 
 From the VMs screen you can
 - Set up a VM from the catalog, with the operating system and apps installed for you
