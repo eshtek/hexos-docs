@@ -15,7 +15,7 @@ dateCreated: 2026-10-28T00:00:00.000Z
 
 With HexOS Anywhere on, each app you share gets its own HexOS address. If you own a domain, you can use it instead, so Jellyfin answers at `jellyfin.example.com`. Your connection stays encrypted all the way to your server: we pass it along without reading it.
 
-To use your domain, you add one DNS record where you manage it. A second, optional record keeps your app names private.
+To use your domain, you add one DNS record where you manage it.
 
 New to HexOS Anywhere? [HexOS Anywhere](/features/remote-access) covers the rest: turning it on for an app, sign-in, TV and phone apps, and limiting where visitors come from.
 
@@ -35,13 +35,13 @@ Once your domain is verified, your apps answer only at their addresses on it, an
 | | Type | Host | Value |
 |---|---|---|---|
 | Required | CNAME | `*` | The value the Command Deck shows |
-| Optional | CNAME | `_acme-challenge` | The value the Command Deck shows |
+| Only if the Command Deck shows it | CNAME | `_acme-challenge` | The value the Command Deck shows |
 
-Copy each value with its copy button in the Command Deck. They are unique to your account.
+Copy each value with its copy button in the Command Deck. They are unique to your account. Most setups need only the `*` record.
 
 ### Type only the first part of the host
 
-The Command Deck shows the full name, such as `*.example.com`, but most providers add your domain to the host for you. Type only `*` (and `_acme-challenge` for the optional record). If you type the full name, the record ends up at `*.example.com.example.com` and we won't find it.
+The Command Deck shows the full name, such as `*.example.com`, but most providers add your domain to the host for you. Type only `*` (and `_acme-challenge` if the Command Deck shows that record). If you type the full name, the record ends up at `*.example.com.example.com` and we won't find it.
 
 ### Turn off any proxy or CDN
 
@@ -51,9 +51,13 @@ The record must point straight at us. A provider setting that sends your traffic
 
 The `*` record sends every name under your domain to us, except names that already have their own records. Your website at `www.example.com`, your email and anything else you set up keep working as they are. Those names can't be used for apps, though: an app named `www` wouldn't be reachable while `www` has its own record.
 
-### Optional: keep your app names private
+### One certificate for all your apps
 
-Without the second record, your server gets a separate certificate for each app, and every certificate is listed in public logs that anyone can search. That reveals names like `jellyfin.example.com`, though not what's behind them. With `_acme-challenge` handed to us, your server gets one certificate that covers all your apps, and their names stay out of those logs.
+The `*` record also lets your server get one certificate that covers all your apps. Certificates are listed in public logs that anyone can search, so one certificate for `*.example.com` keeps names like `jellyfin.example.com` out of them.
+
+This works only while `_acme-challenge` has no other records at your provider. The exception is an `_acme-challenge` CNAME the Command Deck showed you, which you can keep. If the Command Deck shows that record now, add it to get the same single certificate.
+
+An `_acme-challenge` TXT record, often left behind by an older SSL setup, makes your server fall back to a separate certificate for each app, and each one shows up in those logs. If you [limit where visitors come from](/features/remote-access#limit-where-visitors-come-from), those certificates can fail to renew. Delete the TXT records you no longer use. If another service still renews certificates with them, keep them, and your apps keep their separate certificates.
 
 ### If your domain has CAA records
 
@@ -84,9 +88,9 @@ To set up the proxy itself, see [VM console and remote access](/features/vms/rem
 ### Cloudflare
 
 - Set **Proxy status** to **DNS only** (the gray cloud) on every record you add for HexOS Anywhere. A proxied record won't work.
-- Name: `*`, and `_acme-challenge` for the optional record.
-- If you turned on **CNAME flattening** for all records, turn it off, or at least don't flatten `_acme-challenge`: a flattened record hides the CNAME we look for.
-- An older SSL setup can leave `_acme-challenge` TXT records behind that don't always appear in the dashboard. If the optional record won't verify, check for them.
+- Name: `*`, and `_acme-challenge` if the Command Deck shows that record.
+- If you turned on **CNAME flattening** for all records, turn it off: a flattened record hides the CNAME we look for.
+- An older SSL setup can leave `_acme-challenge` TXT records behind that don't always appear in the dashboard. To check, look up the TXT records for `_acme-challenge.example.com` with a DNS lookup tool. See [One certificate for all your apps](#one-certificate-for-all-your-apps) for what to do with them.
 - Changes take effect within about 5 minutes.
 
 [Cloudflare: wildcard DNS records](https://developers.cloudflare.com/dns/manage-dns-records/reference/wildcard-dns-records/) · [Proxy status](https://developers.cloudflare.com/dns/proxy-status/)
@@ -115,7 +119,7 @@ To set up the proxy itself, see [VM console and remote access](/features/vms/rem
 
 - New domains come with parking records pointing at `pixie.porkbun.com`, including one at `*`. Delete them first, or Porkbun refuses the new record because "a CNAME or ALIAS record with that host already exists".
 - Host: `*`, without your domain.
-- Porkbun's free SSL certificate adds `_acme-challenge` TXT records. Delete them before adding the optional record; a CNAME can't share a name with other records.
+- Porkbun's free SSL certificate adds `_acme-challenge` TXT records. While they're there, your apps get [separate certificates](#one-certificate-for-all-your-apps). If you don't use Porkbun's certificate, delete them.
 - Don't use **Park domain** later: it deletes the `*` record.
 
 [Porkbun: wildcard records](https://kb.porkbun.com/article/94-what-is-a-wildcard-dns-record) · [Record already exists](https://kb.porkbun.com/article/239-cname-alias-record-with-that-host-already-exists-error) · [Parking](https://kb.porkbun.com/article/183-how-to-reset-dns-and-park-your-domain)
