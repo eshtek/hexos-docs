@@ -20,7 +20,7 @@ The hosted Command Deck is updated by the HexOS team. Reload the page if you hav
 
 <!-- auto-generated-year-sections-start -->
 ## 2026 releases
-- [**2026-11-17**](/release-notes/command-deck/2026-11-17) - A faster Command Deck at home, Stardew Valley and Rust servers, and more
+- [**2026-11-17**](/release-notes/command-deck/2026-11-17) - A faster Command Deck at home, Anywhere upgrades, new apps, and more
 - [**2026-11-13**](/release-notes/command-deck/2026-11-13) - HexOS Anywhere, Sign in with TrueNAS, picture previews, and more
 - [**2026-11-10**](/release-notes/command-deck/2026-11-10) - Automatic app updates, fan curves, game servers, and more
 - [**2026-11-06**](/release-notes/command-deck/2026-11-06) - Local AI and app collections, more folders for Plex VMs, live GPU usage, and more
