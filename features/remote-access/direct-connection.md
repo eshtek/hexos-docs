@@ -3,7 +3,7 @@ title: Direct connections at home
 description: Point your router's DNS at your HexOS server so devices at home reach your Anywhere addresses at full speed, with steps for common routers
 published: true
 date: 2026-11-17T00:00:00.000Z
-tags: hexos anywhere, remote access, direct connection, dns, router, asus, tp-link, unifi, eero, netgear, gl.inet, icloud private relay
+tags: hexos anywhere, remote access, direct connection, dns, router, asus, tp-link, unifi, eero, google nest, netgear, gl.inet, openwrt, icloud private relay
 editor: markdown
 dateCreated: 2026-11-17T00:00:00.000Z
 ---
@@ -110,6 +110,18 @@ With eero Plus, **Custom DNS** is grayed out while Advanced Security, Ad Blockin
 
 [eero: set up custom DNS servers](https://support.eero.com/hc/articles/360059988432)
 
+### Google Nest Wifi and Google Wifi
+
+1. In the Google Home app, tap **Wifi**.
+2. Tap **Network settings** > **Advanced networking** > **DNS**.
+3. Select **Custom**.
+4. Type your server's address as the primary server and the public DNS server as the secondary server.
+5. Tap **Save**.
+
+Google's routers block DNS answers that point to an address inside your home while they use the automatic DNS setting. Google says that choosing **Custom** turns this protection off, so there is nothing else to change.
+
+[Google: change your DNS server](https://support.google.com/googlenest/answer/6274141) · [DNS rebinding protection](https://support.google.com/googlenest/answer/9144137)
+
 ### Netgear
 
 1. Open `http://www.routerlogin.net` in a browser and sign in. On an Orbi, use `http://orbilogin.net`.
@@ -134,6 +146,18 @@ NETGEAR Armor and Smart Parental Controls can lock this setting. Turn them off t
 If the router runs a VPN, also turn on **Allow Custom DNS to Override VPN DNS**.
 
 [GL.iNet: DNS settings](https://docs.gl-inet.com/router/en/4/interface_guide/dns/)
+
+### OpenWrt
+
+1. Open your router's address in a browser, usually `http://192.168.1.1`, and sign in to LuCI.
+2. Open **Network** > **Interfaces** and click **Edit** next to **lan**.
+3. Open the **DHCP Server** tab, then **Advanced Settings**.
+4. In **DHCP-Options**, type `6,192.168.1.50,1.1.1.1`. Replace `192.168.1.50` with your server's address. The `6` tells devices that the addresses after it are DNS servers.
+5. Click **Save**, then **Save & Apply**.
+
+With this setting your devices ask your server themselves, so OpenWrt's own rebind protection doesn't get in the way.
+
+[OpenWrt: DHCP and DNS configuration](https://openwrt.org/docs/guide-user/base-system/dhcp_configuration)
 
 ### Other routers
 
