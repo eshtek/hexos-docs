@@ -210,7 +210,7 @@ sudo nano /mnt/.ix-apps/app_configs/immich/versions/1.14.13/ix_values.yaml
 
 ## If you still can't update Immich
 
-If you are still having trouble updating Immich please reach out to `support@hexos.com`
+If you are still having trouble updating Immich please reach out to [HexOS support](mailto:support@hexos.com).
 
 ## Community credits 
 

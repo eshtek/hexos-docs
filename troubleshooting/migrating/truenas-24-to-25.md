@@ -20,6 +20,7 @@ dateCreated: 2026-06-08T15:43:52.526Z
 
 <details>
   <summary> Finding the IP address with a monitor </summary>
+
 1. Connect a display to your server.
   
 2. When turned on the server will show your IP address
@@ -81,4 +82,4 @@ If you are unable to connect a monitor to your server you may be able to find th
 
 ## If you still can't connect to HexOS Deck
 
-If you are still having trouble claiming your server or connecting to HexOS Deck please reach out to `support@hexos.com`
+If you are still having trouble claiming your server or connecting to HexOS Deck please reach out to [HexOS support](mailto:support@hexos.com).
