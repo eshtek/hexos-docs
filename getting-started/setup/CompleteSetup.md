@@ -2,7 +2,7 @@
 title: Complete server setup
 description: Log in, find your server, check its hardware, choose how to use your drives and finish setup
 published: true
-date: 2026-10-13T00:00:00.000Z
+date: 2026-11-17T21:30:00.000Z
 tags: setup, storage, pools, getting started
 editor: markdown
 dateCreated: 2026-06-08T15:41:10.493Z
@@ -193,6 +193,14 @@ You only see this screen when your drives already hold storage pools. It lists t
 
 - **Pools from another server**, for example drives you moved from an older server. Their cards say **Previously used on** and the other server's name.
 - **Pools already on this server**, for example after you reset HexOS, or on a server that ran TrueNAS before. Their cards say **Already on this server**.
+
+A pool that is not imported yet shows an estimate, such as **About 16.28 GB usable storage**. The final usable size is read after import, so it may differ from the estimate. If HexOS cannot estimate it, the card says **Size shown after import**.
+
+<details>
+<summary> A pool whose size will be shown after import </summary>
+
+![import-size-unknown.png](/complete-setup/import-size-unknown.png){.medium .framed}
+</details>
 
 ### Pools from another server
 
