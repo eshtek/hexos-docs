@@ -135,7 +135,7 @@ If the passphrase is wrong, the restore stays locked. The dialog stays open, cle
 <details>
 <summary> Try again after a rejected passphrase </summary>
 
-![restore-passphrase-rejected.png](/features/backups/images/restore-passphrase-rejected.png){.medium .framed}
+![restore-passphrase-rejected.png](/features/backups/images/restore-passphrase-rejected.png?v=20261117){.medium .framed}
 </details>
 
 If you cannot find the passphrase, close the dialog. Click **Discard restore**, then **Discard restore** again in "Discard this restore?". That removes the locked copy from your server; anything left behind shows under **Restores needing attention**. The backup itself stays, so you can restore again later.
