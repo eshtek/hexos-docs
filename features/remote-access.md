@@ -61,6 +61,28 @@ With your own domain, the address is the app's name followed by your domain, suc
 
 Some apps have more than one web page. Scrutiny, for example, also has an InfluxDB page. The **Anywhere** tab of such an app has one section for each page, titled with its name, such as **Anywhere: InfluxDB**. Each page gets its own switch and its own address (`scrutiny` and `scrutiny-influxdb`), so you can share one without the other.
 
+### If an app has no Anywhere tab
+
+An app has an **Anywhere** tab only when it has a web page that TrueNAS lists for it. The tab doesn't appear for:
+
+- **Apps that only work at home**, such as Ollama.
+- **Apps with no web page listed.** You can spot these: the app's **Launch** button stays grayed out even while the app is running.
+
+An app with no web page listed usually has **Host Network** turned on in TrueNAS. With that setting on, TrueNAS doesn't list the app's web page, so HexOS has no page to give an address to. HexOS installs most apps, Plex and Jellyfin among them, with **Host Network** off.
+
+> **Warning:** Kodi and Scrypted need **Host Network**. HexOS installs them with it on. Leave it on for those two apps.
+{.is-warning}
+
+To turn **Host Network** off for an app:
+
+1. In the Command Deck, open **Settings** > **TrueNAS** and sign in to TrueNAS.
+2. In the TrueNAS menu on the left, click **Apps**.
+3. Click the app in the list, then click **Edit**.
+4. Scroll down to **Network Configuration** and untick **Host Network**.
+5. A port section for the app's web page appears, such as **WebUI Port** for Plex. Leave **Port Bind Mode** on **Publish port on the host for external access**, and leave the port number as it is (32400 for Plex).
+6. Scroll to the bottom and click **Update**. The app restarts, which takes a minute or two. Its data and settings stay as they are.
+7. Back in the Command Deck, reload the page and open the app. Its **Launch** button works again, and its **Anywhere** tab is there.
+
 ### Change an address
 
 Click **Edit address** next to the address, type a new name, and click **Save**. Use lowercase letters, numbers and hyphens. Press Escape to keep the old name.
@@ -181,6 +203,7 @@ When an address needs attention, we try again every few minutes on our own. To t
 | The relay could not be updated | Wait a few minutes, or turn **Anywhere** off and on in the app's **Anywhere** tab. |
 | The relay holds an entry for this address that this HexOS did not make | Choose another address, or contact support to have it released. |
 | Jellyfin on old-nas uses this address. Pick another. | Choose another name. A server you still own keeps its names, even while it's offline, until you unclaim it or change its address. |
+| An app has no **Anywhere** tab | See [If an app has no Anywhere tab](#if-an-app-has-no-anywhere-tab). |
 | A TV or phone app can't connect | Look for it under **Waiting for approval** in the app's **Anywhere** tab. If it never shows up there, see [TV and phone apps](#tv-and-phone-apps). |
 | Too many attempts. Try again in 15 minutes. | Wait 15 minutes, then sign in with the right password or PIN code. |
 

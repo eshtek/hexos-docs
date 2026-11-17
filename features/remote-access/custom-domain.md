@@ -73,6 +73,14 @@ Once your domain is **Verified**, you can open your server's Command Deck from a
 
 You don't need another DNS record: the `*` record you added already sends the name to us. If the name has a record of its own at your DNS provider, delete it, because a record for one name takes precedence over the `*` record. Like an app's address, a new Command Deck address can take a few minutes to start working.
 
+### If signing in at this address fails
+
+| You see | What to do |
+|---|---|
+| A page that says "We are sorry..." and "Invalid Redirect Uri" | The HexOS update of November 17, 2026 fixes this, and your server gets it on its own. Open your address again. If you still see this page, clear your browser's cookies for the address and try once more. |
+| HexOS sign-in isn't turned on for this address | The address isn't saved and **Verified** for this server, or the server doesn't have HexOS Anywhere. Open the Command Deck at its usual address and check **Settings** > **Anywhere** > **Custom domain**. |
+| HexOS sign-in didn't go through. Try again in a moment. | Wait a moment, then reload the page. |
+
 ### Advanced: your own reverse proxy
 
 If you run a reverse proxy, you can instead give the Command Deck an address on another domain and serve it from your proxy:
