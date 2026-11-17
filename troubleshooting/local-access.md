@@ -1,8 +1,8 @@
 ---
 title: Local access to your server
-description: What local access is, where to find your server's own address, and how to let the Command Deck open it for you
+description: What local access is, how the Command Deck uses it, and where to find your server's own address
 published: true
-date: 2026-11-04T00:00:00.000Z
+date: 2026-11-17T00:00:00.000Z
 tags: local access, browser, permissions
 editor: markdown
 dateCreated: 2026-11-04T00:00:00.000Z
@@ -10,35 +10,39 @@ dateCreated: 2026-11-04T00:00:00.000Z
 
 # Local access to your server
 
-Your server has an address of its own on your home network. Opening the Command Deck at that address keeps your files and apps on your own network instead of sending them through the internet, which is faster and keeps working when your internet connection does not.
+Your server has an address of its own on your home network. When the Command Deck talks to your server at that address, your files and pages stay on your own network instead of travelling through the internet, which is faster.
 
-When you open the hosted Command Deck at [deck.hexos.com](https://deck.hexos.com), it checks whether your browser can reach that address and, when it can, hands you over on its own. When the check does not succeed, you stay on the hosted deck, which keeps working as it is, and a question mark appears beside **You are on the hosted Command Deck** at the top of the page. A check that does not succeed does not mean the address is unreachable: your browser may simply not allow the deck to look for your server. You can still open the address yourself.
+When you open the Command Deck at [deck.hexos.com](https://deck.hexos.com), it checks whether your browser can reach that address. When it can, the deck stays where it is and loads your server's pages straight from the server. A **Local** badge appears beside your server's name at the top, and uploads and downloads in the file browser work.
+
+![The Local badge beside the server's name](/local-access/server-dropdown-on-your-network.png)
+
+When the check does not succeed, everything keeps working through HexOS Cloud, a little slower. A check that does not succeed does not mean the address is unreachable: your browser may simply not allow the deck to look for your server. You can still open the address yourself.
 
 ## Find your server's local address
 
 You can open your server's own address at any time, whether or not the deck found it for you. The address works whenever you are on the same network as your server.
 
-- **From the hosted deck.** Click the question mark beside **You are on the hosted Command Deck**. It shows your server's address; click it to open your server directly, on the page you are looking at.
+- **From the hosted strip.** When the strip **You are on the hosted Command Deck** shows at the top, click the question mark beside it. It opens your server directly, on the page you are looking at.
 
-![The question mark at the top of the hosted Command Deck, with the server's address](/local-access/hosted-banner-local-access.png)
+![The question mark at the top of the hosted Command Deck, with the link that opens the server](/local-access/hosted-banner-local-access.png)
 
-- **From the server dropdown.** Open the server dropdown at the top of the Command Deck and choose **Switch to Local**.
+- **From the server dropdown.** Open the server dropdown at the top of the Command Deck and choose **Open local deck** under your server's name. The line above it says how the deck reaches your server right now: **On your network** or **Through HexOS Cloud**.
 
-![The server dropdown with Switch to Local](/local-access/server-dropdown-switch-to-local.png)
+![The server dropdown with Open local deck](/local-access/server-dropdown-on-your-network.png)
 
 - **From Preferences.** With expert mode on, go to **Preferences** > **Advanced**. The **Local Access URL** is your server's own address; open it, or bookmark it for next time.
 
 ![The Local Access URL under Preferences, Advanced](/local-access/preferences-advanced-local-access-url.png)
 
-If the address does not open, see [If the address cannot be reached](#if-the-address-cannot-be-reached) below. The deck returns you to the hosted Command Deck when it cannot reach your server there.
+If the address does not open, see [If the address cannot be reached](#if-the-address-cannot-be-reached) below.
 
-## Let the Command Deck open local access for you
+## Let the Command Deck use local access for you
 
-The hosted deck asks your server, at its local address, whether it is there. When it answers, the deck hands you over and shows **Return to Local** whenever you come back to the hosted deck.
+The deck asks your server, at its local address, whether it is there. When it answers, the deck loads your server's pages from it directly and shows the **Local** badge.
 
-Newer browsers ask before a website may look for devices on your home network, and remember the answer. If the question was dismissed or answered **Block**, the deck's check cannot succeed in that browser, so you stay on the hosted deck. Blocking the check does not block the address itself: the ways to open it above still work.
+Newer browsers ask before a website may look for devices on your home network, and remember the answer. If the question was dismissed or answered **Block**, the deck's check cannot succeed in that browser, so everything goes through HexOS Cloud and a strip at the top says **You are on the hosted Command Deck**. Blocking the check does not block the address itself: the ways to open it above still work.
 
-To let the deck hand you over on its own, allow local network access for `deck.hexos.com`, then reload the page.
+To let the deck reach your server directly, allow local network access for `deck.hexos.com`, then reload the page.
 
 ### Google Chrome
 
@@ -95,11 +99,13 @@ macOS keeps its own list of apps allowed to reach devices on your network, and y
 
 ## If the address cannot be reached
 
-When your server's own address does not open, or the deck keeps returning you to the hosted Command Deck, the path from this device to the server is the problem rather than the browser:
+When your server's own address does not open, or the **Local** badge never appears while you are at home, the path from this device to the server is the problem rather than the browser:
 
-- **A different network.** Local access only works from the same network as the server. On a guest network, a phone's mobile data or away from home, keep using the hosted Command Deck.
+- **A different network.** Local access only works from the same network as the server. On a guest network, a phone's mobile data or away from home, the deck works through HexOS Cloud.
 - **A VPN.** A VPN on this device can send your server's local address out through the tunnel. Pause the VPN, or allow local network access in its settings, and try again.
 - **Your router's DNS rebind protection.** Many routers refuse the kind of address HexOS uses for local access. The deck shows a **Network** message when it finds this; the steps are in [DNS rebind protection](/troubleshooting/dns-rebind-protection).
+- **A server that is still updating.** The deck talks to your server directly only when the server runs the current HexOS version. Right after a HexOS release, the badge returns once your server has updated itself.
+- **Remote Management is off.** A server set to be managed locally only answers its own Command Deck; use **Open local deck**.
 - **A firewall or an isolated Wi-Fi network.** Client isolation on a Wi-Fi network, or a firewall on this device, can block the connection to the server's ports. See [Network ports](/troubleshooting/network-ports) for what must be open.
 
-Everything in the Command Deck keeps working through the hosted deck in the meantime. Only the direct path to your server is affected.
+Everything in the Command Deck except uploads and downloads keeps working through HexOS Cloud in the meantime. Only the direct path to your server is affected.
