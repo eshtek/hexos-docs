@@ -18,7 +18,15 @@ Many servers run their apps from one fast solid-state drive. It is quick, but it
 - The last 7 nights. The copy is there to bring back a drive that just failed, not to keep a long history.
 - Virtual machines whose disks are on that drive, but only the ones you say yes to. See [Virtual machines](#virtual-machines).
 
-Shared folders on the apps drive are not copied. Your files on the protected pool are already safe there.
+The copy holds only what is in the **Applications** folder on your apps drive. That is where HexOS puts each app's data. These are not copied:
+
+- Shared folders on the apps drive, and any other folder on it that is outside the **Applications** folder.
+- A folder outside the **Applications** folder that an app was set up to use, such as a media folder or a folder from an older install. After a restore, the app can get that folder back empty. Its contents are not in the copy.
+- A folder that an app uses on another pool. The app backup does not copy it, and a restore leaves it as it is.
+- The storage that TrueNAS manages for an app by itself, and the downloaded app images. TrueNAS downloads the images again.
+
+> **Warning:** A pool that can lose a drive is not a backup. It keeps your files when one drive fails. It does not keep them if you delete them by mistake or if you lose the whole server. To keep a separate copy of your folders on another server, use [Buddy Backups](/features/backups). See [Set up a backup](/features/backups/set-up-a-backup).
+{.is-warning}
 
 > **Info:** The app backup only reads from your apps drive. It never changes, moves or erases anything on it.
 {.is-info}
