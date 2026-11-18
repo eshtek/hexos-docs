@@ -63,11 +63,11 @@ If HexOS Anywhere ends on a server, for example when a payment is past due, its 
 </details>
 
 
-The app gets its address right away. We suggest the app's name, such as `jellyfin`. The Command Deck confirms it, for example "Jellyfin is reachable at `https://jellyfin.k7pqm4tz.relay.hexos.com`". The badge next to **Anywhere** reads **Connecting** while we set the address up, then **On**. This usually takes a few minutes. If it still says **Connecting** after 15 minutes, see [An address that never finishes connecting](#an-address-that-never-finishes-connecting).
+The app gets its address right away. We suggest the app's name, such as `jellyfin`. The Command Deck confirms it, for example "Jellyfin is reachable at `https://jellyfin.k7pqm4tz.relay.hexos.com`". The badge next to **Anywhere** reads **Connecting** while we set the address up, then **On**. This usually takes a few minutes. If it still says **Connecting** after 30 minutes, see [An address that never finishes connecting](#an-address-that-never-finishes-connecting).
 
 There is no Apply button in this tab. Each switch saves on its own a moment after you flip it.
 
-Click the address to open it, or click **Copy address** next to it to share it.
+Click the address to open it, or click the copy button next to it (**Copy address**) to share it.
 
 <details>
 <summary> An app's address with the badge On </summary>
@@ -105,7 +105,7 @@ An app has an **Anywhere** tab only when it has a web page that TrueNAS lists fo
 
 An app with no web page listed usually has **Host Network** turned on in TrueNAS. With that setting on, TrueNAS doesn't list the app's web page, so HexOS has no page to give an address to. HexOS installs most apps, Plex and Jellyfin among them, with **Host Network** off.
 
-> **Warning:** Kodi and Scrypted need **Host Network**. HexOS installs them with it on. Leave it on for those two apps.
+> **Warning:** AdGuard Home, Kodi, Pi-hole and Scrypted need **Host Network**, and HexOS installs them with it on. Leave it on for these apps. Turning it off for AdGuard Home or Pi-hole can stop the internet working for every device in your home.
 {.is-warning}
 
 To turn **Host Network** off for an app:
@@ -142,7 +142,7 @@ To turn **Host Network** off for an app:
 ![truenas-host-network-on.png](/features/remote-access/truenas-host-network-on.png){.medium .framed}
 </details>
 
-5. A port section for the app's web page appears, such as **WebUI Port** for Plex. Leave **Port Bind Mode** on **Publish port on the host for external access**, and leave the port number as it is (32400 for Plex).
+5. A port section for the app's web page appears, such as **WebUI Port** for Plex. Make sure **Port Bind Mode** is set to **Publish port on the host for external access**. Leave the port number as it is (32400 for Plex).
 
 <details>
 <summary> WebUI Port section </summary>
@@ -241,12 +241,12 @@ Some apps show our sign-in page inside the app. Signing in there is enough: the 
 
 With sign-in off, TV and phone apps go straight to the app and need no approval.
 
-> **Info:** A device can wait for approval only when its app tells us which device it is. The Jellyfin TV apps, the Emby and Plex apps, and the Immich phone apps do. Many other apps' clients send nothing we can tell apart from a stranger, so they are turned away and never show up under **Waiting for approval**. To use one of those away from home, turn **Require sign-in** off for that app.
+> **Info:** A device can wait for approval only when its app tells us which device it is. The Jellyfin TV apps and Swiftfin, the Emby and Plex apps, the Immich phone apps, and the Bitwarden phone apps with Vaultwarden do. Many other apps' clients send nothing we can tell apart from a stranger, so they are turned away and never show up under **Waiting for approval**. To use one of those away from home, turn **Require sign-in** off for that app.
 {.is-info}
 
 ### The Jellyfin app on an Android phone
 
-The Jellyfin app for Android phones never shows up under **Waiting for approval**. The app opens our sign-in page out of sight, so you can't type the password, and after a few seconds it goes back to its server list with an error.
+The Jellyfin app for Android phones can't show our sign-in page, and it never shows up under **Waiting for approval**. With **Require sign-in** on, it can't connect.
 
 To use it away from home, turn off **Require sign-in** for Jellyfin:
 
@@ -333,7 +333,7 @@ The records, and what to watch for at common DNS providers, are in [Use your own
 
 ## Open your Command Deck from anywhere
 
-With your domain verified, you can give your server's Command Deck an address on it too, such as `deck.example.com`. Under **Command Deck** in the **Custom domain** tab, type a name and click **Apply**. It needs no extra DNS record, and you sign in there with your HexOS account as usual. See [Command Deck](/features/remote-access/custom-domain#command-deck) for the details.
+With your domain verified, you can give your server's Command Deck an address on it too, such as `deck.example.com`. Under **Command Deck** in the **Custom domain** tab, type a name and click **Apply**. It needs no extra DNS record (unless your provider doesn't accept `*`), and you sign in there with your HexOS account as usual. See [Command Deck](/features/remote-access/custom-domain#command-deck) for the details.
 
 <details>
 <summary> Command Deck address field </summary>
@@ -357,7 +357,7 @@ Each address has a badge next to **Anywhere** in the app's tab, and next to the 
 | Badge | What it means |
 |---|---|
 | **Off** | HexOS Anywhere is off for this app. |
-| **Connecting** | We are setting the address up. This usually takes a few minutes. If it takes longer than 15 minutes, see [An address that never finishes connecting](#an-address-that-never-finishes-connecting). |
+| **Connecting** | We are setting the address up. This usually takes a few minutes. If it takes longer than 30 minutes, see [An address that never finishes connecting](#an-address-that-never-finishes-connecting). |
 | **On** | The address works. |
 | **Needs attention** | Something went wrong. The reason is written under the badge. |
 | **Paused** | The server doesn't have HexOS Anywhere right now. See [Get HexOS Anywhere](#get-hexos-anywhere). |
@@ -375,36 +375,30 @@ When an address needs attention, we try again every few minutes on our own. To t
 
 ### An address that never finishes connecting
 
-An address normally goes from **Connecting** to **On** within a few minutes. While it says **Connecting**, a browser that opens the address shows a security or certificate error, such as `SSL_ERROR_INTERNAL_ERROR_ALERT` in Firefox. That's expected until the badge reads **On**.
+An address normally goes from **Connecting** to **On** within a few minutes. Until your server has its certificate, a browser that opens the address can show a security or certificate error, such as `SSL_ERROR_INTERNAL_ERROR_ALERT` in Firefox. This can go on for a while after the badge reads **On**.
 
-If it still says **Connecting** after 15 minutes:
+If it still says **Connecting** after 30 minutes:
 
-1. Check that your server shows as online in the Command Deck.
-2. Open the app's **Anywhere** tab, turn the **Anywhere** switch off, wait a few seconds, and turn it on again. The app keeps the same address.
+1. Check that your server is turned on and shows as online in the Command Deck. An address can't connect while its server is offline.
+2. Leave the **Anywhere** switch on. We try again every 5 minutes on our own, so there's nothing to restart. Don't reinstall the app or HexOS.
+
+If it still says **Connecting** after an hour, [ask us on Discord](https://discord.com/invite/DjEp3WRHKz) and tell us your server's name. The badge doesn't show a reason in this case, so we need to look at it from our side.
+
+### A Nextcloud phone app can't connect away from home
+
+The Nextcloud apps for phones and computers don't tell us which device they are, so they can't wait for approval (see [TV and phone apps](#tv-and-phone-apps)). To use them away from home:
+
+1. Open Nextcloud from your dashboard and click its **Anywhere** tab.
+2. Turn off **Require sign-in**. Nextcloud still asks for its own username and password. Read the warning in [Turning sign-in off](#turning-sign-in-off) first.
+3. In the Nextcloud app, sign in with Nextcloud's HexOS Anywhere address. Copy it with the copy button next to the address in the **Anywhere** tab.
 
 <details>
-<summary> Anywhere switch </summary>
+<summary> Require sign-in switch and copy button </summary>
 
 ![anywhere-tab-turned-on.png](/features/remote-access/anywhere-tab-turned-on.png){.medium .framed}
 </details>
 
-3. Wait another 15 minutes.
-
-If it still says **Connecting** after that, [ask us on Discord](https://discord.com/invite/DjEp3WRHKz) and tell us your server's name. An address that stays on **Connecting** this long won't fix itself, and it doesn't show a reason. Don't reinstall the app or HexOS to fix it.
-
-### A phone app that worked at home stops working
-
-A phone app you set up before HexOS Anywhere may still have your server's old address saved, starting with `http://`. We send every `http://` visit on to `https://`, and some apps don't follow that. The Nextcloud apps, for example, then fail with an error such as "308".
-
-1. In the app, sign out or remove your server.
-2. Sign in again with the app's HexOS Anywhere address, starting with `https://`. Copy it with **Copy address** in the app's **Anywhere** tab.
-
-<details>
-<summary> Copy address button </summary>
-
-![anywhere-tab-turned-on.png](/features/remote-access/anywhere-tab-turned-on.png){.medium .framed}
-</details>
-
+If the app fails with an error such as "308", it saved the address starting with `http://`. We send every `http://` visit on to `https://`, and some apps don't follow that. Sign out of the app, or remove the server from it, and sign in again with the address starting with `https://`.
 
 > **Help:** If something here doesn't match what you see, or an address stays stuck, [ask us on Discord](https://discord.com/invite/DjEp3WRHKz).
 {.is-troubleshooting}

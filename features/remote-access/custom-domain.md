@@ -15,7 +15,7 @@ dateCreated: 2026-10-28T00:00:00.000Z
 
 With HexOS Anywhere on, each app you share gets its own HexOS address. If you own a domain, you can use it instead, so Jellyfin answers at `jellyfin.example.com`. Your connection stays encrypted all the way to your server: we pass it along without reading it.
 
-To use your domain, you add one DNS record where you manage it.
+To use your domain, you add one DNS record where you manage it. If your DNS provider doesn't accept that record, you add a few instead (see [If your DNS provider does not accept the asterisk](#if-your-dns-provider-does-not-accept-the-asterisk)).
 
 New to HexOS Anywhere? [HexOS Anywhere](/features/remote-access) covers the rest: turning it on for an app, sign-in, TV and phone apps, and limiting where visitors come from.
 
@@ -93,12 +93,12 @@ Some DNS providers, such as Wix, don't accept `*` as a host. You can still use y
 - **Re-check** looks for the `validation` record. Without it, your domain stays **Pending**.
 - An app's name is the first part of its address, shown in the app's **Anywhere** tab. For `mealie.k7pqm4tz.relay.hexos.com`, the name is `mealie`.
 - Click the copy button next to **Value** and paste the value as it is. Don't add the app's name or anything else in front of it.
-- Type each host yourself. The copy button next to **Host** copies `*`, which these providers refuse.
+- Type each host yourself. The copy button next to **Host** copies `*.example.com`, which these providers refuse.
 
 > **Warning:** An app can only be reached once its name has a record. When you share another app later, or change an app's address, add a record for the new name first.
 {.is-warning}
 
-With one record for each name, your server gets a separate certificate for each app, as described in [One certificate for all your apps](#one-certificate-for-all-your-apps). To get one certificate for all of them, also add a CNAME record with the host `_acme-challenge` and the same value, if your provider accepts it.
+With one record for each name, your server gets a separate certificate for each app, as described in [One certificate for all your apps](#one-certificate-for-all-your-apps). To get one certificate for all of them, also add a CNAME record with the host `_acme-challenge`, if your provider accepts it. Use the same value as the other records. If the Command Deck shows an `_acme-challenge` record of its own, use the value it shows instead.
 
 ### If your domain has CAA records
 
