@@ -15,7 +15,7 @@ dateCreated: 2026-10-28T00:00:00.000Z
 
 With HexOS Anywhere on, each app you share gets its own HexOS address. If you own a domain, you can use it instead, so Jellyfin answers at `jellyfin.example.com`. Your connection stays encrypted all the way to your server: we pass it along without reading it.
 
-To use your domain, you add one DNS record where you manage it.
+To use your domain, you add one DNS record where you manage it. If your DNS provider doesn't accept that record, you add a few instead (see [If your DNS provider does not accept the asterisk](#if-your-dns-provider-does-not-accept-the-asterisk)).
 
 New to HexOS Anywhere? [HexOS Anywhere](/features/remote-access) covers the rest: turning it on for an app, sign-in, TV and phone apps, and limiting where visitors come from.
 
@@ -23,8 +23,29 @@ New to HexOS Anywhere? [HexOS Anywhere](/features/remote-access) covers the rest
 
 1. In the Command Deck, open **Settings** > **Anywhere** > **Custom domain**.
 2. Type your domain, such as `example.com`, and select **Continue**.
+
+<details>
+<summary> Custom domain tab </summary>
+
+![custom-domain-empty.png](/features/remote-access/custom-domain/custom-domain-empty.png){.medium .framed}
+</details>
+
 3. The Command Deck shows the record to add. Add it at your DNS provider, as described below.
+
+<details>
+<summary> The DNS record to add </summary>
+
+![custom-domain-dns-record-pending.png](/features/remote-access/custom-domain/custom-domain-dns-record-pending.png){.medium .framed}
+</details>
+
 4. Back in the Command Deck, select **Re-check**. The badge changes from **Pending** to **Verified** once we find the record.
+
+<details>
+<summary> Domain verified </summary>
+
+![custom-domain-verified.png](/features/remote-access/custom-domain/custom-domain-verified.png){.medium .framed}
+</details>
+
 
 Most providers publish a change within minutes, but some take an hour or more (see [your provider](#notes-for-common-providers) below). If the check can't find the record yet, wait a little and select **Re-check** again.
 
@@ -32,10 +53,10 @@ Once your domain is verified, your apps answer only at their addresses on it, an
 
 ## The records
 
-| | Type | Host | Value |
-|---|---|---|---|
-| Required | CNAME | `*` | The value the Command Deck shows |
-| Only if the Command Deck shows it | CNAME | `_acme-challenge` | The value the Command Deck shows |
+| Type | Host | Value |
+|---|---|---|
+| CNAME | `*` | The value the Command Deck shows |
+| CNAME | `_acme-challenge` (only if the Command Deck shows it) | The value the Command Deck shows |
 
 Copy each value with its copy button in the Command Deck. They are unique to your account. Most setups need only the `*` record.
 
@@ -59,6 +80,26 @@ This works only while `_acme-challenge` has no other records at your provider. T
 
 An `_acme-challenge` TXT record, often left behind by an older SSL setup, makes your server fall back to a separate certificate for each app, and each one shows up in those logs. If you [limit where visitors come from](/features/remote-access#limit-where-visitors-come-from), those certificates can fail to renew. Delete the TXT records you no longer use. If another service still renews certificates with them, keep them, and your apps keep their separate certificates.
 
+### If your DNS provider does not accept the asterisk
+
+Some DNS providers, such as Wix, don't accept `*` as a host. You can still use your domain. Instead of one `*` record, add one CNAME record for each name you use. Every record gets the same value.
+
+| Type | Host | Value |
+|---|---|---|
+| CNAME | `validation` | The value the Command Deck shows |
+| CNAME | The name of each app you share, such as `mealie` | The same value |
+| CNAME | Your Command Deck name, such as `deck`, if you set one up | The same value |
+
+- **Re-check** looks for the `validation` record. Without it, your domain stays **Pending**.
+- An app's name is the first part of its address, shown in the app's **Anywhere** tab. For `mealie.k7pqm4tz.relay.hexos.com`, the name is `mealie`.
+- Click the copy button next to **Value** and paste the value as it is. Don't add the app's name or anything else in front of it.
+- Type each host yourself. The copy button next to **Host** copies `*.example.com`, which these providers refuse.
+
+> **Warning:** An app can only be reached once its name has a record. When you share another app later, or change an app's address, add a record for the new name first.
+{.is-warning}
+
+With one record for each name, your server gets a separate certificate for each app, as described in [One certificate for all your apps](#one-certificate-for-all-your-apps). To get one certificate for all of them, also add a CNAME record with the host `_acme-challenge`, if your provider accepts it. Use the same value as the other records. If the Command Deck shows an `_acme-challenge` record of its own, use the value it shows instead.
+
 ### If your domain has CAA records
 
 A CAA record says which certificate authorities may issue certificates for your domain. Most domains have none, and then there is nothing to do. If yours has one, add a CAA record that allows `letsencrypt.org`, or your server can't get its certificates.
@@ -69,9 +110,24 @@ Once your domain is **Verified**, you can open your server's Command Deck from a
 
 1. Under **Command Deck** in the same tab, type a name, such as `deck`. Your domain is already filled in beside it.
 2. Select **Apply**. The name can't be `join` or a name one of your apps uses.
+
+<details>
+<summary> Command Deck address field </summary>
+
+![command-deck-name.png](/features/remote-access/custom-domain/command-deck-name.png){.medium .framed}
+</details>
+
 3. Open the address, such as `https://deck.example.com`, and sign in with your HexOS account as usual.
 
-You don't need another DNS record: the `*` record you added already sends the name to us. If the name has a record of its own at your DNS provider, delete it, because a record for one name takes precedence over the `*` record. Like an app's address, a new Command Deck address can take a few minutes to start working.
+You don't need another DNS record: the `*` record you added already sends the name to us. If the name has a record of its own at your DNS provider, delete it, because a record for one name takes precedence over the `*` record. If your provider doesn't accept `*` and you added one record for each name instead, add one for this name too (see [If your DNS provider does not accept the asterisk](#if-your-dns-provider-does-not-accept-the-asterisk)). Like an app's address, a new Command Deck address can take a few minutes to start working.
+
+### If signing in at this address fails
+
+| You see | What to do |
+|---|---|
+| A page that says "We are sorry..." and "Invalid Redirect Uri" | The HexOS update of November 17, 2026 fixes this, and your server gets it on its own. Open your address again. If you still see this page, clear your browser's cookies for the address and try once more. |
+| HexOS sign-in isn't turned on for this address | The address isn't saved and **Verified** for this server, or the server doesn't have HexOS Anywhere. Open the Command Deck at its usual address and check **Settings** > **Anywhere** > **Custom domain**. |
+| HexOS sign-in didn't go through. Try again in a moment. | Wait a moment, then reload the page. |
 
 ### Advanced: your own reverse proxy
 
@@ -147,6 +203,7 @@ To set up the proxy itself, see [VM console and remote access](/features/vms/rem
 - **Gandi**: end the value with a dot (`.`), or Gandi adds your domain to the end of it.
 - **DigitalOcean**: end the value with a dot. DigitalOcean documents wildcards for A and AAAA records; we haven't confirmed a `*` CNAME there.
 - **Hover**: new domains may come with a `*` A record. Delete it before adding the CNAME.
+- **Wix**: doesn't accept `*` as a host. Add one record for each name instead, as described in [If your DNS provider does not accept the asterisk](#if-your-dns-provider-does-not-accept-the-asterisk).
 
 ## When the check doesn't pass
 
@@ -155,5 +212,8 @@ To set up the proxy itself, see [VM console and remote access](/features/vms/rem
 | We couldn't find the record yet | Check that the host is only `*`, then give it time: some providers take an hour or more. |
 | The record points somewhere else | Copy the value again with the copy button, and check that the record isn't proxied. |
 | This domain is already connected to HexOS somewhere else | Remove it where it's connected, then select **Re-check**. |
+| We couldn't check the record right now. Try again in a few minutes. | Wait a few minutes, then click **Re-check** again. |
+| Your record is right. The relay is still confirming it; HexOS checks again every few minutes, or check now. | Your record is fine. Wait a few minutes. The badge changes to **Verified** on its own, or click **Re-check**. |
+| My DNS provider won't accept `*` as the host | See [If your DNS provider does not accept the asterisk](#if-your-dns-provider-does-not-accept-the-asterisk). |
 
 [Back to HexOS Anywhere](/features/remote-access#use-your-own-domain)
