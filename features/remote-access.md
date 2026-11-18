@@ -241,8 +241,31 @@ Some apps show our sign-in page inside the app. Signing in there is enough: the 
 
 With sign-in off, TV and phone apps go straight to the app and need no approval.
 
-> **Info:** A device can wait for approval only when its app tells us which device it is. The Jellyfin TV apps and Swiftfin, the Emby and Plex apps, the Immich phone apps, and the Bitwarden phone apps with Vaultwarden do. Many other apps' clients send nothing we can tell apart from a stranger, so they are turned away and never show up under **Waiting for approval**. To use one of those away from home, turn **Require sign-in** off for that app.
+> **Info:** A device can wait for approval only when its app tells us which device it is. The Jellyfin TV apps and Swiftfin, the Emby and Plex apps, the Immich phone apps, and the Bitwarden phone apps with Vaultwarden do. Many other apps' clients send nothing we can tell apart from a stranger, so they are turned away and never show up under **Waiting for approval**. See [Apps that never wait for approval](#apps-that-never-wait-for-approval).
 {.is-info}
+
+### Apps that never wait for approval
+
+Some phone and computer apps can't wait for approval. We turn them away, and they never show up under **Waiting for approval**, so there is nothing to approve. Some examples:
+
+- Apps for Navidrome, such as Narjo, Substreamer and other Subsonic apps
+- Apps for Kavita and Paperless-ngx made by other developers
+- The Nextcloud apps (see [A Nextcloud phone app can't connect away from home](#a-nextcloud-phone-app-cant-connect-away-from-home))
+
+To use one of these apps away from home, turn off **Require sign-in** for the app it connects to:
+
+1. Open the app from your dashboard, such as Navidrome, and click its **Anywhere** tab.
+2. Turn off **Require sign-in**.
+
+<details>
+<summary> Require sign-in switch </summary>
+
+![anywhere-tab-turned-on.png](/features/remote-access/anywhere-tab-turned-on.png){.medium .framed}
+</details>
+
+3. In the app on your phone or computer, connect with the HexOS Anywhere address. Copy it with the copy button next to the address in the **Anywhere** tab.
+
+The app still asks for its own username and password, so use a strong password for every user. Read the warning in [Turning sign-in off](#turning-sign-in-off) before you do this.
 
 ### The Jellyfin app on an Android phone
 
