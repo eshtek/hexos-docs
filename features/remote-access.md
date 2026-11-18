@@ -42,7 +42,7 @@ If HexOS Anywhere ends on a server, for example when a payment is past due, its 
 2. Turn on the **Anywhere** switch.
 3. The first time you turn on an app, the Command Deck asks you to **Choose how visitors sign in**. Pick **Password** or **PIN code**, type it, and click **Save** (see [Sign-in](#sign-in)).
 
-The app gets its address right away. We suggest the app's name, such as `jellyfin`. The Command Deck confirms it, for example "Jellyfin is reachable at https://jellyfin.k7pqm4tz.relay.hexos.com". The badge next to **Anywhere** reads **Connecting** while we set the address up, then **On**. This can take a few minutes.
+The app gets its address right away. We suggest the app's name, such as `jellyfin`. The Command Deck confirms it, for example "Jellyfin is reachable at https://jellyfin.k7pqm4tz.relay.hexos.com". The badge next to **Anywhere** reads **Connecting** while we set the address up, then **On**. This usually takes a few minutes. If it still says **Connecting** after 15 minutes, see [An address that never finishes connecting](#an-address-that-never-finishes-connecting).
 
 There is no Apply button in this tab. Each switch saves on its own a moment after you flip it.
 
@@ -136,8 +136,20 @@ Some apps show our sign-in page inside the app. Signing in there is enough: the 
 
 With sign-in off, TV and phone apps go straight to the app and need no approval.
 
-> **Info:** A device can wait for approval only when its app tells us which device it is. The Jellyfin, Emby and Plex apps do, and so do the Immich phone apps. Many other apps' clients send nothing we can tell apart from a stranger, so they are turned away and never show up under **Waiting for approval**. To use one of those away from home, turn **Require sign-in** off for that app.
+> **Info:** A device can wait for approval only when its app tells us which device it is. The Jellyfin TV apps, the Emby and Plex apps, and the Immich phone apps do. Many other apps' clients send nothing we can tell apart from a stranger, so they are turned away and never show up under **Waiting for approval**. To use one of those away from home, turn **Require sign-in** off for that app.
 {.is-info}
+
+### The Jellyfin app on an Android phone
+
+The Jellyfin app for Android phones never shows up under **Waiting for approval**. The app opens our sign-in page out of sight, so you can't type the password, and after a few seconds it goes back to its server list with an error.
+
+To use it away from home, turn off **Require sign-in** for Jellyfin:
+
+1. Open Jellyfin from your dashboard and click its **Anywhere** tab.
+2. Turn off **Require sign-in**.
+3. In the Jellyfin app on your phone, connect to Jellyfin's HexOS Anywhere address, such as `https://jellyfin.k7pqm4tz.relay.hexos.com`.
+
+Jellyfin still asks for its own username and password, so use a strong password for every Jellyfin user. Read the warning in [Turning sign-in off](#turning-sign-in-off) before you do this.
 
 ### Manage your devices
 
@@ -191,7 +203,7 @@ Each address has a badge next to **Anywhere** in the app's tab, and next to the 
 | Badge | What it means |
 |---|---|
 | **Off** | HexOS Anywhere is off for this app. |
-| **Connecting** | We are setting the address up. This can take a few minutes. |
+| **Connecting** | We are setting the address up. This usually takes a few minutes. If it takes longer than 15 minutes, see [An address that never finishes connecting](#an-address-that-never-finishes-connecting). |
 | **On** | The address works. |
 | **Needs attention** | Something went wrong. The reason is written under the badge. |
 | **Paused** | The server doesn't have HexOS Anywhere right now. See [Get HexOS Anywhere](#get-hexos-anywhere). |
@@ -206,6 +218,25 @@ When an address needs attention, we try again every few minutes on our own. To t
 | An app has no **Anywhere** tab | See [If an app has no Anywhere tab](#if-an-app-has-no-anywhere-tab). |
 | A TV or phone app can't connect | Look for it under **Waiting for approval** in the app's **Anywhere** tab. If it never shows up there, see [TV and phone apps](#tv-and-phone-apps). |
 | Too many attempts. Try again in 15 minutes. | Wait 15 minutes, then sign in with the right password or PIN code. |
+
+### An address that never finishes connecting
+
+An address normally goes from **Connecting** to **On** within a few minutes. While it says **Connecting**, a browser that opens the address shows a security or certificate error, such as `SSL_ERROR_INTERNAL_ERROR_ALERT` in Firefox. That's expected until the badge reads **On**.
+
+If it still says **Connecting** after 15 minutes:
+
+1. Check that your server shows as online in the Command Deck.
+2. Open the app's **Anywhere** tab, turn the **Anywhere** switch off, wait a few seconds, and turn it on again. The app keeps the same address.
+3. Wait another 15 minutes.
+
+If it still says **Connecting** after that, [ask us on Discord](https://discord.com/invite/DjEp3WRHKz) and tell us your server's name. An address that stays on **Connecting** this long won't fix itself, and it doesn't show a reason. Don't reinstall the app or HexOS to fix it.
+
+### A phone app that worked at home stops working
+
+A phone app you set up before HexOS Anywhere may still have your server's old address saved, starting with `http://`. We send every `http://` visit on to `https://`, and some apps don't follow that. The Nextcloud apps, for example, then fail with an error such as "308".
+
+1. In the app, sign out or remove your server.
+2. Sign in again with the app's HexOS Anywhere address, starting with `https://`. Copy it with **Copy address** in the app's **Anywhere** tab.
 
 > **Help:** If something here doesn't match what you see, or an address stays stuck, [ask us on Discord](https://discord.com/invite/DjEp3WRHKz).
 {.is-troubleshooting}

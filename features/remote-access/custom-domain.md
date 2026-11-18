@@ -59,6 +59,26 @@ This works only while `_acme-challenge` has no other records at your provider. T
 
 An `_acme-challenge` TXT record, often left behind by an older SSL setup, makes your server fall back to a separate certificate for each app, and each one shows up in those logs. If you [limit where visitors come from](/features/remote-access#limit-where-visitors-come-from), those certificates can fail to renew. Delete the TXT records you no longer use. If another service still renews certificates with them, keep them, and your apps keep their separate certificates.
 
+### If your DNS provider does not accept the asterisk
+
+Some DNS providers, such as Wix, don't accept `*` as a host. You can still use your domain. Instead of one `*` record, add one CNAME record for each name you use. Every record gets the same value.
+
+| Type | Host | Value |
+|---|---|---|
+| CNAME | `validation` | The value the Command Deck shows |
+| CNAME | The name of each app you share, such as `mealie` | The same value |
+| CNAME | Your Command Deck name, such as `deck`, if you set one up | The same value |
+
+- **Re-check** looks for the `validation` record. Without it, your domain stays **Pending**.
+- An app's name is the first part of its address, shown in the app's **Anywhere** tab. For `mealie.k7pqm4tz.relay.hexos.com`, the name is `mealie`.
+- Click the copy button next to **Value** and paste the value as it is. Don't add the app's name or anything else in front of it.
+- Type each host yourself. The copy button next to **Host** copies `*`, which these providers refuse.
+
+> **Warning:** An app can only be reached once its name has a record. When you share another app later, or change an app's address, add a record for the new name first.
+{.is-warning}
+
+With one record for each name, your server gets a separate certificate for each app, as described in [One certificate for all your apps](#one-certificate-for-all-your-apps). To get one certificate for all of them, also add a CNAME record with the host `_acme-challenge` and the same value, if your provider accepts it.
+
 ### If your domain has CAA records
 
 A CAA record says which certificate authorities may issue certificates for your domain. Most domains have none, and then there is nothing to do. If yours has one, add a CAA record that allows `letsencrypt.org`, or your server can't get its certificates.
@@ -71,7 +91,7 @@ Once your domain is **Verified**, you can open your server's Command Deck from a
 2. Select **Apply**. The name can't be `join` or a name one of your apps uses.
 3. Open the address, such as `https://deck.example.com`, and sign in with your HexOS account as usual.
 
-You don't need another DNS record: the `*` record you added already sends the name to us. If the name has a record of its own at your DNS provider, delete it, because a record for one name takes precedence over the `*` record. Like an app's address, a new Command Deck address can take a few minutes to start working.
+You don't need another DNS record: the `*` record you added already sends the name to us. If the name has a record of its own at your DNS provider, delete it, because a record for one name takes precedence over the `*` record. If your provider doesn't accept `*` and you added one record for each name instead, add one for this name too (see [If your DNS provider does not accept the asterisk](#if-your-dns-provider-does-not-accept-the-asterisk)). Like an app's address, a new Command Deck address can take a few minutes to start working.
 
 ### If signing in at this address fails
 
@@ -155,6 +175,7 @@ To set up the proxy itself, see [VM console and remote access](/features/vms/rem
 - **Gandi**: end the value with a dot (`.`), or Gandi adds your domain to the end of it.
 - **DigitalOcean**: end the value with a dot. DigitalOcean documents wildcards for A and AAAA records; we haven't confirmed a `*` CNAME there.
 - **Hover**: new domains may come with a `*` A record. Delete it before adding the CNAME.
+- **Wix**: doesn't accept `*` as a host. Add one record for each name instead, as described in [If your DNS provider does not accept the asterisk](#if-your-dns-provider-does-not-accept-the-asterisk).
 
 ## When the check doesn't pass
 
@@ -163,5 +184,8 @@ To set up the proxy itself, see [VM console and remote access](/features/vms/rem
 | We couldn't find the record yet | Check that the host is only `*`, then give it time: some providers take an hour or more. |
 | The record points somewhere else | Copy the value again with the copy button, and check that the record isn't proxied. |
 | This domain is already connected to HexOS somewhere else | Remove it where it's connected, then select **Re-check**. |
+| We couldn't check the record right now. Try again in a few minutes. | Wait a few minutes, then click **Re-check** again. |
+| Your record is right. The relay is still confirming it; HexOS checks again every few minutes, or check now. | Your record is fine. Wait a few minutes. The badge changes to **Verified** on its own, or click **Re-check**. |
+| My DNS provider won't accept `*` as the host | See [If your DNS provider does not accept the asterisk](#if-your-dns-provider-does-not-accept-the-asterisk). |
 
 [Back to HexOS Anywhere](/features/remote-access#use-your-own-domain)
