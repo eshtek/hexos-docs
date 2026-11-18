@@ -53,10 +53,10 @@ Once your domain is verified, your apps answer only at their addresses on it, an
 
 ## The records
 
-| | Type | Host | Value |
-|---|---|---|---|
-| Required | CNAME | `*` | The value the Command Deck shows |
-| Only if the Command Deck shows it | CNAME | `_acme-challenge` | The value the Command Deck shows |
+| Type | Host | Value |
+|---|---|---|
+| CNAME | `*` | The value the Command Deck shows |
+| CNAME | `_acme-challenge` (only if the Command Deck shows it) | The value the Command Deck shows |
 
 Copy each value with its copy button in the Command Deck. They are unique to your account. Most setups need only the `*` record.
 

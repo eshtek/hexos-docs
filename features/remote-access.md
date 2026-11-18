@@ -27,7 +27,7 @@ Because the relay never decrypts the connection, we can't see the pages, passwor
 
 HexOS Anywhere is an add-on for HexOS Lifetime, at $29 a year for each server you add it to. Every HexOS plan includes it.
 
-- **You already own Lifetime.** Add HexOS Anywhere to a server from your account on hexos.com.
+- **You already own Lifetime.** Add HexOS Anywhere to a server from your account on [hexos.com](https://hexos.com).
 - **You're buying Lifetime.** Checkout offers HexOS Anywhere for each server the license covers. You can leave it off and add it later from your account.
 
 HexOS Anywhere renews every year. If you cancel, it stops renewing and keeps working until the end of the year you paid for.
@@ -63,7 +63,7 @@ If HexOS Anywhere ends on a server, for example when a payment is past due, its 
 </details>
 
 
-The app gets its address right away. We suggest the app's name, such as `jellyfin`. The Command Deck confirms it, for example "Jellyfin is reachable at https://jellyfin.k7pqm4tz.relay.hexos.com". The badge next to **Anywhere** reads **Connecting** while we set the address up, then **On**. This usually takes a few minutes. If it still says **Connecting** after 15 minutes, see [An address that never finishes connecting](#an-address-that-never-finishes-connecting).
+The app gets its address right away. We suggest the app's name, such as `jellyfin`. The Command Deck confirms it, for example "Jellyfin is reachable at `https://jellyfin.k7pqm4tz.relay.hexos.com`". The badge next to **Anywhere** reads **Connecting** while we set the address up, then **On**. This usually takes a few minutes. If it still says **Connecting** after 15 minutes, see [An address that never finishes connecting](#an-address-that-never-finishes-connecting).
 
 There is no Apply button in this tab. Each switch saves on its own a moment after you flip it.
 
@@ -348,7 +348,7 @@ With your domain verified, you can give your server's Command Deck an address on
 - **VPN.** An app whose internet traffic goes through a VPN can have a HexOS Anywhere address too. Visits still reach it.
 - **Plain http.** A visitor who types an address with `http://` is sent on to `https://`.
 - **One set of rules per server.** The sign-in, the regions and the blocked addresses belong to the server. There are no separate passwords or rules for each app.
-- **Certificate alerts.** Your server watches the public logs where certificates are listed. If a certificate appears for one of your addresses that your server didn't ask for, you get a notification, such as "A certificate for jellyfin.example.com was issued outside HexOS". If you or someone you trust asked for it, you can ignore it. If not, contact us.
+- **Certificate alerts.** Your server watches the public logs where certificates are listed. If a certificate appears for one of your addresses that your server didn't ask for, you get a notification, such as "A certificate for `jellyfin.example.com` was issued outside HexOS". If you or someone you trust asked for it, you can ignore it. If not, contact us.
 
 ## When something needs attention
 
