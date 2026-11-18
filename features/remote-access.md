@@ -75,12 +75,54 @@ An app with no web page listed usually has **Host Network** turned on in TrueNAS
 
 To turn **Host Network** off for an app:
 
-1. In the Command Deck, open **Settings** > **TrueNAS** and sign in to TrueNAS.
+1. In the Command Deck, open **Settings** > **TrueNAS** and click the **TrueNAS** button. Sign in with the username `truenas_admin` and your server password.
+
+<details>
+<summary> TrueNAS button in Settings </summary>
+
+![settings-truenas-button.png](/features/remote-access/settings-truenas-button.png){.medium .framed}
+</details>
+
 2. In the TrueNAS menu on the left, click **Apps**.
+
+<details>
+<summary> Apps in the TrueNAS menu </summary>
+
+![truenas-apps-menu.png](/features/remote-access/truenas-apps-menu.png){.medium .framed}
+</details>
+
 3. Click the app in the list, then click **Edit**.
+
+<details>
+<summary> Edit button for the app </summary>
+
+![truenas-app-edit-button.png](/features/remote-access/truenas-app-edit-button.png){.medium .framed}
+</details>
+
 4. Scroll down to **Network Configuration** and untick **Host Network**.
+
+<details>
+<summary> Host Network checkbox </summary>
+
+![truenas-host-network-on.png](/features/remote-access/truenas-host-network-on.png){.medium .framed}
+</details>
+
 5. A port section for the app's web page appears, such as **WebUI Port** for Plex. Leave **Port Bind Mode** on **Publish port on the host for external access**, and leave the port number as it is (32400 for Plex).
+
+<details>
+<summary> WebUI Port section </summary>
+
+![truenas-webui-port.png](/features/remote-access/truenas-webui-port.png){.medium .framed}
+</details>
+
 6. Scroll to the bottom and click **Update**. The app restarts, which takes a minute or two. Its data and settings stay as they are.
+
+<details>
+<summary> Update button </summary>
+
+![truenas-update-button.png](/features/remote-access/truenas-update-button.png){.medium .framed}
+</details>
+
 7. Back in the Command Deck, reload the page and open the app. Its **Launch** button works again, and its **Anywhere** tab is there.
 
 ### Change an address
