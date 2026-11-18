@@ -23,8 +23,29 @@ New to HexOS Anywhere? [HexOS Anywhere](/features/remote-access) covers the rest
 
 1. In the Command Deck, open **Settings** > **Anywhere** > **Custom domain**.
 2. Type your domain, such as `example.com`, and select **Continue**.
+
+<details>
+<summary> Custom domain tab </summary>
+
+![custom-domain-empty.png](/features/remote-access/custom-domain/custom-domain-empty.png){.medium .framed}
+</details>
+
 3. The Command Deck shows the record to add. Add it at your DNS provider, as described below.
+
+<details>
+<summary> The DNS record to add </summary>
+
+![custom-domain-dns-record-pending.png](/features/remote-access/custom-domain/custom-domain-dns-record-pending.png){.medium .framed}
+</details>
+
 4. Back in the Command Deck, select **Re-check**. The badge changes from **Pending** to **Verified** once we find the record.
+
+<details>
+<summary> Domain verified </summary>
+
+![custom-domain-verified.png](/features/remote-access/custom-domain/custom-domain-verified.png){.medium .framed}
+</details>
+
 
 Most providers publish a change within minutes, but some take an hour or more (see [your provider](#notes-for-common-providers) below). If the check can't find the record yet, wait a little and select **Re-check** again.
 
@@ -89,6 +110,13 @@ Once your domain is **Verified**, you can open your server's Command Deck from a
 
 1. Under **Command Deck** in the same tab, type a name, such as `deck`. Your domain is already filled in beside it.
 2. Select **Apply**. The name can't be `join` or a name one of your apps uses.
+
+<details>
+<summary> Command Deck address field </summary>
+
+![command-deck-name.png](/features/remote-access/custom-domain/command-deck-name.png){.medium .framed}
+</details>
+
 3. Open the address, such as `https://deck.example.com`, and sign in with your HexOS account as usual.
 
 You don't need another DNS record: the `*` record you added already sends the name to us. If the name has a record of its own at your DNS provider, delete it, because a record for one name takes precedence over the `*` record. If your provider doesn't accept `*` and you added one record for each name instead, add one for this name too (see [If your DNS provider does not accept the asterisk](#if-your-dns-provider-does-not-accept-the-asterisk)). Like an app's address, a new Command Deck address can take a few minutes to start working.

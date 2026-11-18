@@ -34,13 +34,34 @@ HexOS Anywhere renews every year. If you cancel, it stops renewing and keeps wor
 
 On a server without it, the app's **Anywhere** tab and **Settings** > **Anywhere** still open, with "HexOS Anywhere needs a license to use" at the top. The notice offers a way to add it to that server.
 
+<details>
+<summary> Anywhere needs a license </summary>
+
+![anywhere-tab-license-notice.png](/features/remote-access/anywhere-tab-license-notice.png){.medium .framed}
+</details>
+
+
 If HexOS Anywhere ends on a server, for example when a payment is past due, its addresses are paused. Each one shows **Paused**, and visitors can't reach it. Nothing is deleted: your addresses, your sign-in, your devices and your rules stay as they are. Once the server has HexOS Anywhere again, the same addresses start working again. While an address is paused, you can still turn it off or remove your domain.
 
 ## Turn on HexOS Anywhere for an app
 
 1. Open the app from your dashboard or the **Apps** screen, and click its **Anywhere** tab.
 2. Turn on the **Anywhere** switch.
+
+<details>
+<summary> Anywhere tab with the switch off </summary>
+
+![anywhere-tab-switch-off.png](/features/remote-access/anywhere-tab-switch-off.png){.medium .framed}
+</details>
+
 3. The first time you turn on an app, the Command Deck asks you to **Choose how visitors sign in**. Pick **Password** or **PIN code**, type it, and click **Save** (see [Sign-in](#sign-in)).
+
+<details>
+<summary> Choose how visitors sign in </summary>
+
+![sign-in-method-dialog.png](/features/remote-access/sign-in-method-dialog.png){.medium .framed}
+</details>
+
 
 The app gets its address right away. We suggest the app's name, such as `jellyfin`. The Command Deck confirms it, for example "Jellyfin is reachable at https://jellyfin.k7pqm4tz.relay.hexos.com". The badge next to **Anywhere** reads **Connecting** while we set the address up, then **On**. This usually takes a few minutes. If it still says **Connecting** after 15 minutes, see [An address that never finishes connecting](#an-address-that-never-finishes-connecting).
 
@@ -48,12 +69,26 @@ There is no Apply button in this tab. Each switch saves on its own a moment afte
 
 Click the address to open it, or click **Copy address** next to it to share it.
 
+<details>
+<summary> An app's address with the badge On </summary>
+
+![anywhere-tab-turned-on.png](/features/remote-access/anywhere-tab-turned-on.png){.medium .framed}
+</details>
+
+
 > **Tip:** When you're away from home, an app's **Launch** button opens its HexOS Anywhere address. If the app doesn't have one yet, the Command Deck offers to turn it on with **Turn on and open**.
 {.is-tip}
 
 ### Your address
 
 Until you add a domain of your own, an address has three parts: the name of the app, a short label we pick for your server, and `relay.hexos.com`. Every app on the server shares the same label. **Settings** > **Anywhere** > **Overview** shows your server's part under **Remote access URL**, and lists every app you share under **Apps**.
+
+<details>
+<summary> Anywhere overview </summary>
+
+![settings-overview.png](/features/remote-access/settings-overview.png){.medium .framed}
+</details>
+
 
 With your own domain, the address is the app's name followed by your domain, such as `jellyfin.example.com`. See [Use your own domain](#use-your-own-domain).
 
@@ -129,6 +164,13 @@ To turn **Host Network** off for an app:
 
 Click **Edit address** next to the address, type a new name, and click **Save**. Use lowercase letters, numbers and hyphens. Press Escape to keep the old name.
 
+<details>
+<summary> Editing an address </summary>
+
+![edit-address-field.png](/features/remote-access/edit-address-field.png){.medium .framed}
+</details>
+
+
 The old address stops working at once, and it doesn't send visitors on to the new one. Update your bookmarks and the address in any TV or phone app. Browsers have to sign in again on the new address. Devices you approved keep their approval.
 
 Each name can be used once across all the servers on your account. If another app already uses it, the Command Deck says which one, for example "Jellyfin on old-nas uses this address. Pick another."
@@ -151,6 +193,13 @@ With **Require sign-in** on, anyone who opens the address in a browser sees our 
 
 To change it, open **Settings** > **Anywhere** > **Security**. Under **Sign-in**, click **Change**. You can switch between a password and a PIN code there. We keep only a scrambled form of it, so the Command Deck can never show it to you. If you forget it, set a new one.
 
+<details>
+<summary> Anywhere security settings </summary>
+
+![settings-security.png](/features/remote-access/settings-security.png){.medium .framed}
+</details>
+
+
 ### Turning sign-in off
 
 With **Require sign-in** off, anyone who has the address reaches the app's own login page. **Settings** > **Anywhere** marks these apps **No sign-in**.
@@ -167,8 +216,22 @@ When you turn sign-in back on, the Command Deck asks you to confirm, because TV 
 Apps on a TV or a phone, such as the Plex and Jellyfin apps, can't show a sign-in page. The first time one connects to an address with sign-in on, we turn it away, and it waits for you to approve it.
 
 1. You get a notification, such as "A device is waiting to use Jellyfin". Click **Review devices**.
+
+<details>
+<summary> Device waiting notification </summary>
+
+![device-waiting-notification.png](/features/remote-access/device-waiting-notification.png){.medium .framed}
+</details>
+
 2. The app's **Anywhere** tab lists the device under **Waiting for approval**, with the app and device it says it is, and the address it came from.
 3. Click **Approve**.
+
+<details>
+<summary> A device waiting for approval </summary>
+
+![anywhere-tab-device-waiting.png](/features/remote-access/anywhere-tab-device-waiting.png){.medium .framed}
+</details>
+
 
 Approve only a device you just tried to connect. If you don't recognize one, click **Ban**. A device you leave waiting is dropped after 7 days.
 
@@ -189,6 +252,13 @@ To use it away from home, turn off **Require sign-in** for Jellyfin:
 
 1. Open Jellyfin from your dashboard and click its **Anywhere** tab.
 2. Turn off **Require sign-in**.
+
+<details>
+<summary> Require sign-in switch </summary>
+
+![anywhere-tab-turned-on.png](/features/remote-access/anywhere-tab-turned-on.png){.medium .framed}
+</details>
+
 3. In the Jellyfin app on your phone, connect to Jellyfin's HexOS Anywhere address, such as `https://jellyfin.k7pqm4tz.relay.hexos.com`.
 
 Jellyfin still asks for its own username and password, so use a strong password for every Jellyfin user. Read the warning in [Turning sign-in off](#turning-sign-in-off) before you do this.
@@ -196,6 +266,13 @@ Jellyfin still asks for its own username and password, so use a strong password 
 ### Manage your devices
 
 **Settings** > **Anywhere** > **Devices** lists every device in three groups: **Waiting for approval**, **Devices** you let in, and **Banned**.
+
+<details>
+<summary> Anywhere devices list </summary>
+
+![settings-devices.png](/features/remote-access/settings-devices.png){.medium .framed}
+</details>
+
 
 - **Remove** takes a device's access away. It waits for you again the next time it connects.
 - **Ban** turns a device away for good. It isn't told it's banned, and it doesn't show up as waiting again.
@@ -208,6 +285,13 @@ Remove and Ban are in the menu next to a device you let in.
 **Settings** > **Anywhere** > **Security** has two more ways to keep visitors out. Both apply to every address on the server, and to your Command Deck address. The relay checks them before a visitor reaches your server.
 
 - **Geo-restrictions.** Click **Select regions**, choose the regions you and your people connect from, and click **Apply**. From then on, only those regions can reach your apps. Everyone else is turned away, and that includes you when you travel somewhere else. To take a region off the list, click the X on its chip. With no regions listed, every region can connect. You can list up to 50.
+
+<details>
+<summary> Select regions </summary>
+
+![select-regions-picker.png](/features/remote-access/select-regions-picker.png){.medium .framed}
+</details>
+
 - **Blocked IP addresses.** Type an address, or a range such as `198.51.100.0/24`, and click **Block**. To unblock one, click the X next to it. You can block up to 200.
 
 Regions follow where the relay thinks a visitor's internet address is. A visitor using a VPN can appear to be somewhere else.
@@ -220,15 +304,43 @@ If you own a domain, your apps can use it: Jellyfin answers at `jellyfin.example
 
 1. Open **Settings** > **Anywhere** > **Custom domain**.
 2. Type your domain and click **Continue**.
+
+<details>
+<summary> Custom domain tab </summary>
+
+![custom-domain-empty.png](/features/remote-access/custom-domain-empty.png){.medium .framed}
+</details>
+
 3. Add the DNS record the Command Deck shows at your DNS provider, then click **Re-check** until the badge reads **Verified**.
 
+<details>
+<summary> The DNS record to add </summary>
+
+![custom-domain-dns-record-pending.png](/features/remote-access/custom-domain-dns-record-pending.png){.medium .framed}
+</details>
+
+
 Once your domain is verified, each app answers only at its address on your domain, and its relay address stops working. Update your bookmarks and the addresses in TV and phone apps. If you remove the domain later, your apps go back to their relay addresses.
+
+<details>
+<summary> An app's address on your own domain </summary>
+
+![anywhere-tab-own-domain.png](/features/remote-access/anywhere-tab-own-domain.png){.medium .framed}
+</details>
+
 
 The records, and what to watch for at common DNS providers, are in [Use your own domain with HexOS Anywhere](/features/remote-access/custom-domain).
 
 ## Open your Command Deck from anywhere
 
 With your domain verified, you can give your server's Command Deck an address on it too, such as `deck.example.com`. Under **Command Deck** in the **Custom domain** tab, type a name and click **Apply**. It needs no extra DNS record, and you sign in there with your HexOS account as usual. See [Command Deck](/features/remote-access/custom-domain#command-deck) for the details.
+
+<details>
+<summary> Command Deck address field </summary>
+
+![command-deck-name.png](/features/remote-access/command-deck-name.png){.medium .framed}
+</details>
+
 
 ## Good to know
 
@@ -269,6 +381,13 @@ If it still says **Connecting** after 15 minutes:
 
 1. Check that your server shows as online in the Command Deck.
 2. Open the app's **Anywhere** tab, turn the **Anywhere** switch off, wait a few seconds, and turn it on again. The app keeps the same address.
+
+<details>
+<summary> Anywhere switch </summary>
+
+![anywhere-tab-turned-on.png](/features/remote-access/anywhere-tab-turned-on.png){.medium .framed}
+</details>
+
 3. Wait another 15 minutes.
 
 If it still says **Connecting** after that, [ask us on Discord](https://discord.com/invite/DjEp3WRHKz) and tell us your server's name. An address that stays on **Connecting** this long won't fix itself, and it doesn't show a reason. Don't reinstall the app or HexOS to fix it.
@@ -279,6 +398,13 @@ A phone app you set up before HexOS Anywhere may still have your server's old ad
 
 1. In the app, sign out or remove your server.
 2. Sign in again with the app's HexOS Anywhere address, starting with `https://`. Copy it with **Copy address** in the app's **Anywhere** tab.
+
+<details>
+<summary> Copy address button </summary>
+
+![anywhere-tab-turned-on.png](/features/remote-access/anywhere-tab-turned-on.png){.medium .framed}
+</details>
+
 
 > **Help:** If something here doesn't match what you see, or an address stays stuck, [ask us on Discord](https://discord.com/invite/DjEp3WRHKz).
 {.is-troubleshooting}
