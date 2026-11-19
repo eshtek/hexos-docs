@@ -694,7 +694,7 @@ The `HookContext` object is passed to your hook function. It provides everything
 | `baseUrl` | `string` | `http://{host}:{port}` — empty string if unavailable |
 | `inputs` | `Record<string, unknown>` | User-collected input values from [hook inputs](#hook-inputs) |
 | `target` | `object?` | File-targeted hooks only: `{ type: "files", files: [{ path, containerPath, name, extension, size? }] }` |
-| `mounts` | `array` | The app's mounts as `{ hostPath, containerPath, localPath }`. Lifecycle hooks receive live mounts when available, or planned install mounts before installation. Always handle an empty list. |
+| `mounts` | `array` | The app's mounts as `{ hostPath, containerPath, localPath }`. Lifecycle hooks receive live mounts when available, or planned install mounts before installation. A **Retry** of a step that ran before installation gets the same planned mounts. Before the script runs, HexOS makes sure each mounted folder is the real folder on the pool, including folders the install has just made. If it can't, the step does not run and fails with "HexOS couldn't reach one of this app's folders". Always handle an empty list. |
 
 #### Methods
 
