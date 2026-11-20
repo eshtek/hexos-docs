@@ -82,6 +82,7 @@ The screenshot filters the container list to the sample app. Use your own contai
 | OAuth or another input did not finish | Read the task's prompt and retry the input flow when offered. |
 | Missing input | Compare the script's `inputs` declarations with the values the hook reads. |
 | Missing directory | Check the configured base location and `ensure_directories_exists` entries. |
+| HexOS couldn't reach one of this app's folders | The step did not run and nothing was written. Click **Retry**. If it fails again, restart the HexOS app: in TrueNAS click **Apps**, click the HexOS app, click **Restart** and wait until it shows **Running**. Then click **Retry** again. |
 | Invalid app configuration | Compare `app_values` with the installed app version's TrueNAS schema. |
 | Hook function not found | Match `entrypoint` to the exported async function in the hook script. |
 
