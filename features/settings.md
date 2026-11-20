@@ -57,7 +57,10 @@ Create and manage the local users who connect to private shared folders. These c
 
 ### Update and power
 
-Use **Update** to check for operating-system updates. **Power** configures a supported uninterruptible power supply (UPS) and what happens when its battery runs low.
+Use **Update** to check for operating-system updates. **Recheck** looks for TrueNAS updates only. **Power** configures a supported uninterruptible power supply (UPS) and what happens when its battery runs low.
+
+> **Info:** HexOS updates itself. You do not need to install HexOS updates. In TrueNAS, the **Apps** screen lists HexOS as an app named **hexos**. When that row shows **Update available**, HexOS installs the update on its own. This happens when TrueNAS next reports the update, or when HexOS next restarts. During the update, the Command Deck may disconnect for about a minute.
+{.is-info}
 
 ### Notifications
 
