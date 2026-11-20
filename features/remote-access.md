@@ -370,6 +370,7 @@ When an address needs attention, we try again every few minutes on our own. To t
 | The relay holds an entry for this address that this HexOS did not make | Choose another address, or contact support to have it released. |
 | Jellyfin on old-nas uses this address. Pick another. | Choose another name. A server you still own keeps its names, even while it's offline, until you unclaim it or change its address. |
 | An app has no **Anywhere** tab | See [If an app has no Anywhere tab](#if-an-app-has-no-anywhere-tab). |
+| OpenCloud shows "Missing or invalid configuration", or its apps say "Server doesn't seem to support any authentication method supported by this app" | See [Use OpenCloud away from home](#use-opencloud-away-from-home). |
 | A TV or phone app can't connect | Look for it under **Waiting for approval** in the app's **Anywhere** tab. If it never shows up there, see [TV and phone apps](#tv-and-phone-apps). |
 | Too many attempts. Try again in 15 minutes. | Wait 15 minutes, then sign in with the right password or PIN code. |
 
@@ -399,6 +400,45 @@ The Nextcloud apps for phones and computers don't tell us which device they are,
 </details>
 
 If the app fails with an error such as "308", it saved the address starting with `http://`. We send every `http://` visit on to `https://`, and some apps don't follow that. Sign out of the app, or remove the server from it, and sign in again with the address starting with `https://`.
+
+### Use OpenCloud away from home
+
+OpenCloud works at one address only. Until you move it, OpenCloud's HexOS Anywhere address shows "Missing or invalid configuration", and its phone and computer apps can't sign in. After you move it, its HexOS Anywhere address works everywhere, at home too, and its home address stops working.
+
+> **Warning:** Phones and computers you set up with OpenCloud's home address stop syncing when you move it. Add the server to them again with the new address. Your files stay on the server and on your devices.
+{.is-warning}
+
+1. Open OpenCloud from your dashboard and click its **Anywhere** tab.
+2. Turn on **Anywhere**, and wait until the badge reads **On**.
+3. Turn off **Require sign-in**. OpenCloud's apps sign in with OpenCloud's own sign-in, and ours blocks them. OpenCloud still asks for its own username and password. Read the warning in [Turning sign-in off](#turning-sign-in-off) first.
+
+<details>
+<summary> OpenCloud's Anywhere tab </summary>
+
+![opencloud-anywhere-tab.png](/features/remote-access/opencloud-anywhere-tab.png){.medium .framed}
+</details>
+
+4. Click the **Customize** tab, then click **Run** next to **Use its Anywhere address**. OpenCloud restarts, which takes a minute or two.
+
+<details>
+<summary> Use its Anywhere address </summary>
+
+![opencloud-use-anywhere-address.png](/features/remote-access/opencloud-use-anywhere-address.png){.medium .framed}
+</details>
+
+5. Open OpenCloud with **Launch**. It now opens at its HexOS Anywhere address, at home too.
+6. In OpenCloud's phone and computer apps, add the server with that address. Copy it with the copy button next to the address in the **Anywhere** tab.
+
+If you rename the address or turn **Anywhere** off later, OpenCloud follows on its own. Turning it off moves OpenCloud back to its home address.
+
+**Documents.** To open documents away from home, the office app linked to OpenCloud (ONLYOFFICE, Euro-Office or Collabora) needs its own HexOS Anywhere address too. Turn on **Anywhere** for the office app with **Require sign-in** off, then click **Run** next to **Use its Anywhere address** on OpenCloud again. Do the same if you rename the office app's address later. We suggest ONLYOFFICE or Euro-Office for this: they share a secret with OpenCloud. Collabora has no sign-in of its own, so its address is open to anyone who finds it.
+
+**Speed.** Every visit to the Anywhere address crosses our relay, at home too, so OpenCloud is limited to 10 Mbit/s each way (see [Good to know](#good-to-know)). For full speed at home, set up a [direct connection at home](/features/remote-access/direct-connection): devices at home then reach the same address straight at your server.
+
+**Going back.** To use OpenCloud at home only, click **Run** next to **Use its home address** on the **Customize** tab. Do this also when HexOS Anywhere stops for your server, for example when your license ends: the Anywhere address then stops working, and OpenCloud would open nowhere until it is back on its home address.
+
+> **Info:** If you typed your own address into OpenCloud's **Web address** setting, for your own proxy, HexOS leaves it as it is.
+{.is-info}
 
 > **Help:** If something here doesn't match what you see, or an address stays stuck, [ask us on Discord](https://discord.com/invite/DjEp3WRHKz).
 {.is-troubleshooting}
