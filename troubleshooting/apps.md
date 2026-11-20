@@ -62,6 +62,37 @@ It is good practice to update apps regularly.
 ![4.png](/app-troubleshooting-guide/4.png =400x){.align-center}
 </details>
 
+### If an app update fails
+
+Sometimes an update fails with an error like this:
+
+`Failed 'up' action for 'sonarr' app. Please check /var/log/app_lifecycle.log for more details`
+
+This means TrueNAS could not start the app after it installed the update. Often the app starts a few minutes later on its own.
+
+1) Wait a few minutes
+2) In HexOS, open **Apps** and click the app
+3) If the app is running, the update worked and you do not need to do anything else
+4) If the app is not running, click the **Update** button on the **Application info** card to try the update again
+
+If the update fails again, you can read the reason in the TrueNAS log file.
+
+<details>
+  <summary> How to read the app log in TrueNAS </summary>
+
+1) In HexOS, go to **Settings** and click the **TrueNAS** button
+2) Log in to TrueNAS
+    - Username: truenas_admin
+    - Password: the password you chose when you installed HexOS
+3) In the TrueNAS menu, click **System** > **Shell**
+4) Type this command and press Enter: `sudo tail -n 40 /var/log/app_lifecycle.log`
+5) Type your TrueNAS password and press Enter. The password does not show while you type.
+6) Look for the lines that name your app. They say why it did not start.
+</details>
+
+> **Help:** Not sure what the log means? Copy the lines that name your app and ask in our [Discord](https://discord.gg/fCW2htvYdz).
+{.is-troubleshooting}
+
 ### If an app is not working after an application update
 
 If your app stopped working immediately after an update you can go into TrueNAS and roll back to a previous version of your app.
