@@ -20,7 +20,7 @@ The hosted Command Deck is updated by the HexOS team. Reload the page if you hav
 
 <!-- auto-generated-year-sections-start -->
 ## 2026 releases
-- [**2026-11-20**](/release-notes/command-deck/2026-11-20) - Automatic Ripping Machine, your own ISOs, downloads that pick up where they left off, and more
+- [**2026-11-20**](/release-notes/command-deck/2026-11-20) - HexOS Anywhere improvements, Automatic Ripping Machine, VM installs from your own ISO files, and more
 - [**2026-11-17**](/release-notes/command-deck/2026-11-17) - A faster Command Deck at home, Anywhere upgrades, new apps, and more
 - [**2026-11-13**](/release-notes/command-deck/2026-11-13) - HexOS Anywhere, Sign in with TrueNAS, picture previews, and more
 - [**2026-11-10**](/release-notes/command-deck/2026-11-10) - Automatic app updates, fan curves, game servers, and more
