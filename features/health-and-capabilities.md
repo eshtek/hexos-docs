@@ -181,6 +181,7 @@ This part lists known problems with parts like the ones in your server. It shows
 
 - **One entry for each known issue that matches.** Each entry says what the problem is and, when there is one, the recommended fix. It names the part after **Device:**. For a drive, that is its system name and model, such as `sda WDC_WD40EFRX-68N32N0`. A report kept from before this update shows **Drive**. For a network part, it also says what this server has seen. Click **Learn more** to open a page about the issue.
 - **Known issue, not seen on this server:** a network part has a known issue, but this server has not logged that trouble. Most of these entries do not count as things that need your attention.
+- **Protection active:** a part has a known fault, and your server shows that the fix for it is turned on. This entry does not count as a thing that needs your attention. One example is a JMicron JMB582 or JMB585 SATA controller. These controllers can silently corrupt data, and current TrueNAS turns on a Linux fix for them. The entry asks you to keep TrueNAS updated and keep scrubs turned on. If your server cannot show that the fix is on, the entry is a warning instead, and it asks you to update TrueNAS.
 - **No known issues with this server's hardware.**
 - **Hardware advisories are off because this server doesn't share hardware data. Turn sharing on above to see them.** The page keeps showing this until a new run. After you turn sharing on, click **Run again**.
 - **This server hasn't compared its hardware with the known issues yet. Try again in a few minutes.** This can show shortly after the server starts, or when the server has not reached HexOS since it started. Run diagnostics again a few minutes later.
@@ -189,6 +190,12 @@ This part lists known problems with parts like the ones in your server. It shows
 <summary> A hardware advisory </summary>
 
 ![diagnostics-hardware-advisory.png](/features/health-and-capabilities/images/diagnostics-hardware-advisory.png){.medium .framed}
+</details>
+
+<details>
+<summary> A hardware advisory with protection active </summary>
+
+![diagnostics-advisory-protection-active.png](/features/health-and-capabilities/images/diagnostics-advisory-protection-active.png){.medium .framed}
 </details>
 
 <details>
@@ -273,7 +280,7 @@ These are problems we know about. Each one says what to do for now.
 
 - **The Meet the Hardware Advisor window keeps coming back.** It opens again in each new browser tab until you click **Continue**, and it asks once for each server you own. What to do: pick one of the two choices and click **Continue**. Your choice is saved and the window stops opening for that server.
 - **Hardware warnings show only in diagnostics.** The window talks about HexOS warning you about hardware, but the dashboard does not show these warnings yet. What to do: run diagnostics and read **Hardware advisories**.
-- **You cannot mark a hardware advisory as fixed.** When HexOS cannot detect a fix on its own, the warning stays in the report after you apply the fix and still counts as a thing that needs your attention. One example is the BIOS setting for [Ryzen idle freezes](/troubleshooting/ryzen-idle-freeze). What to do: if you have applied the fix that the **Learn more** page describes, you can ignore that entry.
+- **You cannot mark a hardware advisory as fixed.** When HexOS can detect a fix, the entry changes to **Protection active** by itself. When HexOS cannot detect a fix on its own, the warning stays in the report after you apply the fix and still counts as a thing that needs your attention. One example is the BIOS setting for [Ryzen idle freezes](/troubleshooting/ryzen-idle-freeze). What to do: if you have applied the fix that the **Learn more** page describes, you can ignore that entry.
 
 ## Frequently asked questions
 
