@@ -51,11 +51,13 @@ Some checks are not counted at all, because they would not be a fair comparison:
 - A check where any drive in the group wrote very little. A few writes are not enough to judge.
 - A check where the drives in the group got very different amounts of work.
 - A group that mixes hard drives and SSDs.
+- A group that mixes drives connected in different ways: NVMe, SATA or SAS, and USB.
+- A group where one drive is a known SMR model and another is not. An SMR drive can be much slower while it tidies its data, even when it is healthy.
 - The first check after a hard drive wakes from sleep. Spinning up makes that check slow.
 
 Drives in the same group get the same work. If all of them are slow, that is the speed of the pool, not a fault in one drive. If one drive is much slower than the rest, that one drive needs a look.
 
-The warning goes away by itself once a full day has passed since the last slow check, with at least 6 normal checks in that time.
+The warning goes away by itself once a full day has passed since the last slow check, with at least 6 normal checks in that time. It also goes away about half an hour after the drive leaves a group HexOS compares: for example after you replace it, even if the old drive is still connected to the server. If the drive's partner fails or is being replaced, the warning stays, since the slow drive is still in the pool.
 
 ## Drives HexOS does not compare
 
@@ -64,9 +66,9 @@ Some drives have no partner to compare with, so HexOS never gives them this warn
 - A drive in a pool with a single drive.
 - A drive in a stripe, where each drive holds its own part of the data.
 - Cache, log and spare drives.
-- A drive in a mirror with only one drive online, or in a RAIDZ with fewer than three drives online.
+- A drive in a mirror with only one drive, or in a RAIDZ with fewer than three drives.
 
-HexOS also pauses the comparison for a pool while the pool is being checked (scrub), rebuilt (resilver) or expanded. It pauses too while a drive in the pool is being replaced or is offline. After any change to the drives of a pool on the server, every pool waits 15 minutes before it is compared again. Slow writes are normal then. The comparison starts again when the pool is done.
+HexOS also pauses the comparison for a pool while the pool is being checked (scrub), rebuilt (resilver) or expanded. It pauses too while a drive in the pool is being replaced, is offline, has failed, or is missing. The other drives of a group work harder while one of them is gone, so their speed says nothing then. After any change to the drives of a pool on the server, every pool waits 15 minutes before it is compared again. Slow writes are normal then. The comparison starts again when the pool is done.
 
 ## When the whole server is busy
 
@@ -97,7 +99,7 @@ The dialog then says **This warning is back**, with what was seen and the date i
 
 **Light up its bay** turns on the light on the drive's bay, so you can find the drive in the case. The dialog then shows **The bay light is on. It turns off by itself after 10 minutes.** To turn it off sooner, click **Turn off the bay light**.
 
-The button shows only when your server has drive bays that TrueNAS can light. Servers without such bays do not show it, and neither do virtual machines. On TrueNAS 25.10 it never shows.
+The button shows only for a drive bay that TrueNAS can light. Servers without such bays do not show it, and neither do virtual machines. On TrueNAS 25.10 it never shows. Some cases can light some bays but not others. If TrueNAS reports that the drive's bay has no light, the button does not show for that drive. If you click it and TrueNAS cannot light that bay, the button goes away for that drive only, and the dialog shows **This server can't light the bay this drive is in.**
 
 **Replace drive** opens the same **Replace Drive** dialog that the drive's tile on the **Storage** screen opens, with the same checks and warnings. It shows only when the drive can be replaced now:
 
