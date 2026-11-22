@@ -36,6 +36,7 @@ Something not working? Find the area below that matches what you are seeing.
 
 - [**Application errors**](/troubleshooting/apps) - Installation, update, and startup failures, GPU pass-through, app curation resets
 - [**App stuck starting**](/troubleshooting/app-stuck-starting) - Update an app that keeps showing Deploying or Crashed
+- [**Apps still use your server's old address**](/troubleshooting/apps-old-server-address) - Update apps that can't be found after your server's address on your home network changed
 
 ## Storage and drives
 
