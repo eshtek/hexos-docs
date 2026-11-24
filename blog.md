@@ -2,7 +2,7 @@
 title: Blog
 description: Read news and announcements from the HexOS team.
 published: true
-date: 2026-11-13T17:02:39.936Z
+date: 2026-11-24T23:34:10.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:38:53.875Z
@@ -15,6 +15,7 @@ Stay up to date with the latest news and updates from the HexOS team.
 Subscribe by RSS at [feeds.hexos.com](https://feeds.hexos.com) to get new posts in your feed reader.
 
 ## 2026
+- [Black Friday Is Here, With Three New Ways to Get HexOS - November 24, 2026](/blog/2026-11-24)
 - [Introducing HexOS Anywhere - November 13, 2026](/blog/2026-11-13)
 - [Meet the Hardware Advisor - October 20, 2026](/blog/2026-10-20)
 - [Virtual Machines: Now In Beta - September 23, 2026](/blog/2026-09-23)
