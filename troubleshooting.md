@@ -27,6 +27,7 @@ Something not working? Find the area below that matches what you are seeing.
 - [**DNS rebind protection**](/troubleshooting/dns-rebind-protection) - Your router is blocking local access to your server
 - [**Local access to your server**](/troubleshooting/local-access) - Find your server's own address on your home network, and let the Command Deck open it for you
 - [**TrueNAS has network changes waiting**](/troubleshooting/truenas-network-changes-waiting) - Clear a waiting network change in TrueNAS so the Command Deck can change your network settings
+- [**Your server's address changed**](/troubleshooting/server-address-changed) - Update phones, bookmarks and network drives after your server got a new address
 
 ## Signing in
 
@@ -37,6 +38,7 @@ Something not working? Find the area below that matches what you are seeing.
 
 - [**Application errors**](/troubleshooting/apps) - Installation, update, and startup failures, GPU pass-through, app curation resets
 - [**App stuck starting**](/troubleshooting/app-stuck-starting) - Update an app that keeps showing Deploying or Crashed
+- [**Apps still use your server's old address**](/troubleshooting/apps-old-server-address) - Update apps that can't be found after your server's address on your home network changed
 
 ## Storage and drives
 
@@ -52,6 +54,7 @@ Something not working? Find the area below that matches what you are seeing.
 - [**Intel I225 and I226 cards that drop off the network**](/troubleshooting/intel-i225-i226-link-loss) - Stop a 2.5 gigabit Intel card from disconnecting when idle
 - [**USB network adapters**](/troubleshooting/usb-network-adapters) - Why a USB adapter is a poor fit for a server and what to use instead
 - [**SSDs for pool data**](/troubleshooting/ssds-for-pool-data) - Why QLC and DRAM-less SSDs are flagged as pool data and which SSDs to choose
+- [**Slow drive warning**](/troubleshooting/slow-drive) - Why HexOS warns that one drive writes much more slowly than the others in its pool, and what to do
 
 ## Accessing your files
 
