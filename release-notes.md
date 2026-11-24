@@ -18,11 +18,11 @@ The Command Deck is the HexOS web interface. The hosted interface is updated by 
 
 ### Recent updates
 
+- [**2026-11-24**](/release-notes/command-deck/2026-11-24) - Buddy Backups and VMs out of beta, encrypted Bring over, clearer app errors, and more
 - [**2026-11-20**](/release-notes/command-deck/2026-11-20) - HexOS Anywhere improvements, Automatic Ripping Machine, VM installs from your own ISO files, and more
 - [**2026-11-17**](/release-notes/command-deck/2026-11-17) - A faster Command Deck at home, Stardew Valley and Rust servers, and more
 - [**2026-11-13**](/release-notes/command-deck/2026-11-13) - HexOS Anywhere, Sign in with TrueNAS, picture previews, and more
 - [**2026-11-10**](/release-notes/command-deck/2026-11-10) - Automatic app updates, fan curves, game servers, and more
-- [**2026-11-06**](/release-notes/command-deck/2026-11-06) - Local AI and app collections, more folders for Plex VMs, live GPU usage, and more
 
 **[View all Command Deck release notes](/release-notes/command-deck/)**
 
