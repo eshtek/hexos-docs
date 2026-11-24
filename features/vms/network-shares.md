@@ -59,6 +59,10 @@ Your server and your VM have different addresses. An address shown as four numbe
 
 On some network setups, the VM cannot reach its own server at the address your other computers use. It can still reach other devices or the internet. The **Address inside this VM** value provides an address to try for the server's shared folders.
 
+This extra address is for the server's VMs. On a separate computer, use the server's normal address for shared folders and apps. An app installed on the server should not be opened through **Address inside this VM** from another computer on your network.
+
+To connect to the VM itself, use its **IP Address** or **Web UI** link. The [VM console and remote access guide](/features/vms/remote-access#reaching-a-vm-through-a-vpn) explains how this differs from reaching the server.
+
 If that row is missing, try the normal folder address using the link below. A missing row does not by itself mean something is broken. If neither address works, use [If the connection fails](#if-the-connection-fails).
 
 ### Find the normal folder address

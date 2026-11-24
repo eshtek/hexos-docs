@@ -14,6 +14,16 @@ The VM console runs on your HexOS server. Your browser connects to the server to
 
 To use it away from your home network, your browser needs a route to the server. You can provide that with a VPN or a reverse proxy, such as Nginx. A VM's **Web UI** or Remote Desktop connection is a separate service and may need its own network configuration.
 
+## Reaching a VM through a VPN
+
+A VPN can let you reach a VM's own address from another network. It must already be configured to carry traffic to your home network. The VM's firewall must allow the connection. HexOS does not configure your VPN or grant access to its users.
+
+On servers using HexOS's VM gateway, HexOS verifies the current IPv4 addresses of running guests. It adds a route so the server can reach each verified guest. This also helps a VPN running on the server forward traffic to that guest. HexOS keeps administrator-created routes intact. If another network interface already provides the route to a guest, HexOS leaves that route unchanged.
+
+Address verification can take time after a VM starts or its address changes. A guest that does not report an address or answer the network check may remain unreachable from the server. This automatic routing applies to IPv4 addresses on the server's local network. It does not configure IPv6 access or the return route required by a VPN that preserves remote clients' original addresses.
+
+Use the VM's **IP Address** or **Web UI** link to reach a service inside it. **Address inside this VM** points to the HexOS server instead. See [Choose the right address](/features/vms/network-shares#choose-the-right-address) for screenshots of both addresses.
+
 ## Local HexOS interface ports
 
 The HexOS interface runs alongside the TrueNAS interface. The default ports on the NAS are:
