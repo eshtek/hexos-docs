@@ -38,7 +38,7 @@ HexOS may offer two choices:
 > **Requirement:** If HexOS asks you to confirm either choice, use the current TrueNAS admin password for this server. It may be different from the password on your earlier install.
 {.is-success}
 
-> **Info:** HexOS can offer **Use new HexOS settings** on TrueNAS 25.10 or later, before version 28. Outside that range, this choice is hidden.
+> **Info:** HexOS can offer **Use new HexOS settings** on TrueNAS 25.10.8 or a later 25.10 release, and on TrueNAS 27. On other versions, this choice is hidden.
 {.is-info}
 
 ## Keep these settings
@@ -54,6 +54,8 @@ Choose this when you want to reuse your earlier HexOS settings.
 
 ![keep-these-settings-dialog.png](/keep-your-apps-after-reinstall/keep-these-settings-dialog.png){.medium .framed}
 </details>
+
+The dialog says **This disconnects your earlier install from HexOS and can't be undone.** Your earlier server can no longer connect to HexOS as that server.
 
 HexOS checks the password with TrueNAS. If the checks pass, HexOS returns you to setup or continues recovery. If you see **Your settings are ready to continue.**, click **Continue**.
 
@@ -96,7 +98,7 @@ Choose this when you want HexOS to start again, as it does on a new server.
 ![use-new-settings-dialog.png](/keep-your-apps-after-reinstall/use-new-settings-dialog.png){.medium .framed}
 </details>
 
-The dialog says **HexOS will start with new settings. Your earlier settings stay on your drives. You can't switch back to them here.**
+The dialog says **HexOS will start with new settings. Your earlier settings stay on your drives. You can't switch back to them here. This disconnects your earlier install from HexOS and can't be undone.**
 
 What this means:
 
@@ -147,6 +149,7 @@ What this means:
 
 - HexOS has paused this setup or recovery. Contact support if it stays held.
 - The hold does not delete your files, apps or earlier settings.
+- One possible reason: your earlier install was still converting a pool, rewriting a pool or encrypting a folder when you moved your drives. HexOS stops so that work is not lost. Contact support.
 - The usual buttons to try again or start over are hidden while the server is held, so that nothing is changed by mistake.
 
 What to do:
