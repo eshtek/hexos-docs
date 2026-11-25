@@ -2,7 +2,7 @@
 title: HexOS Is Now in the TrueNAS App Catalog
 description: Already running TrueNAS? Add HexOS to the server you have, keep what you've already set up, and unlock a slew of new features that will simplify your self-hosting experience.
 published: true
-date: 2026-11-25T01:33:09.000Z
+date: 2026-11-25T01:48:05.000Z
 tags: getting started, truenas, app catalog
 editor: markdown
 dateCreated: 2026-11-25T01:33:09.000Z
