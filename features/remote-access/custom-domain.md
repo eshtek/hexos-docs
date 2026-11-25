@@ -126,18 +126,12 @@ You don't need another DNS record: the `*` record you added already sends the na
 | You see | What to do |
 |---|---|
 | A page that says "We are sorry..." and "Invalid Redirect Uri" | The HexOS update of November 17, 2026 fixes this, and your server gets it on its own. Open your address again. If you still see this page, clear your browser's cookies for the address and try once more. |
-| HexOS sign-in isn't turned on for this address | The address isn't saved and **Verified** for this server, or the server doesn't have HexOS Anywhere. Open the Command Deck at its usual address and check **Settings** > **Anywhere** > **Custom domain**. |
+| HexOS sign-in isn't turned on for this address | The address isn't saved and **Verified** for this server, or the server doesn't have HexOS Anywhere (an address your own proxy serves doesn't need it). Open the Command Deck at its usual address and check **Settings** > **Anywhere** > **Custom domain**. |
 | HexOS sign-in didn't go through. Try again in a moment. | Wait a moment, then reload the page. |
 
 ### Advanced: your own reverse proxy
 
-If you run a reverse proxy, you can instead give the Command Deck an address on another domain and serve it from your proxy:
-
-1. At your DNS provider, point the address at your proxy with an A record (your proxy's public IP address) or a CNAME.
-2. Add the TXT record the Command Deck shows. For `nas.example.net`, its host is `_hexos-dashboard.nas`, and its value starts with `hexos-dashboard=`.
-3. Select **Re-check**. Leave the TXT record in place: we check it again when you sign in through this address, and stop approving the address once the record is gone.
-
-To set up the proxy itself, see [VM console and remote access](/features/vms/remote-access#local-hexos-interface-ports) for the ports your server's own interface uses.
+If you run a reverse proxy, you can instead serve the Command Deck from it at an address on another domain. That doesn't need HexOS Anywhere. See [Open the Command Deck through your own reverse proxy](/features/remote-access/own-reverse-proxy).
 
 ## Notes for common providers
 

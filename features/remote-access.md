@@ -358,6 +358,8 @@ The records, and what to watch for at common DNS providers, are in [Use your own
 
 With your domain verified, you can give your server's Command Deck an address on it too, such as `deck.example.com`. Under **Command Deck** in the **Custom domain** tab, type a name and click **Apply**. It needs no extra DNS record (unless your provider doesn't accept `*`), and you sign in there with your HexOS account as usual. See [Command Deck](/features/remote-access/custom-domain#command-deck) for the details.
 
+If you run your own reverse proxy, you can serve the Command Deck from it instead, without HexOS Anywhere. See [Open the Command Deck through your own reverse proxy](/features/remote-access/own-reverse-proxy).
+
 <details>
 <summary> Command Deck address field </summary>
 
