@@ -76,7 +76,7 @@ The `*` record sends every name under your domain to us, except names that alrea
 
 The `*` record also lets your server get one certificate that covers all your apps. Certificates are listed in public logs that anyone can search, so one certificate for `*.example.com` keeps names like `jellyfin.example.com` out of them.
 
-This works only while `_acme-challenge` has no other records at your provider. The exception is an `_acme-challenge` CNAME the Command Deck showed you, which you can keep. If the Command Deck shows that record now, add it to get the same single certificate.
+This works only while `_acme-challenge` has no other records at your provider. Keep the `_acme-challenge` CNAME if you added it from the Command Deck. HexOS uses it when renewing the certificate. If the Command Deck shows that record now, add it to get the same single certificate.
 
 An `_acme-challenge` TXT record, often left behind by an older SSL setup, makes your server fall back to a separate certificate for each app, and each one shows up in those logs. If you [limit where visitors come from](/features/remote-access#limit-where-visitors-come-from), those certificates can fail to renew. Delete the TXT records you no longer use. If another service still renews certificates with them, keep them, and your apps keep their separate certificates.
 
@@ -169,7 +169,7 @@ If you run a reverse proxy, you can instead serve the Command Deck from it at an
 
 - New domains come with parking records pointing at `pixie.porkbun.com`, including one at `*`. Delete them first, or Porkbun refuses the new record because "a CNAME or ALIAS record with that host already exists".
 - Host: `*`, without your domain.
-- Porkbun's free SSL certificate adds `_acme-challenge` TXT records. While they're there, your apps get [separate certificates](#one-certificate-for-all-your-apps). If you don't use Porkbun's certificate, delete them.
+- Porkbun can add `_acme-challenge` TXT records when it issues its free certificate. If you’re unsure which service uses a TXT record, leave it in place and ask Porkbun before removing it. Keep any `_acme-challenge` CNAME you copied from the Command Deck. [Why Porkbun adds these records](https://kb.porkbun.com/article/270-why-are-there-acme-challenge-dns-records-on-my-domain)
 - Don't use **Park domain** later: it deletes the `*` record.
 
 [Porkbun: wildcard records](https://kb.porkbun.com/article/94-what-is-a-wildcard-dns-record) · [Record already exists](https://kb.porkbun.com/article/239-cname-alias-record-with-that-host-already-exists-error) · [Parking](https://kb.porkbun.com/article/183-how-to-reset-dns-and-park-your-domain)
@@ -209,5 +209,11 @@ If you run a reverse proxy, you can instead serve the Command Deck from it at an
 | We couldn't check the record right now. Try again in a few minutes. | Wait a few minutes, then click **Re-check** again. |
 | Your record is right. The relay is still confirming it; HexOS checks again every few minutes, or check now. | Your record is fine. Wait a few minutes. The badge changes to **Verified** on its own, or click **Re-check**. |
 | My DNS provider won't accept `*` as the host | See [If your DNS provider does not accept the asterisk](#if-your-dns-provider-does-not-accept-the-asterisk). |
+
+### My domain is verified, but my browser shows a certificate error
+
+**Verified** means HexOS checked your DNS record and registered the domain with the relay. Your browser also needs a valid certificate for the exact address you open.
+
+Open your custom Command Deck or app address in a private browser window. If you see the same warning, leave your DNS records in place and send HexOS support a private message with the hostname (for example, `deck.example.com`) and the exact error shown in your browser (for example, `ERR_SSL_PROTOCOL_ERROR`).
 
 [Back to HexOS Anywhere](/features/remote-access#use-your-own-domain)
