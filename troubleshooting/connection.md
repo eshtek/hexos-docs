@@ -45,3 +45,17 @@ If deck.hexos.com can't find your server:
    - Verify the server has finished booting (wait 2-3 minutes)
    - Check server status lights/indicators
    - Try refreshing the discovery page
+
+### First setup still cannot find your server
+
+If you can open the TrueNAS dashboard but **Find my server** still shows no server after the checks above, [contact HexOS support](mailto:support@hexos.com). Tell us that you can reach TrueNAS and whether you have ever finished HexOS setup on this server. Support can check whether HexOS sees the installation on your account.
+
+For a new installation where you have never finished setup, support may recommend a fresh install. You can reuse the same working HexOS installation USB without flashing it again.
+
+> **Danger:** A fresh install erases the selected drive, including the current installation and its settings. If you have files, storage pools, apps or settings to keep, or you are unsure which drive holds HexOS, stop and ask support before continuing.
+{.is-danger}
+
+1. Plug the installation USB into the server and [boot from the USB](/getting-started/installation/InstallGuide#installation-process).
+2. Follow the [installation steps](/getting-started/installation/InstallGuide#installation-menu). Choose only the drive that holds the new HexOS installation. Check its model and size before confirming erasure. If the installer offers an upgrade or a fresh install, choose the fresh install.
+3. When installation succeeds, [remove the USB and restart](/getting-started/installation/InstallGuide#installation-complete). Wait for the server console to show its network address.
+4. On a computer on the same network, sign in to [the Command Deck](https://deck.hexos.com) with your existing account and click **Find my server**. When the server appears, click **Claim** and [continue setup](/getting-started/setup/CompleteSetup#find-your-server). If it still does not appear, reply to support with what you see on the discovery screen.

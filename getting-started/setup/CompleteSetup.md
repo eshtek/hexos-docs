@@ -88,6 +88,8 @@ If nothing is found for about 15 seconds, the card says **No server found yet. W
 ![find-server-empty.png](/complete-setup/find-server-empty.png){.medium .framed}
 </details>
 
+If you can open TrueNAS but your new server still does not appear, see [First setup still cannot find your server](/troubleshooting/connection#first-setup-still-cannot-find-your-server). It explains when to contact support and how to reuse your installation USB if support recommends a fresh install.
+
 ### Already set up
 
 If a server finishes its setup somewhere else while you are on this screen, for example in another browser tab, it is listed as **Already set up**. Click **Open dashboard** to go to it.
