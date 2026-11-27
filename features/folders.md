@@ -178,6 +178,10 @@ A folder with a **Manual** passphrase has no key to export: the passphrase is th
 
 If your computers can't open a folder or some of the files in it, but HexOS shows the files are there, the folder's info panel offers **Repair access**. See [Repair access to a folder](/features/folders/repair-access).
 
+## Shared copies
+
+If a download manager copies finished downloads into your library while they keep seeding, the **Downloads** folder's info panel can find those copies and make each pair share its space. See [Shared copies](/features/folders/shared-copies).
+
 ## Users
 
 Creating additional users is optional.
