@@ -47,6 +47,8 @@ HexOS skips:
 ![check-in-progress.png](/shared-copies/check-in-progress.png){.medium .framed}
 </details>
 
+If HexOS can't read a file, for example because a drive is failing, it tries once more. If that also fails, the card says how many files couldn't be read. HexOS doesn't treat them as different: the next check reads them again.
+
 The card shows how much of the check is done. After about a minute, it also shows how much time is left.
 
 > **Info:** A check reads every possible copy in full. A big library can take a day or more. The check slows down while your apps are using the same drives, so apps like Immich or Jellyfin keep working. When your apps are busy, the time left grows.
