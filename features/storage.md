@@ -1,8 +1,8 @@
 ---
 title: Storage
-description: Review pools and drives, replace a drive and understand storage growth.
+description: Review pools and drives, replace a drive, delete an extra pool and understand storage growth.
 published: true
-date: 2026-11-08T20:30:00.000Z
+date: 2026-11-25T18:25:00.000Z
 tags: 
 editor: markdown
 dateCreated: 2026-06-08T15:40:57.001Z
@@ -224,6 +224,49 @@ After replacement finishes, HexOS checks for unused capacity when the pool is he
 > **Warning:** When replacing a connected drive, leave the old drive connected until the replacement finishes. Check the pool's actual remaining protection; do not assume a degraded pool can tolerate another failed drive.
 {.is-warning}
 
+
+## Delete an extra pool
+
+Delete a pool when you want to erase its storage and make its drives available for another use. Deleting a pool also deletes its folders and files.
+
+> **Danger:** Pool deletion permanently erases the selected pool. Copy anything you need to separate storage and check that the copy opens before continuing. Deletion cannot be undone.
+{.is-danger}
+
+1. Open **Storage**, then open the pool you want to delete. Check its name and drives. Click **Delete**.
+
+<details>
+<summary> Delete button in the pool info panel </summary>
+
+![Delete button and the selected pool's drives](/storage/delete-pool-details.png){.medium .framed}
+</details>
+
+2. Read the warning. Type the pool name shown above the confirmation field, then click **Delete pool**.
+
+<details>
+<summary> Confirm the pool name before deletion </summary>
+
+![Pool deletion warning and name confirmation](/storage/delete-pool-confirm.png){.medium .framed}
+</details>
+
+3. Wait for deletion to finish. HexOS may reconnect while removing its access to that pool. Check **Storage**: the deleted pool should be gone, and the other pools should still be present. A submitted request alone does not mean deletion has finished.
+
+<details>
+<summary> Storage after the extra pool is deleted </summary>
+
+![Remaining pools after deletion](/storage/delete-pool-finished.png){.medium .framed}
+</details>
+
+### Why is an empty pool still in use?
+
+An app can be configured to access a pool even when that pool has no files. Empty storage does not mean that nothing uses it.
+
+HexOS removes its own managed access as part of deletion. Other app dependencies still block deletion. Move the app's storage or remove the app's use of the pool before trying again. Do not remove an app's storage if you need to keep its data.
+
+You cannot delete your only pool or the pool currently used for Apps. A pool used by a virtual machine, Buddy Backups or an active storage operation may also be blocked. Follow the message shown in HexOS before trying again.
+
+If deletion fails, read its **Activity Center** entry and check whether the pool is still listed in **Storage**. Keep the drives connected while you investigate. If the result is unclear, contact support with the pool name and a screenshot of the error.
+
+If HexOS cannot confirm the result, the **Activity Center** entry explains when a server restart is needed before another attempt. HexOS does not automatically repeat an unconfirmed deletion.
 
 ## Critical errors
 
