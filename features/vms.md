@@ -189,6 +189,8 @@ See [Install media for VMs](/features/vms/installation-media).
 
 **Peripherals.** Optional. Hand **PCI devices (optional)** or **USB devices (optional)**, such as a Zigbee stick, directly to the VM. You can pick up to 4 USB devices. Skip this step if you do not need it. See [Passthrough requirements](/features/vms/passthrough-requirements).
 
+If a USB device you gave a VM is later unplugged, the VM may not start until you remove it. See [Start a VM after disconnecting a USB device](/features/vms/disconnected-usb).
+
 <details>
 <summary> Peripherals </summary>
 
