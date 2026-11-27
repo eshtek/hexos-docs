@@ -1,8 +1,8 @@
 ---
 title: Start a VM after disconnecting a USB device
 description: Remove a disconnected USB assignment so your VM can start again.
-published: false
-isPublished: false
+published: true
+isPublished: true
 date: 2026-11-23T00:00:00.000Z
 tags: vm, usb, troubleshooting
 editor: markdown
