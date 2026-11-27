@@ -1,8 +1,8 @@
 ---
 title: Connect ARM to Radarr or Sonarr
 description: Restore access to completed rips after changing an app's download folders.
-published: false
-isPublished: false
+published: true
+isPublished: true
 date: 2026-11-23T00:00:00.000Z
 tags: apps, troubleshooting
 editor: markdown
