@@ -20,6 +20,7 @@ The hosted Command Deck is updated by the HexOS team. Reload the page if you hav
 
 <!-- auto-generated-year-sections-start -->
 ## 2026 releases
+- [**2026-11-27**](/release-notes/command-deck/2026-11-27) - Phone and TV apps with HexOS Anywhere, app startup order, easier VM setup, and more
 - [**2026-11-24**](/release-notes/command-deck/2026-11-24) - Buddy Backups and VMs out of beta, encrypted Bring over, clearer app errors, and more
 - [**2026-11-20**](/release-notes/command-deck/2026-11-20) - HexOS Anywhere improvements, Automatic Ripping Machine, VM installs from your own ISO files, and more
 - [**2026-11-17**](/release-notes/command-deck/2026-11-17) - A faster Command Deck at home, Anywhere upgrades, new apps, and more
