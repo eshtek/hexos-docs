@@ -63,7 +63,7 @@ If HexOS Anywhere ends on a server, for example when a payment is past due, its 
 </details>
 
 
-The app gets its address right away. We suggest the app's name, such as `jellyfin`. The Command Deck confirms it, for example "Jellyfin is reachable at `https://jellyfin.k7pqm4tz.relay.hexos.com`". The badge next to **Anywhere** reads **Connecting** while we set the address up, then **On**. This usually takes a few minutes. If it still says **Connecting** after 30 minutes, see [An address that never finishes connecting](#an-address-that-never-finishes-connecting).
+The app gets its address right away. We suggest the app's name, such as `jellyfin`. The Command Deck confirms it, for example "Jellyfin is reachable at `https://jellyfin.k7pqm4tz.relay.hexos.com`". The badge next to **Anywhere** reads **Connecting** while we set the address up, then **On**. This can take a few minutes or several hours, while your server gets the certificate for the address. Until then, the address may not open, or your browser may show a security warning. Leave the switch on and check back later. If it still says **Connecting** the next day, see [An address that never finishes connecting](#an-address-that-never-finishes-connecting).
 
 There is no Apply button in this tab. Each switch saves on its own a moment after you flip it.
 
@@ -382,7 +382,7 @@ Each address has a badge next to **Anywhere** in the app's tab, and next to the 
 | Badge | What it means |
 |---|---|
 | **Off** | HexOS Anywhere is off for this app. |
-| **Connecting** | We are setting the address up. This usually takes a few minutes. If it takes longer than 30 minutes, see [An address that never finishes connecting](#an-address-that-never-finishes-connecting). |
+| **Connecting** | We are setting the address up. This can take a few minutes or several hours. If it still says this the next day, see [An address that never finishes connecting](#an-address-that-never-finishes-connecting). |
 | **On** | The address works. |
 | **Needs attention** | Something went wrong. The reason is written under the badge. |
 | **Paused** | The server doesn't have HexOS Anywhere right now. See [Get HexOS Anywhere](#get-hexos-anywhere). |
@@ -401,14 +401,14 @@ When an address needs attention, we try again every few minutes on our own. To t
 
 ### An address that never finishes connecting
 
-An address normally goes from **Connecting** to **On** within a few minutes. Until your server has its certificate, a browser that opens the address can show a security or certificate error, such as `SSL_ERROR_INTERNAL_ERROR_ALERT` in Firefox. This can go on for a while after the badge reads **On**.
+An address can take a few minutes or several hours to go from **Connecting** to **On**. Until your server has its certificate, a browser that opens the address can show a security or certificate error, such as `SSL_ERROR_INTERNAL_ERROR_ALERT` in Firefox. This can also go on for a while after the badge reads **On**. It doesn't mean anything is broken.
 
-If it still says **Connecting** after 30 minutes:
+If it still says **Connecting** after a few hours:
 
 1. Check that your server is turned on and shows as online in the Command Deck. An address can't connect while its server is offline.
-2. Leave the **Anywhere** switch on. We try again every 5 minutes on our own, so there's nothing to restart. Don't reinstall the app or HexOS.
+2. Leave the **Anywhere** switch on. We keep trying on our own, and wait longer between tries each time one fails, so there's nothing to restart. Don't reinstall the app or HexOS.
 
-If it still says **Connecting** after an hour, [ask us on Discord](https://discord.com/invite/DjEp3WRHKz) and tell us your server's name. The badge doesn't show a reason in this case, so we need to look at it from our side.
+If it still says **Connecting** the next day, [ask us on Discord](https://discord.com/invite/DjEp3WRHKz) and tell us your server's name. The badge doesn't show a reason in this case, so we need to look at it from our side.
 
 ### A Nextcloud phone app can't connect away from home
 
