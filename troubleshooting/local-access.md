@@ -2,7 +2,7 @@
 title: Local access to your server
 description: What local access is, how the Command Deck uses it, and where to find your server's own address
 published: true
-date: 2026-11-17T00:00:00.000Z
+date: 2026-11-25T00:00:00.000Z
 tags: local access, browser, permissions
 editor: markdown
 dateCreated: 2026-11-04T00:00:00.000Z
@@ -31,6 +31,36 @@ You can open your server's own address at any time, whether or not the deck foun
 ![The Local Access URL under Preferences, Advanced](/local-access/preferences-advanced-local-access-url.png)
 
 If the address does not open, see [If the address cannot be reached](#if-the-address-cannot-be-reached) below.
+
+## A local sign-in asks for a license
+
+A TrueNAS sign-in lets you use your server locally. Your licenses belong to your HexOS account, so choosing or managing a license requires a HexOS sign-in.
+
+1. In **License required**, click **Open Command Deck**. The hosted Command Deck opens in a new tab for the same server. Your local tab stays open.
+
+<details>
+<summary>Open the hosted Command Deck from the local license dialog</summary>
+
+![Local license dialog](/local-access/license-local.png){.medium .framed}
+</details>
+
+2. Sign in with the HexOS account that owns the server. This is your HexOS account, not your TrueNAS administrator account.
+
+<details>
+<summary>Sign in to your HexOS account</summary>
+
+![HexOS sign-in](/local-access/license-sign-in.png){.medium .framed}
+</details>
+
+3. Open the same feature and click the action again. For example, open **Folders** and click **New folder**. Choose a license in **License required**. If you choose a plan to buy, click **Purchase license** to open checkout. The caption names the server the purchase is for; a name such as "truenas" refers to your server.
+
+<details>
+<summary>Choose a license for the named server</summary>
+
+![Hosted license chooser](/local-access/license-hosted.png){.medium .framed}
+</details>
+
+If the local dialog shows **Open HexOS account** instead, it could not determine a hosted address or server to open. That button opens your HexOS account in a new tab. You can also open [the Command Deck](https://deck.hexos.com) and choose your server there.
 
 ## Let the Command Deck use local access for you
 
