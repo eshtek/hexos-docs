@@ -111,6 +111,12 @@ From the VMs screen you can
 
 [Read more about Virtual Machines here.](/features/vms)
 
+## Moving a server to a fresh TrueNAS install
+
+When you move your drives or virtual disks to a fresh TrueNAS install, HexOS finds the settings from your earlier install and asks what to do with them.
+
+[Read more about keeping your HexOS settings after a reinstall here.](/features/servers/keep-your-apps-after-reinstall)
+
 ## Settings
 
 The Settings screen allows us to modify our server preferences.
