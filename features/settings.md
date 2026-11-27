@@ -62,6 +62,8 @@ Use **Update** to check for operating-system updates. **Recheck** looks for True
 > **Info:** HexOS updates itself. You do not need to install HexOS updates. In TrueNAS, the **Apps** screen lists HexOS as an app named **hexos**. When that row shows **Update available**, HexOS installs the update on its own. This happens when TrueNAS next reports the update, or when HexOS next restarts. During the update, the Command Deck may disconnect for about a minute.
 {.is-info}
 
+If an old USB UPS remains after you replace it, see [Remove a disconnected UPS](/features/settings/remove-a-disconnected-ups).
+
 ### Notifications
 
 Review previous messages in **Notifications**. See [Notifications](/features/notifications).
