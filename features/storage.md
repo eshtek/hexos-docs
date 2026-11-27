@@ -260,7 +260,9 @@ Delete a pool when you want to erase its storage and make its drives available f
 
 An app can be configured to access a pool even when that pool has no files. Empty storage does not mean that nothing uses it.
 
-HexOS removes its own managed access as part of deletion. Other app dependencies still block deletion. Move the app's storage or remove the app's use of the pool before trying again. Do not remove an app's storage if you need to keep its data.
+HexOS removes its own managed access as part of deletion. Other app dependencies still block deletion, including apps that are stopped. Move the app's storage or remove the app's use of the pool before trying again. Do not remove an app's storage if you need to keep its data.
+
+If HexOS can't read the settings of every installed app, it won't delete the pool, because it can't confirm that no app uses it. Try again. If the message keeps coming back, contact support.
 
 You cannot delete your only pool or the pool currently used for Apps. A pool used by a virtual machine, Buddy Backups or an active storage operation may also be blocked. Follow the message shown in HexOS before trying again.
 
