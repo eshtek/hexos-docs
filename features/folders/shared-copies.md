@@ -94,6 +94,8 @@ Your library files are only read, never changed. The file in **Downloads** keeps
 
 A file that changed after the check is left as it was. The card says how many were left. A file that can't be read is also left as it was, and the card says how many couldn't be read. Click **Check again** later to include them.
 
+The card shows the result of the last check. If you delete files from **Downloads** after it, the card keeps the old numbers until you click **Check again**.
+
 > **Info:** If **Downloads** has restore points, they keep the space of the replaced copies until they expire. The card tells you when this is the case.
 {.is-info}
 
