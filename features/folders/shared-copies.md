@@ -2,7 +2,7 @@
 title: Shared copies
 description: Free up the space taken by downloads that also have a full copy in your library folders.
 published: true
-date: 2026-11-27T00:00:00.000Z
+date: 2026-11-28T00:00:00.000Z
 tags: folders, downloads, storage, media
 editor: markdown
 dateCreated: 2026-11-27T00:00:00.000Z
@@ -37,8 +37,9 @@ Click **Check Downloads**. HexOS reads the files in **Downloads** and in your li
 
 HexOS skips:
 
-- Files smaller than 64 MB.
+- Files smaller than about 67 MB (64 MiB).
 - Files changed in the last hour, and downloads that are still in progress.
+- Files in **Downloads** that already have a second name on the server (a hard link). Some download managers make one instead of a copy, so these take no extra space.
 - Files that already share their space.
 
 <details>
@@ -51,7 +52,7 @@ If HexOS can't read a file, for example because a drive is failing, it tries onc
 
 The card shows how much of the check is done. After about a minute, it also shows how much time is left.
 
-> **Info:** A check reads every possible copy in full. A big library can take a day or more. The check slows down while your apps are using the same drives, so apps like Immich or Jellyfin keep working. When your apps are busy, the time left grows.
+> **Info:** A check reads every possible copy in full, so a big library can take a day or more. While any app writes to the same drives, even a little, the check runs at its slowest pace so your apps keep working. At that pace, 12 TB of files to compare takes about 17 days. On drives where nothing is writing, it speeds up, and the same 12 TB takes about 4 days. The time left shows the pace of the last few minutes, so it grows when your apps get busy.
 {.is-info}
 
 ## Stop and carry on later
@@ -91,7 +92,7 @@ Your library files are only read, never changed. The file in **Downloads** keeps
 ![copies-shared.png](/shared-copies/copies-shared.png){.medium .framed}
 </details>
 
-A file that changed after the check is left as it was. The card says how many were left.
+A file that changed after the check is left as it was. The card says how many were left. A file that can't be read is also left as it was, and the card says how many couldn't be read. Click **Check again** later to include them.
 
 > **Info:** If **Downloads** has restore points, they keep the space of the replaced copies until they expire. The card tells you when this is the case.
 {.is-info}
